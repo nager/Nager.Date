@@ -15,30 +15,42 @@ namespace Nager.Date
             switch (countryCode)
             {
                 case "AT":
-                    items.Add(new PublicHoliday(1, 1, year, "Neujahr", "New Year's Day", "AT"));
-                    items.Add(new PublicHoliday(6, 1, year, "Heilige Drei Könige", "Epiphany", "AT"));
-                    items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter", "AT"));
-                    items.Add(new PublicHoliday(1, 5, year, "Staatsfeiertag", "National Holiday", "AT"));
-                    items.Add(new PublicHoliday(easterSunday.AddDays(39), "Christi Himmelfahrt", "Ascension Day", "AT"));
-                    items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", "AT"));
-                    items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", "AT"));
-                    items.Add(new PublicHoliday(15, 8, year, "Maria Himmelfahrt", "Assumption of the Virgin Mary", "AT"));
-                    items.Add(new PublicHoliday(26, 10, year, "Staatsfeiertag", "National Holiday", "AT"));
-                    items.Add(new PublicHoliday(1, 11, year, "Allerheiligen", "All Saints' Day", "AT"));
-                    items.Add(new PublicHoliday(8, 12, year, "Mariä Empfängnis", "Immaculate Conception", "AT"));
-                    items.Add(new PublicHoliday(25, 12, year, "Weihnachten", "Christmas Day", "AT"));
-                    items.Add(new PublicHoliday(26, 12, year, "Stefanitag", "St. Stephen's Day", "AT"));
+                    items.Add(new PublicHoliday(1, 1, year, "Neujahr", "New Year's Day", countryCode));
+                    items.Add(new PublicHoliday(6, 1, year, "Heilige Drei Könige", "Epiphany", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter", countryCode));
+                    items.Add(new PublicHoliday(1, 5, year, "Staatsfeiertag", "National Holiday", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(39), "Christi Himmelfahrt", "Ascension Day", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode));
+                    items.Add(new PublicHoliday(15, 8, year, "Maria Himmelfahrt", "Assumption of the Virgin Mary", countryCode));
+                    items.Add(new PublicHoliday(26, 10, year, "Staatsfeiertag", "National Holiday", countryCode));
+                    items.Add(new PublicHoliday(1, 11, year, "Allerheiligen", "All Saints' Day", countryCode));
+                    items.Add(new PublicHoliday(8, 12, year, "Mariä Empfängnis", "Immaculate Conception", countryCode));
+                    items.Add(new PublicHoliday(25, 12, year, "Weihnachten", "Christmas Day", countryCode));
+                    items.Add(new PublicHoliday(26, 12, year, "Stefanitag", "St. Stephen's Day", countryCode));
                     break;
                 case "DE":
-                    items.Add(new PublicHoliday(1, 1, year, "Neujahr", "New Year's Day", "DE"));
-                    items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Karfreitag", "Good Friday", "DE"));
-                    items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter", "DE"));
-                    items.Add(new PublicHoliday(1, 5, year, "Tag der Arbeit", "Labor Day", "DE"));
-                    items.Add(new PublicHoliday(easterSunday.AddDays(39), "Christi Himmelfahrt", "Ascension Day", "DE"));
-                    items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", "DE"));
-                    items.Add(new PublicHoliday(3, 10, year, "Tag der Deutschen Einheit", "German Unity Day", "DE"));
-                    items.Add(new PublicHoliday(25, 12, year, "Weihnachten", "Christmas Day", "DE"));
-                    items.Add(new PublicHoliday(26, 12, year, "Stefanitag", "St. Stephen's Day", "DE"));
+                    items.Add(new PublicHoliday(1, 1, year, "Neujahr", "New Year's Day", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Karfreitag", "Good Friday", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter", countryCode));
+                    items.Add(new PublicHoliday(1, 5, year, "Tag der Arbeit", "Labor Day", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(39), "Christi Himmelfahrt", "Ascension Day", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", countryCode));
+                    items.Add(new PublicHoliday(3, 10, year, "Tag der Deutschen Einheit", "German Unity Day", countryCode));
+                    items.Add(new PublicHoliday(25, 12, year, "Weihnachten", "Christmas Day", countryCode));
+                    items.Add(new PublicHoliday(26, 12, year, "Stefanitag", "St. Stephen's Day", countryCode));
+                    break;
+                case "CH":
+                    //TODO:Incomplete county...
+                    items.Add(new PublicHoliday(1, 1, year, "Neujahr", "New Year's Day", countryCode));
+                    items.Add(new PublicHoliday(2, 1, year, "Berchtoldstag", "St. Berchtold's Day", countryCode, new string[] { "ZH", "BE", "LU", "OW", "GL", "ZG", "FR", "SO", "SH", "TG", "VD", "NE", "GE", "JU" }));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Karfreitag", "Good Friday", countryCode, new string[] { "ZH", "BE", "LU", "UR", "SZ", "OW", "NW", "GL", "ZG", "FR", "SO", "BS", "BL", "SH", "AR", "AI", "SG", "GR", "AG", "TG", "VD", "NE", "GE", "JU" }));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter", countryCode, new string[] { "ZH", "BE", "LU", "UR", "SZ", "OW", "NW", "GL", "ZG", "FR", "SO", "BS", "BL", "SH", "AR", "AI", "SG", "GR", "AG", "TG", "TI", "VD", "NE", "GE", "JU" }));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(39), "Auffahrt", "Ascension Day", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", countryCode));
+                    items.Add(new PublicHoliday(1, 8, year, "Bundesfeier", "Swiss National Day", countryCode));
+                    items.Add(new PublicHoliday(25, 12, year, "Weihnachten", "Christmas Day", countryCode));
+                    items.Add(new PublicHoliday(26, 12, year, "Stephanstag", "St. Stephen's Day", countryCode));
                     break;
                 default:
                     break;

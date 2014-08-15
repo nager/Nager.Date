@@ -9,7 +9,7 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            var publicHolidays = Nager.Date.DateSystem.GetPublicHoliday("DE", 2015);
+            var publicHolidays = Nager.Date.DateSystem.GetPublicHoliday("CH", 2015);
 
             var isTodayPublicHoliday = Nager.Date.DateSystem.IsPublicHoliday(DateTime.Now, "AT");
 

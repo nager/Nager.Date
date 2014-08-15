@@ -1,5 +1,6 @@
 *.cmd
 *.nupkg
+*.nuspec
 
 #################
 ## Eclipse
