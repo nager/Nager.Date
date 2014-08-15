@@ -15,7 +15,7 @@ namespace TestConsole
 
             foreach (var publicHoliday in publicHolidays)
             {
-                Console.WriteLine("{0:dd.MM.yyyy} {1}", publicHoliday.Date, publicHoliday.Name);
+                Console.WriteLine("{0:dd.MM.yyyy} {1} {2}", publicHoliday.Date, publicHoliday.Name, publicHoliday.Global);
             }
             Console.ReadLine();
         }
