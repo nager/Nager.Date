@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Nager.Date
+namespace Nager.Date.Model
 {
     public class PublicHoliday
     {
@@ -23,7 +20,7 @@ namespace Nager.Date
             this.CountryCode = countryCode;
             this.Fixed = true;
             this.Global = true;
-            if (countys != null && countys.Length > 0)
+            if (countys?.Length > 0)
             {
                 this.Countys = countys;
                 this.Global = false;

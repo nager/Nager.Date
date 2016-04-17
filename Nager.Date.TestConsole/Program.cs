@@ -1,22 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace TestConsole
+namespace Nager.Date.TestConsole
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var publicHolidays = Nager.Date.DateSystem.GetPublicHoliday("CH", 2015);
-
-            var isTodayPublicHoliday = Nager.Date.DateSystem.IsPublicHoliday(DateTime.Now, "AT");
-
+            var publicHolidays = DateSystem.GetPublicHoliday("CH", 2017);
             foreach (var publicHoliday in publicHolidays)
             {
                 Console.WriteLine("{0:dd.MM.yyyy} {1} {2}", publicHoliday.Date, publicHoliday.Name, publicHoliday.Global);
             }
+
             Console.ReadLine();
         }
     }

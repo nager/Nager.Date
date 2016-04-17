@@ -1,12 +1,18 @@
-﻿using System;
+﻿using Nager.Date.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Nager.Date
 {
     public static class DateSystem
     {
+        /// <summary>
+        /// Get Public Holidays
+        /// </summary>
+        /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public static List<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
             var easterSunday = EasterSunday(year);
@@ -81,6 +87,43 @@ namespace Nager.Date
                     items.Add(new PublicHoliday(26, 12, year, "Stephanstag", "St. Stephen's Day", countryCode));
                     items.Add(new PublicHoliday(31, 12, year, "Silvester", "New Year's Eve", countryCode));
                     break;
+                case "ES":
+                    //https://en.wikipedia.org/wiki/Public_holidays_in_Spain
+                    items.Add(new PublicHoliday(1, 1, year, "Año Nuevo", "New Year's Day", countryCode));
+                    items.Add(new PublicHoliday(6, 1, year, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
+                    items.Add(new PublicHoliday(28, 2, year, "Día de Andalucía", "Regional Holiday", countryCode, new string[] { "AN" }));
+                    items.Add(new PublicHoliday(1, 3, year, "Dia de les Illes Balears", "Regional Holiday", countryCode, new string[] { "IB" }));
+                    items.Add(new PublicHoliday(1, 3, year, "San José", "St. Joseph's Day", countryCode, new string[] { "ML", "CM", "GA", "IB", "M", "MU", "NA", "O", "VC" }));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Jueves Santo", "Maundy Thursday", countryCode, new string[] { "AN", "AR", "CE", "ML", "CL", "CM", "IC", "EX", "GA", "IB", "LO", "M", "MU", "NA", "O", "PV", "CB" }));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Viernes Santo", "Good Friday", countryCode));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter Monday", countryCode, new string[] { "CT", "IB", "NA", "PV", "VC" }));
+                    items.Add(new PublicHoliday(23, 4, year, "San Jorge (Día de Aragón)", "Regional Holiday", countryCode, new string[] { "AR" }));
+                    items.Add(new PublicHoliday(23, 4, year, "Día de Castilla y León", "Regional Holiday", countryCode, new string[] { "CL" }));
+                    items.Add(new PublicHoliday(1, 5, year, "Día del Trabajador", "Labour Day", countryCode));
+                    items.Add(new PublicHoliday(2, 5, year, "Fiesta de la Comunidad de Madrid", "Regional Holiday", countryCode, new string[] { "M" }));
+                    items.Add(new PublicHoliday(17, 5, year, "Día das Letras Galegas", "Regional Holiday", countryCode, new string[] { "GA" }));
+                    items.Add(new PublicHoliday(30, 5, year, "Día de Canarias", "Regional Holiday", countryCode, new string[] { "IC" }));
+                    items.Add(new PublicHoliday(31, 5, year, "Día de la Región Castilla-La Mancha", "Regional Holiday", countryCode, new string[] { "CM" }));
+                    items.Add(new PublicHoliday(easterSunday.AddDays(60), "Corpus Christi", "Corpus Christi", countryCode, new string[] { "M" }));
+                    items.Add(new PublicHoliday(9, 6, year, "Día de la Región de Murcia", "Regional Holiday", countryCode, new string[] { "MU" }));
+                    items.Add(new PublicHoliday(9, 6, year, "Día de La Rioja", "Regional Holiday", countryCode, new string[] { "LO" }));
+                    items.Add(new PublicHoliday(24, 6, year, "Sant Joan", "St. John's Day", countryCode, new string[] { "CT" }));
+                    items.Add(new PublicHoliday(25, 7, year, "Santiago Apóstol", "Saint James", countryCode, new string[] { "GA" }));
+                    items.Add(new PublicHoliday(15, 8, year, "Asunción", "Assumption", countryCode));
+                    items.Add(new PublicHoliday(2, 9, year, "Día de Ceuta", "Municipal Holiday", countryCode, new string[] { "CE" }));
+                    items.Add(new PublicHoliday(8, 9, year, "Día de Asturias", "Regional Holiday", countryCode, new string[] { "O" }));
+                    items.Add(new PublicHoliday(8, 9, year, "Día de Extremadura", "Regional Holiday", countryCode, new string[] { "EX" }));
+                    items.Add(new PublicHoliday(11, 9, year, "Diada Nacional de Catalunya", "National Day of Catalonia", countryCode, new string[] { "CT" }));
+                    items.Add(new PublicHoliday(15, 9, year, "Día de Cantabria", "Regional Holiday", countryCode, new string[] { "CB" }));
+                    items.Add(new PublicHoliday(9, 10, year, "Dia de la Comunitat Valenciana", "Regional Holiday", countryCode, new string[] { "VC" }));
+                    items.Add(new PublicHoliday(12, 10, year, "Fiesta Nacional de España", "Fiesta Nacional de España", countryCode));
+                    items.Add(new PublicHoliday(25, 10, year, "Euskadi Eguna", "Regional Holiday", countryCode, new string[] { "PV" }));
+                    items.Add(new PublicHoliday(1, 11, year, "Día de todos los Santos", "All Saints Day", countryCode));
+                    items.Add(new PublicHoliday(6, 12, year, "Día de la Constitución", "Constitution Day", countryCode));
+                    items.Add(new PublicHoliday(8, 12, year, "Inmaculada Concepción", "Immaculate Conception", countryCode));
+                    items.Add(new PublicHoliday(25, 12, year, "Navidad", "Christmas Day", countryCode));
+                    items.Add(new PublicHoliday(26, 12, year, "Sant Esteve", "St. Stephen's Day", countryCode, new string[] { "CT", "IB" }));
+                    break;
                 default:
                     break;
             }
@@ -94,12 +137,13 @@ namespace Nager.Date
             return items.Where(o => o.Date.Date == date.Date).Any();
         }
 
-        private static DateTime EasterSunday(int year)
+        /// <summary>
+        /// Get Catholic easter for requested year
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public static DateTime EasterSunday(int year)
         {
-            //should be
-            //Easter Monday  28 Mar 2005  17 Apr 2006  9 Apr 2007  24 Mar 2008
-
-            //Oudin's Algorithm - http://www.smart.net/~mmontes/oudin.html
             var g = year % 19;
             var c = year / 100;
             var h = (c - c / 4 - (8 * c + 13) / 25 + 19 * g + 15) % 30;
