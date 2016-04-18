@@ -77,7 +77,8 @@
             "AT",
             "LI",
             "CH",
-            "ES"});
+            "ES",
+            "IT"});
             this.comboBoxCountry.Location = new System.Drawing.Point(3, 15);
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(121, 21);
