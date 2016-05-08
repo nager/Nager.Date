@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nager.Date.UnitTest", "Nage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nager.Date.Monitor", "Nager.Date.Monitor\Nager.Date.Monitor.csproj", "{271F1CBC-D88E-4176-BC38-F72B9CA7CD4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nager.Date.Website", "Nager.Date.Website\Nager.Date.Website.csproj", "{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,18 @@ Global
 		{271F1CBC-D88E-4176-BC38-F72B9CA7CD4A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{271F1CBC-D88E-4176-BC38-F72B9CA7CD4A}.Release|x86.ActiveCfg = Release|Any CPU
 		{271F1CBC-D88E-4176-BC38-F72B9CA7CD4A}.Release|x86.Build.0 = Release|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Debug|x86.Build.0 = Debug|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Release|x86.ActiveCfg = Release|Any CPU
+		{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

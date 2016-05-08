@@ -15,6 +15,12 @@ namespace Nager.Date
         /// <returns></returns>
         public static List<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
+            if (String.IsNullOrEmpty(countryCode))
+            {
+                return null;
+            }
+
+            countryCode = countryCode.ToUpper();
             var easterSunday = EasterSunday(year);
 
             var items = new List<PublicHoliday>();
