@@ -10,15 +10,20 @@ namespace Nager.Date.Website.Controllers
             return View();
         }
 
-        public ActionResult PublicHolidays(string countryCode)
+        public ActionResult PublicHolidays(string id)
         {
-            if (String.IsNullOrEmpty(countryCode))
+            if (String.IsNullOrEmpty(id))
             {
-                countryCode = "DE";
+                id = "DE";
             }
 
-            var publicHolidays = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year);
-            return View(publicHolidays);
+            var publicHolidays = DateSystem.GetPublicHoliday(id, DateTime.Now.Year);
+            if (publicHolidays.Count > 0)
+            {
+                return View(publicHolidays);
+            }
+
+            return View("NotFound");
         }
     }
 }

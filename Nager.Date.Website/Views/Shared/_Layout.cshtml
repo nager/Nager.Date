@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -21,12 +21,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("DE", "PublicHolidays", "Home", new { countryCode = "de" }, null)</li>
-                    <li>@Html.ActionLink("CH", "PublicHolidays", "Home", new { countryCode = "CH" }, null)</li>
-                    <li>@Html.ActionLink("AT", "PublicHolidays", "Home", new { countryCode = "AT" }, null)</li>
-                    <li>@Html.ActionLink("IT", "PublicHolidays", "Home", new { countryCode = "IT" }, null)</li>
-                    <li>@Html.ActionLink("ES", "PublicHolidays", "Home", new { countryCode = "ES" }, null)</li>
-                    <li>@Html.ActionLink("LI", "PublicHolidays", "Home", new { countryCode = "LI" }, null)</li>
+                    <li>@Html.ActionLink("DE", "PublicHolidays", "Home", new { id = "DE" }, null)</li>
+                    <li>@Html.ActionLink("CH", "PublicHolidays", "Home", new { id = "CH" }, null)</li>
+                    <li>@Html.ActionLink("AT", "PublicHolidays", "Home", new { id = "AT" }, null)</li>
+                    <li>@Html.ActionLink("IT", "PublicHolidays", "Home", new { id = "IT" }, null)</li>
+                    <li>@Html.ActionLink("ES", "PublicHolidays", "Home", new { id = "ES" }, null)</li>
+                    <li>@Html.ActionLink("LI", "PublicHolidays", "Home", new { id = "LI" }, null)</li>
                     
                 </ul>
             </div>

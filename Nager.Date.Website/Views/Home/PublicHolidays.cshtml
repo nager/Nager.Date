@@ -1,27 +1,38 @@
 ﻿@model List<Nager.Date.Model.PublicHoliday>
 @{
-    ViewBag.Title = "PublicHolidays";
+    ViewBag.Title = "Public Holidays Details";
 }
 
 <table class="table">
     <tr>
         <th style="width:100px;">Date</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Global</th>
+        <th style="width:200px;">Local name</th>
+        <th style="width:200px;">Name</th>
+        <th style="width:50px;">Global</th>
+        <th>Countys</th>
     </tr>
     @foreach (var publicHoliday in Model)
     {
         <tr>
             <td>@publicHoliday.Date.ToShortDateString()</td>
+            <td>@publicHoliday.LocalName</td>
             <td>@publicHoliday.Name</td>
-            <td>@publicHoliday.Description</td>
-            <td>@publicHoliday.Global
-            @if (publicHoliday.Countys != null)
+            <td>
+            @if (publicHoliday.Global)
+            {
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            }
+            else
+            {
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            }
+            </td>
+            <td>
+            @if (!publicHoliday.Global)
             {
                 foreach(var county in publicHoliday.Countys)
                 {
-                    @Html.Raw(county + ",")
+                    <span class="label label-default">@county</span>
                 }
             }
             </td>
