@@ -36,5 +36,15 @@ namespace Nager.Date.UnitTest
             easterSunday = DateSystem.EasterSunday(2200);
             Assert.AreEqual(easterSunday, new DateTime(2200, 4, 6));
         }
+
+        [TestMethod]
+        public void CheckIsPublicHoliday()
+        {
+            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 5, 1), "AT");
+            Assert.AreEqual(isPublicHoliday, true);
+
+            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
+            Assert.AreEqual(isPublicHoliday, true);
+        }
     }
 }
