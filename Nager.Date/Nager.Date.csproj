@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DataNL.cs" />
+    <Compile Include="Data\DataBE.cs" />
+    <Compile Include="Data\DataFR.cs" />
     <Compile Include="Data\DataIT.cs" />
     <Compile Include="Data\DataES.cs" />
     <Compile Include="Data\DataLI.cs" />

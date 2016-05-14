@@ -33,13 +33,13 @@ namespace Nager.Date.Monitor
             }
 
             var item = this.dataGridViewPublicHoliday.CurrentRow.DataBoundItem as PublicHoliday;
-            if (item.Countys == null)
+            if (item.Counties == null)
             {
                 this.dataGridViewDetail.DataSource = null;
             }
             else
             {
-                this.dataGridViewDetail.DataSource = item?.Countys.Select(o => new { County = o }).ToList();
+                this.dataGridViewDetail.DataSource = item?.Counties.Select(o => new { County = o }).ToList();
             }
         }
     }

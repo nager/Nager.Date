@@ -8,6 +8,7 @@ namespace Nager.Date.Data
     {
         public static List<PublicHoliday> Get(DateTime easterSunday, int year)
         {
+            //Liechtenstein
             var countryCode = "LI";
 
             var items = new List<PublicHoliday>();

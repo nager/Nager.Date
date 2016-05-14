@@ -18,7 +18,7 @@ namespace Nager.Date.Website.Controllers
             }
 
             var publicHolidays = DateSystem.GetPublicHoliday(id, DateTime.Now.Year);
-            if (publicHolidays.Count > 0)
+            if (publicHolidays?.Count > 0)
             {
                 return View(publicHolidays);
             }

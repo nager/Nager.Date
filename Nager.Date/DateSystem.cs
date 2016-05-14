@@ -28,16 +28,22 @@ namespace Nager.Date
             {
                 case "AT":
                     return DataAT.Get(easterSunday, year);
+                case "BE":
+                    return DataBE.Get(easterSunday, year);
                 case "CH":
                     return DataCH.Get(easterSunday, year);
                 case "DE":
                     return DataDE.Get(easterSunday, year);
                 case "ES":
                     return DataES.Get(easterSunday, year);
+                case "FR":
+                    return DataFR.Get(easterSunday, year);
                 case "IT":
                     return DataIT.Get(easterSunday, year);
                 case "LI":
                     return DataLI.Get(easterSunday, year);
+                case "NL":
+                    return DataNL.Get(easterSunday, year);
                 default:
                     break;
             }
