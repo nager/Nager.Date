@@ -12,7 +12,7 @@ namespace Nager.Date.UnitTest
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
                 var publicHolidays = DateSystem.GetPublicHoliday("AT", year);
-                Assert.AreEqual(publicHolidays.Count, 13);
+                Assert.AreEqual(13, publicHolidays.Count);
             }
         }
 
@@ -22,7 +22,7 @@ namespace Nager.Date.UnitTest
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
                 var publicHolidays = DateSystem.GetPublicHoliday("DE", year);
-                Assert.AreEqual(publicHolidays.Count, 9);
+                Assert.AreEqual(9, publicHolidays.Count);
             }
         }
 
@@ -32,7 +32,7 @@ namespace Nager.Date.UnitTest
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
                 var publicHolidays = DateSystem.GetPublicHoliday("CH", year);
-                Assert.AreEqual(publicHolidays.Count, 16);
+                Assert.AreEqual(16, publicHolidays.Count);
             }
         }
 
@@ -42,7 +42,7 @@ namespace Nager.Date.UnitTest
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
                 var publicHolidays = DateSystem.GetPublicHoliday("ES", year);
-                Assert.AreEqual(publicHolidays.Count, 34);
+                Assert.AreEqual(34, publicHolidays.Count);
             }
         }
     }
