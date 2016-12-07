@@ -12,7 +12,7 @@ namespace Nager.Date.TestConsole
                 Console.WriteLine("{0:dd.MM.yyyy} {1} {2}", publicHoliday.Date, publicHoliday.LocalName, publicHoliday.Global);
             }
 
-            Console.WriteLine("test");
+            Console.WriteLine("test2");
 
             Console.ReadLine();
         }
