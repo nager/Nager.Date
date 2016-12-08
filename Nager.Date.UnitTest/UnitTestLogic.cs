@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nager.Date.Enum;
 
 namespace Nager.Date.UnitTest
 {
@@ -46,5 +47,12 @@ namespace Nager.Date.UnitTest
             isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
             Assert.AreEqual(true, isPublicHoliday);
         }
+
+        /*[TestMethod]
+        public void CheckIsPublicHolidayByCounty()
+        {
+            var isPublicHoliday = DateSystem.IsPublicHolidayByCounty(new DateTime(2016, 3, 1), "CH", EChCounty.NE.);
+            Assert.AreEqual(true, isPublicHoliday);
+        }*/
     }
 }

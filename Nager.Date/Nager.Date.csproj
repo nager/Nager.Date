@@ -50,6 +50,8 @@
     <Compile Include="Data\DataDE.cs" />
     <Compile Include="Data\DataAT.cs" />
     <Compile Include="DateSystem.cs" />
+    <Compile Include="Enum\EChCounty.cs" />
+    <Compile Include="Helper\DayFinder.cs" />
     <Compile Include="Model\PublicHoliday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
