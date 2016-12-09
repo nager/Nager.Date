@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NeuchatelPublicHolidays</id>
+    <version>0.1</version>
+    <title>Public holidays for CH-NE</title>
+    <authors>Lionel Brizuela</authors>
+    <owners>SIEN</owners>
+    <iconUrl>http://www.hanselman.com/images/nugeticon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Library to handle public holidays for county of Neuchatel</description>
+    <releaseNotes>You can know if a given date is a public official holiday in canton of Neuchâtel or if it is a public holiday in the canton administration only</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>Nager.Date SIEN Library</tags>
+  </metadata>
+</package>
