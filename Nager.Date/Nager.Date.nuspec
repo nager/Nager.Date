@@ -8,7 +8,7 @@
     <owners>SIEN</owners>
     <iconUrl>http://www.hanselman.com/images/nugeticon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Library to handle public holidays for county of Neuchatel</description>
+    <description>Library to handle public holidays for canton of Neuchatel</description>
     <releaseNotes>You can know if a given date is a public official holiday in canton of Neuchâtel or if it is a public holiday in the canton administration only</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>Nager.Date SIEN Library</tags>
