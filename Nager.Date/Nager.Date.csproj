@@ -50,6 +50,7 @@
     <Compile Include="Data\DataDE.cs" />
     <Compile Include="Data\DataAT.cs" />
     <Compile Include="DateSystem.cs" />
+    <Compile Include="Enum\ECountry.cs" />
     <Compile Include="Enum\EChCounty.cs" />
     <Compile Include="Helper\DayFinder.cs" />
     <Compile Include="Model\PublicHoliday.cs" />
@@ -57,7 +58,10 @@
     <Compile Include="Utils\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Nager.Date.nuspec" />
+    <None Include="Nager.Date.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nager.Date.Enum;
+using Nager.Date.Utils;
 
 namespace Nager.Date.UnitTest
 {
@@ -11,7 +13,7 @@ namespace Nager.Date.UnitTest
         {
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
-                var publicHolidays = DateSystem.GetPublicHoliday("AT", year);
+                var publicHolidays = DateSystem.GetPublicHoliday(ECountry.AT.GetDescription(), year);
                 Assert.AreEqual(13, publicHolidays.Count);
             }
         }
@@ -21,7 +23,7 @@ namespace Nager.Date.UnitTest
         {
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
-                var publicHolidays = DateSystem.GetPublicHoliday("DE", year);
+                var publicHolidays = DateSystem.GetPublicHoliday(ECountry.DE.GetDescription(), year);
                 Assert.AreEqual(9, publicHolidays.Count);
             }
         }
@@ -31,7 +33,7 @@ namespace Nager.Date.UnitTest
         {
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
-                var publicHolidays = DateSystem.GetPublicHoliday("CH", year);
+                var publicHolidays = DateSystem.GetPublicHoliday(ECountry.CH.GetDescription(), year);
                 Assert.AreEqual(21, publicHolidays.Count);
             }
         }
@@ -41,7 +43,7 @@ namespace Nager.Date.UnitTest
         {
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
-                var publicHolidays = DateSystem.GetPublicHoliday("ES", year);
+                var publicHolidays = DateSystem.GetPublicHoliday(ECountry.ES.GetDescription(), year);
                 Assert.AreEqual(34, publicHolidays.Count);
             }
         }
