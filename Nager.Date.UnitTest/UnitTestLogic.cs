@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Enum;
+using Nager.Date.Utils;
 
 namespace Nager.Date.UnitTest
 {
@@ -48,11 +49,64 @@ namespace Nager.Date.UnitTest
             Assert.AreEqual(true, isPublicHoliday);
         }
 
-        /*[TestMethod]
-        public void CheckIsPublicHolidayByCounty()
+        #region County CH-NE
+
+        [TestMethod]
+        public void CheckIsOfficialPublicHolidayByCounty_01032016_ReturnsTrueForNE()
         {
-            var isPublicHoliday = DateSystem.IsPublicHolidayByCounty(new DateTime(2016, 3, 1), "CH", EChCounty.NE.);
+            var isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2016, 3, 1), "CH", EChCounty.NE.GetDescription());
             Assert.AreEqual(true, isPublicHoliday);
-        }*/
+        }
+
+        [TestMethod]
+        public void CheckIsOfficialPublicHolidayByCounty_02032016_ReturnsFalseForNE()
+        {
+            var isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2016, 3, 2), "CH", EChCounty.NE.GetDescription());
+            Assert.AreEqual(false, isPublicHoliday);
+        }
+
+        [TestMethod]
+        public void CheckIsOfficialPublicHolidayByCounty_26122016_ReturnsTrueForNEOfficialHoliday()
+        {
+            var isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2016, 12, 26), "CH", EChCounty.NE.GetDescription());
+            Assert.AreEqual(true, isPublicHoliday);
+        }
+
+        [TestMethod]
+        public void CheckIsOfficialPublicHolidayByCounty_26122017_ReturnsFalseForNEOfficialHoliday()
+        {
+            var isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 12, 26), "CH", EChCounty.NE.GetDescription());
+            Assert.AreEqual(false, isPublicHoliday);
+        }
+
+        [TestMethod]
+        public void CheckIsOfficialPublicHolidayByCounty_02012016_ReturnsTrueForNEOfficialHoliday()
+        {
+            var isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2016, 01, 02), "CH", EChCounty.NE.GetDescription());
+            Assert.AreEqual(true, isPublicHoliday);
+        }
+
+        [TestMethod]
+        public void CheckIsOfficialPublicHolidayByCounty_02012017_ReturnsFalseForNEOfficialHoliday()
+        {
+            var isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 01, 02), "CH", EChCounty.NE.GetDescription());
+            Assert.AreEqual(false, isPublicHoliday);
+        }
+
+        [TestMethod]
+        public void CheckIsAdministrationPublicHolidayByCounty_24122016_ReturnsTrueForNEOfficialHoliday()
+        {
+            var isPublicHoliday = DateSystem.IsAdministrationPublicHolidayByCounty(new DateTime(2016, 12, 24), "CH", EChCounty.NE.GetDescription());
+            Assert.AreEqual(true, isPublicHoliday);
+        }
+
+        [TestMethod]
+        public void CheckIsAdministrationPublicHolidayByCounty_23122016_ReturnsFalseForNEOfficialHoliday()
+        {
+            var isPublicHoliday = DateSystem.IsAdministrationPublicHolidayByCounty(new DateTime(2016, 12, 23), "CH", EChCounty.NE.GetDescription());
+            Assert.AreEqual(false, isPublicHoliday);
+        }
+
+        #endregion
     }
 }

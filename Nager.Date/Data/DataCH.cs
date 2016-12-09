@@ -80,9 +80,8 @@ namespace Nager.Date.Data
             items.Add(
                 new PublicHoliday(25, 12, year, "Weihnachten", "Christmas Day", countryCode));
             items.Add(
-                new PublicHoliday(26, 12, year, "Stephanstag", "St. Stephen's Day", countryCode, null, 
-                new string[] { "CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR",
-                    "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG" }, isChristmasDateSunday));
+                new PublicHoliday(26, 12, year, "Stephanstag", "Boxing Day", countryCode, null, 
+                new string[] { "CH-NE" }, isChristmasDateSunday));
             items.Add(
                 new PublicHoliday(31, 12, year, "Silvester", "Silvester", countryCode, null,
                 new string[] { "CH-NE" }, false));

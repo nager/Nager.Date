@@ -58,10 +58,16 @@ namespace Nager.Date
         }
 
 
-        public static bool IsPublicHolidayByCounty(DateTime date, string countryCode, string countyCode)
+        public static bool IsOfficialPublicHolidayByCounty(DateTime date, string countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode)).Any();
+            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.IsCountyOfficialHoliday).Any();
+        }
+
+        public static bool IsAdministrationPublicHolidayByCounty(DateTime date, string countryCode, string countyCode)
+        {
+            var items = GetPublicHoliday(countryCode, date.Year);
+            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.IsCountyAdministrationHoliday).Any();
         }
 
         /// <summary>
