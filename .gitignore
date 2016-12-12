@@ -44,6 +44,7 @@ local.properties
 *.suo
 *.user
 *.sln.docstates
+.vs
 
 # Build results
 
@@ -220,3 +221,4 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+/Nager.Date - Shortcut.lnk
