@@ -22,13 +22,9 @@ namespace Nager.Date.Enum
         FR = 6,
         [Description("IT")]
         IT = 7,
-        [Description("CH-GR")]
-        GR = 8,
-        [Description("CH-TI")]
-        TI = 9,
         [Description("LI")]
-        LI = 10,
+        LI = 8,
         [Description("NL")]
-        NL = 11
+        NL = 9
     }
 }
