@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Nager.Date</id>
+    <version>1.0.7</version>
+    <authors>Tino Hager</authors>
+    <owners>nager</owners>
+    <licenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</licenseUrl>
+    <projectUrl>https://github.com/tinohager/Nager.Date</projectUrl>
+    <!-- <iconUrl></iconUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Calculate Public Holiday for AT, BE, CH, DE, ES, FR, IT, LI, NL for any Year (Translation: Native and English)</description>
+    <releaseNotes>Add new countrys BE, FR and NL</releaseNotes>
+    <tags>Public Holiday Feiertage Austria Österreich Belgium Belgien Switzerland Schweiz German Deutschland Spain Spanien France Frankreich Italy Italien Liechtenstein Netherlands Niederlande</tags>
+  </metadata>
+</package>
