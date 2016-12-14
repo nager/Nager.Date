@@ -57,6 +57,18 @@ namespace Nager.Date
             return items.Where(o => o.Date.Date == date.Date).Any();
         }
 
+        public static bool IsOfficialPublicHolidayByCounty(DateTime date, string countryCode, string countyCode)
+        {
+            var items = GetPublicHoliday(countryCode, date.Year);
+            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyOfficialHoliday).Any();
+        }
+
+        public static bool IsAdministrationPublicHolidayByCounty(DateTime date, string countryCode, string countyCode)
+        {
+            var items = GetPublicHoliday(countryCode, date.Year);
+            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyAdministrationHoliday).Any();
+        }
+
         /// <summary>
         /// Get Catholic easter for requested year
         /// </summary>

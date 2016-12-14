@@ -53,6 +53,7 @@
     <Compile Include="Data\DataDE.cs" />
     <Compile Include="Data\DataAT.cs" />
     <Compile Include="DateSystem.cs" />
+    <Compile Include="Model\CountryCode.cs" />
     <Compile Include="Model\PublicHoliday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
