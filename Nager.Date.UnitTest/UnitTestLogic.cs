@@ -40,10 +40,10 @@ namespace Nager.Date.UnitTest
         [TestMethod]
         public void CheckIsPublicHoliday()
         {
-            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 5, 1), "AT");
+            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 5, 1), CountryCode.AT);
             Assert.AreEqual(true, isPublicHoliday);
 
-            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
+            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), CountryCode.AT);
             Assert.AreEqual(true, isPublicHoliday);
         }
     }

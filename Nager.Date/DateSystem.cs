@@ -16,54 +16,63 @@ namespace Nager.Date
         /// <returns></returns>
         public static List<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
-            if (String.IsNullOrEmpty(countryCode))
+            CountryCode parsedCountryCode;
+            if (Enum.TryParse(countryCode, true, out parsedCountryCode))
             {
                 return null;
             }
 
-            countryCode = countryCode.ToUpper();
+            return GetPublicHoliday(parsedCountryCode, year);
+        }
+
+        /// <summary>
+        /// Get Public Holidays
+        /// </summary>
+        /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public static List<PublicHoliday> GetPublicHoliday(CountryCode countryCode, int year)
+        {
             var easterSunday = EasterSunday(year);
 
             switch (countryCode)
             {
-                case "AT":
+                case CountryCode.AT:
                     return DataAT.Get(easterSunday, year);
-                case "BE":
+                case CountryCode.BE:
                     return DataBE.Get(easterSunday, year);
-                case "CH":
+                case CountryCode.CH:
                     return DataCH.Get(easterSunday, year);
-                case "DE":
+                case CountryCode.DE:
                     return DataDE.Get(easterSunday, year);
-                case "ES":
+                case CountryCode.ES:
                     return DataES.Get(easterSunday, year);
-                case "FR":
+                case CountryCode.FR:
                     return DataFR.Get(easterSunday, year);
-                case "IT":
+                case CountryCode.IT:
                     return DataIT.Get(easterSunday, year);
-                case "LI":
+                case CountryCode.LI:
                     return DataLI.Get(easterSunday, year);
-                case "NL":
+                case CountryCode.NL:
                     return DataNL.Get(easterSunday, year);
-                default:
-                    break;
             }
 
             return null;
         }
 
-        public static bool IsPublicHoliday(DateTime date, string countryCode)
+        public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
             return items.Where(o => o.Date.Date == date.Date).Any();
         }
 
-        public static bool IsOfficialPublicHolidayByCounty(DateTime date, string countryCode, string countyCode)
+        public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
             return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyOfficialHoliday).Any();
         }
 
-        public static bool IsAdministrationPublicHolidayByCounty(DateTime date, string countryCode, string countyCode)
+        public static bool IsAdministrationPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
             return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyAdministrationHoliday).Any();

@@ -1,4 +1,4 @@
-﻿namespace Nager.Date.Model
+﻿namespace Nager.Date
 {
     /// <summary>
     /// Supported Country Codes

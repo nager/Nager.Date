@@ -12,12 +12,13 @@ namespace Nager.Date.Website.Controllers
 
         public ActionResult PublicHolidays(string id)
         {
-            if (String.IsNullOrEmpty(id))
+            CountryCode countryCode;
+            if (Enum.TryParse(id, true, out countryCode))
             {
-                id = "DE";
+                return View("NotFound");
             }
 
-            var publicHolidays = DateSystem.GetPublicHoliday(id, DateTime.Now.Year);
+            var publicHolidays = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year);
             if (publicHolidays?.Count > 0)
             {
                 return View(publicHolidays);

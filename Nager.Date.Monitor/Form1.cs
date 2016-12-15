@@ -14,7 +14,12 @@ namespace Nager.Date.Monitor
 
         private void buttonGet_Click(object sender, EventArgs e)
         {
-            var countryCode = this.comboBoxCountry.Text;
+            CountryCode countryCode;
+            if (Enum.TryParse(this.comboBoxCountry.Text, true, out countryCode))
+            {
+                return;
+            }
+
             var publicHolidays = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year);
 
             this.dataGridViewPublicHoliday.DataSource = publicHolidays;
