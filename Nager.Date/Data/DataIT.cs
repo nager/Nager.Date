@@ -23,7 +23,7 @@ namespace Nager.Date.Data
             items.Add(new PublicHoliday(1, 11, year, "Tutti i santi", "All Saints Day", countryCode));
             items.Add(new PublicHoliday(8, 12, year, "Immacolata Concezione", "Immaculate Conception", countryCode));
             items.Add(new PublicHoliday(25, 12, year, "Natale", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(25, 12, year, "Santo Stefano", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(26, 12, year, "Santo Stefano", "St. Stephen's Day", countryCode));
 
             return items;
         }
