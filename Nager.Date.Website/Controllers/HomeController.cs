@@ -13,7 +13,7 @@ namespace Nager.Date.Website.Controllers
         public ActionResult PublicHolidays(string id)
         {
             CountryCode countryCode;
-            if (Enum.TryParse(id, true, out countryCode))
+            if (!Enum.TryParse(id, true, out countryCode))
             {
                 return View("NotFound");
             }
