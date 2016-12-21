@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Nager.Date</id>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <authors>Tino Hager</authors>
     <owners>nager</owners>
     <licenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</licenseUrl>
@@ -10,7 +10,7 @@
     <!-- <iconUrl></iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Calculate Public Holiday for AT, BE, CH, DE, ES, FR, IT, LI, NL for any Year (Translation: Native and English)</description>
-    <releaseNotes>Add new countrys BE, FR and NL</releaseNotes>
+    <releaseNotes>Fixed St. Stephen's Day for Italy, Improve Switzerland</releaseNotes>
     <tags>Public Holiday Feiertage Austria Österreich Belgium Belgien Switzerland Schweiz German Deutschland Spain Spanien France Frankreich Italy Italien Liechtenstein Netherlands Niederlande</tags>
   </metadata>
 </package>

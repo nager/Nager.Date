@@ -8,12 +8,16 @@ Supported countries AT, BE, CH, DE, ES, FR, IT, LI, NL
 http://publicholiday.azurewebsites.net
 
 #####nuget
+The package is available on nuget
+https://www.nuget.org/packages/Nager.AmazonProductAdvertising
+```
 install-package Nager.Date
+```
 
 #####Example
 ```cs
 //Get all publicHolidays of a country and year
-var publicHolidays = DateSystem.GetPublicHoliday("DE", 2016);
+var publicHolidays = DateSystem.GetPublicHoliday("DE", 2017);
 //Check if a date a public holiday
 if (DateSystem.IsPublicHoliday(date, "DE"))
 {
