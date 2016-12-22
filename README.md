@@ -9,7 +9,7 @@ http://publicholiday.azurewebsites.net
 
 #####nuget
 The package is available on nuget
-https://www.nuget.org/packages/Nager.AmazonProductAdvertising
+https://www.nuget.org/packages/Nager.Date
 ```
 install-package Nager.Date
 ```
