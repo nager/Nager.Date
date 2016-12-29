@@ -31,21 +31,34 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 }
 ```
 
-#Country Support
+#Country Support (12/30)
 - [x] Austria
 - [x] Belgium
-- [x] Switzerland
-- [x] Germany
-- [x] Spain
+- [ ] Bulgaria
+- [ ] Croatia
+- [ ] Cyprus
+- [ ] Czech Republic
+- [ ] Denmark
+- [ ] Estonia
+- [ ] Finland
 - [x] France
+- [x] Germany
+- [ ] Greece
+- [ ] Hungary
+- [ ] Ireland
 - [x] Italy
-- [x] Liechtenstein
+- [ ] Latvia
+- [ ] Lithuania
+- [ ] Luxembourg
+- [ ] Malta
 - [x] Netherlands
 - [x] Poland
 - [x] Portugal
-- [ ] Czech Republic
+- [ ] Romania
 - [ ] Slovakia
-- [ ] Hungary
-- [ ] Denmark
+- [ ] Slovenia
+- [x] Spain
+- [x] Sweden
 - [ ] United Kingdom
-- [ ] Ireland
+- [x] Liechtenstein
+- [x] Switzerland

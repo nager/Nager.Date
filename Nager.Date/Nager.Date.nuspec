@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/tinohager/Nager.Date</projectUrl>
     <!-- <iconUrl></iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Calculate Public Holiday for AT, BE, CH, DE, ES, FR, IT, LI, NL, PL, PT for any Year (Translation: Native and English)</description>
+    <description>Calculate Public Holiday for AT, BE, CH, DE, ES, FR, IT, LI, NL, PL, PT for on a given year (Translation: Native and English)</description>
     <releaseNotes>Add Portugal, some bugfixes</releaseNotes>
     <tags>Public Holiday PublicHoliday Bank Holiday BankHoliday Feiertage Austria Belgium Switzerland Germany Spain France Italy Liechtenstein Netherlands Poland Portugal</tags>
   </metadata>
