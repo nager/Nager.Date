@@ -14,6 +14,7 @@
         IT,
         LI,
         NL,
+        PL,
         PT,
     }
 }

@@ -43,16 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PublicHolidays\Netherlands.cs" />
-    <Compile Include="PublicHolidays\Belgium.cs" />
-    <Compile Include="PublicHolidays\France.cs" />
-    <Compile Include="PublicHolidays\Italy.cs" />
-    <Compile Include="PublicHolidays\Portugal.cs" />
-    <Compile Include="PublicHolidays\Spain.cs" />
-    <Compile Include="PublicHolidays\Liechtenstein.cs" />
-    <Compile Include="PublicHolidays\Switzerland.cs" />
-    <Compile Include="PublicHolidays\Germany.cs" />
-    <Compile Include="PublicHolidays\Austria.cs" />
+    <Compile Include="Contract\IPublicHolidayProvider.cs" />
+    <Compile Include="PublicHolidays\NetherlandsProvider.cs" />
+    <Compile Include="PublicHolidays\BelgiumProvider.cs" />
+    <Compile Include="PublicHolidays\FranceProvider.cs" />
+    <Compile Include="PublicHolidays\ItalyProvider.cs" />
+    <Compile Include="PublicHolidays\PolandProvider.cs" />
+    <Compile Include="PublicHolidays\PortugalProvider.cs" />
+    <Compile Include="PublicHolidays\SpainProvider.cs" />
+    <Compile Include="PublicHolidays\LiechtensteinProvider.cs" />
+    <Compile Include="PublicHolidays\SwitzerlandProvider.cs" />
+    <Compile Include="PublicHolidays\GermanyProvider.cs" />
+    <Compile Include="PublicHolidays\AustriaProvider.cs" />
     <Compile Include="DateSystem.cs" />
     <Compile Include="CountryCode.cs" />
     <Compile Include="Model\PublicHoliday.cs" />

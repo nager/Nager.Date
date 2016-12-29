@@ -1,12 +1,13 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 
 namespace Nager.Date.PublicHolidays
 {
-    public static class Netherlands
+    public class NetherlandsProvider : IPublicHolidayProvider
     {
-        public static List<PublicHoliday> Get(DateTime easterSunday, int year)
+        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Netherlands
             var countryCode = CountryCode.NL;

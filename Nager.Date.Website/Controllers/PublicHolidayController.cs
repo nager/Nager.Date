@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Nager.Date.Website.Controllers
@@ -16,7 +17,7 @@ namespace Nager.Date.Website.Controllers
             ViewBag.Country = id;
 
             var publicHolidays = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year);
-            if (publicHolidays?.Count > 0)
+            if (publicHolidays?.Count() > 0)
             {
                 return View(publicHolidays);
             }

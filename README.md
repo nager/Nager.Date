@@ -2,7 +2,7 @@ Nager.Date
 ==========
 
 Public holiday calculation for every year.
-Supported countries AT, BE, CH, DE, ES, FR, IT, LI, NL, PT
+Supported countries AT, BE, CH, DE, ES, FR, IT, LI, NL, PL, PT
 
 #####Demo Website
 http://publicholiday.azurewebsites.net
@@ -33,7 +33,6 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 
 #Next countrys
 Czech Republic
-Poland
 Slovakia
 Hungary
 Denmark

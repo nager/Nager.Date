@@ -3,6 +3,7 @@ using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nager.Date.Contract;
 
 namespace Nager.Date
 {
@@ -14,7 +15,7 @@ namespace Nager.Date
         /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
         /// <param name="year"></param>
         /// <returns></returns>
-        public static List<PublicHoliday> GetPublicHoliday(string countryCode, int year)
+        public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
             CountryCode parsedCountryCode;
             if (Enum.TryParse(countryCode, true, out parsedCountryCode))
@@ -31,35 +32,49 @@ namespace Nager.Date
         /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
         /// <param name="year"></param>
         /// <returns></returns>
-        public static List<PublicHoliday> GetPublicHoliday(CountryCode countryCode, int year)
+        public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, int year)
         {
             var easterSunday = EasterSunday(year);
+            IPublicHolidayProvider provider = null;
 
             switch (countryCode)
             {
                 case CountryCode.AT:
-                    return Austria.Get(easterSunday, year);
+                    provider = new AustriaProvider();
+                    break;
                 case CountryCode.BE:
-                    return Belgium.Get(easterSunday, year);
+                    provider = new BelgiumProvider();
+                    break;
                 case CountryCode.CH:
-                    return Switzerland.Get(easterSunday, year);
+                    provider = new SwitzerlandProvider();
+                    break;
                 case CountryCode.DE:
-                    return Germany.Get(easterSunday, year);
+                    provider = new GermanyProvider();
+                    break;
                 case CountryCode.ES:
-                    return Spain.Get(easterSunday, year);
+                    provider = new SpainProvider();
+                    break;
                 case CountryCode.FR:
-                    return France.Get(easterSunday, year);
+                    provider = new FranceProvider();
+                    break;
                 case CountryCode.IT:
-                    return Italy.Get(easterSunday, year);
+                    provider = new ItalyProvider();
+                    break;
                 case CountryCode.LI:
-                    return Liechtenstein.Get(easterSunday, year);
+                    provider = new LiechtensteinProvider();
+                    break;
                 case CountryCode.NL:
-                    return Netherlands.Get(easterSunday, year);
+                    provider = new NetherlandsProvider();
+                    break;
+                case CountryCode.PL:
+                    provider = new PolandProvider();
+                    break;
                 case CountryCode.PT:
-                    return Portugal.Get(easterSunday, year);
+                    provider = new PortugalProvider();
+                    break;
             }
 
-            return null;
+            return provider?.Get(easterSunday, year);
         }
 
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
