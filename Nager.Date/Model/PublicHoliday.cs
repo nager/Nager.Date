@@ -8,7 +8,7 @@ namespace Nager.Date.Model
         public string LocalName { get; set; }
         public string Name { get; set; }
         //ISO 3166-1 alpha-2
-        public string CountryCode { get; set; }
+        public CountryCode CountryCode { get; set; }
         public bool Fixed { get; set; }
         public bool CountyOfficialHoliday { get; set; }
         public bool CountyAdministrationHoliday { get; set; }
@@ -17,7 +17,7 @@ namespace Nager.Date.Model
         public string[] Counties { get; set; }
         public int? LaunchYear { get; set; }
 
-        public PublicHoliday(int day, int month, int year, string localName, string name, string countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
+        public PublicHoliday(int day, int month, int year, string localName, string name, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
         {
             this.Date = new DateTime(year, month, day);
             this.LocalName = localName;
@@ -33,7 +33,7 @@ namespace Nager.Date.Model
             }
         }
 
-        public PublicHoliday(DateTime date, string localName, string name, string countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
+        public PublicHoliday(DateTime date, string localName, string name, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
         {
             this.Date = date;
             this.LocalName = localName;

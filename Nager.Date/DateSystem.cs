@@ -1,4 +1,4 @@
-﻿using Nager.Date.Data;
+﻿using Nager.Date.PublicHolidays;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -38,23 +38,25 @@ namespace Nager.Date
             switch (countryCode)
             {
                 case CountryCode.AT:
-                    return DataAT.Get(easterSunday, year);
+                    return Austria.Get(easterSunday, year);
                 case CountryCode.BE:
-                    return DataBE.Get(easterSunday, year);
+                    return Belgium.Get(easterSunday, year);
                 case CountryCode.CH:
-                    return DataCH.Get(easterSunday, year);
+                    return Switzerland.Get(easterSunday, year);
                 case CountryCode.DE:
-                    return DataDE.Get(easterSunday, year);
+                    return Germany.Get(easterSunday, year);
                 case CountryCode.ES:
-                    return DataES.Get(easterSunday, year);
+                    return Spain.Get(easterSunday, year);
                 case CountryCode.FR:
-                    return DataFR.Get(easterSunday, year);
+                    return France.Get(easterSunday, year);
                 case CountryCode.IT:
-                    return DataIT.Get(easterSunday, year);
+                    return Italy.Get(easterSunday, year);
                 case CountryCode.LI:
-                    return DataLI.Get(easterSunday, year);
+                    return Liechtenstein.Get(easterSunday, year);
                 case CountryCode.NL:
-                    return DataNL.Get(easterSunday, year);
+                    return Netherlands.Get(easterSunday, year);
+                case CountryCode.PT:
+                    return Portugal.Get(easterSunday, year);
             }
 
             return null;

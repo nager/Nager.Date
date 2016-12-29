@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nager.Date.Data
+namespace Nager.Date.PublicHolidays
 {
-    public static class DataES
+    public static class Spain
     {
         public static List<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Spain
-            var countryCode = "ES";
+            var countryCode = CountryCode.ES;
 
             var items = new List<PublicHoliday>();
             //https://en.wikipedia.org/wiki/Public_holidays_in_Spain

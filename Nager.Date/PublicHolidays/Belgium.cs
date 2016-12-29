@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nager.Date.Data
+namespace Nager.Date.PublicHolidays
 {
-    public static class DataBE
+    public static class Belgium
     {
         public static List<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Belgium
-            var countryCode = "BE";
+            var countryCode = CountryCode.BE;
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(1, 1, year, "Nieuwjaar", "New Year's Day", countryCode, 1967));

@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nager.Date.Data
+namespace Nager.Date.PublicHolidays
 {
-    public static class DataLI
+    public static class Liechtenstein
     {
         public static List<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Liechtenstein
-            var countryCode = "LI";
+            var countryCode = CountryCode.LI;
 
             var items = new List<PublicHoliday>();
             //http://en.wikipedia.org/wiki/Public_holidays_in_Liechtenstein

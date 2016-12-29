@@ -2,7 +2,7 @@ Nager.Date
 ==========
 
 Public holiday calculation for every year.
-Supported countries AT, BE, CH, DE, ES, FR, IT, LI, NL
+Supported countries AT, BE, CH, DE, ES, FR, IT, LI, NL, PT
 
 #####Demo Website
 http://publicholiday.azurewebsites.net
@@ -14,12 +14,19 @@ https://www.nuget.org/packages/Nager.Date
 install-package Nager.Date
 ```
 
-#####Example
+#####Example - Get all publicHolidays of a country and year
 ```cs
-//Get all publicHolidays of a country and year
 var publicHolidays = DateSystem.GetPublicHoliday("DE", 2017);
-//Check if a date a public holiday
+foreach (var publicHoliday in publicHolidays)
+{
+}
+```
+
+#####Example - Check if a date a public holiday
+```cs
+var date = new DateTime(2017, 1, 1);
 if (DateSystem.IsPublicHoliday(date, "DE"))
 {
+	Console.WriteLine("Is public holiday");
 }
 ```

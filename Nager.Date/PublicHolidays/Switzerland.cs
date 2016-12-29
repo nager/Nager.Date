@@ -2,14 +2,14 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nager.Date.Data
+namespace Nager.Date.PublicHolidays
 {
-    public static class DataCH
+    public static class Switzerland
     {
         public static List<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Switzerland
-            var countryCode = "CH";
+            var countryCode = CountryCode.CH;
 
             //In canton of Neuchâtel the following dates are considered official county holidays only if Christmas day and new year's day fall on a Sunday : 26.12 and 02.01
             var christmasDate = new DateTime(year, 12, 25);

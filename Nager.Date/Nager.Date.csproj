@@ -43,15 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DataNL.cs" />
-    <Compile Include="Data\DataBE.cs" />
-    <Compile Include="Data\DataFR.cs" />
-    <Compile Include="Data\DataIT.cs" />
-    <Compile Include="Data\DataES.cs" />
-    <Compile Include="Data\DataLI.cs" />
-    <Compile Include="Data\DataCH.cs" />
-    <Compile Include="Data\DataDE.cs" />
-    <Compile Include="Data\DataAT.cs" />
+    <Compile Include="PublicHolidays\Netherlands.cs" />
+    <Compile Include="PublicHolidays\Belgium.cs" />
+    <Compile Include="PublicHolidays\France.cs" />
+    <Compile Include="PublicHolidays\Italy.cs" />
+    <Compile Include="PublicHolidays\Portugal.cs" />
+    <Compile Include="PublicHolidays\Spain.cs" />
+    <Compile Include="PublicHolidays\Liechtenstein.cs" />
+    <Compile Include="PublicHolidays\Switzerland.cs" />
+    <Compile Include="PublicHolidays\Germany.cs" />
+    <Compile Include="PublicHolidays\Austria.cs" />
     <Compile Include="DateSystem.cs" />
     <Compile Include="CountryCode.cs" />
     <Compile Include="Model\PublicHoliday.cs" />
