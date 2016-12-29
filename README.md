@@ -31,10 +31,21 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 }
 ```
 
-#Next countrys
-Czech Republic
-Slovakia
-Hungary
-Denmark
-United Kingdom
-Ireland
+#Country Support
+- [x] Austria
+- [x] Belgium
+- [x] Switzerland
+- [x] Germany
+- [x] Spain
+- [x] France
+- [x] Italy
+- [x] Liechtenstein
+- [x] Netherlands
+- [x] Poland
+- [x] Portugal
+- [ ] Czech Republic
+- [ ] Slovakia
+- [ ] Hungary
+- [ ] Denmark
+- [ ] United Kingdom
+- [ ] Ireland
