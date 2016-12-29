@@ -6,7 +6,7 @@
 <table class="table">
     <tr>
         <th style="width:100px;">Date</th>
-        <th style="width:200px;">Local name</th>
+        <th style="max-width:200px;">Local name</th>
         <th style="width:200px;">Name</th>
         <th style="width:50px;">Global</th>
         <th>Countys</th>
@@ -17,7 +17,7 @@
             <td>@publicHoliday.Date.ToShortDateString()</td>
             <td>@publicHoliday.LocalName</td>
             <td>@publicHoliday.Name</td>
-            <td>
+            <td style="text-align:center;">
             @if (publicHoliday.Global)
             {
                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
