@@ -1,9 +1,6 @@
 ﻿using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -30,8 +27,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(1, 11, year, "Dia de Todos-os-Santos", "All Saints Day", countryCode));
             items.Add(new PublicHoliday(1, 12, year, "Restauração da Independência", "Restoration of Independence", countryCode));
             items.Add(new PublicHoliday(8, 12, year, "Imaculada Conceição", "Immaculate Conception", countryCode));
-
-
+            items.Add(new PublicHoliday(25, 12, year, "Natal", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(26, 12, year, "Segunda Oitava", "Boxing Day", countryCode));
 
             return items;
         }
