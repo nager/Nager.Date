@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nager.Date.Website.Model;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -23,6 +24,24 @@ namespace Nager.Date.Website.Controllers
             }
 
             return View("NotFound");
+        }
+
+        public ActionResult CountryJson(string id, int year)
+        {
+            CountryCode countryCode;
+            if (!Enum.TryParse(id, true, out countryCode))
+            {
+                return Json("Not found");
+            }
+
+            var publicHolidays = DateSystem.GetPublicHoliday(countryCode, year);
+            if (publicHolidays?.Count() > 0)
+            {
+                var items = publicHolidays.Select(o => new PublicHoliday(o));
+                return Json(items, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json("Not found");
         }
     }
 }
