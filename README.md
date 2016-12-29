@@ -30,3 +30,12 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 	Console.WriteLine("Is public holiday");
 }
 ```
+
+#Next countrys
+Czech Republic
+Poland
+Slovakia
+Hungary
+Denmark
+United Kingdom
+Ireland
