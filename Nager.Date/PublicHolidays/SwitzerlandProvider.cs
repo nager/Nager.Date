@@ -10,6 +10,8 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Switzerland
+            //http://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz
+
             var countryCode = CountryCode.CH;
 
             //In canton of Neuchâtel the following dates are considered official county holidays only if Christmas day and new year's day fall on a Sunday : 26.12 and 02.01
@@ -21,7 +23,6 @@ namespace Nager.Date.PublicHolidays
             var thirdMondayOfSeptember = DateSystem.FindDay(year, 9, DayOfWeek.Monday, 3);
 
             var items = new List<PublicHoliday>();
-            //http://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz
             items.Add(new PublicHoliday(1, 1, year, "Neujahr", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(2, 1, year, "Berchtoldstag", "St. Berchtold's Day", countryCode, null, new string[] { "CH-ZH", "CH-BE", "CH-LU", "CH-OW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-SH", "CH-TG", "CH-VD", "CH-NE", "CH-GE", "CH-JU" }, isNewYearDateSunday));
             items.Add(new PublicHoliday(6, 1, year, "Heilige Drei Könige", "Epiphany", countryCode, null, new string[] { "CH-UR", "CH-SZ", "CH-GR", "CH-TI" }));

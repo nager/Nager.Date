@@ -10,10 +10,11 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Liechtenstein
+            //http://en.wikipedia.org/wiki/Public_holidays_in_Liechtenstein
+
             var countryCode = CountryCode.LI;
 
             var items = new List<PublicHoliday>();
-            //http://en.wikipedia.org/wiki/Public_holidays_in_Liechtenstein
             items.Add(new PublicHoliday(1, 1, year, "Neujahr", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(2, 1, year, "Berchtoldstag", "St. Berchtold's Day", countryCode));
             items.Add(new PublicHoliday(6, 1, year, "Heilige Drei Könige", "Epiphany", countryCode));
