@@ -45,11 +45,17 @@ namespace Nager.Date
                 case CountryCode.BE:
                     provider = new BelgiumProvider();
                     break;
+                case CountryCode.BG:
+                    provider = new BulgariaProvider();
+                    break;
                 case CountryCode.CH:
                     provider = new SwitzerlandProvider();
                     break;
                 case CountryCode.DE:
                     provider = new GermanyProvider();
+                    break;
+                case CountryCode.DK:
+                    provider = new DenmarkProvider();
                     break;
                 case CountryCode.ES:
                     provider = new SpainProvider();
@@ -62,6 +68,9 @@ namespace Nager.Date
                     break;
                 case CountryCode.LI:
                     provider = new LiechtensteinProvider();
+                    break;
+                case CountryCode.MT:
+                    provider = new MaltaProvider();
                     break;
                 case CountryCode.NL:
                     provider = new NetherlandsProvider();
