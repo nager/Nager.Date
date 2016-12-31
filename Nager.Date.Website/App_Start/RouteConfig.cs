@@ -15,8 +15,8 @@ namespace Nager.Date.Website
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{countrycode}/{year}",
+                defaults: new { controller = "Home", action = "Index", countrycode = UrlParameter.Optional, year = UrlParameter.Optional }
             );
         }
     }

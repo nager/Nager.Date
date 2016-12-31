@@ -7,17 +7,22 @@ namespace Nager.Date.Website.Controllers
 {
     public class PublicHolidayController : Controller
     {
-        public ActionResult Country(string id)
+        public ActionResult Country(string countrycode, int year = 0)
         {
+            if (year == 0)
+            {
+                year = DateTime.Now.Year;
+            }
+
             CountryCode countryCode;
-            if (!Enum.TryParse(id, true, out countryCode))
+            if (!Enum.TryParse(countrycode, true, out countryCode))
             {
                 return View("NotFound");
             }
 
-            ViewBag.Country = id;
+            ViewBag.Country = countrycode;
 
-            var publicHolidays = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year);
+            var publicHolidays = DateSystem.GetPublicHoliday(countryCode, year);
             if (publicHolidays?.Count() > 0)
             {
                 return View(publicHolidays);
@@ -26,10 +31,10 @@ namespace Nager.Date.Website.Controllers
             return View("NotFound");
         }
 
-        public ActionResult CountryJson(string id, int year)
+        public ActionResult CountryJson(string countrycode, int year)
         {
             CountryCode countryCode;
-            if (!Enum.TryParse(id, true, out countryCode))
+            if (!Enum.TryParse(countrycode, true, out countryCode))
             {
                 return Json("Not found");
             }
