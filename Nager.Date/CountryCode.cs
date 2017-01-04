@@ -15,12 +15,14 @@
         ES,
         FI,
         FR,
+        IE,
         IT,
         LI,
         MT,
         NL,
         PL,
         PT,
+        RO,
         UK,
     }
 }

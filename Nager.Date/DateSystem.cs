@@ -69,6 +69,9 @@ namespace Nager.Date
                 case CountryCode.FR:
                     provider = new FranceProvider();
                     break;
+                case CountryCode.IE:
+                    provider = new IrelandProvider();
+                    break;
                 case CountryCode.IT:
                     provider = new ItalyProvider();
                     break;
@@ -86,6 +89,9 @@ namespace Nager.Date
                     break;
                 case CountryCode.PT:
                     provider = new PortugalProvider();
+                    break;
+                case CountryCode.RO:
+                    provider = new RomaniaProvider();
                     break;
                 case CountryCode.UK:
                     provider = new UnitedKingdomProvider();

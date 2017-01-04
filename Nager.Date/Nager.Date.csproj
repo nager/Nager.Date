@@ -46,6 +46,8 @@
     <Compile Include="Contract\IPublicHolidayProvider.cs" />
     <Compile Include="PublicHolidays\CzechRepublicProvider.cs" />
     <Compile Include="PublicHolidays\DenmarkProvider.cs" />
+    <Compile Include="PublicHolidays\IrelandProvider.cs" />
+    <Compile Include="PublicHolidays\RomaniaProvider.cs" />
     <Compile Include="PublicHolidays\FinlandProvider.cs" />
     <Compile Include="PublicHolidays\UnitedKingdomProvider.cs" />
     <Compile Include="PublicHolidays\MaltaProvider.cs" />
