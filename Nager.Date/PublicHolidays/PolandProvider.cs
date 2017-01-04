@@ -27,7 +27,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(1, 11, year, "Wszystkich Świętych", "All Saints' Day", countryCode));
             items.Add(new PublicHoliday(11, 11, year, "Narodowe Święto Niepodległości", "Independence Day", countryCode));
             items.Add(new PublicHoliday(25, 12, year, "pierwszy dzień Bożego Narodzenia", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(26, 12, year, "drugi dzień Bożego Narodzenia", "Boxing Day", countryCode));
+            items.Add(new PublicHoliday(26, 12, year, "drugi dzień Bożego Narodzenia", "St. Stephen's Day", countryCode));
 
             return items;
         }

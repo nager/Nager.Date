@@ -31,7 +31,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(1, 12, year, "Restauração da Independência", "Restoration of Independence", countryCode));
             items.Add(new PublicHoliday(8, 12, year, "Imaculada Conceição", "Immaculate Conception", countryCode));
             items.Add(new PublicHoliday(25, 12, year, "Natal", "Christmas Day", countryCode, null));
-            items.Add(new PublicHoliday(26, 12, year, "Segunda Oitava", "Boxing Day", countryCode, null, new string[] { "PT-01", "PT-02", "PT-03", "PT-04", "PT-05", "PT-06", "PT-07", "PT-08", "PT-09", "PT-10", "PT-11", "PT-12", "PT-13", "PT-14", "PT-15", "PT-16", "PT-17", "PT-18", "PT-20" }));
+            items.Add(new PublicHoliday(26, 12, year, "Segunda Oitava", "St. Stephen's Day", countryCode, null, new string[] { "PT-01", "PT-02", "PT-03", "PT-04", "PT-05", "PT-06", "PT-07", "PT-08", "PT-09", "PT-10", "PT-11", "PT-12", "PT-13", "PT-14", "PT-15", "PT-16", "PT-17", "PT-18", "PT-20" }));
 
             return items;
         }
