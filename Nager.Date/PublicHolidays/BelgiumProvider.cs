@@ -10,6 +10,8 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Belgium
+            //https://en.wikipedia.org/wiki/Public_holidays_in_Belgium
+
             var countryCode = CountryCode.BE;
 
             var items = new List<PublicHoliday>();

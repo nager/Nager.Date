@@ -11,6 +11,7 @@ namespace Nager.Date.PublicHolidays
         {
             //Portugal
             //https://en.wikipedia.org/wiki/Public_holidays_in_Portugal
+
             var countryCode = CountryCode.PT;
 
             var items = new List<PublicHoliday>();

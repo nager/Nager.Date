@@ -10,6 +10,8 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Bulgaria
+            https://en.wikipedia.org/wiki/Public_holidays_in_Bulgaria
+
             var countryCode = CountryCode.BG;
 
             var items = new List<PublicHoliday>();

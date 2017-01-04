@@ -12,6 +12,7 @@ namespace Nager.Date.PublicHolidays
         {
             //Netherlands
             //https://en.wikipedia.org/wiki/Public_holidays_in_the_Netherlands
+
             var countryCode = CountryCode.NL;
 
             #region King's Day is Sunday fallback
