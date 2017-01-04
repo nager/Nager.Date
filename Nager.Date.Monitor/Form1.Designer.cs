@@ -34,6 +34,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
+            this.textBoxYear = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPublicHoliday)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             // buttonGet
             // 
-            this.buttonGet.Location = new System.Drawing.Point(130, 13);
+            this.buttonGet.Location = new System.Drawing.Point(236, 13);
             this.buttonGet.Name = "buttonGet";
             this.buttonGet.Size = new System.Drawing.Size(75, 23);
             this.buttonGet.TabIndex = 2;
@@ -72,13 +73,6 @@
             // comboBoxCountry
             // 
             this.comboBoxCountry.FormattingEnabled = true;
-            this.comboBoxCountry.Items.AddRange(new object[] {
-            "DE",
-            "AT",
-            "LI",
-            "CH",
-            "ES",
-            "IT"});
             this.comboBoxCountry.Location = new System.Drawing.Point(3, 15);
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(121, 21);
@@ -95,6 +89,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.textBoxYear);
             this.splitContainer1.Panel1.Controls.Add(this.comboBoxCountry);
             this.splitContainer1.Panel1.Controls.Add(this.buttonGet);
             // 
@@ -133,6 +128,13 @@
             this.dataGridViewDetail.Size = new System.Drawing.Size(247, 379);
             this.dataGridViewDetail.TabIndex = 1;
             // 
+            // textBoxYear
+            // 
+            this.textBoxYear.Location = new System.Drawing.Point(130, 15);
+            this.textBoxYear.Name = "textBoxYear";
+            this.textBoxYear.Size = new System.Drawing.Size(100, 20);
+            this.textBoxYear.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +145,7 @@
             this.Text = "Nager.Date.Monitor";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPublicHoliday)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -163,6 +166,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.DataGridView dataGridViewDetail;
+        private System.Windows.Forms.TextBox textBoxYear;
     }
 }
 
