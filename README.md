@@ -30,13 +30,13 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 }
 ```
 
-#Country Support (15/30)
+#Country Support (17/30)
 - [x] Austria
 - [x] Belgium
 - [x] Bulgaria
 - [ ] Croatia
 - [ ] Cyprus
-- [ ] Czech Republic
+- [x] Czech Republic
 - [x] Denmark
 - [ ] Estonia
 - [ ] Finland
@@ -60,4 +60,4 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Spain
 - [x] Sweden
 - [x] Switzerland
-- [ ] United Kingdom
+- [x] United Kingdom
