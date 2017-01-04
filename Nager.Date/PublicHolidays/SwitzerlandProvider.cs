@@ -14,7 +14,8 @@ namespace Nager.Date.PublicHolidays
 
             var countryCode = CountryCode.CH;
 
-            //In canton of Neuchâtel the following dates are considered official county holidays only if Christmas day and new year's day fall on a Sunday : 26.12 and 02.01
+            //In canton of Neuchâtel the following dates are considered official county holidays
+            //only if Christmas day and new year's day fall on a Sunday : 26.12 and 02.01
             var christmasDate = new DateTime(year, 12, 25);
             var newYearDate = new DateTime(year, 12, 31);
             var isChristmasDateSunday = christmasDate.DayOfWeek == DayOfWeek.Sunday;
