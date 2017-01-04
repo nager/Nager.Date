@@ -14,9 +14,9 @@ namespace Nager.Date.PublicHolidays
 
             var countryCode = CountryCode.IE;
 
-            var mayDay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 0);
-            var juneHoliday = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 0);
-            var augustHoliday = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 0);
+            var mayDay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
+            var juneHoliday = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
+            var augustHoliday = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
             var octoberHoliday = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
 
             var items = new List<PublicHoliday>();
