@@ -1,15 +1,14 @@
-﻿@model List<Nager.Date.Model.PublicHoliday>
+﻿@model IEnumerable<Nager.Date.Model.PublicHoliday>
 @{
     ViewBag.Title = "Public Holidays for " + ViewBag.Country;
 }
-
-<table class="table" style="width:100%; table-layout: fixed;">
+<table class="table table-responsive">
     <tr>
-        <th style="width:100px;">Date</th>
-        <th style="width:200px; max-width:200px;">Local name</th>
-        <th style="width:200px;">Name</th>
-        <th style="width:50px;">Global</th>
-        <th>Countys</th>
+        <th class="col-md-1">Date</th>
+        <th class="col-md-3">Local name</th>
+        <th class="col-md-3">Name</th>
+        <th class="col-md-1">Global</th>
+        <th class="col-md-4">Countys</th>
     </tr>
     @foreach (var publicHoliday in Model)
     {
@@ -17,26 +16,25 @@
             <td>@publicHoliday.Date.ToShortDateString()</td>
             <td>@publicHoliday.NativeName</td>
             <td>@publicHoliday.Name</td>
-            <td style="text-align:center;">
-            @if (publicHoliday.Global)
-            {
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-            }
-            else
-            {
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            }
+            <td>
+                @if (publicHoliday.Global)
+                {
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                }
+                else
+                {
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                }
             </td>
             <td>
-            @if (!publicHoliday.Global)
-            {
-                foreach(var county in publicHoliday.Counties)
+                @if (!publicHoliday.Global)
                 {
-                    <span class="label label-default">@county</span>
+                    foreach (var county in publicHoliday.Counties)
+                    {
+                        <span class="label label-default">@county</span>
+                    }
                 }
-            }
             </td>
         </tr>
     }
 </table>
-
