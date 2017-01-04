@@ -18,7 +18,7 @@
         public PublicHoliday(Date.Model.PublicHoliday item)
         {
             this.Date = item.Date.ToString("yyyy.MM.dd");
-            this.LocalName = item.LocalName;
+            this.LocalName = item.NativeName;
             this.Name = item.Name;
             this.CountryCode = item.CountryCode.ToString();
             this.Fixed = item.Fixed;

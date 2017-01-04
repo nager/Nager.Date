@@ -5,7 +5,7 @@ namespace Nager.Date.Model
     public class PublicHoliday
     {
         public DateTime Date { get; set; }
-        public string LocalName { get; set; }
+        public string NativeName { get; set; }
         public string Name { get; set; }
         //ISO 3166-1 alpha-2
         public CountryCode CountryCode { get; set; }
@@ -16,11 +16,14 @@ namespace Nager.Date.Model
         //ISO_3166-2
         public string[] Counties { get; set; }
         public int? LaunchYear { get; set; }
+        [Obsolete("Use NativeName")]
+        public string LocalName { get { return this.NativeName; } }
 
-        public PublicHoliday(int day, int month, int year, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
+
+        public PublicHoliday(int day, int month, int year, string nativeName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
         {
             this.Date = new DateTime(year, month, day);
-            this.LocalName = localName;
+            this.NativeName = nativeName;
             this.Name = englishName;
             this.CountryCode = countryCode;
             this.Fixed = true;
@@ -33,10 +36,10 @@ namespace Nager.Date.Model
             }
         }
 
-        public PublicHoliday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
+        public PublicHoliday(DateTime date, string nativeName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
         {
             this.Date = date;
-            this.LocalName = localName;
+            this.NativeName = nativeName;
             this.Name = englishName;
             this.CountryCode = countryCode;
             this.Fixed = false;
