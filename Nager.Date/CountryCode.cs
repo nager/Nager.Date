@@ -9,6 +9,7 @@
         BE,
         BG,
         CH,
+        CZ,
         DE,
         DK,
         ES,
@@ -19,5 +20,6 @@
         NL,
         PL,
         PT,
+        UK,
     }
 }
