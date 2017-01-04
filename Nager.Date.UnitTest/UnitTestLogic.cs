@@ -46,5 +46,51 @@ namespace Nager.Date.UnitTest
             isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), CountryCode.AT);
             Assert.AreEqual(true, isPublicHoliday);
         }
+
+        [TestMethod]
+        public void CheckFindDay()
+        {
+            var result = DateSystem.FindDay(2017, 1, 1, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 6), result);
+
+            result = DateSystem.FindDay(2017, 1, 2, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 6), result);
+
+            result = DateSystem.FindDay(2017, 1, 3, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 6), result);
+
+            result = DateSystem.FindDay(2017, 1, 4, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 6), result);
+
+            result = DateSystem.FindDay(2017, 1, 5, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 6), result);
+
+            result = DateSystem.FindDay(2017, 1, 6, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 6), result);
+
+            result = DateSystem.FindDay(2017, 1, 7, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 13), result);
+
+            result = DateSystem.FindDay(2017, 1, 8, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 13), result);
+
+            result = DateSystem.FindDay(2017, 1, 9, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 13), result);
+
+            result = DateSystem.FindDay(2017, 1, 10, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 13), result);
+
+            result = DateSystem.FindDay(2017, 1, 11, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 13), result);
+
+            result = DateSystem.FindDay(2017, 1, 12, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 13), result);
+
+            result = DateSystem.FindDay(2017, 1, 13, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2017, 1, 13), result);
+
+            result = DateSystem.FindDay(2017, 1, 14, DayOfWeek.Wednesday);
+            Assert.AreEqual(new DateTime(2017, 1, 18), result);
+        }
     }
 }

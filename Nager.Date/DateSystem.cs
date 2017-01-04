@@ -63,6 +63,9 @@ namespace Nager.Date
                 case CountryCode.ES:
                     provider = new SpainProvider();
                     break;
+                case CountryCode.FI:
+                    provider = new FinlandProvider();
+                    break;
                 case CountryCode.FR:
                     provider = new FranceProvider();
                     break;
@@ -138,6 +141,22 @@ namespace Nager.Date
             }
 
             return resultedDay;
+        }
+
+        public static DateTime FindDay(int year, int month, int day, DayOfWeek dayOfWeek)
+        {
+            var calculationDay = new DateTime(year, month, day);
+
+            if ((int)dayOfWeek >= (int)calculationDay.DayOfWeek)
+            {
+                var daysNeeded = (int)dayOfWeek - (int)calculationDay.DayOfWeek;
+                return calculationDay.AddDays(daysNeeded);
+            }
+            else
+            {
+                var daysNeeded = (int)dayOfWeek - (int)calculationDay.DayOfWeek;
+                return calculationDay.AddDays(daysNeeded + 7);
+            }
         }
 
         public static int FindDay(int year, int month, DayOfWeek day, int occurance)
