@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Nager.Date</id>
-    <version>1.0.11</version>
+    <version>1.0.12</version>
     <authors>Tino Hager</authors>
     <owners>nager</owners>
     <licenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</licenseUrl>
@@ -10,7 +10,7 @@
     <!-- <iconUrl></iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Calculate Public Holiday for AT, BE, BG, CH, CZ, EE, DE, DK, ES, FI, FR, HR, IE, IT, LI, LV, MT, NL, PL, PT, RO, UK for on a given year (Translation: Native and English)</description>
-    <releaseNotes>Add Croatia, Estonia and Latvia, some bugfixes</releaseNotes>
+    <releaseNotes>bugfixe reformation day germany 2017</releaseNotes>
     <tags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday Austria Belgium Bulgaria Croatia CzechRepublic Estonia Finland France Germany Ireland Italy Latvia Liechtenstein Malta Netherlands Poland Portugal Romania Spain Switzerland UnitedKingdom</tags>
   </metadata>
 </package>
