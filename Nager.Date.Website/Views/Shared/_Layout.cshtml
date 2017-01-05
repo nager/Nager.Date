@@ -21,26 +21,33 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("AT", "Country", "PublicHoliday", new { countrycode = "AT" }, null)</li>
-                    <li>@Html.ActionLink("BE", "Country", "PublicHoliday", new { countrycode = "BE" }, null)</li>
-                    <li>@Html.ActionLink("BG", "Country", "PublicHoliday", new { countrycode = "BG" }, null)</li>
-                    <li>@Html.ActionLink("CH", "Country", "PublicHoliday", new { countrycode = "CH" }, null)</li>
-                    <li>@Html.ActionLink("CZ", "Country", "PublicHoliday", new { countrycode = "CZ" }, null)</li>
-                    <li>@Html.ActionLink("DE", "Country", "PublicHoliday", new { countrycode = "DE" }, null)</li>
-                    <li>@Html.ActionLink("DK", "Country", "PublicHoliday", new { countrycode = "DK" }, null)</li>
-                    <li>@Html.ActionLink("ES", "Country", "PublicHoliday", new { countrycode = "ES" }, null)</li>
-                    <li>@Html.ActionLink("FI", "Country", "PublicHoliday", new { countrycode = "FI" }, null)</li>
-                    <li>@Html.ActionLink("FR", "Country", "PublicHoliday", new { countrycode = "FR" }, null)</li>
-                    <li>@Html.ActionLink("IE", "Country", "PublicHoliday", new { countrycode = "IE" }, null)</li>
-                    <li>@Html.ActionLink("IT", "Country", "PublicHoliday", new { countrycode = "IT" }, null)</li>
-                    <li>@Html.ActionLink("LI", "Country", "PublicHoliday", new { countrycode = "LI" }, null)</li>
-                    <li>@Html.ActionLink("MT", "Country", "PublicHoliday", new { countrycode = "MT" }, null)</li>
-                    <li>@Html.ActionLink("NL", "Country", "PublicHoliday", new { countrycode = "NL" }, null)</li>
-                    <li>@Html.ActionLink("PL", "Country", "PublicHoliday", new { countrycode = "PL" }, null)</li>
-                    <li>@Html.ActionLink("PT", "Country", "PublicHoliday", new { countrycode = "PT" }, null)</li>
-                    <li>@Html.ActionLink("RO", "Country", "PublicHoliday", new { countrycode = "RO" }, null)</li>
-                    <li>@Html.ActionLink("UK", "Country", "PublicHoliday", new { countrycode = "UK" }, null)</li>
-                    
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">COUNTRIES <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("AT", "Country", "PublicHoliday", new { countrycode = "AT" }, null)</li>
+                            <li>@Html.ActionLink("BE", "Country", "PublicHoliday", new { countrycode = "BE" }, null)</li>
+                            <li>@Html.ActionLink("BG", "Country", "PublicHoliday", new { countrycode = "BG" }, null)</li>
+                            <li>@Html.ActionLink("CH", "Country", "PublicHoliday", new { countrycode = "CH" }, null)</li>
+                            <li>@Html.ActionLink("CZ", "Country", "PublicHoliday", new { countrycode = "CZ" }, null)</li>
+                            <li>@Html.ActionLink("DE", "Country", "PublicHoliday", new { countrycode = "DE" }, null)</li>
+                            <li>@Html.ActionLink("DK", "Country", "PublicHoliday", new { countrycode = "DK" }, null)</li>
+                            <li>@Html.ActionLink("ES", "Country", "PublicHoliday", new { countrycode = "ES" }, null)</li>
+                            <li>@Html.ActionLink("FI", "Country", "PublicHoliday", new { countrycode = "FI" }, null)</li>
+                            <li>@Html.ActionLink("FR", "Country", "PublicHoliday", new { countrycode = "FR" }, null)</li>
+                            <li>@Html.ActionLink("HR", "Country", "PublicHoliday", new { countrycode = "HR" }, null)</li>
+                            <li>@Html.ActionLink("IE", "Country", "PublicHoliday", new { countrycode = "IE" }, null)</li>
+                            <li>@Html.ActionLink("IT", "Country", "PublicHoliday", new { countrycode = "IT" }, null)</li>
+                            <li>@Html.ActionLink("LI", "Country", "PublicHoliday", new { countrycode = "LI" }, null)</li>
+                            <li>@Html.ActionLink("LV", "Country", "PublicHoliday", new { countrycode = "LV" }, null)</li>
+                            <li>@Html.ActionLink("MT", "Country", "PublicHoliday", new { countrycode = "MT" }, null)</li>
+                            <li>@Html.ActionLink("NL", "Country", "PublicHoliday", new { countrycode = "NL" }, null)</li>
+                            <li>@Html.ActionLink("PL", "Country", "PublicHoliday", new { countrycode = "PL" }, null)</li>
+                            <li>@Html.ActionLink("PT", "Country", "PublicHoliday", new { countrycode = "PT" }, null)</li>
+                            <li>@Html.ActionLink("RO", "Country", "PublicHoliday", new { countrycode = "RO" }, null)</li>
+                            <li>@Html.ActionLink("UK", "Country", "PublicHoliday", new { countrycode = "UK" }, null)</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("API", "Api", "Home")</li>
                 </ul>
             </div>
         </div>

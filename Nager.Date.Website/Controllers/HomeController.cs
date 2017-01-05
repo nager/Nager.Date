@@ -9,5 +9,10 @@ namespace Nager.Date.Website.Controllers
         {
             return View();
         }
+
+        public ActionResult Api()
+        {
+            return View();
+        }
     }
 }
