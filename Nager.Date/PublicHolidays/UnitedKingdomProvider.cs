@@ -1,7 +1,9 @@
 ﻿using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -20,28 +22,72 @@ namespace Nager.Date.PublicHolidays
             var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
             var lastMondayInAugust = DateSystem.FindLastDay(year, 8, DayOfWeek.Monday);
 
-            //TODO: finish weekend fallback to monday or tuesday
-            var newYearDay = new DateTime(year, 1, 1);
-            if (newYearDay.DayOfWeek == DayOfWeek.Saturday || newYearDay.DayOfWeek == DayOfWeek.Sunday)
-            {
+            var items = new List<PublicHoliday>();
 
+            #region New Year's Day with fallback
+
+            var newYearDay = new DateTime(year, 1, 1);
+            if (newYearDay.IsWeekend(countryCode))
+            {
+                var newYearDayMonday = DateSystem.FindDay(year, 1, 1, DayOfWeek.Monday);
+                var newYearDayTuesday = DateSystem.FindDay(year, 1, 1, DayOfWeek.Tuesday);
+
+                items.Add(new PublicHoliday(newYearDay, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-NIR" }));
+                items.Add(new PublicHoliday(newYearDayMonday, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-ENG", "GB-WLS" }));
+                items.Add(new PublicHoliday(newYearDayTuesday, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-SCT" }));
+            }
+            else
+            {
+                items.Add(new PublicHoliday(newYearDay, "New Year's Day", "New Year's Day", countryCode));
             }
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(1, 1, year, "New Year's Day", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(2, 1, year, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-NIR" }));
-            items.Add(new PublicHoliday(12, 7, year, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "GB-SCT" }));
+            #endregion
+
+            #region New Year's Day 2 with fallback
+
+            var newYearDay2 = new DateTime(year, 1, 2);
+            if (newYearDay2.IsWeekend(countryCode))
+            {
+                newYearDay2 = DateSystem.FindDay(year, 1, 2, DayOfWeek.Monday);
+            }
+            items.Add(new PublicHoliday(newYearDay2, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-SCT" }));
+
+            #endregion
+
+            items.Add(new PublicHoliday(year, 7, 12, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
-            items.Add(new PublicHoliday(firstMondayInMay, 5, year, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978));
-            items.Add(new PublicHoliday(lastMondayInMay, 5, year, "Spring Bank Holiday", "Spring Bank Holiday", countryCode, 1971));
-            items.Add(new PublicHoliday(12, 7, year, "Battle of the Boyne", "Battle of the Boyne", countryCode, null, new string[] { "GB-NIR" }));
-            items.Add(new PublicHoliday(firstMondayInAugust, 8, year, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));
-            items.Add(new PublicHoliday(lastMondayInAugust, 8, year, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-ENG", "GB-WLS" }));
-            items.Add(new PublicHoliday(25, 12, year, "Christmas Day", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(26, 12, year, "Boxing Day", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(year, 5, firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978));
+            items.Add(new PublicHoliday(year, 5, lastMondayInMay, "Spring Bank Holiday", "Spring Bank Holiday", countryCode, 1971));
+            items.Add(new PublicHoliday(year, 7, 12, "Battle of the Boyne", "Battle of the Boyne", countryCode, null, new string[] { "GB-NIR" }));
+            items.Add(new PublicHoliday(year, 8, firstMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));
+            items.Add(new PublicHoliday(year, 8, lastMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-ENG", "GB-WLS" }));
 
-            return items;
+            #region Christmas Day with fallback
+
+            var christmasDay = new DateTime(year, 12, 25);
+            if (christmasDay.IsWeekend(countryCode))
+            {
+                christmasDay = DateSystem.FindDay(year, 12, 25, DayOfWeek.Tuesday);
+            }
+
+            items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
+
+            #endregion
+
+            #region St. Stephen's Day with fallback
+
+            var sanktStehpenDay = new DateTime(year, 12, 26);
+            if (sanktStehpenDay.IsWeekend(countryCode))
+            {
+                sanktStehpenDay = DateSystem.FindDay(year, 12, 26, DayOfWeek.Monday);
+            }
+
+            items.Add(new PublicHoliday(sanktStehpenDay, "Boxing Day", "St. Stephen's Day", countryCode));
+
+            #endregion
+
+            return items.OrderBy(o => o.Date);
         }
     }
 }

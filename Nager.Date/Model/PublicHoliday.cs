@@ -17,7 +17,7 @@ namespace Nager.Date.Model
         public string[] Counties { get; set; }
         public int? LaunchYear { get; set; }
 
-        public PublicHoliday(int day, int month, int year, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
+        public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
         {
             this.Date = new DateTime(year, month, day);
             this.LocalName = localName;

@@ -15,17 +15,17 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.IT;
 
             var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(1, 1, year, "Capodanno", "New Year's Day", countryCode, 1967));
-            items.Add(new PublicHoliday(6, 1, year, "Epifania", "Epiphany", countryCode));
+            items.Add(new PublicHoliday(year, 1, 1, "Capodanno", "New Year's Day", countryCode, 1967));
+            items.Add(new PublicHoliday(year, 1, 6, "Epifania", "Epiphany", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Lunedì dell'Angelo", "Easter Monday", countryCode, 1642));
-            items.Add(new PublicHoliday(25, 4, year, "Festa della Liberazione", "Liberation Day", countryCode));
-            items.Add(new PublicHoliday(1, 5, year, "Festa del Lavoro", "International Workers Day", countryCode));
-            items.Add(new PublicHoliday(2, 6, year, "Festa della Repubblica", "Republic Day", countryCode));
-            items.Add(new PublicHoliday(15, 8, year, "Ferragosto and Assunta", "Assumption Day", countryCode));
-            items.Add(new PublicHoliday(1, 11, year, "Tutti i santi", "All Saints Day", countryCode));
-            items.Add(new PublicHoliday(8, 12, year, "Immacolata Concezione", "Immaculate Conception", countryCode));
-            items.Add(new PublicHoliday(25, 12, year, "Natale", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(26, 12, year, "Santo Stefano", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(year, 4, 25, "Festa della Liberazione", "Liberation Day", countryCode));
+            items.Add(new PublicHoliday(year, 5, 1, "Festa del Lavoro", "International Workers Day", countryCode));
+            items.Add(new PublicHoliday(year, 6, 2, "Festa della Repubblica", "Republic Day", countryCode));
+            items.Add(new PublicHoliday(year, 8, 15, "Ferragosto and Assunta", "Assumption Day", countryCode));
+            items.Add(new PublicHoliday(year, 11, 1, "Tutti i santi", "All Saints Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 8, "Immacolata Concezione", "Immaculate Conception", countryCode));
+            items.Add(new PublicHoliday(year, 12, 25, "Natale", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "Santo Stefano", "St. Stephen's Day", countryCode));
 
             return items;
         }
