@@ -26,6 +26,7 @@
         PL,
         PT,
         RO,
+        SE,
         UK,
     }
 }
