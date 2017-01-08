@@ -105,6 +105,9 @@ namespace Nager.Date
                 case CountryCode.RO:
                     provider = new RomaniaProvider();
                     break;
+                case CountryCode.SI:
+                    provider = new SloveniaProvider();
+                    break;
                 case CountryCode.SE:
                     provider = new SwedenProvider();
                     break;

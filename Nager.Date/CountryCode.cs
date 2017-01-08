@@ -28,6 +28,7 @@
         PT,
         RO,
         SE,
+        SI,
         UK,
     }
 }
