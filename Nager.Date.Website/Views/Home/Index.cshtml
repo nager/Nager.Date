@@ -3,6 +3,16 @@
 }
 <h1>Public Holidays</h1>
 <p>A project to collect all public holidays for many countries. If you found a failure please report to the github project</p>
+Source Code: <a href="https://github.com/tinohager/Nager.Date">github.com/tinohager/Nager.Date</a><br />
 <br />
-<br />
-Source Code: <a href="https://github.com/tinohager/Nager.Date">github.com/tinohager/Nager.Date</a>
+<h2>Supported Countries</h2>
+<table class="table">
+    @foreach (var country in ViewBag.Countries)
+    {
+        <tr>
+            <td>@country.Key</td>
+            <td>@country.Value</td>
+            <td><a href="/PublicHoliday/Country/@country.Key" class="btn btn-xs btn-primary">Show</a></td>
+        </tr>
+    }
+</table>

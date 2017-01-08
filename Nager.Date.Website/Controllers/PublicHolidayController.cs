@@ -21,6 +21,7 @@ namespace Nager.Date.Website.Controllers
             }
 
             ViewBag.Country = countrycode;
+            ViewBag.Year = year + 1;
 
             var publicHolidays = DateSystem.GetPublicHoliday(countryCode, year);
             if (publicHolidays?.Count() > 0)
