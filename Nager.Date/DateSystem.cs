@@ -84,6 +84,9 @@ namespace Nager.Date
                 case CountryCode.LI:
                     provider = new LiechtensteinProvider();
                     break;
+                case CountryCode.LU:
+                    provider = new LuxembourgProvider();
+                    break;
                 case CountryCode.LV:
                     provider = new LatviaProvider();
                     break;
