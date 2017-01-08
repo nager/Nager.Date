@@ -23,7 +23,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 8, "Fête de la Victoire", "Victory in Europe Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Lundi de Pentecôte", "Whit Monday", countryCode));
             items.Add(new PublicHoliday(year, 7, 14, "Fête nationale", "Bastille Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 15, "L'Assomption de Marie", "Assumption of Mary to Heaven", countryCode));
+            items.Add(new PublicHoliday(year, 8, 15, "L'Assomption de Marie", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "La Toussaint", "All Saints' Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 11, "Armistice de 1918", "Armistice Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Noël", "Christmas Day", countryCode));

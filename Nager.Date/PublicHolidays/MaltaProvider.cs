@@ -23,7 +23,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 1, "Jum il-Ħaddiem", "Worker's Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 7, "Sette Giugno", "​Sette Giugno", countryCode));
             items.Add(new PublicHoliday(year, 6, 29, "L-Imnarja", "​​Feast of St.Peter and St.Paul", countryCode));
-            items.Add(new PublicHoliday(year, 8, 15, "Santa Marija", "​​​Feast of the Assumption", countryCode));
+            items.Add(new PublicHoliday(year, 8, 15, "Santa Marija", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 9, 8, "Il-Vittorja", "Feast of Our Lady of Victories", countryCode));
             items.Add(new PublicHoliday(year, 9, 21, "L-Indipendenza", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "L-Immakulata Kunċizzjoni", "​Feast of the Immaculate Conception", countryCode));

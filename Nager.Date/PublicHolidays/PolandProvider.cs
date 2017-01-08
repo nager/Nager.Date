@@ -23,7 +23,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 3, "Święto Narodowe Trzeciego Maja", "Constitution Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(49), "pierwszy dzień Zielonych Świątek", "Pentecost Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "dzień Bożego Ciała", "Corpus Christi", countryCode));
-            items.Add(new PublicHoliday(year, 8, 15, "Wniebowzięcie Najświętszej Maryi Panny", "Assumption of the Virgin Mary", countryCode));
+            items.Add(new PublicHoliday(year, 8, 15, "Wniebowzięcie Najświętszej Maryi Panny", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Wszystkich Świętych", "All Saints' Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 11, "Narodowe Święto Niepodległości", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "pierwszy dzień Bożego Narodzenia", "Christmas Day", countryCode));

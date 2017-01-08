@@ -21,7 +21,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Onze Lieve Heer hemel", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pinkstermaandag", "Whit Monday", countryCode));
             items.Add(new PublicHoliday(year, 7, 21, "Nationale feestdag", "Belgian National Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 15, "Onze Lieve Vrouw hemelvaart", "Assumption of the Virgin Mary", countryCode));
+            items.Add(new PublicHoliday(year, 8, 15, "Onze Lieve Vrouw hemelvaart", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Allerheiligen", "All Saints' Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 11, "Wapenstilstand", "Armistice Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Weihnachten", "Christmas Day", countryCode));
