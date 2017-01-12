@@ -114,6 +114,9 @@ namespace Nager.Date
                 case CountryCode.UK:
                     provider = new UnitedKingdomProvider();
                     break;
+                case CountryCode.US:
+                    provider = new UnitedStatesProvider();
+                    break;
             }
 
             return provider?.Get(easterSunday, year);

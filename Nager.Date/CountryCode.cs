@@ -57,5 +57,7 @@ namespace Nager.Date
         SI,
         [Description("United Kingdom")]
         UK,
+        [Description("United States of America")]
+        US,
     }
 }

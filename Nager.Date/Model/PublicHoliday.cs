@@ -13,10 +13,23 @@ namespace Nager.Date.Model
         public bool CountyOfficialHoliday { get; set; }
         public bool CountyAdministrationHoliday { get; set; }
         public bool Global { get { return this.Counties?.Length > 0 ? false : true; } }
-        //ISO_3166-2
+        //ISO-3166-2
         public string[] Counties { get; set; }
         public int? LaunchYear { get; set; }
 
+        /// <summary>
+        /// Add Public Holiday (fixed is true)
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="localName"></param>
+        /// <param name="englishName"></param>
+        /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
+        /// <param name="launchYear"></param>
+        /// <param name="counties">ISO-3166-2</param>
+        /// <param name="countyOfficialHoliday"></param>
+        /// <param name="countyAdministrationHoliday"></param>
         public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
         {
             this.Date = new DateTime(year, month, day);
@@ -33,6 +46,17 @@ namespace Nager.Date.Model
             }
         }
 
+        /// <summary>
+        /// Add Public Holiday (fixed is false)
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="localName"></param>
+        /// <param name="englishName"></param>
+        /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
+        /// <param name="launchYear"></param>
+        /// <param name="counties">ISO-3166-2</param>
+        /// <param name="countyOfficialHoliday"></param>
+        /// <param name="countyAdministrationHoliday"></param>
         public PublicHoliday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
         {
             this.Date = date;

@@ -1,7 +1,7 @@
 Nager.Date
 ==========
 
-Public holiday calculation for every year, based on easter sunday.
+Public holiday calculation for every year, based on easter sunday, country and county support.
 
 #####Demo Website
 http://publicholiday.azurewebsites.net
@@ -30,7 +30,7 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 }
 ```
 
-#Country Support (25/30)
+#Country Support (26/31)
 - [x] Austria
 - [x] Belgium
 - [x] Bulgaria
@@ -61,3 +61,8 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Sweden
 - [x] Switzerland
 - [x] United Kingdom
+- [x] United States of America
+
+
+#Tags
+Federal holiday, Public Holiday
