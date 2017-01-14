@@ -42,7 +42,7 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Finland
 - [x] France
 - [x] Germany
-- [ ] Greece
+- [x] Greece
 - [x] Hungary
 - [x] Ireland
 - [x] Italy
