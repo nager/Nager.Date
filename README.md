@@ -1,6 +1,7 @@
 #Nager.Date
 
 Public holiday calculation for every year, based on easter sunday, country and county support.
+If your country is not supported, fork me, implement it and send me the pull request.
 
 #####Demo Website
 http://publicholiday.azurewebsites.net
