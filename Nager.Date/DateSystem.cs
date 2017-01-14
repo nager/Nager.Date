@@ -75,6 +75,9 @@ namespace Nager.Date
                 case CountryCode.HR:
                     provider = new CroatiaProvider();
                     break;
+                case CountryCode.HU:
+                    provider = new HungaryProvider();
+                    break;
                 case CountryCode.IE:
                     provider = new IrelandProvider();
                     break;
