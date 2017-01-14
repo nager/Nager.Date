@@ -30,7 +30,8 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 }
 ```
 
-#Country Support (27/31)
+#Country Support
+##Europe
 - [x] Austria
 - [x] Belgium
 - [x] Bulgaria
@@ -61,7 +62,9 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Sweden
 - [x] Switzerland
 - [x] United Kingdom
-- [x] United States of America
+##North America
+- [ ] Canada
+- [x] United States
 
 
 #Tags
