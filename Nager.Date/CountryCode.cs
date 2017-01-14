@@ -29,6 +29,8 @@ namespace Nager.Date
         FI,
         [Description("France")]
         FR,
+        [Description("Greece")]
+        GR,
         [Description("Croatia")]
         HR,
         [Description("Hungary")]

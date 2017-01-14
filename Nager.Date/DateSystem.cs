@@ -72,6 +72,9 @@ namespace Nager.Date
                 case CountryCode.FR:
                     provider = new FranceProvider();
                     break;
+                case CountryCode.GR:
+                    provider = new GreeceProvider();
+                    break;
                 case CountryCode.HR:
                     provider = new CroatiaProvider();
                     break;
