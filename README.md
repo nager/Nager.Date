@@ -62,6 +62,7 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Sweden
 - [x] Switzerland
 - [x] United Kingdom
+
 ##North America
 - [ ] Canada
 - [x] United States
