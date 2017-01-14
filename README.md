@@ -1,5 +1,4 @@
-Nager.Date
-==========
+#Nager.Date
 
 Public holiday calculation for every year, based on easter sunday, country and county support.
 
