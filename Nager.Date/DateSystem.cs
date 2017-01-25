@@ -18,7 +18,7 @@ namespace Nager.Date
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
             CountryCode parsedCountryCode;
-            if (Enum.TryParse(countryCode, true, out parsedCountryCode))
+            if (!Enum.TryParse(countryCode, true, out parsedCountryCode))
             {
                 return null;
             }
