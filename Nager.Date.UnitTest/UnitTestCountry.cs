@@ -8,21 +8,21 @@ namespace Nager.Date.UnitTest
     public class UnitTestCountry
     {
         [TestMethod]
-        public void TestAustria()
-        {
-            for (var year = DateTime.Now.Year; year < 3000; year++)
-            {
-                var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.AT, year);
-                Assert.AreEqual(13, publicHolidays.Count());
-            }
-        }
-
-        [TestMethod]
-        public void TestGermany()
+        public void TestGermany1()
         {
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
                 var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, year);
+                Assert.AreEqual(12, publicHolidays.Count());
+            }
+        }
+
+        [TestMethod]
+        public void TestGermany2()
+        {
+            for (var year = DateTime.Now.Year; year < 3000; year++)
+            {
+                var publicHolidays = DateSystem.GetPublicHoliday("DE", year);
                 Assert.AreEqual(12, publicHolidays.Count());
             }
         }
