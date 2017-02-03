@@ -131,6 +131,41 @@ namespace Nager.Date
             return provider?.Get(easterSunday, year);
         }
 
+        public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, DateTime startDate, DateTime endDate)
+        {
+            CountryCode parsedCountryCode;
+            if (!Enum.TryParse(countryCode, true, out parsedCountryCode))
+            {
+                return null;
+            }
+
+            return GetPublicHoliday(parsedCountryCode, startDate, endDate);
+        }
+
+        public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, DateTime startDate, DateTime endDate)
+        {
+            if (startDate > endDate)
+            {
+                throw new ArgumentException("startDate is before endDate");
+            }
+
+            var currentYear = startDate.Year;
+            var endYear = endDate.Year;
+
+            while (currentYear <= endYear)
+            {
+                var items = GetPublicHoliday(countryCode, currentYear);
+                foreach (var item in items)
+                {
+                    if (item.Date >= startDate && item.Date <= endDate)
+                    {
+                        yield return item;
+                    }
+                }
+                currentYear++;
+            }
+        }
+
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);

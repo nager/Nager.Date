@@ -3,25 +3,36 @@
 Public holiday calculation for every year, based on easter sunday, country and county support.
 If your country is not supported, fork me, implement it and send me the pull request.
 
-#####Demo Website
+###Demo Website
 http://publicholiday.azurewebsites.net
 
-#####nuget
-The package is available on nuget
-https://www.nuget.org/packages/Nager.Date
+###nuget
+The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
 ```
-install-package Nager.Date
+PM> install-package Nager.Date
 ```
 
-#####Example - Get all publicHolidays of a country and year
+###Exampels
+
+####Get all publicHolidays of a country and year
 ```cs
 var publicHolidays = DateSystem.GetPublicHoliday("DE", 2017);
 foreach (var publicHoliday in publicHolidays)
 {
+	//publicHoliday...
 }
 ```
 
-#####Example - Check if a date a public holiday
+####Get all publicHolidays for a date range
+```cs
+var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, new DateTime(2016, 5, 1), new DateTime(2018, 5, 31));
+foreach (var publicHoliday in publicHolidays)
+{
+	//publicHoliday...
+}
+```
+
+####Check if a date a public holiday
 ```cs
 var date = new DateTime(2017, 1, 1);
 if (DateSystem.IsPublicHoliday(date, "DE"))

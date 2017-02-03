@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace Nager.Date.UnitTest
 {
@@ -91,6 +92,22 @@ namespace Nager.Date.UnitTest
 
             result = DateSystem.FindDay(2017, 1, 14, DayOfWeek.Wednesday);
             Assert.AreEqual(new DateTime(2017, 1, 18), result);
+        }
+
+        [TestMethod]
+        public void CheckPublicHolidayWithDateFilter1()
+        {
+            var items = DateSystem.GetPublicHoliday(CountryCode.DE, new DateTime(2016, 5, 1), new DateTime(2018, 5, 31));
+
+            Assert.IsTrue(items.First().Date > new DateTime(2016, 4, 28));
+            Assert.IsTrue(items.Last().Date < new DateTime(2018, 6, 1));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "startDate is before endDate")]
+        public void CheckPublicHolidayWithDateFilter2()
+        {
+            var items = DateSystem.GetPublicHoliday(CountryCode.DE, new DateTime(2016, 1, 2), new DateTime(2016, 1, 1)).First();
         }
     }
 }

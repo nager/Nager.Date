@@ -72,5 +72,10 @@ namespace Nager.Date.Model
                 this.Counties = counties;
             }
         }
+
+        public override string ToString()
+        {
+            return $"{this.Date.ToShortDateString()} {this.Name}";
+        }
     }
 }
