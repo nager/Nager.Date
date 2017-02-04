@@ -25,7 +25,9 @@ foreach (var publicHoliday in publicHolidays)
 
 ####Get all publicHolidays for a date range
 ```cs
-var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, new DateTime(2016, 5, 1), new DateTime(2018, 5, 31));
+var startDate = new DateTime(2016, 5, 1);
+var endDate = new DateTime(2018, 5, 31);
+var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, startDate, endDate);
 foreach (var publicHoliday in publicHolidays)
 {
 	//publicHoliday...
@@ -41,8 +43,8 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 }
 ```
 
-#Country Support
-##Europe
+###Country Support
+####Europe
 - [x] Austria
 - [x] Belgium
 - [x] Bulgaria
@@ -74,10 +76,6 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Switzerland
 - [x] United Kingdom
 
-##North America
+####North America
 - [x] Canada
 - [x] United States
-
-
-#Tags
-Federal holiday, Public Holiday
