@@ -3,6 +3,7 @@
   <metadata>
     <id>Nager.Date</id>
     <version>1.0.20</version>
+	<title>Nager Public Holiday</title>
     <authors>Tino Hager</authors>
     <owners>nager</owners>
     <licenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</licenseUrl>
