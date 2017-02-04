@@ -61,6 +61,8 @@ namespace Nager.Date
         SE,
         [Description("Slovenia")]
         SI,
+        [Description("Slovakia")]
+        SK,
         [Description("United Kingdom")]
         UK,
         [Description("United States of America")]

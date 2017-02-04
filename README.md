@@ -69,7 +69,7 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Poland
 - [x] Portugal
 - [x] Romania
-- [ ] Slovakia
+- [x] Slovakia
 - [x] Slovenia
 - [x] Spain
 - [x] Sweden
