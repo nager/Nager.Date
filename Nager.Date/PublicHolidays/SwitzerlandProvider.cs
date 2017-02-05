@@ -2,6 +2,7 @@
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -43,7 +44,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "Stephanstag", "St. Stephen's Day", countryCode, null, new string[] { "CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG" }, isChristmasDateSunday));
             items.Add(new PublicHoliday(year, 12, 31, "Silvester", "Silvester", countryCode, null, new string[] { "CH-NE" }, isNewYearDateSunday));
 
-            return items;
+            return items.OrderBy(o => o.Date);
         }
     }
 }

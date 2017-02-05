@@ -2,6 +2,7 @@
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -30,7 +31,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Crăciunul", "Christmas Day", countryCode, null, null, false));
             items.Add(new PublicHoliday(year, 12, 26, "Crăciunul", "St. Stephen's Day", countryCode, null, null, false));
 
-            return items;
+            return items.OrderBy(o => o.Date);
         }
     }
 }
