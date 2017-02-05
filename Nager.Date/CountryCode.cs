@@ -17,6 +17,8 @@ namespace Nager.Date
         CA,
         [Description("Switzerland")]
         CH,
+        [Description("Cyprus")]
+        CY,
         [Description("Czech Republic")]
         CZ,
         [Description("Germany")]

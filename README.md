@@ -49,7 +49,7 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Belgium
 - [x] Bulgaria
 - [x] Croatia
-- [ ] Cyprus
+- [x] Cyprus
 - [x] Czech Republic
 - [x] Denmark
 - [x] Estonia
