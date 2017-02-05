@@ -62,7 +62,7 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Italy
 - [x] Latvia
 - [x] Liechtenstein
-- [ ] Lithuania
+- [x] Lithuania
 - [x] Luxembourg
 - [x] Malta
 - [x] Netherlands

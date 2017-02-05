@@ -43,6 +43,8 @@ namespace Nager.Date
         IT,
         [Description("Liechtenstein")]
         LI,
+        [Description("Lithuania")]
+        LT,
         [Description("Luxembourg")]
         LU,
         [Description("Latvia")]

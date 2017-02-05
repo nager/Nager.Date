@@ -47,6 +47,7 @@
     <Compile Include="Extensions\DateTimeExtension.cs" />
     <Compile Include="PublicHolidays\CanadaProvider.cs" />
     <Compile Include="PublicHolidays\GreeceProvider.cs" />
+    <Compile Include="PublicHolidays\LithuaniaProvider.cs" />
     <Compile Include="PublicHolidays\HungaryProvider.cs" />
     <Compile Include="PublicHolidays\SlovakiaProvider.cs" />
     <Compile Include="PublicHolidays\SloveniaProvider.cs" />
