@@ -7,10 +7,11 @@ using System.Web.Http;
 
 namespace Nager.Date.Website.Controllers
 {
+    [RoutePrefix("api/v1")]
     public class PublicHolidayApiController : ApiController
     {
         [HttpGet]
-        [Route("api/get/{countrycode}/{year}")]
+        [Route("get/{countrycode}/{year}")]
         public IEnumerable<PublicHoliday> CountryJson(string countrycode, int year)
         {
             CountryCode countryCode;
