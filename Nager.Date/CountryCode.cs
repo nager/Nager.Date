@@ -55,6 +55,8 @@ namespace Nager.Date
         MT,
         [Description("Netherlands")]
         NL,
+        [Description("Norway")]
+        NO,
         [Description("Poland")]
         PL,
         [Description("Portugal")]

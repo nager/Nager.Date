@@ -66,6 +66,7 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Luxembourg
 - [x] Malta
 - [x] Netherlands
+- [x] Norway
 - [x] Poland
 - [x] Portugal
 - [x] Romania

@@ -111,6 +111,9 @@ namespace Nager.Date
                 case CountryCode.NL:
                     provider = new NetherlandsProvider();
                     break;
+                case CountryCode.NO:
+                    provider = new NorwayProvider();
+                    break;
                 case CountryCode.PL:
                     provider = new PolandProvider();
                     break;
@@ -273,6 +276,15 @@ namespace Nager.Date
             }
 
             return resultedDay;
+        }
+
+        public static int GetAge(DateTime birthdate)
+        {
+            var today = DateTime.UtcNow;
+            var age = today.Year - birthdate.Year;
+            if (birthdate > today.AddYears(-age)) age--;
+
+            return age;
         }
     }
 }
