@@ -8,7 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     public class CyprusProvider : IPublicHolidayProvider
     {
-
         public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
         {
             //Cyprus
