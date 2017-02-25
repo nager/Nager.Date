@@ -15,7 +15,7 @@ namespace Nager.Date.PublicHolidays
             //https://en.wikipedia.org/wiki/Public_holidays_in_the_United_Kingdom
             //https://de.wikipedia.org/wiki/Feiertage_im_Vereinigten_K%C3%B6nigreich
 
-            var countryCode = CountryCode.UK;
+            var countryCode = CountryCode.GB;
 
             var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
             var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);

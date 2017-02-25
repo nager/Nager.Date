@@ -132,7 +132,7 @@ namespace Nager.Date
                 case CountryCode.SK:
                     provider = new SlovakiaProvider();
                     break;
-                case CountryCode.UK:
+                case CountryCode.GB:
                     provider = new UnitedKingdomProvider();
                     break;
                 case CountryCode.US:

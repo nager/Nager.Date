@@ -70,7 +70,7 @@ namespace Nager.Date
         [Description("Slovakia")]
         SK,
         [Description("United Kingdom")]
-        UK,
+        GB,
         [Description("United States of America")]
         US,
     }
