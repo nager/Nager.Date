@@ -1,3 +1,5 @@
+[![GitHub Release](https://img.shields.io/github/release/tinohager/nager.date.svg?style=flat-square)](https://github.com/tinohager/nager.date/releases)
+
 #Nager.Date
 
 Public holiday calculation for every year, based on easter sunday, country and county support.
