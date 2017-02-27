@@ -48,6 +48,7 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 ###Country Support
 ####Europe
 - [x] Austria
+- [x] Belarus
 - [x] Belgium
 - [x] Bulgaria
 - [x] Croatia
@@ -82,3 +83,6 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 ####North America
 - [x] Canada
 - [x] United States
+
+####Atlantic
+- [x] Greenland

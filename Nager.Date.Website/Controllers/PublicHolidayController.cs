@@ -1,4 +1,5 @@
-﻿using Nager.Date.Website.Model;
+﻿using Nager.Date.Website.Extensions;
+using Nager.Date.Website.Model;
 using System;
 using System.Linq;
 using System.Web.Mvc;
@@ -20,8 +21,10 @@ namespace Nager.Date.Website.Controllers
                 return View("NotFound");
             }
 
-            ViewBag.Country = countrycode;
-            ViewBag.Year = year + 1;
+            ViewBag.Country = EnumExtension.GetEnumDescription(countryCode).ToString();
+            ViewBag.CountryCode = countrycode;
+            ViewBag.Year = year;
+            ViewBag.NextYear = year + 1;
 
             var publicHolidays = DateSystem.GetPublicHoliday(countryCode, year);
             if (publicHolidays?.Count() > 0)

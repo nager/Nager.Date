@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Public Holidays for " + ViewBag.Country;
 }
+<h1>Public Holidays for @ViewBag.Country <small>@ViewBag.CountryCode - @ViewBag.Year</small></h1>
+
 <table class="table table-responsive">
     <tr>
         <th class="col-md-1">Date</th>
@@ -40,4 +42,4 @@
 </table>
 
 
-<a href="/PublicHoliday/Country/@(ViewBag.Country)/@(ViewBag.Year)" class="btn btn-primary">Next year</a>
+<a href="/PublicHoliday/Country/@(ViewBag.CountryCode)/@(ViewBag.NextYear)" class="btn btn-primary">Next year</a>
