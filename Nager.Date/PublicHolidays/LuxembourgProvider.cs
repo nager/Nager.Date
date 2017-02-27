@@ -1,19 +1,18 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
-using System;
+﻿using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class LuxembourgProvider : IPublicHolidayProvider
+    public class LuxembourgProvider : CatholicBaseProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Luxembourg
             //https://en.wikipedia.org/wiki/Public_holidays_in_Luxembourg
 
             var countryCode = CountryCode.LU;
+            var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neijoerschdag", "New Year's Day", countryCode));

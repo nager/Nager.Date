@@ -9,7 +9,7 @@ namespace Nager.Date.PublicHolidays
 {
     public class UnitedStatesProvider : IPublicHolidayProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //United States of America
             //https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States

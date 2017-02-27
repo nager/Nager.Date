@@ -1,19 +1,19 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
+﻿using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class IrelandProvider : IPublicHolidayProvider
+    public class IrelandProvider : CatholicBaseProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Ireland
             //https://en.wikipedia.org/wiki/Public_holidays_in_the_Republic_of_Ireland
 
             var countryCode = CountryCode.IE;
+            var easterSunday = base.EasterSunday(year);
 
             var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
             var firstMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 1);

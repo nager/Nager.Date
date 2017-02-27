@@ -1,19 +1,18 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
-using System;
+﻿using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class CzechRepublicProvider : IPublicHolidayProvider
+    public class CzechRepublicProvider : CatholicBaseProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Czech Republic
             //https://en.wikipedia.org/wiki/Public_holidays_in_the_Czech_Republic
 
             var countryCode = CountryCode.CZ;
+            var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Den obnovy samostatného českého státu; Nový rok", "New Year's Day", countryCode));

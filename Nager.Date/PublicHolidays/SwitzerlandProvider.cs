@@ -1,19 +1,19 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
+﻿using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class SwitzerlandProvider : IPublicHolidayProvider
+    public class SwitzerlandProvider : CatholicBaseProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Switzerland
             //http://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz
 
             var countryCode = CountryCode.CH;
+            var easterSunday = base.EasterSunday(year);
 
             //In canton of Neuchâtel the following dates are considered official county holidays
             //only if Christmas day and new year's day fall on a Sunday : 26.12 and 02.01

@@ -1,19 +1,18 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
-using System;
+﻿using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class CroatiaProvider : IPublicHolidayProvider
+    public class CroatiaProvider : CatholicBaseProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Croatia
             //https://en.wikipedia.org/wiki/Public_holidays_in_Croatia
 
             var countryCode = CountryCode.HR;
+            var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nova Godina", "New Year's Day", countryCode));

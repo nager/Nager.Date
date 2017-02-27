@@ -1,19 +1,19 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
+﻿using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class NetherlandsProvider : IPublicHolidayProvider
+    public class NetherlandsProvider : CatholicBaseProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Netherlands
             //https://en.wikipedia.org/wiki/Public_holidays_in_the_Netherlands
 
             var countryCode = CountryCode.NL;
+            var easterSunday = base.EasterSunday(year);
 
             #region King's Day is Sunday fallback
 

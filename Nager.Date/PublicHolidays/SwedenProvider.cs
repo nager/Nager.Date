@@ -1,19 +1,19 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
+﻿using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class SwedenProvider : IPublicHolidayProvider
+    public class SwedenProvider : CatholicBaseProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Sweden
             //https://en.wikipedia.org/wiki/Public_holidays_in_Sweden
 
             var countryCode = CountryCode.SE;
+            var easterSunday = base.EasterSunday(year);
 
             var midsummerDay = DateSystem.FindDay(year, 6, 20, DayOfWeek.Saturday);
             var allSaintsDay = DateSystem.FindDay(year, 10, 31, DayOfWeek.Saturday);

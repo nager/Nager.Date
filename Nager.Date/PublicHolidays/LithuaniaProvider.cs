@@ -1,19 +1,18 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
-using System;
+﻿using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class LithuaniaProvider : IPublicHolidayProvider
+    public class LithuaniaProvider : CatholicBaseProvider
     {
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Lithuania
             https://en.wikipedia.org/wiki/Public_holidays_in_Lithuania
 
             var countryCode = CountryCode.LT;
+            var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Naujieji metai", "New Year's Day", countryCode));

@@ -1,12 +1,11 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
+﻿using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class CanadaProvider : IPublicHolidayProvider
+    public class CanadaProvider : CatholicBaseProvider
     {
         public IDictionary<string, string> GetCounties()
         {
@@ -27,12 +26,13 @@ namespace Nager.Date.PublicHolidays
             return items;
         }
 
-        public IEnumerable<PublicHoliday> Get(DateTime easterSunday, int year)
+        public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Canada
             //https://en.wikipedia.org/wiki/Public_holidays_in_Canada
 
             var countryCode = CountryCode.CA;
+            var easterSunday = base.EasterSunday(year);
 
             var secondMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 2);
             var thirdMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 3);

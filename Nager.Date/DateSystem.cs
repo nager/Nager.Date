@@ -1,9 +1,9 @@
-﻿using Nager.Date.PublicHolidays;
+﻿using Nager.Date.Contract;
 using Nager.Date.Model;
+using Nager.Date.PublicHolidays;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nager.Date.Contract;
 
 namespace Nager.Date
 {
@@ -140,7 +140,7 @@ namespace Nager.Date
                     break;
             }
 
-            return provider?.Get(easterSunday, year);
+            return provider?.Get(year);
         }
 
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, DateTime startDate, DateTime endDate)
