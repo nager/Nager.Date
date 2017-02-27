@@ -34,7 +34,6 @@ namespace Nager.Date
         /// <returns></returns>
         public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, int year)
         {
-            var easterSunday = EasterSunday(year);
             IPublicHolidayProvider provider = null;
 
             switch (countryCode)
@@ -47,6 +46,9 @@ namespace Nager.Date
                     break;
                 case CountryCode.BG:
                     provider = new BulgariaProvider();
+                    break;
+                case CountryCode.BY:
+                    provider = new BelarusProvider();
                     break;
                 case CountryCode.CA:
                     provider = new CanadaProvider();
@@ -194,32 +196,6 @@ namespace Nager.Date
         {
             var items = GetPublicHoliday(countryCode, date.Year);
             return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyAdministrationHoliday).Any();
-        }
-
-        /// <summary>
-        /// Get Catholic easter for requested year
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
-        public static DateTime EasterSunday(int year)
-        {
-            //http://stackoverflow.com/questions/2510383/how-can-i-calculate-what-date-good-friday-falls-on-given-a-year
-
-            var g = year % 19;
-            var c = year / 100;
-            var h = (c - c / 4 - (8 * c + 13) / 25 + 19 * g + 15) % 30;
-            var i = h - (h / 28) * (1 - (h / 28) * (29 / (h + 1)) * ((21 - g) / 11));
-
-            var day = i - ((year + (int)(year / 4) + i + 2 - c + (int)(c / 4)) % 7) + 28;
-            var month = 3;
-
-            if (day > 31)
-            {
-                month++;
-                day -= 31;
-            }
-
-            return new DateTime(year, month, day);
         }
 
         public static int FindLastDay(int year, int month, DayOfWeek day)

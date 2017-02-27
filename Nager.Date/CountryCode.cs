@@ -13,6 +13,8 @@ namespace Nager.Date
         BE,
         [Description("Bulgaria")]
         BG,
+        [Description("Belarus")]
+        BY,
         [Description("Canada")]
         CA,
         [Description("Switzerland")]

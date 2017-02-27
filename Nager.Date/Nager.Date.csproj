@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Contract\IPublicHolidayProvider.cs" />
     <Compile Include="Extensions\DateTimeExtension.cs" />
+    <Compile Include="PublicHolidays\BelarusProvider.cs" />
     <Compile Include="PublicHolidays\CanadaProvider.cs" />
     <Compile Include="PublicHolidays\CatholicBaseProvider.cs" />
     <Compile Include="PublicHolidays\CyprusProvider.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="PublicHolidays\LithuaniaProvider.cs" />
     <Compile Include="PublicHolidays\HungaryProvider.cs" />
     <Compile Include="PublicHolidays\NorwayProvider.cs" />
+    <Compile Include="PublicHolidays\OrthodoxBaseProvider.cs" />
     <Compile Include="PublicHolidays\SlovakiaProvider.cs" />
     <Compile Include="PublicHolidays\SloveniaProvider.cs" />
     <Compile Include="PublicHolidays\LuxembourgProvider.cs" />
