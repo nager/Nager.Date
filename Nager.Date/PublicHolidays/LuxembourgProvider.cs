@@ -17,7 +17,7 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neijoerschdag", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ouschterméindeg", "Easter Monday", countryCode));
-            items.Add(new PublicHoliday(year, 5, 1, "Dag vun der Aarbecht", "Labor Day", countryCode));
+            items.Add(new PublicHoliday(year, 5, 1, "Dag vun der Aarbecht", "Labour Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Christi Himmelfaart", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Péngschtméindeg", "Whit Monday", countryCode));
             items.Add(new PublicHoliday(year, 6, 23, "Groussherzogsgebuertsdag", "Sovereign's birthday", countryCode));
