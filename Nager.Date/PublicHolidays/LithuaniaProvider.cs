@@ -9,7 +9,7 @@ namespace Nager.Date.PublicHolidays
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Lithuania
-            https://en.wikipedia.org/wiki/Public_holidays_in_Lithuania
+            //https://en.wikipedia.org/wiki/Public_holidays_in_Lithuania
 
             var countryCode = CountryCode.LT;
             var easterSunday = base.EasterSunday(year);

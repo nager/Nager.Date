@@ -67,6 +67,8 @@ namespace Nager.Date
         PT,
         [Description("Romania")]
         RO,
+        [Description("Russia")]
+        RU,
         [Description("Sweden")]
         SE,
         [Description("Slovenia")]
