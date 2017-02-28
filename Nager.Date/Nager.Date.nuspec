@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Nager.Date</id>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <title>Nager Public Holiday</title>
     <authors>Tino Hager</authors>
     <owners>nager</owners>
@@ -11,7 +11,7 @@
     <!-- <iconUrl></iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supported Countries: AT, BE, BG, BY, CA, CH, CY, CZ, EE, DE, DK, ES, FI, FR, GB, GL, GR, HR, HU, IE, IT, LI, LT, LU, LV, MT, NL, NO, PL, PT, RO, SE, SI, SK, US</description>
-    <releaseNotes>Add Belarus, Add Greenland</releaseNotes>
+    <releaseNotes>Add Belarus, Add Greenland, Add Russia</releaseNotes>
     <tags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Austria Belarus Belgium Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Malta Netherlands Norway Poland Portugal Romania Slovakia Slovenia Spain Sweden Switzerland UnitedKingdom UnitedStates</tags>
   </metadata>
 </package>
