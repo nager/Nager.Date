@@ -15,6 +15,9 @@
         public string[] Counties { get; set; }
         public int? LaunchYear { get; set; }
 
+        public PublicHoliday()
+        { }
+
         public PublicHoliday(Date.Model.PublicHoliday item)
         {
             this.Date = item.Date.ToString("yyyy-MM-dd");
