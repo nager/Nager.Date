@@ -16,6 +16,14 @@ namespace Nager.Date.Website.Controllers
             return View();
         }
 
+        public ActionResult Countries()
+        {
+            var countries = from CountryCode o in Enum.GetValues(typeof(CountryCode)) select new KeyValuePair<string, string>(o.ToString(), EnumExtension.GetEnumDescription(o));
+            ViewBag.Countries = countries;
+
+            return View();
+        }
+
         public ActionResult Api()
         {
             return View();

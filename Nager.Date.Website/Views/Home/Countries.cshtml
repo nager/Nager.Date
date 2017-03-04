@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Countries";
+}
+
+<h1>Countries</h1>
+
+<table class="table">
+    @foreach (var country in ViewBag.Countries)
+    {
+        <tr>
+            <td>@country.Value</td>
+            <td>@country.Key</td>
+            <td><a href="/PublicHoliday/Country/@country.Key" class="btn btn-xs btn-primary">Show</a></td>
+        </tr>
+    }
+</table>

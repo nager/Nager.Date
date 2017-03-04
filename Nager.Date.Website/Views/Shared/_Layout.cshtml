@@ -22,18 +22,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">COUNTRIES <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            @{
-                                var countries = from CountryCode o in Enum.GetValues(typeof(CountryCode)) select new KeyValuePair<string, string>(o.ToString(), EnumExtension.GetEnumDescription(o));
-                                foreach (var country in countries)
-                                {
-                                    <li>@Html.ActionLink(country.Value, "Country", "PublicHoliday", new { countrycode = country.Key }, null)</li>
-                                }
-                            }
-                        </ul>
-                    </li>
+                    <li>@Html.ActionLink("Countries", "Countries", "Home")</li>
                     <li>@Html.ActionLink("API", "Api", "Home")</li>
                 </ul>
             </div>

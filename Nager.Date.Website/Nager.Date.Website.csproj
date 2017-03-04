@@ -199,6 +199,7 @@
     <Content Include="Views\PublicHoliday\Country.cshtml" />
     <Content Include="Views\PublicHoliday\NotFound.cshtml" />
     <Content Include="Views\Home\Api.cshtml" />
+    <Content Include="Views\Home\Countries.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
