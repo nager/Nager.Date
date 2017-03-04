@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Nager.Date</id>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <title>Nager Public Holiday</title>
     <authors>Tino Hager</authors>
     <owners>nager</owners>
@@ -10,8 +10,10 @@
     <projectUrl>https://github.com/tinohager/Nager.Date</projectUrl>
     <!-- <iconUrl></iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supported Countries: AT, BE, BG, BY, CA, CH, CY, CZ, EE, DE, DK, ES, FI, FR, GB, GL, GR, HR, HU, IE, IT, LI, LT, LU, LV, MT, NL, NO, PL, PT, RO, RU, SE, SI, SK, US</description>
-    <releaseNotes>Add Belarus, Add Greenland, Add Russia</releaseNotes>
-    <tags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Austria Belarus Belgium Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Malta Netherlands Norway Poland Portugal Romania Russia Slovakia Slovenia Spain Sweden Switzerland UnitedKingdom UnitedStates</tags>
+    <description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supported Countries: AT, BE, BG, BY, CA, CH, CY, CZ, EE, DE, DK, ES, FI, FR, GB, GL, GR, HR, HU, IE, IT, LI, LT, LU, LV, MG, MT, NL, NO, NZ, PL, PT, RO, RU, SE, SI, SK, US, ZA</description>
+    <releaseNotes>
+      Add Madagascar, Add South Africa, Add New Zealand
+    </releaseNotes>
+    <tags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Austria Belarus Belgium Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Netherlands Norway NewZealand Poland Portugal Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland UnitedKingdom UnitedStates</tags>
   </metadata>
 </package>

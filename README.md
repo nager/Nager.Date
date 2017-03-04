@@ -87,3 +87,10 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 
 ####Atlantic
 - [x] Greenland
+
+####Africa
+- [x] Madagascar
+- [x] South Africa
+
+####Australia & Pacific
+- [x] New Zealand
