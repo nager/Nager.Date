@@ -55,6 +55,8 @@ namespace Nager.Date
         LU,
         [Description("Latvia")]
         LV,
+        [Description("Madagascar")]
+        MG,
         [Description("Malta")]
         MT,
         [Description("Netherlands")]
@@ -79,5 +81,7 @@ namespace Nager.Date
         GB,
         [Description("United States of America")]
         US,
+        [Description("South Africa")]
+        ZA,
     }
 }

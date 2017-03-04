@@ -110,6 +110,9 @@ namespace Nager.Date
                 case CountryCode.LV:
                     provider = new LatviaProvider();
                     break;
+                case CountryCode.MG:
+                    provider = new MadagascarProvider();
+                    break;
                 case CountryCode.MT:
                     provider = new MaltaProvider();
                     break;
