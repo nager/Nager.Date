@@ -63,6 +63,8 @@ namespace Nager.Date
         NL,
         [Description("Norway")]
         NO,
+        [Description("New Zealand")]
+        NZ,
         [Description("Poland")]
         PL,
         [Description("Portugal")]

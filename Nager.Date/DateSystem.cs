@@ -122,6 +122,9 @@ namespace Nager.Date
                 case CountryCode.NO:
                     provider = new NorwayProvider();
                     break;
+                case CountryCode.NZ:
+                    provider = new NewZealandProvider();
+                    break;
                 case CountryCode.PL:
                     provider = new PolandProvider();
                     break;
