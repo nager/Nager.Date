@@ -152,6 +152,9 @@ namespace Nager.Date
                 case CountryCode.US:
                     provider = new UnitedStatesProvider();
                     break;
+                case CountryCode.ZA:
+                    provider = new SouthAfricaProvider();
+                    break;
             }
 
             return provider?.Get(year);
