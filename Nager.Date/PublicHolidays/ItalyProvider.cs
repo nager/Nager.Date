@@ -22,7 +22,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, 25, "Festa della Liberazione", "Liberation Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Festa del Lavoro", "International Workers Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 2, "Festa della Repubblica", "Republic Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 15, "Ferragosto and Assunta", "Assumption Day", countryCode));
+            items.Add(new PublicHoliday(year, 8, 15, "Ferragosto o Assunzione", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Tutti i santi", "All Saints Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "Immacolata Concezione", "Immaculate Conception", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Natale", "Christmas Day", countryCode));
