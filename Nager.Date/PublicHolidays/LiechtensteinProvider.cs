@@ -21,6 +21,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 2, 2, "Mariä Lichtmess", "Candlemas", countryCode));
             items.Add(new PublicHoliday(year, 3, 19, "Josefstag", "Saint Joseph's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Karfreitag", "Good Friday", countryCode));
+            items.Add(new PublicHoliday(easterSunday, "Ostersonntag", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter Monday", countryCode, 1642));
             items.Add(new PublicHoliday(year, 5, 1, "Tag der Arbeit", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 29, "Auffahrt", "Ascension", countryCode));
