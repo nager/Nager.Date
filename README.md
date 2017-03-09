@@ -85,6 +85,9 @@ if (DateSystem.IsPublicHoliday(date, "DE"))
 - [x] Canada
 - [x] United States
 
+####South America
+- [x] Brazil
+
 ####Atlantic
 - [x] Greenland
 

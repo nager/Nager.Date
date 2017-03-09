@@ -47,6 +47,9 @@ namespace Nager.Date
                 case CountryCode.BG:
                     provider = new BulgariaProvider();
                     break;
+                case CountryCode.BR:
+                    provider = new BrazilProvider();
+                    break;
                 case CountryCode.BY:
                     provider = new BelarusProvider();
                     break;
