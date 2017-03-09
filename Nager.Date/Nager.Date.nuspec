@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/tinohager/Nager.Date</projectUrl>
     <!-- <iconUrl></iconUrl> -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supported Countries: AT, BE, BG, BR, BY, CA, CH, CY, CZ, EE, DE, DK, ES, FI, FR, GB, GL, GR, HR, HU, IE, IT, LI, LT, LU, LV, MG, MT, NL, NO, NZ, PE, PL, PT, RO, RU, SE, SI, SK, US, ZA</description>
+    <description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supports more than 40 countries</description>
     <releaseNotes>
       Add Brazil, Add Peru, Bugfix Italy
     </releaseNotes>
