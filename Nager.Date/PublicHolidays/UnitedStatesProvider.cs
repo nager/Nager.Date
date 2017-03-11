@@ -31,7 +31,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 7, 4, "Independence Day", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 9, firstMondayInSeptember, "Labor Day", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 9, secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-CO", "US-CT", "US-DC", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-ME", "US-MD", "US-MA", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NY", "US-NC", "US-OH", "US-OK", "US-PA", "US-RI", "US-SC", "US-TN", "US-UT", "US-VA", "US-WV" }));
-            items.Add(new PublicHoliday(year, 12, fourthThursdayInNovember, "Thanksgiving Day", "Thanksgiving Day", countryCode, 1863));
+            items.Add(new PublicHoliday(year, 11, fourthThursdayInNovember, "Thanksgiving Day", "Thanksgiving Day", countryCode, 1863));
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
 
             #region Veterans Day
