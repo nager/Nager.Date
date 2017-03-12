@@ -2,6 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
+    <Description>Calculate Public Holiday for any Year</Description>
+    <Company>nager.at</Company>
+    <Version>1.5.0</Version>
+    <Authors>Tino Hager</Authors>
+    <PackageReleaseNotes>switch to .net standard 1.1</PackageReleaseNotes>
+    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Austria Belarus Belgium Brazil Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Netherlands Norway NewZealand Peru Poland Portugal Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland UnitedKingdom UnitedStates</PackageTags>
+    <PackageProjectUrl>https://github.com/tinohager/Nager.Date</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</PackageLicenseUrl>
+    <Product>Nager Public Holiday</Product>
+    <AssemblyVersion>1.5.0</AssemblyVersion>
+    <FileVersion>1.5.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD1_1</DefineConstants>
   </PropertyGroup>
 
 </Project>
