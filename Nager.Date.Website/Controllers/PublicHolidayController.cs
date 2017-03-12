@@ -1,6 +1,6 @@
-﻿using Nager.Date.Website.Extensions;
-using Nager.Date.Website.Model;
+﻿using Nager.Date.Website.Model;
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -21,7 +21,9 @@ namespace Nager.Date.Website.Controllers
                 return View("NotFound");
             }
 
-            ViewBag.Country = EnumExtension.GetEnumDescription(countryCode).ToString();
+            var regionInfo = new RegionInfo(countryCode.ToString());
+
+            ViewBag.Country = regionInfo.EnglishName;
             ViewBag.CountryCode = countrycode;
             ViewBag.Year = year;
             ViewBag.NextYear = year + 1;

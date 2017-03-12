@@ -144,7 +144,6 @@
     <Compile Include="Controllers\PublicHolidayApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PublicHolidayController.cs" />
-    <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

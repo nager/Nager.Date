@@ -75,7 +75,7 @@ namespace Nager.Date.Model
 
         public override string ToString()
         {
-            return $"{this.Date.ToShortDateString()} {this.Name}";
+            return $"{this.Date:yyyy-MM-dd} {this.Name}";
         }
     }
 }
