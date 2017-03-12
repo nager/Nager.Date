@@ -39,7 +39,7 @@ foreach (var publicHoliday in publicHolidays)
 ####Check if a date a public holiday
 ```cs
 var date = new DateTime(2017, 1, 1);
-if (DateSystem.IsPublicHoliday(date, "DE"))
+if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 {
 	Console.WriteLine("Is public holiday");
 }
