@@ -17,6 +17,7 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Capodanno", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 1, 6, "Epifania", "Epiphany", countryCode));
+            items.Add(new PublicHoliday(easterSunday, "Pasqua", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Lunedì dell'Angelo", "Easter Monday", countryCode, 1642));
             items.Add(new PublicHoliday(year, 4, 25, "Festa della Liberazione", "Liberation Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Festa del Lavoro", "International Workers Day", countryCode));
