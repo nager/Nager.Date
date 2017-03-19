@@ -1,6 +1,6 @@
-﻿using Nager.Date.Website.Model;
+﻿using Bia.Countries;
+using Nager.Date.Website.Model;
 using System;
-using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -21,9 +21,9 @@ namespace Nager.Date.Website.Controllers
                 return View("NotFound");
             }
 
-            var regionInfo = new RegionInfo(countryCode.ToString());
+            var country = Iso3166Countries.GetCountryByAlpha2(countryCode.ToString());
 
-            ViewBag.Country = regionInfo.EnglishName;
+            ViewBag.Country = country.ActiveDirectoryName;
             ViewBag.CountryCode = countrycode;
             ViewBag.Year = year;
             ViewBag.NextYear = year + 1;

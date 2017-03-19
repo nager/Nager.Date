@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bia.Countries;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace Nager.Date.Website.Controllers
     {
         private string GetName(CountryCode countryCode)
         {
-            var regionInfo = new RegionInfo(countryCode.ToString());
-            return regionInfo?.EnglishName;
+            var country = Iso3166Countries.GetCountryByAlpha2(countryCode.ToString());
+            return country.ActiveDirectoryName;
         }
 
         public ActionResult Index()
