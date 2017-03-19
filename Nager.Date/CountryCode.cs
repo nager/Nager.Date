@@ -8,6 +8,7 @@
         AT,
         BE,
         BG,
+        BO,
         BR,
         BY,
         CA,
