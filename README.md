@@ -94,6 +94,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Greenland
 
 ####Africa
+- [x] Botswana
 - [x] Madagascar
 - [x] South Africa
 
