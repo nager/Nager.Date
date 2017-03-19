@@ -20,7 +20,6 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 3, 19, "San Ġużepp", "Feast of St. Joseph", countryCode));
             items.Add(new PublicHoliday(year, 3, 31, "Jum il-Ħelsien", "Freedom Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Il-Ġimgħa l-Kbira", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "l-Għid il-Kbir", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Jum il-Ħaddiem", "Worker's Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 7, "Sette Giugno", "​Sette Giugno", countryCode));
             items.Add(new PublicHoliday(year, 6, 29, "L-Imnarja", "​​Feast of St.Peter and St.Paul", countryCode));

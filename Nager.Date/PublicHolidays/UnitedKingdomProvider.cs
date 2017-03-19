@@ -52,7 +52,6 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(new PublicHoliday(year, 7, 12, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978));
             items.Add(new PublicHoliday(year, 5, lastMondayInMay, "Spring Bank Holiday", "Spring Bank Holiday", countryCode, 1971));
