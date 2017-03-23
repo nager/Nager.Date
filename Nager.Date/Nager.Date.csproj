@@ -50,6 +50,7 @@
     <Compile Include="PublicHolidays\PeruProvider.cs" />
     <Compile Include="PublicHolidays\BrazilProvider.cs" />
     <Compile Include="PublicHolidays\NewZealandProvider.cs" />
+    <Compile Include="PublicHolidays\NamibiaProvider.cs" />
     <Compile Include="PublicHolidays\SouthAfricaProvider.cs" />
     <Compile Include="PublicHolidays\MadagascarProvider.cs" />
     <Compile Include="PublicHolidays\RussiaProvider.cs" />
