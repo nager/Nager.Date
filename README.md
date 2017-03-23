@@ -96,6 +96,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 ####Africa
 - [x] Botswana
 - [x] Madagascar
+- [x] Namibia
 - [x] South Africa
 
 ####Australia & Pacific

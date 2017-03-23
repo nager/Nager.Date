@@ -125,6 +125,9 @@ namespace Nager.Date
                 case CountryCode.MT:
                     provider = new MaltaProvider();
                     break;
+                case CountryCode.NA:
+                    provider = new NamibiaProvider();
+                    break;
                 case CountryCode.NL:
                     provider = new NetherlandsProvider();
                     break;

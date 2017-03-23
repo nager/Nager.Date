@@ -34,6 +34,7 @@
         LV,
         MG,
         MT,
+        NA,
         NL,
         NO,
         NZ,
