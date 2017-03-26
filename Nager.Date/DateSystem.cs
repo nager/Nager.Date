@@ -149,6 +149,9 @@ namespace Nager.Date
                 case CountryCode.PT:
                     provider = new PortugalProvider();
                     break;
+                case CountryCode.PY:
+                    provider = new ParaguayProvider();
+                    break;
                 case CountryCode.RO:
                     provider = new RomaniaProvider();
                     break;

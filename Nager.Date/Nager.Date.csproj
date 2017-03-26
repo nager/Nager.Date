@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Contract\IPublicHolidayProvider.cs" />
     <Compile Include="Extensions\DateTimeExtension.cs" />
+    <Compile Include="PublicHolidays\ParaguayProvider.cs" />
     <Compile Include="PublicHolidays\IcelandProvider.cs" />
     <Compile Include="PublicHolidays\BotswanaProvider.cs" />
     <Compile Include="PublicHolidays\BoliviaProvider.cs" />

@@ -42,6 +42,7 @@
         PE,
         PL,
         PT,
+        PY,
         RO,
         RU,
         SE,
