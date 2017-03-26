@@ -27,6 +27,7 @@
         HR,
         HU,
         IE,
+        IS,
         IT,
         LI,
         LT,

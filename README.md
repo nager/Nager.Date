@@ -61,6 +61,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Germany
 - [x] Greece
 - [x] Hungary
+- [x] Iceland
 - [x] Ireland
 - [x] Italy
 - [x] Latvia
