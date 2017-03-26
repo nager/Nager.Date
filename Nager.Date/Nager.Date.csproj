@@ -49,6 +49,7 @@
     <Compile Include="PublicHolidays\IcelandProvider.cs" />
     <Compile Include="PublicHolidays\BotswanaProvider.cs" />
     <Compile Include="PublicHolidays\BoliviaProvider.cs" />
+    <Compile Include="PublicHolidays\HondurasProvider.cs" />
     <Compile Include="PublicHolidays\PeruProvider.cs" />
     <Compile Include="PublicHolidays\BrazilProvider.cs" />
     <Compile Include="PublicHolidays\NewZealandProvider.cs" />

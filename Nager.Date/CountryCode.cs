@@ -24,6 +24,7 @@
         FR,
         GL,
         GR,
+        HN,
         HR,
         HU,
         IE,

@@ -89,6 +89,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 #### South America
 - [x] Bolivia
 - [x] Brazil
+- [x] Honduras
 - [x] Paraguay
 - [x] Peru
 
