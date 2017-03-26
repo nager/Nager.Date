@@ -28,7 +28,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 10, 8, "Combate de Angamos", "Battle of Angamos", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Día de Todos los Santos", "All Saints Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));            
+            items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
             
             return items.OrderBy(o => o.Date);
         }
