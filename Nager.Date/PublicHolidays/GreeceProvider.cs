@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class GreeceProvider : CatholicBaseProvider
+    public class GreeceProvider : OrthodoxBaseProvider
     {
         public override IEnumerable<PublicHoliday> Get(int year)
         {
