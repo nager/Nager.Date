@@ -34,5 +34,20 @@ namespace Nager.Date.PublicHolidays
 
             return new DateTime(year, month, day);
         }
+
+        /// <summary>
+        /// Get advent sunday for requested year
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public DateTime AdventSunday(int year)
+        {
+            var christmasDate = new DateTime(year, 12, 24);
+            var daysToAdvent = 21 + (int)christmasDate.DayOfWeek;
+
+            return christmasDate.AddDays((daysToAdvent * -1));
+            
+        }
+
     }
 }

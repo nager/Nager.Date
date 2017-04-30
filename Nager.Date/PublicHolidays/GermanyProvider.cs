@@ -13,6 +13,7 @@ namespace Nager.Date.PublicHolidays
 
             var countryCode = CountryCode.DE;
             var easterSunday = base.EasterSunday(year);
+            var adventSunday = base.AdventSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
@@ -27,6 +28,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 11, 1, "Allerheiligen", "All Saints' Day", countryCode, null, new string[] { "BW", "BY", "NW", "RP", "SL" }));
             items.Add(new PublicHoliday(year, 12, 25, "Weihnachten", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Stefanitag", "St. Stephen's Day", countryCode));
+            
 
             if (year == 2017)
             {
@@ -38,7 +40,47 @@ namespace Nager.Date.PublicHolidays
                 items.Add(new PublicHoliday(year, 10, 31, "Reformationstag", "Reformation Day", countryCode, null, new string[] { "BB", "MV", "SN", "ST", "TH" }));
             }
 
+
+            AddGermanDayOfPrayer(countryCode, year, items);
+
             return items.OrderBy(o => o.Date);
         }
+
+
+        private void AddGermanDayOfPrayer(CountryCode countryCode, int year, List<PublicHoliday> items)
+        {
+
+            var dayOfPrayer = base.AdventSunday(year).AddDays(-11);
+            string localName = "Buß- und Bettag";
+            string englishName = "Day of Repentance and Prayer";
+
+            if (year >= 1934 && year < 1939)
+            {
+                items.Add(new PublicHoliday(dayOfPrayer, localName, englishName, countryCode));
+            }
+
+            else if (year >= 1945 && year <= 1980)
+            {
+                items.Add(new PublicHoliday(dayOfPrayer, localName, englishName, countryCode, null, new string[] { "BW", "BE", "HB", "HH", "HE", "NI", "NW", "RP", "SL", "SH" }));
+            }
+
+            else if (year >= 1981 && year <= 1989)
+            {
+                items.Add(new PublicHoliday(dayOfPrayer, localName, englishName, countryCode, null, new string[] { "BW", "BY", "BE", "HB", "HH", "HE", "NI", "NW", "RP", "SL", "SH" }));
+            }
+
+            else if (year >= 1990 && year <= 1994)
+            {
+                items.Add(new PublicHoliday(dayOfPrayer, localName, englishName, countryCode));
+            }
+
+            else if (year >= 1995)
+            {
+                items.Add(new PublicHoliday(dayOfPrayer, localName, englishName, countryCode, null, new string[] { "SN" }));
+            }
+
+        }
+
+
     }
 }
