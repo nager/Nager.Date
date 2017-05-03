@@ -48,9 +48,14 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 8, 15, "Mariä Himmelfahrt", "Assumption Day", countryCode, null, new string[] { "DE-SL" }));
             items.Add(new PublicHoliday(year, 10, 3, "Tag der Deutschen Einheit", "German Unity Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Allerheiligen", "All Saints' Day", countryCode, null, new string[] { "DE-BW", "DE-BY", "DE-NW", "DE-RP", "DE-SL" }));
-            items.Add(new PublicHoliday(year, 11, 1, "Buß- und Bettag", "Repentance and Prayer Day", countryCode, null, new string[] { "DE-SN" }));
             items.Add(new PublicHoliday(year, 12, 25, "Weihnachten", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Stefanitag", "St. Stephen's Day", countryCode));
+
+            var prayerDay = GetPrayerDay(year, countryCode);
+            if (prayerDay != null)
+            {
+                items.Add(prayerDay);
+            }
 
             if (year == 2017)
             {
@@ -63,6 +68,40 @@ namespace Nager.Date.PublicHolidays
             }
 
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday GetPrayerDay(int year, CountryCode countryCode)
+        {
+            var dayOfPrayer = base.AdventSunday(year).AddDays(-11);
+            string localName = "Buß- und Bettag";
+            string englishName = "Repentance and Prayer Day";
+
+            if (year >= 1934 && year < 1939)
+            {
+                return new PublicHoliday(dayOfPrayer, localName, englishName, countryCode);
+            }
+
+            else if (year >= 1945 && year <= 1980)
+            {
+                return new PublicHoliday(dayOfPrayer, localName, englishName, countryCode, null, new string[] { "DE-BW", "DE-BE", "DE-HB", "DE-HH", "DE-HE", "DE-NI", "DE-NW", "DE-RP", "DE-SL", "DE-SH" });
+            }
+
+            else if (year >= 1981 && year <= 1989)
+            {
+                return new PublicHoliday(dayOfPrayer, localName, englishName, countryCode, null, new string[] { "DE-BW", "DE-BY", "DE-BE", "DE-HB", "DE-HH", "DE-HE", "DE-NI", "DE-NW", "DE-RP", "DE-SL", "DE-SH" });
+            }
+
+            else if (year >= 1990 && year <= 1994)
+            {
+                return new PublicHoliday(dayOfPrayer, localName, englishName, countryCode);
+            }
+
+            else if (year >= 1995)
+            {
+                return new PublicHoliday(dayOfPrayer, localName, englishName, countryCode, null, new string[] { "DE-SN" });
+            }
+
+            return null;
         }
     }
 }
