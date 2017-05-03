@@ -53,6 +53,15 @@ namespace Nager.Date.UnitTest
             Assert.AreEqual(expectedDate2026, CorpusChristi);
         }
 
+        [TestMethod]
+        public void TestGermanyByCounty2017()
+        {
+            var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "BW");
+            var isPublicHolidayInNRW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "NRW");
+
+            Assert.IsTrue(isPublicHolidayInBW);
+            Assert.IsFalse(isPublicHolidayInNRW);
+        }
 
     }
 }
