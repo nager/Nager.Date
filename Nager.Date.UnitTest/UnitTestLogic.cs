@@ -1,23 +1,12 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
-using Nager.Date.PublicHolidays;
-using Nager.Date.Model;
-using System.Collections.Generic;
 
 namespace Nager.Date.UnitTest
 {
     [TestClass]
     public class UnitTestLogic
     {
-        public class MockProvider : CatholicBaseProvider
-        {
-            public override IEnumerable<PublicHoliday> Get(int year)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         [TestMethod]
         public void CheckEasterSunday()
         {

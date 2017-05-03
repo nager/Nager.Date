@@ -53,12 +53,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MockProvider.cs" />
+    <Compile Include="UnitTestUnitedKingdom.cs" />
+    <Compile Include="UnitTestSwitzerland.cs" />
     <Compile Include="UnitTestGermany.cs" />
     <Compile Include="UnitTestRelation.cs" />
     <Compile Include="UnitTestCanada.cs" />
     <Compile Include="UnitTestAustria.cs" />
     <Compile Include="UnitTestLogic.cs" />
-    <Compile Include="UnitTestCountry.cs" />
+    <Compile Include="UnitTestSpain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
