@@ -1,110 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{7370E7A4-3B12-4231-8A82-628544DDB766}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nager.Date</RootNamespace>
+    <TargetFrameworks>net45;netstandard1.1</TargetFrameworks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Nager.Date</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <PackageId>Nager.Date</PackageId>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.1' ">1.6.1</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+    <Version>1.6.6</Version>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Contract\IPublicHolidayProvider.cs" />
-    <Compile Include="Extensions\DateTimeExtension.cs" />
-    <Compile Include="PublicHolidays\ParaguayProvider.cs" />
-    <Compile Include="PublicHolidays\IcelandProvider.cs" />
-    <Compile Include="PublicHolidays\BotswanaProvider.cs" />
-    <Compile Include="PublicHolidays\BoliviaProvider.cs" />
-    <Compile Include="PublicHolidays\HondurasProvider.cs" />
-    <Compile Include="PublicHolidays\PeruProvider.cs" />
-    <Compile Include="PublicHolidays\BrazilProvider.cs" />
-    <Compile Include="PublicHolidays\NewZealandProvider.cs" />
-    <Compile Include="PublicHolidays\NamibiaProvider.cs" />
-    <Compile Include="PublicHolidays\SouthAfricaProvider.cs" />
-    <Compile Include="PublicHolidays\MadagascarProvider.cs" />
-    <Compile Include="PublicHolidays\RussiaProvider.cs" />
-    <Compile Include="PublicHolidays\BelarusProvider.cs" />
-    <Compile Include="PublicHolidays\CanadaProvider.cs" />
-    <Compile Include="PublicHolidays\CatholicBaseProvider.cs" />
-    <Compile Include="PublicHolidays\CyprusProvider.cs" />
-    <Compile Include="PublicHolidays\GreeceProvider.cs" />
-    <Compile Include="PublicHolidays\GreenlandProvider.cs" />
-    <Compile Include="PublicHolidays\LithuaniaProvider.cs" />
-    <Compile Include="PublicHolidays\HungaryProvider.cs" />
-    <Compile Include="PublicHolidays\NorwayProvider.cs" />
-    <Compile Include="PublicHolidays\OrthodoxBaseProvider.cs" />
-    <Compile Include="PublicHolidays\SlovakiaProvider.cs" />
-    <Compile Include="PublicHolidays\SloveniaProvider.cs" />
-    <Compile Include="PublicHolidays\LuxembourgProvider.cs" />
-    <Compile Include="PublicHolidays\LatviaProvider.cs" />
-    <Compile Include="PublicHolidays\EstoniaProvider.cs" />
-    <Compile Include="PublicHolidays\CzechRepublicProvider.cs" />
-    <Compile Include="PublicHolidays\CroatiaProvider.cs" />
-    <Compile Include="PublicHolidays\DenmarkProvider.cs" />
-    <Compile Include="PublicHolidays\IrelandProvider.cs" />
-    <Compile Include="PublicHolidays\RomaniaProvider.cs" />
-    <Compile Include="PublicHolidays\FinlandProvider.cs" />
-    <Compile Include="PublicHolidays\SwedenProvider.cs" />
-    <Compile Include="PublicHolidays\UnitedKingdomProvider.cs" />
-    <Compile Include="PublicHolidays\MaltaProvider.cs" />
-    <Compile Include="PublicHolidays\BulgariaProvider.cs" />
-    <Compile Include="PublicHolidays\NetherlandsProvider.cs" />
-    <Compile Include="PublicHolidays\BelgiumProvider.cs" />
-    <Compile Include="PublicHolidays\FranceProvider.cs" />
-    <Compile Include="PublicHolidays\ItalyProvider.cs" />
-    <Compile Include="PublicHolidays\PolandProvider.cs" />
-    <Compile Include="PublicHolidays\PortugalProvider.cs" />
-    <Compile Include="PublicHolidays\SpainProvider.cs" />
-    <Compile Include="PublicHolidays\LiechtensteinProvider.cs" />
-    <Compile Include="PublicHolidays\SwitzerlandProvider.cs" />
-    <Compile Include="PublicHolidays\GermanyProvider.cs" />
-    <Compile Include="PublicHolidays\AustriaProvider.cs" />
-    <Compile Include="DateSystem.cs" />
-    <Compile Include="CountryCode.cs" />
-    <Compile Include="Model\PublicHoliday.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublicHolidays\UnitedStatesProvider.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

@@ -43,7 +43,7 @@ namespace Nager.Date.UnitTest
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
                 var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.ES, year);
-                Assert.AreEqual(34, publicHolidays.Count());
+                Assert.AreEqual(35, publicHolidays.Count());
             }
         }
     }
