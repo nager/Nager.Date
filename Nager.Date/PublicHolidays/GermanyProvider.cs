@@ -6,6 +6,28 @@ namespace Nager.Date.PublicHolidays
 {
     public class GermanyProvider : CatholicBaseProvider
     {
+        public IDictionary<string, string> GetCounties()
+        {
+            var items = new Dictionary<string, string>();
+            items.Add("DE-BW", "Baden-Württemberg");
+            items.Add("DE-BY", "Bayern");
+            items.Add("DE-BE", "Berlin");
+            items.Add("DE-BB", "Brandenburg");
+            items.Add("DE-HB", "Bremen");
+            items.Add("DE-HH", "Hamburg");
+            items.Add("DE-HE", "Hessen");
+            items.Add("DE-MV", "Mecklenburg-Vorpommern");
+            items.Add("DE-NI", "Niedersachsen");
+            items.Add("DE-NW", "Nordrhein-Westfalen");
+            items.Add("DE-RP", "Rheinland-Pfalz");
+            items.Add("DE-SL", "Saarland");
+            items.Add("DE-SN", "Sachsen");
+            items.Add("DE-ST", "Sachsen-Anhalt");
+            items.Add("DE-SH", "Schleswig-Holstein");
+            items.Add("DE-TH", "Thüringen");
+            return items;
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Germany
@@ -16,15 +38,17 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
-            items.Add(new PublicHoliday(year, 1, 6, "Heilige Drei Könige", "Epiphany", countryCode, 1967, new string[] { "BW", "BY", "ST" }));
+            items.Add(new PublicHoliday(year, 1, 6, "Heilige Drei Könige", "Epiphany", countryCode, 1967, new string[] { "DE-BW", "DE-BY", "DE-ST" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Karfreitag", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter Monday", countryCode, 1642));
             items.Add(new PublicHoliday(year, 5, 1, "Tag der Arbeit", "Labour Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Christi Himmelfahrt", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode,null, new string[] { "BW", "BY","HE", "NW","RP", "SL" }));
+            items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode,null, new string[] { "DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL" }));
+            items.Add(new PublicHoliday(year, 8, 15, "Mariä Himmelfahrt", "Assumption Day", countryCode, null, new string[] { "DE-SL" }));
             items.Add(new PublicHoliday(year, 10, 3, "Tag der Deutschen Einheit", "German Unity Day", countryCode));
-            items.Add(new PublicHoliday(year, 11, 1, "Allerheiligen", "All Saints' Day", countryCode, null, new string[] { "BW", "BY", "NW", "RP", "SL" }));
+            items.Add(new PublicHoliday(year, 11, 1, "Allerheiligen", "All Saints' Day", countryCode, null, new string[] { "DE-BW", "DE-BY", "DE-NW", "DE-RP", "DE-SL" }));
+            items.Add(new PublicHoliday(year, 11, 1, "Buß- und Bettag", "Repentance and Prayer Day", countryCode, null, new string[] { "DE-SN" }));
             items.Add(new PublicHoliday(year, 12, 25, "Weihnachten", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Stefanitag", "St. Stephen's Day", countryCode));
 
@@ -35,7 +59,7 @@ namespace Nager.Date.PublicHolidays
             }
             else
             {
-                items.Add(new PublicHoliday(year, 10, 31, "Reformationstag", "Reformation Day", countryCode, null, new string[] { "BB", "MV", "SN", "ST", "TH" }));
+                items.Add(new PublicHoliday(year, 10, 31, "Reformationstag", "Reformation Day", countryCode, null, new string[] { "DE-BB", "DE-MV", "DE-SN", "DE-ST", "DE-TH" }));
             }
 
             return items.OrderBy(o => o.Date);
