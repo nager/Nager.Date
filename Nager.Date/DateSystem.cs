@@ -222,19 +222,19 @@ namespace Nager.Date
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Where(o => o.Date.Date == date.Date).Any();
+            return items.Any(o => o.Date.Date == date.Date);
         }
 
         public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyOfficialHoliday).Any();
+            return items.Any(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyOfficialHoliday);
         }
 
         public static bool IsAdministrationPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyAdministrationHoliday).Any();
+            return items.Any(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyAdministrationHoliday);
         }
 
         public static int FindLastDay(int year, int month, DayOfWeek day)
