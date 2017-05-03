@@ -31,26 +31,6 @@ namespace Nager.Date.UnitTest
         }
 
         [TestMethod]
-        public void TestGermany1()
-        {
-            for (var year = DateTime.Now.Year; year < 3000; year++)
-            {
-                var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, year);
-                Assert.AreEqual(13, publicHolidays.Count());
-            }
-        }
-
-        [TestMethod]
-        public void TestGermany2()
-        {
-            for (var year = DateTime.Now.Year; year < 3000; year++)
-            {
-                var publicHolidays = DateSystem.GetPublicHoliday("DE", year);
-                Assert.AreEqual(13, publicHolidays.Count());
-            }
-        }
-
-        [TestMethod]
         public void TestGermanyCorpusChristi()
         {
             var yearToTest = 2017;
@@ -84,8 +64,8 @@ namespace Nager.Date.UnitTest
         [TestMethod]
         public void TestGermanyByCounty2017()
         {
-            var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "BW");
-            var isPublicHolidayInNRW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "NRW");
+            var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-BW");
+            var isPublicHolidayInNRW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-NRW");
 
             Assert.IsTrue(isPublicHolidayInBW);
             Assert.IsFalse(isPublicHolidayInNRW);
