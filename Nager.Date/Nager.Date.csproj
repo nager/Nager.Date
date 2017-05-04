@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.1</TargetFramework>
+    <TargetFrameworks>net45;netstandard1.1</TargetFrameworks>
     <Description>Calculate Public Holiday for any Year</Description>
     <Company>nager.at</Company>
     <Version>1.5.0</Version>
@@ -13,8 +13,15 @@
     <Product>Nager Public Holiday</Product>
     <AssemblyVersion>1.5.0</AssemblyVersion>
     <FileVersion>1.5.0</FileVersion>
+	<NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.1' ">1.6.1</NetStandardImplicitPackageVersion> 
+	<PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
   </PropertyGroup>
 
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;DEBUG;NETSTANDARD1_1</DefineConstants>
   </PropertyGroup>
