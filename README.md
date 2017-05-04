@@ -1,22 +1,22 @@
 [![GitHub Release](https://img.shields.io/github/release/tinohager/nager.date.svg?style=flat-square)](https://github.com/tinohager/nager.date/releases)
 
-#Nager.Date
+# Nager.Date
 
 Public holiday calculation for every year, based on easter sunday, country and county support.
 Supports more than 40 countries if your country is not supported, fork me, implement it and send me the pull request.
 
-###Demo Website
+### Demo Website
 http://publicholiday.azurewebsites.net
 
-###nuget
+### nuget
 The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
 ```
 PM> install-package Nager.Date
 ```
 
-###Exampels
+### Exampels
 
-####Get all publicHolidays of a country and year
+#### Get all publicHolidays of a country and year
 ```cs
 var publicHolidays = DateSystem.GetPublicHoliday("DE", 2017);
 foreach (var publicHoliday in publicHolidays)
@@ -25,7 +25,7 @@ foreach (var publicHoliday in publicHolidays)
 }
 ```
 
-####Get all publicHolidays for a date range
+#### Get all publicHolidays for a date range
 ```cs
 var startDate = new DateTime(2016, 5, 1);
 var endDate = new DateTime(2018, 5, 31);
@@ -36,7 +36,7 @@ foreach (var publicHoliday in publicHolidays)
 }
 ```
 
-####Check if a date a public holiday
+#### Check if a date a public holiday
 ```cs
 var date = new DateTime(2017, 1, 1);
 if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
@@ -45,8 +45,8 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 }
 ```
 
-###Country Support
-####Europe
+### Country Support
+#### Europe
 - [x] Austria
 - [x] Belarus
 - [x] Belgium
@@ -61,6 +61,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Germany
 - [x] Greece
 - [x] Hungary
+- [x] Iceland
 - [x] Ireland
 - [x] Italy
 - [x] Latvia
@@ -81,20 +82,25 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Switzerland
 - [x] United Kingdom
 
-####North America
+#### North America
 - [x] Canada
 - [x] United States
 
-####South America
+#### South America
+- [x] Bolivia
 - [x] Brazil
+- [x] Honduras
+- [x] Paraguay
 - [x] Peru
 
-####Atlantic
+#### Atlantic
 - [x] Greenland
 
-####Africa
+#### Africa
+- [x] Botswana
 - [x] Madagascar
+- [x] Namibia
 - [x] South Africa
 
-####Australia & Pacific
+#### Australia & Pacific
 - [x] New Zealand

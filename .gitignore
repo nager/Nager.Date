@@ -305,3 +305,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+Nager.Date/Nager.Date.nuspec
+Nager.Date/Properties/AssemblyInfo.cs
+Nager.Date/Properties/AssemblyInfo.cs

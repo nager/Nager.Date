@@ -47,8 +47,14 @@ namespace Nager.Date
                 case CountryCode.BG:
                     provider = new BulgariaProvider();
                     break;
+                case CountryCode.BO:
+                    provider = new BoliviaProvider();
+                    break;
                 case CountryCode.BR:
                     provider = new BrazilProvider();
+                    break;
+                case CountryCode.BW:
+                    provider = new BotswanaProvider();
                     break;
                 case CountryCode.BY:
                     provider = new BelarusProvider();
@@ -89,6 +95,9 @@ namespace Nager.Date
                 case CountryCode.GR:
                     provider = new GreeceProvider();
                     break;
+                case CountryCode.HN:
+                    provider = new HondurasProvider();
+                    break;
                 case CountryCode.HR:
                     provider = new CroatiaProvider();
                     break;
@@ -97,6 +106,9 @@ namespace Nager.Date
                     break;
                 case CountryCode.IE:
                     provider = new IrelandProvider();
+                    break;
+                case CountryCode.IS:
+                    provider = new IcelandProvider();
                     break;
                 case CountryCode.IT:
                     provider = new ItalyProvider();
@@ -119,6 +131,9 @@ namespace Nager.Date
                 case CountryCode.MT:
                     provider = new MaltaProvider();
                     break;
+                case CountryCode.NA:
+                    provider = new NamibiaProvider();
+                    break;
                 case CountryCode.NL:
                     provider = new NetherlandsProvider();
                     break;
@@ -136,6 +151,9 @@ namespace Nager.Date
                     break;
                 case CountryCode.PT:
                     provider = new PortugalProvider();
+                    break;
+                case CountryCode.PY:
+                    provider = new ParaguayProvider();
                     break;
                 case CountryCode.RO:
                     provider = new RomaniaProvider();
@@ -204,19 +222,19 @@ namespace Nager.Date
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Where(o => o.Date.Date == date.Date).Any();
+            return items.Any(o => o.Date.Date == date.Date);
         }
 
         public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyOfficialHoliday).Any();
+            return items.Any(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyOfficialHoliday);
         }
 
         public static bool IsAdministrationPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Where(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyAdministrationHoliday).Any();
+            return items.Any(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) && o.CountyAdministrationHoliday);
         }
 
         public static int FindLastDay(int year, int month, DayOfWeek day)

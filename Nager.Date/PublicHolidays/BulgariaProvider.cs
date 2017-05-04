@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class BulgariaProvider : CatholicBaseProvider
+    public class BulgariaProvider : OrthodoxBaseProvider
     {
         public override IEnumerable<PublicHoliday> Get(int year)
         {
@@ -17,6 +17,7 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Нова година", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 3, 3, "Ден на Освобождението на България от османско робство", "Liberation Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday, "Великден", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Велики понеделник", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Ден на труда и на международната работническа солидарност", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 6, "Гергьовден, ден на храбростта и Българската армия", "Saint George's Day", countryCode));

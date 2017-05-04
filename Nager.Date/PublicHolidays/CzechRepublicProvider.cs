@@ -17,6 +17,7 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Den obnovy samostatného českého státu; Nový rok", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Velký pátek", "Good Friday", countryCode, 2016));
+            items.Add(new PublicHoliday(easterSunday, "Velikonoční", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Velikonoční pondělí", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Svátek práce", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 8, "Den vítězství or Den osvobození", "Liberation Day", countryCode));
