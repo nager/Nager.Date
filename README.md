@@ -14,6 +14,11 @@ The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
 PM> install-package Nager.Date
 ```
 
+### Donation possibilities
+If this project help you reduce time to develop, you can give me a beer :beer:
+- [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/nagerat/25)
+- BTC: 3PjuVRcAaKPv9yLLmrVUY9mqGngPDm3nPc (Bitcoin)
+
 ### Exampels
 
 #### Get all publicHolidays of a country and year
