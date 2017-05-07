@@ -31,19 +31,8 @@ namespace Nager.Date.Model
         /// <param name="countyOfficialHoliday"></param>
         /// <param name="countyAdministrationHoliday"></param>
         public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
+            : this(new DateTime(year, month, day), localName, englishName, countryCode, launchYear, counties, countyOfficialHoliday, countyAdministrationHoliday)
         {
-            this.Date = new DateTime(year, month, day);
-            this.LocalName = localName;
-            this.Name = englishName;
-            this.CountryCode = countryCode;
-            this.Fixed = true;
-            this.CountyOfficialHoliday = countyOfficialHoliday;
-            this.CountyAdministrationHoliday = countyAdministrationHoliday;
-            this.LaunchYear = launchYear;
-            if (counties?.Length > 0)
-            {
-                this.Counties = counties;
-            }
         }
 
         /// <summary>

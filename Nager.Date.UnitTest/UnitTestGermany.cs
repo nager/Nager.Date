@@ -65,10 +65,10 @@ namespace Nager.Date.UnitTest
         public void TestGermanyByCounty2017()
         {
             var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-BW");
-            var isPublicHolidayInNRW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-NRW");
+            var isPublicHolidayInNW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-NW");
 
             Assert.IsTrue(isPublicHolidayInBW);
-            Assert.IsFalse(isPublicHolidayInNRW);
+            Assert.IsFalse(isPublicHolidayInNW);
         }
     }
 }
