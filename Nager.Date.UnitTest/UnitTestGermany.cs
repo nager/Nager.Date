@@ -62,13 +62,21 @@ namespace Nager.Date.UnitTest
         }
 
         [TestMethod]
-        public void TestGermanyByCounty2017()
+        public void TestGermanyIsOfficialPublicHolidayByCountyWithCountySpecificEpiphany2017()
         {
             var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-BW");
             var isPublicHolidayInNW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-NW");
 
             Assert.IsTrue(isPublicHolidayInBW);
             Assert.IsFalse(isPublicHolidayInNW);
+        }
+
+        [TestMethod]
+        public void TestGermanyIsOfficialPublicHolidayByCountyWithGlobalChristmasDay2017()
+        {
+            var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 12, 25), CountryCode.DE, "DE-BW");
+
+            Assert.IsTrue(isPublicHolidayInBW);
         }
     }
 }

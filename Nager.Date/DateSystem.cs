@@ -228,13 +228,13 @@ namespace Nager.Date
         public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Any(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) == true && o.CountyOfficialHoliday);
+            return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)) && o.CountyOfficialHoliday);
         }
 
         public static bool IsAdministrationPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Any(o => o.Date.Date == date.Date && o.Counties.Contains(countyCode) == true && o.CountyAdministrationHoliday);
+            return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)) && o.CountyAdministrationHoliday);
         }
 
         public static int FindLastDay(int year, int month, DayOfWeek day)
