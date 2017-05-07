@@ -85,7 +85,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Spain
 - [x] Sweden
 - [x] Switzerland
-- [x] United Kingdomy
+- [x] United Kingdom
 - [x] Turkey
 
 #### North America
