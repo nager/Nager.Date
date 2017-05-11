@@ -50,7 +50,8 @@
         SI,
         SK,
         GB,
+        TR,
         US,
-        ZA,
+        ZA
     }
 }
