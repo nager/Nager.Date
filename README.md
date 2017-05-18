@@ -110,4 +110,5 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] South Africa
 
 #### Australia & Pacific
+- [x] Australia
 - [x] New Zealand
