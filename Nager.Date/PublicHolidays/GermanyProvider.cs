@@ -8,24 +8,25 @@ namespace Nager.Date.PublicHolidays
     {
         public IDictionary<string, string> GetCounties()
         {
-            var items = new Dictionary<string, string>();
-            items.Add("DE-BW", "Baden-Württemberg");
-            items.Add("DE-BY", "Bayern");
-            items.Add("DE-BE", "Berlin");
-            items.Add("DE-BB", "Brandenburg");
-            items.Add("DE-HB", "Bremen");
-            items.Add("DE-HH", "Hamburg");
-            items.Add("DE-HE", "Hessen");
-            items.Add("DE-MV", "Mecklenburg-Vorpommern");
-            items.Add("DE-NI", "Niedersachsen");
-            items.Add("DE-NW", "Nordrhein-Westfalen");
-            items.Add("DE-RP", "Rheinland-Pfalz");
-            items.Add("DE-SL", "Saarland");
-            items.Add("DE-SN", "Sachsen");
-            items.Add("DE-ST", "Sachsen-Anhalt");
-            items.Add("DE-SH", "Schleswig-Holstein");
-            items.Add("DE-TH", "Thüringen");
-            return items;
+            return new Dictionary<string, string>
+            {
+                { "DE-BW", "Baden-Württemberg" },
+                { "DE-BY", "Bayern" },
+                { "DE-BE", "Berlin" },
+                { "DE-BB", "Brandenburg" },
+                { "DE-HB", "Bremen" },
+                { "DE-HH", "Hamburg" },
+                { "DE-HE", "Hessen" },
+                { "DE-MV", "Mecklenburg-Vorpommern" },
+                { "DE-NI", "Niedersachsen" },
+                { "DE-NW", "Nordrhein-Westfalen" },
+                { "DE-RP", "Rheinland-Pfalz" },
+                { "DE-SL", "Saarland" },
+                { "DE-SN", "Sachsen" },
+                { "DE-ST", "Sachsen-Anhalt" },
+                { "DE-SH", "Schleswig-Holstein" },
+                { "DE-TH", "Thüringen" }
+            };
         }
 
         public override IEnumerable<PublicHoliday> Get(int year)
