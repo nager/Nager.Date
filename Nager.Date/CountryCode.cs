@@ -6,6 +6,7 @@
     public enum CountryCode
     {
         AT,
+        AU,
         BE,
         BG,
         BO,
