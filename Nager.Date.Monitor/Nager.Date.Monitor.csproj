@@ -83,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nager.Date\Nager.Date.csproj">
-      <Project>{7370e7a4-3b12-4231-8a82-628544ddb766}</Project>
+      <Project>{8a4ea57b-27ef-422f-9cd3-742a73f03c6f}</Project>
       <Name>Nager.Date</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nager.Date.TestConsole", "Nager.Date.TestConsole\Nager.Date.TestConsole.csproj", "{86A0CFD1-1124-4FED-A14A-52373EA4D0C2}"
 EndProject
@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nager.Date.Monitor", "Nager.Date.Monitor\Nager.Date.Monitor.csproj", "{271F1CBC-D88E-4176-BC38-F72B9CA7CD4A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nager.Date.Website", "Nager.Date.Website\Nager.Date.Website.csproj", "{65C51ED3-CB97-4814-BB3B-2BD98D844EF1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A4EA57B-27EF-422F-9CD3-742A73F03C6F} = {8A4EA57B-27EF-422F-9CD3-742A73F03C6F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nager.Date", "Nager.Date\Nager.Date.csproj", "{8A4EA57B-27EF-422F-9CD3-742A73F03C6F}"
 EndProject
