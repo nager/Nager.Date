@@ -56,6 +56,9 @@ namespace Nager.Date
                 case CountryCode.BR:
                     provider = new BrazilProvider();
                     break;
+                case CountryCode.BS:
+                    provider = new BahamasProvider();
+                    break;
                 case CountryCode.BW:
                     provider = new BotswanaProvider();
                     break;

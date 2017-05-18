@@ -2,17 +2,17 @@
 
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard1.1</TargetFrameworks>
-    <Description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supports more than 40 countries</Description>
+    <Description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supports more than 50 countries</Description>
     <Company>nager.at</Company>
-    <Version>1.8.0</Version>
+    <Version>1.9.0</Version>
     <Authors>Tino Hager</Authors>
-    <PackageReleaseNotes>Add Australia and Guatemala, some bugfixes</PackageReleaseNotes>
-    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Austria Australia Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Guatemala Honduras Hungary Iceland Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Namibia Netherlands Norway NewZealand Paraguay Peru Poland Portugal Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland UnitedKingdom UnitedStates</PackageTags>
+    <PackageReleaseNotes>Add Bahamas</PackageReleaseNotes>
+    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Austria Australia Bahamas Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Guatemala Honduras Hungary Iceland Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Namibia Netherlands Norway NewZealand Paraguay Peru Poland Portugal Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland UnitedKingdom UnitedStates</PackageTags>
     <PackageProjectUrl>https://github.com/tinohager/Nager.Date</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</PackageLicenseUrl>
     <Product>Nager.Date</Product>
-    <AssemblyVersion>1.7.0</AssemblyVersion>
-    <FileVersion>1.7.0</FileVersion>
+    <AssemblyVersion>1.9.0</AssemblyVersion>
+    <FileVersion>1.9.0</FileVersion>
 	<NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.1' ">1.6.1</NetStandardImplicitPackageVersion> 
 	<PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback> 
 	<PackageId>Nager.Date</PackageId>

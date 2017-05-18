@@ -89,6 +89,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] United Kingdom
 
 #### North America
+- [x] Bahamas
 - [x] Canada
 - [x] Guatemala
 - [x] United States

@@ -11,6 +11,7 @@
         BG,
         BO,
         BR,
+        BS,
         BW,
         BY,
         CA,
