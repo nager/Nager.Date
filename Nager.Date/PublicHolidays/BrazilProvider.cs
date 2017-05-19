@@ -24,7 +24,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 10, 12, "Nossa Senhora Aparecida", "Children's Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 2, "Dia de Finados", "Day of the Dead", countryCode));
             items.Add(new PublicHoliday(year, 11, 15, "Proclamação da República", "Republic Proclamation Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Natal", "Christmas Day", countryCode, null));
+            items.Add(new PublicHoliday(year, 12, 25, "Natal", "Christmas Day", countryCode));
             
             // TODO non-official holidays
             
