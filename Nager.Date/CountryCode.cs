@@ -16,7 +16,7 @@
         BY,
         CA,
         CH,
-        CN,
+        //CN,
         CY,
         CZ,
         DE,
