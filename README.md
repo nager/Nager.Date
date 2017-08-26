@@ -86,20 +86,39 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Sweden
 - [x] Switzerland
 - [x] Turkey (without muslim based holidays)
+- [] Ukraine
 - [x] United Kingdom
+
+#### Asia
+- [] China
+- [] Kazakhstan
+- [] Mongolia
+- [x] Russia
+- [x] Turkey (without muslim based holidays)
 
 #### North America
 - [x] Bahamas
 - [x] Canada
+- [] Cuba
 - [x] Guatemala
+- [] Haiti
+- [] Mexico
 - [x] United States
 
 #### South America
+- [] Argentina
 - [x] Bolivia
 - [x] Brazil
+- [] Chile
+- [] Colombia
+- [] Ecuador
+- [] Guyana
 - [x] Honduras
 - [x] Paraguay
 - [x] Peru
+- [] Suriname
+- [] Uruguay
+- [] Venezuela
 
 #### Atlantic
 - [x] Greenland
