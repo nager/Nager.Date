@@ -86,7 +86,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Sweden
 - [x] Switzerland
 - [x] Turkey (without muslim based holidays)
-- [] Ukraine
+- [ ] Ukraine
 - [x] United Kingdom
 
 #### Asia
