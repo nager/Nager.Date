@@ -191,6 +191,9 @@ namespace Nager.Date
                 case CountryCode.US:
                     provider = new UnitedStatesProvider();
                     break;
+                case CountryCode.UY:
+                    provider = new UruguayProvider();
+                    break;
                 case CountryCode.ZA:
                     provider = new SouthAfricaProvider();
                     break;

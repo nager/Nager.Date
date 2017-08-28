@@ -117,7 +117,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Paraguay
 - [x] Peru
 - [ ] Suriname
-- [ ] Uruguay
+- [x] Uruguay
 - [ ] Venezuela
 
 #### Atlantic

@@ -56,6 +56,7 @@
         GB,
         TR,
         US,
+        UY,
         ZA
     }
 }

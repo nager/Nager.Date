@@ -6,13 +6,13 @@
     <Company>nager.at</Company>
     <Version>1.9.1</Version>
     <Authors>Tino Hager</Authors>
-    <PackageReleaseNotes>Bugfix United Kingdom Saint Patrick's Day</PackageReleaseNotes>
-    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Austria Australia Bahamas Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Guatemala Honduras Hungary Iceland Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Namibia Netherlands Norway NewZealand Paraguay Peru Poland Portugal Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland UnitedKingdom UnitedStates</PackageTags>
+    <PackageReleaseNotes>Add Uruguay</PackageReleaseNotes>
+    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Austria Australia Bahamas Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Guatemala Honduras Hungary Iceland Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Namibia Netherlands Norway NewZealand Paraguay Peru Poland Portugal Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland UnitedKingdom UnitedStates Uruguay</PackageTags>
     <PackageProjectUrl>https://github.com/tinohager/Nager.Date</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</PackageLicenseUrl>
     <Product>Nager.Date</Product>
-    <AssemblyVersion>1.9.1</AssemblyVersion>
-    <FileVersion>1.9.1</FileVersion>
+    <AssemblyVersion>1.10.0</AssemblyVersion>
+    <FileVersion>1.10.0</FileVersion>
 	<NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.1' ">1.6.1</NetStandardImplicitPackageVersion> 
 	<PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback> 
 	<PackageId>Nager.Date</PackageId>
