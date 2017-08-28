@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nager.Date.Contract;
-using Nager.Date.Model;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -12,7 +9,7 @@ namespace Nager.Date.PublicHolidays
     {
         public IEnumerable<PublicHoliday> Get(int year)
         {
-
+            //Turkey
             //https://en.wikipedia.org/wiki/Public_holidays_in_Turkey
 
             var countryCode = CountryCode.TR;
