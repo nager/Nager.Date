@@ -15,6 +15,7 @@
     <FileVersion>1.10.0</FileVersion>
 	<PackageId>Nager.Date</PackageId>
 	<Title>Nager Public Holiday</Title>
+	<PackageIconUrl>https://raw.githubusercontent.com/tinohager/Nager.Date/master/Doc/Icons/calendar.png</PackageIconUrl>
   </PropertyGroup>
 
 </Project>
