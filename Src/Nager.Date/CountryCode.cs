@@ -5,6 +5,7 @@
     /// </summary>
     public enum CountryCode
     {
+        AR,
         AT,
         AU,
         BE,

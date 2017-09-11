@@ -38,6 +38,9 @@ namespace Nager.Date
 
             switch (countryCode)
             {
+                case CountryCode.AR:
+                    provider = new ArgentinaProvider();
+                    break;
                 case CountryCode.AT:
                     provider = new AustriaProvider();
                     break;
