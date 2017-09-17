@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - Nager.Date</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -28,14 +28,49 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Nager.Date</p>
-        </footer>
     </div>
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-8">
+                        <h3>Source Code</h3>
+                        <a href="https://github.com/tinohager/Nager.Date">github.com/tinohager/Nager.Date</a>
+                        <br />
+                        <br />
+                        <h3>Report a failure</h3>
+                        If you found a failure please create a new <a href="https://github.com/tinohager/Nager.Date/issues">issue</a>.
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Imprint</h3>
+                        <p>Project of <a href="http://www.nager.at">nager.at</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; nager.at @DateTime.Now.Year
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106595536-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments)};
+        gtag('js', new Date());
+
+        gtag('config', 'UA-106595536-3');
+    </script>
 </body>
 </html>

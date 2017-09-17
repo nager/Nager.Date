@@ -2,8 +2,7 @@
     ViewBag.Title = "Public Holidays";
 }
 <h1>Public Holidays</h1>
-<p>A project to collect all public holidays for many countries. If you found a failure please report to the github project</p>
-Source Code: <a href="https://github.com/tinohager/Nager.Date">github.com/tinohager/Nager.Date</a><br />
+<p>Public holiday calculation for every year, based on easter sunday, country and county support. Supports more than <strong>50</strong> countries.</p>
 <br />
 
 <script src="https://www.amcharts.com/lib/3/ammap.js" type="text/javascript"></script>
@@ -47,7 +46,7 @@ Source Code: <a href="https://github.com/tinohager/Nager.Date">github.com/tinoha
     });
 </script>
 
-<h2>Supported Countries</h2>
+<h2>Choose Country</h2>
 <table class="table">
     @foreach (var country in ViewBag.Countries)
     {

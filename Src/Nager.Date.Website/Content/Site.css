@@ -1,6 +1,5 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -15,4 +14,37 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.navbar {
+    background-color: #003459;
+}
+
+.navbar-collapse li {
+    border-left: 1px solid #00477a;
+}
+
+.navbar a {
+    color: #ffffff !important;
+}
+
+.body-content
+{
+    padding-bottom: 30px;
+}
+
+footer {
+    padding: 20px;
+    background-color: #003459;
+    color: #ffffff;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-col
+{
+    text-align: left;
 }
