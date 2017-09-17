@@ -37,7 +37,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode, null, new string[] { "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-BL", "CH-AI", "CH-GR", "CH-AG", "CH-TI", "CH-VS", "CH-NE", "CH-JU" }));
             items.Add(new PublicHoliday(year, 8, 1, "Bundesfeier", "Swiss National Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Maria Himmelfahrt", "Assumption of the Virgin Mary", countryCode, null, new string[] { "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-BL", "CH-AI", "CH-GR", "CH-AG", "CH-TI", "CH-VS", "CH-JU" }));
-            items.Add(new PublicHoliday(year, 9, thirdMondayOfSeptember, "Jeûne Fédéral", "Jeûne Fédéral", countryCode, null, new string[] { "CH-NE", "CH-VD" }, false));
+            items.Add(new PublicHoliday(thirdMondayOfSeptember, "Jeûne Fédéral", "Jeûne Fédéral", countryCode, null, new string[] { "CH-NE", "CH-VD" }, false));
             items.Add(new PublicHoliday(year, 11, 1, "Allerheiligen", "All Saints' Day", countryCode, null, new string[] { "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TI", "CH-VS", "CH-JU" }));
             items.Add(new PublicHoliday(year, 12, 8, "Mariä Empfängnis", "Immaculate Conception", countryCode, null, new string[] { "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-GR", "CH-AG", "CH-TI", "CH-VS" }));
             items.Add(new PublicHoliday(year, 12, 25, "Weihnachten", "Christmas Day", countryCode));

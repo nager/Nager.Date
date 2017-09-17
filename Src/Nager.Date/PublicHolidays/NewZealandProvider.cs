@@ -75,8 +75,8 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
-            items.Add(new PublicHoliday(year, 6, firstMondayInJune, "Queen's Birthday", "Queen's Birthday", countryCode));
-            items.Add(new PublicHoliday(year, 10, fourthMondayInOctober, "Labour Day", "Labour Day", countryCode));
+            items.Add(new PublicHoliday(firstMondayInJune, "Queen's Birthday", "Queen's Birthday", countryCode));
+            items.Add(new PublicHoliday(fourthMondayInOctober, "Labour Day", "Labour Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

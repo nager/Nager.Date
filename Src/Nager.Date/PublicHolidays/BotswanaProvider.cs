@@ -24,7 +24,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Ascension Day", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 1, "Sir Seretse Khama Day", "Sir Seretse Khama Day", countryCode));
-            items.Add(new PublicHoliday(year, 7, thirdMondayInJuly, "Presidents' Day", "Presidents' Day", countryCode));
+            items.Add(new PublicHoliday(thirdMondayInJuly, "Presidents' Day", "Presidents' Day", countryCode));
             items.Add(new PublicHoliday(year, 9, 30, "Independence Day", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 10, 1, "Botswana Day holiday", "Botswana Day holiday", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));

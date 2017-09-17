@@ -30,8 +30,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 6, 17, "Paso a la Inmortalidad del General Martín Miguel de Güemes", "Anniversary of the Passing of General Martín Miguel de Güemes", countryCode, 2016));
             items.Add(new PublicHoliday(year, 6, 20, "Paso a la Inmortalidad del General Manuel Belgrano", "General Manuel Belgrano Memorial Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 9, "Día de la Independencia", "Independence Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, thirdMondayInAugust, "Paso a la Inmortalidad del General José de San Martín", "General José de San Martín Memorial Day", countryCode));
-            items.Add(new PublicHoliday(year, 10, secondMondayInOctober, "Día del Respeto a la Diversidad Cultural", "Day of Respect for Cultural Diversity", countryCode));
+            items.Add(new PublicHoliday(thirdMondayInAugust, "Paso a la Inmortalidad del General José de San Martín", "General José de San Martín Memorial Day", countryCode));
+            items.Add(new PublicHoliday(secondMondayInOctober, "Día del Respeto a la Diversidad Cultural", "Day of Respect for Cultural Diversity", countryCode));
             items.Add(new PublicHoliday(year, 11, 20, "Día de la Soberanía Nacional", "National Sovereignty Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "Día de la Inmaculada Concepción de María", "Immaculate Conception Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));

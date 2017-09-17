@@ -24,7 +24,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Otrās Lieldienas", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Darba svētki", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 4, "Latvijas Republikas Neatkarības atjaunošanas diena", "Restoration of Independence day", countryCode));
-            items.Add(new PublicHoliday(year, 5, secondSundayInMay, "Mātes diena", "Mother's day", countryCode));
+            items.Add(new PublicHoliday(secondSundayInMay, "Mātes diena", "Mother's day", countryCode));
             items.Add(new PublicHoliday(year, 6, 23, "Līgo Diena", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(year, 6, 24, "Jāņi", "Midsummer Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 18, "Latvijas Republikas proklamēšanas diena", "Proclamation Day of the Republic of Latvia", countryCode));

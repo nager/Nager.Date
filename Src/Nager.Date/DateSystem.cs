@@ -261,10 +261,10 @@ namespace Nager.Date
             return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)) && o.CountyAdministrationHoliday);
         }
 
-        public static int FindLastDay(int year, int month, DayOfWeek day)
+        public static DateTime FindLastDay(int year, int month, DayOfWeek day)
         {
             var resultedDay = FindDay(year, month, day, 5);
-            if (resultedDay == -1)
+            if (resultedDay == DateTime.MinValue)
             {
                 resultedDay = FindDay(year, month, day, 4);
             }
@@ -288,7 +288,7 @@ namespace Nager.Date
             }
         }
 
-        public static int FindDay(int year, int month, DayOfWeek day, int occurance)
+        public static DateTime FindDay(int year, int month, DayOfWeek day, int occurance)
         {
             if (occurance == 0 || occurance > 5)
             {
@@ -311,10 +311,10 @@ namespace Nager.Date
 
             if (resultedDay > DateTime.DaysInMonth(year, month))
             {
-                return -1;
+                return DateTime.MinValue;
             }
 
-            return resultedDay;
+            return new DateTime(year, month, resultedDay);
         }
 
         public static int GetAge(DateTime birthdate)
