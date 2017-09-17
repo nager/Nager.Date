@@ -2,15 +2,24 @@
     ViewBag.Title = "Api";
 }
 
-<h1>Api</h1>
-The Public Holiday Api returns a JSON response<br />
-<br />
-<a href="http://publicholiday.azurewebsites.net/api/v1/get/AT/2017">http://publicholiday.azurewebsites.net/api/v1/get/{CountryCode}/{Year}</a>
+@section scripts {
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+}
 
-<h2>Parameters</h2>
+<h1>Public Holiday API</h1>
+Returns the public holidays from given country and year 
+<a href="http://publicholiday.azurewebsites.net/api/v1/get/AT/2017">http://publicholiday.azurewebsites.net/api/v1/get/{CountryCode}/{Year}</a>
+<br /><br />
+
+<div class="alert alert-success">
+    <strong>GET</strong> /get/{CountryCode}/{Year}
+</div>
+
+
+<h3>Request</h3>
 <table class="table">
     <tr>
-        <th>Parameter</th>
+        <th>Parameters</th>
         <th>Value</th>
     </tr>
     <tr>
@@ -22,3 +31,163 @@ The Public Holiday Api returns a JSON response<br />
         <td>2017</td>
     </tr>
 </table>
+
+<h3>Response</h3>
+<pre class="prettyprint">[  
+   {  
+      "date":"2017-01-01",
+      "localName":"Neujahr",
+      "name":"New Year's Day",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":1967
+   },
+   {  
+      "date":"2017-01-06",
+      "localName":"Heilige Drei Könige",
+      "name":"Epiphany",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-04-17",
+      "localName":"Ostermontag",
+      "name":"Easter Monday",
+      "countryCode":"AT",
+      "fixed":false,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":1642
+   },
+   {  
+      "date":"2017-05-01",
+      "localName":"Staatsfeiertag",
+      "name":"National Holiday",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":1955
+   },
+   {  
+      "date":"2017-05-25",
+      "localName":"Christi Himmelfahrt",
+      "name":"Ascension Day",
+      "countryCode":"AT",
+      "fixed":false,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-06-05",
+      "localName":"Pfingstmontag",
+      "name":"Whit Monday",
+      "countryCode":"AT",
+      "fixed":false,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-06-15",
+      "localName":"Fronleichnam",
+      "name":"Corpus Christi",
+      "countryCode":"AT",
+      "fixed":false,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-08-15",
+      "localName":"Maria Himmelfahrt",
+      "name":"Assumption Day",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-10-26",
+      "localName":"Staatsfeiertag",
+      "name":"National Holiday",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-11-01",
+      "localName":"Allerheiligen",
+      "name":"All Saints' Day",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-12-08",
+      "localName":"Mariä Empfängnis",
+      "name":"Immaculate Conception",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-12-25",
+      "localName":"Weihnachten",
+      "name":"Christmas Day",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   },
+   {  
+      "date":"2017-12-26",
+      "localName":"Stefanitag",
+      "name":"St. Stephen's Day",
+      "countryCode":"AT",
+      "fixed":true,
+      "countyOfficialHoliday":true,
+      "countyAdministrationHoliday":true,
+      "global":true,
+      "counties":null,
+      "launchYear":null
+   }
+]</pre>
