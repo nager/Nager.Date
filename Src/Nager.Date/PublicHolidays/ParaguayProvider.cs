@@ -21,7 +21,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 3, 1, "Dia de los héroes", "Heroes' day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Jueves Santo", "Maundy Thursday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Viernes Santo", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(year, 5, 1, "Día de los Trabajadores", "Labor Day", countryCode));
+            items.Add(new PublicHoliday(year, 5, 1, "Día de los Trabajadores", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 14, "Independencia", "Paraguayan Independence", countryCode));
             items.Add(new PublicHoliday(year, 5, 15, "Independencia", "Paraguayan Independence", countryCode));
             items.Add(new PublicHoliday(year, 6, 12, "Dia de la Paz del Chaco", "Chaco Armistice", countryCode));
