@@ -103,6 +103,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 - [x] Guatemala
 - [ ] Haiti
 - [ ] Mexico
+- [x] Panama
 - [x] United States
 
 #### South America

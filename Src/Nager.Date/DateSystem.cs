@@ -158,6 +158,9 @@ namespace Nager.Date
                 case CountryCode.NZ:
                     provider = new NewZealandProvider();
                     break;
+                case CountryCode.PA:
+                    provider = new PanamaProvider();
+                    break;
                 case CountryCode.PE:
                     provider = new PeruProvider();
                     break;
