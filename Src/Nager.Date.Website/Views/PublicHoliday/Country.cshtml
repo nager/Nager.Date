@@ -7,18 +7,20 @@
 <table class="table table-responsive">
     <tr>
         <th class="col-md-1">Date</th>
-        <th class="col-md-3">Local name</th>
-        <th class="col-md-3">Name</th>
-        <th class="col-md-1">Global</th>
-        <th class="col-md-4">Countys</th>
+        <th class="col-md-3 hidden-xs">Local name</th>
+        <th class="col-md-3 hidden-xs">Name</th>
+        <th class="col-md-6 visible-xs">Name</th>
+        <th class="col-md-1 hidden-xs">Global</th>
+        <th class="col-md-4 hidden-xs">Countys</th>
     </tr>
     @foreach (var publicHoliday in Model)
     {
         <tr>
             <td>@publicHoliday.Date.ToShortDateString()</td>
-            <td>@publicHoliday.LocalName</td>
-            <td>@publicHoliday.Name</td>
-            <td>
+            <td class="hidden-xs">@publicHoliday.LocalName</td>
+            <td class="hidden-xs">@publicHoliday.Name</td>
+            <td class="visible-xs">@publicHoliday.Name<br />@publicHoliday.LocalName</td>
+            <td class="hidden-xs">
                 @if (publicHoliday.Global)
                 {
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -28,7 +30,7 @@
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 }
             </td>
-            <td>
+            <td class="hidden-xs">
                 @if (!publicHoliday.Global)
                 {
                     foreach (var county in publicHoliday.Counties)
@@ -41,5 +43,23 @@
     }
 </table>
 
+<div class="btn-group" role="group">
+@for (var i = ViewBag.Year - 5; i < ViewBag.NextYear + 5; i++)
+{
+    <a href="/PublicHoliday/Country/@(ViewBag.CountryCode)/@(i)" class="btn btn-primary">@i</a>
+}
+</div>
 
-<a href="/PublicHoliday/Country/@(ViewBag.CountryCode)/@(ViewBag.NextYear)" class="btn btn-primary">Next year</a>
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="visible-md visible-lg text-center">
+            <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?f=ifr&t=nagerat-21&o=3&p=48&l=bn1&mode=computers&browse=340843031&fc1=000000&lt1=_top&lc1=A43907&bg1=EFEFCC" marginwidth="0" marginheight="0" width="728" height="90" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+        </div>
+        <div class="visible-xs visible-sm text-center">
+            <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?f=ifr&t=skiline-21&o=3&p=286&l=st1&mode=amazontv-de&search=&fc1=000000&lt1=_top&lc1=A43907&bg1=EFEFCC" marginwidth="0" marginheight="0" width="200" height="200" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+        </div>
+    </div>
+</div>

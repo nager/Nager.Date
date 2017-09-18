@@ -36,23 +36,5 @@ namespace Nager.Date.Website.Controllers
 
             return View("NotFound");
         }
-
-        public ActionResult CountryJson(string countrycode, int year)
-        {
-            CountryCode countryCode;
-            if (!Enum.TryParse(countrycode, true, out countryCode))
-            {
-                return Json("Not found");
-            }
-
-            var publicHolidays = DateSystem.GetPublicHoliday(countryCode, year);
-            if (publicHolidays?.Count() > 0)
-            {
-                var items = publicHolidays.Select(o => new PublicHoliday(o));
-                return Json(items, JsonRequestBehavior.AllowGet);
-            }
-
-            return Json("Not found");
-        }
     }
 }

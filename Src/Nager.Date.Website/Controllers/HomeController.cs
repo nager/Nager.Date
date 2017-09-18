@@ -1,7 +1,7 @@
 ﻿using Bia.Countries;
+using Nager.Date.Website.Model;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -17,10 +17,17 @@ namespace Nager.Date.Website.Controllers
 
         public ActionResult Index()
         {
-            var countries = from CountryCode o in Enum.GetValues(typeof(CountryCode)) select new KeyValuePair<string, string>(o.ToString(), GetName(o));
-            ViewBag.Countries = countries;
+            var items = new List<CountryInfo>();
+            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            {
+                var item = new CountryInfo();
+                item.Name = this.GetName(countryCode);
+                item.CountryCode = countryCode.ToString();
+                item.PublicHolidayCount = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year).Count();
+                items.Add(item);
+            }
 
-            return View();
+            return View(items);
         }
 
         public ActionResult Countries()
