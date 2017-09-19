@@ -23,7 +23,7 @@ namespace Nager.Date.Website.Controllers
                 var item = new CountryInfo();
                 item.Name = this.GetName(countryCode);
                 item.CountryCode = countryCode.ToString();
-                item.PublicHolidayCount = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year).Count();
+                item.PublicHolidayCount = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year).GroupBy(o => o.Date).Count();
                 items.Add(item);
             }
 
