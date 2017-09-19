@@ -2,8 +2,11 @@
 
 # Nager.Date
 
-Public holiday calculation for every year, based on easter sunday, country and county support.
+Nager.Date is a Date/Calendar Framework for .NET
+
+[x] Public holiday calculation for every year, based on easter sunday, country and county support.
 Supports more than 50 countries if your country is not supported, fork me, implement it and send me the pull request.
+[x] Age calculation
 
 ### Demo Website
 http://publicholiday.azurewebsites.net
@@ -48,6 +51,12 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 {
 	Console.WriteLine("Is public holiday");
 }
+```
+
+#### Calculate age
+```cs
+var date = new DateTime(1900, 1, 1);
+var age = DateSystem.GetAge(date);
 ```
 
 ### Country Support
