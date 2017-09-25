@@ -6,7 +6,7 @@ using Nager.Date.PublicHolidays;
 namespace Nager.Date.UnitTest
 {
     [TestClass]
-    public class UnitTestGermany
+    public class GermanyTest
     {
         [TestMethod]
         public void TestGermanyCounties()

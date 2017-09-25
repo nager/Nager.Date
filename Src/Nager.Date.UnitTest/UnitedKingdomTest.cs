@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Nager.Date.UnitTest
 {
     [TestClass]
-    public class UnitTestUnitedKingdom
+    public class UnitedKingdomTest
     {
         [TestMethod]
         public void TestUnitedKingdom()

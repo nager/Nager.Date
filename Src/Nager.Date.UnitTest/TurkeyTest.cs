@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Nager.Date.UnitTest
 {
     [TestClass]
-    public class UnitTestTurkey
+    public class TurkeyTest
     {
         [TestMethod]
         public void TestTurkey()

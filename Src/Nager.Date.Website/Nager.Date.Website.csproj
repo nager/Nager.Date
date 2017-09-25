@@ -154,6 +154,7 @@
     </Compile>
     <Compile Include="Model\CountryInfo.cs" />
     <Compile Include="Model\PublicHoliday.cs" />
+    <Compile Include="Model\PublicHolidayInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

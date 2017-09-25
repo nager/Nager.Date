@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.PublicHolidays;
+using System.Linq;
 
 namespace Nager.Date.UnitTest
 {
     [TestClass]
-    public class UnitTestCanada
+    public class CanadaTest
     {
         [TestMethod]
         public void TestCanada()

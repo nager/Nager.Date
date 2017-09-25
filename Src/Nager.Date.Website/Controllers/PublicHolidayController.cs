@@ -21,17 +21,18 @@ namespace Nager.Date.Website.Controllers
                 return View("NotFound");
             }
 
-            var country = Iso3166Countries.GetCountryByAlpha2(countryCode.ToString());
+            var isoCountry = Iso3166Countries.GetCountryByAlpha2(countryCode.ToString());
 
-            ViewBag.Country = country.ActiveDirectoryName;
-            ViewBag.CountryCode = countrycode;
-            ViewBag.Year = year;
-            ViewBag.NextYear = year + 1;
+            var item = new PublicHolidayInfo();
+            item.Country = isoCountry.ActiveDirectoryName;
+            item.CountryCode = countrycode;
+            item.Year = year;
+            item.PublicHolidays = DateSystem.GetPublicHoliday(countryCode, year).ToList();
+            item.LongWeekends = DateSystem.GetLongWeekend(countryCode, year).ToList();
 
-            var publicHolidays = DateSystem.GetPublicHoliday(countryCode, year);
-            if (publicHolidays?.Count() > 0)
+            if (item.PublicHolidays.Count > 0)
             {
-                return View(publicHolidays);
+                return View(item);
             }
 
             return View("NotFound");

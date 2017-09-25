@@ -5,7 +5,7 @@ using System.Linq;
 namespace Nager.Date.UnitTest
 {
     [TestClass]
-    public class UnitTestRelation
+    public class CountryRelationTest
     {
         [TestMethod]
         public void TestAllRelationsExist()

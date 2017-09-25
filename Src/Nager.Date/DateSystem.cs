@@ -325,5 +325,63 @@ namespace Nager.Date
 
             return age;
         }
+
+        public static IEnumerable<LongWeekend> GetLongWeekend(CountryCode countryCode, int year)
+        {
+            LongWeekend item;
+
+            var items = new List<LongWeekend>();
+
+            var publicHolidays = GetPublicHoliday(countryCode, year);
+            foreach (var publicHoliday in publicHolidays)
+            {
+                item = null;
+
+                switch (publicHoliday.Date.DayOfWeek)
+                {
+                    case DayOfWeek.Thursday:
+                        item = new LongWeekend();
+                        item.StartDate = publicHoliday.Date;
+                        item.EndDate = publicHoliday.Date.AddDays(3);
+                        item.Bridge = true;
+                        break;
+                    case DayOfWeek.Friday:
+                        item = new LongWeekend();
+                        item.StartDate = publicHoliday.Date;
+                        item.EndDate = publicHoliday.Date.AddDays(2);
+                        item.Bridge = false;
+                        break;
+                    case DayOfWeek.Monday:
+                        item = new LongWeekend();
+                        item.StartDate = publicHoliday.Date.AddDays(-2);
+                        item.EndDate = publicHoliday.Date;
+                        item.Bridge = false;
+                        break;
+                    case DayOfWeek.Tuesday:
+                        item = new LongWeekend();
+                        item.StartDate = publicHoliday.Date.AddDays(-3);
+                        item.EndDate = publicHoliday.Date;
+                        item.Bridge = true;
+                        break;
+                }
+
+                if (item == null)
+                {
+                    continue;
+                }
+
+                //Other LongWeekend on the same date, update the other
+                var otherItem = items.Where(o => o.StartDate.Equals(item.StartDate)).FirstOrDefault();
+                if (otherItem != null)
+                {
+                    otherItem.EndDate = item.EndDate;
+                    continue;
+                }
+
+                items.Add(item);
+            }
+
+            return items;
+        }
     }
 }

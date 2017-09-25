@@ -5,7 +5,7 @@ using System.Linq;
 namespace Nager.Date.UnitTest
 {
     [TestClass]
-    public class UnitTestLogic
+    public class LogicTest
     {
         [TestMethod]
         public void CheckEasterSunday()
