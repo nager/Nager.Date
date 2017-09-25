@@ -4,73 +4,86 @@
 }
 <h1>Public Holidays for @ViewBag.Country <small>@Model.CountryCode - @Model.Year</small></h1>
 
-<h3>Public Holidays</h3>
-<table class="table table-responsive">
-    <tr>
-        <th class="col-xs-6 col-md-1">Date</th>
-        <th class="col-md-3 hidden-xs">Local name</th>
-        <th class="col-md-3 hidden-xs">Name</th>
-        <th class="col-xs-6 col-md-6 visible-xs">Name</th>
-        <th class="col-md-1 hidden-xs">Global</th>
-        <th class="col-md-4 hidden-xs">Countys</th>
-    </tr>
-    @foreach (var publicHoliday in Model.PublicHolidays)
-    {
-        <tr>
-            <td>@publicHoliday.Date.ToShortDateString()</td>
-            <td class="hidden-xs">@publicHoliday.LocalName</td>
-            <td class="hidden-xs">@publicHoliday.Name</td>
-            <td class="visible-xs">@publicHoliday.Name<br />@publicHoliday.LocalName</td>
-            <td class="hidden-xs">
-                @if (publicHoliday.Global)
-                {
-                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                }
-                else
-                {
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                }
-            </td>
-            <td class="hidden-xs">
-                @if (!publicHoliday.Global)
-                {
-                    foreach (var county in publicHoliday.Counties)
-                    {
-                        <span class="label label-default">@county</span>
-                    }
-                }
-            </td>
-        </tr>
-    }
-</table>
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#publicholiday" aria-controls="publicholiday" role="tab" data-toggle="tab">Public Holidays</a></li>
+        <li role="presentation"><a href="#longweekend" aria-controls="longweekend" role="tab" data-toggle="tab">Long Weekends</a></li>
+    </ul>
 
-<h3>Long Weekends</h3>
-<table class="table table-responsive">
-    <tr>
-        <th class="col-md-2">Startdate</th>
-        <th class="col-md-2">Enddate</th>
-        <th class="col-md-4">Days</th>
-        <th class="col-md-4">Need Bridge Day</th>
-    </tr>
-    @foreach (var longWeekend in Model.LongWeekends)
-    {
-        <tr>
-            <td>@longWeekend.StartDate.ToShortDateString()</td>
-            <td>@longWeekend.EndDate.ToShortDateString()</td>
-            <td>@longWeekend.DayCount</td>
-            <td>
-                @if (longWeekend.Bridge)
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="publicholiday">
+            <h3>Public Holidays</h3>
+            <table class="table table-responsive">
+                <tr>
+                    <th class="col-xs-6 col-md-1">Date</th>
+                    <th class="col-md-3 hidden-xs">Local name</th>
+                    <th class="col-md-3 hidden-xs">Name</th>
+                    <th class="col-xs-6 col-md-6 visible-xs">Name</th>
+                    <th class="col-md-1 hidden-xs">Global</th>
+                    <th class="col-md-4 hidden-xs">Countys</th>
+                </tr>
+                @foreach (var publicHoliday in Model.PublicHolidays)
                 {
-                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <tr>
+                        <td>@publicHoliday.Date.ToShortDateString()</td>
+                        <td class="hidden-xs">@publicHoliday.LocalName</td>
+                        <td class="hidden-xs">@publicHoliday.Name</td>
+                        <td class="visible-xs">@publicHoliday.Name<br />@publicHoliday.LocalName</td>
+                        <td class="hidden-xs">
+                            @if (publicHoliday.Global)
+                            {
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            }
+                            else
+                            {
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            }
+                        </td>
+                        <td class="hidden-xs">
+                            @if (!publicHoliday.Global)
+                            {
+                                foreach (var county in publicHoliday.Counties)
+                                {
+                                    <span class="label label-default">@county</span>
+                                }
+                            }
+                        </td>
+                    </tr>
                 }
-                else
+            </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="longweekend">
+            <h3>Long Weekends</h3>
+            <table class="table table-responsive">
+                <tr>
+                    <th class="col-md-2">Startdate</th>
+                    <th class="col-md-2">Enddate</th>
+                    <th class="col-md-4">Days</th>
+                    <th class="col-md-4">Need Bridge Day</th>
+                </tr>
+                @foreach (var longWeekend in Model.LongWeekends)
                 {
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <tr>
+                        <td>@longWeekend.StartDate.ToShortDateString()</td>
+                        <td>@longWeekend.EndDate.ToShortDateString()</td>
+                        <td>@longWeekend.DayCount</td>
+                        <td>
+                            @if (longWeekend.Bridge)
+                            {
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            }
+                            else
+                            {
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            }
+                        </td>
+                    </tr>
                 }
-            </td>
-        </tr>
-    }
-</table>
+            </table>
+        </div>
+    </div>
+</div>
 
 <div class="btn-group" role="group">
 @for (var i = Model.Year - 5; i < Model.Year + 6; i++)
