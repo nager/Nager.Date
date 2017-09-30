@@ -4,15 +4,15 @@
     <TargetFrameworks>net45;net461;netstandard2.0</TargetFrameworks>
     <Description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supports more than 50 countries</Description>
     <Company>nager.at</Company>
-    <Version>1.12.0</Version>
+    <Version>1.13.0</Version>
     <Authors>Tino Hager</Authors>
-    <PackageReleaseNotes>Add Panama</PackageReleaseNotes>
-    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Argentina Austria Australia Bahamas Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Guatemala Honduras Hungary Iceland Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Namibia Netherlands Norway NewZealand Panana Paraguay Peru Poland Portugal Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland UnitedKingdom UnitedStates Uruguay</PackageTags>
+    <PackageReleaseNotes>Add Venezuela</PackageReleaseNotes>
+    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Argentina Austria Australia Bahamas Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Croatia Cyprus CzechRepublic Denmark Estonia Finland France Germany Greece Guatemala Honduras Hungary Iceland Ireland Italy Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Namibia Netherlands Norway NewZealand Panana Paraguay Peru Poland Portugal Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland Venezuela UnitedKingdom UnitedStates Uruguay</PackageTags>
     <PackageProjectUrl>https://github.com/tinohager/Nager.Date</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</PackageLicenseUrl>
     <Product>Nager.Date</Product>
-    <AssemblyVersion>1.12.0</AssemblyVersion>
-    <FileVersion>1.12.0</FileVersion>
+    <AssemblyVersion>1.13.0</AssemblyVersion>
+    <FileVersion>1.13.0</FileVersion>
 	<PackageId>Nager.Date</PackageId>
 	<Title>Nager Public Holiday</Title>
 	<PackageIconUrl>https://raw.githubusercontent.com/tinohager/Nager.Date/master/Doc/Icons/calendar.png</PackageIconUrl>

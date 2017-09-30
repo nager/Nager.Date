@@ -128,7 +128,7 @@ var age = DateSystem.GetAge(date);
 - [x] Peru
 - [ ] Suriname
 - [x] Uruguay
-- [ ] Venezuela
+- [x] Venezuela
 
 #### Atlantic
 - [x] Greenland

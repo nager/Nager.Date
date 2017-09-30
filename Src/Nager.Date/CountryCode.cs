@@ -26,6 +26,7 @@
         ES,
         FI,
         FR,
+        GB,
         GL,
         GR,
         GT,
@@ -55,8 +56,8 @@
         SE,
         SI,
         SK,
-        GB,
         TR,
+        VE,
         US,
         UY,
         ZA

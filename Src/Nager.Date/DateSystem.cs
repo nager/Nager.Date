@@ -101,6 +101,9 @@ namespace Nager.Date
                 case CountryCode.FR:
                     provider = new FranceProvider();
                     break;
+                case CountryCode.GB:
+                    provider = new UnitedKingdomProvider();
+                    break;
                 case CountryCode.GL:
                     provider = new GreenlandProvider();
                     break;
@@ -191,8 +194,8 @@ namespace Nager.Date
                 case CountryCode.TR:
                     provider = new TurkeyProvider();
                     break;
-                case CountryCode.GB:
-                    provider = new UnitedKingdomProvider();
+                case CountryCode.VE:
+                    provider = new VenezuelaProvider();
                     break;
                 case CountryCode.US:
                     provider = new UnitedStatesProvider();
