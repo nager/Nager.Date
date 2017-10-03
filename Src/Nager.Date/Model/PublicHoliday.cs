@@ -17,7 +17,6 @@ namespace Nager.Date.Model
         //ISO-3166-2
         public string[] Counties { get; set; }
         public int? LaunchYear { get; set; }
-        public bool Observed { get; set; }
 
         /// <summary>
         /// Add Public Holiday (fixed is true)
@@ -32,8 +31,7 @@ namespace Nager.Date.Model
         /// <param name="counties">ISO-3166-2</param>
         /// <param name="countyOfficialHoliday"></param>
         /// <param name="countyAdministrationHoliday"></param>
-        /// <param name="observed"></param>
-        public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true, bool observed = false)
+        public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true)
         {
             this.Date = new DateTime(year, month, day);
             this.LocalName = localName;
@@ -46,11 +44,6 @@ namespace Nager.Date.Model
             if (counties?.Length > 0)
             {
                 this.Counties = counties;
-            }
-            this.Observed = observed;
-            if (this.Observed)
-            {
-                AdjustDateForObserved();
             }
         }
 
@@ -79,20 +72,11 @@ namespace Nager.Date.Model
             {
                 this.Counties = counties;
             }
-            this.Observed = false;
         }
 
         public override string ToString()
         {
             return $"{this.Date:yyyy-MM-dd} {this.Name}";
-        }
-
-        private void AdjustDateForObserved()
-        {
-            if (this.Date.IsWeekend(this.CountryCode))
-            {
-                this.Date = this.Date.DayOfWeek == DayOfWeek.Saturday ? this.Date.AddDays(-1) : this.Date.AddDays(1);
-            }
         }
     }
 }
