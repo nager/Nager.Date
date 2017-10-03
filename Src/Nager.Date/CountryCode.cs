@@ -49,6 +49,7 @@
         PA,
         PE,
         PL,
+        PR,
         PT,
         PY,
         RO,

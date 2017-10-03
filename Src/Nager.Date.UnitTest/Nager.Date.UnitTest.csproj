@@ -55,6 +55,7 @@
     <Compile Include="LogicTest.cs" />
     <Compile Include="LongWeekendTest.cs" />
     <Compile Include="MockProvider.cs" />
+    <Compile Include="Model\PublicHolidayTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpainTest.cs" />
     <Compile Include="SwitzerlandTest.cs" />
