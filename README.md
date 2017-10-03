@@ -113,6 +113,7 @@ var age = DateSystem.GetAge(date);
 - [ ] Haiti
 - [ ] Mexico
 - [x] Panama
+- [x] Puerto Rico
 - [x] United States
 
 #### South America
