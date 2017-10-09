@@ -149,3 +149,11 @@ var age = DateSystem.GetAge(date);
 #### Australia & Pacific
 - [x] Australia
 - [x] New Zealand
+
+### Alternative projects
+
+| Language  | Project |
+| ------------- | ------------- |
+| PHP | [yasumi](https://github.com/azuyalabs/yasumi) |
+| JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) |
+| .NET | [Holiday](https://github.com/martinjw/Holiday) |
