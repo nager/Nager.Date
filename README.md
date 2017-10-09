@@ -61,7 +61,7 @@ var age = DateSystem.GetAge(date);
 
 ### Country Support
 #### Europe
-- [ ] Andorra
+- [x] Andorra
 - [ ] Åland
 - [x] Austria
 - [x] Belarus
@@ -79,15 +79,15 @@ var age = DateSystem.GetAge(date);
 - [x] Hungary
 - [x] Iceland
 - [x] Ireland
-- [ ] Isle of Man
+- [x] Isle of Man
 - [x] Italy
-- [ ] Jersey
+- [x] Jersey
 - [x] Latvia
 - [x] Liechtenstein
 - [x] Lithuania
 - [x] Luxembourg
 - [x] Malta
-- [ ] Monaco
+- [x] Monaco
 - [x] Netherlands
 - [x] Norway
 - [x] Poland

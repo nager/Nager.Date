@@ -5,6 +5,7 @@
     /// </summary>
     public enum CountryCode
     {
+        AD,
         AR,
         AT,
         AU,
@@ -36,12 +37,15 @@
         HR,
         HU,
         IE,
+        IM,
         IS,
         IT,
+        JE,
         LI,
         LT,
         LU,
         LV,
+        MC,
         MG,
         MT,
         NA,

@@ -38,6 +38,9 @@ namespace Nager.Date
 
             switch (countryCode)
             {
+                case CountryCode.AD:
+                    provider = new AndorraProvider();
+                    break;
                 case CountryCode.AR:
                     provider = new ArgentinaProvider();
                     break;
@@ -131,6 +134,9 @@ namespace Nager.Date
                 case CountryCode.IE:
                     provider = new IrelandProvider();
                     break;
+                case CountryCode.IM:
+                    provider = new IsleOfManProvider();
+                    break;
                 case CountryCode.IS:
                     provider = new IcelandProvider();
                     break;
@@ -148,6 +154,12 @@ namespace Nager.Date
                     break;
                 case CountryCode.LV:
                     provider = new LatviaProvider();
+                    break;
+                case CountryCode.JE:
+                    provider = new JerseyProvider();
+                    break;
+                case CountryCode.MC:
+                    provider = new MonacoProvider();
                     break;
                 case CountryCode.MG:
                     provider = new MadagascarProvider();
