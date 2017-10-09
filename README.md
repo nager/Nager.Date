@@ -156,4 +156,5 @@ var age = DateSystem.GetAge(date);
 | ------------- | ------------- |
 | PHP | [yasumi](https://github.com/azuyalabs/yasumi) |
 | JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) |
+| Java | [jollyday](https://github.com/svendiedrichsen/jollyday) |
 | .NET | [Holiday](https://github.com/martinjw/Holiday) |
