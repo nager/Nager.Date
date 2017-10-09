@@ -26,7 +26,6 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 10, 12, "National Heroes' Day", "National Heroes' Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Boxing Day", "St. Stephen's Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "Junkanoo", "Junkanoo", countryCode));
 
             return items.OrderBy(o => o.Date);
         }
