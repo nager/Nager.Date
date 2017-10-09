@@ -18,6 +18,7 @@
         CA,
         CH,
         //CN,
+        CO,
         CR,
         CY,
         CZ,
