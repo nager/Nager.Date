@@ -6,6 +6,22 @@ namespace Nager.Date.PublicHolidays
 {
     public class AustriaProvider : CatholicBaseProvider
     {
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "AT-1", "Burgenland" }, //Burgenland
+                { "AT-2", "Kärnten" }, //Carinthia
+                { "AT-3", "Niederösterreich" }, //Lower Austria
+                { "AT-4", "Oberösterreich" }, //Upper Austria
+                { "AT-5", "Salzburg" }, //Salzburg
+                { "AT-6", "Steiermark" }, //Styria
+                { "AT-7", "Tirol" }, //Tyrol
+                { "AT-8", "Vorarlberg" }, //Vorarlberg
+                { "AT-9", "Wien" }, //Vienna
+            };
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Austria
@@ -17,8 +33,10 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 1, 6, "Heilige Drei Könige", "Epiphany", countryCode));
+            //items.Add(new PublicHoliday(year, 3, 19, "St. Josef", "Saint Joseph's Day", countryCode, type: PublicHolidayType.Authorities | PublicHolidayType.School, counties: new string[] { "AT-2", "AT-6", "AT-7", "AT-8" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter Monday", countryCode, 1642));
             items.Add(new PublicHoliday(year, 5, 1, "Staatsfeiertag", "National Holiday", countryCode, 1955));
+            //items.Add(new PublicHoliday(year, 5, 1, "St. Florian", "Saint Florian", countryCode, type: PublicHolidayType.School, counties: new string[] { "AT-4" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Christi Himmelfahrt", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode));
