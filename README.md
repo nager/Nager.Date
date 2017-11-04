@@ -115,6 +115,7 @@ var age = DateSystem.GetAge(date);
 - [x] Canada
 - [x] Costa Rica
 - [ ] Cuba
+- [x] Dominican Republic
 - [x] Guatemala
 - [ ] Haiti
 - [ ] Mexico
