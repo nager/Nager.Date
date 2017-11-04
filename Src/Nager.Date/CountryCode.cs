@@ -42,6 +42,7 @@
         IS,
         IT,
         JE,
+        JM,
         LI,
         LT,
         LU,

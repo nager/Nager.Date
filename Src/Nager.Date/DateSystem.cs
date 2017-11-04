@@ -161,6 +161,9 @@ namespace Nager.Date
                 case CountryCode.JE:
                     provider = new JerseyProvider();
                     break;
+                case CountryCode.JM:
+                    provider = new JamaicaProvider();
+                    break;
                 case CountryCode.MC:
                     provider = new MonacoProvider();
                     break;
