@@ -6,16 +6,22 @@
     <Company>nager.at</Company>
     <Version>1.16.0</Version>
     <Authors>Tino Hager</Authors>
-    <PackageReleaseNotes>Add Dominican Republic, Jamaica, Ecuador, Cuba</PackageReleaseNotes>
+    <PackageReleaseNotes>Add Dominican Republic, Jamaica, Ecuador and Cuba</PackageReleaseNotes>
     <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Andorra Argentina Austria Australia Bahamas Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Colombia CostaRica Croatia Cuba Cyprus CzechRepublic Denmark DominicanRepublic Ecuador Estonia Finland France Germany Greece Guatemala Honduras Hungary Iceland Ireland IsleOfMan Italy Jamaica Jersey Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Monaco Namibia Netherlands Norway NewZealand Panana Paraguay Peru Poland Portugal PuertoRico Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland Venezuela UnitedKingdom UnitedStates Uruguay</PackageTags>
     <PackageProjectUrl>https://github.com/tinohager/Nager.Date</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</PackageLicenseUrl>
     <Product>Nager.Date</Product>
     <AssemblyVersion>1.15.0</AssemblyVersion>
     <FileVersion>1.15.0</FileVersion>
-	<PackageId>Nager.Date</PackageId>
-	<Title>Nager Public Holiday</Title>
-	<PackageIconUrl>https://raw.githubusercontent.com/tinohager/Nager.Date/master/Doc/Icons/calendar.png</PackageIconUrl>
+    <PackageId>Nager.Date</PackageId>
+    <Title>Nager Public Holiday</Title>
+    <PackageIconUrl>https://raw.githubusercontent.com/tinohager/Nager.Date/master/Doc/Icons/calendar.png</PackageIconUrl>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Include="install.ps1">
+      <PackagePath>tools\</PackagePath>
+    </Content>
+  </ItemGroup>
 
 </Project>
