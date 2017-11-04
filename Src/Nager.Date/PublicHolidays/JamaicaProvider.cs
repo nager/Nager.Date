@@ -26,7 +26,7 @@ namespace Nager.Date.PublicHolidays
 
             #region Independence Day
 
-            var independenceDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            var independenceDay = new DateTime(year, 8, 6).Shift(saturday => saturday, sunday => sunday.AddDays(1));
             items.Add(new PublicHoliday(independenceDay, "Independence Day", "Independence Day", countryCode));
 
             #endregion
