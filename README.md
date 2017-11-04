@@ -130,7 +130,7 @@ var age = DateSystem.GetAge(date);
 - [x] Brazil
 - [ ] Chile
 - [x] Colombia
-- [ ] Ecuador
+- [x] Ecuador
 - [ ] Guyana
 - [x] Honduras
 - [x] Paraguay

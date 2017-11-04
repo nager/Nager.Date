@@ -101,6 +101,9 @@ namespace Nager.Date
                 case CountryCode.DO:
                     provider = new DominicanRepublicProvider();
                     break;
+                case CountryCode.EC:
+                    provider = new EcuadorProvider();
+                    break;
                 case CountryCode.EE:
                     provider = new EstoniaProvider();
                     break;
