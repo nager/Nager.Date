@@ -86,6 +86,9 @@ namespace Nager.Date
                 case CountryCode.CR:
                     provider = new CostaRicaProvider();
                     break;
+                case CountryCode.CU:
+                    provider = new CubaProvider();
+                    break;
                 case CountryCode.CY:
                     provider = new CyprusProvider();
                     break;

@@ -21,6 +21,7 @@
         //CN,
         CO,
         CR,
+        CU,
         CY,
         CZ,
         DE,
