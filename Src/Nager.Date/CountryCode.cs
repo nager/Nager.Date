@@ -18,6 +18,7 @@
         BY,
         CA,
         CH,
+        CL,
         //CN,
         CO,
         CR,
