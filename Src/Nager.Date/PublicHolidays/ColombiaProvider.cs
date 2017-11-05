@@ -1,6 +1,7 @@
 ﻿using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace Nager.Date.PublicHolidays
 {
     public class ColombiaProvider : CatholicBaseProvider
