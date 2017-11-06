@@ -39,6 +39,7 @@
         GT,
         HN,
         HR,
+        HT,
         HU,
         IE,
         IM,

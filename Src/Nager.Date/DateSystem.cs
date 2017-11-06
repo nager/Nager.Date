@@ -141,6 +141,9 @@ namespace Nager.Date
                 case CountryCode.HR:
                     provider = new CroatiaProvider();
                     break;
+                case CountryCode.HT:
+                    provider = new HaitiProvider();
+                    break;
                 case CountryCode.HU:
                     provider = new HungaryProvider();
                     break;
