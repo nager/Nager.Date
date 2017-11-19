@@ -116,10 +116,12 @@ var age = DateSystem.GetAge(date);
 - [x] Costa Rica
 - [x] Cuba
 - [x] Dominican Republic
+- [ ] El Salvador
 - [x] Guatemala
 - [x] Haiti
 - [x] Jamaica
 - [ ] Mexico
+- [ ] Nicaragua
 - [x] Panama
 - [x] Puerto Rico
 - [x] United States
@@ -131,11 +133,12 @@ var age = DateSystem.GetAge(date);
 - [x] Chile
 - [x] Colombia
 - [x] Ecuador
-- [x] Guyana
+- [ ] French Guiana
+- [x] Guyana (without muslim based holidays and hindu based holidays)
 - [x] Honduras
 - [x] Paraguay
 - [x] Peru
-- [ ] Suriname
+- [x] Suriname
 - [x] Uruguay
 - [x] Venezuela
 
