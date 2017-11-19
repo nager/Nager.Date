@@ -135,6 +135,9 @@ namespace Nager.Date
                 case CountryCode.GT:
                     provider = new GuatemalaProvider();
                     break;
+                case CountryCode.GY:
+                    provider = new GuyanaProvider();
+                    break;
                 case CountryCode.HN:
                     provider = new HondurasProvider();
                     break;

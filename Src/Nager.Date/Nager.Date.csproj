@@ -6,8 +6,8 @@
     <Company>nager.at</Company>
     <Version>1.17.0</Version>
     <Authors>Tino Hager</Authors>
-    <PackageReleaseNotes>Add Chile and Haiti</PackageReleaseNotes>
-    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Andorra Argentina Austria Australia Bahamas Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Chile Colombia CostaRica Croatia Cuba Cyprus CzechRepublic Denmark DominicanRepublic Ecuador Estonia Finland France Germany Greece Guatemala Haiti Honduras Hungary Iceland Ireland IsleOfMan Italy Jamaica Jersey Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Monaco Namibia Netherlands Norway NewZealand Panana Paraguay Peru Poland Portugal PuertoRico Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland Venezuela UnitedKingdom UnitedStates Uruguay</PackageTags>
+    <PackageReleaseNotes>Add Chile, Haiti and Guyana</PackageReleaseNotes>
+    <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday Andorra Argentina Austria Australia Bahamas Belarus Belgium Bolivia Botswana Brazil Bulgaria Canada Chile Colombia CostaRica Croatia Cuba Cyprus CzechRepublic Denmark DominicanRepublic Ecuador Estonia Finland France Germany Greece Guatemala Guyana Haiti Honduras Hungary Iceland Ireland IsleOfMan Italy Jamaica Jersey Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Monaco Namibia Netherlands Norway NewZealand Panana Paraguay Peru Poland Portugal PuertoRico Romania Russia Slovakia Slovenia SouthAfrica Spain Sweden Switzerland Venezuela UnitedKingdom UnitedStates Uruguay</PackageTags>
     <PackageProjectUrl>https://github.com/tinohager/Nager.Date</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</PackageLicenseUrl>
     <Product>Nager.Date</Product>
