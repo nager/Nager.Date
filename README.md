@@ -112,6 +112,7 @@ var age = DateSystem.GetAge(date);
 
 #### North America
 - [x] Bahamas
+- [ ] Belize
 - [x] Canada
 - [x] Costa Rica
 - [x] Cuba
