@@ -80,10 +80,9 @@ namespace Nager.Date
                 case CountryCode.CL:
                     provider = new ChileProvider();
                     break;
-                //case Country
-                //case CountryCode.CN:
-                //    provider = new ChinaProvider();
-                //    break;
+                case CountryCode.CN:
+                    provider = new ChinaProvider();
+                    break;
                 case CountryCode.CO:
                     provider = new ColombiaProvider();
                     break;

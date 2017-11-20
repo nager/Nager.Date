@@ -19,7 +19,7 @@
         CA,
         CH,
         CL,
-        //CN,
+        CN,
         CO,
         CR,
         CU,
