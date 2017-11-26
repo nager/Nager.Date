@@ -156,6 +156,10 @@ var age = DateSystem.GetAge(date);
 - [x] Australia
 - [x] New Zealand
 
+### Blog Posts
+
+[Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
+
 ### Alternative projects
 
 | Language  | Project |
