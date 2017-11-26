@@ -104,7 +104,7 @@ var age = DateSystem.GetAge(date);
 - [x] United Kingdom
 
 #### Asia
-- [ ] China
+- [x] China (without Qingming (Tomb-Sweeping Day))
 - [ ] Kazakhstan
 - [ ] Mongolia
 - [x] Russia
@@ -164,3 +164,4 @@ var age = DateSystem.GetAge(date);
 | JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) |
 | Java | [jollyday](https://github.com/svendiedrichsen/jollyday) |
 | .NET | [Holiday](https://github.com/martinjw/Holiday) |
+| Phyton | [python-holidays](https://github.com/ryanss/python-holidays) |
