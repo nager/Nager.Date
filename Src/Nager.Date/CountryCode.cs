@@ -1,7 +1,7 @@
 ﻿namespace Nager.Date
 {
     /// <summary>
-    /// Supported Country Codes
+    /// Supported Country Codes (ISO 3166-1 ALPHA-2)
     /// </summary>
     public enum CountryCode
     {
@@ -9,6 +9,7 @@
         AR,
         AT,
         AU,
+        AX,
         BE,
         BG,
         BO,

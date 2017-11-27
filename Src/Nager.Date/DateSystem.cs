@@ -50,6 +50,9 @@ namespace Nager.Date
                 case CountryCode.AU:
                     provider = new AustraliaProvider();
                     break;
+                case CountryCode.AX:
+                    provider = new AlandProvider();
+                    break;
                 case CountryCode.BE:
                     provider = new BelgiumProvider();
                     break;
