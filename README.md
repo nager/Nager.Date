@@ -61,8 +61,10 @@ var age = DateSystem.GetAge(date);
 
 ### Country Support
 #### Europe (40/51)
+- [ ] Albania
 - [x] Åland
 - [x] Andorra
+- [ ] Armenia
 - [x] Austria
 - [x] Belarus
 - [x] Belgium
@@ -74,6 +76,7 @@ var age = DateSystem.GetAge(date);
 - [x] Estonia
 - [x] Finland
 - [x] France
+- [ ] Georgia
 - [x] Germany
 - [x] Greece
 - [x] Hungary
@@ -81,19 +84,25 @@ var age = DateSystem.GetAge(date);
 - [x] Ireland
 - [x] Isle of Man
 - [x] Italy
+- [ ] Kazakhstan
+- [ ] Kosovo
 - [x] Jersey
 - [x] Latvia
 - [x] Liechtenstein
 - [x] Lithuania
 - [x] Luxembourg
 - [x] Malta
+- [ ] Moldova
 - [x] Monaco
+- [ ] Montenegro
 - [x] Netherlands
 - [x] Norway
 - [x] Poland
 - [x] Portugal
 - [x] Romania
 - [x] Russia
+- [ ] San Marino
+- [ ] Serbia
 - [x] Slovakia
 - [x] Slovenia
 - [x] Spain
@@ -102,6 +111,7 @@ var age = DateSystem.GetAge(date);
 - [x] Turkey (without muslim based holidays)
 - [ ] Ukraine
 - [x] United Kingdom
+- [ ] Vatican City
 
 #### Asia (3/50)
 - [x] China (without Qingming (Tomb-Sweeping Day))
