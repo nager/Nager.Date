@@ -60,7 +60,7 @@ var age = DateSystem.GetAge(date);
 ```
 
 ### Country Support
-#### Europe
+#### Europe (40/51)
 - [x] Åland
 - [x] Andorra
 - [x] Austria
@@ -103,31 +103,38 @@ var age = DateSystem.GetAge(date);
 - [ ] Ukraine
 - [x] United Kingdom
 
-#### Asia
+#### Asia (3/50)
 - [x] China (without Qingming (Tomb-Sweeping Day))
 - [ ] Kazakhstan
 - [ ] Mongolia
 - [x] Russia
 - [x] Turkey (without muslim based holidays)
 
-#### North America
+#### North America (11/23)
 - [x] Bahamas
+- [ ] Barbados
 - [ ] Belize
 - [x] Canada
 - [x] Costa Rica
 - [x] Cuba
 - [x] Dominican Republic
 - [ ] El Salvador
+- [ ] Grenada
 - [x] Guatemala
 - [x] Haiti
+- [ ] Honduras
 - [x] Jamaica
 - [ ] Mexico
 - [ ] Nicaragua
 - [x] Panama
 - [x] Puerto Rico
+- [ ] Saint Kitts and Nevis
+- [ ] Saint Lucia
+- [ ] Saint Vincent and the Grenadines
+- [ ] Trinidad and Tobago
 - [x] United States
 
-#### South America
+#### South America (13/14)
 - [x] Argentina
 - [x] Bolivia
 - [x] Brazil
@@ -146,7 +153,7 @@ var age = DateSystem.GetAge(date);
 #### Atlantic
 - [x] Greenland
 
-#### Africa
+#### Africa (4/58)
 - [x] Botswana
 - [x] Madagascar
 - [x] Namibia
