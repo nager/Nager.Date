@@ -4,9 +4,9 @@
 
 Nager.Date is a Date/Calendar Framework for .NET
 
-- [x] Public holiday calculation for every year, based on easter sunday, country and county support.
+- Public holiday calculation for every year, based on easter sunday, country and county support.
 Supports more than 70 countries if your country is not supported, fork me, implement it and send me the pull request.
-- [x] Age calculation
+- Age calculation
 
 ### Demo Website
 http://publicholiday.azurewebsites.net
@@ -162,10 +162,12 @@ var age = DateSystem.GetAge(date);
 
 ### Alternative projects
 
-| Language  | Project |
-| ------------- | ------------- |
-| PHP | [yasumi](https://github.com/azuyalabs/yasumi) |
-| JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) |
-| Java | [jollyday](https://github.com/svendiedrichsen/jollyday) |
-| .NET | [Holiday](https://github.com/martinjw/Holiday) |
-| Phyton | [python-holidays](https://github.com/ryanss/python-holidays) |
+| Language | Project | Supported Countries (November 2017) |
+| ------------- | ------------- | ------------- |
+| PHP | [yasumi](https://github.com/azuyalabs/yasumi) | 29 |
+| JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) | 130 |
+| Java | [jollyday](https://github.com/svendiedrichsen/jollyday) | 64 |
+| .NET | [Holiday](https://github.com/martinjw/Holiday) | 21 |
+| Phyton | [python-holidays](https://github.com/ryanss/python-holidays) | 20 |
+| Phyton | [workalendar](https://github.com/peopledoc/workalendar) | 53 |
+
