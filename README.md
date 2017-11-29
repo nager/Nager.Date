@@ -61,6 +61,7 @@ var age = DateSystem.GetAge(date);
 
 ### Country Support
 #### Europe (40/51)
+---
 - [ ] Albania
 - [x] Åland
 - [x] Andorra
@@ -114,6 +115,7 @@ var age = DateSystem.GetAge(date);
 - [ ] Vatican City
 
 #### Asia (3/50)
+---
 - [x] China (without Qingming (Tomb-Sweeping Day))
 - [ ] Kazakhstan
 - [ ] Mongolia
@@ -121,6 +123,7 @@ var age = DateSystem.GetAge(date);
 - [x] Turkey (without muslim based holidays)
 
 #### North America (11/23)
+---
 - [x] Bahamas
 - [ ] Barbados
 - [ ] Belize
@@ -145,6 +148,7 @@ var age = DateSystem.GetAge(date);
 - [x] United States
 
 #### South America (13/14)
+---
 - [x] Argentina
 - [x] Bolivia
 - [x] Brazil
@@ -161,15 +165,18 @@ var age = DateSystem.GetAge(date);
 - [x] Venezuela
 
 #### Atlantic
+---
 - [x] Greenland
 
 #### Africa (4/58)
+---
 - [x] Botswana
 - [x] Madagascar
 - [x] Namibia
 - [x] South Africa
 
 #### Australia & Pacific
+---
 - [x] Australia
 - [x] New Zealand
 
