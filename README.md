@@ -59,16 +59,16 @@ var date = new DateTime(1900, 1, 1);
 var age = DateSystem.GetAge(date);
 ```
 
-### Country Support
-#### Europe (40/51)
+### [Country Support](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
+#### Europe (39/49)
 ---
 - [ ] Albania
 - [x] Åland
 - [x] Andorra
-- [ ] Armenia
 - [x] Austria
 - [x] Belarus
 - [x] Belgium
+- [ ] Bosnia and Herzegovina
 - [x] Bulgaria
 - [x] Croatia
 - [x] Cyprus
@@ -77,7 +77,6 @@ var age = DateSystem.GetAge(date);
 - [x] Estonia
 - [x] Finland
 - [x] France
-- [ ] Georgia
 - [x] Germany
 - [x] Greece
 - [x] Hungary
@@ -85,13 +84,13 @@ var age = DateSystem.GetAge(date);
 - [x] Ireland
 - [x] Isle of Man
 - [x] Italy
-- [ ] Kazakhstan
 - [ ] Kosovo
 - [x] Jersey
 - [x] Latvia
 - [x] Liechtenstein
 - [x] Lithuania
 - [x] Luxembourg
+- [ ] Macedonia
 - [x] Malta
 - [ ] Moldova
 - [x] Monaco
@@ -109,35 +108,43 @@ var age = DateSystem.GetAge(date);
 - [x] Spain
 - [x] Sweden
 - [x] Switzerland
-- [x] Turkey (without muslim based holidays)
 - [ ] Ukraine
 - [x] United Kingdom
 - [ ] Vatican City
 
 #### Asia (3/50)
 ---
+- [ ] Armenia
 - [x] China (without Qingming (Tomb-Sweeping Day))
+- [ ] Georgia
 - [ ] Kazakhstan
 - [ ] Mongolia
 - [x] Russia
 - [x] Turkey (without muslim based holidays)
 
-#### North America (11/23)
+#### North America (3/4)
+---
+- [x] Canada
+- [x] Greenland
+- [ ] Mexico
+- [x] United States
+
+#### Central America and the Antilles (9/22)
 ---
 - [x] Bahamas
 - [ ] Barbados
 - [ ] Belize
-- [x] Canada
 - [x] Costa Rica
 - [x] Cuba
+- [ ] Curacao
+- [ ] Dominica
 - [x] Dominican Republic
 - [ ] El Salvador
 - [ ] Grenada
 - [x] Guatemala
 - [x] Haiti
-- [ ] Honduras
+- [x] Honduras
 - [x] Jamaica
-- [ ] Mexico
 - [ ] Nicaragua
 - [x] Panama
 - [x] Puerto Rico
@@ -145,7 +152,7 @@ var age = DateSystem.GetAge(date);
 - [ ] Saint Lucia
 - [ ] Saint Vincent and the Grenadines
 - [ ] Trinidad and Tobago
-- [x] United States
+- [ ] Turks and Caicos
 
 #### South America (13/14)
 ---
@@ -157,23 +164,69 @@ var age = DateSystem.GetAge(date);
 - [x] Ecuador
 - [ ] French Guiana
 - [x] Guyana (without muslim based holidays and hindu based holidays)
-- [x] Honduras
 - [x] Paraguay
 - [x] Peru
 - [x] Suriname
 - [x] Uruguay
 - [x] Venezuela
 
-#### Atlantic
----
-- [x] Greenland
-
 #### Africa (4/58)
 ---
+- [ ] Algeria
+- [ ] Angola
+- [ ] Benin
 - [x] Botswana
+- [ ] Burkina Faso
+- [ ] Burundi
+- [ ] Cameroon
+- [ ] Cape Verde
+- [ ] Chad
+- [ ] Central African Republic
+- [ ] Comoros
+- [ ] Republic of the Congo
+- [ ] Democratic Republic of the Congo
+- [ ] Côte d'Ivoire
+- [ ] Djibouti
+- [ ] Egypt
+- [ ] Equatorial Guinea
+- [ ] Eritrea
+- [ ] Ethiopia
+- [ ] Gabon
+- [ ] The Gambia
+- [ ] Ghana
+- [ ] Guinea
+- [ ] Guinea-Bissau
+- [ ] Kenya
+- [ ] Lesotho
+- [ ] Liberia
+- [ ] Libya
 - [x] Madagascar
+- [ ] Malawi
+- [ ] Mali
+- [ ] Mauritania
+- [ ] Mauritius
+- [ ] Morocco
+- [ ] Mozambique
 - [x] Namibia
+- [ ] Niger
+- [ ] Nigeria
+- [ ] Rwanda
+- [ ] São Tomé and Príncipe
+- [ ] Senegal
+- [ ] Seychelles
+- [ ] Sierra Leone
+- [ ] Somalia
 - [x] South Africa
+- [ ] South Sudan
+- [ ] Sudan
+- [ ] Swaziland
+- [ ] Tanzania
+- [ ] Togo
+- [ ] Tunisia
+- [ ] Uganda
+- [ ] Western Sahara
+- [ ] Zambia
+- [ ] Zimbabwe
 
 #### Australia & Pacific
 ---
