@@ -26,7 +26,7 @@ namespace Nager.Date.PublicHolidays
             var newYearDay1 = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             items.Add(new PublicHoliday(newYearDay1, "New Year's Day", "New Year's Day", countryCode));
 
-            var newYearDay2 = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(1), sunday => sunday.AddDays(2));
+            var newYearDay2 = new DateTime(year, 1, 2).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             items.Add(new PublicHoliday(newYearDay2, "Day after New Year's Day", "Day after New Year's Day", countryCode));
 
             #endregion
