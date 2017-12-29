@@ -57,6 +57,7 @@
         MG,
         MT,
         NA,
+        NI,
         NL,
         NO,
         NZ,
