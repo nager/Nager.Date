@@ -121,11 +121,11 @@ var age = DateSystem.GetAge(date);
 - [x] Russia
 - [x] Turkey (without muslim based holidays)
 
-#### North America (3/4)
+#### North America (4/4)
 ---
 - [x] Canada
 - [x] Greenland
-- [ ] Mexico
+- [x] Mexico
 - [x] United States
 
 #### Central America and the Antilles (10/22)
