@@ -1,11 +1,12 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class CanadaProvider : CatholicBaseProvider
+    public class CanadaProvider : CatholicBaseProvider, ICountyProvider
     {
         public IDictionary<string, string> GetCounties()
         {

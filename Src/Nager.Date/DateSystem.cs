@@ -9,16 +9,97 @@ namespace Nager.Date
 {
     public static class DateSystem
     {
+        public static IPublicHolidayProvider GetProvider(CountryCode countryCode)
+        {
+            var countries = new Dictionary<CountryCode, IPublicHolidayProvider>();
+            countries.Add(CountryCode.AD, new AndorraProvider());
+            countries.Add(CountryCode.AR, new ArgentinaProvider());
+            countries.Add(CountryCode.AT, new AustriaProvider());
+            countries.Add(CountryCode.AU, new AustraliaProvider());
+            countries.Add(CountryCode.AX, new AlandProvider());
+            countries.Add(CountryCode.BE, new BelgiumProvider());
+            countries.Add(CountryCode.BG, new BulgariaProvider());
+            countries.Add(CountryCode.BO, new BoliviaProvider());
+            countries.Add(CountryCode.BR, new BrazilProvider());
+            countries.Add(CountryCode.BS, new BahamasProvider());
+            countries.Add(CountryCode.BW, new BotswanaProvider());
+            countries.Add(CountryCode.BY, new BelarusProvider());
+            countries.Add(CountryCode.CA, new CanadaProvider());
+            countries.Add(CountryCode.CH, new SwitzerlandProvider());
+            countries.Add(CountryCode.CL, new ChileProvider());
+            countries.Add(CountryCode.CN, new ChinaProvider());
+            countries.Add(CountryCode.CO, new ColombiaProvider());
+            countries.Add(CountryCode.CR, new CostaRicaProvider());
+            countries.Add(CountryCode.CU, new CubaProvider());
+            countries.Add(CountryCode.CY, new CyprusProvider());
+            countries.Add(CountryCode.CZ, new CzechRepublicProvider());
+            countries.Add(CountryCode.DE, new GermanyProvider());
+            countries.Add(CountryCode.DK, new DenmarkProvider());
+            countries.Add(CountryCode.DO, new DominicanRepublicProvider());
+            countries.Add(CountryCode.EC, new EcuadorProvider());
+            countries.Add(CountryCode.EE, new EstoniaProvider());
+            countries.Add(CountryCode.ES, new SpainProvider());
+            countries.Add(CountryCode.FI, new FinlandProvider());
+            countries.Add(CountryCode.FR, new FranceProvider());
+            countries.Add(CountryCode.GB, new UnitedKingdomProvider());
+            countries.Add(CountryCode.GL, new GreenlandProvider());
+            countries.Add(CountryCode.GR, new GreeceProvider());
+            countries.Add(CountryCode.GT, new GuatemalaProvider());
+            countries.Add(CountryCode.GY, new GuyanaProvider());
+            countries.Add(CountryCode.HN, new HondurasProvider());
+            countries.Add(CountryCode.HR, new CroatiaProvider());
+            countries.Add(CountryCode.HT, new HaitiProvider());
+            countries.Add(CountryCode.HU, new HungaryProvider());
+            countries.Add(CountryCode.IE, new IrelandProvider());
+            countries.Add(CountryCode.IM, new IsleOfManProvider());
+            countries.Add(CountryCode.IS, new IcelandProvider());
+            countries.Add(CountryCode.IT, new ItalyProvider());
+            countries.Add(CountryCode.LI, new LiechtensteinProvider());
+            countries.Add(CountryCode.LT, new LithuaniaProvider());
+            countries.Add(CountryCode.LU, new LuxembourgProvider());
+            countries.Add(CountryCode.LV, new LatviaProvider());
+            countries.Add(CountryCode.JE, new JerseyProvider());
+            countries.Add(CountryCode.JM, new JamaicaProvider());
+            countries.Add(CountryCode.MC, new MonacoProvider());
+            countries.Add(CountryCode.MG, new MadagascarProvider());
+            countries.Add(CountryCode.MT, new MaltaProvider());
+            countries.Add(CountryCode.MX, new MexicoProvider());
+            countries.Add(CountryCode.NA, new NamibiaProvider());
+            countries.Add(CountryCode.NI, new NicaraguaProvider());
+            countries.Add(CountryCode.NL, new NetherlandsProvider());
+            countries.Add(CountryCode.NO, new NorwayProvider());
+            countries.Add(CountryCode.NZ, new NewZealandProvider());
+            countries.Add(CountryCode.PA, new PanamaProvider());
+            countries.Add(CountryCode.PE, new PeruProvider());
+            countries.Add(CountryCode.PL, new PolandProvider());
+            countries.Add(CountryCode.PR, new PuertoRicoProvider());
+            countries.Add(CountryCode.PT, new PortugalProvider());
+            countries.Add(CountryCode.PY, new ParaguayProvider());
+            countries.Add(CountryCode.RO, new RomaniaProvider());
+            countries.Add(CountryCode.RU, new RussiaProvider());
+            countries.Add(CountryCode.SI, new SloveniaProvider());
+            countries.Add(CountryCode.SE, new SwedenProvider());
+            countries.Add(CountryCode.SK, new SlovakiaProvider());
+            countries.Add(CountryCode.SR, new SurinameProvider());
+            countries.Add(CountryCode.TR, new TurkeyProvider());
+            countries.Add(CountryCode.VE, new VenezuelaProvider());
+            countries.Add(CountryCode.US, new UnitedStatesProvider());
+            countries.Add(CountryCode.UY, new UruguayProvider());
+            countries.Add(CountryCode.ZA, new SouthAfricaProvider());
+
+            countries.TryGetValue(countryCode, out IPublicHolidayProvider provider);
+            return provider;
+        }
+
         /// <summary>
-        /// Get Public Holidays
+        /// Get Public Holidays of given year
         /// </summary>
         /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
         /// <param name="year"></param>
         /// <returns></returns>
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
-            CountryCode parsedCountryCode;
-            if (!Enum.TryParse(countryCode, true, out parsedCountryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
                 return null;
             }
@@ -27,241 +108,14 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Get Public Holidays
+        /// Get Public Holidays of given year
         /// </summary>
         /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
         /// <param name="year"></param>
         /// <returns></returns>
         public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, int year)
         {
-            IPublicHolidayProvider provider = null;
-
-            switch (countryCode)
-            {
-                case CountryCode.AD:
-                    provider = new AndorraProvider();
-                    break;
-                case CountryCode.AR:
-                    provider = new ArgentinaProvider();
-                    break;
-                case CountryCode.AT:
-                    provider = new AustriaProvider();
-                    break;
-                case CountryCode.AU:
-                    provider = new AustraliaProvider();
-                    break;
-                case CountryCode.AX:
-                    provider = new AlandProvider();
-                    break;
-                case CountryCode.BE:
-                    provider = new BelgiumProvider();
-                    break;
-                case CountryCode.BG:
-                    provider = new BulgariaProvider();
-                    break;
-                case CountryCode.BO:
-                    provider = new BoliviaProvider();
-                    break;
-                case CountryCode.BR:
-                    provider = new BrazilProvider();
-                    break;
-                case CountryCode.BS:
-                    provider = new BahamasProvider();
-                    break;
-                case CountryCode.BW:
-                    provider = new BotswanaProvider();
-                    break;
-                case CountryCode.BY:
-                    provider = new BelarusProvider();
-                    break;
-                case CountryCode.CA:
-                    provider = new CanadaProvider();
-                    break;
-                case CountryCode.CH:
-                    provider = new SwitzerlandProvider();
-                    break;
-                case CountryCode.CL:
-                    provider = new ChileProvider();
-                    break;
-                case CountryCode.CN:
-                    provider = new ChinaProvider();
-                    break;
-                case CountryCode.CO:
-                    provider = new ColombiaProvider();
-                    break;
-                case CountryCode.CR:
-                    provider = new CostaRicaProvider();
-                    break;
-                case CountryCode.CU:
-                    provider = new CubaProvider();
-                    break;
-                case CountryCode.CY:
-                    provider = new CyprusProvider();
-                    break;
-                case CountryCode.CZ:
-                    provider = new CzechRepublicProvider();
-                    break;
-                case CountryCode.DE:
-                    provider = new GermanyProvider();
-                    break;
-                case CountryCode.DK:
-                    provider = new DenmarkProvider();
-                    break;
-                case CountryCode.DO:
-                    provider = new DominicanRepublicProvider();
-                    break;
-                case CountryCode.EC:
-                    provider = new EcuadorProvider();
-                    break;
-                case CountryCode.EE:
-                    provider = new EstoniaProvider();
-                    break;
-                case CountryCode.ES:
-                    provider = new SpainProvider();
-                    break;
-                case CountryCode.FI:
-                    provider = new FinlandProvider();
-                    break;
-                case CountryCode.FR:
-                    provider = new FranceProvider();
-                    break;
-                case CountryCode.GB:
-                    provider = new UnitedKingdomProvider();
-                    break;
-                case CountryCode.GL:
-                    provider = new GreenlandProvider();
-                    break;
-                case CountryCode.GR:
-                    provider = new GreeceProvider();
-                    break;
-                case CountryCode.GT:
-                    provider = new GuatemalaProvider();
-                    break;
-                case CountryCode.GY:
-                    provider = new GuyanaProvider();
-                    break;
-                case CountryCode.HN:
-                    provider = new HondurasProvider();
-                    break;
-                case CountryCode.HR:
-                    provider = new CroatiaProvider();
-                    break;
-                case CountryCode.HT:
-                    provider = new HaitiProvider();
-                    break;
-                case CountryCode.HU:
-                    provider = new HungaryProvider();
-                    break;
-                case CountryCode.IE:
-                    provider = new IrelandProvider();
-                    break;
-                case CountryCode.IM:
-                    provider = new IsleOfManProvider();
-                    break;
-                case CountryCode.IS:
-                    provider = new IcelandProvider();
-                    break;
-                case CountryCode.IT:
-                    provider = new ItalyProvider();
-                    break;
-                case CountryCode.LI:
-                    provider = new LiechtensteinProvider();
-                    break;
-                case CountryCode.LT:
-                    provider = new LithuaniaProvider();
-                    break;
-                case CountryCode.LU:
-                    provider = new LuxembourgProvider();
-                    break;
-                case CountryCode.LV:
-                    provider = new LatviaProvider();
-                    break;
-                case CountryCode.JE:
-                    provider = new JerseyProvider();
-                    break;
-                case CountryCode.JM:
-                    provider = new JamaicaProvider();
-                    break;
-                case CountryCode.MC:
-                    provider = new MonacoProvider();
-                    break;
-                case CountryCode.MG:
-                    provider = new MadagascarProvider();
-                    break;
-                case CountryCode.MT:
-                    provider = new MaltaProvider();
-                    break;
-                case CountryCode.MX:
-                    provider = new MexicoProvider();
-                    break;
-                case CountryCode.NA:
-                    provider = new NamibiaProvider();
-                    break;
-                case CountryCode.NI:
-                    provider = new NicaraguaProvider();
-                    break;
-                case CountryCode.NL:
-                    provider = new NetherlandsProvider();
-                    break;
-                case CountryCode.NO:
-                    provider = new NorwayProvider();
-                    break;
-                case CountryCode.NZ:
-                    provider = new NewZealandProvider();
-                    break;
-                case CountryCode.PA:
-                    provider = new PanamaProvider();
-                    break;
-                case CountryCode.PE:
-                    provider = new PeruProvider();
-                    break;
-                case CountryCode.PL:
-                    provider = new PolandProvider();
-                    break;
-                case CountryCode.PR:
-                    provider = new PuertoRicoProvider();
-                    break;
-                case CountryCode.PT:
-                    provider = new PortugalProvider();
-                    break;
-                case CountryCode.PY:
-                    provider = new ParaguayProvider();
-                    break;
-                case CountryCode.RO:
-                    provider = new RomaniaProvider();
-                    break;
-                case CountryCode.RU:
-                    provider = new RussiaProvider();
-                    break;
-                case CountryCode.SI:
-                    provider = new SloveniaProvider();
-                    break;
-                case CountryCode.SE:
-                    provider = new SwedenProvider();
-                    break;
-                case CountryCode.SK:
-                    provider = new SlovakiaProvider();
-                    break;
-                case CountryCode.SR:
-                    provider = new SurinameProvider();
-                    break;
-                case CountryCode.TR:
-                    provider = new TurkeyProvider();
-                    break;
-                case CountryCode.VE:
-                    provider = new VenezuelaProvider();
-                    break;
-                case CountryCode.US:
-                    provider = new UnitedStatesProvider();
-                    break;
-                case CountryCode.UY:
-                    provider = new UruguayProvider();
-                    break;
-                case CountryCode.ZA:
-                    provider = new SouthAfricaProvider();
-                    break;
-            }
-
+            var provider = GetProvider(countryCode);
             return provider?.Get(year);
         }
 

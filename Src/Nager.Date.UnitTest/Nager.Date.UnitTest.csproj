@@ -48,20 +48,21 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChinaTest.cs" />
-    <Compile Include="AustriaTest.cs" />
-    <Compile Include="CanadaTest.cs" />
-    <Compile Include="CountryRelationTest.cs" />
-    <Compile Include="GermanyTest.cs" />
-    <Compile Include="LogicTest.cs" />
-    <Compile Include="LongWeekendTest.cs" />
+    <Compile Include="Common\CountyTest.cs" />
+    <Compile Include="Country\ChinaTest.cs" />
+    <Compile Include="Country\AustriaTest.cs" />
+    <Compile Include="Country\CanadaTest.cs" />
+    <Compile Include="Common\CountryRelationTest.cs" />
+    <Compile Include="Country\GermanyTest.cs" />
+    <Compile Include="Common\LogicTest.cs" />
+    <Compile Include="Common\LongWeekendTest.cs" />
     <Compile Include="MockProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PuertoRicoTest.cs" />
-    <Compile Include="SpainTest.cs" />
-    <Compile Include="SwitzerlandTest.cs" />
-    <Compile Include="TurkeyTest.cs" />
-    <Compile Include="UnitedKingdomTest.cs" />
+    <Compile Include="Country\PuertoRicoTest.cs" />
+    <Compile Include="Country\SpainTest.cs" />
+    <Compile Include="Country\SwitzerlandTest.cs" />
+    <Compile Include="Country\TurkeyTest.cs" />
+    <Compile Include="Country\UnitedKingdomTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -72,6 +73,7 @@
       <Name>Nager.Date</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

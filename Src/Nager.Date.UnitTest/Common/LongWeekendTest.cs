@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace Nager.Date.UnitTest
+namespace Nager.Date.UnitTest.Common
 {
     [TestClass]
     public class LongWeekendTest
@@ -12,7 +12,6 @@ namespace Nager.Date.UnitTest
             var longWeekends = DateSystem.GetLongWeekend(CountryCode.AT, 2017).ToArray();
 
             Assert.AreEqual(10, longWeekends.Length);
-
         }
     }
 }

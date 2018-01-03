@@ -3,33 +3,11 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.PublicHolidays;
 
-namespace Nager.Date.UnitTest
+namespace Nager.Date.UnitTest.Country
 {
     [TestClass]
     public class GermanyTest
     {
-        [TestMethod]
-        public void TestGermanyCounties()
-        {
-            var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, 2017);
-
-            var germanyProvider = new GermanyProvider();
-            var counties = germanyProvider.GetCounties();
-
-            foreach (var publicHoliday in publicHolidays)
-            {
-                if (publicHoliday.Counties == null)
-                {
-                    continue;
-                }
-
-                if (publicHoliday.Counties.Where(o => counties.Keys.Contains(o)).Count() != publicHoliday.Counties.Count())
-                {
-                    Assert.Fail("Unknown countie");
-                }
-            }
-        }
-
         [TestMethod]
         public void TestGermanyCorpusChristi()
         {

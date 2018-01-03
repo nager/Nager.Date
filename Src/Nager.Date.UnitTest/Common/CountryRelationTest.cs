@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace Nager.Date.UnitTest
+namespace Nager.Date.UnitTest.Common
 {
     [TestClass]
     public class CountryRelationTest

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
-namespace Nager.Date.UnitTest
+namespace Nager.Date.UnitTest.Country
 {
     [TestClass]
     public class UnitedKingdomTest

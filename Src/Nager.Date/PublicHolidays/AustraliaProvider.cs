@@ -1,17 +1,18 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class AustraliaProvider : CatholicBaseProvider
+    public class AustraliaProvider : CatholicBaseProvider, ICountyProvider
     {
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>
             {
-                { "AUT-ACT", "Australian Capital Territory" },
+                { "AUS-ACT", "Australian Capital Territory" },
                 { "AUS-NSW", "New South Wales" },
                 { "AUS-NT", "Northern Territory" },
                 { "AUS-QLD", "Queensland" },

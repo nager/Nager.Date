@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Nager.Date.UnitTest
+namespace Nager.Date.UnitTest.Country
 {
     [TestClass]
     public class TurkeyTest
