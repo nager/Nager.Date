@@ -91,6 +91,8 @@ namespace Nager.Date
             return provider;
         }
 
+        #region Public Holidays for a given year
+
         /// <summary>
         /// Get Public Holidays of given year
         /// </summary>
@@ -118,6 +120,10 @@ namespace Nager.Date
             var provider = GetProvider(countryCode);
             return provider?.Get(year);
         }
+
+        #endregion
+
+        #region Public Holidays for a date range
 
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, DateTime startDate, DateTime endDate)
         {
@@ -154,6 +160,10 @@ namespace Nager.Date
             }
         }
 
+        #endregion
+
+        #region Check a date is a Public Holiday
+
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
@@ -172,6 +182,17 @@ namespace Nager.Date
             return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)) && o.CountyAdministrationHoliday);
         }
 
+        #endregion
+
+        #region Day Finding
+
+        /// <summary>
+        /// Find the latest weekday for example monday in a month
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <returns></returns>
         public static DateTime FindLastDay(int year, int month, DayOfWeek day)
         {
             var resultedDay = FindDay(year, month, day, 5);
@@ -183,6 +204,14 @@ namespace Nager.Date
             return resultedDay;
         }
 
+        /// <summary>
+        /// Find the next weekday for example monday from a specific date
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
         public static DateTime FindDay(int year, int month, int day, DayOfWeek dayOfWeek)
         {
             var calculationDay = new DateTime(year, month, day);
@@ -199,9 +228,17 @@ namespace Nager.Date
             }
         }
 
-        public static DateTime FindDay(int year, int month, DayOfWeek day, int occurance)
+        /// <summary>
+        /// Find for example the 3th monday in a month
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="occurrence"></param>
+        /// <returns></returns>
+        public static DateTime FindDay(int year, int month, DayOfWeek day, int occurrence)
         {
-            if (occurance == 0 || occurance > 5)
+            if (occurrence == 0 || occurrence > 5)
             {
                 throw new Exception("Occurance is invalid");
             }
@@ -218,7 +255,7 @@ namespace Nager.Date
             }
 
             //DayOfWeek is zero index based; multiply by the Occurance to get the day
-            var resultedDay = (daysNeeded + 1) + (7 * (occurance - 1));
+            var resultedDay = (daysNeeded + 1) + (7 * (occurrence - 1));
 
             if (resultedDay > DateTime.DaysInMonth(year, month))
             {
@@ -228,6 +265,10 @@ namespace Nager.Date
             return new DateTime(year, month, resultedDay);
         }
 
+        #endregion
+
+        #region Birthday
+
         public static int GetAge(DateTime birthdate)
         {
             var today = DateTime.UtcNow;
@@ -236,6 +277,10 @@ namespace Nager.Date
 
             return age;
         }
+
+        #endregion
+
+        #region Long Weekends
 
         public static IEnumerable<LongWeekend> GetLongWeekend(CountryCode countryCode, int year)
         {
@@ -294,5 +339,7 @@ namespace Nager.Date
 
             return items;
         }
+
+        #endregion
     }
 }
