@@ -232,6 +232,11 @@ var age = DateSystem.GetAge(date);
 - [x] Australia
 - [x] New Zealand
 
+### Areas of Application
+- telephone systems
+- carrier (land transport)
+- time recording
+
 ### Blog Posts
 
 [Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
