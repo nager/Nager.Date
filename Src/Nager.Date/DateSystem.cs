@@ -24,6 +24,7 @@ namespace Nager.Date
             countries.Add(CountryCode.BS, new BahamasProvider());
             countries.Add(CountryCode.BW, new BotswanaProvider());
             countries.Add(CountryCode.BY, new BelarusProvider());
+            countries.Add(CountryCode.BZ, new BelizeProvider());
             countries.Add(CountryCode.CA, new CanadaProvider());
             countries.Add(CountryCode.CH, new SwitzerlandProvider());
             countries.Add(CountryCode.CL, new ChileProvider());
