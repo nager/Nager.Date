@@ -15,7 +15,7 @@ namespace Nager.Date.UnitTest.Country
         }
 
         [TestMethod]
-        public void TestStPatricksDay()
+        public void TestUnitedKingdomStPatricksDay()
         {
             var testDate = new DateTime(2017, 03, 17);
             var isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(testDate, CountryCode.GB, "GB-NIR");
