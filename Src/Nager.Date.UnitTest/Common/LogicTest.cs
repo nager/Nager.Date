@@ -97,6 +97,22 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
+        public void CheckFindDayBefore()
+        {
+            var result = DateSystem.FindDayBefore(2018, 5, 25, DayOfWeek.Monday);
+            Assert.AreEqual(new DateTime(2018, 5, 21), result);
+
+            result = DateSystem.FindDayBefore(2018, 1, 9, DayOfWeek.Monday);
+            Assert.AreEqual(new DateTime(2018, 1, 8), result);
+
+            result = DateSystem.FindDayBefore(2018, 1, 8, DayOfWeek.Monday);
+            Assert.AreEqual(new DateTime(2018, 1, 1), result);
+
+            result = DateSystem.FindDayBefore(2018, 1, 12, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2018, 1, 5), result);
+        }
+
+        [TestMethod]
         public void CheckPublicHolidayWithDateFilter1()
         {
             var items = DateSystem.GetPublicHoliday(CountryCode.DE, new DateTime(2016, 5, 1), new DateTime(2018, 5, 31));

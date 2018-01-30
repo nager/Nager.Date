@@ -230,6 +230,30 @@ namespace Nager.Date
         }
 
         /// <summary>
+        /// Find the next weekday for example monday before a specific date
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="day"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static DateTime FindDayBefore(int year, int month, int day, DayOfWeek dayOfWeek)
+        {
+            var calculationDay = new DateTime(year, month, day);
+
+            if ((int)dayOfWeek < (int)calculationDay.DayOfWeek)
+            {
+                var daysSubtract = (int)calculationDay.DayOfWeek - (int)dayOfWeek;
+                return calculationDay.AddDays(-daysSubtract);
+            }
+            else
+            {
+                var daysSubtract = (int)dayOfWeek - (int)calculationDay.DayOfWeek;
+                return calculationDay.AddDays(daysSubtract - 7);
+            }
+        }
+
+        /// <summary>
         /// Find for example the 3th monday in a month
         /// </summary>
         /// <param name="year"></param>
