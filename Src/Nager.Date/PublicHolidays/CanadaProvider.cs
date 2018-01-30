@@ -37,7 +37,7 @@ namespace Nager.Date.PublicHolidays
 
             var secondMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 2);
             var thirdMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 3);
-            var mondayOnOrBeforeMay24 = DateSystem.FindDay(year, 5, 24, DayOfWeek.Monday);
+            var mondayOnOrBeforeMay24 = DateSystem.FindDayBefore(year, 5, 25, DayOfWeek.Monday);
             var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
             var thirdMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 3);
             var firstMondayInSeptember = DateSystem.FindDay(year, 9, DayOfWeek.Monday, 1);
