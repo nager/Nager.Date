@@ -7,8 +7,8 @@ Nager.Date is a Date/Calendar Framework for .NET
 Supports more than 70 countries if your country is not supported, fork me, implement it and send me the pull request.
 - Age calculation
 
-### Demo Website
-http://publicholiday.azurewebsites.net
+### Website / API
+https://date.nager.at
 
 ### nuget
 The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)

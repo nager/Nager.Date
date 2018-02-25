@@ -1,8 +1,9 @@
 ﻿@model Nager.Date.Website.Model.PublicHolidayInfo
 @{
-    ViewBag.Title = "Public Holidays for " + Model.Country;
+    ViewBag.Title = "Public Holidays in " + Model.Country;
 }
-<h1>Public Holidays for @Model.Country <small>@Model.CountryCode - @Model.Year</small></h1>
+
+<h1><img src="http://www.countryflags.io/@Model.CountryCode/flat/64.png" alt="@Model.Country" title="@Model.Country"> Public Holidays in @Model.Country <small>@Model.CountryCode - @Model.Year</small></h1>
 
 <div>
     <ul class="nav nav-tabs" role="tablist">
@@ -10,9 +11,8 @@
         <li role="presentation"><a href="#longweekend" aria-controls="longweekend" role="tab" data-toggle="tab">Long Weekends</a></li>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content" style="margin-top:4px;">
         <div role="tabpanel" class="tab-pane active" id="publicholiday">
-            <h3>Public Holidays</h3>
             <table class="table table-responsive">
                 <tr>
                     <th class="col-xs-6 col-md-1">Date</th>
@@ -54,7 +54,6 @@
         </div>
 
         <div role="tabpanel" class="tab-pane" id="longweekend">
-            <h3>Long Weekends</h3>
             <table class="table table-responsive">
                 <tr>
                     <th class="col-md-2">Startdate</th>
@@ -86,10 +85,10 @@
 </div>
 
 <div class="btn-group" role="group">
-@for (var i = Model.Year - 5; i < Model.Year + 6; i++)
-{
-    <a href="/PublicHoliday/Country/@(Model.CountryCode)/@(i)" class="btn btn-primary">@i</a>
-}
+    @for (var i = Model.Year - 5; i < Model.Year + 6; i++)
+    {
+        <a href="/PublicHoliday/Country/@(Model.CountryCode)/@(i)" class="btn btn-primary">@i</a>
+    }
 </div>
 
 <br />
