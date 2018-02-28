@@ -39,10 +39,15 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Boxing Day", "Boxing Day", countryCode));
 
-            //https://stackoverflow.com/questions/30719176/algorithm-to-find-the-gregorian-date-of-the-chinese-new-year-of-a-certain-gregor
-            var chineseCalendar = new ChineseLunisolarCalendar();
-            var chineseNewYear = chineseCalendar.ToDateTime(year, 1, 1, 0, 0, 0, 0);
-            items.Add(new PublicHoliday(chineseNewYear, "Chinese New Year", "Chinese New Year", countryCode));
+            if (year > 1901 && year < 2100)
+            {
+                //LunisolarCalendar .net implementation only valid are between 1901 and 2100, inclusive.
+                //https://github.com/dotnet/coreclr/blob/master/src/mscorlib/shared/System/Globalization/ChineseLunisolarCalendar.cs
+                //https://stackoverflow.com/questions/30719176/algorithm-to-find-the-gregorian-date-of-the-chinese-new-year-of-a-certain-gregor
+                var chineseCalendar = new ChineseLunisolarCalendar();
+                var chineseNewYear = chineseCalendar.ToDateTime(year, 1, 1, 0, 0, 0, 0);
+                items.Add(new PublicHoliday(chineseNewYear, "Chinese New Year", "Chinese New Year", countryCode));
+            }
 
             return items.OrderBy(o => o.Date);
         }
