@@ -1,12 +1,14 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class RussiaProvider : IPublicHolidayProvider
+    public class RussiaProvider : ICountryCalendarProvider
     {
+        public DayOfWeek FirstDayOfWeek => DayOfWeek.Monday;
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //Russia

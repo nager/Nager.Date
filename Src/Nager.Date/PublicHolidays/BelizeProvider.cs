@@ -8,6 +8,8 @@ namespace Nager.Date.PublicHolidays
 {
     public class BelizeProvider : CatholicBaseProvider
     {
+        public override DayOfWeek FirstDayOfWeek => DayOfWeek.Monday;
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Belize

@@ -6,6 +6,7 @@
     public enum CountryCode
     {
         AD,
+        AO,
         AR,
         AT,
         AU,
@@ -58,6 +59,7 @@
         MG,
         MT,
         MX,
+        MZ,
         NA,
         NI,
         NL,
