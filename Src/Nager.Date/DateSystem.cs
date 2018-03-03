@@ -1,5 +1,4 @@
 ﻿using Nager.Date.Contract;
-using Nager.Date.Extensions;
 using Nager.Date.Model;
 using Nager.Date.PublicHolidays;
 using System;
@@ -10,104 +9,86 @@ namespace Nager.Date
 {
     public static class DateSystem
     {
-        private static Dictionary<CountryCode, ICountryCalendarProvider> _countries;
-        /// <summary>
-        /// List of available countries
-        /// </summary>
-        private static Dictionary<CountryCode, ICountryCalendarProvider> Countries
+        public static IPublicHolidayProvider GetProvider(CountryCode countryCode)
         {
-            get
-            {
-                if(_countries == null)
-                {
-                    #region Countries Init
-                    _countries = new Dictionary<CountryCode, ICountryCalendarProvider>();
-                    _countries.Add(CountryCode.AD, new AndorraProvider());
-                    _countries.Add(CountryCode.AR, new ArgentinaProvider());
-                    _countries.Add(CountryCode.AT, new AustriaProvider());
-                    _countries.Add(CountryCode.AU, new AustraliaProvider());
-                    _countries.Add(CountryCode.AX, new AlandProvider());
-                    _countries.Add(CountryCode.BE, new BelgiumProvider());
-                    _countries.Add(CountryCode.BG, new BulgariaProvider());
-                    _countries.Add(CountryCode.BO, new BoliviaProvider());
-                    _countries.Add(CountryCode.BR, new BrazilProvider());
-                    _countries.Add(CountryCode.BS, new BahamasProvider());
-                    _countries.Add(CountryCode.BW, new BotswanaProvider());
-                    _countries.Add(CountryCode.BY, new BelarusProvider());
-                    _countries.Add(CountryCode.BZ, new BelizeProvider());
-                    _countries.Add(CountryCode.CA, new CanadaProvider());
-                    _countries.Add(CountryCode.CH, new SwitzerlandProvider());
-                    _countries.Add(CountryCode.CL, new ChileProvider());
-                    _countries.Add(CountryCode.CN, new ChinaProvider());
-                    _countries.Add(CountryCode.CO, new ColombiaProvider());
-                    _countries.Add(CountryCode.CR, new CostaRicaProvider());
-                    _countries.Add(CountryCode.CU, new CubaProvider());
-                    _countries.Add(CountryCode.CY, new CyprusProvider());
-                    _countries.Add(CountryCode.CZ, new CzechRepublicProvider());
-                    _countries.Add(CountryCode.DE, new GermanyProvider());
-                    _countries.Add(CountryCode.DK, new DenmarkProvider());
-                    _countries.Add(CountryCode.DO, new DominicanRepublicProvider());
-                    _countries.Add(CountryCode.EC, new EcuadorProvider());
-                    _countries.Add(CountryCode.EE, new EstoniaProvider());
-                    _countries.Add(CountryCode.ES, new SpainProvider());
-                    _countries.Add(CountryCode.FI, new FinlandProvider());
-                    _countries.Add(CountryCode.FR, new FranceProvider());
-                    _countries.Add(CountryCode.GB, new UnitedKingdomProvider());
-                    _countries.Add(CountryCode.GL, new GreenlandProvider());
-                    _countries.Add(CountryCode.GR, new GreeceProvider());
-                    _countries.Add(CountryCode.GT, new GuatemalaProvider());
-                    _countries.Add(CountryCode.GY, new GuyanaProvider());
-                    _countries.Add(CountryCode.HN, new HondurasProvider());
-                    _countries.Add(CountryCode.HR, new CroatiaProvider());
-                    _countries.Add(CountryCode.HT, new HaitiProvider());
-                    _countries.Add(CountryCode.HU, new HungaryProvider());
-                    _countries.Add(CountryCode.IE, new IrelandProvider());
-                    _countries.Add(CountryCode.IM, new IsleOfManProvider());
-                    _countries.Add(CountryCode.IS, new IcelandProvider());
-                    _countries.Add(CountryCode.IT, new ItalyProvider());
-                    _countries.Add(CountryCode.LI, new LiechtensteinProvider());
-                    _countries.Add(CountryCode.LT, new LithuaniaProvider());
-                    _countries.Add(CountryCode.LU, new LuxembourgProvider());
-                    _countries.Add(CountryCode.LV, new LatviaProvider());
-                    _countries.Add(CountryCode.JE, new JerseyProvider());
-                    _countries.Add(CountryCode.JM, new JamaicaProvider());
-                    _countries.Add(CountryCode.MC, new MonacoProvider());
-                    _countries.Add(CountryCode.MG, new MadagascarProvider());
-                    _countries.Add(CountryCode.MT, new MaltaProvider());
-                    _countries.Add(CountryCode.MX, new MexicoProvider());
-                    _countries.Add(CountryCode.MZ, new MozambiqueProvider());
-                    _countries.Add(CountryCode.NA, new NamibiaProvider());
-                    _countries.Add(CountryCode.NI, new NicaraguaProvider());
-                    _countries.Add(CountryCode.NL, new NetherlandsProvider());
-                    _countries.Add(CountryCode.NO, new NorwayProvider());
-                    _countries.Add(CountryCode.NZ, new NewZealandProvider());
-                    _countries.Add(CountryCode.PA, new PanamaProvider());
-                    _countries.Add(CountryCode.PE, new PeruProvider());
-                    _countries.Add(CountryCode.PL, new PolandProvider());
-                    _countries.Add(CountryCode.PR, new PuertoRicoProvider());
-                    _countries.Add(CountryCode.PT, new PortugalProvider());
-                    _countries.Add(CountryCode.PY, new ParaguayProvider());
-                    _countries.Add(CountryCode.RO, new RomaniaProvider());
-                    _countries.Add(CountryCode.RU, new RussiaProvider());
-                    _countries.Add(CountryCode.SI, new SloveniaProvider());
-                    _countries.Add(CountryCode.SE, new SwedenProvider());
-                    _countries.Add(CountryCode.SK, new SlovakiaProvider());
-                    _countries.Add(CountryCode.SR, new SurinameProvider());
-                    _countries.Add(CountryCode.TR, new TurkeyProvider());
-                    _countries.Add(CountryCode.VE, new VenezuelaProvider());
-                    _countries.Add(CountryCode.US, new UnitedStatesProvider());
-                    _countries.Add(CountryCode.UY, new UruguayProvider());
-                    _countries.Add(CountryCode.ZA, new SouthAfricaProvider());
-                    #endregion
-                }
+            var countries = new Dictionary<CountryCode, IPublicHolidayProvider>();
+            countries.Add(CountryCode.AD, new AndorraProvider());
+            countries.Add(CountryCode.AR, new ArgentinaProvider());
+            countries.Add(CountryCode.AT, new AustriaProvider());
+            countries.Add(CountryCode.AU, new AustraliaProvider());
+            countries.Add(CountryCode.AX, new AlandProvider());
+            countries.Add(CountryCode.BE, new BelgiumProvider());
+            countries.Add(CountryCode.BG, new BulgariaProvider());
+            countries.Add(CountryCode.BO, new BoliviaProvider());
+            countries.Add(CountryCode.BR, new BrazilProvider());
+            countries.Add(CountryCode.BS, new BahamasProvider());
+            countries.Add(CountryCode.BW, new BotswanaProvider());
+            countries.Add(CountryCode.BY, new BelarusProvider());
+            countries.Add(CountryCode.BZ, new BelizeProvider());
+            countries.Add(CountryCode.CA, new CanadaProvider());
+            countries.Add(CountryCode.CH, new SwitzerlandProvider());
+            countries.Add(CountryCode.CL, new ChileProvider());
+            countries.Add(CountryCode.CN, new ChinaProvider());
+            countries.Add(CountryCode.CO, new ColombiaProvider());
+            countries.Add(CountryCode.CR, new CostaRicaProvider());
+            countries.Add(CountryCode.CU, new CubaProvider());
+            countries.Add(CountryCode.CY, new CyprusProvider());
+            countries.Add(CountryCode.CZ, new CzechRepublicProvider());
+            countries.Add(CountryCode.DE, new GermanyProvider());
+            countries.Add(CountryCode.DK, new DenmarkProvider());
+            countries.Add(CountryCode.DO, new DominicanRepublicProvider());
+            countries.Add(CountryCode.EC, new EcuadorProvider());
+            countries.Add(CountryCode.EE, new EstoniaProvider());
+            countries.Add(CountryCode.ES, new SpainProvider());
+            countries.Add(CountryCode.FI, new FinlandProvider());
+            countries.Add(CountryCode.FR, new FranceProvider());
+            countries.Add(CountryCode.GB, new UnitedKingdomProvider());
+            countries.Add(CountryCode.GL, new GreenlandProvider());
+            countries.Add(CountryCode.GR, new GreeceProvider());
+            countries.Add(CountryCode.GT, new GuatemalaProvider());
+            countries.Add(CountryCode.GY, new GuyanaProvider());
+            countries.Add(CountryCode.HN, new HondurasProvider());
+            countries.Add(CountryCode.HR, new CroatiaProvider());
+            countries.Add(CountryCode.HT, new HaitiProvider());
+            countries.Add(CountryCode.HU, new HungaryProvider());
+            countries.Add(CountryCode.IE, new IrelandProvider());
+            countries.Add(CountryCode.IM, new IsleOfManProvider());
+            countries.Add(CountryCode.IS, new IcelandProvider());
+            countries.Add(CountryCode.IT, new ItalyProvider());
+            countries.Add(CountryCode.LI, new LiechtensteinProvider());
+            countries.Add(CountryCode.LT, new LithuaniaProvider());
+            countries.Add(CountryCode.LU, new LuxembourgProvider());
+            countries.Add(CountryCode.LV, new LatviaProvider());
+            countries.Add(CountryCode.JE, new JerseyProvider());
+            countries.Add(CountryCode.JM, new JamaicaProvider());
+            countries.Add(CountryCode.MC, new MonacoProvider());
+            countries.Add(CountryCode.MG, new MadagascarProvider());
+            countries.Add(CountryCode.MT, new MaltaProvider());
+            countries.Add(CountryCode.MX, new MexicoProvider());
+            countries.Add(CountryCode.NA, new NamibiaProvider());
+            countries.Add(CountryCode.NI, new NicaraguaProvider());
+            countries.Add(CountryCode.NL, new NetherlandsProvider());
+            countries.Add(CountryCode.NO, new NorwayProvider());
+            countries.Add(CountryCode.NZ, new NewZealandProvider());
+            countries.Add(CountryCode.PA, new PanamaProvider());
+            countries.Add(CountryCode.PE, new PeruProvider());
+            countries.Add(CountryCode.PL, new PolandProvider());
+            countries.Add(CountryCode.PR, new PuertoRicoProvider());
+            countries.Add(CountryCode.PT, new PortugalProvider());
+            countries.Add(CountryCode.PY, new ParaguayProvider());
+            countries.Add(CountryCode.RO, new RomaniaProvider());
+            countries.Add(CountryCode.RU, new RussiaProvider());
+            countries.Add(CountryCode.SI, new SloveniaProvider());
+            countries.Add(CountryCode.SE, new SwedenProvider());
+            countries.Add(CountryCode.SK, new SlovakiaProvider());
+            countries.Add(CountryCode.SR, new SurinameProvider());
+            countries.Add(CountryCode.TR, new TurkeyProvider());
+            countries.Add(CountryCode.VE, new VenezuelaProvider());
+            countries.Add(CountryCode.US, new UnitedStatesProvider());
+            countries.Add(CountryCode.UY, new UruguayProvider());
+            countries.Add(CountryCode.ZA, new SouthAfricaProvider());
 
-                return _countries;
-            }
-        }
-
-        public static ICountryCalendarProvider GetProvider(CountryCode countryCode)
-        {
-            Countries.TryGetValue(countryCode, out ICountryCalendarProvider provider);
+            countries.TryGetValue(countryCode, out IPublicHolidayProvider provider);
             return provider;
         }
 
@@ -249,132 +230,6 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Finds the start of the next working week after a specific date
-        /// </summary>
-        /// <param name="year"></param>
-        /// <param name="month"></param>
-        /// <param name="day"></param>
-        /// <param name="countryCode"></param>
-        /// <returns></returns>
-        public static DateTime? FindStartOfWeekDayAfterDate(int year, int month, int day, CountryCode countryCode)
-        {
-            var calculationDay = new DateTime(year, month, day);
-            var countryCalendar = GetProvider(countryCode);
-            if(countryCalendar != null)
-            {
-                var firstDayOfWeek = countryCalendar.FirstDayOfWeek;
-
-                if (calculationDay.DayOfWeek == firstDayOfWeek)
-                    return calculationDay.AddDays(7);
-                else
-                {
-                    for (int i = 1; i < 7; i++)
-                    {
-                        var newDate = calculationDay.AddDays(i);
-                        if (newDate.DayOfWeek == firstDayOfWeek)
-                            return newDate;
-                    }
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Finds the start of the next working week after a specific date
-        /// </summary>
-        /// <param name="year"></param>
-        /// <param name="month"></param>
-        /// <param name="day"></param>
-        /// <param name="countryCode"></param>
-        /// <returns></returns>
-        public static DateTime? FindStartOfWeekDayAfterDate(int year, int month, int day, string countryCode)
-        {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
-            {
-                return null;
-            }
-
-            return FindStartOfWeekDayAfterDate(year, month, day, parsedCountryCode);
-        }
-
-        /// <summary>
-        /// Finds the next workign day after a specific date
-        /// </summary>
-        /// <param name="year"></param>
-        /// <param name="month"></param>
-        /// <param name="day"></param>
-        /// <param name="countryCode"></param>
-        /// <returns></returns>
-        public static DateTime? FindNextWorkingDayAfterDate(int year, int month, int day, CountryCode countryCode)
-        {
-            var startDate = new DateTime(year,month,day);
-            var flag = false;
-
-            while (!flag)
-            {
-                if (IsPublicHoliday(startDate, countryCode))
-                    startDate.AddDays(1);
-
-                if (startDate.IsWeekend(countryCode))
-                {
-                    var value = FindStartOfWeekDayAfterDate(startDate.Year, startDate.Month, startDate.Day, countryCode);
-                    if (value.HasValue)
-                        startDate = value.Value;
-                }
-
-                if (!IsPublicHoliday(startDate, countryCode) && !startDate.IsWeekend(countryCode))
-                    flag = true;
-            }
-
-
-            return startDate;
-        }
-
-        /// <summary>
-        /// Finds the next workign day after a specific date
-        /// </summary>
-        /// <param name="year"></param>
-        /// <param name="month"></param>
-        /// <param name="day"></param>
-        /// <param name="countryCode"></param>
-        /// <returns></returns>
-        public static DateTime? FindNextWorkingDayAfterDate(int year, int month, int day, string countryCode)
-        {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
-            {
-                return null;
-            }
-
-            return FindNextWorkingDayAfterDate(year, month, day, parsedCountryCode);
-        }
-
-        /// <summary>
-        /// Checks if the specific date is a working day
-        /// </summary>
-        /// <param name="day"></param>
-        /// <param name="countryCode"></param>
-        /// <returns></returns>
-        public static bool IsWorkingDay(DateTime day, string countryCode)
-        {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
-            {
-                return false;
-            }
-            return IsWorkingDay(day, parsedCountryCode);
-        }
-
-        /// <summary>
-        /// Checks if the specific date is a working day
-        /// </summary>
-        /// <param name="day"></param>
-        /// <param name="countryCode"></param>
-        /// <returns></returns>
-        public static bool IsWorkingDay(DateTime day, CountryCode countryCode)
-        {
-            return !IsPublicHoliday(day, countryCode) && !day.IsWeekend(countryCode);
-        }
-
-        /// <summary>
         /// Find the next weekday for example monday before a specific date
         /// </summary>
         /// <param name="year"></param>
@@ -415,7 +270,7 @@ namespace Nager.Date
 
             var firstDayOfMonth = new DateTime(year, month, 1);
 
-            //Substract first day of the month with the required day of the week
+            //Substract first day of the month with the required day of the week 
             var daysNeeded = (int)day - (int)firstDayOfMonth.DayOfWeek;
 
             //if it is less than zero we need to get the next week day (add 7 days)

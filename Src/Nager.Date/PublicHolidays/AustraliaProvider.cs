@@ -8,8 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     public class AustraliaProvider : CatholicBaseProvider, ICountyProvider
     {
-        public override DayOfWeek FirstDayOfWeek => DayOfWeek.Monday;
-
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>

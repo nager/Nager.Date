@@ -5,10 +5,8 @@ using System.Collections.Generic;
 
 namespace Nager.Date.PublicHolidays
 {
-    public abstract class OrthodoxBaseProvider : ICountryCalendarProvider
+    public abstract class OrthodoxBaseProvider : IPublicHolidayProvider
     {
-        public abstract DayOfWeek FirstDayOfWeek { get; }
-
         public abstract IEnumerable<PublicHoliday> Get(int year);
 
         /// <summary>

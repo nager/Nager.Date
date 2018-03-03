@@ -1,5 +1,4 @@
 ﻿using Nager.Date.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +6,6 @@ namespace Nager.Date.PublicHolidays
 {
     public class SpainProvider : CatholicBaseProvider
     {
-        public override DayOfWeek FirstDayOfWeek => DayOfWeek.Monday;
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Spain
@@ -42,7 +40,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 9, 2, "Día de Ceuta", "Municipal Holiday", countryCode, null, new string[] { "ES-CE" }));
             items.Add(new PublicHoliday(year, 9, 8, "Día de Asturias", "Regional Holiday", countryCode, null, new string[] { "ES-O" }));
             items.Add(new PublicHoliday(year, 9, 8, "Día de Extremadura", "Regional Holiday", countryCode, null, new string[] { "ES-EX" }));
-            items.Add(new PublicHoliday(year, 9, 11, "Dia Nacional de Catalunya", "National Day of Catalonia", countryCode, null, new string[] { "ES-CT" }));
+            items.Add(new PublicHoliday(year, 9, 11, "Diada Nacional de Catalunya", "National Day of Catalonia", countryCode, null, new string[] { "ES-CT" }));
             items.Add(new PublicHoliday(year, 9, 15, "Día de Cantabria", "Regional Holiday", countryCode, null, new string[] { "ES-CB" }));
             items.Add(new PublicHoliday(year, 10, 9, "Dia de la Comunitat Valenciana", "Regional Holiday", countryCode, null, new string[] { "ES-VC" }));
             items.Add(new PublicHoliday(year, 10, 12, "Fiesta Nacional de España", "Fiesta Nacional de España", countryCode));

@@ -1,6 +1,5 @@
 using Nager.Date.Contract;
 using Nager.Date.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     public class ParaguayProvider : CatholicBaseProvider
     {
-        public override DayOfWeek FirstDayOfWeek => DayOfWeek.Monday;
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Paraguay

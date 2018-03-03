@@ -8,7 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     public class MonacoProvider : CatholicBaseProvider
     {
-        public override DayOfWeek FirstDayOfWeek => DayOfWeek.Monday;
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Monaco
@@ -18,7 +17,7 @@ namespace Nager.Date.PublicHolidays
             var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
-
+            
             items.Add(new PublicHoliday(year, 1, 27, "La Sainte Dévote", "Saint Devota's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Le 1er mai", "May Day", countryCode));
