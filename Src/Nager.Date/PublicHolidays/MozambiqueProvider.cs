@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class MozambiqueProvider : CatholicBaseProvider
+    public class MozambiqueProvider : CatholicBaseProvider, ICountyProvider
     {
         public override IEnumerable<PublicHoliday> Get(int year)
         {
@@ -28,6 +29,24 @@ namespace Nager.Date.PublicHolidays
             return items;
         }
 
-        public override DayOfWeek FirstDayOfWeek => DayOfWeek.Monday;
+        public IDictionary<string, string> GetCounties()
+        {
+            //List of Provinces
+            //https://en.wikipedia.org/wiki/Provinces_of_Mozambique
+            return new Dictionary<string, string>
+            {
+                { "MZ-CD","Cabo Delgado" },
+                { "MZ-GZ", "Gaza" },
+                { "MZ-IH", "Inhambane" },
+                { "MZ-MA", "Manica" },
+                { "MZ-MP", "Maputo Cidade" },
+                { "MZ-MT", "Maputo" },
+                { "MZ-NA", "Nampula" },
+                { "MZ-NI", "Niassa" },
+                { "MZ-SO", "Sofala" },
+                { "MZ-TE", "Tete" },
+                { "MZ-ZA", "Zambezia" }
+            };
+        }
     }
 }

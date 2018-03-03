@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 
 namespace Nager.Date.PublicHolidays
 {
-    class AngolaProvider : CatholicBaseProvider
+    class AngolaProvider : CatholicBaseProvider, ICountyProvider
     {
-        public override DayOfWeek FirstDayOfWeek => DayOfWeek.Monday;
-
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.AO;
@@ -42,6 +41,33 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(christmasDay, "Natal", "Christmas Day", countryCode, null));
 
             return items;
+        }
+
+        public IDictionary<string, string> GetCounties()
+        {
+            //List of provinces
+            //https://pt.wikipedia.org/wiki/Prov%C3%ADncias_de_Angola
+            return new Dictionary<string, string>
+            {
+                { "AO-BO","Bengo" },
+                { "AO-BG", "Benguela" },
+                { "AO-BI", "Bié" },
+                { "AO-CA", "Cabinda" },
+                { "AO-CU", "Cuando Cubango" },
+                { "AO-KN", "Kwanza Norte" },
+                { "AO-KS", "Kwanza Sul" },
+                { "AO-CN", "Cunene" },
+                { "AO-HU", "Huambo" },
+                { "AO-HA", "Huíla" },
+                { "AO-LD", "Luanda" },
+                { "AO-LN", "Lunda Norte" },
+                { "AO-LS", "Lunda Sul" },
+                { "AO-MJ", "Malanje" },
+                { "AO-MO", "Moxico" },
+                { "AO-NA", "Namibe" },
+                { "AO-UI", "Uíge" },
+                { "AO-ZA", "Zaire" }
+            };
         }
     }
 }
