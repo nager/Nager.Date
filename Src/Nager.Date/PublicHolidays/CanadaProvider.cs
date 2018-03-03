@@ -60,7 +60,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 6, 24, "Discovery Day", "Discovery Day", countryCode, null, new string[] { "CA-NL", "CA-QC", "CA-YT" }));
             items.Add(new PublicHoliday(year, 7, 1, "Canada Day", "Canada Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 12, "Orangemen's Day", "Orangemen's Day", countryCode, null, new string[] { "CA-NL" }));
-            items.Add(new PublicHoliday(firstMondayInAugust, "Civic Holiday", "Civic Holiday", countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NL", "CA-NT", "CA-NU", "CA-ON" }));
+            items.Add(new PublicHoliday(firstMondayInAugust, "Civic Holiday", "Civic Holiday", countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NL", "CA-NT", "CA-NU" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Heritage Day", "Heritage Day", countryCode, null, new string[] { "CA-AB", "CA-YT" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "New Brunswick Day", "New Brunswick Day", countryCode, null, new string[] { "CA-NB" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Natal Day", "Natal Day", countryCode, null, new string[] { "CA-NS" }));
