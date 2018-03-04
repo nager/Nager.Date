@@ -13,6 +13,7 @@ namespace Nager.Date
         {
             var countries = new Dictionary<CountryCode, IPublicHolidayProvider>();
             countries.Add(CountryCode.AD, new AndorraProvider());
+            countries.Add(CountryCode.AO, new AngolaProvider());
             countries.Add(CountryCode.AR, new ArgentinaProvider());
             countries.Add(CountryCode.AT, new AustriaProvider());
             countries.Add(CountryCode.AU, new AustraliaProvider());
@@ -64,6 +65,7 @@ namespace Nager.Date
             countries.Add(CountryCode.MC, new MonacoProvider());
             countries.Add(CountryCode.MG, new MadagascarProvider());
             countries.Add(CountryCode.MT, new MaltaProvider());
+            countries.Add(CountryCode.MZ, new MozambiqueProvider());
             countries.Add(CountryCode.MX, new MexicoProvider());
             countries.Add(CountryCode.NA, new NamibiaProvider());
             countries.Add(CountryCode.NI, new NicaraguaProvider());
@@ -270,7 +272,7 @@ namespace Nager.Date
 
             var firstDayOfMonth = new DateTime(year, month, 1);
 
-            //Substract first day of the month with the required day of the week 
+            //Substract first day of the month with the required day of the week
             var daysNeeded = (int)day - (int)firstDayOfMonth.DayOfWeek;
 
             //if it is less than zero we need to get the next week day (add 7 days)
