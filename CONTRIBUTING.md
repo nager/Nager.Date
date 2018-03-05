@@ -4,9 +4,9 @@ Guidelines for contributing to the repo.
 
 ## Add new Country
 
-Add a new country in this folder Src\Nager.Date\PublicHolidays
-Add a link to the source of the informations
-The countrycode is ISO 3166-1 ALPHA-2
+- Add a new country in this folder Src\Nager.Date\PublicHolidays
+- Add a link to the source of the informations
+- The countrycode is ISO 3166-1 ALPHA-2
 
 ### Example
 
