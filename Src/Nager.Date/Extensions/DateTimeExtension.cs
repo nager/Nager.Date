@@ -25,14 +25,17 @@ namespace Nager.Date.Extensions
             {
                 case DayOfWeek.Saturday:
                     return saturday.Invoke(value);
+
                 case DayOfWeek.Sunday:
                     return sunday.Invoke(value);
+
                 case DayOfWeek.Monday:
                     if (monday != null)
                     {
                         return monday.Invoke(value);
                     }
                     break;
+
                 default:
                     break;
             }
@@ -51,30 +54,35 @@ namespace Nager.Date.Extensions
                         return monday.Invoke(value);
                     }
                     break;
+
                 case DayOfWeek.Tuesday:
                     if (tuesday != null)
                     {
                         return tuesday.Invoke(value);
                     }
                     break;
+
                 case DayOfWeek.Wednesday:
                     if (wednesday != null)
                     {
                         return wednesday.Invoke(value);
                     }
                     break;
+
                 case DayOfWeek.Thursday:
                     if (thursday != null)
                     {
                         return thursday.Invoke(value);
                     }
                     break;
+
                 case DayOfWeek.Friday:
                     if (friday != null)
                     {
                         return friday.Invoke(value);
                     }
                     break;
+
                 default:
                     break;
             }

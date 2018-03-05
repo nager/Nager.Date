@@ -64,6 +64,7 @@ namespace Nager.Date
             countries.Add(CountryCode.MC, new MonacoProvider());
             countries.Add(CountryCode.MG, new MadagascarProvider());
             countries.Add(CountryCode.MT, new MaltaProvider());
+            countries.Add(CountryCode.MZ, new MozambiqueProvider());
             countries.Add(CountryCode.MX, new MexicoProvider());
             countries.Add(CountryCode.NA, new NamibiaProvider());
             countries.Add(CountryCode.NI, new NicaraguaProvider());
@@ -230,6 +231,17 @@ namespace Nager.Date
         }
 
         /// <summary>
+        /// Find the next weekday for example monday from a specific date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static DateTime FindDay(DateTime date, DayOfWeek dayOfWeek)
+        {
+            return FindDay(date.Year, date.Month, date.Day, dayOfWeek);
+        }
+
+        /// <summary>
         /// Find the next weekday for example monday before a specific date
         /// </summary>
         /// <param name="year"></param>
@@ -254,6 +266,17 @@ namespace Nager.Date
         }
 
         /// <summary>
+        /// Find the next weekday for example monday before a specific date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static DateTime FindDayBefore(DateTime date, DayOfWeek dayOfWeek)
+        {
+            return FindDayBefore(date.Year, date.Month, date.Day, dayOfWeek);
+        }
+
+        /// <summary>
         /// Find for example the 3th monday in a month
         /// </summary>
         /// <param name="year"></param>
@@ -270,7 +293,7 @@ namespace Nager.Date
 
             var firstDayOfMonth = new DateTime(year, month, 1);
 
-            //Substract first day of the month with the required day of the week 
+            //Substract first day of the month with the required day of the week
             var daysNeeded = (int)day - (int)firstDayOfMonth.DayOfWeek;
 
             //if it is less than zero we need to get the next week day (add 7 days)
