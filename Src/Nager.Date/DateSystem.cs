@@ -13,7 +13,6 @@ namespace Nager.Date
         {
             var countries = new Dictionary<CountryCode, IPublicHolidayProvider>();
             countries.Add(CountryCode.AD, new AndorraProvider());
-            countries.Add(CountryCode.AO, new AngolaProvider());
             countries.Add(CountryCode.AR, new ArgentinaProvider());
             countries.Add(CountryCode.AT, new AustriaProvider());
             countries.Add(CountryCode.AU, new AustraliaProvider());
