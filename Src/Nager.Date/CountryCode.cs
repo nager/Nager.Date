@@ -50,7 +50,7 @@
         IT,
         JE,
         JM,
-        JP,
+        //JP,
         LI,
         LT,
         LU,

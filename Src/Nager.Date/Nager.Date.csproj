@@ -24,20 +24,4 @@
     </Content>
   </ItemGroup>
   
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
-    <PackageReference Include="AASharp.Net">
-      <Version>1.0.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="AASharp.Net">
-      <Version>1.0.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="AASharp.Net" Version="2.0.0" />
-  </ItemGroup>
-
 </Project>
