@@ -1,21 +1,20 @@
-﻿using System;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nager.Date.Contract;
-using Nager.Date.Model;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class MozambiqueProvider : CatholicBaseProvider, ICountyProvider
+    public class MozambiqueProvider : IPublicHolidayProvider, ICountyProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> Get(int year)
         {
+            //Mozambique
+            //https://en.wikipedia.org/wiki/Public_holidays_in_Mozambique
+
             var countryCode = CountryCode.MZ;
 
             var items = new List<PublicHoliday>();
-
             items.Add(new PublicHoliday(year, 1, 1, "Dia de Ano Novo", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 3, "Dia do Heroi Nacional", "Heroes's Day", countryCode));
             items.Add(new PublicHoliday(year, 4, 7, "Dia da Mulher", "Women's Day", countryCode));
