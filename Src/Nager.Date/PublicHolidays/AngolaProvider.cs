@@ -40,7 +40,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(independenceDay, "Dia da Independência Nacional ", "Independence Day", countryCode));
             items.Add(new PublicHoliday(christmasDay, "Natal", "Christmas Day", countryCode, null));
 
-            return items;
+            return items.OrderBy(o => o.Date);
         }
 
         public IDictionary<string, string> GetCounties()

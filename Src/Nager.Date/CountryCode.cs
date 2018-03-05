@@ -51,6 +51,7 @@
         IT,
         JE,
         JM,
+        JP,
         LI,
         LT,
         LU,

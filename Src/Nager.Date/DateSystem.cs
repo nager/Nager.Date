@@ -232,6 +232,17 @@ namespace Nager.Date
         }
 
         /// <summary>
+        /// Find the next weekday for example monday from a specific date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static DateTime FindDay(DateTime date, DayOfWeek dayOfWeek)
+        {
+            return FindDay(date.Year, date.Month, date.Day, dayOfWeek);
+        }
+
+        /// <summary>
         /// Find the next weekday for example monday before a specific date
         /// </summary>
         /// <param name="year"></param>
@@ -253,6 +264,17 @@ namespace Nager.Date
                 var daysSubtract = (int)dayOfWeek - (int)calculationDay.DayOfWeek;
                 return calculationDay.AddDays(daysSubtract - 7);
             }
+        }
+
+        /// <summary>
+        /// Find the next weekday for example monday before a specific date
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="dayOfWeek"></param>
+        /// <returns></returns>
+        public static DateTime FindDayBefore(DateTime date, DayOfWeek dayOfWeek)
+        {
+            return FindDayBefore(date.Year, date.Month, date.Day, dayOfWeek);
         }
 
         /// <summary>
