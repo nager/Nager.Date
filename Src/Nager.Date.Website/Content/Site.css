@@ -1,5 +1,6 @@
 ﻿body {
     padding-top: 50px;
+    background-color: #e0e0e0;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -16,12 +17,56 @@ textarea {
     max-width: 280px;
 }
 
+.header {
+    position: relative;
+    background-image: url('/Content/sky.jpg');
+    height: 400px;
+}
+
+.header-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    padding-left: 40px;
+}
+
+.header h1 {
+    color: #ffffff;
+}
+
+.header p {
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    .header {
+        position: static;
+        background-image: none;
+        height: auto;
+    }
+
+    .header-content {
+        position: static;
+        padding: 10px;
+    }
+
+    .header h1 {
+        color: #000000;
+    }
+
+    .header p {
+        color: #000000;
+    }
+}
+
 .navbar {
-    background-color: #003459;
+    background-color: #212529;
+    border-color: #212529;
 }
 
 .navbar-collapse li {
-    border-left: 1px solid #00477a;
+    border-left: 1px solid #333333;
 }
 
 .navbar a {
@@ -34,17 +79,32 @@ textarea {
 }
 
 footer {
-    padding: 20px;
-    background-color: #003459;
-    color: #ffffff;
+    padding: 30px;
+    padding-bottom: 50px;
+    background-color: #212529;
+    color: #868e96;
 }
 
 footer a {
-    color: #ffffff;
+    color: #868e96;
     text-decoration: underline;
 }
 
 .footer-col
 {
     text-align: left;
+}
+
+.copyright {
+    padding: 30px;
+    text-align: center;
+}
+
+.thumbnail {
+    padding: 10px;
+}
+
+.thumbnail:hover {
+    background-color: #fefefe;
+    border: 1px solid #212529;
 }

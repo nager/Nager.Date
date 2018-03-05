@@ -1,6 +1,8 @@
 ﻿using Bia.Countries;
 using Nager.Date.Website.Model;
+using SimpleMvcSitemap;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -36,6 +38,30 @@ namespace Nager.Date.Website.Controllers
             }
 
             return View("NotFound");
+        }
+
+        [OutputCache(Duration = 3600, VaryByParam = "countryCode")]
+        public ActionResult Sitemap(string countryCode)
+        {
+            if (string.IsNullOrEmpty(countryCode))
+            {
+                var indexNodes = new List<SitemapIndexNode>();
+                var items = from CountryCode o in Enum.GetValues(typeof(CountryCode)) select o;
+                foreach (var item in items)
+                {
+                    indexNodes.Add(new SitemapIndexNode(Url.Action("Sitemap", "PublicHoliday", new { countryCode = item.ToString() })));
+                }
+
+                return new SitemapProvider().CreateSitemapIndex(new SitemapIndexModel(indexNodes));
+            }
+
+            var nodes = new List<SitemapNode>();
+            for (var i = 1900; i < DateTime.Today.Year + 100; i++)
+            {
+                nodes.Add(new SitemapNode(Url.Action("Country", "PublicHoliday", new { countryCode = countryCode.ToString(), year = i })) { ChangeFrequency = ChangeFrequency.Monthly });
+            }
+
+            return new SitemapProvider().CreateSitemap(new SitemapModel(nodes));
         }
     }
 }

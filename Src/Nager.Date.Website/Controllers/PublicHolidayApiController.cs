@@ -10,10 +10,21 @@ namespace Nager.Date.Website.Controllers
     [RoutePrefix("api/v1")]
     public class PublicHolidayApiController : ApiController
     {
+        private static int Counter = 0;
+
+        [HttpGet]
+        [Route("statistic")]
+        public int Statistic()
+        {
+            return Counter;
+        }
+
         [HttpGet]
         [Route("get/{countrycode}/{year}")]
         public IEnumerable<PublicHoliday> CountryJson(string countrycode, int year)
         {
+            Counter++;
+
             CountryCode countryCode;
             if (!Enum.TryParse(countrycode, true, out countryCode))
             {

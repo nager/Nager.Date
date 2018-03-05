@@ -3,27 +3,36 @@
 @{
     ViewBag.Title = "Public Holidays";
 }
-<h1>Public Holidays</h1>
-<p>Public holiday calculation for every year, based on easter sunday, country and county support. Supports more than <strong>70</strong> countries.</p>
-<br />
 
-<h2>Country</h2>
+<div class="header">
+    <div class="header-content">
+        <h1>Public Holidays</h1>
+        <p>Public holiday calculation for every year, based on easter sunday, country and county support. Supports more than <strong>70</strong> countries.</p>
+    </div>
+</div>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-xs-12 col-sm-6 col-lg-3">
-            <div class="thumbnail">
-                <div class="row">
-                    <div class="col-xs-8">
-                        <h4>@item.Name <small>@item.CountryCode</small></h4>
-                        <a href="/PublicHoliday/Country/@item.CountryCode" class="btn btn-xs btn-info">more information ...</a>
+<div class="container">
+    <h2>Country</h2>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-12 col-sm-6 col-lg-3">
+                <a href="/PublicHoliday/Country/@item.CountryCode">
+                    <div class="thumbnail">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <h4>@item.Name <small>@item.CountryCode</small></h4>
+                                Public Holidays
+                            </div>
+                            <div class="col-xs-4">
+                                @*<span style="border:1px solid #00477a; border-radius:5px; background-color:#003459; color:#ffffff; padding:18px; padding-left:24px; padding-right:24px; display:inline-block;">@item.PublicHolidayCount</span>*@
+                                <img src="http://www.countryflags.io/@item.CountryCode/flat/64.png" alt="@item.Name" title="@item.Name">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-xs-4">
-                        <span style="border:1px solid #00477a; border-radius:5px; background-color:#003459; color:#ffffff; padding:18px; padding-left:24px; padding-right:24px; display:inline-block;">@item.PublicHolidayCount</span>
-                    </div>
-                </div>
+                </a>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>

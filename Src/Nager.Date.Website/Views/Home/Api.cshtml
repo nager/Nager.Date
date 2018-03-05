@@ -2,37 +2,39 @@
     ViewBag.Title = "Api";
 }
 
-@section scripts {
-    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-}
+<div class="container">
 
-<h1>Public Holiday API</h1>
-Returns the public holidays from given country and year 
-<a href="http://date.nager.at/api/v1/get/AT/2017">http://date.nager.at/api/v1/get/{CountryCode}/{Year}</a>
-<br /><br />
+    <h1>Public Holiday API</h1>
+    Returns the public holidays from given country and year
+    <a href="http://date.nager.at/api/v1/get/AT/2017">http://date.nager.at/api/v1/get/{CountryCode}/{Year}</a>
+    <br /><br />
 
-<div class="alert alert-success">
-    <strong>GET</strong> /get/{CountryCode}/{Year}
-</div>
+    <div class="alert alert-success">
+        <strong>GET</strong> /get/{CountryCode}/{Year}
+    </div>
 
 
-<h3>Request</h3>
-<table class="table">
-    <tr>
-        <th>Parameters</th>
-        <th>Value</th>
-    </tr>
-    <tr>
-        <td>CountryCode</td>
-        <td>AT</td>
-    </tr>
-    <tr>
-        <td>Year</td>
-        <td>2017</td>
-    </tr>
-</table>
+    <h3>Request</h3>
+    <table class="table" style="background-color:#ffffff;">
+        <thead>
+            <tr>
+                <th>Parameters</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CountryCode</td>
+                <td>AT</td>
+            </tr>
+            <tr>
+                <td>Year</td>
+                <td>2017</td>
+            </tr>
+        </tbody>
+    </table>
 
-<h3>Response</h3>
+    <h3>Response (JSON)</h3>
 <pre class="prettyprint">[  
    {  
       "date":"2017-01-01",
@@ -191,3 +193,9 @@ Returns the public holidays from given country and year
       "launchYear":null
    }
 ]</pre>
+
+</div>
+
+@section scripts {
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+}
