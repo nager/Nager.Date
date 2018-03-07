@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Nager.Date.Extensions;
+using System.Diagnostics;
 
 namespace Nager.Date.TestConsole
 {
@@ -8,7 +9,7 @@ namespace Nager.Date.TestConsole
     {
         static void Main(string[] args)
         {
-            Test1();
+            Test3();
 
             Console.ReadLine();
         }
@@ -32,5 +33,17 @@ namespace Nager.Date.TestConsole
                 Console.WriteLine("{0:dd.MM.yyyy} {1} {2}", publicHoliday.Date, publicHoliday.LocalName, publicHoliday.Global);
             }
         }
-    }
+
+		private static void Test3()
+		{
+			//performane test
+			Stopwatch sw = Stopwatch.StartNew();
+			for (int i = 0; i < 10000; i++)
+			{
+				var x = DateSystem.IsPublicHoliday(new DateTime(2017, 07, 04), CountryCode.US);
+			}
+			sw.Stop();
+			Console.WriteLine("Elapsed time: " + sw.ElapsedMilliseconds + "ms");
+		}
+	}
 }
