@@ -26,6 +26,7 @@
         CO,
         CR,
         CU,
+        CV,
         CY,
         CZ,
         DE,
