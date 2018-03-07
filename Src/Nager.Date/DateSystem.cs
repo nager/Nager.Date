@@ -86,7 +86,8 @@ namespace Nager.Date
 			_countries.Add(CountryCode.SE, new SwedenProvider());
 			_countries.Add(CountryCode.SK, new SlovakiaProvider());
 			_countries.Add(CountryCode.SR, new SurinameProvider());
-			_countries.Add(CountryCode.TR, new TurkeyProvider());
+            _countries.Add(CountryCode.SV, new ElSalvadorProvider());
+            _countries.Add(CountryCode.TR, new TurkeyProvider());
 			_countries.Add(CountryCode.VE, new VenezuelaProvider());
 			_countries.Add(CountryCode.US, new UnitedStatesProvider());
 			_countries.Add(CountryCode.UY, new UruguayProvider());
