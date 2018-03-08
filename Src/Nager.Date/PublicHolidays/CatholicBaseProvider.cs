@@ -1,5 +1,6 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Model;
+using NodaTime;
 using System;
 using System.Collections.Generic;
 
@@ -46,6 +47,41 @@ namespace Nager.Date.PublicHolidays
             var daysToAdvent = 21 + (int)christmasDate.DayOfWeek;
 
             return christmasDate.AddDays(-daysToAdvent);
+        }
+
+        /// <summary>
+        /// Get Catholic Pentecost for requested year
+        /// https://en.wikipedia.org/wiki/Pentecost
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public DateTime Pentecost(int year)
+        {
+            return EasterSunday(year).AddDays(49);
+        }
+
+        /// <summary>
+        /// Get Catholic Trinity Sunday for requested year
+        /// https://en.wikipedia.org/wiki/Trinity_Sunday
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public DateTime TrinitySunday(int year)
+        {
+            var pentecostDate = Pentecost(year);
+            return LocalDate.FromDateTime(pentecostDate,CalendarSystem.Gregorian).With(DateAdjusters.Next(IsoDayOfWeek.Sunday)).ToDateTimeUnspecified();
+        }
+
+        /// <summary>
+        /// Get Catholic Corpus Christi for request year
+        /// https://en.wikipedia.org/wiki/Corpus_Christi_(feast)
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public DateTime CorpusChristi(int year)
+        {
+            var trinitySunday = TrinitySunday(year);
+            return LocalDate.FromDateTime(trinitySunday, CalendarSystem.Gregorian).With(DateAdjusters.Next(IsoDayOfWeek.Thursday)).ToDateTimeUnspecified();
         }
     }
 }

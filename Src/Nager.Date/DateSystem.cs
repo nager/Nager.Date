@@ -54,6 +54,7 @@ namespace Nager.Date
                     countries.Add(CountryCode.GR, new GreeceProvider());
                     countries.Add(CountryCode.GT, new GuatemalaProvider());
                     countries.Add(CountryCode.GY, new GuyanaProvider());
+                    countries.Add(CountryCode.GW, new GuineBissauProvider());
                     countries.Add(CountryCode.HN, new HondurasProvider());
                     countries.Add(CountryCode.HR, new CroatiaProvider());
                     countries.Add(CountryCode.HT, new HaitiProvider());
@@ -90,8 +91,9 @@ namespace Nager.Date
                     countries.Add(CountryCode.SE, new SwedenProvider());
                     countries.Add(CountryCode.SK, new SlovakiaProvider());
                     countries.Add(CountryCode.SR, new SurinameProvider());
-                    //countries.Add(CountryCode.TL, new EastTimorProvider());
+                    countries.Add(CountryCode.ST, new SaoTomeAndPrincipeProvider());
                     countries.Add(CountryCode.TR, new TurkeyProvider());
+                    countries.Add(CountryCode.TL, new EastTimorProvider());
                     countries.Add(CountryCode.VE, new VenezuelaProvider());
                     countries.Add(CountryCode.US, new UnitedStatesProvider());
                     countries.Add(CountryCode.UY, new UruguayProvider());
