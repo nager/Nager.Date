@@ -4,7 +4,7 @@
     <TargetFrameworks>net45;net461;netstandard2.0</TargetFrameworks>
     <Description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supports more than 70 countries</Description>
     <Company>nager.at</Company>
-    <Version>1.19.3</Version>
+    <Version>1.19.4</Version>
     <Authors>Tino Hager</Authors>
     <PackageReleaseNotes>Fix on Hungary</PackageReleaseNotes>
     <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday NationalHoliday Åland Andorra Argentina Austria Australia Bahamas Belarus Belgium Belize Bolivia Botswana Brazil Bulgaria Canada Chile China Colombia CostaRica Croatia Cuba Cyprus CzechRepublic Denmark DominicanRepublic Ecuador ElSalvador Estonia Finland France Germany Greece Guatemala Guyana Haiti Honduras Hungary Iceland Ireland IsleOfMan Italy Jamaica Jersey Latvia Liechtenstein Lithuania Luxembourg Madagascar Malta Mexico Monaco Mozambique Namibia Netherlands Nicaragua Norway NewZealand Panana Paraguay Peru Poland Portugal PuertoRico Romania Russia Slovakia Slovenia SouthAfrica Spain Surianme Sweden Switzerland Venezuela UnitedKingdom UnitedStates Uruguay</PackageTags>
