@@ -11,12 +11,13 @@ namespace Nager.Date.PublicHolidays
             //Hungary
             //https://en.wikipedia.org/wiki/Public_holidays_in_Hungary
 
-            var countryCode = CountryCode.EE;
+            var countryCode = CountryCode.HU;
             var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Újév", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 15, "Nemzeti ünnep", "1848 Revolution Memorial Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Nagypéntek", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday, "Húsvétvasárnap", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Húsvéthétfő", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "A munka ünnepe", "Labour day", countryCode));
