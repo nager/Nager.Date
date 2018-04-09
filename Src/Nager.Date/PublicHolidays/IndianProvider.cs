@@ -26,7 +26,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "क्रिसमस", "Christmas", countryCode));
 
             //TODO: Need to add logic for every holiday which changes with date.
-            return items.OrderBy(o => o.Date)
+            return items.OrderBy(o => o.Date);
         }
     }
 }
