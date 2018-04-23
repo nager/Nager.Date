@@ -204,7 +204,7 @@ var age = DateSystem.GetAge(date);
 - [ ] Mali
 - [ ] Mauritania
 - [ ] Mauritius
-- [ ] Morocco
+- [x] Morocco
 - [x] Mozambique
 - [x] Namibia
 - [ ] Niger
