@@ -55,6 +55,7 @@
         LT,
         LU,
         LV,
+        MA,
         MC,
         MG,
         MT,
