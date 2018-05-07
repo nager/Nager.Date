@@ -64,7 +64,8 @@ namespace Nager.Date
 			_countries.Add(CountryCode.LV, new LatviaProvider());
 			_countries.Add(CountryCode.JE, new JerseyProvider());
 			_countries.Add(CountryCode.JM, new JamaicaProvider());
-			_countries.Add(CountryCode.MC, new MonacoProvider());
+            _countries.Add(CountryCode.MA, new MoroccoProvider());
+            _countries.Add(CountryCode.MC, new MonacoProvider());
 			_countries.Add(CountryCode.MG, new MadagascarProvider());
 			_countries.Add(CountryCode.MT, new MaltaProvider());
 			_countries.Add(CountryCode.MZ, new MozambiqueProvider());
