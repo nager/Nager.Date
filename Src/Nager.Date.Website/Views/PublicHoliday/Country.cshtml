@@ -35,10 +35,10 @@
                         @foreach (var publicHoliday in Model.PublicHolidays)
                         {
                             <tr>
-                                <td>@publicHoliday.Date.ToShortDateString()</td>
+                                <td>@publicHoliday.Date.ToString("dddd") @publicHoliday.Date.ToShortDateString()</td>
                                 <td class="hidden-xs">@publicHoliday.LocalName</td>
                                 <td class="hidden-xs">@publicHoliday.Name</td>
-                                <td class="visible-xs">@publicHoliday.Name<br />@publicHoliday.LocalName</td>
+                                <td class="visible-xs"><strong>@publicHoliday.Name</strong><br />@publicHoliday.LocalName</td>
                                 <td class="hidden-xs">
                                     @if (publicHoliday.Global)
                                     {
