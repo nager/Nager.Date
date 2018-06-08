@@ -27,7 +27,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 8, 15, "Velika Gospa", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 10, 8, "Dan neovisnosti", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Dan svih svetih", "All Saints' Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Božić", "Christmas", countryCode));
+            items.Add(new PublicHoliday(year, 12, 25, "Božić", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Prvi dan po Božiću, Sveti Stjepan, Štefanje, Stipanje", "St.Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
