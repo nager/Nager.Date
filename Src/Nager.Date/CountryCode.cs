@@ -35,6 +35,7 @@
         ES,
         FI,
         FR,
+        GA,
         GB,
         GL,
         GR,
