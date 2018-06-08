@@ -58,7 +58,7 @@ var age = DateSystem.GetAge(date);
 ```
 
 ### [Country Support](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
-#### Europe (39/49)
+#### Europe (40/49)
 ---
 - [ ] Albania
 - [x] Åland
@@ -88,7 +88,7 @@ var age = DateSystem.GetAge(date);
 - [x] Liechtenstein
 - [x] Lithuania
 - [x] Luxembourg
-- [ ] Macedonia
+- [x] Macedonia
 - [x] Malta
 - [ ] Moldova
 - [x] Monaco

@@ -59,6 +59,7 @@
         MA,
         MC,
         MG,
+        MK,
         MT,
         MX,
         MZ,
