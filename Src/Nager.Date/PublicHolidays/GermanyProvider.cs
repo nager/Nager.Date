@@ -66,7 +66,7 @@ namespace Nager.Date.PublicHolidays
             }
             else
             {
-                items.Add(new PublicHoliday(year, 10, 31, "Reformationstag", "Reformation Day", countryCode, null, new string[] { "DE-BB", "DE-MV", "DE-SN", "DE-ST", "DE-TH" }));
+                items.Add(new PublicHoliday(year, 10, 31, "Reformationstag", "Reformation Day", countryCode, null, new string[] { "DE-BB", "DE-MV", "DE-SN", "DE-ST", "DE-TH", "DE-NI" }));
             }
 
             return items.OrderBy(o => o.Date);
