@@ -39,6 +39,7 @@
         FR,
         GA,
         GB,
+        GD,
         GL,
         GR,
         GT,

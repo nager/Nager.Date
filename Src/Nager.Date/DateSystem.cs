@@ -49,6 +49,7 @@ namespace Nager.Date
             _countries.Add(CountryCode.FR, new FranceProvider());
             _countries.Add(CountryCode.GA, new GabonProvider());
             _countries.Add(CountryCode.GB, new UnitedKingdomProvider());
+            _countries.Add(CountryCode.GD, new GrenadaProvider());
             _countries.Add(CountryCode.GL, new GreenlandProvider());
             _countries.Add(CountryCode.GR, new GreeceProvider());
             _countries.Add(CountryCode.GT, new GuatemalaProvider());
