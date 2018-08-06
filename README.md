@@ -58,7 +58,7 @@ var age = DateSystem.GetAge(date);
 ```
 
 ### [Country Support](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
-#### Europe (40/49)
+#### Europe (44/49)
 ---
 - [ ] Albania
 - [x] Åland
@@ -99,7 +99,7 @@ var age = DateSystem.GetAge(date);
 - [x] Portugal
 - [x] Romania
 - [x] Russia
-- [ ] San Marino
+- [x] San Marino
 - [x] Serbia
 - [x] Slovakia
 - [x] Slovenia
@@ -168,7 +168,7 @@ var age = DateSystem.GetAge(date);
 - [x] Uruguay
 - [x] Venezuela
 
-#### Africa (7/58)
+#### Africa (9/58)
 ---
 - [ ] Algeria
 - [ ] Angola
