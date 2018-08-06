@@ -22,7 +22,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Epiphany", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 2, 5, "Feast of Saint Agatha", "Feast of Saint Agatha", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Easter", "Easter", countryCode));
+            items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 3, 25, "Anniversary of the Arengo", "Anniversary of the Arengo", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
@@ -34,7 +34,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 11, 2, "Commemoration of all those who died at war", "Commemoration of all those who died at war", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "Immaculate Conception", "Immaculate Conception", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Christmas Eve", "Christmas Eve", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Christmas", "Christmas", countryCode));
+            items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Saint Stephen's Day", "Saint Stephen's Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 31, "New Year's Eve", "New Year's Eve", countryCode));
 
