@@ -82,6 +82,7 @@
         SK,
         SR,
         SV,
+        TN,
         TR,
         VE,
         US,

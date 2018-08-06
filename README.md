@@ -220,7 +220,7 @@ var age = DateSystem.GetAge(date);
 - [ ] Swaziland
 - [ ] Tanzania
 - [ ] Togo
-- [ ] Tunisia
+- [x] Tunisia
 - [ ] Uganda
 - [ ] Western Sahara
 - [ ] Zambia
