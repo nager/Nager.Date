@@ -87,6 +87,7 @@ namespace Nager.Date
             _countries.Add(CountryCode.PY, new ParaguayProvider());
             _countries.Add(CountryCode.RO, new RomaniaProvider());
             _countries.Add(CountryCode.RU, new RussiaProvider());
+            _countries.Add(CountryCode.RS, new SerbiaProvider());
             _countries.Add(CountryCode.SI, new SloveniaProvider());
             _countries.Add(CountryCode.SE, new SwedenProvider());
             _countries.Add(CountryCode.SK, new SlovakiaProvider());
