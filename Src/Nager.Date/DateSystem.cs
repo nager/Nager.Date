@@ -20,6 +20,7 @@ namespace Nager.Date
             _countries.Add(CountryCode.AT, new AustriaProvider());
             _countries.Add(CountryCode.AU, new AustraliaProvider());
             _countries.Add(CountryCode.AX, new AlandProvider());
+            _countries.Add(CountryCode.BB, new BarbadosProvider());
             _countries.Add(CountryCode.BE, new BelgiumProvider());
             _countries.Add(CountryCode.BG, new BulgariaProvider());
             _countries.Add(CountryCode.BO, new BoliviaProvider());
