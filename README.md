@@ -108,7 +108,7 @@ var age = DateSystem.GetAge(date);
 - [x] Switzerland
 - [ ] Ukraine
 - [x] United Kingdom
-- [ ] Vatican City
+- [x] Vatican City
 
 #### Asia (3/50)
 ---
