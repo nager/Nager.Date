@@ -26,7 +26,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 3, 25, "Anniversary of the Arengo", "Anniversary of the Arengo", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
-            //items.Add(new PublicHoliday(year, 1, 1, "Corpus Christi", "Corpus Christi", countryCode)); Berechnen
+            items.Add(new PublicHoliday(easterSunday.AddDays(60), "Corpus Christi", "Corpus Christi", countryCode)); 
             items.Add(new PublicHoliday(year, 7, 28, "Liberation from Fascism", "Liberation from Fascism", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Ferragosto (Assumption)", "Ferragosto (Assumption)", countryCode));
             items.Add(new PublicHoliday(year, 9, 3, "The Feast of San Marino and the Republic", "The Feast of San Marino and the Republic", countryCode));
