@@ -100,7 +100,7 @@ var age = DateSystem.GetAge(date);
 - [x] Romania
 - [x] Russia
 - [ ] San Marino
-- [ ] Serbia
+- [x] Serbia
 - [x] Slovakia
 - [x] Slovenia
 - [x] Spain

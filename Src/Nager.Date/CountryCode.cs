@@ -77,6 +77,7 @@
         PT,
         PY,
         RO,
+        RS,
         RU,
         SE,
         SI,
