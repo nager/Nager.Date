@@ -127,7 +127,7 @@ var age = DateSystem.GetAge(date);
 - [x] Mexico
 - [x] United States
 
-#### Central America and the Antilles (14/22)
+#### Central America and the Antilles (15/22)
 ---
 - [x] Bahamas
 - [x] Barbados
@@ -138,7 +138,7 @@ var age = DateSystem.GetAge(date);
 - [ ] Dominica
 - [x] Dominican Republic
 - [x] El Salvador
-- [ ] Grenada
+- [x] Grenada
 - [x] Guatemala
 - [x] Haiti
 - [x] Honduras
