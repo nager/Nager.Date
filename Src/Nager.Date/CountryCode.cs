@@ -58,6 +58,7 @@
         LV,
         MA,
         MC,
+        MD,
         MG,
         MK,
         MT,

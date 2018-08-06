@@ -90,7 +90,7 @@ var age = DateSystem.GetAge(date);
 - [x] Luxembourg
 - [x] Macedonia
 - [x] Malta
-- [ ] Moldova
+- [x] Moldova
 - [x] Monaco
 - [ ] Montenegro
 - [x] Netherlands
