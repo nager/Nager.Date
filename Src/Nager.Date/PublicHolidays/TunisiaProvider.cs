@@ -1,0 +1,39 @@
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Nager.Date.PublicHolidays
+{
+    public class TunisiaProvider : IPublicHolidayProvider
+    {
+        public IEnumerable<PublicHoliday> Get(int year)
+        {
+            //Tunisia
+            //https://en.wikipedia.org/wiki/Public_holidays_in_Tunisia
+
+            var countryCode = CountryCode.TN;
+
+            var items = new List<PublicHoliday>();
+
+            items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
+            items.Add(new PublicHoliday(year, 1, 14, "Revolution and Youth Day", "Revolution and Youth Day", countryCode));
+            items.Add(new PublicHoliday(year, 2, 4, "Mouled (Prophet's Anniversary)", "Mouled (Prophet's Anniversary)", countryCode)); // depending on the moon calender      
+            items.Add(new PublicHoliday(year, 3, 20, "Independence Day", "Independence Day", countryCode));
+            items.Add(new PublicHoliday(year, 4, 9, "Martyrs' Day", "Martyrs' Day", countryCode));
+            items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
+            items.Add(new PublicHoliday(year, 6, 1, "Victory Day", "Victory Day", countryCode));
+            items.Add(new PublicHoliday(year, 7, 18, "Eid al-Fitr (2015)", "Eid al-Fitr (2015)", countryCode)); //depending on the moon calender
+            items.Add(new PublicHoliday(year, 7, 25, "Republic Day", "Republic Day", countryCode));
+            items.Add(new PublicHoliday(year, 8, 13, "Women's Day", "Women's Day", countryCode));
+            items.Add(new PublicHoliday(year, 9, 24, "Eid al-Idha (2015)", "Eid al-Idha (2015)", countryCode)); //depending on the moon calender
+            items.Add(new PublicHoliday(year, 10, 15, "Hegire (Islamic New Year)", "Hegire (Islamic New Year) (2015)", countryCode)); //depending on the moon calender
+            items.Add(new PublicHoliday(year, 10, 15, "Eid El Jala'", "Eid El Jala'", countryCode));
+
+            return items.OrderBy(o => o.Date);
+        }
+    }
+}
