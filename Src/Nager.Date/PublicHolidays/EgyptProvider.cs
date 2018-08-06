@@ -26,7 +26,7 @@ namespace Nager.Date.PublicHolidays
             //Eid al-Fitr
             //Eid al-Adha
 
-            items.Add(new PublicHoliday(year, 1, 7, "عيد الميلاد المجيد", "	Christmas", countryCode));
+            items.Add(new PublicHoliday(year, 1, 7, "عيد الميلاد المجيد", "Christmas", countryCode));
             items.Add(new PublicHoliday(year, 1, 25, "عيد الثورة 25 يناير", "Revolution Day 2011 National Police Day", countryCode));
             items.Add(new PublicHoliday(year, 4, 25, "عيد تحرير سيناء", "Sinai Liberation Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "عيد العمال", "Labour Day", countryCode));
