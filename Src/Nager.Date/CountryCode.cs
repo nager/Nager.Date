@@ -32,6 +32,7 @@
         DO,
         EC,
         EE,
+        EG,
         ES,
         FI,
         FR,

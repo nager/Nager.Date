@@ -185,7 +185,7 @@ var age = DateSystem.GetAge(date);
 - [ ] Democratic Republic of the Congo
 - [ ] Côte d'Ivoire
 - [ ] Djibouti
-- [ ] Egypt
+- [x] Egypt
 - [ ] Equatorial Guinea
 - [ ] Eritrea
 - [ ] Ethiopia

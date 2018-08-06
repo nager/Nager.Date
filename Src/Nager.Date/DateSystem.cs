@@ -41,6 +41,7 @@ namespace Nager.Date
             _countries.Add(CountryCode.DK, new DenmarkProvider());
             _countries.Add(CountryCode.DO, new DominicanRepublicProvider());
             _countries.Add(CountryCode.EC, new EcuadorProvider());
+            _countries.Add(CountryCode.EG, new EgyptProvider());
             _countries.Add(CountryCode.EE, new EstoniaProvider());
             _countries.Add(CountryCode.ES, new SpainProvider());
             _countries.Add(CountryCode.FI, new FinlandProvider());
