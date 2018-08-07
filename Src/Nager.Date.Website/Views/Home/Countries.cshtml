@@ -5,22 +5,31 @@
 <div class="container">
     <h1>Countries</h1>
 
-    <div id="mapdiv" style="width:100%; height: 450px;"></div>
+    <div id="mapdiv" style="width:100%; height:450px;"></div>
 
     <br />
     <br />
 
     <table class="table">
-        @foreach (var country in ViewBag.Countries)
-        {
-            <tbody>
+        @{
+            var i = 0;
+        }
+        <tbody>
+            @foreach (var country in ViewBag.Countries)
+            {
                 <tr>
                     <td><a href="/PublicHoliday/Country/@country.Key">@country.Value</a></td>
                     <td>@country.Key</td>
                     <td><a href="/PublicHoliday/Country/@country.Key" class="btn btn-xs btn-primary">Show</a></td>
                 </tr>
-            </tbody>
-        }
+                i++;
+            }
+        </tbody>
+        <tfooter>
+            <tr>
+                <td colspan="3" class="text-right">@i countries available</td>
+            </tr>
+        </tfooter>
     </table>
 </div>
 

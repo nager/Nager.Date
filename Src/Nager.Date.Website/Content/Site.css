@@ -108,3 +108,9 @@ footer a {
     background-color: #fefefe;
     border: 1px solid #212529;
 }
+
+.equal {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
