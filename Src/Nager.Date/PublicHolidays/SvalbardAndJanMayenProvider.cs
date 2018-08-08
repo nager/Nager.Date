@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class SvalbardUndJanMayenProvider : CatholicBaseProvider
+    public class SvalbardAndJanMayenProvider : CatholicBaseProvider
     {
         public override IEnumerable<PublicHoliday> Get(int year)
         {
-            //Svalbard und Jan Mayen 
+            //Svalbard and Jan Mayen 
             //https://en.wikipedia.org/wiki/Public_holidays_in_Svalbard
 
             var countryCode = CountryCode.SJ;
@@ -24,6 +24,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 17, "Syttende mai", "Constitution Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Kristi himmelfartsdag", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(49), "Første pinsedag", "Whit Sunday", countryCode));
+
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Andre pinsedag", "Whit Monday", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Første juledag", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Andre juledag", "Second day of Christmas", countryCode));
