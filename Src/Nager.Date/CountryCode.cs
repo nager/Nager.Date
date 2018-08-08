@@ -83,6 +83,7 @@
         RU,        
         SE,
         SI,
+        SJ,
         SK,
         SM,
         SR,
