@@ -92,12 +92,14 @@ namespace Nager.Date
             _countries.Add(CountryCode.SM, new SanMarinoProvider());
             _countries.Add(CountryCode.RS, new SerbiaProvider());
             _countries.Add(CountryCode.SI, new SloveniaProvider());
+            _countries.Add(CountryCode.SJ, new SvalbardAndJanMayenProvider());
             _countries.Add(CountryCode.SE, new SwedenProvider());
             _countries.Add(CountryCode.SK, new SlovakiaProvider());
             _countries.Add(CountryCode.SR, new SurinameProvider());
             _countries.Add(CountryCode.SV, new ElSalvadorProvider());
             _countries.Add(CountryCode.TN, new TunisiaProvider());
             _countries.Add(CountryCode.TR, new TurkeyProvider());
+            _countries.Add(CountryCode.UA, new UkraineProvider());
             _countries.Add(CountryCode.VA, new VaticanCityProvider());
             _countries.Add(CountryCode.VE, new VenezuelaProvider());
             _countries.Add(CountryCode.US, new UnitedStatesProvider());
