@@ -58,7 +58,7 @@ var age = DateSystem.GetAge(date);
 ```
 
 ### [Country Support](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
-#### Europe (44/49)
+#### Europe (45/49)
 ---
 - [ ] Albania
 - [x] Åland
@@ -106,7 +106,7 @@ var age = DateSystem.GetAge(date);
 - [x] Spain
 - [x] Sweden
 - [x] Switzerland
-- [ ] Ukraine
+- [x] Ukraine
 - [x] United Kingdom
 - [x] Vatican City
 
