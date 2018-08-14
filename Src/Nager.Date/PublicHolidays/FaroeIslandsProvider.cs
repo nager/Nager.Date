@@ -9,26 +9,29 @@ namespace Nager.Date.PublicHolidays
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Faroe Islands, adaptation of DenmarkProvider
+            //https://en.wikipedia.org/wiki/Public_holidays_in_the_Faroe_Islands
 
             var countryCode = CountryCode.FO;
             var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 1, "Nytårsdag", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Skærtorsdag", "Maundy Thursday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Langfredag", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Påskedag", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "2. Påskedag", "Easter Monday", countryCode));
-            items.Add(new PublicHoliday(year, 4, 25, "Flagdag", "Flag day", countryCode));
+            items.Add(new PublicHoliday(year, 1, 1, "Nýggjársdagur", "New Year's Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Skírhósdagur", "Maundy Thursday", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Langifríggjadagur", "Good Friday", countryCode));
+            items.Add(new PublicHoliday(easterSunday, "Páskadagur", "Easter Sunday", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(1), "2. Páskadagur", "Easter Monday", countryCode));
+            items.Add(new PublicHoliday(year, 4, 25, "Flaggdagur", "National Flag Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(26), "Store bededag", "General Prayer Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Kristi Himmelfartsdag", "Ascension Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Pinsedag", "Pentecost", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "2. Pinsedag", "Whit Monday", countryCode));
-            items.Add(new PublicHoliday(year, 7, 28, "Ólavsøkuaftan", "Olaifesten eve", countryCode));
-            items.Add(new PublicHoliday(year, 7, 29, "Ólavsøkudagur", "Olaifesten", countryCode));
-            items.Add(new PublicHoliday(year, 12, 24, "Juleaften", "Christmas Eve", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Juledag / 1. juledag", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "2. juledag", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Kristi himmalsferðar dagur", "Ascension Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Hvítasunnudagur", "Pentecost", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(50), "2. Hvítasunnudagur", "Whit Monday", countryCode));
+            items.Add(new PublicHoliday(year, 6, 5, "Grundlógardagur Danmarkar", "Constitution Day", countryCode));
+            items.Add(new PublicHoliday(year, 7, 28, "Ólavsøkuaftan", "Saint Olav's Eve", countryCode));
+            items.Add(new PublicHoliday(year, 7, 29, "Ólavsøkudagur", "Saint Olav's Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 24, "Jólaaftanskvøld", "Christmas Eve", countryCode));
+            items.Add(new PublicHoliday(year, 12, 25, "Jóladagur", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "2. Jóladagur", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 31, "Nýggjársaftan", "New Year's Eve", countryCode));
 
             return items.OrderBy(o => o.Date);
         }
