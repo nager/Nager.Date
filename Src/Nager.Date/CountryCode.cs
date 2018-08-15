@@ -36,6 +36,7 @@
         EG,
         ES,
         FI,
+        FO,
         FR,
         GA,
         GB,
