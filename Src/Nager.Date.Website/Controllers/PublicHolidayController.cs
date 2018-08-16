@@ -1,9 +1,12 @@
 ﻿using Bia.Countries;
+using CsvHelper;
 using Nager.Date.Website.Model;
 using SimpleMvcSitemap;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web.Mvc;
 
 namespace Nager.Date.Website.Controllers
@@ -35,6 +38,43 @@ namespace Nager.Date.Website.Controllers
             if (item.PublicHolidays.Count > 0)
             {
                 return View(item);
+            }
+
+            return View("NotFound");
+        }
+
+        public ActionResult DownloadCsv(string countrycode, int year = 0)
+        {
+            if (year == 0)
+            {
+                year = DateTime.Now.Year;
+            }
+
+            CountryCode countryCode;
+            if (!Enum.TryParse(countrycode, true, out countryCode))
+            {
+                return View("NotFound");
+            }
+
+            var items = DateSystem.GetPublicHoliday(countryCode, year).ToList();
+
+            if (items.Count > 0)
+            {
+                using (var memoryStream = new MemoryStream())
+                using (var streamWriter = new StreamWriter(memoryStream))
+                using (var csv = new CsvWriter(streamWriter))
+                {
+                    csv.WriteRecords(items.Select(o => new PublicHoliday(o)));
+                    streamWriter.Flush();
+
+                    byte[] bytesInStream = memoryStream.ToArray();
+
+                    Response.Clear();
+                    Response.ContentType = "application/force-download";
+                    Response.AddHeader("content-disposition", $"attachment;    filename=publicholiday.{countrycode}.{year}.csv");
+                    Response.BinaryWrite(bytesInStream);
+                    Response.End();
+                }
             }
 
             return View("NotFound");
