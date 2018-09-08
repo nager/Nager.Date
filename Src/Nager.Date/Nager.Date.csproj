@@ -6,7 +6,7 @@
     <Company>nager.at</Company>
     <Version>1.22.0</Version>
     <Authors>Tino Hager</Authors>
-    <PackageReleaseNotes>Fix St Andrews Day for Scotland in UnitedKingdomProvider, Add new county Lesotho</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix St Andrews Day for Scotland in UnitedKingdomProvider, Add new country Lesotho</PackageReleaseNotes>
     <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday NationalHoliday Åland Andorra Argentina Austria Australia Bahamas Barbados Belarus Belgium Belize Bolivia Botswana Brazil Bulgaria Canada Chile China Colombia CostaRica Croatia Cuba Cyprus CzechRepublic Denmark DominicanRepublic Ecuador Egypt ElSalvador Estonia FaroeIslands Finland France Gabon Germany Greece Grenada Guatemala Guyana Haiti Honduras Hungary Iceland Ireland IsleOfMan Italy Jamaica Jersey Latvia Lesotho Liechtenstein Lithuania Luxembourg Macedonia Madagascar Malta Mexico Moldova Monaco Morocco Mozambique Namibia Netherlands Nicaragua Norway NewZealand Panana Paraguay Peru Poland Portugal PuertoRico Romania Russia SanMarino Serbia SvalbardAndJanMayen Slovakia Slovenia SouthAfrica Spain Surianme Sweden Switzerland Tunisia Venezuela Ukraine UnitedKingdom UnitedStates Uruguay VaticanCity</PackageTags>
     <PackageProjectUrl>https://github.com/tinohager/Nager.Date</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</PackageLicenseUrl>
