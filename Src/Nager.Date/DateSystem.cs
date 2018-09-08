@@ -64,6 +64,7 @@ namespace Nager.Date
             _countries.Add(CountryCode.IS, new IcelandProvider());
             _countries.Add(CountryCode.IT, new ItalyProvider());
             _countries.Add(CountryCode.LI, new LiechtensteinProvider());
+            _countries.Add(CountryCode.LS, new LesothoProvider());
             _countries.Add(CountryCode.LT, new LithuaniaProvider());
             _countries.Add(CountryCode.LU, new LuxembourgProvider());
             _countries.Add(CountryCode.LV, new LatviaProvider());

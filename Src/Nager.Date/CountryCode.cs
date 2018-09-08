@@ -57,6 +57,7 @@
         JM,
         //JP,
         LI,
+        LS,
         LT,
         LU,
         LV,
