@@ -170,7 +170,7 @@ var age = DateSystem.GetAge(date);
 - [x] Uruguay
 - [x] Venezuela
 
-#### Africa (9/58)
+#### Africa (10/58)
 ---
 - [ ] Algeria
 - [ ] Angola
@@ -197,7 +197,7 @@ var age = DateSystem.GetAge(date);
 - [ ] Guinea
 - [ ] Guinea-Bissau
 - [ ] Kenya
-- [ ] Lesotho
+- [x] Lesotho
 - [ ] Liberia
 - [ ] Libya
 - [x] Madagascar
