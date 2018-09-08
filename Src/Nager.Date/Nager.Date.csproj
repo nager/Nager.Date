@@ -19,8 +19,9 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Content Include="install.ps1">
-      <PackagePath>tools\</PackagePath>
+    <Content Include="readme.txt">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
     </Content>
   </ItemGroup>
   
