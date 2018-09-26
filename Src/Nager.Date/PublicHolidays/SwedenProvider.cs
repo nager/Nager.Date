@@ -48,10 +48,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(49), "Pingstdagen", "Withsun Day", countryCode));
 
             //Holidays on set week days, with floating dates
+            //According to the Swedish Church - the first Sunday between March 22 and 28. According to the Catholic Church - March 25 
+            items.Add(new PublicHoliday(DateSystem.FindDay(year, 3, 22, DayOfWeek.Sunday), "Jungfru Marie bebådelsedag", "", countryCode));
+            items.Add(new PublicHoliday(DateSystem.FindLastDay(year, 5, DayOfWeek.Sunday), "Mors dag", "Mother's Day", countryCode));
             items.Add(new PublicHoliday(midsummerDay.AddDays(-1), "Midsommarafton", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(midsummerDay, "Midsommardagen", "Midsummer Day", countryCode));
             items.Add(new PublicHoliday(allSaintsDay.AddDays(-1), "Allhelgonaafton", "Saint's Eve", countryCode));
             items.Add(new PublicHoliday(allSaintsDay, "Alla helgons dag", "All Saints' Day", countryCode));
+            items.Add(new PublicHoliday(DateSystem.FindDay(year, 11, DayOfWeek.Sunday, 2), "Fars dag", "Father's Day", countryCode));
+            items.Add(new PublicHoliday(DateSystem.FindDay(year, 11, 27, DayOfWeek.Sunday), "Första advent", "Advent", countryCode));
+            items.Add(new PublicHoliday(DateSystem.FindDay(year, 12, 4, DayOfWeek.Sunday), "Andra advent", "Second of Advent", countryCode));
+            items.Add(new PublicHoliday(DateSystem.FindDay(year, 12, 11, DayOfWeek.Sunday), "Tredje advent", "Third of Advent", countryCode));
+            items.Add(new PublicHoliday(DateSystem.FindDay(year, 12, 18, DayOfWeek.Sunday), "Fjärde advent", "Fourth of Advent", countryCode));
 
             return items.OrderBy(o => o.Date);
         }
