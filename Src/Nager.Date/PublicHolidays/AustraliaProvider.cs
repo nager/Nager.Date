@@ -57,7 +57,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(firstMondayInJune, "Western Australia Day", "Western Australia Day", countryCode, null, new string[] { "AUS-WA" }));
             items.Add(new PublicHoliday(secondMondayInJune, "Queen's Birthday", "Queen's Birthday", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-NT", "AUS-SA", "AUS-TAS", "AUS-VIC" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Picnic Day", "Picnic Day", countryCode, null, new string[] { "AUS-NT" }));
-            items.Add(new PublicHoliday(firstMondayInAugust, "Labour Day", "Labour Day", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-SA" }));
+            items.Add(new PublicHoliday(firstMondayInOctober, "Labour Day", "Labour Day", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-SA" }));
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Boxing Day", "St. Stephen's Day", countryCode));
 
