@@ -1,14 +1,18 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
+using Nager.Date.Weekends;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class UnitedStatesProvider : IPublicHolidayProvider
+    public class UnitedStatesProvider : IOffDaysProvider
     {
+        //https://en.wikipedia.org/wiki/Workweek_and_weekend#Around_the_world
+        private readonly IWeekendProvider weekendProvider = new UniversalWeekendProvider();
+
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //United States of America
@@ -31,7 +35,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(newYearsDay, "New Year's Day", "New Year's Day", countryCode));
 
             #endregion
-            
+
             items.Add(new PublicHoliday(thirdMondayInJannuar, "Martin Luther King, Jr. Day", "Martin Luther King, Jr. Day", countryCode));
             items.Add(new PublicHoliday(thirdMondayInFebruary, "Washington's Birthday", "Presidents' Day", countryCode));
             items.Add(new PublicHoliday(lastMondayInMay, "Memorial Day", "Memorial Day", countryCode));
@@ -42,7 +46,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(independenceDay, "Independence Day", "Independence Day", countryCode));
 
             #endregion
-            
+
             items.Add(new PublicHoliday(firstMondayInSeptember, "Labor Day", "Labour Day", countryCode));
             items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-CO", "US-CT", "US-DC", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-ME", "US-MD", "US-MA", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NY", "US-NC", "US-OH", "US-OK", "US-PA", "US-RI", "US-SC", "US-TN", "US-UT", "US-VA", "US-WV" }));
 
@@ -54,7 +58,7 @@ namespace Nager.Date.PublicHolidays
             #endregion
 
             items.Add(new PublicHoliday(fourthThursdayInNovember, "Thanksgiving Day", "Thanksgiving Day", countryCode, 1863));
-            
+
             #region Christmas Day with fallback
 
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
@@ -80,5 +84,8 @@ namespace Nager.Date.PublicHolidays
 
             return items.OrderBy(o => o.Date);
         }
+
+        public bool IsWeekend(DateTime date) =>
+            weekendProvider.IsWeekend(date);
     }
 }

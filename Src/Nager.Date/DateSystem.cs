@@ -9,11 +9,11 @@ namespace Nager.Date
 {
     public static class DateSystem
     {
-        static Dictionary<CountryCode, IPublicHolidayProvider> _countries;
+        static Dictionary<CountryCode, IOffDaysProvider> _countries;
 
         static DateSystem() //static constructor
         {
-            _countries = new Dictionary<CountryCode, IPublicHolidayProvider>();
+            _countries = new Dictionary<CountryCode, IOffDaysProvider>();
 
             _countries.Add(CountryCode.AD, new AndorraProvider());
             _countries.Add(CountryCode.AR, new ArgentinaProvider());
@@ -109,9 +109,9 @@ namespace Nager.Date
             _countries.Add(CountryCode.ZA, new SouthAfricaProvider());
         }
 
-        public static IPublicHolidayProvider GetProvider(CountryCode countryCode)
+        public static IOffDaysProvider GetProvider(CountryCode countryCode)
         {
-            _countries.TryGetValue(countryCode, out IPublicHolidayProvider provider);
+            _countries.TryGetValue(countryCode, out IOffDaysProvider provider);
             return provider;
         }
 

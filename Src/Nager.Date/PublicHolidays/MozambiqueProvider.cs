@@ -1,12 +1,17 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Model;
+using Nager.Date.Weekends;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class MozambiqueProvider : IPublicHolidayProvider, ICountyProvider
+    public class MozambiqueProvider : IOffDaysProvider, ICountyProvider
     {
+        //https://en.wikipedia.org/wiki/Workweek_and_weekend#Around_the_world
+        private readonly IWeekendProvider weekendProvider = new UniversalWeekendProvider();
+
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //Mozambique
@@ -47,5 +52,8 @@ namespace Nager.Date.PublicHolidays
                 { "MZ-ZA", "Zambezia" }
             };
         }
+
+        public bool IsWeekend(DateTime date) =>
+            weekendProvider.IsWeekend(date);
     }
 }

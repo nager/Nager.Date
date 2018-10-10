@@ -57,6 +57,8 @@
     <Compile Include="Common\LogicTest.cs" />
     <Compile Include="Common\LongWeekendTest.cs" />
     <Compile Include="Country\HungaryTest.cs" />
+    <Compile Include="Country\MexicoTest.cs" />
+    <Compile Include="DateTimeExtension\DateTimeExtension_Shift.cs" />
     <Compile Include="MockProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Country\PuertoRicoTest.cs" />
@@ -64,6 +66,9 @@
     <Compile Include="Country\SwitzerlandTest.cs" />
     <Compile Include="Country\TurkeyTest.cs" />
     <Compile Include="Country\UnitedKingdomTest.cs" />
+    <Compile Include="Weekends\SundayOnlyProviderTest.cs" />
+    <Compile Include="Weekends\SemiUniversalWeekendProviderTest.cs" />
+    <Compile Include="Weekends\UniversalWeekendProviderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
