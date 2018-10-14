@@ -25,10 +25,10 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(new DateTime(2017, 5, 19), publicHolidays[3].Date);
 
             //Victory Day
-            Assert.AreEqual(new DateTime(2017, 8, 30), publicHolidays[4].Date);
+            Assert.AreEqual(new DateTime(2017, 8, 30), publicHolidays[5].Date);
 
             //Republic Day
-            Assert.AreEqual(new DateTime(2017, 10, 29), publicHolidays[5].Date);
+            Assert.AreEqual(new DateTime(2017, 10, 29), publicHolidays[6].Date);
 
         }
     }
