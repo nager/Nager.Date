@@ -57,30 +57,43 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Erster Weihnachtstag", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Zweiter Weihnachtstag", "St. Stephen's Day", countryCode));
 
-            var prayerDay = GetPrayerDay(year, countryCode);
+            var prayerDay = this.GetPrayerDay(year, countryCode);
             if (prayerDay != null)
             {
                 items.Add(prayerDay);
             }
 
+            items.Add(this.GetReformationDay(year, CountryCode.DE));
+
+            return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday GetReformationDay(int year, CountryCode countryCode)
+        {
+            var localName = "Reformationstag";
+            var englishName = "Reformation Day";
+
             if (year == 2017)
             {
                 //In commemoration of the 500th anniversary of the beginning of the Reformation, it was unique as a whole German holiday
-                items.Add(new PublicHoliday(year, 10, 31, "Reformationstag", "Reformation Day", countryCode, null));
-            }
-            else
-            {
-                items.Add(new PublicHoliday(year, 10, 31, "Reformationstag", "Reformation Day", countryCode, null, new string[] { "DE-BB", "DE-MV", "DE-SN", "DE-ST", "DE-TH", "DE-NI" }));
+                return new PublicHoliday(year, 10, 31, localName, englishName, countryCode, null);
             }
 
-            return items.OrderBy(o => o.Date);
+            var counties = new List<string> { "DE-BB", "DE-MV", "DE-SN", "DE-ST", "DE-TH", "DE-NI" };
+
+            if (year >= 2018)
+            {
+                counties.Add("DE-HH");
+            }
+
+            return new PublicHoliday(year, 10, 31, localName, englishName, countryCode, null, counties.ToArray());
         }
 
         private PublicHoliday GetPrayerDay(int year, CountryCode countryCode)
         {
             var dayOfPrayer = base.AdventSunday(year).AddDays(-11);
-            string localName = "Buß- und Bettag";
-            string englishName = "Repentance and Prayer Day";
+            var localName = "Buß- und Bettag";
+            var englishName = "Repentance and Prayer Day";
 
             if (year >= 1934 && year < 1939)
             {
