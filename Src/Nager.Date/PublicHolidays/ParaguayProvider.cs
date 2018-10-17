@@ -7,6 +7,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class ParaguayProvider : CatholicBaseProvider
     {
+        public ParaguayProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Paraguay
@@ -16,7 +20,7 @@ namespace Nager.Date.PublicHolidays
             var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
-            
+
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 1, "Dia de los héroes", "Heroes' day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Jueves Santo", "Maundy Thursday", countryCode));
@@ -29,7 +33,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 9, 29, "Victoria de Boquerón", "Boqueron Battle Victory Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "Virgen de Caacupé", "Virgin of Caacupe", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Día de Navidad", "Christmas Day", countryCode));
-            
+
             return items.OrderBy(o => o.Date);
         }
     }

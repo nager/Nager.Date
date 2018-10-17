@@ -1,4 +1,5 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class EcuadorProvider : CatholicBaseProvider
     {
+        public EcuadorProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Ecuador
@@ -25,7 +30,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 10, 9, "Independencia de Guayaquil", "Independence of Guayaquil", countryCode));
             items.Add(new PublicHoliday(year, 11, 2, "Día de los Difuntos, Día de Muertos", "All Souls' Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 3, "Independencia de Cuenca", "Independence of Cuenca", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Día de Navidad", "Christmas Day", countryCode));         
+            items.Add(new PublicHoliday(year, 12, 25, "Día de Navidad", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

@@ -1,6 +1,6 @@
-﻿using Nager.Date.Extensions;
+﻿using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
-using Nager.Date.Weekends;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +9,8 @@ namespace Nager.Date.PublicHolidays
 {
     public class MexicoProvider : CatholicBaseProvider
     {
-        public MexicoProvider()
+        public MexicoProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
         {
-            //https://en.wikipedia.org/wiki/Workweek_and_weekend#Around_the_world
-            weekendProvider = new SundayOnlyProvider();
         }
 
         public override IEnumerable<PublicHoliday> Get(int year)
@@ -48,6 +46,6 @@ namespace Nager.Date.PublicHolidays
         }
 
         public override bool IsWeekend(DateTime date) =>
-            weekendProvider.IsWeekend(date);
+            _weekendProvider.IsWeekend(date);
     }
 }

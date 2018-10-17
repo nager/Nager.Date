@@ -1,4 +1,5 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class GreenlandProvider : CatholicBaseProvider
     {
+        public GreenlandProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Greenland

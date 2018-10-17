@@ -1,14 +1,16 @@
-﻿using Nager.Date.Model;
-using System;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Nager.Date.PublicHolidays 
+namespace Nager.Date.PublicHolidays
 {
     public class VaticanCityProvider : CatholicBaseProvider
     {
+        public VaticanCityProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Vatican City

@@ -8,6 +8,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class AustraliaProvider : CatholicBaseProvider, ICountyProvider
     {
+        public AustraliaProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>

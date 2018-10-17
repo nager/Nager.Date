@@ -59,7 +59,8 @@
     <Compile Include="Country\HungaryTest.cs" />
     <Compile Include="Country\MexicoTest.cs" />
     <Compile Include="DateTimeExtension\DateTimeExtension_Shift.cs" />
-    <Compile Include="MockProvider.cs" />
+    <Compile Include="MockPublicHolidayProvider.cs" />
+    <Compile Include="MockWeekendProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Country\PuertoRicoTest.cs" />
     <Compile Include="Country\SpainTest.cs" />

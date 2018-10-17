@@ -1,4 +1,5 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class CubaProvider : CatholicBaseProvider
     {
+        public CubaProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Cuba
@@ -23,7 +28,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 7, 26, "Día de la Rebeldía Nacional", "Commemoration of the Assault of the Moncada garrison", countryCode));
             items.Add(new PublicHoliday(year, 7, 27, "Conmemoración del asalto a Moncada", "Day after the Commemoration of the Assault of the Moncada garrison", countryCode));
             items.Add(new PublicHoliday(year, 10, 10, "Día de la Independencia", "Independence Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));       
+            items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

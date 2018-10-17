@@ -7,6 +7,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class GermanyProvider : CatholicBaseProvider, ICountyProvider
     {
+        public GermanyProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>
@@ -46,7 +50,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 1, "Tag der Arbeit", "Labour Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Christi Himmelfahrt", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode,null, new string[] { "DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL" }));
+            items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode, null, new string[] { "DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL" }));
             items.Add(new PublicHoliday(year, 8, 15, "Mariä Himmelfahrt", "Assumption Day", countryCode, null, new string[] { "DE-SL" }));
             items.Add(new PublicHoliday(year, 10, 3, "Tag der Deutschen Einheit", "German Unity Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Allerheiligen", "All Saints' Day", countryCode, null, new string[] { "DE-BW", "DE-BY", "DE-NW", "DE-RP", "DE-SL" }));

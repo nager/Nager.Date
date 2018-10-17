@@ -1,14 +1,19 @@
 ﻿
+using Nager.Date.Contract;
+using Nager.Date.Extensions;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nager.Date.Extensions;
-using Nager.Date.Model;
 
 namespace Nager.Date.PublicHolidays
 {
     public class PuertoRicoProvider : CatholicBaseProvider
     {
+        public PuertoRicoProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             // Puerto Rico
@@ -55,7 +60,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(independenceDay, "Día de la Independencia de los Estados Unidos", "Independence Day", countryCode));
 
             #endregion
-            
+
             items.Add(new PublicHoliday(thirdMondayInJuly, "Natalicio de Don Luis Muñoz Rivera", "Birthday of Don Luis Muñoz Rivera", countryCode));
             items.Add(new PublicHoliday(year, 7, 25, "Constitución de Puerto Rico", "Puerto Rico Constitution Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 27, "Natalicio de Dr. José Celso Barbosa", "Birthday of Dr. José Celso Barbosa", countryCode));
@@ -68,12 +73,12 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(veteransDay, "Día del Veterano Día del Armisticio", "Veterans Day", countryCode));
 
             #endregion
-            
+
             items.Add(new PublicHoliday(year, 11, 19, "Día del Descubrimiento de Puerto Rico", "Discovery of Puerto Rico", countryCode));
             items.Add(new PublicHoliday(fourthThursdayInNovember, "Día de Acción de Gracias", "Thanksgiving Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Noche Buena", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
-            
+
             return items.OrderBy(o => o.Date);
         }
     }

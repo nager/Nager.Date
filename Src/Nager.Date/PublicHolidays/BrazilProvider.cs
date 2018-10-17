@@ -1,3 +1,4 @@
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class BrazilProvider : CatholicBaseProvider
     {
+        public BrazilProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Brazil
@@ -15,7 +20,7 @@ namespace Nager.Date.PublicHolidays
 
             var countryCode = CountryCode.BR;
             var items = new List<PublicHoliday>();
-            
+
             // official holidays (fixed dates)
             items.Add(new PublicHoliday(year, 1, 1, "Confraternização Universal", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 4, 21, "Dia de Tiradentes", "Tiradentes", countryCode));

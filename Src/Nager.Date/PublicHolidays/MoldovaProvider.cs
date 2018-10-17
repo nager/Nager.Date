@@ -1,4 +1,5 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class MoldovaProvider : OrthodoxBaseProvider
     {
+        public MoldovaProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Moldova
@@ -27,7 +32,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(lastMondayInMay, "Memorial Day", "Memorial Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Labour Day (Moldova)", "Labour Day (Moldova)", countryCode));
             items.Add(new PublicHoliday(year, 5, 9, "Victory and Commemoration Day", "Victory and Commemoration Day", countryCode));
-            items.Add(new PublicHoliday(year, 5, 22, "Bălţi Day", "Bălţi Day", countryCode));           
+            items.Add(new PublicHoliday(year, 5, 22, "Bălţi Day", "Bălţi Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 27, "Independence Day (Moldova)", "Independence Day (Moldova)", countryCode));
             items.Add(new PublicHoliday(year, 8, 31, "Limba Noastra (National Language Day (Moldova))", "Limba Noastra (National Language Day (Moldova))", countryCode));
             items.Add(new PublicHoliday(year, 9, 3, "Day of the Moldovan National Army", "Day of the Moldovan National Army", countryCode));

@@ -1,4 +1,5 @@
-﻿using Nager.Date.Extensions;
+﻿using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,10 @@ namespace Nager.Date.PublicHolidays
 {
     public class MonacoProvider : CatholicBaseProvider
     {
+        public MonacoProvider(IWeekendProvider weekendProvider) : base(weekendProvider)
+        {
+        }
+
         public override IEnumerable<PublicHoliday> Get(int year)
         {
             //Monaco
@@ -17,7 +22,7 @@ namespace Nager.Date.PublicHolidays
             var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
-            
+
             items.Add(new PublicHoliday(year, 1, 27, "La Sainte Dévote", "Saint Devota's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Le 1er mai", "May Day", countryCode));

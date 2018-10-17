@@ -10,7 +10,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckEasterSunday()
         {
-            var catholicProvider = new MockProvider();
+            var catholicProvider = new MockPublicHolidayProvider();
 
             var easterSunday = catholicProvider.EasterSunday(1900);
             Assert.AreEqual(new DateTime(1900, 4, 15), easterSunday);
