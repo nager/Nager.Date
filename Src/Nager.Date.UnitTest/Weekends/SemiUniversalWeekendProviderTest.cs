@@ -19,7 +19,7 @@ namespace Nager.Date.UnitTest.Weekends
         {
             // Arrange
             var date = new DateTime(year, month, day);
-            var sut = new SemiUniversalWeekendProvider();
+            var sut = WeekendProvider.SemiUniversal;
 
             // Act
             var result = sut.IsWeekend(date);

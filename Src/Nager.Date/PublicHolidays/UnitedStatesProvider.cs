@@ -1,18 +1,14 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
-using Nager.Date.Weekends;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class UnitedStatesProvider : IOffDaysProvider
+    public class UnitedStatesProvider : IPublicHolidayProvider
     {
-        //https://en.wikipedia.org/wiki/Workweek_and_weekend#Around_the_world
-        private readonly IWeekendProvider weekendProvider = new UniversalWeekendProvider();
-
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //United States of America
@@ -84,8 +80,5 @@ namespace Nager.Date.PublicHolidays
 
             return items.OrderBy(o => o.Date);
         }
-
-        public bool IsWeekend(DateTime date) =>
-            weekendProvider.IsWeekend(date);
     }
 }

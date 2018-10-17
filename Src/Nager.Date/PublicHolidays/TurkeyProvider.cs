@@ -1,17 +1,12 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Model;
-using Nager.Date.Weekends;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class TurkeyProvider : IOffDaysProvider
+    public class TurkeyProvider : IPublicHolidayProvider
     {
-        //https://en.wikipedia.org/wiki/Workweek_and_weekend#Around_the_world
-        private readonly IWeekendProvider weekendProvider = new UniversalWeekendProvider();
-
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //Turkey
@@ -31,8 +26,5 @@ namespace Nager.Date.PublicHolidays
 
             return items.OrderBy(o => o.Date);
         }
-
-        public bool IsWeekend(DateTime date) =>
-            weekendProvider.IsWeekend(date);
     }
 }

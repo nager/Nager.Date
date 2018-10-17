@@ -1,15 +1,12 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Model;
-using Nager.Date.Weekends;
 using System;
 using System.Collections.Generic;
 
 namespace Nager.Date.PublicHolidays
 {
-    public abstract class OrthodoxBaseProvider : IOffDaysProvider
+    public abstract class OrthodoxBaseProvider : IPublicHolidayProvider
     {
-        protected IWeekendProvider weekendProvider = new UniversalWeekendProvider();
-
         public abstract IEnumerable<PublicHoliday> Get(int year);
 
         /// <summary>
@@ -33,8 +30,5 @@ namespace Nager.Date.PublicHolidays
 
             return new DateTime(year, month, day);
         }
-
-        public bool IsWeekend(DateTime date) =>
-            weekendProvider.IsWeekend(date);
     }
 }
