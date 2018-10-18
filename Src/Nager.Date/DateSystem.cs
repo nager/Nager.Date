@@ -148,8 +148,10 @@ namespace Nager.Date
             };
 
         [Obsolete("Please use GetPublicHolidayProvider instead")]
-        public static IPublicHolidayProvider GetProvider(CountryCode countryCode) =>
-            GetPublicHolidayProvider(countryCode);
+        public static IPublicHolidayProvider GetProvider(CountryCode countryCode)
+        {
+            return GetPublicHolidayProvider(countryCode);
+        }
 
         public static IPublicHolidayProvider GetPublicHolidayProvider(CountryCode countryCode)
         {

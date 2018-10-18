@@ -7,7 +7,9 @@ namespace Nager.Date.PublicHolidays
 {
     public class NoHolidaysProvider : IPublicHolidayProvider
     {
-        public IEnumerable<PublicHoliday> Get(int year) =>
-            Enumerable.Empty<PublicHoliday>();
+        public IEnumerable<PublicHoliday> Get(int year)
+        {
+            return Enumerable.Empty<PublicHoliday>();
+        }
     }
 }

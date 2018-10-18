@@ -52,7 +52,6 @@
     <Compile Include="Country\ChinaTest.cs" />
     <Compile Include="Country\AustriaTest.cs" />
     <Compile Include="Country\CanadaTest.cs" />
-    <Compile Include="Common\CountryRelationTest.cs" />
     <Compile Include="Country\GermanyTest.cs" />
     <Compile Include="Common\LogicTest.cs" />
     <Compile Include="Common\LongWeekendTest.cs" />
