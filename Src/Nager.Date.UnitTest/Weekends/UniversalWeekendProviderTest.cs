@@ -1,22 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nager.Date.Extensions;
+using Nager.Date.Weekends;
 using System;
-using System.Linq;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Weekends
 {
     [TestClass]
-    public class CanadaTest
+    public class UniversalWeekendProviderTest
     {
-        [TestMethod]
-        public void TestCanada()
-        {
-            var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.CA, 2017).ToArray();
-
-            //New Year's Day
-            Assert.AreEqual(new DateTime(2017, 1, 1), publicHolidays[0].Date);
-        }
-
         [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
@@ -25,13 +15,14 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2018, 10, 12, false)]
         [DataRow(2018, 10, 13, true)]
         [DataRow(2018, 10, 14, true)]
-        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expected)
+        public void ReturnsTrueOnSaturdayOrSunday(int year, int month, int day, bool expected)
         {
             // Arrange
             var date = new DateTime(year, month, day);
+            var sut = WeekendProvider.Universal;
 
             // Act
-            var result = date.IsWeekend(CountryCode.CA);
+            var result = sut.IsWeekend(date);
 
             // Assert
             Assert.AreEqual(expected, result);

@@ -11,6 +11,8 @@ namespace Nager.Date.PublicHolidays
             //Colombia
             //https://en.wikipedia.org/wiki/Public_holidays_in_Colombia
             //TODO: Check, movable holiday: when they do not fall on a Monday, these holidays are observed the following Monday.
+            //TODO: Check weekends in Colombia as they can be Universal or only sundays (in which case? how to handle that?)
+            //https://en.wikipedia.org/wiki/Workweek_and_weekend#Colombia
 
             var countryCode = CountryCode.CO;
             var easterSunday = base.EasterSunday(year);

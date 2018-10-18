@@ -1,6 +1,7 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using Nager.Date.PublicHolidays;
+using Nager.Date.Weekends;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,110 +10,157 @@ namespace Nager.Date
 {
     public static class DateSystem
     {
-        static Dictionary<CountryCode, IPublicHolidayProvider> _countries;
+        private static readonly NoHolidaysProvider _noHolidaysProvider = new NoHolidaysProvider();
 
-        static DateSystem() //static constructor
+        private static readonly Dictionary<CountryCode, IPublicHolidayProvider> _publicHolidaysProviders =
+            new Dictionary<CountryCode, IPublicHolidayProvider>
+            {
+                { CountryCode.AD, new AndorraProvider() },
+                { CountryCode.AR, new ArgentinaProvider() },
+                { CountryCode.AT, new AustriaProvider() },
+                { CountryCode.AU, new AustraliaProvider() },
+                { CountryCode.AX, new AlandProvider() },
+                { CountryCode.BB, new BarbadosProvider() },
+                { CountryCode.BE, new BelgiumProvider() },
+                { CountryCode.BG, new BulgariaProvider() },
+                { CountryCode.BO, new BoliviaProvider() },
+                { CountryCode.BR, new BrazilProvider() },
+                { CountryCode.BS, new BahamasProvider() },
+                { CountryCode.BW, new BotswanaProvider() },
+                { CountryCode.BY, new BelarusProvider() },
+                { CountryCode.BZ, new BelizeProvider() },
+                { CountryCode.CA, new CanadaProvider() },
+                { CountryCode.CH, new SwitzerlandProvider() },
+                { CountryCode.CL, new ChileProvider() },
+                { CountryCode.CN, new ChinaProvider() },
+                { CountryCode.CO, new ColombiaProvider() },
+                { CountryCode.CR, new CostaRicaProvider() },
+                { CountryCode.CU, new CubaProvider() },
+                { CountryCode.CY, new CyprusProvider() },
+                { CountryCode.CZ, new CzechRepublicProvider() },
+                { CountryCode.DE, new GermanyProvider() },
+                { CountryCode.DK, new DenmarkProvider() },
+                { CountryCode.DO, new DominicanRepublicProvider() },
+                { CountryCode.EC, new EcuadorProvider() },
+                { CountryCode.EG, new EgyptProvider() },
+                { CountryCode.EE, new EstoniaProvider() },
+                { CountryCode.ES, new SpainProvider() },
+                { CountryCode.FI, new FinlandProvider() },
+                { CountryCode.FO, new FaroeIslandsProvider() },
+                { CountryCode.FR, new FranceProvider() },
+                { CountryCode.GA, new GabonProvider() },
+                { CountryCode.GB, new UnitedKingdomProvider() },
+                { CountryCode.GD, new GrenadaProvider() },
+                { CountryCode.GL, new GreenlandProvider() },
+                { CountryCode.GR, new GreeceProvider() },
+                { CountryCode.GT, new GuatemalaProvider() },
+                { CountryCode.GY, new GuyanaProvider() },
+                { CountryCode.HN, new HondurasProvider() },
+                { CountryCode.HR, new CroatiaProvider() },
+                { CountryCode.HT, new HaitiProvider() },
+                { CountryCode.HU, new HungaryProvider() },
+                { CountryCode.IE, new IrelandProvider() },
+                { CountryCode.IM, new IsleOfManProvider() },
+                { CountryCode.IS, new IcelandProvider() },
+                { CountryCode.IT, new ItalyProvider() },
+                { CountryCode.LI, new LiechtensteinProvider() },
+                { CountryCode.LS, new LesothoProvider() },
+                { CountryCode.LT, new LithuaniaProvider() },
+                { CountryCode.LU, new LuxembourgProvider() },
+                { CountryCode.LV, new LatviaProvider() },
+                { CountryCode.JE, new JerseyProvider() },
+                { CountryCode.JM, new JamaicaProvider() },
+                { CountryCode.MA, new MoroccoProvider() },
+                { CountryCode.MC, new MonacoProvider() },
+                { CountryCode.MD, new MoldovaProvider() },
+                { CountryCode.MG, new MadagascarProvider() },
+                { CountryCode.MK, new MacedoniaProvider() },
+                { CountryCode.MT, new MaltaProvider() },
+                { CountryCode.MZ, new MozambiqueProvider() },
+                { CountryCode.MX, new MexicoProvider() },
+                { CountryCode.NA, new NamibiaProvider() },
+                { CountryCode.NI, new NicaraguaProvider() },
+                { CountryCode.NL, new NetherlandsProvider() },
+                { CountryCode.NO, new NorwayProvider() },
+                { CountryCode.NZ, new NewZealandProvider() },
+                { CountryCode.PA, new PanamaProvider() },
+                { CountryCode.PE, new PeruProvider() },
+                { CountryCode.PL, new PolandProvider() },
+                { CountryCode.PR, new PuertoRicoProvider() },
+                { CountryCode.PT, new PortugalProvider() },
+                { CountryCode.PY, new ParaguayProvider() },
+                { CountryCode.RO, new RomaniaProvider() },
+                { CountryCode.RU, new RussiaProvider() },
+                { CountryCode.SM, new SanMarinoProvider() },
+                { CountryCode.RS, new SerbiaProvider() },
+                { CountryCode.SI, new SloveniaProvider() },
+                { CountryCode.SJ, new SvalbardAndJanMayenProvider() },
+                { CountryCode.SE, new SwedenProvider() },
+                { CountryCode.SK, new SlovakiaProvider() },
+                { CountryCode.SR, new SurinameProvider() },
+                { CountryCode.SV, new ElSalvadorProvider() },
+                { CountryCode.TN, new TunisiaProvider() },
+                { CountryCode.TR, new TurkeyProvider() },
+                { CountryCode.UA, new UkraineProvider() },
+                { CountryCode.VA, new VaticanCityProvider() },
+                { CountryCode.VE, new VenezuelaProvider() },
+                { CountryCode.US, new UnitedStatesProvider() },
+                { CountryCode.UY, new UruguayProvider() },
+                { CountryCode.ZA, new SouthAfricaProvider() }
+            };
+
+        private static readonly Dictionary<CountryCode, IWeekendProvider> _nonUniversalWeekendProviders =
+            new Dictionary<CountryCode, IWeekendProvider>
+            {
+                // https://en.wikipedia.org/wiki/Workweek_and_weekend
+                { CountryCode.AE, WeekendProvider.SemiUniversal }, // since 2006 // TODO handle launch dates in weekends
+                { CountryCode.AF, WeekendProvider.SemiUniversal },
+                { CountryCode.BD, WeekendProvider.SemiUniversal },
+                { CountryCode.BH, WeekendProvider.SemiUniversal },
+                { CountryCode.BN, WeekendProvider.FridaySunday },
+                { CountryCode.DZ, WeekendProvider.SemiUniversal },
+                // { CountryCode.CO, WeekendProvider.SundayOnly }, // No information on in which case it occurs
+                { CountryCode.DJ, WeekendProvider.FridayOnly },
+                { CountryCode.EG, WeekendProvider.SemiUniversal },
+                { CountryCode.GQ, WeekendProvider.SundayOnly },
+                { CountryCode.HK, WeekendProvider.SundayOnly },
+                // { CountryCode.IN, WeekendProvider.SundayOnly }, // Except for Government offices and IT industry
+                { CountryCode.IQ, WeekendProvider.SemiUniversal },
+                { CountryCode.IR, WeekendProvider.SemiUniversal }, // Or friday only (no information on in which case it occurs)
+                { CountryCode.IL, WeekendProvider.SemiUniversal },
+                { CountryCode.JO, WeekendProvider.SemiUniversal },
+                { CountryCode.KW, WeekendProvider.SemiUniversal },
+                { CountryCode.LY, WeekendProvider.SemiUniversal },
+                { CountryCode.MV, WeekendProvider.SemiUniversal },
+                // { CountryCode.MY, WeekendProvider.SemiUniversal }, // except in some counties // TODO Add county in weekend handling
+                { CountryCode.MX, WeekendProvider.SundayOnly },
+                { CountryCode.NP, WeekendProvider.SaturdayOnly },
+                { CountryCode.OM, WeekendProvider.SemiUniversal },
+                { CountryCode.PS, WeekendProvider.SemiUniversal },
+                { CountryCode.PH, WeekendProvider.SundayOnly },
+                { CountryCode.QA, WeekendProvider.SemiUniversal },
+                { CountryCode.SA, WeekendProvider.SemiUniversal },
+                { CountryCode.SD, WeekendProvider.SemiUniversal },
+                { CountryCode.SO, WeekendProvider.FridayOnly },
+                { CountryCode.SY, WeekendProvider.SemiUniversal },
+                { CountryCode.UG, WeekendProvider.SundayOnly },
+                { CountryCode.YE, WeekendProvider.SemiUniversal },
+            };
+
+        [Obsolete("Please use GetPublicHolidayProvider instead")]
+        public static IPublicHolidayProvider GetProvider(CountryCode countryCode) =>
+            GetPublicHolidayProvider(countryCode);
+
+        public static IPublicHolidayProvider GetPublicHolidayProvider(CountryCode countryCode)
         {
-            _countries = new Dictionary<CountryCode, IPublicHolidayProvider>();
-
-            _countries.Add(CountryCode.AD, new AndorraProvider());
-            _countries.Add(CountryCode.AR, new ArgentinaProvider());
-            _countries.Add(CountryCode.AT, new AustriaProvider());
-            _countries.Add(CountryCode.AU, new AustraliaProvider());
-            _countries.Add(CountryCode.AX, new AlandProvider());
-            _countries.Add(CountryCode.BB, new BarbadosProvider());
-            _countries.Add(CountryCode.BE, new BelgiumProvider());
-            _countries.Add(CountryCode.BG, new BulgariaProvider());
-            _countries.Add(CountryCode.BO, new BoliviaProvider());
-            _countries.Add(CountryCode.BR, new BrazilProvider());
-            _countries.Add(CountryCode.BS, new BahamasProvider());
-            _countries.Add(CountryCode.BW, new BotswanaProvider());
-            _countries.Add(CountryCode.BY, new BelarusProvider());
-            _countries.Add(CountryCode.BZ, new BelizeProvider());
-            _countries.Add(CountryCode.CA, new CanadaProvider());
-            _countries.Add(CountryCode.CH, new SwitzerlandProvider());
-            _countries.Add(CountryCode.CL, new ChileProvider());
-            _countries.Add(CountryCode.CN, new ChinaProvider());
-            _countries.Add(CountryCode.CO, new ColombiaProvider());
-            _countries.Add(CountryCode.CR, new CostaRicaProvider());
-            _countries.Add(CountryCode.CU, new CubaProvider());
-            _countries.Add(CountryCode.CY, new CyprusProvider());
-            _countries.Add(CountryCode.CZ, new CzechRepublicProvider());
-            _countries.Add(CountryCode.DE, new GermanyProvider());
-            _countries.Add(CountryCode.DK, new DenmarkProvider());
-            _countries.Add(CountryCode.DO, new DominicanRepublicProvider());
-            _countries.Add(CountryCode.EC, new EcuadorProvider());
-            _countries.Add(CountryCode.EG, new EgyptProvider());
-            _countries.Add(CountryCode.EE, new EstoniaProvider());
-            _countries.Add(CountryCode.ES, new SpainProvider());
-            _countries.Add(CountryCode.FI, new FinlandProvider());
-            _countries.Add(CountryCode.FO, new FaroeIslandsProvider());
-            _countries.Add(CountryCode.FR, new FranceProvider());
-            _countries.Add(CountryCode.GA, new GabonProvider());
-            _countries.Add(CountryCode.GB, new UnitedKingdomProvider());
-            _countries.Add(CountryCode.GD, new GrenadaProvider());
-            _countries.Add(CountryCode.GL, new GreenlandProvider());
-            _countries.Add(CountryCode.GR, new GreeceProvider());
-            _countries.Add(CountryCode.GT, new GuatemalaProvider());
-            _countries.Add(CountryCode.GY, new GuyanaProvider());
-            _countries.Add(CountryCode.HN, new HondurasProvider());
-            _countries.Add(CountryCode.HR, new CroatiaProvider());
-            _countries.Add(CountryCode.HT, new HaitiProvider());
-            _countries.Add(CountryCode.HU, new HungaryProvider());
-            _countries.Add(CountryCode.IE, new IrelandProvider());
-            _countries.Add(CountryCode.IM, new IsleOfManProvider());
-            _countries.Add(CountryCode.IS, new IcelandProvider());
-            _countries.Add(CountryCode.IT, new ItalyProvider());
-            _countries.Add(CountryCode.LI, new LiechtensteinProvider());
-            _countries.Add(CountryCode.LS, new LesothoProvider());
-            _countries.Add(CountryCode.LT, new LithuaniaProvider());
-            _countries.Add(CountryCode.LU, new LuxembourgProvider());
-            _countries.Add(CountryCode.LV, new LatviaProvider());
-            _countries.Add(CountryCode.JE, new JerseyProvider());
-            _countries.Add(CountryCode.JM, new JamaicaProvider());
-            _countries.Add(CountryCode.MA, new MoroccoProvider());
-            _countries.Add(CountryCode.MC, new MonacoProvider());
-            _countries.Add(CountryCode.MD, new MoldovaProvider());
-            _countries.Add(CountryCode.MG, new MadagascarProvider());
-            _countries.Add(CountryCode.MK, new MacedoniaProvider());
-            _countries.Add(CountryCode.MT, new MaltaProvider());
-            _countries.Add(CountryCode.MZ, new MozambiqueProvider());
-            _countries.Add(CountryCode.MX, new MexicoProvider());
-            _countries.Add(CountryCode.NA, new NamibiaProvider());
-            _countries.Add(CountryCode.NI, new NicaraguaProvider());
-            _countries.Add(CountryCode.NL, new NetherlandsProvider());
-            _countries.Add(CountryCode.NO, new NorwayProvider());
-            _countries.Add(CountryCode.NZ, new NewZealandProvider());
-            _countries.Add(CountryCode.PA, new PanamaProvider());
-            _countries.Add(CountryCode.PE, new PeruProvider());
-            _countries.Add(CountryCode.PL, new PolandProvider());
-            _countries.Add(CountryCode.PR, new PuertoRicoProvider());
-            _countries.Add(CountryCode.PT, new PortugalProvider());
-            _countries.Add(CountryCode.PY, new ParaguayProvider());
-            _countries.Add(CountryCode.RO, new RomaniaProvider());
-            _countries.Add(CountryCode.RU, new RussiaProvider());
-            _countries.Add(CountryCode.SM, new SanMarinoProvider());
-            _countries.Add(CountryCode.RS, new SerbiaProvider());
-            _countries.Add(CountryCode.SI, new SloveniaProvider());
-            _countries.Add(CountryCode.SJ, new SvalbardAndJanMayenProvider());
-            _countries.Add(CountryCode.SE, new SwedenProvider());
-            _countries.Add(CountryCode.SK, new SlovakiaProvider());
-            _countries.Add(CountryCode.SR, new SurinameProvider());
-            _countries.Add(CountryCode.SV, new ElSalvadorProvider());
-            _countries.Add(CountryCode.TN, new TunisiaProvider());
-            _countries.Add(CountryCode.TR, new TurkeyProvider());
-            _countries.Add(CountryCode.UA, new UkraineProvider());
-            _countries.Add(CountryCode.VA, new VaticanCityProvider());
-            _countries.Add(CountryCode.VE, new VenezuelaProvider());
-            _countries.Add(CountryCode.US, new UnitedStatesProvider());
-            _countries.Add(CountryCode.UY, new UruguayProvider());
-            _countries.Add(CountryCode.ZA, new SouthAfricaProvider());
+            _publicHolidaysProviders.TryGetValue(countryCode, out IPublicHolidayProvider provider);
+            return provider ?? _noHolidaysProvider;
         }
 
-        public static IPublicHolidayProvider GetProvider(CountryCode countryCode)
+        public static IWeekendProvider GetWeekendProvider(CountryCode countryCode)
         {
-            _countries.TryGetValue(countryCode, out IPublicHolidayProvider provider);
-            return provider;
+            _nonUniversalWeekendProviders.TryGetValue(countryCode, out IWeekendProvider provider);
+            return provider ?? WeekendProvider.Universal;
         }
 
         #region Public Holidays for a given year
@@ -141,8 +189,8 @@ namespace Nager.Date
         /// <returns></returns>
         public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, int year)
         {
-            var provider = GetProvider(countryCode);
-            return provider?.Get(year);
+            var provider = GetPublicHolidayProvider(countryCode);
+            return provider.Get(year);
         }
 
         #endregion
@@ -151,8 +199,7 @@ namespace Nager.Date
 
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, DateTime startDate, DateTime endDate)
         {
-            CountryCode parsedCountryCode;
-            if (!Enum.TryParse(countryCode, true, out parsedCountryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
                 return null;
             }
@@ -186,7 +233,7 @@ namespace Nager.Date
 
         #endregion
 
-        #region Check a date is a Public Holiday
+        #region Check if a date is a Public Holiday
 
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
@@ -204,6 +251,16 @@ namespace Nager.Date
         {
             var items = GetPublicHoliday(countryCode, date.Year);
             return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)) && o.CountyAdministrationHoliday);
+        }
+
+        #endregion
+
+        #region Check a date is a Public Holiday
+
+        public static bool IsWeekend(DateTime date, CountryCode countryCode)
+        {
+            var provider = GetWeekendProvider(countryCode);
+            return provider.IsWeekend(date);
         }
 
         #endregion

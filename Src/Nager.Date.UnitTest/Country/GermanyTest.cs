@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nager.Date.Extensions;
+using System;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nager.Date.PublicHolidays;
 
 namespace Nager.Date.UnitTest.Country
 {
@@ -55,6 +55,26 @@ namespace Nager.Date.UnitTest.Country
             var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 12, 25), CountryCode.DE, "DE-BW");
 
             Assert.IsTrue(isPublicHolidayInBW);
+        }
+
+        [TestMethod]
+        [DataRow(2018, 10, 8, false)]
+        [DataRow(2018, 10, 9, false)]
+        [DataRow(2018, 10, 10, false)]
+        [DataRow(2018, 10, 11, false)]
+        [DataRow(2018, 10, 12, false)]
+        [DataRow(2018, 10, 13, true)]
+        [DataRow(2018, 10, 14, true)]
+        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expected)
+        {
+            // Arrange
+            var date = new DateTime(year, month, day);
+
+            // Act
+            var result = date.IsWeekend(CountryCode.DE);
+
+            // Assert
+            Assert.AreEqual(expected, result);
         }
     }
 }

@@ -7,15 +7,8 @@ namespace Nager.Date.Extensions
     {
         public static bool IsWeekend(this DateTime dateTime, CountryCode countryCode)
         {
-            //For feature weekend is different need countryCode
-            //https://en.wikipedia.org/wiki/Workweek_and_weekend
-
-            if (dateTime.DayOfWeek == DayOfWeek.Saturday || dateTime.DayOfWeek == DayOfWeek.Sunday)
-            {
-                return true;
-            }
-
-            return false;
+            var provider = DateSystem.GetWeekendProvider(countryCode);
+            return provider.IsWeekend(dateTime);
         }
 
         public static DateTime Shift(this DateTime value, Func<DateTime, DateTime> saturday, Func<DateTime, DateTime> sunday, Func<DateTime, DateTime> monday = null)
@@ -45,7 +38,6 @@ namespace Nager.Date.Extensions
 
         public static DateTime ShiftWeekdays(this DateTime value, Func<DateTime, DateTime> monday = null, Func<DateTime, DateTime> tuesday = null, Func<DateTime, DateTime> wednesday = null, Func<DateTime, DateTime> thursday = null, Func<DateTime, DateTime> friday = null)
         {
-            var daysOff = new List<DateTime>();
             switch (value.DayOfWeek)
             {
                 case DayOfWeek.Monday:
@@ -89,5 +81,8 @@ namespace Nager.Date.Extensions
 
             return value;
         }
+
+        public static DateTime Shift(this DateTime value, DayOfWeek dayOfWeek, Func<DateTime, DateTime> shift) =>
+            (shift != null && value.DayOfWeek == dayOfWeek) ? shift.Invoke(value) : value;
     }
 }

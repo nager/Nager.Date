@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nager.Date.Extensions;
+using System;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Nager.Date.UnitTest.Country
 {
@@ -36,7 +37,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestChina2017()
         {
             var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.CN, 2017).ToArray();
-            var test1 = publicHolidays.Where(o=>o.Date == new DateTime(2017, 10, 4) && o.Name == "Mid-Autumn Festival").Any();
+            var test1 = publicHolidays.Where(o => o.Date == new DateTime(2017, 10, 4) && o.Name == "Mid-Autumn Festival").Any();
             var test2 = publicHolidays.Where(o => o.Date == new DateTime(2017, 4, 4) && o.Name == "Qingming Festival (Tomb-Sweeping Day)").Any();
 
             //Set to warning till china provider is fixed
@@ -81,6 +82,26 @@ namespace Nager.Date.UnitTest.Country
             {
                 Assert.Inconclusive("China provider have problems");
             }
+        }
+
+        [TestMethod]
+        [DataRow(2018, 10, 8, false)]
+        [DataRow(2018, 10, 9, false)]
+        [DataRow(2018, 10, 10, false)]
+        [DataRow(2018, 10, 11, false)]
+        [DataRow(2018, 10, 12, false)]
+        [DataRow(2018, 10, 13, true)]
+        [DataRow(2018, 10, 14, true)]
+        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expected)
+        {
+            // Arrange
+            var date = new DateTime(year, month, day);
+
+            // Act
+            var result = date.IsWeekend(CountryCode.CN);
+
+            // Assert
+            Assert.AreEqual(expected, result);
         }
     }
 }
