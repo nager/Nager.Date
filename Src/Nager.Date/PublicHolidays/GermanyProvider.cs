@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,11 +75,15 @@ namespace Nager.Date.PublicHolidays
                 return new PublicHoliday(year, 10, 31, localName, englishName, countryCode, null);
             }
 
-            var counties = new List<string> { "DE-BB", "DE-MV", "DE-SN", "DE-ST", "DE-TH", "DE-NI" };
+            var counties = new List<string> { "DE-BB", "DE-MV", "DE-SN", "DE-ST", "DE-TH" };
 
             if (year >= 2018)
             {
-                counties.Add("DE-HH");
+                counties.AddRange(new []
+                {
+                    "DE-HH",
+                    "DE-NI"
+                });
             }
 
             return new PublicHoliday(year, 10, 31, localName, englishName, countryCode, null, counties.ToArray());
