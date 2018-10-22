@@ -4,7 +4,7 @@
 
 Nager.Date is a Date/Calendar Framework for .NET
 - Public holiday calculation for every year, based on easter sunday, country and county support.
-Supports 88 countries.
+Supports over 90 countries.
 - Weekend information (supports 120 countries)
 - Age calculation
 
