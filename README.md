@@ -4,8 +4,11 @@
 
 Nager.Date is a Date/Calendar Framework for .NET
 - Public holiday calculation for every year, based on easter sunday, country and county support.
-Supports more than 90 countries if your country is not supported, fork me, implement it and send me the pull request.
+Supports 88 countries.
+- Weekend information (supports 120 countries)
 - Age calculation
+
+If your country is not supported, fork me, implement it and send me the pull request.
 
 ### Website / API
 https://date.nager.at
@@ -42,12 +45,21 @@ foreach (var publicHoliday in publicHolidays)
 }
 ```
 
-#### Check if a date a public holiday
+#### Check if a date is a public holiday
 ```cs
 var date = new DateTime(2017, 1, 1);
 if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 {
 	Console.WriteLine("Is public holiday");
+}
+```
+
+#### Check if a date is a weekend day
+```cs
+var date = new DateTime(2017, 1, 1);
+if (DateSystem.IsWeekend(date, CountryCode.DE))
+{
+	Console.WriteLine("Is weekend");
 }
 ```
 
@@ -57,181 +69,9 @@ var date = new DateTime(1900, 1, 1);
 var age = DateSystem.GetAge(date);
 ```
 
-### [Country Support](https://simple.wikipedia.org/wiki/List_of_countries_by_continents)
-#### Europe (46/51)
----
-- [ ] Albania
-- [x] Åland
-- [x] Andorra
-- [x] Austria
-- [x] Belarus
-- [x] Belgium
-- [ ] Bosnia and Herzegovina
-- [x] Bulgaria
-- [x] Croatia
-- [x] Cyprus
-- [x] Czech Republic
-- [x] Denmark
-- [x] Estonia
-- [x] Faroe Islands
-- [x] Finland
-- [x] France
-- [x] Germany
-- [x] Greece
-- [x] Hungary
-- [x] Iceland
-- [x] Ireland
-- [x] Isle of Man
-- [x] Italy
-- [ ] Kosovo
-- [x] Jersey
-- [x] Latvia
-- [x] Liechtenstein
-- [x] Lithuania
-- [x] Luxembourg
-- [x] Macedonia
-- [x] Malta
-- [x] Moldova
-- [x] Monaco
-- [ ] Montenegro
-- [x] Netherlands
-- [x] Norway
-- [x] Poland
-- [x] Portugal
-- [x] Romania
-- [x] Russia
-- [x] San Marino
-- [x] Serbia
-- [x] Slovakia
-- [x] Slovenia
-- [x] Spain
-- [x] Sweden
-- [x] Svalbard and Jan Mayen
-- [x] Switzerland
-- [x] Ukraine
-- [x] United Kingdom
-- [x] Vatican City
+### Country Support
 
-#### Asia (3/50)
----
-- [ ] Armenia
-- [x] China (without Qingming (Tomb-Sweeping Day))
-- [ ] Georgia
-- [ ] Kazakhstan
-- [ ] Mongolia
-- [x] Russia
-- [x] Turkey (without muslim based holidays)
-
-#### North America (4/4)
----
-- [x] Canada
-- [x] Greenland
-- [x] Mexico
-- [x] United States
-
-#### Central America and the Antilles (15/22)
----
-- [x] Bahamas
-- [x] Barbados
-- [x] Belize
-- [x] Costa Rica
-- [x] Cuba
-- [ ] Curacao
-- [ ] Dominica
-- [x] Dominican Republic
-- [x] El Salvador
-- [x] Grenada
-- [x] Guatemala
-- [x] Haiti
-- [x] Honduras
-- [x] Jamaica
-- [x] Nicaragua
-- [x] Panama
-- [x] Puerto Rico
-- [ ] Saint Kitts and Nevis
-- [ ] Saint Lucia
-- [ ] Saint Vincent and the Grenadines
-- [ ] Trinidad and Tobago
-- [ ] Turks and Caicos
-
-#### South America (13/14)
----
-- [x] Argentina
-- [x] Bolivia
-- [x] Brazil
-- [x] Chile
-- [x] Colombia
-- [x] Ecuador
-- [ ] French Guiana
-- [x] Guyana (without muslim based holidays and hindu based holidays)
-- [x] Paraguay
-- [x] Peru
-- [x] Suriname
-- [x] Uruguay
-- [x] Venezuela
-
-#### Africa (10/58)
----
-- [ ] Algeria
-- [ ] Angola
-- [ ] Benin
-- [x] Botswana
-- [ ] Burkina Faso
-- [ ] Burundi
-- [ ] Cameroon
-- [ ] Cape Verde
-- [ ] Chad
-- [ ] Central African Republic
-- [ ] Comoros
-- [ ] Republic of the Congo
-- [ ] Democratic Republic of the Congo
-- [ ] Côte d'Ivoire
-- [ ] Djibouti
-- [x] Egypt
-- [ ] Equatorial Guinea
-- [ ] Eritrea
-- [ ] Ethiopia
-- [x] Gabon
-- [ ] The Gambia
-- [ ] Ghana
-- [ ] Guinea
-- [ ] Guinea-Bissau
-- [ ] Kenya
-- [x] Lesotho
-- [ ] Liberia
-- [ ] Libya
-- [x] Madagascar
-- [ ] Malawi
-- [ ] Mali
-- [ ] Mauritania
-- [ ] Mauritius
-- [x] Morocco
-- [x] Mozambique
-- [x] Namibia
-- [ ] Niger
-- [ ] Nigeria
-- [ ] Rwanda
-- [ ] São Tomé and Príncipe
-- [ ] Senegal
-- [ ] Seychelles
-- [ ] Sierra Leone
-- [ ] Somalia
-- [x] South Africa
-- [ ] South Sudan
-- [ ] Sudan
-- [ ] Swaziland
-- [ ] Tanzania
-- [ ] Togo
-- [x] Tunisia
-- [ ] Uganda
-- [ ] Western Sahara
-- [ ] Zambia
-- [ ] Zimbabwe
-
-#### Australia & Pacific
----
-- [x] Australia
-- [x] New Zealand
+The list of supported countries can be found on the [wiki](https://github.com/tinohager/Nager.Date/wiki/Supported-Countries).
 
 ### Areas of Application
 - telephone systems
@@ -252,4 +92,3 @@ var age = DateSystem.GetAge(date);
 | .NET | [Holiday](https://github.com/martinjw/Holiday) | 21 |
 | Phyton | [python-holidays](https://github.com/ryanss/python-holidays) | 20 |
 | Phyton | [workalendar](https://github.com/peopledoc/workalendar) | 53 |
-
