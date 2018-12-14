@@ -29,6 +29,12 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "pierwszy dzień Bożego Narodzenia", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "drugi dzień Bożego Narodzenia", "St. Stephen's Day", countryCode));
 
+            if (year == 2018)
+            {
+                //100th anniversary
+                items.Add(new PublicHoliday(year, 11, 12, "Narodowe Święto Niepodległości", "Independence Day", countryCode));
+            }
+
             return items.OrderBy(o => o.Date);
         }
     }
