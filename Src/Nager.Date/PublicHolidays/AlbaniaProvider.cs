@@ -11,7 +11,7 @@ namespace Nager.Date.PublicHolidays
     {
         public override IEnumerable<PublicHoliday> Get(int year)
         {
-            //Andorra
+            //Albania
             //https://en.wikipedia.org/wiki/Public_holidays_in_Albania
 
             var countryCode = CountryCode.AL;
