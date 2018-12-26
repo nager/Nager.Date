@@ -1,18 +1,26 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class DominicanRepublicProvider : CatholicBaseProvider
+    public class DominicanRepublicProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public DominicanRepublicProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Dominican Republic
             //https://en.wikipedia.org/wiki/Public_holidays_in_the_Dominican_Republic
 
             var countryCode = CountryCode.DO;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));

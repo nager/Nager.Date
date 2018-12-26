@@ -1,4 +1,5 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,15 +7,22 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class SurinameProvider : CatholicBaseProvider
+    public class SurinameProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public SurinameProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Suriname
             //https://en.wikipedia.org/wiki/Suriname#National_holidays
 
             var countryCode = CountryCode.SR;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var thirdSundayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Sunday, 1);
 

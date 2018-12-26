@@ -1,19 +1,28 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class AlandProvider : CatholicBaseProvider
+    /// <summary>
+    /// //Åland
+    /// https://de.wikipedia.org/wiki/%C3%85land
+    /// </summary>
+    public class AlandProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
-        {
-            //Åland
-            //https://de.wikipedia.org/wiki/%C3%85land
+        private readonly ICatholicProvider _catholicProvider;
 
-            var countryCode = CountryCode.AD;
-            var easterSunday = base.EasterSunday(year);
+        public AlandProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
+        {
+            var countryCode = CountryCode.AX;
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var thirdFridayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Friday, 3);
             var thirdSaturdayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Friday, 3);

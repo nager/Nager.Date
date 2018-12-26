@@ -1,19 +1,27 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class GuyanaProvider : CatholicBaseProvider
+    public class GuyanaProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public GuyanaProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Guyana
             //https://en.wikipedia.org/wiki/Public_holidays_in_Guyana
 
             var countryCode = CountryCode.GY;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayInJuly = DateSystem.FindDay(year, 7, DayOfWeek.Monday, 1);
 

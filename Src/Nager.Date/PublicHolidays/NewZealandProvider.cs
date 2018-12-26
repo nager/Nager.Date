@@ -1,4 +1,5 @@
-﻿using Nager.Date.Extensions;
+﻿using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -6,15 +7,22 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class NewZealandProvider : CatholicBaseProvider
+    public class NewZealandProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public NewZealandProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //New Zealand
             //https://en.wikipedia.org/wiki/Public_holidays_in_New_Zealand
 
             var countryCode = CountryCode.NZ;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 1);
             var fourthMondayInOctober = DateSystem.FindDay(year, 10, DayOfWeek.Monday, 4);

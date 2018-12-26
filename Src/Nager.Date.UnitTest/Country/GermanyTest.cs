@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using System;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestGermanyCorpusChristi()
         {
             var yearToTest = 2017;
-            var catholicProvider = new MockProvider();
+            var catholicProvider = new MockProvider(new CatholicProvider());
             var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, yearToTest);
             var easterSunday = catholicProvider.EasterSunday(yearToTest);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;

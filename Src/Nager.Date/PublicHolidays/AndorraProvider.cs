@@ -1,18 +1,19 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class AndorraProvider : CatholicBaseProvider
+    /// <summary>
+    /// Andorra
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Andorra
+    /// </summary>
+    public class AndorraProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Andorra
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Andorra
-
             var countryCode = CountryCode.AD;
-            //var easterSunday = base.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Any nou", "New Year's Day", countryCode));

@@ -1,18 +1,26 @@
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class BrazilProvider : CatholicBaseProvider
+    /// <summary>
+    /// Brazil
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Brazil
+    /// https://pt.wikipedia.org/wiki/Feriados_no_Brasil brazilian wikipedia is complete.
+    /// </summary>
+    public class BrazilProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
-        {
-            //Brazil
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Brazil
-            //https://pt.wikipedia.org/wiki/Feriados_no_Brasil brazilian wikipedia is complete.
-            //Contribution: github.com/mauricioribeiro
+        private readonly ICatholicProvider _catholicProvider;
 
+        public BrazilProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
+        {
             var countryCode = CountryCode.BR;
             var items = new List<PublicHoliday>();
             
@@ -27,7 +35,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Natal", "Christmas Day", countryCode));
 
             // non fixed days (Easter, Carnival, Passion of Jesus and Corpus Christi)
-            var easter = base.EasterSunday(year);
+            var easter = this._catholicProvider.EasterSunday(year);
             items.Add(new PublicHoliday(easter, "Domingo de Pascoa", "Easter Day", countryCode));
             items.Add(new PublicHoliday(easter.AddDays(-47), "Carnaval", "Carnival", countryCode));
             items.Add(new PublicHoliday(easter.AddDays(-2), "Sexta feira Santa", "Passion of Jesus", countryCode));

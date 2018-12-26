@@ -48,7 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\CountyTest.cs" />
+    <Compile Include="Common\CountryTest.cs" />
     <Compile Include="Country\ChinaTest.cs" />
     <Compile Include="Country\AustriaTest.cs" />
     <Compile Include="Country\CanadaTest.cs" />

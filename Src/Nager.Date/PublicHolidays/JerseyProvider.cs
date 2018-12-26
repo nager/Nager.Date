@@ -1,19 +1,27 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class JerseyProvider : CatholicBaseProvider
+    public class JerseyProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public JerseyProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Jersey
             //https://en.wikipedia.org/wiki/Public_holidays_in_Jersey
 
             var countryCode = CountryCode.JE;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
             var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);

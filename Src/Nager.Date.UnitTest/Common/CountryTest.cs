@@ -1,19 +1,43 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
+using System;
+using System.Linq;
 
 namespace Nager.Date.UnitTest.Common
 {
     [TestClass]
-    public class CountyTest
+    public class CountryTest
     {
+        [TestMethod]
+        public void CheckCountries()
+        {
+            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            {
+                var provider = DateSystem.GetPublicHolidayProvider(countryCode);
+                if (provider == null)
+                {
+                    continue;
+                }
+
+                var publicHolidays = provider.Get(2018);
+                if (publicHolidays.Count() == 0)
+                {
+                    continue;
+                }
+
+                var countries = publicHolidays.GroupBy(o => o.CountryCode).Select(o => o.Key).ToList();
+
+                Assert.AreEqual(1, countries.Count, $"{countryCode} has a failure");
+                Assert.AreEqual(countryCode, countries.FirstOrDefault());
+            }
+        }
+
         [TestMethod]
         public void CheckCounties()
         {
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
-                var provider = DateSystem.GetProvider(countryCode);
+                var provider = DateSystem.GetPublicHolidayProvider(countryCode);
                 if (provider is ICountyProvider)
                 {
                     var counties = ((ICountyProvider)provider).GetCounties();

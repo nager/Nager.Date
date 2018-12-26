@@ -5,8 +5,15 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class GermanyProvider : CatholicBaseProvider, ICountyProvider
+    public class GermanyProvider : IPublicHolidayProvider, ICountyProvider
     {
+        private readonly ICatholicProvider _catholicProvider;
+
+        public GermanyProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>
@@ -30,13 +37,13 @@ namespace Nager.Date.PublicHolidays
             };
         }
 
-        public override IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Germany
             // https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland
 
             var countryCode = CountryCode.DE;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
@@ -87,7 +94,7 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday GetPrayerDay(int year, CountryCode countryCode)
         {
-            var dayOfPrayer = base.AdventSunday(year).AddDays(-11);
+            var dayOfPrayer = this._catholicProvider.AdventSunday(year).AddDays(-11);
             var localName = "Buß- und Bettag";
             var englishName = "Repentance and Prayer Day";
 

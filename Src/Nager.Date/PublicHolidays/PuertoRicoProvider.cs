@@ -2,14 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class PuertoRicoProvider : CatholicBaseProvider
+    public class PuertoRicoProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public PuertoRicoProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             // Puerto Rico
             // https://en.wikipedia.org/wiki/Public_holidays_in_Puerto_Rico
@@ -19,10 +27,10 @@ namespace Nager.Date.PublicHolidays
 
             var countryCode = CountryCode.PR;
 
+            var easterSunday = this._catholicProvider.EasterSunday(year);
             var secondMondayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Monday, 2);
             var thirdMondayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Monday, 3);
             var thirdMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 3);
-            var easterSunday = EasterSunday(year);
             var thirdMondayInApril = DateSystem.FindDay(year, 4, DayOfWeek.Monday, 3);
             var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
             var thirdMondayInJuly = DateSystem.FindDay(year, 7, DayOfWeek.Monday, 3);

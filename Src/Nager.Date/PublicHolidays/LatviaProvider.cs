@@ -1,19 +1,27 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class LatviaProvider : CatholicBaseProvider
+    public class LatviaProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public LatviaProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Latvia
             //https://en.wikipedia.org/wiki/Public_holidays_in_Latvia
 
             var countryCode = CountryCode.LV;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var secondSundayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Sunday, 2);
 

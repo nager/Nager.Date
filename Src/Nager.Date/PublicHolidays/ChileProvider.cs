@@ -7,8 +7,15 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class ChileProvider : CatholicBaseProvider, ICountyProvider
+    public class ChileProvider : IPublicHolidayProvider, ICountyProvider
     {
+        private readonly ICatholicProvider _catholicProvider;
+
+        public ChileProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>
@@ -31,13 +38,13 @@ namespace Nager.Date.PublicHolidays
             };
         }
 
-        public override IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Chile
             //https://en.wikipedia.org/wiki/Public_holidays_in_Chile
 
             var countryCode = CountryCode.CL;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
 

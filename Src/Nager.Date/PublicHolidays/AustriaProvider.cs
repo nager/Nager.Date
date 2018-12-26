@@ -5,8 +5,19 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class AustriaProvider : CatholicBaseProvider, ICountyProvider
+    /// <summary>
+    /// Austria
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Austria
+    /// </summary>
+    public class AustriaProvider : IPublicHolidayProvider, ICountyProvider
     {
+        private readonly ICatholicProvider _catholicProvider;
+
+        public AustriaProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>
@@ -23,13 +34,10 @@ namespace Nager.Date.PublicHolidays
             };
         }
 
-        public override IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Austria
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Austria
-
             var countryCode = CountryCode.AT;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));

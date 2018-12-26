@@ -1,19 +1,28 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class BarbadosProvider : CatholicBaseProvider
+    /// <summary>
+    /// Barbados
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Barbados
+    /// </summary>
+    public class BarbadosProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
-        {
-            //Barbados
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Barbados
+        private readonly ICatholicProvider _catholicProvider;
 
+        public BarbadosProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
+        {
             var countryCode = CountryCode.BB;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
 

@@ -1,18 +1,27 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class BelarusProvider : OrthodoxBaseProvider
+    /// <summary>
+    /// Belarus
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Belarus
+    /// </summary>
+    public class BelarusProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
-        {
-            //Belarus
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Belarus
+        private readonly IOrthodoxProvider _orthodoxProvider;
 
+        public BelarusProvider(IOrthodoxProvider orthodoxProvider)
+        {
+            this._orthodoxProvider = orthodoxProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
+        {
             var countryCode = CountryCode.BY;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._orthodoxProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Новы год", "New Year's Day", countryCode));

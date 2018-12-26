@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using System;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var holidays = DateSystem.GetPublicHoliday(CountryCode.PR, 2017);
 
-            var catholic = new MockProvider();
+            var catholic = new MockProvider(new CatholicProvider());
             var expectedGoodFriday = catholic.EasterSunday(2017).AddDays(-2);
 
             var goodFriday = holidays.First(h => h.Name == "Good Friday");

@@ -1,13 +1,21 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class VenezuelaProvider : CatholicBaseProvider
+    public class VenezuelaProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public VenezuelaProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Venezuela
             //https://en.wikipedia.org/wiki/Public_holidays_in_Venezuela
@@ -15,7 +23,7 @@ namespace Nager.Date.PublicHolidays
             //TODO: Add countie support, Feria de la Chinita is only in Zulia...
 
             var countryCode = CountryCode.VE;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var secondSundayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Sunday, 2);
             var thirdSundayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Sunday, 3);

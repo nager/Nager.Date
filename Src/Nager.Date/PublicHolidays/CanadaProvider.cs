@@ -6,8 +6,15 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class CanadaProvider : CatholicBaseProvider, ICountyProvider
+    public class CanadaProvider : IPublicHolidayProvider, ICountyProvider
     {
+        private readonly ICatholicProvider _catholicProvider;
+
+        public CanadaProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
         public IDictionary<string, string> GetCounties()
         {
             var items = new Dictionary<string, string>();
@@ -27,13 +34,13 @@ namespace Nager.Date.PublicHolidays
             return items;
         }
 
-        public override IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Canada
             //https://en.wikipedia.org/wiki/Public_holidays_in_Canada
 
             var countryCode = CountryCode.CA;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var secondMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 2);
             var thirdMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 3);

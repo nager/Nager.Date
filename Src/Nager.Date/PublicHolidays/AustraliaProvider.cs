@@ -6,8 +6,19 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class AustraliaProvider : CatholicBaseProvider, ICountyProvider
+    /// <summary>
+    /// Australia
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Australia
+    /// </summary>
+    public class AustraliaProvider : IPublicHolidayProvider, ICountyProvider
     {
+        private readonly ICatholicProvider _catholicProvider;
+
+        public AustraliaProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>
@@ -23,13 +34,10 @@ namespace Nager.Date.PublicHolidays
             };
         }
 
-        public override IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Australia
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Australia
-
             var countryCode = CountryCode.AU;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayInMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 1);
             var secondMondayInMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 2);

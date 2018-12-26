@@ -1,4 +1,5 @@
-﻿using Nager.Date.Extensions;
+﻿using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -6,15 +7,22 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class MexicoProvider : CatholicBaseProvider
+    public class MexicoProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public MexicoProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Mexico (Only Statutory holidays)
             //https://en.wikipedia.org/wiki/Public_holidays_in_Mexico
 
             var countryCode = CountryCode.MX;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayOfFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 1);
             var thirdMondayOfMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 3);

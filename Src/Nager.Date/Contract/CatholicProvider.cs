@@ -1,14 +1,9 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
-namespace Nager.Date.PublicHolidays
+namespace Nager.Date.Contract
 {
-    public abstract class CatholicBaseProvider : IPublicHolidayProvider
+    public class CatholicProvider : ICatholicProvider
     {
-        public abstract IEnumerable<PublicHoliday> Get(int year);
-
         /// <summary>
         /// Get Catholic easter for requested year
         /// </summary>

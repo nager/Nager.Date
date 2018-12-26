@@ -1,12 +1,20 @@
-﻿using Nager.Date.Model;
+﻿using Nager.Date.Contract;
+using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    public class ColombiaProvider : CatholicBaseProvider
+    public class ColombiaProvider : IPublicHolidayProvider
     {
-        public override IEnumerable<PublicHoliday> Get(int year)
+        private readonly ICatholicProvider _catholicProvider;
+
+        public ColombiaProvider(ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        public IEnumerable<PublicHoliday> Get(int year)
         {
             //Colombia
             //https://en.wikipedia.org/wiki/Public_holidays_in_Colombia
@@ -15,7 +23,7 @@ namespace Nager.Date.PublicHolidays
             //https://en.wikipedia.org/wiki/Workweek_and_weekend#Colombia
 
             var countryCode = CountryCode.CO;
-            var easterSunday = base.EasterSunday(year);
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode));

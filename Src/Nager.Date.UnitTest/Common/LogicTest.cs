@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nager.Date.Contract;
 using System;
 using System.Linq;
 
@@ -10,7 +11,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckEasterSunday()
         {
-            var catholicProvider = new MockProvider();
+            var catholicProvider = new MockProvider(new CatholicProvider());
 
             var easterSunday = catholicProvider.EasterSunday(1900);
             Assert.AreEqual(new DateTime(1900, 4, 15), easterSunday);
