@@ -5,13 +5,14 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// Egypt
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Egypt
+    /// </summary>
     public class EgyptProvider : IPublicHolidayProvider
     {
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Egypt
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Egypt
-
             var countryCode = CountryCode.EG;
 
             var items = new List<PublicHoliday>();

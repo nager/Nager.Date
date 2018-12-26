@@ -5,6 +5,10 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// Colombia
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Colombia
+    /// </summary>
     public class ColombiaProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
@@ -16,8 +20,6 @@ namespace Nager.Date.PublicHolidays
 
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Colombia
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Colombia
             //TODO: Check, movable holiday: when they do not fall on a Monday, these holidays are observed the following Monday.
             //TODO: Check weekends in Colombia as they can be Universal or only sundays (in which case? how to handle that?)
             //https://en.wikipedia.org/wiki/Workweek_and_weekend#Colombia

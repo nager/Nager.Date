@@ -6,15 +6,16 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// China
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_China
+    /// </summary>
     public class ChinaProvider : IPublicHolidayProvider
     {
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //TODO: Provider incomplete
             //Tomb-Sweeping-Day is invalid (5th solar term)
-
-            //China
-            //https://en.wikipedia.org/wiki/Public_holidays_in_China
 
             var countryCode = CountryCode.CN;
             var items = new List<PublicHoliday>();

@@ -5,6 +5,10 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// Denmark
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Denmark
+    /// </summary>
     public class DenmarkProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
@@ -16,9 +20,6 @@ namespace Nager.Date.PublicHolidays
 
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Denmark
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Denmark
-
             var countryCode = CountryCode.DK;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
