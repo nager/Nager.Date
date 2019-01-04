@@ -72,6 +72,7 @@ namespace Nager.Date
                 { CountryCode.LV, new LatviaProvider(_catholicProvider) },
                 { CountryCode.JE, new JerseyProvider(_catholicProvider) },
                 { CountryCode.JM, new JamaicaProvider(_catholicProvider) },
+                { CountryCode.JP, new JapanProvider() },
                 { CountryCode.MA, new MoroccoProvider() },
                 { CountryCode.MC, new MonacoProvider(_catholicProvider) },
                 { CountryCode.MD, new MoldovaProvider(_orthodoxProvider) },
