@@ -9,11 +9,16 @@ namespace Nager.Date.PublicHolidays
 {
     public class UnitedStatesProvider : IPublicHolidayProvider
     {
+        /// <summary>
+        /// United States of America
+        /// https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States
+        /// </summary>
+        public UnitedStatesProvider()
+        {
+        }
+
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //United States of America
-            //https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States
-
             var countryCode = CountryCode.US;
 
             var thirdMondayInJannuar = DateSystem.FindDay(year, 1, DayOfWeek.Monday, 3);

@@ -7,11 +7,16 @@ namespace Nager.Date.PublicHolidays
 {
     public class RussiaProvider : IPublicHolidayProvider
     {
+        /// <summary>
+        /// Russia
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_Russia
+        /// </summary>
+        public RussiaProvider()
+        {
+        }
+
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Russia
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Russia
-
             var countryCode = CountryCode.RU;
 
             var items = new List<PublicHoliday>();

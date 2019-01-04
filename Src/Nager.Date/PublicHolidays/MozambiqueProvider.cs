@@ -7,11 +7,16 @@ namespace Nager.Date.PublicHolidays
 {
     public class MozambiqueProvider : IPublicHolidayProvider, ICountyProvider
     {
+        /// <summary>
+        /// Mozambique
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_Mozambique
+        /// </summary>
+        public MozambiqueProvider()
+        {
+        }
+
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Mozambique
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Mozambique
-
             var countryCode = CountryCode.MZ;
 
             var items = new List<PublicHoliday>();

@@ -12,11 +12,13 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly ICatholicProvider _catholicProvider;
 
+        /// <summary>
+        /// Vatican City
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_Vatican_City
+        /// </summary>
+        /// <param name="catholicProvider"></param>
         public VaticanCityProvider(ICatholicProvider catholicProvider)
         {
-            //Vatican City
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Vatican_City
-
             this._catholicProvider = catholicProvider;
         }
 
@@ -26,7 +28,6 @@ namespace Nager.Date.PublicHolidays
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
-
             items.Add(new PublicHoliday(year, 1, 1, "Maria Santissima Madre di Dio", "Solemnity of Mary, Mother of God", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Epifania del Signore", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 2, 11, "Anniversario della istituzione dello Stato della Città del Vaticano", "Anniversary of the foundation of Vatican City", countryCode));

@@ -9,6 +9,11 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
 
+        /// <summary>
+        /// Ukraine
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_Ukraine
+        /// </summary>
+        /// <param name="orthodoxProvider"></param>
         public UkraineProvider(IOrthodoxProvider orthodoxProvider)
         {
             this._orthodoxProvider = orthodoxProvider;
@@ -16,9 +21,6 @@ namespace Nager.Date.PublicHolidays
 
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Ukraine
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Ukraine
-
             var countryCode = CountryCode.UA;
             var easterSunday = this._orthodoxProvider.EasterSunday(year);
 

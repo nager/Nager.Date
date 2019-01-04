@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nager.Date.Contract;
@@ -12,6 +11,14 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly ICatholicProvider _catholicProvider;
 
+        /// <summary>
+        /// Puerto Rico
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_Puerto_Rico
+        /// https://www.timeanddate.com/holidays/puerto-rico/2017#!hol=9
+        /// http://www.puertorico.com/official-holidays/
+        /// http://www.topuertorico.org/reference/holi.shtml
+        /// </summary>
+        /// <param name="catholicProvider"></param>
         public PuertoRicoProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
@@ -19,12 +26,6 @@ namespace Nager.Date.PublicHolidays
 
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            // Puerto Rico
-            // https://en.wikipedia.org/wiki/Public_holidays_in_Puerto_Rico
-            // https://www.timeanddate.com/holidays/puerto-rico/2017#!hol=9
-            // http://www.puertorico.com/official-holidays/
-            // http://www.topuertorico.org/reference/holi.shtml
-
             var countryCode = CountryCode.PR;
 
             var easterSunday = this._catholicProvider.EasterSunday(year);

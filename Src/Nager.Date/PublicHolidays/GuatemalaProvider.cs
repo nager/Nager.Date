@@ -9,6 +9,11 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly ICatholicProvider _catholicProvider;
 
+        /// <summary>
+        /// Guatemala
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_Guatemala
+        /// </summary>
+        /// <param name="catholicProvider"></param>
         public GuatemalaProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
@@ -16,9 +21,6 @@ namespace Nager.Date.PublicHolidays
 
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Guatemala
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Guatemala
-
             var countryCode = CountryCode.GT;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 

@@ -7,16 +7,21 @@ namespace Nager.Date.PublicHolidays
 {
     public class TunisiaProvider : IPublicHolidayProvider
     {
+        /// <summary>
+        /// Tunisia
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_Tunisia
+        /// </summary>
+        public TunisiaProvider()
+        {
+        }
+
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Tunisia
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Tunisia
             //TODO:Add moon calendar logic
 
             var countryCode = CountryCode.TN;
 
             var items = new List<PublicHoliday>();
-
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 14, "Revolution and Youth Day", "Revolution and Youth Day", countryCode));
             //items.Add(new PublicHoliday(year, 2, 4, "Mouled (Prophet's Anniversary)", "Mouled (Prophet's Anniversary)", countryCode)); // depending on the moon calender      

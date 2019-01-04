@@ -7,15 +7,19 @@ namespace Nager.Date.PublicHolidays
 {
     public class TurkeyProvider : IPublicHolidayProvider
     {
+        /// <summary>
+        /// Turkey
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_Turkey
+        /// </summary>
+        public TurkeyProvider()
+        {
+        }
+
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            //Turkey
-            //https://en.wikipedia.org/wiki/Public_holidays_in_Turkey
-
             var countryCode = CountryCode.TR;
 
             var items = new List<PublicHoliday>();
-
             items.Add(new PublicHoliday(year, 1, 1, "Yılbaşı", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 4, 23, "Ulusal Egemenlik ve Çocuk Bayramı", "National Independence & Children's Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "İşçi Bayramı", "Labour Day", countryCode));
