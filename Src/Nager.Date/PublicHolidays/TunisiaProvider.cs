@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// Tunisia
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Tunisia
+    /// </summary>
     public class TunisiaProvider : IPublicHolidayProvider
     {
-        /// <summary>
-        /// Tunisia
-        /// https://en.wikipedia.org/wiki/Public_holidays_in_Tunisia
-        /// </summary>
         public TunisiaProvider()
         {
         }

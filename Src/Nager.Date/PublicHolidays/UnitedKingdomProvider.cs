@@ -7,16 +7,15 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// United Kingdom
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_the_United_Kingdom
+    /// https://de.wikipedia.org/wiki/Feiertage_im_Vereinigten_K%C3%B6nigreich
+    /// </summary>
     public class UnitedKingdomProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
-        /// <summary>
-        /// United Kingdom
-        /// https://en.wikipedia.org/wiki/Public_holidays_in_the_United_Kingdom
-        /// https://de.wikipedia.org/wiki/Feiertage_im_Vereinigten_K%C3%B6nigreich
-        /// </summary>
-        /// <param name="catholicProvider"></param>
         public UnitedKingdomProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;

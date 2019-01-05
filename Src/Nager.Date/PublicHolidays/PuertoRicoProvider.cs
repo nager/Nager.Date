@@ -7,18 +7,17 @@ using Nager.Date.Model;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// Puerto Rico
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Puerto_Rico
+    /// https://www.timeanddate.com/holidays/puerto-rico/2017#!hol=9
+    /// http://www.puertorico.com/official-holidays/
+    /// http://www.topuertorico.org/reference/holi.shtml
+    /// </summary>
     public class PuertoRicoProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
-        /// <summary>
-        /// Puerto Rico
-        /// https://en.wikipedia.org/wiki/Public_holidays_in_Puerto_Rico
-        /// https://www.timeanddate.com/holidays/puerto-rico/2017#!hol=9
-        /// http://www.puertorico.com/official-holidays/
-        /// http://www.topuertorico.org/reference/holi.shtml
-        /// </summary>
-        /// <param name="catholicProvider"></param>
         public PuertoRicoProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;

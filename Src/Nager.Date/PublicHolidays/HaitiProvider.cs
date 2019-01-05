@@ -5,15 +5,14 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// Haiti
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Haiti
+    /// </summary>
     public class HaitiProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
-        /// <summary>
-        /// Haiti
-        /// https://en.wikipedia.org/wiki/Public_holidays_in_Haiti
-        /// </summary>
-        /// <param name="catholicProvider"></param>
         public HaitiProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;

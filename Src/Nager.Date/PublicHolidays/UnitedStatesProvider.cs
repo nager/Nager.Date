@@ -7,12 +7,12 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// United States of America
+    /// https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States
+    /// </summary>
     public class UnitedStatesProvider : IPublicHolidayProvider
     {
-        /// <summary>
-        /// United States of America
-        /// https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States
-        /// </summary>
         public UnitedStatesProvider()
         {
         }

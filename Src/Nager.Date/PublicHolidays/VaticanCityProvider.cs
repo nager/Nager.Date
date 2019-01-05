@@ -1,22 +1,18 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Nager.Date.PublicHolidays 
+namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// Vatican City
+    /// https://en.wikipedia.org/wiki/Public_holidays_in_Vatican_City
+    /// </summary>
     public class VaticanCityProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
-        /// <summary>
-        /// Vatican City
-        /// https://en.wikipedia.org/wiki/Public_holidays_in_Vatican_City
-        /// </summary>
-        /// <param name="catholicProvider"></param>
         public VaticanCityProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;

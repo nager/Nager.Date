@@ -5,15 +5,14 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
+    /// <summary>
+    /// Germany
+    /// https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland
+    /// </summary>
     public class GermanyProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
-        /// <summary>
-        /// Germany
-        /// https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland
-        /// </summary>
-        /// <param name="catholicProvider"></param>
         public GermanyProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;

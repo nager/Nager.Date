@@ -6,12 +6,16 @@ using System.Linq;
 
 namespace Nager.Date.PublicHolidays
 {
-    /// <summary>
-    /// China
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_China
-    /// </summary>
     public class ChinaProvider : IPublicHolidayProvider
     {
+        /// <summary>
+        /// China
+        /// https://en.wikipedia.org/wiki/Public_holidays_in_China
+        /// </summary>
+        public ChinaProvider()
+        {
+        }
+
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //TODO: Provider incomplete
