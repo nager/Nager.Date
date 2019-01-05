@@ -62,6 +62,7 @@ namespace Nager.Date
                 { CountryCode.HT, new HaitiProvider(_catholicProvider) },
                 { CountryCode.HU, new HungaryProvider(_catholicProvider) },
                 { CountryCode.IE, new IrelandProvider(_catholicProvider) },
+                { CountryCode.ID, new IndonesiaProvider(_catholicProvider) },
                 { CountryCode.IM, new IsleOfManProvider(_catholicProvider) },
                 { CountryCode.IS, new IcelandProvider(_catholicProvider) },
                 { CountryCode.IT, new ItalyProvider(_catholicProvider) },
@@ -78,6 +79,7 @@ namespace Nager.Date
                 { CountryCode.MD, new MoldovaProvider(_orthodoxProvider) },
                 { CountryCode.MG, new MadagascarProvider(_catholicProvider) },
                 { CountryCode.MK, new MacedoniaProvider(_orthodoxProvider) },
+                { CountryCode.MN, new MongoliaProvider() },
                 { CountryCode.MT, new MaltaProvider(_catholicProvider) },
                 { CountryCode.MX, new MexicoProvider(_catholicProvider) },
                 { CountryCode.MZ, new MozambiqueProvider() },
@@ -109,6 +111,7 @@ namespace Nager.Date
                 { CountryCode.UY, new UruguayProvider(_catholicProvider) },
                 { CountryCode.VA, new VaticanCityProvider(_catholicProvider) },
                 { CountryCode.VE, new VenezuelaProvider(_catholicProvider) },
+                { CountryCode.VN, new VietnamProvider() },
                 { CountryCode.ZA, new SouthAfricaProvider(_catholicProvider) }
             };
 
