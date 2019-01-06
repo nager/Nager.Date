@@ -7,18 +7,28 @@ using System.Linq;
 
 namespace Nager.Date.WebsiteCore.Controllers
 {
+    /// <summary>
+    /// Api
+    /// </summary>
     [Route("[controller]")]
-    //[ApiController]
+    [ApiController]
     public class ApiController : Controller
     {
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Get Public Holiday
+        /// </summary>
+        /// <param name="countrycode"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("get/{countrycode}/{year}")]
-        public ActionResult<IEnumerable<PublicHoliday>> CountryJson(string countrycode, int year)
+        public ActionResult<IEnumerable<PublicHoliday>> CountryJson([FromRoute]string countrycode, [FromRoute]int year)
         {
             //Counter++;
 

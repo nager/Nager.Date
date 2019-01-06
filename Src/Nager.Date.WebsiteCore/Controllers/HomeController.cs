@@ -7,6 +7,10 @@ using System.Linq;
 
 namespace Nager.Date.WebsiteCore.Controllers
 {
+    /// <summary>
+    /// Home
+    /// </summary>
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class HomeController : Controller
     {
         private string GetName(CountryCode countryCode)
@@ -45,15 +49,15 @@ namespace Nager.Date.WebsiteCore.Controllers
             return View();
         }
 
-        public IActionResult Api()
-        {
-            return RedirectPermanent("/Api");
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Api()
+        {
+            return RedirectPermanent("/Api");
         }
     }
 }

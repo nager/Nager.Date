@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace Nager.Date.WebsiteCore.Controllers
 {
+    /// <summary>
+    /// Sitemap
+    /// </summary>
     public class SitemapController : Controller
     {
         public IActionResult Index(string countryCode)

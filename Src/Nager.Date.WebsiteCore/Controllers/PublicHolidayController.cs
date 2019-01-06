@@ -5,7 +5,11 @@ using System.Linq;
 
 namespace Nager.Date.WebsiteCore.Controllers
 {
+    /// <summary>
+    /// Public Holiday
+    /// </summary>
     [Route("[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class PublicHolidayController : Controller
     {
         [Route("Country/{countrycode}/{year}")]
