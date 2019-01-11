@@ -6,7 +6,7 @@
     <Company>nager.at</Company>
     <Version>1.23.1</Version>
     <Authors>Tino Hager</Authors>
-    <PackageReleaseNotes>Add Mongolia, Vietnam and Indonesia, some small fixes</PackageReleaseNotes>
+    <PackageReleaseNotes>Activate GenerateDocumentationFile</PackageReleaseNotes>
     <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday NationalHoliday Åland Andorra Argentina Austria Australia Bahamas Barbados Belarus Belgium Belize Bolivia Botswana Brazil Bulgaria Canada Chile China Colombia CostaRica Croatia Cuba Cyprus CzechRepublic Denmark DominicanRepublic Ecuador Egypt ElSalvador Estonia FaroeIslands Finland France Gabon Germany Greece Grenada Guatemala Guyana Haiti Honduras Hungary Iceland Indonesia Ireland IsleOfMan Italy Jamaica Jersey Latvia Lesotho Liechtenstein Lithuania Luxembourg Macedonia Madagascar Malta Mexico Moldova Monaco Mongolia Morocco Mozambique Namibia Netherlands Nicaragua Norway NewZealand Panana Paraguay Peru Poland Portugal PuertoRico Romania Russia SanMarino Serbia SvalbardAndJanMayen Slovakia Slovenia SouthAfrica Spain Surianme Sweden Switzerland Tunisia Venezuela Ukraine UnitedKingdom UnitedStates Uruguay VaticanCity Vietnam</PackageTags>
     <PackageProjectUrl>https://github.com/tinohager/Nager.Date</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/tinohager/Nager.Date/blob/master/Licence.txt</PackageLicenseUrl>
