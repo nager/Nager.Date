@@ -26,7 +26,7 @@ namespace Nager.Date.Website.Controllers
         public IEnumerable<PublicHoliday> CountryJson(string countrycode, int year)
         {
             var ipAddress = HttpContext.Current.Request.UserHostAddress;
-            ApiStatistic.AddOrUpdate(ipAddress, 1, (s, i) => i++);
+            ApiStatistic.AddOrUpdate(ipAddress, 1, (s, i) => i + 1);
 
             CountryCode countryCode;
             if (!Enum.TryParse(countrycode, true, out countryCode))
