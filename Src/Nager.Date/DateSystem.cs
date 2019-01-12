@@ -88,6 +88,7 @@ namespace Nager.Date
                 { CountryCode.MX, new MexicoProvider(_catholicProvider) },
                 { CountryCode.MZ, new MozambiqueProvider() },
                 { CountryCode.NA, new NamibiaProvider(_catholicProvider) },
+                { CountryCode.NE, new NigerProvider(_catholicProvider) },
                 { CountryCode.NI, new NicaraguaProvider(_catholicProvider) },
                 { CountryCode.NL, new NetherlandsProvider(_catholicProvider) },
                 { CountryCode.NO, new NorwayProvider(_catholicProvider) },
