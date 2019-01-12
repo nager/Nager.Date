@@ -13,11 +13,20 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly ICatholicProvider _catholicProvider;
 
+        /// <summary>
+        /// ColombiaProvider
+        /// </summary>
+        /// <param name="catholicProvider"></param>
         public ColombiaProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
         }
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //TODO: Check, movable holiday: when they do not fall on a Monday, these holidays are observed the following Monday.

@@ -11,6 +11,11 @@ namespace Nager.Date.PublicHolidays
     /// </summary>
     public class AndorraProvider : IPublicHolidayProvider
     {
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.AD;

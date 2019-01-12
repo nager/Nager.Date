@@ -15,11 +15,19 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly ICatholicProvider _catholicProvider;
 
+        /// <summary>
+        /// ChileProvider
+        /// </summary>
+        /// <param name="catholicProvider"></param>
         public ChileProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
         }
 
+        /// <summary>
+        /// GetCounties
+        /// </summary>
+        /// <returns></returns>
         public IDictionary<string, string> GetCounties()
         {
             return new Dictionary<string, string>
@@ -42,6 +50,11 @@ namespace Nager.Date.PublicHolidays
             };
         }
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.CL;
