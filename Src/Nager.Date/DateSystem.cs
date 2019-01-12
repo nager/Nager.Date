@@ -28,6 +28,7 @@ namespace Nager.Date
                 { CountryCode.BB, new BarbadosProvider(_catholicProvider) },
                 { CountryCode.BE, new BelgiumProvider(_catholicProvider) },
                 { CountryCode.BG, new BulgariaProvider(_orthodoxProvider) },
+                { CountryCode.BJ, new BeninProvider(_catholicProvider) },
                 { CountryCode.BO, new BoliviaProvider(_catholicProvider) },
                 { CountryCode.BR, new BrazilProvider(_catholicProvider) },
                 { CountryCode.BS, new BahamasProvider(_catholicProvider) },
