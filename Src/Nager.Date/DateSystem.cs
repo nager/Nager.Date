@@ -57,6 +57,7 @@ namespace Nager.Date
                 { CountryCode.GB, new UnitedKingdomProvider(_catholicProvider) },
                 { CountryCode.GD, new GrenadaProvider(_catholicProvider) },
                 { CountryCode.GL, new GreenlandProvider(_catholicProvider) },
+                { CountryCode.GM, new GambiaProvider(_catholicProvider) },
                 { CountryCode.GR, new GreeceProvider(_orthodoxProvider) },
                 { CountryCode.GT, new GuatemalaProvider(_catholicProvider) },
                 { CountryCode.GY, new GuyanaProvider(_catholicProvider) },
@@ -316,7 +317,7 @@ namespace Nager.Date
 
         #endregion
 
-        #region Check a date is a Public Holiday
+        #region Check a date is a Weekend
 
         /// <summary>
         /// Check is a give date in the Weekend
