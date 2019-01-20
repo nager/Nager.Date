@@ -16,13 +16,23 @@ namespace Nager.Date.PublicHolidays
     /// </summary>
     public class JapanProvider : IPublicHolidayProvider
     {
-        private TimeZoneInfo _timeZone;
+        //private TimeZoneInfo _timeZone;
 
+        /// <summary>
+        /// JapanProvider
+        /// </summary>
         public JapanProvider()
         {
-             this._timeZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
+            //TODO: TimeZoneInfo is not available on Android projects
+            //https://github.com/tinohager/Nager.Date/issues/123
+            //this._timeZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
         }
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.JP;

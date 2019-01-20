@@ -13,11 +13,20 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly ICatholicProvider _catholicProvider;
 
+        /// <summary>
+        /// ElSalvadorProvider
+        /// </summary>
+        /// <param name="catholicProvider"></param>
         public ElSalvadorProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
         }
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.SV;
