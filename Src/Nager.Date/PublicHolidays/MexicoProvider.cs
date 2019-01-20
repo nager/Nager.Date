@@ -15,11 +15,20 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly ICatholicProvider _catholicProvider;
 
+        /// <summary>
+        /// MexicoProvider
+        /// </summary>
+        /// <param name="catholicProvider"></param>
         public MexicoProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
         }
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //Only Statutory holidays

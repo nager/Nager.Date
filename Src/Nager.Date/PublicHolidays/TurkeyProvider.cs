@@ -11,10 +11,18 @@ namespace Nager.Date.PublicHolidays
     /// </summary>
     public class TurkeyProvider : IPublicHolidayProvider
     {
+        /// <summary>
+        /// TurkeyProvider
+        /// </summary>
         public TurkeyProvider()
         {
         }
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.TR;

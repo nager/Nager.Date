@@ -13,10 +13,18 @@ namespace Nager.Date.PublicHolidays
     /// </summary>
     public class UnitedStatesProvider : IPublicHolidayProvider
     {
+        /// <summary>
+        /// UnitedStatesProvider
+        /// </summary>
         public UnitedStatesProvider()
         {
         }
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.US;

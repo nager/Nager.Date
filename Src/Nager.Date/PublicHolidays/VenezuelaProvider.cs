@@ -14,11 +14,20 @@ namespace Nager.Date.PublicHolidays
     {
         private readonly ICatholicProvider _catholicProvider;
 
+        /// <summary>
+        /// VenezuelaProvider
+        /// </summary>
+        /// <param name="catholicProvider"></param>
         public VenezuelaProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
         }
 
+        /// <summary>
+        /// Get
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <returns></returns>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //TODO: Add countie support, Feria de la Chinita is only in Zulia...
