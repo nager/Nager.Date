@@ -45,8 +45,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 8, 15, "Adormirea Maicii Domnului/Sfânta Maria Mare", "Dormition of the Theotokos", countryCode));
             items.Add(new PublicHoliday(year, 11, 30, "Sfântul Andrei", "St. Andrew's Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 1, "Ziua Națională/Marea Unire", "National Day/Great Union", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Crăciunul", "Christmas Day", countryCode, null, null, false));
-            items.Add(new PublicHoliday(year, 12, 26, "Crăciunul", "St. Stephen's Day", countryCode, null, null, false));
+            items.Add(new PublicHoliday(year, 12, 25, "Crăciunul", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "Crăciunul", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

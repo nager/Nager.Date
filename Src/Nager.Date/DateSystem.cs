@@ -301,20 +301,7 @@ namespace Nager.Date
         public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)) && o.CountyOfficialHoliday);
-        }
-
-        /// <summary>
-        /// Check is a given date an Administration Public Holiday
-        /// </summary>
-        /// <param name="date">The date to check</param>
-        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <param name="countyCode">Federal state</param>
-        /// <returns></returns>
-        public static bool IsAdministrationPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
-        {
-            var items = GetPublicHoliday(countryCode, date.Year);
-            return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)) && o.CountyAdministrationHoliday);
+            return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)));
         }
 
         #endregion

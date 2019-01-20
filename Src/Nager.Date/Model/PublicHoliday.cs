@@ -7,6 +7,9 @@ namespace Nager.Date.Model
     /// </summary>
     public class PublicHoliday
     {
+        /// <summary>
+        /// The date
+        /// </summary>
         public DateTime Date { get; set; }
         /// <summary>
         /// Local name
@@ -24,8 +27,6 @@ namespace Nager.Date.Model
         /// Is this public holiday every year on the same date
         /// </summary>
         public bool Fixed { get; set; }
-        public bool CountyOfficialHoliday { get; set; }
-        public bool CountyAdministrationHoliday { get; set; } //Todo: Check is duplicate now with Type? Denmark Provider
         /// <summary>
         /// Is this public holiday in every county (federal state)
         /// </summary>
@@ -54,17 +55,14 @@ namespace Nager.Date.Model
         /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
         /// <param name="launchYear"></param>
         /// <param name="counties">ISO-3166-2</param>
-        /// <param name="countyOfficialHoliday"></param>
-        /// <param name="countyAdministrationHoliday"></param>
-        public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true, PublicHolidayType type = PublicHolidayType.Public)
+        /// <param name="type">The type of the public holiday</param>
+        public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, PublicHolidayType type = PublicHolidayType.Public)
         {
             this.Date = new DateTime(year, month, day);
             this.LocalName = localName;
             this.Name = englishName;
             this.CountryCode = countryCode;
             this.Fixed = true;
-            this.CountyOfficialHoliday = countyOfficialHoliday;
-            this.CountyAdministrationHoliday = countyAdministrationHoliday;
             this.Type = type;
             this.LaunchYear = launchYear;
             if (counties?.Length > 0)
@@ -82,17 +80,14 @@ namespace Nager.Date.Model
         /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
         /// <param name="launchYear"></param>
         /// <param name="counties">ISO-3166-2</param>
-        /// <param name="countyOfficialHoliday"></param>
-        /// <param name="countyAdministrationHoliday"></param>
-        public PublicHoliday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, bool countyOfficialHoliday = true, bool countyAdministrationHoliday = true, PublicHolidayType type = PublicHolidayType.Public)
+        /// /// <param name="type">The type of the public holiday</param>
+        public PublicHoliday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, PublicHolidayType type = PublicHolidayType.Public)
         {
             this.Date = date;
             this.LocalName = localName;
             this.Name = englishName;
             this.CountryCode = countryCode;
             this.Fixed = false;
-            this.CountyOfficialHoliday = countyOfficialHoliday;
-            this.CountyAdministrationHoliday = countyAdministrationHoliday;
             this.Type = type;
             this.LaunchYear = launchYear;
             if (counties?.Length > 0)
