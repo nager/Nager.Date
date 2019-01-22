@@ -275,6 +275,24 @@ namespace Nager.Date
             }
         }
 
+        /// <summary>
+        /// Get Worldwide Public Holidays of a given date range
+        /// </summary>
+        /// <param name="startDate">The start date</param>
+        /// <param name="endDate">The end date</param>
+        /// <returns></returns>
+        public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate)
+        {
+            var items = new List<PublicHoliday>();
+            
+            foreach (var publicHolidayProvider in _publicHolidaysProviders)
+            {
+                items.AddRange(GetPublicHoliday(publicHolidayProvider.Key, startDate, endDate));
+            }
+
+            return items;
+        }
+
         #endregion
 
         #region Check if a date is a Public Holiday
