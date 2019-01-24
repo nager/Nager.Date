@@ -84,11 +84,11 @@ The list of supported countries can be found on the [wiki](https://github.com/ti
 
 ### Alternative projects
 
-| Language | Project | Supported Countries (November 2017) |
+| Language | Project | Supported Countries (January 2019) |
 | ------------- | ------------- | ------------- |
-| PHP | [yasumi](https://github.com/azuyalabs/yasumi) | 29 |
-| JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) | 130 |
+| PHP | [yasumi](https://github.com/azuyalabs/yasumi) | 34 |
+| JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) | 142 |
 | Java | [jollyday](https://github.com/svendiedrichsen/jollyday) | 64 |
 | .NET | [Holiday](https://github.com/martinjw/Holiday) | 21 |
-| Phyton | [python-holidays](https://github.com/ryanss/python-holidays) | 20 |
-| Phyton | [workalendar](https://github.com/peopledoc/workalendar) | 53 |
+| Python | [python-holidays](https://github.com/ryanss/python-holidays) | 34 |
+| Python | [workalendar](https://github.com/peopledoc/workalendar) | 59 |
