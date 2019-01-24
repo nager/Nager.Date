@@ -35,7 +35,7 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Πρωτοχρονιά", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Θεοφάνεια", "Epiphany", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(48), "Καθαρά Δευτέρα", "Clean Monday", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-48), "Καθαρά Δευτέρα", "Clean Monday", countryCode));
             items.Add(new PublicHoliday(year, 3, 25, "Ευαγγελισμός της Θεοτόκου", "Annunciation", countryCode));
             items.Add(new PublicHoliday(year, 3, 25, "Εικοστή Πέμπτη Μαρτίου", "Independence Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Μεγάλη Παρασκευή", "Good Friday", countryCode));
