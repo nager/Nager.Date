@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
 using System;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Nager.Date.UnitTest.Common
@@ -8,6 +9,24 @@ namespace Nager.Date.UnitTest.Common
     [TestClass]
     public class LogicTest
     {
+        [TestMethod]
+        public void CheckNoCorruptPublicHolidays()
+        {
+            var startYear = DateTime.Today.Year - 100;
+            var endYear = DateTime.Today.Year + 100;
+
+            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            {
+                for (var calculationYear = startYear; calculationYear < endYear; calculationYear++)
+                {
+                    var items = DateSystem.GetPublicHoliday(countryCode, calculationYear);
+                    var corruptPublicHolidaysAvailable = items.Any(o => !o.Date.Year.Equals(calculationYear));
+                    Assert.IsFalse(corruptPublicHolidaysAvailable, $"Check country {countryCode} {calculationYear}");
+                    //Trace.WriteLineIf(corruptPublicHolidaysAvailable, $"Check country {countryCode} {calculationYear}");
+                }
+            }
+        }
+
         [TestMethod]
         public void CheckEasterSunday()
         {
