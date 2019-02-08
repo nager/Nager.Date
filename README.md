@@ -31,6 +31,13 @@ var publicHolidays = DateSystem.GetPublicHoliday("DE", 2017);
 foreach (var publicHoliday in publicHolidays)
 {
 	//publicHoliday...
+	//publicHoliday.Date -> The date
+	//publicHoliday.LocalName -> The local name
+	//publicHoliday.Name -> The english name
+	//publicHoliday.Fixed -> Is this public holiday every year on the same date
+	//publicHoliday.Global -> Is this public holiday in every county (federal state)
+	//publicHoliday.Counties -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
+	//publicHoliday.Type -> Public, Bank, School, Authorities, Optional, Observance
 }
 ```
 
