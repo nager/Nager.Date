@@ -42,7 +42,7 @@ namespace Nager.Date.UnitTest.Common
                 {
                     var counties = ((ICountyProvider)provider).GetCounties();
 
-                    var publicHolidays = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year);
+                    var publicHolidays = DateSystem.GetPublicHoliday(DateTime.Now.Year, countryCode);
                     foreach (var publicHoliday in publicHolidays)
                     {
                         if (publicHoliday.Counties == null)

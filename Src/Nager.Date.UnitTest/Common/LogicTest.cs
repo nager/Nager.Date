@@ -19,7 +19,7 @@ namespace Nager.Date.UnitTest.Common
             {
                 for (var calculationYear = startYear; calculationYear < endYear; calculationYear++)
                 {
-                    var items = DateSystem.GetPublicHoliday(countryCode, calculationYear);
+                    var items = DateSystem.GetPublicHoliday(calculationYear, countryCode);
                     var corruptPublicHolidaysAvailable = items.Any(o => !o.Date.Year.Equals(calculationYear));
                     Assert.IsFalse(corruptPublicHolidaysAvailable, $"Check country {countryCode} {calculationYear}");
                     //Trace.WriteLineIf(corruptPublicHolidaysAvailable, $"Check country {countryCode} {calculationYear}");
@@ -135,7 +135,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckPublicHolidayWithDateFilter1()
         {
-            var items = DateSystem.GetPublicHoliday(CountryCode.DE, new DateTime(2016, 5, 1), new DateTime(2018, 5, 31));
+            var items = DateSystem.GetPublicHoliday(new DateTime(2016, 5, 1), new DateTime(2018, 5, 31), CountryCode.DE);
 
             Assert.IsTrue(items.First().Date > new DateTime(2016, 4, 28));
             Assert.IsTrue(items.Last().Date < new DateTime(2018, 6, 1));
@@ -145,7 +145,7 @@ namespace Nager.Date.UnitTest.Common
         [ExpectedException(typeof(ArgumentException), "startDate is before endDate")]
         public void CheckPublicHolidayWithDateFilter2()
         {
-            var items = DateSystem.GetPublicHoliday(CountryCode.DE, new DateTime(2016, 1, 2), new DateTime(2016, 1, 1)).First();
+            var items = DateSystem.GetPublicHoliday(new DateTime(2016, 1, 2), new DateTime(2016, 1, 1), CountryCode.DE).First();
         }
     }
 }

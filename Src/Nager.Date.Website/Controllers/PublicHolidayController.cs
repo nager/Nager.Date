@@ -31,8 +31,8 @@ namespace Nager.Date.Website.Controllers
             item.Country = isoCountry.ActiveDirectoryName;
             item.CountryCode = countrycode;
             item.Year = year;
-            item.PublicHolidays = DateSystem.GetPublicHoliday(countryCode, year).ToList();
-            item.LongWeekends = DateSystem.GetLongWeekend(countryCode, year).ToList();
+            item.PublicHolidays = DateSystem.GetPublicHoliday(year, countryCode).ToList();
+            item.LongWeekends = DateSystem.GetLongWeekend(year, countryCode).ToList();
 
             if (item.PublicHolidays.Count > 0)
             {
@@ -55,7 +55,7 @@ namespace Nager.Date.Website.Controllers
                 return View("NotFound");
             }
 
-            var items = DateSystem.GetPublicHoliday(countryCode, year).ToList();
+            var items = DateSystem.GetPublicHoliday(year, countryCode).ToList();
 
             if (items.Count > 0)
             {

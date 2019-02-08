@@ -34,7 +34,7 @@ namespace Nager.Date.Website.Controllers
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            var publicHolidays = DateSystem.GetPublicHoliday(countryCode, year);
+            var publicHolidays = DateSystem.GetPublicHoliday(year, countryCode);
             if (publicHolidays?.Count() > 0)
             {
                 var items = publicHolidays.Select(o => new PublicHoliday(o));

@@ -9,7 +9,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void LongWeekend()
         {
-            var longWeekends = DateSystem.GetLongWeekend(CountryCode.AT, 2017).ToArray();
+            var longWeekends = DateSystem.GetLongWeekend(2017, CountryCode.AT).ToArray();
 
             Assert.AreEqual(10, longWeekends.Length);
         }

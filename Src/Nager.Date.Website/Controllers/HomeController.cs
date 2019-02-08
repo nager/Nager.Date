@@ -23,7 +23,7 @@ namespace Nager.Date.Website.Controllers
                 var item = new CountryInfo();
                 item.Name = this.GetName(countryCode);
                 item.CountryCode = countryCode.ToString();
-                item.PublicHolidayCount = DateSystem.GetPublicHoliday(countryCode, DateTime.Now.Year).GroupBy(o => o.Date).Count();
+                item.PublicHolidayCount = DateSystem.GetPublicHoliday(DateTime.Now.Year, countryCode).GroupBy(o => o.Date).Count();
 
                 if (item.PublicHolidayCount > 0)
                 {
@@ -37,7 +37,7 @@ namespace Nager.Date.Website.Controllers
         public ActionResult Countries()
         {
             var countries = from CountryCode o in Enum.GetValues(typeof(CountryCode))
-                            where DateSystem.GetPublicHoliday(o, DateTime.Today.Year).Any()
+                            where DateSystem.GetPublicHoliday(DateTime.Today.Year, o).Any()
                             select new KeyValuePair<string, string>(o.ToString(), GetName(o));
 
             ViewBag.Countries = countries;
