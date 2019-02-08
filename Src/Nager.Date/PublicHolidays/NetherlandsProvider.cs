@@ -46,7 +46,7 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nieuwjaarsdag", "New Year's Day", countryCode, 1967));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Goede Vrijdag", "Good Friday", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Goede Vrijdag", "Good Friday", countryCode, type: PublicHolidayType.Authorities | PublicHolidayType.School));
             items.Add(new PublicHoliday(easterSunday, "Paasfeest", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), " Pasen", "Easter Monday", countryCode, 1642));
             items.Add(new PublicHoliday(year, 4, kingsDay, "Koningsdag", "King's Day", countryCode));
@@ -62,6 +62,7 @@ namespace Nager.Date.PublicHolidays
             if (year >= 1990)
             {
                 //in 1990, the day was declared to be a national holiday
+                liberationDay.Type = PublicHolidayType.Authorities | PublicHolidayType.School;
                 items.Add(liberationDay);
             }
             else if (year >= 1945)
