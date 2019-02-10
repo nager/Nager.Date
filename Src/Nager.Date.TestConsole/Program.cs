@@ -27,7 +27,7 @@ namespace Nager.Date.TestConsole
 
         private static void Test2()
         {
-            var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.CH, 2017);
+            var publicHolidays = DateSystem.GetPublicHoliday(2017, CountryCode.CH);
             foreach (var publicHoliday in publicHolidays)
             {
                 Console.WriteLine("{0:dd.MM.yyyy} {1} {2}", publicHoliday.Date, publicHoliday.LocalName, publicHoliday.Global);
@@ -40,7 +40,7 @@ namespace Nager.Date.TestConsole
 			Stopwatch sw = Stopwatch.StartNew();
 			for (int i = 0; i < 10000; i++)
 			{
-				var x = DateSystem.IsPublicHoliday(new DateTime(2017, 07, 04), CountryCode.US);
+				var x = DateSystem.IsPublicHoliday(new DateTime(2017, 07, 04), CountryCode.JP);
 			}
 			sw.Stop();
 			Console.WriteLine("Elapsed time: " + sw.ElapsedMilliseconds + "ms");
