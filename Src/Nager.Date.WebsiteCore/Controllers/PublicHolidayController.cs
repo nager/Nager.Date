@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CsvHelper;
+using Microsoft.AspNetCore.Mvc;
+using Nager.Date.Website.Model;
 using Nager.Date.WebsiteCore.Models;
 using System;
+using System.IO;
 using System.Linq;
 
 namespace Nager.Date.WebsiteCore.Controllers
@@ -26,15 +29,14 @@ namespace Nager.Date.WebsiteCore.Controllers
                 return NotFound();
             }
 
-            var isoCountry = Bia.Countries.Iso3166.Countries.GetCountryByAlpha2(countryCode.ToString());
+            var country = new Country.CountryProvider().GetCountry(countryCode.ToString());
 
             var item = new PublicHolidayInfo
             {
-                Country = isoCountry.ActiveDirectoryName,
+                Country = country.CommonName,
                 CountryCode = countrycode,
                 Year = year,
-                PublicHolidays = DateSystem.GetPublicHoliday(countryCode, year).ToList(),
-                LongWeekends = DateSystem.GetLongWeekend(countryCode, year).ToList()
+                PublicHolidays = DateSystem.GetPublicHoliday(year, countryCode).ToList()
             };
 
             if (item.PublicHolidays.Count > 0)
@@ -42,8 +44,42 @@ namespace Nager.Date.WebsiteCore.Controllers
                 return View(item);
             }
 
+            return LocalRedirect("/");
+        }
+
+        [Route("Country/{countrycode}/{year}/csv")]
+        public ActionResult DownloadCsv(string countrycode, int year = 0)
+        {
+            if (year == 0)
+            {
+                year = DateTime.Now.Year;
+            }
+
+            if (!Enum.TryParse(countrycode, true, out CountryCode countryCode))
+            {
+                return NotFound();
+            }
+
+            var items = DateSystem.GetPublicHoliday(year, countryCode).ToList();
+
+            if (items.Count > 0)
+            {
+                using (var memoryStream = new MemoryStream())
+                using (var streamWriter = new StreamWriter(memoryStream))
+                using (var csv = new CsvWriter(streamWriter))
+                {
+                    csv.WriteRecords(items.Select(o => new PublicHolidayCsv(o)));
+                    streamWriter.Flush();
+
+                    var csvData = memoryStream.ToArray();
+
+                    var result = new FileContentResult(csvData, "application/octet-stream");
+                    result.FileDownloadName = $"publicholiday.{countrycode}.{year}.csv";
+                    return result;
+                }
+            }
+
             return NotFound();
-            //return View("NotFound");
         }
     }
 }

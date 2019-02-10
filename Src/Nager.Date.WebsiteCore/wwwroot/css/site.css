@@ -1,6 +1,79 @@
 ﻿body {
-    padding-top: 50px;
-    background-color: #e0e0e0;
+    background-color: #f6f7f9;
+}
+
+.public-holiday-country-header {
+    background-color: #ffffff;
+    height: 20vh;
+    min-height: 150px;
+}
+
+@media (max-width: 1200px) {
+    .public-holiday-country-header h1 {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .public-holiday-country-header h4 {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .mt-5 {
+        margin-top: 0px !important;
+    }
+}
+
+.navbar {
+    background-color: #346cb0 !important;
+}
+
+.border-0 {
+    border: 0 !important;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0 0 1px rgba(20,20,31,.05), 0 1px 3px 0 rgba(20,20,31,.15);
+}
+
+.card-metric {
+    text-align: center;
+    background-color: #fff;
+    border: none;
+    border-radius: .25rem;
+    box-shadow: 0 0 0 1px rgba(20,20,31,.05), 0 1px 3px 0 rgba(20,20,31,.15);
+}
+
+.metric {
+    margin: .5rem 0;
+    min-height: 8.5rem;
+}
+
+.card-header {
+    font-weight: 600;
+    background-color: transparent !important;
+}
+
+.card-body {
+    background-color: #ffffff;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1rem;
+    border-radius: .25rem;
+}
+
+.btn-secondary {
+    color: #363642;
+    background: linear-gradient(180deg,#fff,#f6f7f9);
+    border-color: #d7dce5;
+    box-shadow: 0 1px 0 0 rgba(20,20,31,.05);
+}
+
+.btn-secondary:hover {
+    color: #333333;
+    background: linear-gradient(180deg,#f6f7f9,#f6f7f9);
+    border-color: #d7dce5;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -39,43 +112,11 @@ textarea {
     color: #ffffff;
 }
 
-@media (max-width: 767px) {
-    .header {
-        position: static;
-        background-image: none;
-        height: auto;
-    }
-
-    .header-content {
-        position: static;
-        padding: 10px;
-    }
-
-    .header h1 {
-        color: #000000;
-    }
-
-    .header p {
-        color: #000000;
-    }
+pre.prettyprint {
+    border-width: 0px !important;
+    padding: 10px !important;
 }
 
-.navbar {
-    background-color: #212529;
-    border-color: #212529;
-}
-
-.navbar-collapse li {
-    border-left: 1px solid #333333;
-}
-
-.navbar a {
-    color: #ffffff !important;
-}
-
-.body-content {
-    padding-bottom: 30px;
-}
 
 footer {
     padding: 30px;
@@ -84,10 +125,10 @@ footer {
     color: #868e96;
 }
 
-    footer a {
-        color: #868e96;
-        text-decoration: underline;
-    }
+footer a {
+    color: #868e96;
+    text-decoration: underline;
+}
 
 .footer-col {
     text-align: left;
@@ -96,19 +137,4 @@ footer {
 .copyright {
     padding: 30px;
     text-align: center;
-}
-
-.thumbnail {
-    padding: 10px;
-}
-
-    .thumbnail:hover {
-        background-color: #fefefe;
-        border: 1px solid #212529;
-    }
-
-.equal {
-    display: flex;
-    display: -webkit-flex;
-    flex-wrap: wrap;
 }

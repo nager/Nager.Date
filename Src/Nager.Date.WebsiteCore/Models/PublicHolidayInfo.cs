@@ -9,6 +9,5 @@ namespace Nager.Date.WebsiteCore.Models
         public int Year { get; set; }
 
         public List<Model.PublicHoliday> PublicHolidays { get; set; }
-        public List<Model.LongWeekend> LongWeekends { get; set; }
     }
 }

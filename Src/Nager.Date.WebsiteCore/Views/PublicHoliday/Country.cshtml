@@ -1,126 +1,229 @@
-﻿@model Nager.Date.WebsiteCore.Models.PublicHolidayInfo
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@model Nager.Date.WebsiteCore.Models.PublicHolidayInfo
 @{
     ViewData["Title"] = "Public Holidays in " + Model.Country + " (" + Model.CountryCode + ")";
 }
 
-<div class="container body-content">
+<header class="public-holiday-country-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-xl-2 mt-5 text-center">
+                <img src="~/images/flags/blank.gif" class="flag flag-@Model.CountryCode.ToLower()" alt="@Model.Country" title="@Model.Country" />
+            </div>
+            <div class="col-12 col-xl-10">
+                <h1 class="display-4 mt-4">Public Holidays in @Model.Country @Model.Year</h1>
+                <h4 class="mt-2 hidden-xs">A list of public holidays observed in @Model.Country</h4>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid">
+
+    @*<div class="row mt-4">
+
+            <div class="col-12 col-sm-6 col-lg-2">
+                <!-- .metric -->
+                <div class="card-metric">
+                    <div class="metric">
+                        <p class="metric-value h3">
+                            <i class="fa fa-star-o" aria-hidden="true"></i> <span class="value">Public holidays</span>
+                        </p>
+                        <h1 class="metric-label mt-3">12</h1>
+                    </div>
+                </div><!-- /.metric -->
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-2">
+                <div class="card-metric">
+                    <div class="metric">
+                        <p class="metric-value h3">
+                            <i class="fa fa-gift" aria-hidden="true"></i> <span class="value">Long weekends</span>
+                        </p>
+                        <h1 class="metric-label mt-3">1</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>*@
 
     <div class="row">
-        <div class="col-xs-12 col-sm-1"><img src="http://www.countryflags.io/@Model.CountryCode/flat/64.png" alt="@Model.Country" title="@Model.Country" style="padding-top:10px;"></div>
-        <div class="col-xs-12 col-sm-11">
-            <h1>Public Holidays in @Model.Country @Model.Year<br /><small>A list of public holidays observed in @Model.Country</small></h1>
-        </div>
-    </div>
-
-    <div style="background-color:#ffffff;">
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#publicholiday" aria-controls="publicholiday" role="tab" data-toggle="tab">Public Holidays</a></li>
-            <li role="presentation"><a href="#longweekend" aria-controls="longweekend" role="tab" data-toggle="tab">Long Weekends</a></li>
-        </ul>
-
-        <div class="tab-content" style="margin-top:4px;">
-            <div role="tabpanel" class="tab-pane active" id="publicholiday">
-                <table class="table table-responsive">
-                    <thead>
-                        <tr>
-                            <th class="col-xs-6 col-md-1">Date</th>
-                            <th class="col-md-3 hidden-xs">Local name</th>
-                            <th class="col-md-3 hidden-xs">Name</th>
-                            <th class="col-xs-6 col-md-6 visible-xs">Name</th>
-                            <th class="col-md-1 hidden-xs">Global</th>
-                            <th class="col-md-2 hidden-xs">Countys</th>
-                            <th class="col-md-2 hidden-xs">Type</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var publicHoliday in Model.PublicHolidays)
-                        {
+        <div class="col-12 col-xl-8 mt-4">
+            <div class="card">
+                <header class="card-header border-0"><i class="fas fa-globe-africa"></i> Public holidays</header>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <td>@publicHoliday.Date.ToString("dddd") @publicHoliday.Date.ToShortDateString()</td>
-                                <td class="hidden-xs">@publicHoliday.LocalName</td>
-                                <td class="hidden-xs">@publicHoliday.Name</td>
-                                <td class="visible-xs"><strong>@publicHoliday.Name</strong><br />@publicHoliday.LocalName</td>
-                                <td class="hidden-xs">
-                                    @if (publicHoliday.Global)
-                                    {
-                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                    }
-                                    else
-                                    {
-                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                    }
-                                </td>
-                                <td class="hidden-xs">
-                                    @if (!publicHoliday.Global)
-                                    {
-                                        foreach (var county in publicHoliday.Counties)
+                                <th>Date</th>
+                                <th class="d-none d-sm-table-cell">Local name</th>
+                                <th class="d-none d-sm-table-cell">Name</th>
+                                <th class="d-sm-none">Name</th>
+                                <th class="d-none d-lg-table-cell">Global</th>
+                                <th class="d-none d-lg-table-cell">Countys</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var publicHoliday in Model.PublicHolidays)
+                            {
+                                <tr>
+                                    <td>@publicHoliday.Date.ToString("dddd") @publicHoliday.Date.ToShortDateString()</td>
+                                    <td class="d-none d-sm-table-cell">@publicHoliday.LocalName</td>
+                                    <td class="d-none d-sm-table-cell">@publicHoliday.Name</td>
+                                    <td class="d-sm-none"><strong>@publicHoliday.Name</strong><br />@publicHoliday.LocalName</td>
+                                    <td class="d-none d-lg-table-cell">
+                                        @if (publicHoliday.Global)
                                         {
-                                            <span class="label label-default">@county</span>
+                                            <i class="fas fa-check"></i>
                                         }
-                                    }
-                                </td>
+                                        else
+                                        {
+                                            <i class="fas fa-ban"></i>
+                                        }
+                                    </td>
+                                    <td class="d-none d-lg-table-cell">
+                                        @if (!publicHoliday.Global)
+                                        {
+                                            foreach (var county in publicHoliday.Counties)
+                                            {
+                                                <span class="badge badge-light">@county</span>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @publicHoliday.Type
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-xl-4 mt-4" id="App">
+            <div class="card">
+                <header class="card-header border-0"><i class="fas fa-calendar-alt"></i> Long weekends</header>
+                <div class="table-responsive" v-if="longWeekends">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Startdate</th>
+                                <th>Enddate</th>
+                                <th>Days</th>
+                                <th>Need a Bridge Day</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="longWeekend in longWeekends">
+                                <td>{{longWeekend.startDate | ShortLocalDate}}</td>
+                                <td>{{longWeekend.endDate | ShortLocalDate}}</td>
+                                <td>{{longWeekend.dayCount}}</td>
                                 <td>
-                                    @publicHoliday.Type
+                                    <span v-if="longWeekend.needBridgeDay" class="glyphicon glyphicon-ok" aria-hidden="true">x</span>
+                                    <span v-if="!longWeekend.needBridgeDay" class="glyphicon glyphicon-remove" aria-hidden="true">-</span>
                                 </td>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <div role="tabpanel" class="tab-pane" id="longweekend">
-                <table class="table table-responsive">
-                    <thead>
-                        <tr>
-                            <th class="col-md-2">Startdate</th>
-                            <th class="col-md-2">Enddate</th>
-                            <th class="col-md-4">Days</th>
-                            <th class="col-md-4">Need Bridge Day</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var longWeekend in Model.LongWeekends)
-                        {
-                            <tr>
-                                <td>@longWeekend.StartDate.ToShortDateString()</td>
-                                <td>@longWeekend.EndDate.ToShortDateString()</td>
-                                <td>@longWeekend.DayCount</td>
-                                <td>
-                                    @if (longWeekend.Bridge)
-                                    {
-                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                    }
-                                    else
-                                    {
-                                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                    }
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+            <div class="card mt-4">
+                <header class="card-header border-0">Border countries</header>
+                <div>
+                    <ul class="list-group" v-if="countryInfo">
+                        <li v-for="border in countryInfo.borders" class="list-group-item">
+                            <a :href="'/PublicHoliday/Country/' + border.countryCode">{{ border.commonName }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <header class="card-header border-0">Downloads</header>
+                <div>
+                    <ul class="list-group">
+                        @*<li class="list-group-item">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> <a href="/PublicHoliday/DownloadCSV/@(Model.CountryCode)/@(Model.Year)">PDF Calendar</a>
+                        </li>*@
+                        <li class="list-group-item">
+                            <i class="fas fa-file-csv"></i> <a href="/PublicHoliday/Country/@(Model.CountryCode)/@(Model.Year)/CSV">CSV</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="btn-group" role="group">
-        @for (var i = Model.Year - 5; i < Model.Year + 6; i++)
-        {
-            <a href="/PublicHoliday/Country/@(Model.CountryCode)/@(i)" class="btn btn-primary">@i</a>
-        }
-        <a href="/PublicHoliday/DownloadCSV/@(Model.CountryCode)/@(Model.Year)" class="btn btn-primary">CSV download</a>
-    </div>
+
+    <nav class="mt-3 d-none d-sm-block">
+        <ul class="pagination">
+            @for (var i = Model.Year - 5; i < Model.Year + 6; i++)
+            {
+                <li class="page-item">
+                    <a href="/PublicHoliday/Country/@(Model.CountryCode)/@(i)" class="page-link">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
 
 </div>
 
-<div class="container body-content">
-    <div class="row">
-        <div class="visible-md visible-lg text-center">
+@if (HttpContextAccessor.HttpContext.Request.Cookies.ContainsKey("cookieconsent_status"))
+{
+    <div class="mt-3 mb-4 d-flex justify-content-center">
+        <div class="d-none d-sm-block">
             <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?f=ifr&t=publicholiday-21&o=3&p=48&l=bn1&mode=computers&browse=340843031&fc1=000000&lt1=_top&lc1=A43907&bg1=EFEFCC" marginwidth="0" marginheight="0" width="728" height="90" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
         </div>
-        <div class="visible-xs visible-sm text-center">
+        <div class="d-block d-sm-none">
             <iframe src="https://rcm-eu.amazon-adsystem.com/e/cm?f=ifr&t=publicholiday-21&o=3&p=286&l=st1&mode=amazontv-de&search=&fc1=000000&lt1=_top&lc1=A43907&bg1=EFEFCC" marginwidth="0" marginheight="0" width="200" height="200" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
         </div>
     </div>
-</div>
+}
 
+@section scripts {
+
+<script type="text/javascript">
+
+new Vue({
+    el: '#App',
+    data: {
+        countryInfo: null,
+        longWeekends: null
+    },
+    mounted() {
+        this.GetCountryInfo();
+        this.GetLongWeekends();
+    },
+    filters: {
+        ShortLocalDate: function (date) {
+            var locale = window.navigator.userLanguage || window.navigator.language;
+            moment.locale(locale);
+            return moment(date).format('L');
+        }
+    },
+    methods: {
+        GetCountryInfo: function () {
+            axios.get('/Api/v2/CountryInfo?countryCode=@(Model.CountryCode)')
+                .then(response => {
+                    this.countryInfo = response.data
+                });
+        },
+        GetLongWeekends: function () {
+            axios.get('/Api/v2/LongWeekend/@(Model.Year)/@(Model.CountryCode)')
+                .then(response => {
+                    this.longWeekends = response.data
+                });
+        },
+        GetNextPublicHolidays: function () {
+            axios.get('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
+                .then(response => {
+                    this.publicHolidays = response.data
+                });
+        }
+    }
+})
+
+</script>
+}

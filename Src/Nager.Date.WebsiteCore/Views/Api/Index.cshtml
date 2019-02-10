@@ -5,39 +5,46 @@
 
 <div class="container">
 
-    <h1>Public Holiday API</h1>
-    Returns the public holidays from given country and year
-    <a href="http://date.nager.at/api/v1/get/AT/2017">http://date.nager.at/api/v1/get/{CountryCode}/{Year}</a>
-    <br /><br />
-    <a href="/swagger">Swagger Documentation</a>
-
-    <div class="alert alert-success">
-        <strong>GET</strong> /get/{CountryCode}/{Year}
+    <div class="mt-4">
+        <h2>Public Holiday API</h2>
+        Returns the public holidays from given country and year
+        <a href="http://date.nager.at/api/v1/get/AT/2017">http://date.nager.at/api/v1/get/{CountryCode}/{Year}</a><br />
+        The full documentation is in the <a href="/swagger">Swagger interface</a> available.
     </div>
 
+    <div class="card mt-4">
+        <header class="card-header border-0">Request</header>
 
-    <h3>Request</h3>
-    <table class="table" style="background-color:#ffffff;">
-        <thead>
-            <tr>
-                <th>Parameters</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>CountryCode</td>
-                <td>AT</td>
-            </tr>
-            <tr>
-                <td>Year</td>
-                <td>2017</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="p-4">
 
-    <h3>Response (JSON)</h3>
-<pre class="prettyprint">[  
+            <div class="alert alert-success">
+                <strong>GET</strong> /get/{CountryCode}/{Year}
+            </div>
+
+            <table class="table" style="background-color:#ffffff;">
+                <thead>
+                    <tr>
+                        <th>Parameters</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CountryCode</td>
+                        <td>AT</td>
+                    </tr>
+                    <tr>
+                        <td>Year</td>
+                        <td>2017</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mt-4 mb-4">
+        <header class="card-header border-0">Response</header>
+<pre class="prettyprint" style="height:400px;">[  
    {  
       "date":"2017-01-01",
       "localName":"Neujahr",
@@ -195,6 +202,7 @@
       "launchYear":null
    }
 ]</pre>
+    </div>
 
 </div>
 

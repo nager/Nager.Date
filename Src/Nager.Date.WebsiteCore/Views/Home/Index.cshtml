@@ -1,6 +1,4 @@
-﻿@using Nager.Date.WebsiteCore.Models
-@model List<CountryInfo>
-@{
+﻿@{
     ViewData["Title"] = "Public Holidays";
 }
 
@@ -11,28 +9,168 @@
     </div>
 </div>
 
-<div class="container">
-    <h2>Country</h2>
+<div id="CountrieOverview" class="container-fluid">
 
-    <div class="row equal">
-        @foreach (var item in Model)
-        {
-            <div class="col-xs-12 col-sm-6 col-lg-3">
-                <a href="/PublicHoliday/Country/@item.CountryCode">
-                    <div class="thumbnail">
-                        <div class="row">
-                            <div class="col-xs-8">
-                                <h4>@item.Name <small>@item.CountryCode</small></h4>
-                                Public Holidays
-                            </div>
-                            <div class="col-xs-4">
-                                @*<span style="border:1px solid #00477a; border-radius:5px; background-color:#003459; color:#ffffff; padding:18px; padding-left:24px; padding-right:24px; display:inline-block;">@item.PublicHolidayCount</span>*@
-                                <img src="http://www.countryflags.io/@item.CountryCode/flat/64.png" alt="@item.Name" title="@item.Name">
-                            </div>
+    <div class="row">
+
+        <div class="col-md-12 col-xl-6">
+
+            <div class="card mt-4 mb-4">
+                <header class="card-header border-0"><i class="fas fa-search"></i> Search</header>
+
+                <div>
+                    <div class="input-group mb-3 ml-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-search"></i></div>
+                        </div>
+                        <input v-model="search" type="text" class="form-control p-3" placeholder="Country">
+                    </div>
+                </div>
+
+                <div v-if="availableCountries">
+                    <div class="table-responsive">
+                        <div class="pre-scrollable">
+                            <table class="table">
+                                <tr v-for="item in filteredCountries">
+                                    <td class="pl-4"><a :href="'/PublicHoliday/Country/' + item.key">{{item.value}} ({{item.key}})</a></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-        }
+
+            <div class="d-none d-sm-block">
+                <div class="card mt-4">
+                    <header class="card-header border-0" v-if="countryInfo">Next Public Holidays Worldwide in the next 7 days</header>
+                    <div v-if="publicHolidaysWorldwide">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>In x Days</th>
+                                    <th>Date</th>
+                                    <th>Local Name</th>
+                                    <th>English Name</th>
+                                    <th>Country</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in publicHolidaysWorldwide">
+                                    <td>{{item.date | moment}}</td>
+                                    <td>{{item.date | moment1}}</td>
+                                    <td>{{item.localName}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td><a :href="'/PublicHoliday/Country/' + item.countryCode">{{item.countryCode}}</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12 col-xl-6">
+
+            <div class="card mt-4">
+                <header class="card-header border-0" v-if="countryInfo">Next Public Holidays in {{countryInfo.commonName}}</header>
+                <div v-if="publicHolidays">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Local Name</th>
+                                <th>English Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in publicHolidays">
+                                <td>{{item.date | moment1}}</td>
+                                <td>{{item.localName}}</td>
+                                <td>{{item.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
+
+@section scripts {
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#CountrieOverview',
+            data: {
+                countryInfo: null,
+                availableCountries: null,
+                publicHolidays: null,
+                publicHolidaysWorldwide: null,
+                search: null
+            },
+            computed: {
+                filteredCountries: function () {
+                    if (this.search === null) {
+                        return this.availableCountries;
+                    }
+
+                    let search = this.search.toLowerCase();
+                    let filteredItems = this.availableCountries.filter(o => o.value.toLowerCase().includes(search));
+
+                    return filteredItems;
+                }
+            },
+            filters: {
+                moment: function (date) {
+                    var m = moment(date);  // or whatever start date you have
+                    var today = moment().startOf('day');
+
+                    var days = Math.round(moment.duration(m - today).asDays());
+                    return days;
+                },
+                moment1: function (date) {
+                    var locale = window.navigator.userLanguage || window.navigator.language;
+                    moment.locale(locale);
+                    return moment(date).format('L');
+                }
+            },
+            mounted() {
+                this.GetAvailableCountries();
+                this.GetCountryInfo();
+                this.GetNextPublicHolidaysWorldwide();
+                
+            },
+            methods: {
+                GetAvailableCountries: function () {
+                    axios.get('/Api/v2/AvailableCountries')
+                        .then(response => {
+                            this.availableCountries = response.data
+                        });
+                },
+                GetCountryInfo: function () {
+                    axios.get('/Api/v2/CountryInfo')
+                        .then(response => {
+                            this.countryInfo = response.data
+                            this.GetNextPublicHolidays();
+                        });
+                },
+                GetNextPublicHolidays: function () {
+                    axios.get('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
+                        .then(response => {
+                            this.publicHolidays = response.data
+                        });
+                },
+                GetNextPublicHolidaysWorldwide: function () {
+                    axios.get('/Api/v2/NextPublicHolidaysWorldwide')
+                        .then(response => {
+                            this.publicHolidaysWorldwide = response.data
+                        });
+                }
+            }
+        })
+
+    </script>
+}
