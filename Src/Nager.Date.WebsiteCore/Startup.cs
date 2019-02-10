@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Net.Http.Headers;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
+using System.IO;
 using System.Reflection;
 
 namespace Nager.Date.WebsiteCore
@@ -51,6 +52,11 @@ namespace Nager.Date.WebsiteCore
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1.0", new Info { Title = "Nager.Date API", Version = "v1.0" });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 
