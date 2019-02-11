@@ -42,7 +42,7 @@
 
             <div class="d-none d-sm-block">
                 <div class="card mt-4">
-                    <header class="card-header border-0" v-if="countryInfo">Next Public Holidays Worldwide in the next 7 days</header>
+                    <header class="card-header border-0" v-if="countryInfo"><i class="far fa-calendar-check"></i> Next Public Holidays Worldwide in the next 7 days</header>
                     <div v-if="publicHolidaysWorldwide">
                         <table class="table">
                             <thead>
@@ -73,7 +73,7 @@
         <div class="col-md-12 col-xl-6">
 
             <div class="card mt-4">
-                <header class="card-header border-0" v-if="countryInfo">Next Public Holidays in {{ countryInfo.commonName }}</header>
+                <header class="card-header border-0" v-if="countryInfo"><i class="far fa-calendar-check"></i> Next Public Holidays in {{ countryInfo.commonName }}</header>
                 <div v-if="publicHolidays">
                     <table class="table">
                         <thead>
