@@ -35,16 +35,17 @@ namespace Nager.Date.WebsiteCore.Controllers
             {
                 Country = country.CommonName,
                 CountryCode = countrycode,
-                Year = year,
-                PublicHolidays = DateSystem.GetPublicHoliday(year, countryCode).ToList()
+                Year = year
             };
 
-            if (item.PublicHolidays.Count > 0)
-            {
-                return View(item);
-            }
+            return View(item);
 
-            return LocalRedirect("/");
+            //if (item.PublicHolidays.Count > 0)
+            //{
+            //    
+            //}
+
+            //return LocalRedirect("/");
         }
 
         [Route("Country/{countrycode}/{year}/csv")]

@@ -18,7 +18,7 @@
     </div>
 </header>
 
-<div class="container-fluid">
+<div class="container-fluid" id="App" v-cloak>
 
     @*<div class="row mt-4">
 
@@ -51,8 +51,8 @@
         <div class="col-12 col-xl-8 mt-4">
             <div class="card">
                 <header class="card-header border-0"><i class="fas fa-globe-africa"></i> Public holidays</header>
-                <div class="table-responsive">
-                    <table class="table">
+                <div class="table-responsive" v-if="publicHolidays">
+                    <table class="table" v-if="publicHolidays.length > 0">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -60,52 +60,47 @@
                                 <th class="d-none d-sm-table-cell">Name</th>
                                 <th class="d-sm-none">Name</th>
                                 <th class="d-none d-lg-table-cell">Global</th>
-                                <th class="d-none d-lg-table-cell">Countys</th>
+                                <th class="d-none d-lg-table-cell" style="width: 30%" v-if="showColumnCounty">Countys</th>
                                 <th>Type</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var publicHoliday in Model.PublicHolidays)
-                            {
-                                <tr>
-                                    <td>@publicHoliday.Date.ToString("dddd") @publicHoliday.Date.ToShortDateString()</td>
-                                    <td class="d-none d-sm-table-cell">@publicHoliday.LocalName</td>
-                                    <td class="d-none d-sm-table-cell">@publicHoliday.Name</td>
-                                    <td class="d-sm-none"><strong>@publicHoliday.Name</strong><br />@publicHoliday.LocalName</td>
-                                    <td class="d-none d-lg-table-cell">
-                                        @if (publicHoliday.Global)
-                                        {
-                                            <i class="fas fa-check"></i>
-                                        }
-                                        else
-                                        {
-                                            <i class="fas fa-ban"></i>
-                                        }
-                                    </td>
-                                    <td class="d-none d-lg-table-cell">
-                                        @if (!publicHoliday.Global)
-                                        {
-                                            foreach (var county in publicHoliday.Counties)
-                                            {
-                                                <span class="badge badge-light">@county</span>
-                                            }
-                                        }
-                                    </td>
-                                    <td>
-                                        @publicHoliday.Type
-                                    </td>
-                                </tr>
-                            }
+                            <tr v-for="publicHoliday in publicHolidays">
+                                <td>{{ publicHoliday.date | longLocalDate }}</td>
+                                <td class="d-none d-sm-table-cell">{{ publicHoliday.localName }}</td>
+                                <td class="d-none d-sm-table-cell">{{ publicHoliday.name }}</td>
+                                <td class="d-sm-none"><strong>{{ publicHoliday.name }}</strong><br />{{ publicHoliday.localName }}</td>
+                                <td class="d-none d-lg-table-cell">
+                                    <i class="fas fa-check" v-if="publicHoliday.global"></i>
+                                    <i class="fas fa-ban" v-if="!publicHoliday.global"></i>
+                                </td>
+                                <td class="d-none d-lg-table-cell" v-if="showColumnCounty">
+                                    <template v-if="!publicHoliday.global" v-for="county in publicHoliday.counties">
+                                        <span class="badge badge-light">{{ county }}</span>
+                                    </template>
+                                </td>
+                                <td>
+                                    {{ publicHoliday.type }}
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
+                    <div v-else class="p-3">
+                        No data for this country available.
+                    </div>
+                </div>
+                <div v-else class="p-3">
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-xl-4 mt-4" id="App">
+        <div class="col-12 col-xl-4 mt-4">
             <div class="card">
                 <header class="card-header border-0"><i class="fas fa-calendar-alt"></i> Long weekends</header>
                 <div class="table-responsive" v-if="longWeekends">
-                    <table class="table">
+                    <table class="table" v-if="longWeekends.length > 0">
                         <thead>
                             <tr>
                                 <th>Startdate</th>
@@ -116,9 +111,9 @@
                         </thead>
                         <tbody>
                             <tr v-for="longWeekend in longWeekends">
-                                <td>{{longWeekend.startDate | ShortLocalDate}}</td>
-                                <td>{{longWeekend.endDate | ShortLocalDate}}</td>
-                                <td>{{longWeekend.dayCount}}</td>
+                                <td>{{ longWeekend.startDate | shortLocalDate }}</td>
+                                <td>{{ longWeekend.endDate | shortLocalDate }}</td>
+                                <td>{{ longWeekend.dayCount }}</td>
                                 <td>
                                     <span v-if="longWeekend.needBridgeDay" class="glyphicon glyphicon-ok" aria-hidden="true">x</span>
                                     <span v-if="!longWeekend.needBridgeDay" class="glyphicon glyphicon-remove" aria-hidden="true">-</span>
@@ -126,13 +121,21 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div v-else class="p-3">
+                        No data for this country available.
+                    </div>
+                </div>
+                <div v-else class="p-3">
+                    <div class="spinner-grow text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card mt-4" v-if="countryInfo && countryInfo.borders.length > 0">
                 <header class="card-header border-0">Border countries</header>
                 <div>
-                    <ul class="list-group" v-if="countryInfo">
+                    <ul class="list-group">
                         <li v-for="border in countryInfo.borders" class="list-group-item">
                             <a :href="'/PublicHoliday/Country/' + border.countryCode">{{ border.commonName }}</a>
                         </li>
@@ -140,7 +143,7 @@
                 </div>
             </div>
 
-            <div class="card mt-4">
+            <div class="card mt-4" v-if="publicHolidays && publicHolidays.length > 0">
                 <header class="card-header border-0">Downloads</header>
                 <div>
                     <ul class="list-group">
@@ -190,17 +193,33 @@ new Vue({
     el: '#App',
     data: {
         countryInfo: null,
-        longWeekends: null
+        longWeekends: null,
+        publicHolidays: null
     },
     mounted() {
+        this.GetPublicHolidays();
         this.GetCountryInfo();
         this.GetLongWeekends();
     },
     filters: {
-        ShortLocalDate: function (date) {
+        shortLocalDate: function (date) {
             var locale = window.navigator.userLanguage || window.navigator.language;
             moment.locale(locale);
             return moment(date).format('L');
+        },
+        longLocalDate: function (date) {
+            var locale = window.navigator.userLanguage || window.navigator.language;
+            moment.locale(locale);
+            return moment(date).format('dd L');
+        }
+    },
+    computed: {
+        showColumnCounty: function () {
+            if (this.publicHolidays === null) {
+                return false;
+            }
+            let count = this.publicHolidays.filter(o => !o.global);
+            return count.length !== 0;
         }
     },
     methods: {
@@ -208,18 +227,28 @@ new Vue({
             axios.get('/Api/v2/CountryInfo?countryCode=@(Model.CountryCode)')
                 .then(response => {
                     this.countryInfo = response.data
+                })
+                .catch(error => {
+                    console.log(error)
                 });
         },
         GetLongWeekends: function () {
             axios.get('/Api/v2/LongWeekend/@(Model.Year)/@(Model.CountryCode)')
                 .then(response => {
                     this.longWeekends = response.data
+                })
+                .catch(error => {
+                    console.log(error)
                 });
         },
-        GetNextPublicHolidays: function () {
-            axios.get('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
+        GetPublicHolidays: function () {
+            axios.get('/Api/v2/PublicHolidays/@(Model.Year)/@(Model.CountryCode)')
                 .then(response => {
                     this.publicHolidays = response.data
+                })
+                .catch(error => {
+                    this.publicHolidays = [];
+                    console.log(error)
                 });
         }
     }

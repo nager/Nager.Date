@@ -9,21 +9,21 @@
     </div>
 </div>
 
-<div id="CountrieOverview" class="container-fluid">
+<div id="App" class="container-fluid" v-cloak>
 
     <div class="row">
 
         <div class="col-md-12 col-xl-6">
 
             <div class="card mt-4 mb-4">
-                <header class="card-header border-0"><i class="fas fa-search"></i> Search</header>
+                <header class="card-header border-0"><i class="fas fa-globe-africa"></i> Countrys</header>
 
                 <div>
                     <div class="input-group mb-3 ml-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fas fa-search"></i></div>
                         </div>
-                        <input v-model="search" type="text" class="form-control p-3" placeholder="Country">
+                        <input v-model="search" type="text" class="form-control p-3" placeholder="Search">
                     </div>
                 </div>
 
@@ -32,7 +32,7 @@
                         <div class="pre-scrollable">
                             <table class="table">
                                 <tr v-for="item in filteredCountries">
-                                    <td class="pl-4"><a :href="'/PublicHoliday/Country/' + item.key">{{item.value}} ({{item.key}})</a></td>
+                                    <td class="pl-4"><a :href="'/PublicHoliday/Country/' + item.key">{{ item.value }} ({{ item.key }})</a></td>
                                 </tr>
                             </table>
                         </div>
@@ -56,11 +56,11 @@
                             </thead>
                             <tbody>
                                 <tr v-for="item in publicHolidaysWorldwide">
-                                    <td>{{item.date | moment}}</td>
-                                    <td>{{item.date | moment1}}</td>
-                                    <td>{{item.localName}}</td>
-                                    <td>{{item.name}}</td>
-                                    <td><a :href="'/PublicHoliday/Country/' + item.countryCode">{{item.countryCode}}</a></td>
+                                    <td>{{ item.date | inDays }}</td>
+                                    <td>{{ item.date | shortLocalDate }}</td>
+                                    <td>{{ item.localName }}</td>
+                                    <td>{{ item.name }}</td>
+                                    <td><a :href="'/PublicHoliday/Country/' + item.countryCode">{{ item.countryCode }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -73,7 +73,7 @@
         <div class="col-md-12 col-xl-6">
 
             <div class="card mt-4">
-                <header class="card-header border-0" v-if="countryInfo">Next Public Holidays in {{countryInfo.commonName}}</header>
+                <header class="card-header border-0" v-if="countryInfo">Next Public Holidays in {{ countryInfo.commonName }}</header>
                 <div v-if="publicHolidays">
                     <table class="table">
                         <thead>
@@ -85,9 +85,9 @@
                         </thead>
                         <tbody>
                             <tr v-for="item in publicHolidays">
-                                <td>{{item.date | moment1}}</td>
-                                <td>{{item.localName}}</td>
-                                <td>{{item.name}}</td>
+                                <td>{{ item.date | shortLocalDate }}</td>
+                                <td>{{ item.localName }}</td>
+                                <td>{{ item.name }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -103,7 +103,7 @@
     <script type="text/javascript">
 
         new Vue({
-            el: '#CountrieOverview',
+            el: '#App',
             data: {
                 countryInfo: null,
                 availableCountries: null,
@@ -118,20 +118,30 @@
                     }
 
                     let search = this.search.toLowerCase();
-                    let filteredItems = this.availableCountries.filter(o => o.value.toLowerCase().includes(search));
+                    let filteredItems = this.availableCountries.filter(o => o.value.toLowerCase().includes(search) || o.key.toLowerCase().includes(search));
+                    console.log(this.availableCountries);
 
                     return filteredItems;
                 }
             },
             filters: {
-                moment: function (date) {
-                    var m = moment(date);  // or whatever start date you have
-                    var today = moment().startOf('day');
+                inDays: function (date) {
+                    let fromNow = moment(date).fromNow();
 
-                    var days = Math.round(moment.duration(m - today).asDays());
-                    return days;
+                    // ensure the date is displayed with today and yesterday
+                    return moment(date).calendar(null, {
+                        // when the date is closer, specify custom values
+                        sameDay: '[Today]',
+                        nextDay: '[Tomorrow]',
+                        nextWeek: function () {
+                            return "[" + fromNow + "]";
+                        },     
+                        sameElse: function () {
+                            return "[" + fromNow + "]";
+                        }
+                    });
                 },
-                moment1: function (date) {
+                shortLocalDate: function (date) {
                     var locale = window.navigator.userLanguage || window.navigator.language;
                     moment.locale(locale);
                     return moment(date).format('L');
