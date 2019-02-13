@@ -100,6 +100,23 @@
             <div class="card">
                 <header class="card-header border-0"><i class="fas fa-calendar-alt"></i> Long weekends</header>
                 <div class="table-responsive" v-if="longWeekends">
+                    <div v-for="longWeekend in longWeekends" v-if="longWeekends.length > 0">
+                        <table style="border-collapse:collapse; width:100%;" class="mb-1">
+                            <tr>
+                                <td style="text-align:center; width:70px; border:1px solid #ddd;"><strong>{{ longWeekend.dayCount }}</strong><br />days</td>
+                                <td style="text-align:center; width:120px; border:1px solid #ddd;">{{ longWeekend.startDate | onlyMonthName }}</td>
+                                <td v-for="day in getDates(longWeekend.startDate, longWeekend.endDate)" style="text-align:center; width:70px; border:1px solid #ddd;">
+                                    <strong>{{ day | onlyDayNumber }}</strong><br />
+                                    {{ day | onlyDayName }}
+                                </td>
+                                <td style="text-align:center; border:1px solid #ddd;">{{ longWeekend.endDate | onlyMonthName }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div v-else class="p-3">
+                        No data for this country available.
+                    </div>
+                    <hr />
                     <table class="table" v-if="longWeekends.length > 0">
                         <thead>
                             <tr>
@@ -121,9 +138,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div v-else class="p-3">
-                        No data for this country available.
-                    </div>
                 </div>
                 <div v-else class="p-3">
                     <div class="spinner-grow text-primary" role="status">
@@ -197,9 +211,9 @@ new Vue({
         publicHolidays: null
     },
     mounted() {
-        this.GetPublicHolidays();
-        this.GetCountryInfo();
-        this.GetLongWeekends();
+        this.getPublicHolidays();
+        this.getCountryInfo();
+        this.getLongWeekends();
     },
     filters: {
         shortLocalDate: function (date) {
@@ -211,6 +225,21 @@ new Vue({
             var locale = window.navigator.userLanguage || window.navigator.language;
             moment.locale(locale);
             return moment(date).format('dd L');
+        },
+        onlyDayName: function (date) {
+            var locale = window.navigator.userLanguage || window.navigator.language;
+            moment.locale(locale);
+            return moment(date).format('dd');
+        },
+        onlyMonthName: function (date) {
+            var locale = window.navigator.userLanguage || window.navigator.language;
+            moment.locale(locale);
+            return moment(date).format('DD. MMMM');
+        },
+        onlyDayNumber: function (date) {
+            var locale = window.navigator.userLanguage || window.navigator.language;
+            moment.locale(locale);
+            return moment(date).format('DD');
         }
     },
     computed: {
@@ -223,7 +252,7 @@ new Vue({
         }
     },
     methods: {
-        GetCountryInfo: function () {
+        getCountryInfo: function () {
             axios.get('/Api/v2/CountryInfo?countryCode=@(Model.CountryCode)')
                 .then(response => {
                     this.countryInfo = response.data
@@ -232,7 +261,7 @@ new Vue({
                     console.log(error)
                 });
         },
-        GetLongWeekends: function () {
+        getLongWeekends: function () {
             axios.get('/Api/v2/LongWeekend/@(Model.Year)/@(Model.CountryCode)')
                 .then(response => {
                     this.longWeekends = response.data
@@ -241,7 +270,7 @@ new Vue({
                     console.log(error)
                 });
         },
-        GetPublicHolidays: function () {
+        getPublicHolidays: function () {
             axios.get('/Api/v2/PublicHolidays/@(Model.Year)/@(Model.CountryCode)')
                 .then(response => {
                     this.publicHolidays = response.data
@@ -250,6 +279,16 @@ new Vue({
                     this.publicHolidays = [];
                     console.log(error)
                 });
+        },
+        getDates: function (startDate, stopDate) {
+            var dateArray = [];
+            var currentDate = moment(startDate);
+            var stopDate = moment(stopDate);
+            while(currentDate <= stopDate) {
+                dateArray.push(moment(currentDate).format('YYYY-MM-DD'))
+                currentDate = moment(currentDate).add(1, 'days');
+            }
+            return dateArray;
         }
     }
 })
