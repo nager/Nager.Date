@@ -4,11 +4,6 @@
   "libraries": [
     {
       "provider": "unpkg",
-      "library": "jquery@3.2.0",
-      "destination": "wwwroot/lib/jquery/"
-    },
-    {
-      "provider": "unpkg",
       "library": "bootstrap@4.2.1",
       "destination": "wwwroot/lib/bootstrap/"
     },

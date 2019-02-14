@@ -119,7 +119,6 @@
 
                     let search = this.search.toLowerCase();
                     let filteredItems = this.availableCountries.filter(o => o.value.toLowerCase().includes(search) || o.key.toLowerCase().includes(search));
-                    console.log(this.availableCountries);
 
                     return filteredItems;
                 }
@@ -148,32 +147,32 @@
                 }
             },
             mounted() {
-                this.GetAvailableCountries();
-                this.GetCountryInfo();
-                this.GetNextPublicHolidaysWorldwide();
+                this.getAvailableCountries();
+                this.getCountryInfo();
+                this.getNextPublicHolidaysWorldwide();
                 
             },
             methods: {
-                GetAvailableCountries: function () {
+                getAvailableCountries: function () {
                     axios.get('/Api/v2/AvailableCountries')
                         .then(response => {
                             this.availableCountries = response.data
                         });
                 },
-                GetCountryInfo: function () {
+                getCountryInfo: function () {
                     axios.get('/Api/v2/CountryInfo')
                         .then(response => {
                             this.countryInfo = response.data
-                            this.GetNextPublicHolidays();
+                            this.getNextPublicHolidays();
                         });
                 },
-                GetNextPublicHolidays: function () {
+                getNextPublicHolidays: function () {
                     axios.get('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
                         .then(response => {
                             this.publicHolidays = response.data
                         });
                 },
-                GetNextPublicHolidaysWorldwide: function () {
+                getNextPublicHolidaysWorldwide: function () {
                     axios.get('/Api/v2/NextPublicHolidaysWorldwide')
                         .then(response => {
                             this.publicHolidaysWorldwide = response.data

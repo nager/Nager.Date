@@ -103,20 +103,23 @@
                     <div v-for="longWeekend in longWeekends" v-if="longWeekends.length > 0">
                         <table style="border-collapse:collapse; width:100%;" class="mb-1">
                             <tr>
-                                <td style="text-align:center; width:70px; border:1px solid #ddd;"><strong>{{ longWeekend.dayCount }}</strong><br />days</td>
+                                <td style="text-align:center; width:90px; border:1px solid #ddd; border-left-width:0px;">
+                                    <strong style="font-size:18pt">{{ longWeekend.dayCount }}</strong><br />
+                                    <small>days</small>
+                                </td>
                                 <td style="text-align:center; width:120px; border:1px solid #ddd;">{{ longWeekend.startDate | onlyMonthName }}</td>
                                 <td v-for="day in getDates(longWeekend.startDate, longWeekend.endDate)" style="text-align:center; width:70px; border:1px solid #ddd;">
                                     <strong>{{ day | onlyDayNumber }}</strong><br />
-                                    {{ day | onlyDayName }}
+                                    <span :style="isSunday(day) ? 'color:red; font-weight:bold;' : ''">{{ day | onlyDayName }}</span>
                                 </td>
-                                <td style="text-align:center; border:1px solid #ddd;">{{ longWeekend.endDate | onlyMonthName }}</td>
+                                <td style="text-align:center; border:1px solid #ddd; border-right-width:0px;">{{ longWeekend.endDate | onlyMonthName }}</td>
                             </tr>
                         </table>
                     </div>
                     <div v-else class="p-3">
                         No data for this country available.
                     </div>
-                    <hr />
+                    @*<hr />
                     <table class="table" v-if="longWeekends.length > 0">
                         <thead>
                             <tr>
@@ -137,7 +140,7 @@
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table>*@
                 </div>
                 <div v-else class="p-3">
                     <div class="spinner-grow text-primary" role="status">
@@ -289,6 +292,13 @@ new Vue({
                 currentDate = moment(currentDate).add(1, 'days');
             }
             return dateArray;
+        },
+        isSunday: function (date) {
+            var currentDate = moment(date);
+            if (currentDate.day() === 0) {
+                return true;
+            }
+            return false;
         }
     }
 })
