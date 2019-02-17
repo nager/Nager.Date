@@ -101,18 +101,18 @@
                 <header class="card-header border-0"><i class="fas fa-calendar-alt"></i> Long weekends</header>
                 <div class="table-responsive" v-if="longWeekends">
                     <div v-for="longWeekend in longWeekends" v-if="longWeekends.length > 0">
-                        <table style="border-collapse:collapse; width:100%;" class="mb-1">
+                        <table class="longweekend">
                             <tr>
-                                <td style="text-align:center; width:90px; border:1px solid #ddd; border-left-width:0px;">
-                                    <strong style="font-size:18pt">{{ longWeekend.dayCount }}</strong><br />
+                                <td class="day-count">
+                                    <strong>{{ longWeekend.dayCount }}</strong>
                                     <small>days</small>
                                 </td>
-                                <td style="text-align:center; width:120px; border:1px solid #ddd;">{{ longWeekend.startDate | onlyMonthName }}</td>
-                                <td v-for="day in getDates(longWeekend.startDate, longWeekend.endDate)" style="text-align:center; width:70px; border:1px solid #ddd;">
+                                <td class="d-none d-sm-table-cell info-start">{{ longWeekend.startDate | onlyMonthName }}</td>
+                                <td v-for="day in getDates(longWeekend.startDate, longWeekend.endDate)" class="day">
                                     <strong>{{ day | onlyDayNumber }}</strong><br />
                                     <span :style="isSunday(day) ? 'color:red; font-weight:bold;' : ''">{{ day | onlyDayName }}</span>
                                 </td>
-                                <td style="text-align:center; border:1px solid #ddd; border-right-width:0px;">{{ longWeekend.endDate | onlyMonthName }}</td>
+                                <td class="d-none d-sm-table-cell info-end">{{ longWeekend.endDate | onlyMonthName }}</td>
                             </tr>
                         </table>
                     </div>

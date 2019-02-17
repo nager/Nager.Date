@@ -73,7 +73,7 @@
         <div class="col-md-12 col-xl-6">
 
             <div class="card mt-4">
-                <header class="card-header border-0" v-if="countryInfo"><i class="far fa-calendar-check"></i> Next Public Holidays in {{ countryInfo.commonName }}</header>
+                <header class="card-header border-0" v-if="countryInfo"><i class="far fa-calendar-check"></i> Next Public Holidays in <a :href="'/PublicHoliday/Country/' + countryInfo.countryCode">{{ countryInfo.commonName }}</a></header>
                 <div v-if="publicHolidays">
                     <table class="table">
                         <thead>

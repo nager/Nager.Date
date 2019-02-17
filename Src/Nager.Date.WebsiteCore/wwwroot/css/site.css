@@ -97,7 +97,7 @@ textarea {
 .header {
     position: relative;
     background-image: url('/images/sky.jpg');
-    height: 400px;
+    height: 360px;
 }
 
 .header-content {
@@ -140,5 +140,46 @@ footer a {
 
 .copyright {
     padding: 30px;
+    text-align: center;
+}
+
+.longweekend {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2px;
+    table-layout: fixed;
+}
+
+.longweekend td {
+    text-align: center;
+    border: 1px solid #dddddd;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+}
+
+.longweekend .day-count {
+    width: 90px;
+    border-left-width: 0px;
+}
+
+.longweekend .day-count strong {
+    font-size: 18pt;
+}
+
+.longweekend .day-count small {
+    display: block;
+    margin-top: -6px;
+    margin-bottom: 4px;
+}
+
+.longweekend .info-start {
+    width: 120px;
+}
+
+.longweekend .info-end {
+    width: 120px;
+}
+
+.longweekend .day {
     text-align: center;
 }
