@@ -12,22 +12,6 @@
     <link rel="stylesheet" href="~/css/site.css" />
 
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-    <script>
-        window.addEventListener("load", function () {
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#eeeeee"
-                    },
-                    "button": {
-                        "background": "#346cb0"
-                    }
-                },
-                "position": "top"
-            })
-        });
-    </script>
 
     @*<environment include="Development">
             <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -87,7 +71,23 @@
 
     <script src="~/lib/axios/axios.min.js"></script>
     <script src="~/lib/vue/vue.min.js"></script>
-    <script src="~/lib/moment/moment-with-locales.js"></script>
+    <script src="~/lib/moment/moment-with-locales.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#eeeeee"
+                    },
+                    "button": {
+                        "background": "#346cb0"
+                    }
+                },
+                "position": "top"
+            })
+        });
+    </script>
 
     @if (HttpContextAccessor.HttpContext.Request.Cookies.ContainsKey("cookieconsent_status"))
     {
