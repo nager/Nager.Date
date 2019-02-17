@@ -1,13 +1,13 @@
-Thanks for using the Nager.Date package (https://github.com/tinohager/Nager.Date)
+Thank you for using the Nager.Date package (https://github.com/tinohager/Nager.Date)
 ----------------------------------------------------------------
-Please star (★) this project on github!
+Please support this project with the award of a Github Star (★)
 
 
-Example code:
+Code examples:
 ----------------------------------------------------------------
 
-//Get all publicHolidays of a country and year
-var publicHolidays = DateSystem.GetPublicHoliday("DE", 2018);
+//Get all publicHolidays of a given year and country
+var publicHolidays = DateSystem.GetPublicHoliday(2018, "DE");
 foreach (var publicHoliday in publicHolidays)
 {
 	//publicHoliday...
@@ -16,7 +16,7 @@ foreach (var publicHoliday in publicHolidays)
 //Get all publicHolidays for a date range
 var startDate = new DateTime(2016, 5, 1);
 var endDate = new DateTime(2019, 5, 31);
-var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, startDate, endDate);
+var publicHolidays = DateSystem.GetPublicHoliday(startDate, endDate, CountryCode.DE);
 foreach (var publicHoliday in publicHolidays)
 {
 	//publicHoliday...
