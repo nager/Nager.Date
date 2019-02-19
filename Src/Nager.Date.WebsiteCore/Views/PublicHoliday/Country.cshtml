@@ -107,12 +107,13 @@
                                     <strong>{{ longWeekend.dayCount }}</strong>
                                     <small>days</small>
                                 </td>
-                                <td class="d-none d-sm-table-cell info-start">{{ longWeekend.startDate | onlyMonthName }}</td>
+                                <td class="d-none d-sm-table-cell info-start">{{ longWeekend.startDate | monthNameWithDay }}</td>
                                 <td v-for="day in getDates(longWeekend.startDate, longWeekend.endDate)" class="day">
+                                    <span class="d-block" :style="isSunday(day) ? 'color:red; font-weight:bold;' : ''">{{ day | onlyDayName }}</span>
                                     <strong>{{ day | onlyDayNumber }}</strong><br />
-                                    <span :style="isSunday(day) ? 'color:red; font-weight:bold;' : ''">{{ day | onlyDayName }}</span>
+                                    <span class="d-sm-none d-block">{{ longWeekend.startDate | onlyMonthName }}</span>
                                 </td>
-                                <td class="d-none d-sm-table-cell info-end">{{ longWeekend.endDate | onlyMonthName }}</td>
+                                <td class="d-none d-sm-table-cell info-end">{{ longWeekend.endDate | monthNameWithDay }}</td>
                             </tr>
                         </table>
                     </div>
@@ -218,31 +219,28 @@ new Vue({
         this.getCountryInfo();
         this.getLongWeekends();
     },
+    created() {
+        var locale = window.navigator.userLanguage || window.navigator.language;
+        moment.locale(locale);
+    },
     filters: {
         shortLocalDate: function (date) {
-            var locale = window.navigator.userLanguage || window.navigator.language;
-            moment.locale(locale);
             return moment(date).format('L');
         },
         longLocalDate: function (date) {
-            var locale = window.navigator.userLanguage || window.navigator.language;
-            moment.locale(locale);
             return moment(date).format('dd L');
         },
         onlyDayName: function (date) {
-            var locale = window.navigator.userLanguage || window.navigator.language;
-            moment.locale(locale);
             return moment(date).format('dd');
         },
-        onlyMonthName: function (date) {
-            var locale = window.navigator.userLanguage || window.navigator.language;
-            moment.locale(locale);
+        onlyDayNumber: function (date) {
+            return moment(date).format('DD');
+        },
+        monthNameWithDay: function (date) {
             return moment(date).format('DD. MMMM');
         },
-        onlyDayNumber: function (date) {
-            var locale = window.navigator.userLanguage || window.navigator.language;
-            moment.locale(locale);
-            return moment(date).format('DD');
+        onlyMonthName: function (date) {
+            return moment(date).format('MMMM');
         }
     },
     computed: {
