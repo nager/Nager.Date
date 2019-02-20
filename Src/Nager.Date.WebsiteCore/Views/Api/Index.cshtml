@@ -5,11 +5,19 @@
 
 <div class="container">
 
-    <div class="mt-4">
+    <div class="mt-4 mb-4">
         <h2>Public Holiday API</h2>
-        Returns the public holidays from given country and year
-        <a href="/api/v1/get/AT/2017">https://date.nager.at/api/v1/get/{CountryCode}/{Year}</a><br />
-        The full documentation is in the <a href="/swagger">Swagger interface</a> available.
+        
+        You can use this project direct if you are use .net or alternative you can use the api. If you need many request please host your own api instance.<br />
+        <a href="/swagger">API Documentation</a>
+    </div>
+
+    <h4>Example <small>Returns the public holidays from a given year and country.</small></h4>
+
+    <div class="card mt-4">
+        <div class="p-4">
+            <a href="/api/v2/PublicHolidays/2017/AT">https://date.nager.at/api/v2/publicholidays/2017/AT</a>
+        </div>
     </div>
 
     <div class="card mt-4">
@@ -18,7 +26,7 @@
         <div class="p-4">
 
             <div class="alert alert-success">
-                <strong>GET</strong> /get/{CountryCode}/{Year}
+                <strong>GET</strong> /PublicHolidays/{Year}/{CountryCode}
             </div>
 
             <table class="table" style="background-color:#ffffff;">
@@ -30,12 +38,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>CountryCode</td>
-                        <td>AT</td>
-                    </tr>
-                    <tr>
                         <td>Year</td>
                         <td>2017</td>
+                    </tr>
+                    <tr>
+                        <td>CountryCode</td>
+                        <td>AT</td>
                     </tr>
                 </tbody>
             </table>

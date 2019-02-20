@@ -4,18 +4,16 @@
 
 <div class="container">
     <div class="mt-4">
-        <h2>Supported countries</h2>
+        <h2>Supported countries <small>An overview of all supported countries</small></h2>
+        The countries marked in blue are already supported
     </div>
 
     <div class="mt-4" id="mapdiv" style="width:100%; height:450px;"></div>
 
     <div class="card mt-4 mb-4">
-        <header class="card-header border-0">Countries</header>
+        <header class="card-header border-0">Countries <small class="float-right">@ViewBag.Count countries are supported</small></header>
         <div class="table-responsive">
             <table class="table">
-                @{
-                    var i = 0;
-                }
                 <tbody>
                     @foreach (var country in ViewBag.Countries)
                     {
@@ -24,14 +22,8 @@
                             <td>@country.Key</td>
                             <td><a href="/PublicHoliday/Country/@country.Key" class="btn btn-xs btn-secondary">Show public holidays</a></td>
                         </tr>
-                        i++;
                     }
                 </tbody>
-                <tfooter>
-                    <tr>
-                        <td colspan="3" class="text-right">@i countries available</td>
-                    </tr>
-                </tfooter>
             </table>
         </div>
     </div>

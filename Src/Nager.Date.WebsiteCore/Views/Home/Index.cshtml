@@ -7,6 +7,9 @@
         <h1>Public Holidays</h1>
         <p>Public holiday calculation for every year, based on easter sunday, country and county support. Supports more than <strong>90</strong> countries.</p>
     </div>*@
+    <div style="max-width:380px; margin-top:230px; margin-left:20px; margin-right:20px; position:absolute">
+        <img class="img-fluid" src="~/images/logo.png" title="nager.date Worldwide public holiday" />
+    </div>
 </div>
 
 <div id="App" class="container-fluid" v-cloak>
@@ -30,7 +33,7 @@
                 <div v-if="availableCountries">
                     <div class="table-responsive">
                         <div class="pre-scrollable">
-                            <table class="table">
+                            <table class="table" style="min-height:200px;">
                                 <tr v-for="item in filteredCountries">
                                     <td class="pl-4"><a :href="'/PublicHoliday/Country/' + item.key">{{ item.value }} ({{ item.key }})</a></td>
                                 </tr>

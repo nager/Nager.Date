@@ -28,6 +28,7 @@ namespace Nager.Date.WebsiteCore.Controllers
                             where DateSystem.GetPublicHoliday(DateTime.Today.Year, o).Any()
                             select new KeyValuePair<string, string>(o.ToString(), GetName(o));
 
+            ViewBag.Count = countries.Count();
             ViewBag.Countries = countries;
 
             return View();
