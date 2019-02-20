@@ -69,7 +69,7 @@
                                 <td>{{ publicHoliday.date | longLocalDate }}</td>
                                 <td class="d-none d-sm-table-cell">{{ publicHoliday.localName }}</td>
                                 <td class="d-none d-sm-table-cell">{{ publicHoliday.name }}</td>
-                                <td class="d-sm-none"><strong>{{ publicHoliday.name }}</strong><br />{{ publicHoliday.localName }}</td>
+                                <td class="d-sm-none"><strong>{{ publicHoliday.localName }}</strong><br />{{ publicHoliday.name }}</td>
                                 <td class="d-none d-lg-table-cell">
                                     <i class="fas fa-check" v-if="publicHoliday.global"></i>
                                     <i class="fas fa-ban" v-if="!publicHoliday.global"></i>
