@@ -95,6 +95,18 @@
                     </div>
                 </div>
             </div>
+            <div class="mt-2">
+                <nav class="mt-3 d-none d-sm-block">
+                    <ul class="pagination justify-content-center ml-2">
+                        @for (var i = Model.Year - 5; i < Model.Year + 6; i++)
+                        {
+                            <li class="page-item">
+                                <a href="/PublicHoliday/Country/@(Model.CountryCode)/@(i)" class="page-link">@i</a>
+                            </li>
+                        }
+                    </ul>
+                </nav>
+            </div>
         </div>
         <div class="col-12 col-xl-4 mt-4">
             <div class="card">
@@ -152,12 +164,13 @@
 
             <div class="card mt-4" v-if="countryInfo && countryInfo.borders.length > 0">
                 <header class="card-header border-0">Border countries</header>
-                <div>
-                    <ul class="list-group">
-                        <li v-for="border in countryInfo.borders" class="list-group-item">
-                            <a :href="'/PublicHoliday/Country/' + border.countryCode">{{ border.commonName }}</a>
-                        </li>
-                    </ul>
+                <div class="mb-2">
+                    <div v-for="border in countryInfo.borders" class="d-inline-block text-center ml-2 mb-2" style="width:140px;">
+                        <a :href="'/PublicHoliday/Country/' + border.countryCode" class="d-block">
+                            <img src="~/images/flags/blank.gif" :class="'flag flag-' + border.countryCode.toLowerCase()" :alt="border.countryCode" :title="border.countryCode" />
+                        </a>
+                        <a :href="'/PublicHoliday/Country/' + border.countryCode">{{ border.commonName }}</a>
+                    </div>    
                 </div>
             </div>
 
@@ -176,18 +189,6 @@
             </div>
         </div>
     </div>
-
-
-    <nav class="mt-3 d-none d-sm-block">
-        <ul class="pagination">
-            @for (var i = Model.Year - 5; i < Model.Year + 6; i++)
-            {
-                <li class="page-item">
-                    <a href="/PublicHoliday/Country/@(Model.CountryCode)/@(i)" class="page-link">@i</a>
-                </li>
-            }
-        </ul>
-    </nav>
 
 </div>
 

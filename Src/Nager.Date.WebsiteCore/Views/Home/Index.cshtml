@@ -26,7 +26,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fas fa-search"></i></div>
                         </div>
-                        <input v-model="search" type="text" class="form-control p-3" placeholder="Search">
+                        <input v-model="search" type="text" class="form-control p-3" placeholder="Search" autofocus>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="item in publicHolidays">
-                                <td>{{ item.date | shortLocalDate }}</td>
+                                <td>{{ item.date | longLocalDate }}</td>
                                 <td>{{ item.localName }}</td>
                                 <td>{{ item.name }}</td>
                             </tr>
@@ -144,16 +144,20 @@
                     });
                 },
                 shortLocalDate: function (date) {
-                    var locale = window.navigator.userLanguage || window.navigator.language;
-                    moment.locale(locale);
                     return moment(date).format('L');
+                },
+                longLocalDate: function (date) {
+                    return moment(date).format('dd L');
                 }
             },
             mounted() {
                 this.getAvailableCountries();
                 this.getCountryInfo();
                 this.getNextPublicHolidaysWorldwide();
-                
+            },
+            created() {
+                var locale = window.navigator.userLanguage || window.navigator.language;
+                moment.locale(locale);
             },
             methods: {
                 getAvailableCountries: function () {
