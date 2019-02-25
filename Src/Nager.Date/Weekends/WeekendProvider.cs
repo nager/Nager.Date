@@ -6,8 +6,15 @@ using System.Linq;
 
 namespace Nager.Date.Weekends
 {
+    /// <summary>
+    /// WeekendProvider
+    /// </summary>
     public class WeekendProvider : IWeekendProvider
     {
+        /// <summary>
+        /// WeekendProvider
+        /// </summary>
+        /// <param name="weekendDays"></param>
         public WeekendProvider(params DayOfWeek[] weekendDays)
         {
             WeekendDays = weekendDays;
