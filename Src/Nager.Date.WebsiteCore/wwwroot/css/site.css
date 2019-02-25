@@ -121,6 +121,9 @@ pre.prettyprint {
     padding: 10px !important;
 }
 
+.pre-scrollable {
+    max-height:200px;
+}
 
 footer {
     padding: 30px;
@@ -173,11 +176,11 @@ footer a {
 }
 
 .longweekend .info-start {
-    width: 120px;
+    width: 75px;
 }
 
 .longweekend .info-end {
-    width: 120px;
+    width: 75px;
 }
 
 .longweekend .day {

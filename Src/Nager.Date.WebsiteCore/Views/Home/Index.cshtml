@@ -33,11 +33,14 @@
                 <div v-if="availableCountries">
                     <div class="table-responsive">
                         <div class="pre-scrollable">
-                            <table class="table" style="min-height:200px;">
+                            <table class="table" v-if="filteredCountries.length > 0">
                                 <tr v-for="item in filteredCountries">
                                     <td class="pl-4"><a :href="'/PublicHoliday/Country/' + item.key">{{ item.value }} ({{ item.key }})</a></td>
                                 </tr>
                             </table>
+                            <div v-else class="p-3">
+                                No country found
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,8 +55,7 @@
                                 <tr>
                                     <th>In x Days</th>
                                     <th>Date</th>
-                                    <th>Local Name</th>
-                                    <th>English Name</th>
+                                    <th>Name</th>
                                     <th>Country</th>
                                 </tr>
                             </thead>
@@ -61,7 +63,6 @@
                                 <tr v-for="item in publicHolidaysWorldwide">
                                     <td>{{ item.date | inDays }}</td>
                                     <td>{{ item.date | shortLocalDate }}</td>
-                                    <td>{{ item.localName }}</td>
                                     <td>{{ item.name }}</td>
                                     <td><a :href="'/PublicHoliday/Country/' + item.countryCode">{{ item.countryCode }}</a></td>
                                 </tr>
