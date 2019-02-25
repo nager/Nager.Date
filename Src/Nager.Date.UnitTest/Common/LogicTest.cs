@@ -10,6 +10,7 @@ namespace Nager.Date.UnitTest.Common
     public class LogicTest
     {
         [TestMethod]
+        [Ignore]
         public void CheckNoCorruptPublicHolidays()
         {
             var startYear = DateTime.Today.Year - 100;
