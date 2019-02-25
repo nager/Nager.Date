@@ -311,7 +311,7 @@ namespace Nager.Date
 
             while (currentYear <= endYear)
             {
-                var items = GetPublicHoliday(countryCode, currentYear);
+                var items = GetPublicHoliday(currentYear, countryCode);
                 foreach (var item in items)
                 {
                     if (item.Date >= startDate && item.Date <= endDate)
@@ -348,7 +348,7 @@ namespace Nager.Date
             
             foreach (var publicHolidayProvider in _publicHolidaysProviders)
             {
-                items.AddRange(GetPublicHoliday(publicHolidayProvider.Key, startDate, endDate));
+                items.AddRange(GetPublicHoliday(startDate, endDate, publicHolidayProvider.Key));
             }
 
             return items;
@@ -366,8 +366,22 @@ namespace Nager.Date
         /// <returns></returns>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
-            var items = GetPublicHoliday(countryCode, date.Year);
+            var items = GetPublicHoliday(date.Year, countryCode);
             return items.Any(o => o.Date.Date == date.Date);
+        }
+
+        /// <summary>
+        /// Check is a given date a Public Holiday
+        /// </summary>
+        /// <param name="date">The date</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <param name="publicHolidays">if available the public holidays on this date</param>
+        /// <returns></returns>
+        public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, out PublicHoliday[] publicHolidays)
+        {
+            var items = GetPublicHoliday(date.Year, countryCode);
+            publicHolidays = items.Where(o => o.Date.Date == date.Date).ToArray();
+            return publicHolidays.Any();
         }
 
         /// <summary>
@@ -379,7 +393,7 @@ namespace Nager.Date
         /// <returns></returns>
         public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
-            var items = GetPublicHoliday(countryCode, date.Year);
+            var items = GetPublicHoliday(date.Year, countryCode);
             return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)));
         }
 
