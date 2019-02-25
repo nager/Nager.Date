@@ -1,6 +1,6 @@
 ﻿using Nager.Date.Model;
 
-namespace Nager.Date.Website.Model
+namespace Nager.Date.WebsiteCore.Model
 {
     public class PublicHolidayCsv
     {

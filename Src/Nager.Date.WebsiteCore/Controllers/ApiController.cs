@@ -1,6 +1,7 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Nager.Date.Model;
 using Nager.Date.WebsiteCore.Models;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace Nager.Date.WebsiteCore.Controllers
             var publicHolidays = DateSystem.GetPublicHoliday(year, countryCode);
             if (publicHolidays?.Count() > 0)
             {
-                var items = publicHolidays.Where(o => o.Type.HasFlag(Model.PublicHolidayType.Public));
+                var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
                 return StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
             }
 
@@ -82,7 +83,7 @@ namespace Nager.Date.WebsiteCore.Controllers
             var publicHolidays = DateSystem.GetPublicHoliday(DateTime.Today, DateTime.Today.AddYears(1), countryCode);
             if (publicHolidays?.Count() > 0)
             {
-                var items = publicHolidays.Where(o => o.Type.HasFlag(Model.PublicHolidayType.Public));
+                var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
                 return StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
             }
 

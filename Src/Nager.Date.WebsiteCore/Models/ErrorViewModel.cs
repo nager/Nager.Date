@@ -1,5 +1,3 @@
-using System;
-
 namespace Nager.Date.WebsiteCore.Models
 {
     public class ErrorViewModel
