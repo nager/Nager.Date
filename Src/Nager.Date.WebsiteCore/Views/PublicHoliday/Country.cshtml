@@ -1,7 +1,8 @@
 ﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 @model Nager.Date.WebsiteCore.Models.PublicHolidayInfo
 @{
-    ViewData["Title"] = "Public Holidays in " + Model.Country + " (" + Model.CountryCode + ")";
+    ViewData["Title"] = $"{Model.Country} - Public Holidays in {Model.Country} in {Model.Year}";
+    ViewData["Description"] = $"Overview of celebrated public holidays in {Model.Country} during {Model.Year}. With detailed information in which federal state the holiday is celebrated.";
 }
 
 <header class="public-holiday-country-header">
@@ -11,7 +12,7 @@
                 <img src="~/images/flags/blank.gif" class="flag flag-@Model.CountryCode.ToLower()" alt="@Model.Country" title="@Model.Country" />
             </div>
             <div class="col-12 col-xl-10">
-                <h1 class="display-4 mt-4">Public Holidays in @Model.Country @Model.Year</h1>
+                <h1 class="display-4 mt-4">Public Holidays in @Model.Country in @Model.Year</h1>
                 <h4 class="mt-2 d-none d-sm-block">A list of public holidays observed in @Model.Country</h4>
             </div>
         </div>
