@@ -50,7 +50,7 @@
 
     <div class="row">
         <div class="col-12 col-xl-8 mt-4">
-            <div class="card">
+            <section class="card">
                 <header class="card-header border-0"><i class="fas fa-globe-africa"></i> Public holidays</header>
                 <div class="table-responsive" v-if="publicHolidays">
                     <table class="table" v-if="publicHolidays.length > 0">
@@ -63,13 +63,14 @@
                                 <th class="d-none d-lg-table-cell">Global</th>
                                 <th class="d-none d-lg-table-cell" style="width: 30%" v-if="showColumnCounty">Countys</th>
                                 <th>Type</th>
+                                <th class="d-none">Country</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="publicHoliday in publicHolidays">
-                                <td>{{ publicHoliday.date | longLocalDate }}</td>
-                                <td class="d-none d-sm-table-cell">{{ publicHoliday.localName }}</td>
-                                <td class="d-none d-sm-table-cell">{{ publicHoliday.name }}</td>
+                            <tr v-for="publicHoliday in publicHolidays" itemscope itemtype="http://schema.org/Event">
+                                <td itemprop="startDate" :content="publicHoliday.date | iso8601Date">{{ publicHoliday.date | longLocalDate }}</td>
+                                <td itemprop="name" class="d-none d-sm-table-cell">{{ publicHoliday.localName }}</td>
+                                <td itemprop="alternateName" class="d-none d-sm-table-cell">{{ publicHoliday.name }}</td>
                                 <td class="d-sm-none"><strong>{{ publicHoliday.localName }}</strong><br />{{ publicHoliday.name }}</td>
                                 <td class="d-none d-lg-table-cell">
                                     <i class="fas fa-check" v-if="publicHoliday.global"></i>
@@ -83,6 +84,9 @@
                                 <td>
                                     {{ publicHoliday.type }}
                                 </td>
+                                <td itemprop="location" itemscope itemtype="http://schema.org/Place" class="d-none">
+                                    <span itemprop="address">{{ publicHoliday.countryCode }}</span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -95,7 +99,7 @@
                         <span class="sr-only">Loading...</span>
                     </div>
                 </div>
-            </div>
+            </section>
             <div class="mt-2">
                 <nav class="mt-3 d-none d-sm-block">
                     <ul class="pagination justify-content-center ml-2">
@@ -110,7 +114,7 @@
             </div>
         </div>
         <div class="col-12 col-xl-4 mt-4">
-            <div class="card">
+            <section class="card">
                 <header class="card-header border-0"><i class="fas fa-calendar-alt"></i> Long weekends</header>
                 <div class="table-responsive" v-if="longWeekends">
                     <div v-for="longWeekend in longWeekends" v-if="longWeekends.length > 0">
@@ -161,9 +165,9 @@
                         <span class="sr-only">Loading...</span>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="card mt-4" v-if="countryInfo && countryInfo.borders.length > 0">
+            <section class="card mt-4" v-if="countryInfo && countryInfo.borders.length > 0">
                 <header class="card-header border-0">Border countries</header>
                 <div class="mb-2">
                     <div v-for="border in countryInfo.borders" class="d-inline-block text-center ml-2 mb-2" style="width:140px;">
@@ -173,9 +177,9 @@
                         <a :href="'/PublicHoliday/Country/' + border.countryCode">{{ border.commonName }}</a>
                     </div>    
                 </div>
-            </div>
+            </section>
 
-            <div class="card mt-4" v-if="publicHolidays && publicHolidays.length > 0">
+            <section class="card mt-4" v-if="publicHolidays && publicHolidays.length > 0">
                 <header class="card-header border-0"><i class="fas fa-file-download"></i> Downloads</header>
                 <div>
                     <ul class="list-group">
@@ -187,7 +191,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
 
@@ -243,6 +247,9 @@ new Vue({
         },
         onlyMonthName: function (date) {
             return moment(date).format('MMM');
+        },
+        iso8601Date: function (date) {
+            return moment(date).toISOString();
         }
     },
     computed: {

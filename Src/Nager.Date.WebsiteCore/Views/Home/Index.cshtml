@@ -19,7 +19,7 @@
 
         <div class="col-md-12 col-xl-6">
 
-            <div class="card mt-4 mb-4">
+            <section class="card mt-4 mb-4">
                 <header class="card-header border-0"><i class="fas fa-globe-africa"></i> Countries</header>
 
                 <div>
@@ -45,9 +45,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="d-none d-sm-block">
+            <section class="d-none d-sm-block">
                 <div class="card mt-4">
                     <header class="card-header border-0" v-if="countryInfo"><i class="far fa-calendar-check"></i> Next Public Holidays Worldwide in the next 7 days</header>
                     <div v-if="publicHolidaysWorldwide">
@@ -71,13 +71,13 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </section>
 
         </div>
 
         <div class="col-md-12 col-xl-6">
 
-            <div class="card mt-4">
+            <section class="card mt-4">
                 <header class="card-header border-0" v-if="countryInfo"><i class="far fa-calendar-check"></i> Next Public Holidays in <a :href="'/PublicHoliday/Country/' + countryInfo.countryCode">{{ countryInfo.commonName }}</a></header>
                 <div v-if="publicHolidays">
                     <table class="table">
@@ -97,7 +97,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </section>
 
         </div>
     </div>
