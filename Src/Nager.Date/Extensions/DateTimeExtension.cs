@@ -11,6 +11,14 @@ namespace Nager.Date.Extensions
             return provider.IsWeekend(dateTime);
         }
 
+        public static DateTime ShiftToNext(this DateTime value, DayOfWeek dayOfWeek)
+        {
+            while (value.DayOfWeek != dayOfWeek)
+                value = value.AddDays(1);
+
+            return value;
+        }
+
         public static DateTime Shift(this DateTime value, Func<DateTime, DateTime> saturday, Func<DateTime, DateTime> sunday, Func<DateTime, DateTime> monday = null)
         {
             var daysOff = new List<DateTime>();
