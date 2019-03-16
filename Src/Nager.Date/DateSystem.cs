@@ -119,7 +119,8 @@ namespace Nager.Date
                 { CountryCode.VA, new VaticanCityProvider(_catholicProvider) },
                 { CountryCode.VE, new VenezuelaProvider(_catholicProvider) },
                 { CountryCode.VN, new VietnamProvider() },
-                { CountryCode.XK, new KosovoProvider(_orthodoxProvider, _catholicProvider) },
+                //Not officially assigned https://www.iso.org/obp/ui/#iso:pub:PUB500001:en
+                //{ CountryCode.XK, new KosovoProvider(_orthodoxProvider, _catholicProvider) },
                 { CountryCode.ZA, new SouthAfricaProvider(_catholicProvider) }
             };
 

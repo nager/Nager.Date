@@ -14,7 +14,7 @@ namespace Nager.Date.WebsiteCore.Controllers
         private string GetName(CountryCode countryCode)
         {
             var country = new Country.CountryProvider().GetCountry(countryCode.ToString());
-            return country.CommonName;
+            return country?.CommonName;
         }
 
         public IActionResult Index()
