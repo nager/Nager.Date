@@ -20,6 +20,7 @@ namespace Nager.Date
         private static readonly Dictionary<CountryCode, IPublicHolidayProvider> _publicHolidaysProviders =
             new Dictionary<CountryCode, IPublicHolidayProvider>
             {
+                { CountryCode.AL, new AlbaniaProvider(_orthodoxProvider) },
                 { CountryCode.AD, new AndorraProvider() },
                 { CountryCode.AR, new ArgentinaProvider(_catholicProvider) },
                 { CountryCode.AT, new AustriaProvider(_catholicProvider) },
@@ -118,6 +119,7 @@ namespace Nager.Date
                 { CountryCode.VA, new VaticanCityProvider(_catholicProvider) },
                 { CountryCode.VE, new VenezuelaProvider(_catholicProvider) },
                 { CountryCode.VN, new VietnamProvider() },
+                { CountryCode.XK, new KosovoProvider(_orthodoxProvider, _catholicProvider) },
                 { CountryCode.ZA, new SouthAfricaProvider(_catholicProvider) }
             };
 

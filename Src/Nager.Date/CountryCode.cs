@@ -982,6 +982,10 @@
         /// </summary>
         WS,
         /// <summary>
+        /// Kosovo
+        /// </summary>
+        XK,
+        /// <summary>
         /// Yemen
         /// </summary>
         YE,
