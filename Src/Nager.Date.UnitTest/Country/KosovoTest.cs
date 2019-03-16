@@ -7,6 +7,7 @@ namespace Nager.Date.UnitTest.Country
     [TestClass]
     public class KosovoTest
     {
+        [Ignore]
         [TestMethod]
         public void TestKosova()
 
