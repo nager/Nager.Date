@@ -40,8 +40,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 1, "Ден на труда и на международната работническа солидарност", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 6, "Гергьовден, ден на храбростта и Българската армия", "Saint George's Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 24, "Ден на българската просвета и култура и на славянската писменост", "Saints Cyril and Methodius Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 6, "Ден на Съединението", "Unification Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 22, "Ден на независимостта на България", "Independence Day", countryCode));
+            items.Add(new PublicHoliday(year, 9, 6, "Ден на Съединението", "Unification Day", countryCode));
+            items.Add(new PublicHoliday(year, 9, 22, "Ден на независимостта на България", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Ден на народните будители", "National Awakening Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Бъдни вечер", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Рождество Христово", "Christmas Day", countryCode));
