@@ -1,17 +1,8 @@
 [![GitHub Release](https://img.shields.io/github/release/tinohager/nager.date.svg?style=flat-square)](https://github.com/tinohager/nager.date/releases)
 
-# Nager.Date
+# Nager.Date ([date.nager.at](https://date.nager.at))
 
-Nager.Date is a Date/Calendar Framework for .NET
-- Public holiday calculation for every year, based on easter sunday, country and county support.
-Supports over 90 countries.
-- Weekend information (supports 120 countries)
-- Age calculation
-
-If your country is not supported, fork me, implement it and send me the pull request.
-
-### Website / API
-https://date.nager.at
+Nager.Date is a popular Date/Calendar library for .NET. Public holiday calculation for every year and supports over 90 countries. Nager.Date is open source software and is completely free for commercial use. You can choose if you want to use the project [directly](https://www.nuget.org/packages/Nager.Date) or if you want to use the [API](https://date.nager.at/API). If you need more as 50 requests per day please use directly.
 
 ### nuget
 The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
@@ -30,14 +21,14 @@ If this project help you reduce time to develop, you can give me a beer :beer:
 var publicHolidays = DateSystem.GetPublicHoliday("DE", 2017);
 foreach (var publicHoliday in publicHolidays)
 {
-	//publicHoliday...
-	//publicHoliday.Date -> The date
-	//publicHoliday.LocalName -> The local name
-	//publicHoliday.Name -> The english name
-	//publicHoliday.Fixed -> Is this public holiday every year on the same date
-	//publicHoliday.Global -> Is this public holiday in every county (federal state)
-	//publicHoliday.Counties -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
-	//publicHoliday.Type -> Public, Bank, School, Authorities, Optional, Observance
+    //publicHoliday...
+    //publicHoliday.Date -> The date
+    //publicHoliday.LocalName -> The local name
+    //publicHoliday.Name -> The english name
+    //publicHoliday.Fixed -> Is this public holiday every year on the same date
+    //publicHoliday.Global -> Is this public holiday in every county (federal state)
+    //publicHoliday.Counties -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
+    //publicHoliday.Type -> Public, Bank, School, Authorities, Optional, Observance
 }
 ```
 
@@ -57,7 +48,7 @@ foreach (var publicHoliday in publicHolidays)
 var date = new DateTime(2017, 1, 1);
 if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 {
-	Console.WriteLine("Is public holiday");
+    Console.WriteLine("Is public holiday");
 }
 ```
 
@@ -66,7 +57,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 var date = new DateTime(2017, 1, 1);
 if (DateSystem.IsWeekend(date, CountryCode.DE))
 {
-	Console.WriteLine("Is weekend");
+    Console.WriteLine("Is weekend");
 }
 ```
 
