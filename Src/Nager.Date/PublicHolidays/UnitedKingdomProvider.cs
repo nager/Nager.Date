@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
@@ -12,7 +12,7 @@ namespace Nager.Date.PublicHolidays
     /// https://en.wikipedia.org/wiki/Public_holidays_in_the_United_Kingdom
     /// https://de.wikipedia.org/wiki/Feiertage_im_Vereinigten_K%C3%B6nigreich
     /// </summary>
-    public class UnitedKingdomProvider : IPublicHolidayProvider
+    public class UnitedKingdomProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -93,6 +93,20 @@ namespace Nager.Date.PublicHolidays
             #endregion
 
             return items.OrderBy(o => o.Date);
+        }
+        /// <summary>
+        /// Get counties
+        /// </summary>
+        /// <returns></returns>
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "GB-NIR", "Northern Ireland" },
+                { "GB-SCT", "Scotland" },
+                { "GB-ENG", "England" },
+                { "GB-WLS", "Wales" },
+            };
         }
     }
 }
