@@ -43,7 +43,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday, "Påskdagen", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Annandag påsk", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Första maj", "International Workers' Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Kristi himmelfärds dag", "Ascension Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Kristi himmelsfärds dag", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 6, "Sveriges nationaldag", "National Day of Sweden", countryCode));
             items.Add(new PublicHoliday(midsummerDay.AddDays(-1), "Midsommarafton", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(midsummerDay, "Midsommar", "Midsummer Day", countryCode));
