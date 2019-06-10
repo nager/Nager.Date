@@ -71,7 +71,15 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 3, 17, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
-            items.Add(new PublicHoliday(firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978));
+            if (year != 2020)
+            {
+                items.Add(new PublicHoliday(firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978));
+            }
+            else
+            {
+                var firstFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 1);
+                items.Add(new PublicHoliday(firstFridayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978));
+            }
             items.Add(new PublicHoliday(lastMondayInMay, "Spring Bank Holiday", "Spring Bank Holiday", countryCode, 1971));
             items.Add(new PublicHoliday(year, 11, 30, "Saint Andrew's Day", "Saint Andrew's Day", countryCode, null, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(year, 7, 12, "Battle of the Boyne", "Battle of the Boyne", countryCode, null, new string[] { "GB-NIR" }));
