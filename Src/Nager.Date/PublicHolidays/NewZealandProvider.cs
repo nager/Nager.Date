@@ -9,7 +9,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// New Zealand
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_New_Zealand
     /// </summary>
     public class NewZealandProvider : IPublicHolidayProvider
     {
@@ -97,6 +96,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(fourthMondayInOctober, "Labour Day", "Labour Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_New_Zealand"
+            };
         }
     }
 }

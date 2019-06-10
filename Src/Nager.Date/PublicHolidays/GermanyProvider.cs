@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Germany
-    /// https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland
     /// </summary>
     public class GermanyProvider : IPublicHolidayProvider, ICountyProvider
     {
@@ -139,6 +138,18 @@ namespace Nager.Date.PublicHolidays
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland",
+            };
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Cyprus
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Cyprus
     /// </summary>
     public class CyprusProvider : IPublicHolidayProvider
     {
@@ -52,6 +51,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "St. Stephen's Day", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Cyprus",
+            };
         }
     }
 }

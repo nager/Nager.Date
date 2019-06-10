@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Denmark
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Denmark
     /// </summary>
     public class DenmarkProvider : IPublicHolidayProvider
     {
@@ -50,6 +49,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 31, "Nytårsaftensdag", "New Year's Eve", countryCode, type: PublicHolidayType.Bank | PublicHolidayType.School | PublicHolidayType.Optional));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Denmark",
+            };
         }
     }
 }

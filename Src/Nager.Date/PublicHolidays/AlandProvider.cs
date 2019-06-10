@@ -8,7 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// //Åland
-    /// https://de.wikipedia.org/wiki/%C3%85land
     /// </summary>
     public class AlandProvider : IPublicHolidayProvider
     {
@@ -59,6 +58,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "Annandag jul", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://de.wikipedia.org/wiki/%C3%85land"
+            };
         }
     }
 }

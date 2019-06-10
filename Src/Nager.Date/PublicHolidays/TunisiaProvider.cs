@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Tunisia
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Tunisia
     /// </summary>
     public class TunisiaProvider : IPublicHolidayProvider
     {
@@ -45,6 +44,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 10, 15, "Eid El Jala'", "Eid El Jala'", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Tunisia"
+            };
         }
     }
 }

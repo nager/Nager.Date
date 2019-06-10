@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Mozambique
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Mozambique
     /// </summary>
     public class MozambiqueProvider : IPublicHolidayProvider, ICountyProvider
     {
@@ -58,6 +57,18 @@ namespace Nager.Date.PublicHolidays
                 { "MZ-SO", "Sofala" },
                 { "MZ-TE", "Tete" },
                 { "MZ-ZA", "Zambezia" }
+            };
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Mozambique"
             };
         }
     }

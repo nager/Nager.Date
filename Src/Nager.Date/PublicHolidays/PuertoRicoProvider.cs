@@ -9,10 +9,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Puerto Rico
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Puerto_Rico
-    /// https://www.timeanddate.com/holidays/puerto-rico/2017#!hol=9
-    /// http://www.puertorico.com/official-holidays/
-    /// http://www.topuertorico.org/reference/holi.shtml
     /// </summary>
     public class PuertoRicoProvider : IPublicHolidayProvider
     {
@@ -92,6 +88,21 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
             
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Puerto_Rico",
+                "https://www.timeanddate.com/holidays/puerto-rico/2017#!hol=9",
+                "http://www.puertorico.com/official-holidays/",
+                "http://www.topuertorico.org/reference/holi.shtml"
+            };
         }
     }
 }

@@ -8,7 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Moldova
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Moldova
     /// </summary>
     public class MoldovaProvider : IPublicHolidayProvider
     {
@@ -58,6 +57,18 @@ namespace Nager.Date.PublicHolidays
             //items.Add(new PublicHoliday(year, 6, 1, "Children's Day", "Children's Day", countryCode, null, null, false));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Moldova"
+            };
         }
     }
 }

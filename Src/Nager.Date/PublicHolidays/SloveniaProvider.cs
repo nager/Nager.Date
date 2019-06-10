@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Slovenia
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Slovenia
     /// </summary>
     public class SloveniaProvider : IPublicHolidayProvider
     {
@@ -51,6 +50,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "dan samostojnosti in enotnosti", "Independence and Unity Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Slovenia"
+            };
         }
     }
 }

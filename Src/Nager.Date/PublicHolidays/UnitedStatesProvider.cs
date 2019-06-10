@@ -9,7 +9,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// United States of America
-    /// https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States
     /// </summary>
     public class UnitedStatesProvider : IPublicHolidayProvider
     {
@@ -92,6 +91,18 @@ namespace Nager.Date.PublicHolidays
             #endregion
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States"
+            };
         }
     }
 }

@@ -10,9 +10,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Japan
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Japan
-    /// https://en.wikipedia.org/wiki/Golden_Week_(Japan)
-    /// https://www.boj.or.jp/en/about/outline/holi.htm/
     /// </summary>
     public class JapanProvider : IPublicHolidayProvider
     {
@@ -112,5 +109,19 @@ namespace Nager.Date.PublicHolidays
         //    var converDt = TimeZoneInfo.ConvertTimeFromUtc(dt, timeZone);
         //    return converDt;
         //}
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Japan",
+                "https://en.wikipedia.org/wiki/Golden_Week_(Japan)",
+                "https://www.boj.or.jp/en/about/outline/holi.htm/"
+            };
+        }
     }
 }

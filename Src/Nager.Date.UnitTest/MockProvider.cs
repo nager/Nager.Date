@@ -23,5 +23,10 @@ namespace Nager.Date.UnitTest
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<string> GetSources()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

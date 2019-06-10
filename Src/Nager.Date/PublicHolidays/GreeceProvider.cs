@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Greece
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Greece
     /// </summary>
     public class GreeceProvider : IPublicHolidayProvider
     {
@@ -50,6 +49,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "Σύναξις Υπεραγίας Θεοτόκου Μαρίας", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Greece",
+            };
         }
     }
 }

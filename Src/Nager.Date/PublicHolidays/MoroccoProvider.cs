@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Morocco
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Morocco
     /// </summary>
     public class MoroccoProvider : IPublicHolidayProvider
     {
@@ -45,6 +44,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 11, 18, "Eid Al Istiqulal", "Independence Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Morocco"
+            };
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Vietnam
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Vietnam
     /// </summary>
     public class VietnamProvider : IPublicHolidayProvider
     {
@@ -38,6 +37,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 10, 1, "Quốc khánh", "National Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Vietnam"
+            };
         }
     }
 }

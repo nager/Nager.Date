@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Uruguay
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Uruguay
     /// </summary>
     public class UruguayProvider : IPublicHolidayProvider
     {
@@ -50,6 +49,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Día de la Familia", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Uruguay"
+            };
         }
     }
 }

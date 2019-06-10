@@ -9,7 +9,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Belize
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Belize
     /// </summary>
     public class BelizeProvider : IPublicHolidayProvider
     {
@@ -124,6 +123,18 @@ namespace Nager.Date.PublicHolidays
             #endregion
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Belize"
+            };
         }
     }
 }

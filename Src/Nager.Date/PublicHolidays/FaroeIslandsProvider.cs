@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Faroe Islands, adaptation of DenmarkProvider
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_the_Faroe_Islands
     /// </summary>
     public class FaroeIslandsProvider : IPublicHolidayProvider
     {
@@ -52,6 +51,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 31, "Nýggjársaftan", "New Year's Eve", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_the_Faroe_Islands",
+            };
         }
     }
 }

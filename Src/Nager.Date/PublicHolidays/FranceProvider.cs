@@ -7,8 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// France
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_France
-    /// https://en.wikipedia.org/wiki/ISO_3166-2:FR
     /// </summary>
     public class FranceProvider : IPublicHolidayProvider
     {
@@ -51,6 +49,19 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "Saint-Étienne", "St. Stephen's Day", countryCode, null, new string[] { "FR-A", "FR-57" }));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_France",
+                "https://en.wikipedia.org/wiki/ISO_3166-2:FR",
+            };
         }
     }
 }

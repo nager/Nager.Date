@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Belarus
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Belarus
     /// </summary>
     public class BelarusProvider : IPublicHolidayProvider
     {
@@ -44,6 +43,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(9), "Радунiца", "Commemoration Day", countryCode));
             
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Belarus"
+            };
         }
     }
 }

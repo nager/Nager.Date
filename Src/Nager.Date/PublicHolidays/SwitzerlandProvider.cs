@@ -8,7 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Switzerland
-    /// http://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz
     /// </summary>
     public class SwitzerlandProvider : IPublicHolidayProvider
     {
@@ -71,6 +70,18 @@ namespace Nager.Date.PublicHolidays
             }
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz"
+            };
         }
     }
 }

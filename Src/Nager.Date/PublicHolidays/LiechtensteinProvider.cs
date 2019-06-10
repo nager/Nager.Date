@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Liechtenstein
-    /// http://en.wikipedia.org/wiki/Public_holidays_in_Liechtenstein
     /// </summary>
     public class LiechtensteinProvider : IPublicHolidayProvider
     {
@@ -54,6 +53,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 31, "Silvester", "New Year's Eve", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Liechtenstein"
+            };
         }
     }
 }

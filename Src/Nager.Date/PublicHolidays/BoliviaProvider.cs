@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Bolivia
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Bolivia
     /// </summary>
     public class BoliviaProvider : IPublicHolidayProvider
     {
@@ -47,6 +46,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Bolivia"
+            };
         }
     }
 }

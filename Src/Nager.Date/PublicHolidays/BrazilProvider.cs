@@ -7,8 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Brazil
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Brazil
-    /// https://pt.wikipedia.org/wiki/Feriados_no_Brasil brazilian wikipedia is complete.
     /// </summary>
     public class BrazilProvider : IPublicHolidayProvider
     {
@@ -52,6 +50,19 @@ namespace Nager.Date.PublicHolidays
             // TODO non-official holidays
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Brazil",
+                "https://pt.wikipedia.org/wiki/Feriados_no_Brasil"
+            };
         }
     }
 }

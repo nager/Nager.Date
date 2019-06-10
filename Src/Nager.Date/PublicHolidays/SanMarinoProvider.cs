@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// San Marino 
-    /// https://en.wikipedia.org/wiki/San_Marino#Public_holidays_and_festivals
     /// </summary>
     public class SanMarinoProvider : IPublicHolidayProvider
     {
@@ -53,6 +52,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 31, "New Year's Eve", "New Year's Eve", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/San_Marino#Public_holidays_and_festivals"
+            };
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// South Africa
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_South_Africa
     /// </summary>
     public class SouthAfricaProvider : IPublicHolidayProvider
     {
@@ -47,6 +46,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "Day of Goodwill", "St. Stephen's Day", countryCode, 1910));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_South_Africa"
+            };
         }
     }
 }

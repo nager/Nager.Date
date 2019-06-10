@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Poland
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Poland
     /// </summary>
     public class PolandProvider : IPublicHolidayProvider
     {
@@ -54,6 +53,18 @@ namespace Nager.Date.PublicHolidays
             }
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Poland"
+            };
         }
     }
 }

@@ -9,7 +9,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Chile
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Chile
     /// </summary>
     public class ChileProvider : IPublicHolidayProvider, ICountyProvider
     {
@@ -91,6 +90,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Navidad / Natividad del Señor", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Chile",
+            };
         }
     }
 }

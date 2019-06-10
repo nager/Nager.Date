@@ -9,7 +9,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Suriname
-    /// https://en.wikipedia.org/wiki/Suriname#National_holidays
     /// </summary>
     public class SurinameProvider : IPublicHolidayProvider
     {
@@ -68,6 +67,18 @@ namespace Nager.Date.PublicHolidays
             }
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Suriname#National_holidays"
+            };
         }
     }
 }

@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Turkey
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Turkey
     /// </summary>
     public class TurkeyProvider : IPublicHolidayProvider
     {
@@ -37,6 +36,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 10, 29, "Cumhuriyet Bayramı", "Republic Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Turkey"
+            };
         }
     }
 }

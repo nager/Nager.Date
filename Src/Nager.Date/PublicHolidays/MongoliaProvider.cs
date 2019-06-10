@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Mongoli
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Mongolia
     /// </summary>
     public class MongoliaProvider : IPublicHolidayProvider
     {
@@ -46,6 +45,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 29, "Тусгаар Тогтнолын Өдөр ", "Independence Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Mongolia"
+            };
         }
     }
 }

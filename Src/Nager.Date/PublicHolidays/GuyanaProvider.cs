@@ -8,7 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Guyana
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Guyana
     /// </summary>
     public class GuyanaProvider : IPublicHolidayProvider
     {
@@ -52,6 +51,18 @@ namespace Nager.Date.PublicHolidays
             //TODO:Youman-Nabi ??? (Muslim holidays)
             //TODO:Eid-ul-Adha ??? (Muslim holidays)
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Guyana",
+            };
         }
     }
 }

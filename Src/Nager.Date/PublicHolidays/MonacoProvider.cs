@@ -9,7 +9,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Monaco
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Monaco
     /// </summary>
     public class MonacoProvider : IPublicHolidayProvider
     {
@@ -74,6 +73,18 @@ namespace Nager.Date.PublicHolidays
             #endregion
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Monaco"
+            };
         }
     }
 }

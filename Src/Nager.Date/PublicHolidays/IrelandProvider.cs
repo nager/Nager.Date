@@ -8,7 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Ireland
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_the_Republic_of_Ireland
     /// </summary>
     public class IrelandProvider : IPublicHolidayProvider
     {
@@ -50,6 +49,18 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "Lá Fhéile Stiofáin", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_the_Republic_of_Ireland",
+            };
         }
     }
 }

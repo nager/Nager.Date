@@ -19,5 +19,14 @@ namespace Nager.Date.PublicHolidays
         {
             return Enumerable.Empty<PublicHoliday>();
         }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return Enumerable.Empty<string>();
+        }
     }
 }

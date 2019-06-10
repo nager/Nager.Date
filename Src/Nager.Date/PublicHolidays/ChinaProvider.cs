@@ -8,7 +8,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// China
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_China
     /// </summary>
     public class ChinaProvider : IPublicHolidayProvider
     {
@@ -68,6 +67,18 @@ namespace Nager.Date.PublicHolidays
             }
 
             return month;
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_China",
+            };
         }
     }
 }

@@ -9,8 +9,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// United Kingdom
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_the_United_Kingdom
-    /// https://de.wikipedia.org/wiki/Feiertage_im_Vereinigten_K%C3%B6nigreich
     /// </summary>
     public class UnitedKingdomProvider : IPublicHolidayProvider, ICountyProvider
     {
@@ -71,20 +69,26 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 3, 17, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
-            if (year != 2020)
-            {
-                items.Add(new PublicHoliday(firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978));
-            }
-            else
-            {
-                var firstFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 1);
-                items.Add(new PublicHoliday(firstFridayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978));
-            }
             items.Add(new PublicHoliday(lastMondayInMay, "Spring Bank Holiday", "Spring Bank Holiday", countryCode, 1971));
             items.Add(new PublicHoliday(year, 11, 30, "Saint Andrew's Day", "Saint Andrew's Day", countryCode, null, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(year, 7, 12, "Battle of the Boyne", "Battle of the Boyne", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(lastMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-ENG", "GB-WLS" }));
+
+            #region Early May Bank Holiday
+
+            var earlyMayBankHoliday = new PublicHoliday(firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978);
+
+            if (year == 2020)
+            {
+                //https://www.bbc.co.uk/news/uk-48565417
+                var firstFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 1);
+                earlyMayBankHoliday.Date = firstFridayInMay;
+            }
+
+            items.Add(earlyMayBankHoliday);
+
+            #endregion
 
             #region Christmas Day with fallback
 
@@ -114,6 +118,19 @@ namespace Nager.Date.PublicHolidays
                 { "GB-SCT", "Scotland" },
                 { "GB-ENG", "England" },
                 { "GB-WLS", "Wales" },
+            };
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_the_United_Kingdom",
+                "https://de.wikipedia.org/wiki/Feiertage_im_Vereinigten_K%C3%B6nigreich"
             };
         }
     }

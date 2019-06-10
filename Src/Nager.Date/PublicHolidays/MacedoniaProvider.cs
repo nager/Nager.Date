@@ -7,7 +7,6 @@ namespace Nager.Date.PublicHolidays
 {
     /// <summary>
     /// Macedonia
-    /// https://en.wikipedia.org/wiki/Public_holidays_in_Macedonia
     /// </summary>
     public class MacedoniaProvider : IPublicHolidayProvider
     {
@@ -48,6 +47,18 @@ namespace Nager.Date.PublicHolidays
             //items.Add(new PublicHoliday(year, ??, ??, "Рамазан Бајрам, Ramazan Bajram", "Eid al-Fitr", countryCode)); //Islamic
 
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Get the Holiday Sources
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Macedonia"
+            };
         }
     }
 }
