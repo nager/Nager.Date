@@ -82,8 +82,8 @@ namespace Nager.Date.PublicHolidays
             if (year == 2020)
             {
                 //https://www.bbc.co.uk/news/uk-48565417
-                var firstFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 1);
-                earlyMayBankHoliday.Date = firstFridayInMay;
+                var secondFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 2);
+                earlyMayBankHoliday.Date = secondFridayInMay;
             }
 
             items.Add(earlyMayBankHoliday);

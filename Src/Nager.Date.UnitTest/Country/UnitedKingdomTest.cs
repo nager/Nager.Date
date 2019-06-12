@@ -42,5 +42,18 @@ namespace Nager.Date.UnitTest.Country
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        [DataRow(2019, 5, 6, true)]
+        [DataRow(2020, 5, 1, false)]
+        [DataRow(2020, 5, 8, true)]
+        public void CheckMayDay(int year, int month, int day, bool expected)
+        {
+            var date = new DateTime(year, month, day);
+
+            var result = DateSystem.IsPublicHoliday(date, CountryCode.GB);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
