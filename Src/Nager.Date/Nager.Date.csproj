@@ -16,9 +16,9 @@
     <PackageId>Nager.Date</PackageId>
     <Title>Nager Public Holiday</Title>
     <PackageIconUrl>https://raw.githubusercontent.com/tinohager/Nager.Date/master/Doc/Icons/calendar.png</PackageIconUrl>
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
-	<RepositoryUrl>https://github.com/tinohager/Nager.Date</RepositoryUrl>
-	<IncludeSymbols>true</IncludeSymbols>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RepositoryUrl>https://github.com/tinohager/Nager.Date</RepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
