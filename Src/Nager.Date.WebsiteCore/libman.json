@@ -4,22 +4,22 @@
   "libraries": [
     {
       "provider": "unpkg",
-      "library": "bootstrap@4.2.1",
+      "library": "bootstrap@4.3.0",
       "destination": "wwwroot/lib/bootstrap/"
     },
     {
       "provider": "cdnjs",
-      "library": "vue@2.5.22",
+      "library": "vue@2.6.10",
       "destination": "wwwroot/lib/vue/"
     },
     {
       "provider": "cdnjs",
-      "library": "axios@0.18.0",
+      "library": "axios@0.19.0",
       "destination": "wwwroot/lib/axios/"
     },
     {
       "provider": "cdnjs",
-      "library": "moment.js@2.23.0",
+      "library": "moment.js@2.24.0",
       "destination": "wwwroot/lib/moment/"
     },
     {
