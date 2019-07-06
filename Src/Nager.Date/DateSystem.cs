@@ -473,7 +473,17 @@ namespace Nager.Date
             return FindDay(date.Year, date.Month, date.Day, dayOfWeek);
         }
 
-        
+        /// <summary>
+        /// Find a day between two dates
+        /// </summary>
+        /// <param name="yearStart">The start year</param>
+        /// <param name="monthStart">The start month</param>
+        /// <param name="dayStart">The start day</param>
+        /// <param name="yearEnd">The end year</param>
+        /// <param name="monthEnd">The end month</param>
+        /// <param name="dayEnd">The end day</param>
+        /// <param name="dayOfWeek">The name of the day</param>
+        /// <returns></returns>
         public static DateTime FindDayBetween(int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd, DayOfWeek dayOfWeek)
         {
             DateTime startDay = new DateTime(yearStart, monthStart, dayStart);
@@ -492,7 +502,13 @@ namespace Nager.Date
             return startDay;
         }
 
-   
+        /// <summary>
+        /// Find a day between two dates
+        /// </summary>
+        /// <param name="startDate">The start date</param>
+        /// <param name="endDate">The end date</param>
+        /// <param name="dayOfWeek">The name of the day</param>
+        /// <returns></returns>
         public static DateTime FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
         {
             return FindDayBetween(startDate.Year, startDate.Month, startDate.Day, endDate.Year, endDate.Month, endDate.Day, dayOfWeek);
