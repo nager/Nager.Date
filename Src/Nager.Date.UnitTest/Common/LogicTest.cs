@@ -134,6 +134,21 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
+        public void CheckFindDayBetween()
+        {
+            var result = DateSystem.FindDayBetween(2019,7, 1,2019,7,7, DayOfWeek.Tuesday);
+            Assert.AreEqual(new DateTime(2019, 7, 2), result);
+
+            result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Wednesday);
+            Assert.AreEqual(new DateTime(2019, 7, 3), result);
+
+            result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Friday);
+            Assert.AreEqual(new DateTime(2019, 7, 5), result);
+
+            result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Saturday);
+            Assert.AreEqual(new DateTime(2019, 7, 6), result);
+        }
+        [TestMethod]
         public void CheckPublicHolidayWithDateFilter1()
         {
             var items = DateSystem.GetPublicHoliday(new DateTime(2016, 5, 1), new DateTime(2018, 5, 31), CountryCode.DE);

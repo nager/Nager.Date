@@ -473,6 +473,31 @@ namespace Nager.Date
             return FindDay(date.Year, date.Month, date.Day, dayOfWeek);
         }
 
+        
+        public static DateTime FindDayBetween(int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd, DayOfWeek dayOfWeek)
+        {
+            DateTime startDay = new DateTime(yearStart, monthStart, dayStart);
+            DateTime endDay = new DateTime(yearEnd, monthEnd, dayEnd);
+            TimeSpan diff = endDay - startDay;
+            int days = diff.Days;
+            for (var i = 0; i <= days; i++)
+            {
+                DateTime specificDayDate = startDay.AddDays(i);
+                if (specificDayDate.DayOfWeek == dayOfWeek)
+                {
+                    return specificDayDate;
+                }
+              
+            }
+            return startDay;
+        }
+
+   
+        public static DateTime FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
+        {
+            return FindDayBetween(startDate.Year, startDate.Month, startDate.Day, endDate.Year, endDate.Month, endDate.Day, dayOfWeek);
+        }
+
         /// <summary>
         /// Find the next weekday for example monday before a specific date
         /// </summary>

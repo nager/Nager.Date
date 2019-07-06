@@ -34,7 +34,7 @@ namespace Nager.Date.PublicHolidays
 
             var midsummerEve = DateSystem.FindDay(year, 6, 19, DayOfWeek.Friday);
             var midsummerDay = DateSystem.FindDay(year, 6, 20, DayOfWeek.Saturday);
-            var allSaintsDay = DateSystem.FindDay(year, 11, 19, DayOfWeek.Saturday);
+            var allSaintsDay = DateSystem.FindDayBetween(year, 10, 31, year, 11, 6, DayOfWeek.Saturday);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Uudenvuodenpäivä", "New Year's Day", countryCode));
