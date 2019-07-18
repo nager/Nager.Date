@@ -1,6 +1,5 @@
 ﻿using Nager.Date.Contract;
 using Nager.Date.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,7 +30,6 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.EE;
             var easterSunday = this._catholicProvider.EasterSunday(year);
-            var ethnicityDay = DateSystem.FindDay(year, 10, DayOfWeek.Saturday,3);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "uusaasta", "New Year's Day", countryCode));
@@ -43,7 +41,6 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 6, 23, "võidupüha and jaanilaupäev", "Victory Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 24, "jaanipäev", "Midsummer Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 20, "taasiseseisvumispäev", "Day of Restoration of Independence", countryCode, 1991));
-            items.Add(new PublicHoliday(ethnicityDay, "Hõimupäev", "Finno-Ugrian Days", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "jõululaupäev", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "esimene jõulupüha", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "teine jõulupüha", "St. Stephen's Day", countryCode));
