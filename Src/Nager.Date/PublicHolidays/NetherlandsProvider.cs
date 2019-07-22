@@ -51,8 +51,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, kingsDay, "Koningsdag", "King's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Hemelvaartsdag", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pinksteren", "Whit Monday", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Eerste kerstdag", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "Tweede kerstdag", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 25, "Eerste Kerstdag", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "Tweede Kerstdag", "St. Stephen's Day", countryCode));
 
             #region Liberation Day
 
