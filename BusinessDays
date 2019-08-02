@@ -1,0 +1,208 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CalculateBusinessDays
+{
+
+    public static partial class DateTimeExtension
+    {
+
+        /// <summary>
+        /// Move to next open day
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>next open day from start date</returns>
+        public static DateTime NextOD(this DateTime startDate, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            return startDate.AddDays(1, holidays, weekend);
+        }
+        /// <summary>
+        /// Move to previous open day
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>previous day from start date</returns>
+        public static DateTime PreviousOD(this DateTime startDate, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            return startDate.AddDays(-1, holidays, weekend);
+        }
+        /// <summary>
+        /// Move to first open day for the start date month
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>first open day from current month</returns>
+        public static DateTime FirstOD(this DateTime startDate, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            DateTime result = new DateTime(startDate.Year, startDate.Month, 1).AddDays(-1);
+            return result.AddDays(1, holidays, weekend);
+        }
+        /// <summary>
+        /// Move to last open day for the start date month
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>last open day from current month</returns>
+        public static DateTime LastOD(this DateTime startDate, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            DateTime result = new DateTime(startDate.Year, startDate.Month,DateTime.DaysInMonth(startDate.Year,startDate.Month) ).AddDays(1);
+            return result.AddDays(-1, holidays, weekend);
+        }
+        /// <summary>
+        /// Find first week day for the start date month
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="dayOfWeek">Week day to find</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>First week day finded</returns>
+        public static DateTime FirstWeekDay(this DateTime startDate, DayOfWeek dayOfWeek, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            DateTime result = new DateTime(startDate.Year, startDate.Month, 1);            
+            while (result.DayOfWeek != dayOfWeek)
+            {
+                result = result.AddDays(1);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Find second week day for the start date month
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="dayOfWeek">Week day to find</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>Second week day finded</returns>
+        public static DateTime SecondWeekDay(this DateTime startDate, DayOfWeek dayOfWeek, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            DateTime result = new DateTime(startDate.Year, startDate.Month, 8);            
+            while (result.DayOfWeek != dayOfWeek)
+            {
+                result = result.AddDays(1);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Find third week day for the start date month
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="dayOfWeek">Week day to find</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>Third week day finded</returns>
+        public static DateTime ThirdWeekDay(this DateTime startDate, DayOfWeek dayOfWeek, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            DateTime result = new DateTime(startDate.Year, startDate.Month, 16);
+            while (result.DayOfWeek != dayOfWeek)
+            {
+                result = result.AddDays(1);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Find last week day for the start date month
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="dayOfWeek">Week day to find</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>Last week day finded</returns>
+        public static DateTime LastWeekDay(this DateTime startDate, DayOfWeek dayOfWeek, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            DateTime result = new DateTime(startDate.Year, startDate.Month, DateTime.DaysInMonth(startDate.Year, startDate.Month));
+            while (result.DayOfWeek != dayOfWeek)
+            {
+                result = result.AddDays(-1);
+            }
+            return result;
+        }
+        /// <summary>
+        /// Add open days to start date
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="quantity">quantity days to add</param>
+        /// <param name="holidays">list of holidays</param>
+        /// <param name="weekend">list of weekend days</param>
+        /// <returns>Date result from start date plus quantity open days</returns>
+        public static DateTime AddDays(this DateTime startDate, int quantity, ICollection<DateTime> holidays, ICollection<DayOfWeek> weekend)
+        {
+            DateTime result = startDate.Date; 
+            //Remove weeken days from holidays collection
+            ICollection<DateTime> cleanHolidays = holidays.Where(x => !weekend.Contains(x.Date.DayOfWeek)).ToList();
+            //Make factor direction
+            int factor = 1;
+            if (quantity < 0) { factor = -1; }
+            //Gate complete weeks
+            int weeks = quantity / (7 - weekend.Count());
+            //To compute les than 2 weeks
+            if (weeks < 2)
+            {
+                int count = 0;
+                while (count < Math.Abs(quantity))
+                {
+                    result = result.AddDays(factor);
+                    if (holidays.Contains(result) || weekend.Contains(result.DayOfWeek))
+                    {
+                        count -= 1;
+                    }
+                    count += 1;
+                }
+            }
+            else
+            {
+                //Reduce one day when startDate is not an open day
+                int reduceDay = 0;
+                if (weekend.Contains(startDate.DayOfWeek) || holidays.Contains(startDate))
+                {
+                    reduceDay = factor;
+                    while (weekend.Contains(result.DayOfWeek) || holidays.Contains(result))
+                    {
+                        result = result.AddDays(factor);
+                    }
+                }
+            
+                int nTDays = weeks * 7 ;
+                double r = (quantity % (7 - weekend.Count));
+                
+                result = result.AddDays(nTDays * factor);
+                //move the result date if it is in a weekend day
+                if (weekend.Contains(result.DayOfWeek) ) {
+                    while (weekend.Contains(result.DayOfWeek) )
+                    {
+                        result = result.AddDays(factor);
+                    }
+                }
+                //add the holidays between result date and start date.
+                int hDays = cleanHolidays.Count(x => x.Date >= startDate && x.Date <= result);
+                if (hDays > 0)
+                {
+                    result = AddDays(result, hDays * factor, holidays, weekend);
+                }
+                //add the remainder days
+                if (r > 0) {
+                    result = AddDays(result, ((int)r - reduceDay) * factor, holidays, weekend);
+                }                
+            }
+            return result;
+        }
+        /// <summary>
+        /// Add weeks to start date
+        /// </summary>
+        /// <param name="startDate">Start date</param>
+        /// <param name="weeks">weeks to add</param>
+        /// <returns>start date plus weeks</returns>
+        public static DateTime AddWeeks(this DateTime startDate, int weeks) {
+            DateTime result = startDate.Date.AddDays(weeks * 7);
+            return result;
+        }
+       
+    }
+}
