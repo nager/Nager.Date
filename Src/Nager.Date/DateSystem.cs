@@ -121,7 +121,8 @@ namespace Nager.Date
                 { CountryCode.VN, new VietnamProvider() },
                 //Not officially assigned https://www.iso.org/obp/ui/#iso:pub:PUB500001:en
                 //{ CountryCode.XK, new KosovoProvider(_orthodoxProvider, _catholicProvider) },
-                { CountryCode.ZA, new SouthAfricaProvider(_catholicProvider) }
+                { CountryCode.ZA, new SouthAfricaProvider(_catholicProvider) },
+                { CountryCode.ZW, new ZimbabweProvider(_catholicProvider) }
             };
 
         private static readonly Dictionary<CountryCode, IWeekendProvider> _nonUniversalWeekendProviders =
