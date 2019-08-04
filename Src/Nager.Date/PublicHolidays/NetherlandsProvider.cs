@@ -46,13 +46,13 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nieuwjaarsdag", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Goede Vrijdag", "Good Friday", countryCode, type: PublicHolidayType.Authorities | PublicHolidayType.School));
-            items.Add(new PublicHoliday(easterSunday, "Paasfeest", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), " Pasen", "Easter Monday", countryCode, 1642));
+            items.Add(new PublicHoliday(easterSunday, "Eerste Paasdag", "Easter Sunday", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Tweede Paasdag", "Easter Monday", countryCode, 1642));
             items.Add(new PublicHoliday(year, 4, kingsDay, "Koningsdag", "King's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(39), "Hemelvaartsdag", "Ascension Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pinksteren", "Whit Monday", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Eerste kerstdag", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "Tweede kerstdag", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 25, "Eerste Kerstdag", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "Tweede Kerstdag", "St. Stephen's Day", countryCode));
 
             #region Liberation Day
 
