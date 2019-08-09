@@ -2,6 +2,9 @@
 
 namespace Nager.Date.Contract
 {
+    /// <summary>
+    /// Catholic
+    /// </summary>
     public class CatholicProvider : ICatholicProvider
     {
         /// <summary>
