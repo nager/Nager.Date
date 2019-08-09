@@ -2,7 +2,7 @@
 
 # Nager.Date ([date.nager.at](https://date.nager.at))
 
-Nager.Date is a popular Date/Calendar library for .NET. Public holiday calculation for every year and supports over 90 countries. Nager.Date is open source software and is completely free for commercial use. You can choose if you want to use the project [directly](https://www.nuget.org/packages/Nager.Date) or if you want to use the [API](https://date.nager.at/API). If you need more as 50 requests per day please use directly.
+Nager.Date is a popular Date/Calendar library for .NET. Public holiday calculation for every year and supports over 100 countries. Nager.Date is open source software and is completely free for commercial use. You can choose if you want to use the project [directly](https://www.nuget.org/packages/Nager.Date) or if you want to use the [API](https://date.nager.at/API). If you need more as 50 requests per day please use directly.
 
 ### nuget
 The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
