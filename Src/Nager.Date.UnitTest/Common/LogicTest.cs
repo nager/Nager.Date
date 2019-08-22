@@ -159,6 +159,25 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
+        public void CheckIsOfficialPublicHolidayByCounty1()
+        {
+            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU);
+            Assert.IsFalse(isPublicHoliday);
+            isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-NT");
+            Assert.IsTrue(isPublicHoliday);
+            isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-WA");
+            Assert.IsFalse(isPublicHoliday);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException), "Invalid countyCode AU-NT")]
+        public void CheckIsOfficialPublicHolidayByCounty2()
+        {
+            var isPublicHoliday = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2019, 8, 5), CountryCode.AU, "AU-NT");
+            Assert.IsTrue(isPublicHoliday);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentException), "startDate is before endDate")]
         public void CheckPublicHolidayWithDateFilter2()
         {

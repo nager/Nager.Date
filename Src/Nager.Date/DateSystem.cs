@@ -371,7 +371,7 @@ namespace Nager.Date
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetPublicHoliday(date.Year, countryCode);
-            return items.Any(o => o.Date.Date == date.Date);
+            return items.Any(o => o.Date.Date == date.Date && o.Counties == null);
         }
 
         /// <summary>
@@ -397,6 +397,13 @@ namespace Nager.Date
         /// <returns></returns>
         public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
+            var provider = GetPublicHolidayProvider(countryCode);
+            var countryProvider = provider as ICountyProvider;
+            if (countryProvider != null && !countryProvider.GetCounties().ContainsKey(countyCode))
+            {
+                throw new ArgumentException($"Invalid countyCode {countyCode}");
+            }
+
             var items = GetPublicHoliday(date.Year, countryCode);
             return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)));
         }
