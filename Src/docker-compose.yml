@@ -1,0 +1,10 @@
+version: '3'
+services:
+  nager_api:
+    container_name: nagerwebapi
+    restart: always
+    build: .
+    expose:
+      - "80"
+    ports:
+      - "8085:80"

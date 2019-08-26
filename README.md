@@ -90,3 +90,29 @@ The list of supported countries can be found on the [wiki](https://github.com/ti
 | .NET | [Holiday](https://github.com/martinjw/Holiday) | 21 |
 | Python | [python-holidays](https://github.com/ryanss/python-holidays) | 34 |
 | Python | [workalendar](https://github.com/peopledoc/workalendar) | 59 |
+
+### Docker Support for Nager.Date Web API .NET
+
+Dockerfile Provide for you to running with docker and docker-compose (Open in ./Src/)
+
+Dockerfile Build command :
+
+```
+docker build -t nagerdateweb .
+```
+
+docker-compose.yml example
+```
+version: '3'
+services:
+  nager_api:
+    container_name: nagerwebapi
+    restart: always
+    build: .
+    expose:
+      - "80"
+    ports:
+      - "8085:80"
+```
+
+Access the API / Web API via `http://localhost/swagger/index.html`
