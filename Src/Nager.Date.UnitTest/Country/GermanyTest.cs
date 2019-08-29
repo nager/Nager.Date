@@ -59,6 +59,18 @@ namespace Nager.Date.UnitTest.Country
         }
 
         [TestMethod]
+        public void TestGermanyIsOfficialPublicHolidayByCountyWithCountySpecificWorldChildrensDay()
+        {
+            var isPublicHolidayInTH2018 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2018, 9, 20), CountryCode.DE, "DE-TH");
+            var isPublicHolidayInTH2019 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2019, 9, 20), CountryCode.DE, "DE-TH");
+            var isPublicHolidayInTH2020 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2020, 9, 20), CountryCode.DE, "DE-TH");
+
+            Assert.IsFalse(isPublicHolidayInTH2018);
+            Assert.IsTrue(isPublicHolidayInTH2019);
+            Assert.IsTrue(isPublicHolidayInTH2020);
+        }
+
+        [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

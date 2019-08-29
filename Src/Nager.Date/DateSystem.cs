@@ -405,7 +405,10 @@ namespace Nager.Date
             }
 
             var items = GetPublicHoliday(date.Year, countryCode);
-            return items.Any(o => o.Date.Date == date.Date && (o.Counties == null || o.Counties.Contains(countyCode)));
+            return items.Any(o =>
+            o.Date == date.Date &&
+            (o.Counties == null || o.Counties.Contains(countyCode)) &&
+            (o.LaunchYear == null || date.Year >= o.LaunchYear));
         }
 
         #endregion
