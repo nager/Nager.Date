@@ -33,7 +33,7 @@ namespace Nager.Date.PublicHolidays
             items.Add("CA-BC", "British Columbia");
             items.Add("CA-MB", "Manitoba");
             items.Add("CA-NB", "New Brunswick");
-            items.Add("CA-NL", "Neufundland und Labrador");
+            items.Add("CA-NL", "Newfoundland and Labrador");
             items.Add("CA-NS", "Nova Scotia");
             items.Add("CA-ON", "Ontario");
             items.Add("CA-PE", "Prince Edward Island");
@@ -77,7 +77,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(mondayOnOrBeforeMay24, "National Patriots' Day", "National Patriots' Day", countryCode, null, new string[] { "CA-QC" }));
             items.Add(new PublicHoliday(mondayOnOrBeforeMay24, "Victoria Day", "Victoria Day", countryCode, null, new string[] { "CA-AB", "CA-BC", "CA-MB", "CA-NB", "CA-NT", "CA-NS", "CA-NU", "CA-ON", "CA-PE", "CA-SK", "CA-YT" }));
             items.Add(new PublicHoliday(year, 6, 21, "National Aboriginal Day", "National Aboriginal Day", countryCode, null, new string[] { "CA-NT" }));
-            items.Add(new PublicHoliday(year, 6, 24, "Discovery Day", "Discovery Day", countryCode, null, new string[] { "CA-NL", "CA-QC", "CA-YT" }));
+            items.Add(new PublicHoliday(year, 6, 24, "Discovery Day", "Discovery Day", countryCode, null, new string[] { "CA-NL" }));
+            items.Add(new PublicHoliday(year, 6, 24, "Fête nationale du Québec", "National Holiday", countryCode, null, new string[] { "CA-QC" }));
             items.Add(new PublicHoliday(year, 7, 1, "Canada Day", "Canada Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 12, "Orangemen's Day", "Orangemen's Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Civic Holiday", "Civic Holiday", countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NL", "CA-NT", "CA-NU", "CA-ON" }));
