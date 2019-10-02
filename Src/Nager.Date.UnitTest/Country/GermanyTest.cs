@@ -41,6 +41,24 @@ namespace Nager.Date.UnitTest.Country
         }
 
         [TestMethod]
+        public void TestGermanyLiberationDay2020()
+        {
+            var publicHolidays = DateSystem.GetPublicHoliday(
+                new DateTime(2019, 5, 8),
+                new DateTime(2021, 5, 8),
+                CountryCode.DE);
+            var liberationDays = publicHolidays.Where(x => x.LocalName == "Tag der Befreiung").ToList();
+
+            Assert.AreEqual(1, liberationDays.Count);
+            var liberationDay = liberationDays.FirstOrDefault();
+            Assert.IsNotNull(liberationDay);
+            Assert.AreEqual(new DateTime(2020, 5, 8), liberationDay.Date);
+            Assert.IsNotNull(liberationDay.Counties);
+            Assert.AreEqual(1, liberationDay.Counties.Length);
+            Assert.AreEqual("DE-BE", liberationDay.Counties[0]);
+        }
+
+        [TestMethod]
         public void TestGermanyIsOfficialPublicHolidayByCountyWithCountySpecificEpiphany2017()
         {
             var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-BW");
@@ -68,6 +86,20 @@ namespace Nager.Date.UnitTest.Country
             Assert.IsFalse(isPublicHolidayInTH2018);
             Assert.IsTrue(isPublicHolidayInTH2019);
             Assert.IsTrue(isPublicHolidayInTH2020);
+        }
+
+        [TestMethod]
+        public void TestGermanyIsOfficialPublicHolidayByCountyLiberationDay()
+        {
+            const string CountyCodeBerlin = "DE-BE";
+
+            var isPublicHolidayInBerlin2019 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2019, 5, 8), CountryCode.DE, CountyCodeBerlin);
+            var isPublicHolidayInBerlin2020 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2020, 5, 8), CountryCode.DE, CountyCodeBerlin);
+            var isPublicHolidayInBerlin2021 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2021, 5, 8), CountryCode.DE, CountyCodeBerlin);
+
+            Assert.IsFalse(isPublicHolidayInBerlin2019);
+            Assert.IsTrue(isPublicHolidayInBerlin2020);
+            Assert.IsFalse(isPublicHolidayInBerlin2021);
         }
 
         [TestMethod]
