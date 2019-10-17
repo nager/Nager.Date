@@ -143,7 +143,7 @@ namespace Nager.Date
                 { CountryCode.IL, WeekendProvider.SemiUniversal },
                 // { CountryCode.IN, WeekendProvider.SundayOnly }, // Except for Government offices and IT industry
                 { CountryCode.IQ, WeekendProvider.SemiUniversal },
-                { CountryCode.IR, WeekendProvider.SemiUniversal }, // Or friday only (no information on in which case it occurs)
+                { CountryCode.IR, WeekendProvider.FridayOnly },
                 { CountryCode.JO, WeekendProvider.SemiUniversal },
                 { CountryCode.KW, WeekendProvider.SemiUniversal },
                 { CountryCode.LY, WeekendProvider.SemiUniversal },
