@@ -2,6 +2,7 @@
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -83,6 +84,12 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(this.GetReformationDay(year, CountryCode.DE));
 
+            var liberationDay = this.GetLiberationDay(year, countryCode);
+            if (liberationDay != null)
+            {
+                items.Add(liberationDay);
+            }
+
             return items.OrderBy(o => o.Date);
         }
 
@@ -139,6 +146,13 @@ namespace Nager.Date.PublicHolidays
             }
 
             return null;
+        }
+
+        private PublicHoliday GetLiberationDay(int year, CountryCode countryCode)
+        {
+            return year == 2020
+                ? new PublicHoliday(new DateTime(2020, 5, 8), "Tag der Befreiung", "Liberation Day", countryCode, null, new string[]{ "DE-BE"})
+                : null;
         }
 
         /// <summary>
