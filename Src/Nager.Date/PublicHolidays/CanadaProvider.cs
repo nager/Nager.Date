@@ -79,7 +79,6 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 6, 21, "National Aboriginal Day", "National Aboriginal Day", countryCode, null, new string[] { "CA-NT" }));
             items.Add(new PublicHoliday(year, 6, 24, "Discovery Day", "Discovery Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(new PublicHoliday(year, 6, 24, "Fête nationale du Québec", "National Holiday", countryCode, null, new string[] { "CA-QC" }));
-            items.Add(new PublicHoliday(year, 7, 1, "Canada Day", "Canada Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 12, "Orangemen's Day", "Orangemen's Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Civic Holiday", "Civic Holiday", countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NL", "CA-NT", "CA-NU", "CA-ON" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Heritage Day", "Heritage Day", countryCode, null, new string[] { "CA-AB", "CA-YT" }));
@@ -94,7 +93,24 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "St. Stephen's Day", "St. Stephen's Day", countryCode, null, new string[] { "CA-AB", "CA-NB", "CA-NS", "CA-ON", "CA-PE" }));
 
+            items.AddRange(this.CanadaDay(year, countryCode));
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday[] CanadaDay(int year, CountryCode countryCode)
+        {
+            var canadaDay = new DateTime(year, 7, 1);
+            if (canadaDay.DayOfWeek == DayOfWeek.Sunday)
+            {
+                return new PublicHoliday[] {
+                    new PublicHoliday(year, 7, 1, "Canada Day", "Canada Day", countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NB", "CA-NL", "CA-NS", "CA-ON", "CA-PE", "CA-QC", "CA-SK", "CA-NT", "CA-NU", "CA-YT" } ),
+                    //Canada Day is on July 1 every year except when it falls on a Sunday, then it’s on July 2.
+                    new PublicHoliday(year, 7, 2, "Canada Day", "Canada Day", countryCode, null, new string[] { "CA-AB" }) { Fixed = false }
+                };
+            }
+
+            return new PublicHoliday[] { new PublicHoliday(year, 7, 1, "Canada Day", "Canada Day", countryCode) };
         }
 
         /// <summary>
