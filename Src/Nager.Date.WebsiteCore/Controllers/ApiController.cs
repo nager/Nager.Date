@@ -189,7 +189,7 @@ namespace Nager.Date.WebsiteCore.Controllers
         {
             var countries = from CountryCode o in Enum.GetValues(typeof(CountryCode))
                             where DateSystem.GetPublicHoliday(DateTime.Today.Year, o).Any()
-                            select new KeyValuePair<string, string>(o.ToString(), this.GetName(o));
+                            select new { Key = o.ToString(), Value = this.GetName(o) };
 
             return StatusCode(StatusCodes.Status200OK, countries);
         }
