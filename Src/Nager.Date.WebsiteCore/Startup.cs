@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +9,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Nager.Date.WebsiteCore.Contract;
-using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.IO;
 using System.Reflection;
@@ -38,6 +36,12 @@ namespace Nager.Date.WebsiteCore
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.Converters.Add(new DateTimeConverter());
+                options.JsonSerializerOptions.Converters.Add(new PublicHolidayTypeConverter());
+            });
+
             services.AddControllersWithViews();//.AddRazorRuntimeCompilation();
 
             services.AddSwaggerGen(c =>
@@ -48,6 +52,8 @@ namespace Nager.Date.WebsiteCore
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
+
+                c.DescribeAllEnumsAsStrings();
             });
         }
 
