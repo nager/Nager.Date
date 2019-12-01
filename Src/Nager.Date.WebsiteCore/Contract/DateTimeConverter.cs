@@ -13,7 +13,7 @@ namespace Nager.Date.WebsiteCore.Contract
 
         public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
         {
-            writer.WriteStringValue(value.ToUniversalTime().ToString("yyyy'-'MM'-'dd"));
+            writer.WriteStringValue(value.ToString("yyyy'-'MM'-'dd"));
         }
     }
 }
