@@ -5,9 +5,11 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-buster AS build
 WORKDIR /src
-COPY ["Src/Nager.Date.WebsiteCore/Nager.Date.WebsiteCore.csproj", "Src/Nager.Date.WebsiteCore/"]
-RUN dotnet restore "Src/Nager.Date.WebsiteCore/Nager.Date.WebsiteCore.csproj"
-COPY . .
+COPY ["Src/Nager.Date/Nager.Date.csproj", "Nager.Date/"]
+RUN dotnet restore "Nager.Date/Nager.Date.csproj"
+COPY ["Src/Nager.Date.WebsiteCore/Nager.Date.WebsiteCore.csproj", "Nager.Date.WebsiteCore/"]
+RUN dotnet restore "Nager.Date.WebsiteCore/Nager.Date.WebsiteCore.csproj"
+COPY ./Src/ .
 WORKDIR "/src/Nager.Date.WebsiteCore"
 RUN dotnet build "Nager.Date.WebsiteCore.csproj" -c Release -o /app/build
 
