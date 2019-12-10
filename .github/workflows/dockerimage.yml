@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: |
+        docker login -u ${{ secrets.DOCKERHUB_USER }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+        docker build . --file Src/Nager.Date.WebsiteCore/Dockerfile --tag nagerat/nager-date:$GITHUB_SHA --tag nagerat/nager-date:latest
+        docker push nagerat/nager-date:$GITHUB_SHA
+        docker push nagerat/nager-date:latest
+        
