@@ -6,6 +6,8 @@ Nager.Date is a popular Date/Calendar library for Public holiday calculation for
 
 ## How can I use it?
 
+If you are use .net you can install the package over nuget for all other languages we have a docker image with a web api available.
+
 ### nuget
 The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
 ```
