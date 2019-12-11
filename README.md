@@ -2,7 +2,9 @@
 
 # Nager.Date ([date.nager.at](https://date.nager.at))
 
-Nager.Date is a popular Date/Calendar library for .NET. Public holiday calculation for every year and supports over 100 countries. Nager.Date is open source software and is completely free for commercial use. You can choose if you want to use the project [directly](https://www.nuget.org/packages/Nager.Date) or if you want to use the [API](https://date.nager.at/API). If you need more as 50 requests per day please use directly.
+Nager.Date is a popular Date/Calendar library for Public holiday calculation for every year and supports over 100 countries. Nager.Date is open source software and is completely free for commercial use. You can choose if you want to use the project [directly](https://www.nuget.org/packages/Nager.Date) or if you want to use the [API](https://date.nager.at/API). If you need more as 50 requests per day please use directly.
+
+## How can I use it?
 
 ### nuget
 The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
@@ -10,13 +12,17 @@ The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
 PM> install-package Nager.Date
 ```
 
-### Donation possibilities
+### web api
+- **direct** use the api direct [date.nager.at API](https://date.nager.at/API)
+- **docker** or use the docker container [dockerhub](https://hub.docker.com/r/nagerat/nager-date)
+
+## Donation possibilities
 If this project help you reduce time to develop, you can give me a beer :beer:
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/nagerat/25)
 
-### Examples
+## Examples
 
-#### Get all publicHolidays of a country and year
+### Get all publicHolidays of a country and year
 ```cs
 var publicHolidays = DateSystem.GetPublicHoliday("DE", 2017);
 foreach (var publicHoliday in publicHolidays)
@@ -32,7 +38,7 @@ foreach (var publicHoliday in publicHolidays)
 }
 ```
 
-#### Get all publicHolidays for a date range
+### Get all publicHolidays for a date range
 ```cs
 var startDate = new DateTime(2016, 5, 1);
 var endDate = new DateTime(2018, 5, 31);
@@ -43,7 +49,7 @@ foreach (var publicHoliday in publicHolidays)
 }
 ```
 
-#### Check if a date is a public holiday
+### Check if a date is a public holiday
 ```cs
 var date = new DateTime(2017, 1, 1);
 if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
@@ -52,7 +58,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 }
 ```
 
-#### Check if a date is a weekend day
+### Check if a date is a weekend day
 ```cs
 var date = new DateTime(2017, 1, 1);
 if (DateSystem.IsWeekend(date, CountryCode.DE))
@@ -61,26 +67,26 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 }
 ```
 
-#### Calculate age
+### Calculate age
 ```cs
 var date = new DateTime(1900, 1, 1);
 var age = DateSystem.GetAge(date);
 ```
 
-### Country Support
+## Country Support
 
 The list of supported countries can be found on the [wiki](https://github.com/tinohager/Nager.Date/wiki/Supported-Countries).
 
-### Areas of Application
+## Areas of Application
 - telephone systems
 - carrier (land transport)
 - time recording
 
-### Blog Posts
+## Blog Posts
 
 [Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
 
-### Alternative projects
+## Alternative projects
 
 | Language | Project | Supported Countries (January 2019) |
 | ------------- | ------------- | ------------- |
