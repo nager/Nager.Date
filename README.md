@@ -17,7 +17,6 @@ PM> install-package Nager.Date
 ### web api
 - **direct** use the api direct [date.nager.at API](https://date.nager.at/API)
 - **docker** or use the docker container [dockerhub](https://hub.docker.com/r/nagerat/nager-date)
-  - `docker pull nagerat/nager-date`
   - `docker run -d -p 80:80 nagerat/nager-date`
 
 ## Donation possibilities
