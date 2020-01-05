@@ -97,5 +97,6 @@ The list of supported countries can be found on the [wiki](https://github.com/ti
 | JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) | 142 |
 | Java | [jollyday](https://github.com/svendiedrichsen/jollyday) | 64 |
 | .NET | [Holiday](https://github.com/martinjw/Holiday) | 21 |
+| .NET | [ShaNetHoliday](https://github.com/Shaenn/ShaNetHoliday) | 63 |
 | Python | [python-holidays](https://github.com/ryanss/python-holidays) | 34 |
 | Python | [workalendar](https://github.com/peopledoc/workalendar) | 59 |
