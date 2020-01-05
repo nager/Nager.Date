@@ -58,6 +58,7 @@
     <Compile Include="Country\HungaryTest.cs" />
     <Compile Include="Country\KosovoTest.cs" />
     <Compile Include="Country\MexicoTest.cs" />
+    <Compile Include="Country\RomaniaTest.cs" />
     <Compile Include="DateTimeExtension\DateTimeExtension_Shift.cs" />
     <Compile Include="MockProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
