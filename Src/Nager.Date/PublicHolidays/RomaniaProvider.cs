@@ -48,7 +48,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Crăciunul", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Crăciunul", "St. Stephen's Day", countryCode));
 
-            return items.OrderBy(o => o.Date);
+            return items.OrderBy(o => o.Date)
+                        .Where(x => x.LaunchYear == null || x.LaunchYear <= year);
         }
 
         /// <summary>
