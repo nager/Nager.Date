@@ -21,33 +21,6 @@
 
 <div class="container-fluid" id="App" v-cloak>
 
-    @*<div class="row mt-4">
-
-            <div class="col-12 col-sm-6 col-lg-2">
-                <!-- .metric -->
-                <div class="card-metric">
-                    <div class="metric">
-                        <p class="metric-value h3">
-                            <i class="fa fa-star-o" aria-hidden="true"></i> <span class="value">Public holidays</span>
-                        </p>
-                        <h1 class="metric-label mt-3">12</h1>
-                    </div>
-                </div><!-- /.metric -->
-            </div>
-
-            <div class="col-12 col-sm-6 col-lg-2">
-                <div class="card-metric">
-                    <div class="metric">
-                        <p class="metric-value h3">
-                            <i class="fa fa-gift" aria-hidden="true"></i> <span class="value">Long weekends</span>
-                        </p>
-                        <h1 class="metric-label mt-3">1</h1>
-                    </div>
-                </div>
-            </div>
-
-        </div>*@
-
     <div class="row">
         <div class="col-12 col-xl-8 mt-4">
             <section class="card">
@@ -128,7 +101,7 @@
                                 <td v-for="day in getDates(longWeekend.startDate, longWeekend.endDate)" class="day">
                                     <span class="d-block" :style="isSunday(day) ? 'color:red; font-weight:bold;' : ''">{{ day | onlyDayName }}</span>
                                     <strong>{{ day | onlyDayNumber }}</strong><br />
-                                    <span class="d-sm-none d-block">{{ longWeekend.endDate | onlyMonthName }}</span>
+                                    <span class="d-sm-none d-block">{{ day | onlyMonthName }}</span>
                                 </td>
                                 <td class="d-none d-sm-table-cell info-end">{{ longWeekend.endDate | monthNameWithDay }}</td>
                             </tr>
@@ -137,28 +110,6 @@
                     <div v-else class="p-3">
                         No data for this country available.
                     </div>
-                    @*<hr />
-                    <table class="table" v-if="longWeekends.length > 0">
-                        <thead>
-                            <tr>
-                                <th>Startdate</th>
-                                <th>Enddate</th>
-                                <th>Days</th>
-                                <th>Need a Bridge Day</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="longWeekend in longWeekends">
-                                <td>{{ longWeekend.startDate | shortLocalDate }}</td>
-                                <td>{{ longWeekend.endDate | shortLocalDate }}</td>
-                                <td>{{ longWeekend.dayCount }}</td>
-                                <td>
-                                    <span v-if="longWeekend.needBridgeDay" class="glyphicon glyphicon-ok" aria-hidden="true">x</span>
-                                    <span v-if="!longWeekend.needBridgeDay" class="glyphicon glyphicon-remove" aria-hidden="true">-</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>*@
                 </div>
                 <div v-else class="p-3">
                     <div class="spinner-grow text-primary" role="status">
