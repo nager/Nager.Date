@@ -318,7 +318,7 @@ namespace Nager.Date
                 var items = GetPublicHoliday(currentYear, countryCode);
                 foreach (var item in items)
                 {
-                    if (item.Date >= startDate && item.Date <= endDate)
+                    if (item.Date.Date >= startDate.Date && item.Date.Date <= endDate.Date)
                     {
                         yield return item;
                     }
