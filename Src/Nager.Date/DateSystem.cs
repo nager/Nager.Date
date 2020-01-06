@@ -639,28 +639,36 @@ namespace Nager.Date
                 switch (publicHoliday.Date.DayOfWeek)
                 {
                     case DayOfWeek.Thursday:
-                        item = new LongWeekend();
-                        item.StartDate = publicHoliday.Date;
-                        item.EndDate = publicHoliday.Date.AddDays(3);
-                        item.Bridge = true;
+                        item = new LongWeekend
+                        {
+                            StartDate = publicHoliday.Date,
+                            EndDate = publicHoliday.Date.AddDays(3),
+                            Bridge = true
+                        };
                         break;
                     case DayOfWeek.Friday:
-                        item = new LongWeekend();
-                        item.StartDate = publicHoliday.Date;
-                        item.EndDate = publicHoliday.Date.AddDays(2);
-                        item.Bridge = false;
+                        item = new LongWeekend
+                        {
+                            StartDate = publicHoliday.Date,
+                            EndDate = publicHoliday.Date.AddDays(2),
+                            Bridge = false
+                        };
                         break;
                     case DayOfWeek.Monday:
-                        item = new LongWeekend();
-                        item.StartDate = publicHoliday.Date.AddDays(-2);
-                        item.EndDate = publicHoliday.Date;
-                        item.Bridge = false;
+                        item = new LongWeekend
+                        {
+                            StartDate = publicHoliday.Date.AddDays(-2),
+                            EndDate = publicHoliday.Date,
+                            Bridge = false
+                        };
                         break;
                     case DayOfWeek.Tuesday:
-                        item = new LongWeekend();
-                        item.StartDate = publicHoliday.Date.AddDays(-3);
-                        item.EndDate = publicHoliday.Date;
-                        item.Bridge = true;
+                        item = new LongWeekend
+                        {
+                            StartDate = publicHoliday.Date.AddDays(-3),
+                            EndDate = publicHoliday.Date,
+                            Bridge = true
+                        };
                         break;
                 }
 
