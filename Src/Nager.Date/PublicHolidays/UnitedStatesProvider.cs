@@ -45,7 +45,7 @@ namespace Nager.Date.PublicHolidays
             #endregion
 
             items.Add(new PublicHoliday(thirdMondayInJannuar, "Martin Luther King, Jr. Day", "Martin Luther King, Jr. Day", countryCode));
-            items.Add(new PublicHoliday(thirdMondayInFebruary, "Washington's Birthday", "Presidents' Day", countryCode));
+            items.Add(new PublicHoliday(thirdMondayInFebruary, "Presidents Day", "Washington's Birthday", countryCode));
             items.Add(new PublicHoliday(lastMondayInMay, "Memorial Day", "Memorial Day", countryCode));
 
             #region Independence Day with fallback
