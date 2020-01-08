@@ -2,7 +2,6 @@
 using Nager.Date.Contract;
 using Nager.Date.Model;
 using Nager.Date.Weekends;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.UnitTest.Common
@@ -23,15 +22,94 @@ namespace Nager.Date.UnitTest.Common
         {
             var publicHolidays = new PublicHoliday[]
             {
-                new PublicHoliday(2020, 01, 10, "Mock1", "Mock1", CountryCode.AT),
-                new PublicHoliday(2020, 01, 13, "Mock2", "Mock2", CountryCode.AT),
+                new PublicHoliday(2020, 01, 10, "Holiday Friday", "Holiday Friday", CountryCode.AT),
+                new PublicHoliday(2020, 01, 13, "Holiday Monday", "Holiday Monday", CountryCode.AT),
             };
 
             ILongWeekendCalculator longWeekendCalculator = new LongWeekendCalculator(WeekendProvider.Universal);
             var longWeekends = longWeekendCalculator.Calculate(publicHolidays);
 
             Assert.AreEqual(1, longWeekends.Count());
-            Assert.AreEqual(4, longWeekends.First().DayCount);
+
+            var firstLongWeekend = longWeekends.First();
+            Assert.AreEqual(4, firstLongWeekend.DayCount);
+            Assert.IsFalse(firstLongWeekend.Bridge);
+        }
+
+        [TestMethod]
+        public void LongWeekend3()
+        {
+            var publicHolidays = new PublicHoliday[]
+            {
+                new PublicHoliday(2020, 01, 10, "Holiday Friday", "Holiday Friday", CountryCode.AT),
+                new PublicHoliday(2020, 01, 13, "Holiday Monday", "Holiday Monday", CountryCode.AT),
+                new PublicHoliday(2020, 01, 14, "Holiday Tuesday", "Holiday Tuesday", CountryCode.AT),
+            };
+
+            ILongWeekendCalculator longWeekendCalculator = new LongWeekendCalculator(WeekendProvider.Universal);
+            var longWeekends = longWeekendCalculator.Calculate(publicHolidays);
+
+            Assert.AreEqual(1, longWeekends.Count());
+
+            var firstLongWeekend = longWeekends.First();
+            Assert.AreEqual(5, firstLongWeekend.DayCount);
+            Assert.IsFalse(firstLongWeekend.Bridge);
+        }
+
+        [TestMethod]
+        public void LongWeekend4()
+        {
+            var publicHolidays = new PublicHoliday[]
+            {
+                new PublicHoliday(2020, 01, 10, "Holiday Friday", "Holiday Friday", CountryCode.AT),
+                new PublicHoliday(2020, 01, 14, "Holiday Tuesday", "Holiday Tuesday", CountryCode.AT),
+            };
+
+            ILongWeekendCalculator longWeekendCalculator = new LongWeekendCalculator(WeekendProvider.Universal);
+            var longWeekends = longWeekendCalculator.Calculate(publicHolidays);
+
+            Assert.AreEqual(1, longWeekends.Count());
+
+            var firstLongWeekend = longWeekends.First();
+            Assert.AreEqual(5, firstLongWeekend.DayCount);
+            Assert.IsTrue(firstLongWeekend.Bridge);
+        }
+
+        [TestMethod]
+        public void LongWeekend5()
+        {
+            var publicHolidays = new PublicHoliday[]
+            {
+                new PublicHoliday(2020, 01, 9, "Holiday Thursday", "Holiday Thursday", CountryCode.AT),
+                new PublicHoliday(2020, 01, 14, "Holiday Tuesday", "Holiday Tuesday", CountryCode.AT),
+            };
+
+            ILongWeekendCalculator longWeekendCalculator = new LongWeekendCalculator(WeekendProvider.Universal);
+            var longWeekends = longWeekendCalculator.Calculate(publicHolidays);
+
+            Assert.AreEqual(2, longWeekends.Count());
+
+            var firstLongWeekend = longWeekends.First();
+            Assert.AreEqual(4, firstLongWeekend.DayCount);
+            Assert.IsTrue(firstLongWeekend.Bridge);
+
+            var lastLongWeekend = longWeekends.First();
+            Assert.AreEqual(4, lastLongWeekend.DayCount);
+            Assert.IsTrue(lastLongWeekend.Bridge);
+        }
+
+        [TestMethod]
+        public void LongWeekend6()
+        {
+            var publicHolidays = new PublicHoliday[]
+            {
+                new PublicHoliday(2020, 01, 11, "Holiday Sunday", "Holiday Sunday", CountryCode.AT),
+            };
+
+            ILongWeekendCalculator longWeekendCalculator = new LongWeekendCalculator(WeekendProvider.Universal);
+            var longWeekends = longWeekendCalculator.Calculate(publicHolidays);
+
+            Assert.AreEqual(0, longWeekends.Count());
         }
     }
 }

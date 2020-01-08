@@ -33,25 +33,30 @@ namespace Nager.Date.Contract
 
             foreach (var publicHoliday in publicHolidays)
             {
-                var previoudDayCount = this.AvailableDays(publicHoliday.Date, -1, publicHolidays);
-                var nextDayCount = this.AvailableDays(publicHoliday.Date, 1, publicHolidays);
+                var previoudDayResult = this.AvailableDay(publicHoliday.Date, -1, publicHolidays);
+                var nextDayResult = this.AvailableDay(publicHoliday.Date, 1, publicHolidays);
 
-                if (previoudDayCount == 0 && nextDayCount == 0)
+                if (previoudDayResult.DayCount == 0 && nextDayResult.DayCount == 0)
                 {
                     continue;
                 }
 
-                var startDate = publicHoliday.Date.AddDays(-previoudDayCount);
-                var endDate = publicHoliday.Date.AddDays(nextDayCount);
+                if (previoudDayResult.DayCount + nextDayResult.DayCount < this._weekendProvider.WeekendDays.Count())
+                {
+                    continue;
+                }
 
-                if (items.Any(o => o.StartDate.Equals(startDate) && o.EndDate.Equals(endDate)))
+                var startDate = publicHoliday.Date.AddDays(-previoudDayResult.DayCount);
+                var endDate = publicHoliday.Date.AddDays(nextDayResult.DayCount);
+
+                if (items.Any(o => startDate >= o.StartDate && endDate <= o.EndDate))
                 {
                     continue;
                 }
 
                 items.Add(new LongWeekend
                 {
-                    Bridge = false,
+                    Bridge = previoudDayResult.BridgeDayRequired || nextDayResult.BridgeDayRequired,
                     StartDate = startDate,
                     EndDate = endDate
                 });
@@ -60,18 +65,40 @@ namespace Nager.Date.Contract
             return items;
         }
 
-        private int AvailableDays(DateTime startDate, int addValue, IEnumerable<PublicHoliday> publicHolidays)
+        private AvailableDayResult AvailableDay(DateTime startDate, int addValue, IEnumerable<PublicHoliday> publicHolidays)
         {
             var calculationDate = startDate.AddDays(addValue);
             var count = 0;
+            var bridgeDayRequired = false;
 
-            while (this.ContinueWith(calculationDate, publicHolidays))
+            //Maximum one bridge day
+            for (var i = 0; i <= 1; i++)
             {
-                calculationDate = calculationDate.AddDays(addValue);
-                count++;
+                while (this.ContinueWith(calculationDate, publicHolidays))
+                {
+                    count++;
+                    calculationDate = calculationDate.AddDays(addValue);
+
+                    //Bridge day loop
+                    if (i == 1 && !bridgeDayRequired)
+                    {
+                        count++;
+                        bridgeDayRequired = true;
+                    }
+                }
+
+                //First loop, activate bridge day jump
+                if (i == 0)
+                {
+                    calculationDate = calculationDate.AddDays(addValue);
+                }
             }
 
-            return count;
+            return new AvailableDayResult
+            {
+                BridgeDayRequired = bridgeDayRequired,
+                DayCount = count
+            };
         }
 
         private bool ContinueWith(DateTime givenDate, IEnumerable<PublicHoliday> publicHolidays)

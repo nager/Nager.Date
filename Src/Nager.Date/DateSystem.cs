@@ -627,68 +627,8 @@ namespace Nager.Date
         /// <returns></returns>
         public static IEnumerable<LongWeekend> GetLongWeekend(int year, CountryCode countryCode)
         {
-            LongWeekend item;
-
-            var items = new List<LongWeekend>();
-
-            var publicHolidays = GetPublicHoliday(year, countryCode);
-            foreach (var publicHoliday in publicHolidays)
-            {
-                item = null;
-
-                switch (publicHoliday.Date.DayOfWeek)
-                {
-                    case DayOfWeek.Thursday:
-                        item = new LongWeekend
-                        {
-                            StartDate = publicHoliday.Date,
-                            EndDate = publicHoliday.Date.AddDays(3),
-                            Bridge = true
-                        };
-                        break;
-                    case DayOfWeek.Friday:
-                        item = new LongWeekend
-                        {
-                            StartDate = publicHoliday.Date,
-                            EndDate = publicHoliday.Date.AddDays(2),
-                            Bridge = false
-                        };
-                        break;
-                    case DayOfWeek.Monday:
-                        item = new LongWeekend
-                        {
-                            StartDate = publicHoliday.Date.AddDays(-2),
-                            EndDate = publicHoliday.Date,
-                            Bridge = false
-                        };
-                        break;
-                    case DayOfWeek.Tuesday:
-                        item = new LongWeekend
-                        {
-                            StartDate = publicHoliday.Date.AddDays(-3),
-                            EndDate = publicHoliday.Date,
-                            Bridge = true
-                        };
-                        break;
-                }
-
-                if (item == null)
-                {
-                    continue;
-                }
-
-                //Other LongWeekend on the same date, update the other
-                var otherItem = items.Where(o => o.StartDate.Equals(item.StartDate)).FirstOrDefault();
-                if (otherItem != null)
-                {
-                    otherItem.EndDate = item.EndDate;
-                    continue;
-                }
-
-                items.Add(item);
-            }
-
-            return items;
+            var calculator = new LongWeekendCalculator(GetWeekendProvider(countryCode));
+            return calculator.Calculate(GetPublicHoliday(year, countryCode));
         }
 
         /// <summary>
