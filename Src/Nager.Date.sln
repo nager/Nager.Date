@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date.TestConsole", "Nager.Date.TestConsole\Nager.Date.TestConsole.csproj", "{86A0CFD1-1124-4FED-A14A-52373EA4D0C2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date", "Nager.Date\Nager.Date.csproj", "{8A4EA57B-27EF-422F-9CD3-742A73F03C6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nager.Date.UnitTest", "Nager.Date.UnitTest\Nager.Date.UnitTest.csproj", "{B693CF95-D82F-49A5-85A5-158670B87DFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date.UnitTest", "Nager.Date.UnitTest\Nager.Date.UnitTest.csproj", "{B693CF95-D82F-49A5-85A5-158670B87DFD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date.WebsiteCore", "Nager.Date.WebsiteCore\Nager.Date.WebsiteCore.csproj", "{79A3D247-2618-4D0F-817E-9973E2D8727D}"
 EndProject
