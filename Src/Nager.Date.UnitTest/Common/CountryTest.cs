@@ -50,9 +50,12 @@ namespace Nager.Date.UnitTest.Common
                             continue;
                         }
 
+                        
+
                         if (publicHoliday.Counties.Where(o => counties.Keys.Contains(o)).Count() != publicHoliday.Counties.Count())
                         {
-                            Assert.Fail($"Unknown countie in {provider}");
+                            var diff = publicHoliday.Counties.Except(counties.Keys);
+                            Assert.Fail($"Unknown countie in {provider} {string.Join(",", diff)}");
                         }
                     }
                 }
