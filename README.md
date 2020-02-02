@@ -1,4 +1,4 @@
-[![GitHub Release](https://img.shields.io/github/release/tinohager/nager.date.svg?style=flat-square)](https://github.com/tinohager/nager.date/releases) [![Build status](https://ci.appveyor.com/api/projects/status/j61k7dr3lta2b7f9?svg=true)](https://ci.appveyor.com/project/tinohager/nager-date)
+[![GitHub Release](https://img.shields.io/github/release/tinohager/nager.date.svg?style=flat-square)](https://github.com/tinohager/nager.date/releases) [![Build status](https://ci.appveyor.com/api/projects/status/hbwtadup7wnhnjp6?svg=true)](https://ci.appveyor.com/project/tinohager/nager-date)
 
 # Nager.Date ([date.nager.at](https://date.nager.at))
 
