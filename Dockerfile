@@ -14,7 +14,7 @@ WORKDIR "/src/Nager.Date.WebsiteCore"
 RUN dotnet build "Nager.Date.WebsiteCore.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Nager.Date.WebsiteCore.csproj" --runtime alpine-x64 -c Release -o /app/publish
+RUN dotnet publish "Nager.Date.WebsiteCore.csproj" --runtime alpine-x64 -c Release -o /app/publish /p:PublishTrimmed=true
 
 FROM base AS final
 WORKDIR /app

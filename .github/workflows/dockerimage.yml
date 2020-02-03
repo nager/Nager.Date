@@ -13,7 +13,7 @@ jobs:
     - name: Build the Docker image
       run: |
         docker login -u ${{ secrets.DOCKERHUB_USER }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-        docker build . --file Src/Nager.Date.WebsiteCore/Dockerfile --tag nagerat/nager-date:$GITHUB_SHA --tag nagerat/nager-date:latest
+        docker build . --file Dockerfile --tag nagerat/nager-date:$GITHUB_SHA --tag nagerat/nager-date:latest
         docker push nagerat/nager-date:$GITHUB_SHA
         docker push nagerat/nager-date:latest
         
