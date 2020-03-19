@@ -367,6 +367,22 @@ namespace Nager.Date
         /// <param name="date">The date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
+        public static bool IsPublicHoliday(DateTime date, string countryCode)
+        {
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            {
+                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
+            }
+
+            return IsPublicHoliday(date, parsedCountryCode);
+        }
+
+        /// <summary>
+        /// Check is a given date a Public Holiday
+        /// </summary>
+        /// <param name="date">The date</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetPublicHoliday(date.Year, countryCode);
