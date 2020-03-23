@@ -61,5 +61,21 @@ namespace Nager.Date.UnitTest.Common
                 }
             }
         }
+
+        [TestMethod]
+        public void CheckCaseInsensitive()
+        {
+            var result = DateSystem.GetPublicHoliday(2018, "de");
+            var result2 = DateSystem.GetPublicHoliday(2018, "DE");
+            
+            Assert.IsNotNull(result);
+            Assert.IsNotNull(result2);
+        }
+
+        [TestMethod]
+        public void ThrowOnUndefinedEnum()
+        {
+            Assert.ThrowsException<ArgumentException>(() => DateSystem.GetPublicHoliday(2018, "1000"));
+        }
     }
 }

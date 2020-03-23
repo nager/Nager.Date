@@ -207,9 +207,9 @@ namespace Nager.Date
         /// <returns></returns>
         public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, string countryCode)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), parsedCountryCode))
             {
-                return null;
+                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
             }
 
             return GetPublicHoliday(year, parsedCountryCode);
@@ -224,9 +224,9 @@ namespace Nager.Date
         [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed")]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), parsedCountryCode))
             {
-                return null;
+                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
             }
 
             return GetPublicHoliday(year, parsedCountryCode);
@@ -361,6 +361,22 @@ namespace Nager.Date
         #endregion
 
         #region Check if a date is a Public Holiday
+
+        /// <summary>
+        /// Check is a given date a Public Holiday
+        /// </summary>
+        /// <param name="date">The date</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
+        public static bool IsPublicHoliday(DateTime date, string countryCode)
+        {
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), parsedCountryCode))
+            {
+                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
+            }
+
+            return IsPublicHoliday(date, parsedCountryCode);
+        }
 
         /// <summary>
         /// Check is a given date a Public Holiday
