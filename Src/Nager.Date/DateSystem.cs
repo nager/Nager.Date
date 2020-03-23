@@ -206,9 +206,9 @@ namespace Nager.Date
         /// <returns></returns>
         public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, string countryCode)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), countryCode))
             {
-                return null;
+                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
             }
 
             return GetPublicHoliday(year, parsedCountryCode);
@@ -223,9 +223,9 @@ namespace Nager.Date
         [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed")]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), countryCode))
             {
-                return null;
+                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
             }
 
             return GetPublicHoliday(year, parsedCountryCode);
@@ -369,7 +369,7 @@ namespace Nager.Date
         /// <returns></returns>
         public static bool IsPublicHoliday(DateTime date, string countryCode)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), countryCode))
             {
                 throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
             }
