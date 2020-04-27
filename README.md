@@ -55,7 +55,7 @@ foreach (var publicHoliday in publicHolidays)
 ### Check if a date is a public holiday
 ```cs
 var date = new DateTime(2017, 1, 1);
-if (DateSystem.IsPublicHoliday(CountryCode.DE, date))
+if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 {
     Console.WriteLine("Is public holiday");
 }
@@ -64,7 +64,7 @@ if (DateSystem.IsPublicHoliday(CountryCode.DE, date))
 ### Check if a date is a weekend day
 ```cs
 var date = new DateTime(2017, 1, 1);
-if (DateSystem.IsWeekend(CountryCode.DE, date))
+if (DateSystem.IsWeekend(date, CountryCode.DE))
 {
     Console.WriteLine("Is weekend");
 }
