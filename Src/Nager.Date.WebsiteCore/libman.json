@@ -23,8 +23,8 @@
       "destination": "wwwroot/lib/moment/"
     },
     {
-      "provider": "unpkg",
-      "library": "font-awesome-5-css@5.4.1",
+      "provider": "cdnjs",
+      "library": "font-awesome@5.13.0",
       "destination": "wwwroot/lib/font-awesome/"
     }
   ]
