@@ -27,7 +27,7 @@ If this project help you reduce time to develop, you can give me a beer :beer:
 
 ### Get all publicHolidays of a country and year
 ```cs
-var publicHolidays = DateSystem.GetPublicHoliday("DE", 2017);
+var publicHolidays = DateSystem.GetPublicHoliday(2017, "DE");
 foreach (var publicHoliday in publicHolidays)
 {
     //publicHoliday...
@@ -45,7 +45,7 @@ foreach (var publicHoliday in publicHolidays)
 ```cs
 var startDate = new DateTime(2016, 5, 1);
 var endDate = new DateTime(2018, 5, 31);
-var publicHolidays = DateSystem.GetPublicHoliday(CountryCode.DE, startDate, endDate);
+var publicHolidays = DateSystem.GetPublicHoliday(startDate, endDate, CountryCode.DE);
 foreach (var publicHoliday in publicHolidays)
 {
 	//publicHoliday...
@@ -55,7 +55,7 @@ foreach (var publicHoliday in publicHolidays)
 ### Check if a date is a public holiday
 ```cs
 var date = new DateTime(2017, 1, 1);
-if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
+if (DateSystem.IsPublicHoliday(CountryCode.DE, date))
 {
     Console.WriteLine("Is public holiday");
 }
@@ -64,7 +64,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 ### Check if a date is a weekend day
 ```cs
 var date = new DateTime(2017, 1, 1);
-if (DateSystem.IsWeekend(date, CountryCode.DE))
+if (DateSystem.IsWeekend(CountryCode.DE, date))
 {
     Console.WriteLine("Is weekend");
 }
