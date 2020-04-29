@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nager.Date.WebsiteCore.Models
 {
@@ -10,6 +11,7 @@ namespace Nager.Date.WebsiteCore.Models
         /// <summary>
         /// The date
         /// </summary>
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         /// <summary>
         /// Local name

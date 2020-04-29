@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Nager.Date.WebsiteCore.Model;
 using Nager.Date.WebsiteCore.Models;
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -39,13 +40,6 @@ namespace Nager.Date.WebsiteCore.Controllers
             };
 
             return View(item);
-
-            //if (item.PublicHolidays.Count > 0)
-            //{
-            //    
-            //}
-
-            //return LocalRedirect("/");
         }
 
         [Route("Country/{countrycode}/{year}/csv")]
@@ -67,15 +61,18 @@ namespace Nager.Date.WebsiteCore.Controllers
             {
                 using (var memoryStream = new MemoryStream())
                 using (var streamWriter = new StreamWriter(memoryStream))
-                using (var csv = new CsvWriter(streamWriter))
+                using (var csv = new CsvWriter(streamWriter, CultureInfo.InvariantCulture))
                 {
                     csv.WriteRecords(items.Select(o => new PublicHolidayCsv(o)));
                     streamWriter.Flush();
 
                     var csvData = memoryStream.ToArray();
 
-                    var result = new FileContentResult(csvData, "application/octet-stream");
-                    result.FileDownloadName = $"publicholiday.{countrycode}.{year}.csv";
+                    var result = new FileContentResult(csvData, "application/octet-stream")
+                    {
+                        FileDownloadName = $"publicholiday.{countrycode}.{year}.csv"
+                    };
+
                     return result;
                 }
             }

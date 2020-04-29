@@ -4,15 +4,15 @@
     <TargetFrameworks>net45;net461;netstandard2.0</TargetFrameworks>
     <Description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supports more than 100 countries</Description>
     <Company>nager.at</Company>
-    <Version>1.25.10</Version>
+    <Version>1.25.11</Version>
     <Authors>Tino Hager</Authors>
-    <PackageReleaseNotes>Fix Spain Canary Islands</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix Ukraine International Women's Day</PackageReleaseNotes>
     <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday NationalHoliday Åland Andorra Argentina Austria Australia Bahamas Barbados Belarus Belgium Belize Benin Bolivia Botswana Brazil Bulgaria Canada Chile China Colombia CostaRica Croatia Cuba Cyprus CzechRepublic Denmark DominicanRepublic Ecuador Egypt ElSalvador Estonia FaroeIslands Finland France Gabon Gambia Germany Greece Grenada Guatemala Guyana Haiti Honduras Hungary Iceland Indonesia Ireland IsleOfMan Italy Jamaica Jersey Latvia Lesotho Liechtenstein Lithuania Luxembourg Macedonia Madagascar Malta Mexico Moldova Monaco Mongolia Morocco Mozambique Namibia Netherlands Nicaragua Niger Norway NewZealand Panana Paraguay Peru Poland Portugal PuertoRico Romania Russia SanMarino Serbia SvalbardAndJanMayen Slovakia Slovenia SouthAfrica Spain Surianme Sweden Switzerland Tunisia Venezuela Ukraine UnitedKingdom UnitedStates Uruguay VaticanCity Vietnam</PackageTags>
     <PackageProjectUrl>https://date.nager.at</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Product>Nager.Date</Product>
-    <AssemblyVersion>1.25.10</AssemblyVersion>
-    <FileVersion>1.25.10</FileVersion>
+    <AssemblyVersion>1.25.11</AssemblyVersion>
+    <FileVersion>1.25.11</FileVersion>
     <PackageId>Nager.Date</PackageId>
     <Title>Nager Public Holiday</Title>
     <PackageIconUrl>https://raw.githubusercontent.com/tinohager/Nager.Date/master/Doc/Icons/calendar.png</PackageIconUrl>
