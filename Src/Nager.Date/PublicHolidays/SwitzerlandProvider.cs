@@ -9,7 +9,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Switzerland
     /// </summary>
-    public class SwitzerlandProvider : IPublicHolidayProvider
+    public class SwitzerlandProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -23,6 +23,43 @@ namespace Nager.Date.PublicHolidays
         }
 
         /// <summary>
+        /// GetCounties
+        /// </summary>
+        /// <returns></returns>
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "CH-AG", "Aargau" },
+                { "CH-AI", "Appenzell Innerrhoden" },
+                { "CH-AR", "Appenzell Ausserrhoden" },
+                { "CH-BL", "Basel-Landschaft" },
+                { "CH-BS", "Basel-Stadt" },
+                { "CH-BE", "Bern" },
+                { "CH-FR", "Freiburg" },
+                { "CH-GE", "Genf" },
+                { "CH-GL", "Glarus" },
+                { "CH-GR", "Graubünden" },
+                { "CH-JU", "Jura" },
+                { "CH-LU", "Luzern" },
+                { "CH-NE", "Neuenburg" },
+                { "CH-NW", "Nidwalden" },
+                { "CH-OW", "Obwalden" },
+                { "CH-SG", "St. Gallen" },
+                { "CH-SH", "Schaffhausen" },
+                { "CH-SZ", "Schwyz" },
+                { "CH-SO", "Solothurn" },
+                { "CH-TG", "Thurgau" },
+                { "CH-TI", "Tessin" },
+                { "CH-UR", "Uri" },
+                { "CH-VS", "Wallis" },
+                { "CH-VD", "Waadt" },
+                { "CH-ZG", "Zug" },
+                { "CH-ZH", "Zürich" }
+            };
+        }
+
+        /// <summary>
         /// Get
         /// </summary>
         /// <param name="year">The year</param>
@@ -32,13 +69,7 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.CH;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            //In canton of Neuchâtel the following dates are considered official county holidays
-            //only if Christmas day and new year's day fall on a Sunday : 26.12 and 02.01
-            var christmasDate = new DateTime(year, 12, 25);
-            var newYearDate = new DateTime(year, 12, 31);
-            var isChristmasDateSunday = christmasDate.DayOfWeek == DayOfWeek.Sunday;
-            var isNewYearDateSunday = newYearDate.DayOfWeek == DayOfWeek.Sunday;
-            //Get Jeune fédéral holiday date for the given year (3rd monday of September)
+            var firstSundayOfSeptember = DateSystem.FindDay(year, 9, DayOfWeek.Sunday, 1);
             var thirdMondayOfSeptember = DateSystem.FindDay(year, 9, DayOfWeek.Monday, 3);
 
             var items = new List<PublicHoliday>();
@@ -54,20 +85,13 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode, null, new string[] { "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-BL", "CH-AI", "CH-GR", "CH-AG", "CH-TI", "CH-VS", "CH-NE", "CH-JU" }));
             items.Add(new PublicHoliday(year, 8, 1, "Bundesfeier", "Swiss National Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Maria Himmelfahrt", "Assumption of the Virgin Mary", countryCode, null, new string[] { "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-BL", "CH-AI", "CH-GR", "CH-AG", "CH-TI", "CH-VS", "CH-JU" }));
-            items.Add(new PublicHoliday(thirdMondayOfSeptember, "Jeûne Fédéral", "Jeûne Fédéral", countryCode, null, new string[] { "CH-NE", "CH-VD" }));
             items.Add(new PublicHoliday(year, 11, 1, "Allerheiligen", "All Saints' Day", countryCode, null, new string[] { "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TI", "CH-VS", "CH-JU" }));
             items.Add(new PublicHoliday(year, 12, 8, "Mariä Empfängnis", "Immaculate Conception", countryCode, null, new string[] { "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-GR", "CH-AG", "CH-TI", "CH-VS" }));
             items.Add(new PublicHoliday(year, 12, 25, "Weihnachten", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "Stephanstag", "St. Stephen's Day", countryCode, null, new string[] { "CH-AG", "CH-AI", "CH-AR", "CH-BL", "CH-BS", "CH-BE", "CH-FR", "CH-GL", "CH-GR", "CH-LU", "CH-NW", "CH-OW", "CH-SG", "CH-SH", "CH-SZ", "CH-SO", "CH-TG", "CH-TI", "CH-UR", "CH-ZG", "CH-ZH" }));
 
-            if (isChristmasDateSunday)
-            {
-                items.Add(new PublicHoliday(year, 12, 26, "Stephanstag", "St. Stephen's Day", countryCode, null, new string[] { "CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG" }));
-            }
-
-            if (isNewYearDateSunday)
-            {
-                items.Add(new PublicHoliday(year, 12, 31, "Silvester", "Silvester", countryCode, null, new string[] { "CH-NE" }));
-            }
+            items.Add(new PublicHoliday(firstSundayOfSeptember.AddDays(4), "Jeûne genevois", "Geneva Prayday", countryCode, null, new string[] { "CH-GE" }));
+            items.Add(new PublicHoliday(thirdMondayOfSeptember, "Eidgenössischer Dank-, Buss- und Bettag", "Federal Day of Thanksgiving", countryCode, null, new string[] { "CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-VD", "CH-VS", "CH-NE", "CH-JU" }));
 
             return items.OrderBy(o => o.Date);
         }
@@ -80,7 +104,9 @@ namespace Nager.Date.PublicHolidays
         {
             return new string[]
             {
-                "https://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz"
+                "https://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz",
+                "https://en.wikipedia.org/wiki/Federal_Day_of_Thanksgiving,_Repentance_and_Prayer",
+                "https://en.wikipedia.org/wiki/Je%C3%BBne_genevois"
             };
         }
     }
