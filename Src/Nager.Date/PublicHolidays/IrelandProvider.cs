@@ -40,6 +40,7 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Lá Caille", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 17, "Lá Fhéile Pádraig", "Saint Patrick's Day", countryCode, 1903));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Aoine an Chéasta", "Good Friday", countryCode, type: PublicHolidayType.Bank | PublicHolidayType.School));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Luan Cásca", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(firstMondayInMay, "Lá Bealtaine", "May Day", countryCode, 1994));
             items.Add(new PublicHoliday(firstMondayInJune, "Lá Saoire i mí an Mheithimh", "June Holiday", countryCode, 1973));
