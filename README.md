@@ -1,8 +1,10 @@
 [![GitHub Release](https://img.shields.io/github/release/tinohager/nager.date.svg?style=flat-square)](https://github.com/tinohager/nager.date/releases) [![Build status](https://ci.appveyor.com/api/projects/status/hbwtadup7wnhnjp6?svg=true)](https://ci.appveyor.com/project/tinohager/nager-date) ![Docker Image CI](https://github.com/nager/Nager.Date/workflows/Docker%20Image%20CI/badge.svg)
 
-# Nager.Date ([date.nager.at](https://date.nager.at))
+# :calendar: Nager.Date - [Official Website](https://date.nager.at)
 
-Nager.Date is a popular Date/Calendar library for Public holiday calculation for every year and supports over 100 countries. Nager.Date is open source software and is completely free for commercial use. You can choose if you want to use the project [directly](https://www.nuget.org/packages/Nager.Date) or if you want to use the [API](https://date.nager.at/API). If you need more as 50 requests per day please use directly.
+Nager.Date is a popular project to query holidays. We currently support over 100 countries. The project is based on .NET but provides a REST interface to retrieve the data. There are several ways to use Nager.Date, there is a public api, you can start your own docker container or you can use the nuget package.
+
+Nager.Date is open source software and is completely free for commercial use. If you would like to support the project you can award a GitHub star :star: or send a small donation to me :beers:
 
 ## How can I use it?
 
@@ -15,15 +17,16 @@ PM> install-package Nager.Date
 ```
 
 ### web api
-- **direct** use the api direct [date.nager.at API](https://date.nager.at/API)
-- **docker** or use the docker container [dockerhub](https://hub.docker.com/r/nagerat/nager-date)
+- **public** use the public api [date.nager.at API](https://date.nager.at/API)
+  - If you need more as 50 requests per day please use your own private api (docker).
+- **private** use the docker container available on [dockerhub](https://hub.docker.com/r/nagerat/nager-date)
   - `docker run -d -p 80:80 nagerat/nager-date`
 
 ## Donation possibilities
 If this project help you reduce time to develop, you can give me a beer :beer:
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/nagerat/25)
 
-## Examples
+## Examples for .NET (nuget package)
 
 ### Get all publicHolidays of a country and year
 ```cs
@@ -78,7 +81,7 @@ var age = DateSystem.GetAge(date);
 
 ## Country Support
 
-The list of supported countries can be found on the [wiki](https://github.com/tinohager/Nager.Date/wiki/Supported-Countries).
+The list of supported countries can be found on the [wiki](https://github.com/nager/Nager.Date/wiki/Supported-Countries).
 
 ## Areas of Application
 - telephone systems
