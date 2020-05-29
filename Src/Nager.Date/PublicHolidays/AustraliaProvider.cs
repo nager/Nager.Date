@@ -54,6 +54,7 @@ namespace Nager.Date.PublicHolidays
             var firstMondayInMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 1);
             var secondMondayInMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 2);
             var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
+            var firstMondayAfterOr27May = DateSystem.FindDay(year, 5, 27, DayOfWeek.Monday);
             var firstMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 1);
             var secondMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 2);
             var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
@@ -74,6 +75,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode));
             items.Add(new PublicHoliday(firstMondayInMay, "May Day", "May Day", countryCode, null, new string[] { "AUS-NT" }));
             items.Add(new PublicHoliday(firstMondayInMay, "Labour Day", "Labour Day", countryCode, null, new string[] { "AUS-QLD" }));
+            items.Add(new PublicHoliday(firstMondayAfterOr27May, "Reconciliation Day", "Reconciliation Day", countryCode, 2018, new string[] { "AUS-ACT" }));
             items.Add(new PublicHoliday(firstMondayInJune, "Western Australia Day", "Western Australia Day", countryCode, null, new string[] { "AUS-WA" }));
             items.Add(new PublicHoliday(secondMondayInJune, "Queen's Birthday", "Queen's Birthday", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-NT", "AUS-SA", "AUS-TAS", "AUS-VIC" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Picnic Day", "Picnic Day", countryCode, null, new string[] { "AUS-NT" }));
