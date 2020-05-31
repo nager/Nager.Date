@@ -10,15 +10,15 @@ namespace Nager.Date.PublicHolidays
     /// </summary>
     public class CyprusProvider : IPublicHolidayProvider
     {
-        private readonly ICatholicProvider _catholicProvider;
+        private readonly IOrthodoxProvider _orthodoxProvider;
 
         /// <summary>
         /// CyprusProvider
         /// </summary>
-        /// <param name="catholicProvider"></param>
-        public CyprusProvider(ICatholicProvider catholicProvider)
+        /// <param name="orthodoxProvider"></param>
+        public CyprusProvider(IOrthodoxProvider orthodoxProvider)
         {
-            this._catholicProvider = catholicProvider;
+            this._orthodoxProvider = orthodoxProvider;
         }
 
         /// <summary>
@@ -29,26 +29,26 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.CY;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
+            var easterSunday = this._orthodoxProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
+            items.Add(new PublicHoliday(year, 1, 1, "Πρωτοχρονιά", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Θεοφάνεια", "Epiphany", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-48), "Clean Monday", "Clean Monday", countryCode));
-            items.Add(new PublicHoliday(year, 3, 25, "Greek Independence Day", "Greek Independence Day", countryCode));
-            items.Add(new PublicHoliday(year, 4, 1, "Cyprus National Dayυ", "Cyprus National Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
-            //Holy Saturday??            
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(2), "Easter Tuesday", "Easter Tuesday", countryCode));
-            items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Pentecost", "Pentecost", countryCode));
-            items.Add(new PublicHoliday(year, 8, 15, "Dormition of the Theotokos", "Dormition of the Theotokos", countryCode));
-            items.Add(new PublicHoliday(year, 10, 1, "Cyprus Independence Day", "Cyprus Independence Day", countryCode));
-            items.Add(new PublicHoliday(year, 10, 28, "Greek National Day", "Greek National Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 24, "Christmas Eve", "Christmas Eve", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "St. Stephen's Day", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-48), "Καθαρή Δευτέρα", "Green Monday", countryCode));
+            items.Add(new PublicHoliday(year, 3, 25, "Επέτειος Ελληνικής Ανεξαρτησίας", "Greek Independence Day", countryCode));
+            items.Add(new PublicHoliday(year, 4, 1, "Κυπριακή Εθνική Επέτειος", "Cyprus National Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Μεγάλη Παρασκευή", "Good Friday", countryCode));
+            //Holy Saturday // Μεγάλο Σάββατο??            
+            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Δευτέρα της Διακαινησίμου", "Easter Monday", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(2), "Τρίτη της Διακαινησίμου", "Easter Tuesday", countryCode));
+            items.Add(new PublicHoliday(year, 5, 1, "Πρωτομαγιά", "Labour Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Αγίου Πνεύματος", "Pentecost", countryCode));
+            items.Add(new PublicHoliday(year, 8, 15, "Η Κοίμησις της Θεοτόκου", "Assumption of the Virgin Mary", countryCode));
+            items.Add(new PublicHoliday(year, 10, 1, "Επέτειος Κυπριακής Ανεξαρτησίας", "Cyprus Independence Day", countryCode));
+            items.Add(new PublicHoliday(year, 10, 28, "Το Όχι", "Ohi Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 24, "Παραμονή Χριστουγέννων", "Christmas Eve", countryCode));
+            items.Add(new PublicHoliday(year, 12, 25, "Χριστούγεννα", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "Δεύτερη μέρα των Χριστουγέννων", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }
