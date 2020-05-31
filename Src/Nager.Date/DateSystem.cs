@@ -43,7 +43,7 @@ namespace Nager.Date
                 { CountryCode.CO, new ColombiaProvider(_catholicProvider) },
                 { CountryCode.CR, new CostaRicaProvider(_catholicProvider) },
                 { CountryCode.CU, new CubaProvider(_catholicProvider) },
-                { CountryCode.CY, new CyprusProvider(_catholicProvider) },
+                { CountryCode.CY, new CyprusProvider(_orthodoxProvider) },
                 { CountryCode.CZ, new CzechRepublicProvider(_catholicProvider) },
                 { CountryCode.DE, new GermanyProvider(_catholicProvider) },
                 { CountryCode.DK, new DenmarkProvider(_catholicProvider) },
