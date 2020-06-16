@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
+using Nager.Date.PublicHolidays;
 using System;
 using System.Linq;
 
@@ -14,13 +15,13 @@ namespace Nager.Date.UnitTest.Common
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
                 var provider = DateSystem.GetPublicHolidayProvider(countryCode);
-                if (provider == null)
+                if (provider.GetType() == typeof(NoHolidaysProvider))
                 {
                     continue;
                 }
 
                 var publicHolidays = provider.Get(2018);
-                if (publicHolidays.Count() == 0)
+                if (publicHolidays.Any())
                 {
                     continue;
                 }
@@ -38,9 +39,9 @@ namespace Nager.Date.UnitTest.Common
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
                 var provider = DateSystem.GetPublicHolidayProvider(countryCode);
-                if (provider is ICountyProvider)
+                if (provider is ICountyProvider countyProvider)
                 {
-                    var counties = ((ICountyProvider)provider).GetCounties();
+                    var counties = countyProvider.GetCounties();
 
                     var publicHolidays = DateSystem.GetPublicHoliday(DateTime.Now.Year, countryCode);
                     foreach (var publicHoliday in publicHolidays)
@@ -50,9 +51,7 @@ namespace Nager.Date.UnitTest.Common
                             continue;
                         }
 
-                        
-
-                        if (publicHoliday.Counties.Where(o => counties.Keys.Contains(o)).Count() != publicHoliday.Counties.Count())
+                        if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Count())
                         {
                             var diff = publicHoliday.Counties.Except(counties.Keys);
                             Assert.Fail($"Unknown countie in {provider} {string.Join(",", diff)}");

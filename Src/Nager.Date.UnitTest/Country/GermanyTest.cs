@@ -61,8 +61,8 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestGermanyIsOfficialPublicHolidayByCountyWithCountySpecificEpiphany2017()
         {
-            var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-BW");
-            var isPublicHolidayInNW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 1, 6), CountryCode.DE, "DE-NW");
+            var isPublicHolidayInBW = DateSystem.IsPublicHoliday(new DateTime(2017, 1, 6), CountryCode.DE, "DE-BW");
+            var isPublicHolidayInNW = DateSystem.IsPublicHoliday(new DateTime(2017, 1, 6), CountryCode.DE, "DE-NW");
 
             Assert.IsTrue(isPublicHolidayInBW);
             Assert.IsFalse(isPublicHolidayInNW);
@@ -71,7 +71,7 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestGermanyIsOfficialPublicHolidayByCountyWithGlobalChristmasDay2017()
         {
-            var isPublicHolidayInBW = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2017, 12, 25), CountryCode.DE, "DE-BW");
+            var isPublicHolidayInBW = DateSystem.IsPublicHoliday(new DateTime(2017, 12, 25), CountryCode.DE, "DE-BW");
 
             Assert.IsTrue(isPublicHolidayInBW);
         }
@@ -79,9 +79,9 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestGermanyIsOfficialPublicHolidayByCountyWithCountySpecificWorldChildrensDay()
         {
-            var isPublicHolidayInTH2018 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2018, 9, 20), CountryCode.DE, "DE-TH");
-            var isPublicHolidayInTH2019 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2019, 9, 20), CountryCode.DE, "DE-TH");
-            var isPublicHolidayInTH2020 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2020, 9, 20), CountryCode.DE, "DE-TH");
+            var isPublicHolidayInTH2018 = DateSystem.IsPublicHoliday(new DateTime(2018, 9, 20), CountryCode.DE, "DE-TH");
+            var isPublicHolidayInTH2019 = DateSystem.IsPublicHoliday(new DateTime(2019, 9, 20), CountryCode.DE, "DE-TH");
+            var isPublicHolidayInTH2020 = DateSystem.IsPublicHoliday(new DateTime(2020, 9, 20), CountryCode.DE, "DE-TH");
 
             Assert.IsFalse(isPublicHolidayInTH2018);
             Assert.IsTrue(isPublicHolidayInTH2019);
@@ -93,9 +93,9 @@ namespace Nager.Date.UnitTest.Country
         {
             const string CountyCodeBerlin = "DE-BE";
 
-            var isPublicHolidayInBerlin2019 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2019, 5, 8), CountryCode.DE, CountyCodeBerlin);
-            var isPublicHolidayInBerlin2020 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2020, 5, 8), CountryCode.DE, CountyCodeBerlin);
-            var isPublicHolidayInBerlin2021 = DateSystem.IsOfficialPublicHolidayByCounty(new DateTime(2021, 5, 8), CountryCode.DE, CountyCodeBerlin);
+            var isPublicHolidayInBerlin2019 = DateSystem.IsPublicHoliday(new DateTime(2019, 5, 8), CountryCode.DE, CountyCodeBerlin);
+            var isPublicHolidayInBerlin2020 = DateSystem.IsPublicHoliday(new DateTime(2020, 5, 8), CountryCode.DE, CountyCodeBerlin);
+            var isPublicHolidayInBerlin2021 = DateSystem.IsPublicHoliday(new DateTime(2021, 5, 8), CountryCode.DE, CountyCodeBerlin);
 
             Assert.IsFalse(isPublicHolidayInBerlin2019);
             Assert.IsTrue(isPublicHolidayInBerlin2020);

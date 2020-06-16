@@ -362,6 +362,16 @@ namespace Nager.Date
 
         #region Check if a date is a Public Holiday
 
+        private static Func<PublicHoliday, bool> GetPublicHolidayFilter(DateTime date, string countyCode = null)
+        {
+            Func<PublicHoliday, bool> func = (o) => o.Date == date.Date
+                && (o.Counties == null || countyCode != null && o.Counties.Contains(countyCode))
+                && (o.LaunchYear == null || date.Year >= o.LaunchYear)
+                && o.Type.HasFlag(PublicHolidayType.Public);
+
+            return func;
+        }
+
         /// <summary>
         /// Check is a given date a Public Holiday
         /// </summary>
@@ -400,18 +410,18 @@ namespace Nager.Date
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, out PublicHoliday[] publicHolidays)
         {
             var items = GetPublicHoliday(date.Year, countryCode);
-            publicHolidays = items.Where(o => o.Date.Date == date.Date).ToArray();
+            publicHolidays = items.Where(GetPublicHolidayFilter(date)).ToArray();
             return publicHolidays.Any();
         }
 
         /// <summary>
-        /// Check is a given date an Official Public Holiday
+        /// Check is a given date a Public Holiday
         /// </summary>
         /// <param name="date">The date to check</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="countyCode">Federal state</param>
         /// <returns></returns>
-        public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
+        public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, string countyCode)
         {
             var provider = GetPublicHolidayProvider(countryCode);
             var countryProvider = provider as ICountyProvider;
@@ -421,10 +431,20 @@ namespace Nager.Date
             }
 
             var items = GetPublicHoliday(date.Year, countryCode);
-            return items.Any(o =>
-            o.Date == date.Date &&
-            (o.Counties == null || o.Counties.Contains(countyCode)) &&
-            (o.LaunchYear == null || date.Year >= o.LaunchYear));
+            return items.Any(GetPublicHolidayFilter(date, countyCode));
+        }
+
+        /// <summary>
+        /// Check is a given date a Public Holiday
+        /// </summary>
+        /// <param name="date">The date to check</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <param name="countyCode">Federal state</param>
+        /// <returns></returns>
+        [Obsolete("Use IsPublicHoliday instead")]
+        public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
+        {
+            return IsPublicHoliday(date, countryCode, countyCode);
         }
 
         #endregion
