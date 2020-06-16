@@ -42,7 +42,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 7, 6, "Valstybės diena", "Statehood Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Žolinė", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Visų šventųjų diena", "All Saints' Day", countryCode));
-            items.Add(new PublicHoliday(year, 11, 2, "Vėlinės", "All Souls' Day", countryCode));
+            items.Add(new PublicHoliday(year, 11, 2, "Vėlinės", "All Souls' Day", countryCode, 2020));
             items.Add(new PublicHoliday(year, 12, 24, "Šv. Kūčios", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Šv. Kalėdos", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Šv. Kalėdos", "St. Stephen's Day", countryCode));
