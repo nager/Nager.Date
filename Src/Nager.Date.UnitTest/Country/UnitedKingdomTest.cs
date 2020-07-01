@@ -64,7 +64,7 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2019, 12, 25, 26)]
         [DataRow(2020, 12, 25, 28)]
         [DataRow(2021, 12, 27, 28)]
-        public void CheckChristmasDay(int year, int month, int expectedChristmasDay, int expectedBoxingDay)
+        public void CheckChristmasDayAndBoxingDay(int year, int month, int expectedChristmasDay, int expectedBoxingDay)
         {
             Assert.IsTrue(DateSystem.IsPublicHoliday(new DateTime(year, month, expectedChristmasDay), CountryCode.GB));
             Assert.IsTrue(DateSystem.IsPublicHoliday(new DateTime(year, month, expectedBoxingDay), CountryCode.GB));
