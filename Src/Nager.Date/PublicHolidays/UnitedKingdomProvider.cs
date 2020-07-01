@@ -92,14 +92,14 @@ namespace Nager.Date.PublicHolidays
 
             #region Christmas Day with fallback
 
-            var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(3), sunday => sunday.AddDays(2));
+            var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
 
             #endregion
 
             #region St. Stephen's Day with fallback
 
-            var sanktStehpenDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+            var sanktStehpenDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             items.Add(new PublicHoliday(sanktStehpenDay, "Boxing Day", "St. Stephen's Day", countryCode));
 
             #endregion
