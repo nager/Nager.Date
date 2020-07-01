@@ -17,6 +17,27 @@ namespace Nager.Date.WebsiteCore.Controllers
     [ApiController]
     public class ApiController : Controller
     {
+        private string AutoDetectCountryCode()
+        {
+            var acceptLanguages = HttpContext?.Request?.GetTypedHeaders()?.AcceptLanguage;
+            var firstLanguage = acceptLanguages?.FirstOrDefault()?.ToString();
+
+            if (string.IsNullOrEmpty(firstLanguage))
+            {
+                return "US";
+            }
+
+            var cultureInfo = CultureInfo.GetCultureInfo(firstLanguage);
+            if (cultureInfo.IsNeutralCulture)
+            {
+                var regionInfo = new RegionInfo(firstLanguage);
+                return regionInfo.TwoLetterISORegionName;
+            }
+
+            var region = new RegionInfo(cultureInfo.CompareInfo.LCID);
+            return region.TwoLetterISORegionName;
+        }
+
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Index()
         {
@@ -130,35 +151,10 @@ namespace Nager.Date.WebsiteCore.Controllers
         [Route("v2/CountryInfo")]
         public ActionResult<CountryInfoDto> CountryInfo([FromQuery] string countryCode = null)
         {
-            #region Auto detect country
-
             if (string.IsNullOrEmpty(countryCode))
             {
-                try
-                {
-                    var acceptLanguages = HttpContext.Request.GetTypedHeaders().AcceptLanguage;
-                    var firstLanguage = acceptLanguages.FirstOrDefault().ToString();
-
-                    var cultureInfo = CultureInfo.GetCultureInfo(firstLanguage);
-                    if (cultureInfo.IsNeutralCulture)
-                    {
-                        var region = new RegionInfo(firstLanguage);
-                        countryCode = region.TwoLetterISORegionName;
-                    }
-                    else
-                    {
-                        var region = new RegionInfo(cultureInfo.CompareInfo.LCID);
-                        countryCode = region.TwoLetterISORegionName;
-                    }
-                }
-                catch
-                {
-                    //Fallback
-                    countryCode = "US";
-                }
+                countryCode = this.AutoDetectCountryCode();
             }
-
-            #endregion
 
             var country = new Country.CountryProvider().GetCountry(countryCode);
             if (country == null)
