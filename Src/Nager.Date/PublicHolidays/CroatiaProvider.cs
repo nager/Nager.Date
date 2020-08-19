@@ -45,17 +45,36 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Božić", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Prvi dan po Božiću, Sveti Stjepan, Štefanje, Stipanje", "St.Stephen's Day", countryCode));
 
-            items.Add(this.GetIndependenceDay(year, countryCode));
-            items.Add(this.GetRemembranceDay(year, countryCode));
-            items.Add(this.GetStatehoodDay(year, countryCode));
-            items.Add(this.GetNationalDay(year, countryCode));
+            var independenceDay = this.GetIndependenceDay(year, countryCode);
+            if (independenceDay != null)
+            {
+                items.Add(independenceDay);
+            }
+
+            var remembranceDay = this.GetRemembranceDay(year, countryCode);
+            if (remembranceDay != null)
+            {
+                items.Add(remembranceDay);
+            }
+
+            var statehoodDay = this.GetStatehoodDay(year, countryCode);
+            if (statehoodDay != null)
+            {
+                items.Add(statehoodDay);
+            }
+
+            var nationalDay = this.GetNationalDay(year, countryCode);
+            if (nationalDay != null)
+            {
+                items.Add(nationalDay);
+            }
 
             return items.OrderBy(o => o.Date);
         }
 
         private PublicHoliday GetIndependenceDay(int year, CountryCode countryCode)
         {
-            if (year < 2020)
+            if (year >= 2002 && year < 2020)
             {
                 return new PublicHoliday(year, 10, 8, "Dan neovisnosti", "Independence Day", countryCode);
             }
@@ -75,7 +94,7 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday GetStatehoodDay(int year, CountryCode countryCode)
         {
-            if (year < 2020)
+            if (year >= 2002 && year < 2020)
             {
                 return new PublicHoliday(year, 6, 25, "Dan državnosti", "Statehood Day", countryCode);
             }
