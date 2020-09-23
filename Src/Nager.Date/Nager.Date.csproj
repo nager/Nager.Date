@@ -14,6 +14,7 @@
     <AssemblyVersion>1.26.3</AssemblyVersion>
     <FileVersion>1.26.3</FileVersion>
     <PackageId>Nager.Date</PackageId>
+    <PackageIcon>calendar.png</PackageIcon>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
