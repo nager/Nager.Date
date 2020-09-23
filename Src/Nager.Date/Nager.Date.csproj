@@ -30,7 +30,7 @@
       <PackagePath>\</PackagePath>
     </Content>
   
-    <None Include="..\Doc\Icons\calendar.png">
+    <None Include="..\..\Doc\Icons\calendar.png">
       <Pack>true</Pack>
       <Visible>false</Visible>
       <PackagePath></PackagePath>
