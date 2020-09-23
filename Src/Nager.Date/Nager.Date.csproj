@@ -14,8 +14,6 @@
     <AssemblyVersion>1.26.3</AssemblyVersion>
     <FileVersion>1.26.3</FileVersion>
     <PackageId>Nager.Date</PackageId>
-    <Title>Nager Public Holiday</Title>
-    <PackageIconUrl>https://raw.githubusercontent.com/tinohager/Nager.Date/master/Doc/Icons/calendar.png</PackageIconUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
@@ -31,6 +29,12 @@
       <Pack>true</Pack>
       <PackagePath>\</PackagePath>
     </Content>
+  
+    <None Include="..\Doc\Icons\calendar.png">
+      <Pack>true</Pack>
+      <Visible>false</Visible>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   
 </Project>
