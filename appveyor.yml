@@ -10,9 +10,10 @@ build:
   project: src/Nager.Date.sln
   publish_nuget: true
   publish_nuget_symbols: true
+  use_snupkg_format: true
   verbosity: normal
 deploy:
   provider: NuGet
   api_key:
     secure: SdTtiuKPbo/RJdnNAKEzS620PxAMmrZh1OKqLNsW69zZKa5u1KH32E2Mob9h8NfK
-  artifact: /.*\.nupkg/
+  artifact: /.*(\.|\.s)nupkg/
