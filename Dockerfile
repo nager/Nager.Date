@@ -10,7 +10,7 @@ RUN dotnet restore "Nager.Date/Nager.Date.csproj"
 COPY ["Src/Nager.Date.Website/Nager.Date.Website.csproj", "Nager.Date.Website/"]
 RUN dotnet restore "Nager.Date.Website/Nager.Date.Website.csproj"
 COPY ./Src/ .
-WORKDIR "/src/Nager.Date.WebsiteCore"
+WORKDIR "/src/Nager.Date.Website"
 RUN dotnet build "Nager.Date.Website.csproj" -c Release -o /app/build
 
 FROM build AS publish
