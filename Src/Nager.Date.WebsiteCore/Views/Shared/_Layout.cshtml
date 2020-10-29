@@ -1,5 +1,4 @@
-﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,14 +8,10 @@
     <meta name="Keywords" content="public holidays, holiday, holidays, national holidays, international holidays, longweekends" />
 
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
     <link rel="stylesheet" href="~/images/flags/flags.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-
-    <script defer src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 </head>
 <body>
     <nav id="Navigation" class="navbar navbar-expand-lg navbar-dark">
@@ -80,19 +75,6 @@
     <script src="~/lib/moment/moment-with-locales.min.js"></script>
     <script src="~/lib/vue/vue.min.js"></script>
     <script>
-        window.addEventListener("load", function () {
-            window.cookieconsent.initialise({
-                "palette": {
-                    "popup": {
-                        "background": "#eeeeee"
-                    },
-                    "button": {
-                        "background": "#346cb0"
-                    }
-                },
-                "position": "bottom"
-            })
-        });
 
         new Vue({
             el: '#Navigation',
@@ -107,18 +89,6 @@
         })
 
     </script>
-
-    @if (HttpContextAccessor.HttpContext.Request.Cookies.ContainsKey("cookieconsent_status"))
-    {
-        <!-- Global Site Tag (gtag.js) - Google Analytics -->
-        <script src="https://www.googletagmanager.com/gtag/js?id=UA-106595536-5"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments) };
-            gtag('js', new Date());
-            gtag('config', 'UA-106595536-5', { 'anonymize_ip': true });
-        </script>
-    }
 
     @RenderSection("Scripts", required: false)
 </body>
