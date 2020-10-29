@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date", "Nager.Date\Na
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date.UnitTest", "Nager.Date.UnitTest\Nager.Date.UnitTest.csproj", "{B693CF95-D82F-49A5-85A5-158670B87DFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date.WebsiteCore", "Nager.Date.WebsiteCore\Nager.Date.WebsiteCore.csproj", "{79A3D247-2618-4D0F-817E-9973E2D8727D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date.Website", "Nager.Date.Website\Nager.Date.Website.csproj", "{79A3D247-2618-4D0F-817E-9973E2D8727D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
