@@ -44,6 +44,13 @@ namespace Nager.Date.WebsiteCore
 
             services.AddControllersWithViews();//.AddRazorRuntimeCompilation();
 
+            services.AddCors(o => o.AddPolicy("ApiPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1.0", new OpenApiInfo { Title = "Nager.Date API", Version = "v1.0" });
@@ -52,8 +59,6 @@ namespace Nager.Date.WebsiteCore
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
-
-                c.DescribeAllEnumsAsStrings();
             });
         }
 
@@ -66,6 +71,7 @@ namespace Nager.Date.WebsiteCore
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors("ApiPolicy");
             }
             else
             {
