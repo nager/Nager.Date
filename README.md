@@ -20,7 +20,8 @@ PM> install-package Nager.Date
 - **public** use the public api [date.nager.at API](https://date.nager.at/API)
   - If you need more as 50 requests per day please use your own private api (docker).
 - **private** use the docker container available on [dockerhub](https://hub.docker.com/r/nagerat/nager-date)
-  - `docker run -d -p 80:80 nagerat/nager-date`
+  - `docker run -p 80:80 nagerat/nager-date`
+  - `docker run -e "ASPNETCORE_ENVIRONMENT=Development" -p 80:80 nagerat/nager-date` (allow CORS)
 
 ## Donation possibilities
 If this project help you reduce time to develop, you can give me a beer :beer:
