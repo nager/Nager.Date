@@ -1,10 +1,12 @@
 ﻿using Mapster;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nager.Date.Model;
 using Nager.Date.WebsiteCore.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 
@@ -52,7 +54,9 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("v1/Get/{countrycode}/{year}")]
-        public ActionResult<IEnumerable<PublicHolidayDto>> CountryJson([FromRoute] string countrycode, [FromRoute] int year)
+        public ActionResult<IEnumerable<PublicHolidayDto>> CountryJson(
+            [FromRoute] [Required] string countrycode,
+            [FromRoute] [Required] int year)
         {
             if (!Enum.TryParse(countrycode, true, out CountryCode countryCode))
             {
@@ -77,7 +81,9 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("v2/PublicHolidays/{year}/{countrycode}")]
-        public ActionResult<IEnumerable<PublicHolidayDto>> PublicHolidays([FromRoute] int year, [FromRoute] string countrycode)
+        public ActionResult<IEnumerable<PublicHolidayDto>> PublicHolidays(
+            [FromRoute] [Required] int year,
+            [FromRoute] [Required] string countrycode)
         {
             if (!Enum.TryParse(countrycode, true, out CountryCode countryCode))
             {
@@ -99,7 +105,7 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("v2/NextPublicHolidays/{countryCode}")]
-        public ActionResult<IEnumerable<PublicHolidayDto>> NextPublicHolidays([FromRoute] string countryCode)
+        public ActionResult<IEnumerable<PublicHolidayDto>> NextPublicHolidays([FromRoute] [Required] string countryCode)
         {
             var publicHolidays = DateSystem.GetPublicHoliday(DateTime.Today, DateTime.Today.AddYears(1), countryCode);
             if (publicHolidays?.Count() > 0)
@@ -131,7 +137,9 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("v2/LongWeekend/{year}/{countrycode}")]
-        public ActionResult<LongWeekendDto[]> LongWeekend([FromRoute] int year, [FromRoute] string countrycode)
+        public ActionResult<LongWeekendDto[]> LongWeekend(
+            [FromRoute] [Required] int year,
+            [FromRoute] [Required] string countrycode)
         {
             if (!Enum.TryParse(countrycode, true, out CountryCode countryCode))
             {
