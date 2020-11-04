@@ -76,7 +76,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 2, 28, "Día de Andalucía", "Regional Holiday", countryCode, null, new string[] { "ES-AN" }));
             items.Add(new PublicHoliday(year, 3, 1, "Dia de les Illes Balears", "Regional Holiday", countryCode, null, new string[] { "ES-IB" }));
             items.Add(new PublicHoliday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, new string[] { "ES-ML", "ES-CM", "ES-GA", "ES-IB", "ES-M", "ES-MU", "ES-NA", "ES-O", "ES-VC" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Jueves Santo", "Maundy Thursday", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-LO", "ES-M", "ES-MU", "ES-NA", "ES-O", "ES-PV", "ES-CB" }));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Jueves Santo", "Maundy Thursday", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-LO", "ES-M", "ES-MU", "ES-NA", "ES-O", "ES-PV", "ES-CB" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Viernes Santo", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday, "Pascua de Resurrección", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Lunes de Pascua", "Easter Monday", countryCode, 1642, new string[] { "ES-CT", "ES-IB", "ES-NA", "ES-PV", "ES-VC" }));
