@@ -33,8 +33,6 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.GB;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
-            var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
             var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
             var lastMondayInAugust = DateSystem.FindLastDay(year, 8, DayOfWeek.Monday);
 
@@ -69,26 +67,28 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 3, 17, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode, null, new string[] { "GB-ENG", "GB-WLS", "GB-NIR" }));
-            items.Add(new PublicHoliday(lastMondayInMay, "Spring Bank Holiday", "Spring Bank Holiday", countryCode, 1971));
             items.Add(new PublicHoliday(year, 11, 30, "Saint Andrew's Day", "Saint Andrew's Day", countryCode, null, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(year, 7, 12, "Battle of the Boyne", "Battle of the Boyne", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(lastMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-ENG", "GB-WLS", "GB-NIR" }));
 
-            #region Early May Bank Holiday
-
-            var earlyMayBankHoliday = new PublicHoliday(firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978);
-
-            if (year == 2020)
+            var earlyMayBankHoliday = this.GetEarlyMayBankHoliday(year, countryCode);
+            if (earlyMayBankHoliday != null)
             {
-                //https://www.bbc.co.uk/news/uk-48565417
-                var secondFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 2);
-                earlyMayBankHoliday.Date = secondFridayInMay;
+                items.Add(earlyMayBankHoliday);
             }
 
-            items.Add(earlyMayBankHoliday);
+            var springBankHoliday = this.GetSpringBankHoliday(year, countryCode);
+            if (springBankHoliday != null)
+            {
+                items.Add(springBankHoliday);
+            }
 
-            #endregion
+            var queensPlatinumJubilee = this.GetQueensPlatinumJubilee(year, countryCode);
+            if (queensPlatinumJubilee != null)
+            {
+                items.Add(queensPlatinumJubilee);
+            }
 
             #region Christmas Day with fallback
 
@@ -106,6 +106,46 @@ namespace Nager.Date.PublicHolidays
 
             return items.OrderBy(o => o.Date);
         }
+
+        private PublicHoliday GetSpringBankHoliday(int year, CountryCode countryCode)
+        {
+            var name = "Spring Bank Holiday";
+
+            if (year == 2022)
+            {
+                //https://www.gov.uk/government/news/extra-bank-holiday-to-mark-the-queens-platinum-jubilee-in-2022
+                return new PublicHoliday(year, 6, 2, name, name, countryCode);
+            }
+
+            var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
+            return new PublicHoliday(lastMondayInMay, name, name, countryCode, 1971);
+        }
+
+        private PublicHoliday GetQueensPlatinumJubilee(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                return new PublicHoliday(year, 6, 2, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
+            }
+
+            return null;
+        }
+
+        private PublicHoliday GetEarlyMayBankHoliday(int year, CountryCode countryCode)
+        {
+            var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
+            var earlyMayBankHoliday = new PublicHoliday(firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978);
+
+            if (year == 2020)
+            {
+                //https://www.bbc.co.uk/news/uk-48565417
+                var secondFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 2);
+                earlyMayBankHoliday.Date = secondFridayInMay;
+            }
+
+            return earlyMayBankHoliday;
+        }
+
         /// <summary>
         /// Get counties
         /// </summary>
