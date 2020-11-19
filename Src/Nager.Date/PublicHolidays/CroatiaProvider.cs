@@ -84,7 +84,7 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday GetRemembranceDay(int year, CountryCode countryCode)
         {
-            if (year > 2020)
+            if (year >= 2020)
             {
                 return new PublicHoliday(year, 11, 18, "Dan sjećanja na žrtve Domovinskog rata", "Remembrance Day", countryCode);
             }
@@ -104,7 +104,7 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday GetNationalDay(int year, CountryCode countryCode)
         {
-            if (year > 2020)
+            if (year >= 2020)
             {
                 return new PublicHoliday(year, 5, 30, "Dan državnosti", "National Day", countryCode);
             }
