@@ -1,4 +1,4 @@
-Thank you for using the Nager.Date package (https://github.com/tinohager/Nager.Date)
+Thank you for using the Nager.Date package (https://github.com/nager/Nager.Date)
 ----------------------------------------------------------------
 Please support this project with the award of a GitHub Star (★)
 
