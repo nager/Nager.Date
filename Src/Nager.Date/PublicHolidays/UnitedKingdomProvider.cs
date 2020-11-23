@@ -125,7 +125,7 @@ namespace Nager.Date.PublicHolidays
         {
             if (year == 2022)
             {
-                return new PublicHoliday(year, 6, 2, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
+                return new PublicHoliday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
             }
 
             return null;

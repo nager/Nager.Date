@@ -114,6 +114,12 @@ namespace Nager.Date.UnitTest.Common
 
             result = DateSystem.FindDay(2017, 1, 14, DayOfWeek.Wednesday);
             Assert.AreEqual(new DateTime(2017, 1, 18), result);
+
+            result = DateSystem.FindDay(2022, 1, 1, DayOfWeek.Monday);
+            Assert.AreEqual(new DateTime(2022, 1, 3), result);
+
+            result = DateSystem.FindDay(2022, 1, 1, DayOfWeek.Tuesday);
+            Assert.AreEqual(new DateTime(2022, 1, 4), result);
         }
 
         [TestMethod]
