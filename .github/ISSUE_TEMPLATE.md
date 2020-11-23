@@ -1,9 +1,10 @@
-### Important specifications
+### Which country is affected?
 
-* Which country is affected?
-* If you have found a mistake please also provide a valid source of your information?
+[CountryName or CountryCode]
 
-For more information, see the `CONTRIBUTING` guide.
+### The source of the information?
+
+[Link to the Information]
 
 ### Description
 
