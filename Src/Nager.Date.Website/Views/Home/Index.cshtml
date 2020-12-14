@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<div id="App" class="container-fluid" v-cloak>
+<div id="app" class="container-fluid" v-cloak>
 
     <div class="row">
 
@@ -36,7 +36,7 @@
                         <div class="pre-scrollable">
                             <table class="table" v-if="filteredCountries.length > 0">
                                 <tr v-for="item in filteredCountries">
-                                    <td class="pl-4"><a :href="'/PublicHoliday/Country/' + item.key">{{ item.value }} ({{ item.key }})</a></td>
+                                    <td class="pl-4"><a :href="`/PublicHoliday/Country/${item.key}`">{{ item.value }} ({{ item.key }})</a></td>
                                 </tr>
                             </table>
                             <div v-else class="p-3">
@@ -62,10 +62,10 @@
                             </thead>
                             <tbody>
                                 <tr v-for="item in publicHolidaysWorldwide">
-                                    <td>{{ item.date | inDays }}</td>
-                                    <td>{{ item.date | shortLocalDate }}</td>
+                                    <td>{{ inDays(item.date) }}</td>
+                                    <td>{{ shortLocalDate(item.date) }}</td>
                                     <td>{{ item.name }}</td>
-                                    <td><a :href="'/PublicHoliday/Country/' + item.countryCode">{{ item.countryCode }}</a></td>
+                                    <td><a :href="`/PublicHoliday/Country/${item.countryCode}`">{{ item.countryCode }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -90,7 +90,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="item in publicHolidays">
-                                <td>{{ item.date | longLocalDate }}</td>
+                                <td>{{ longLocalDate(item.date) }}</td>
                                 <td>{{ item.localName }}</td>
                                 <td>{{ item.name }}</td>
                             </tr>
@@ -105,90 +105,91 @@
 
 @section scripts {
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-        new Vue({
-            el: '#App',
-            data: {
+    const App = {
+        data() {
+            return {
                 countryInfo: null,
                 availableCountries: null,
                 publicHolidays: null,
                 publicHolidaysWorldwide: null,
                 search: null
-            },
-            computed: {
-                filteredCountries: function () {
-                    if (this.search === null) {
-                        return this.availableCountries;
-                    }
-
-                    let search = this.search.toLowerCase();
-                    let filteredItems = this.availableCountries.filter(o => o.value.toLowerCase().includes(search) || o.key.toLowerCase().includes(search));
-
-                    return filteredItems;
-                }
-            },
-            filters: {
-                inDays: function (date) {
-                    let fromNow = moment(date).fromNow();
-
-                    // ensure the date is displayed with today and yesterday
-                    return moment(date).calendar(null, {
-                        // when the date is closer, specify custom values
-                        sameDay: '[Today]',
-                        nextDay: '[Tomorrow]',
-                        nextWeek: function () {
-                            return "[" + fromNow + "]";
-                        },     
-                        sameElse: function () {
-                            return "[" + fromNow + "]";
-                        }
-                    });
-                },
-                shortLocalDate: function (date) {
-                    return moment(date).format('L');
-                },
-                longLocalDate: function (date) {
-                    return moment(date).format('dd L');
-                }
-            },
-            mounted() {
-                this.getAvailableCountries();
-                this.getCountryInfo();
-                this.getNextPublicHolidaysWorldwide();
-            },
-            created() {
-                var locale = window.navigator.userLanguage || window.navigator.language;
-                moment.locale(locale);
-            },
-            methods: {
-                getAvailableCountries: function () {
-                    axios.get('/Api/v2/AvailableCountries')
-                        .then(response => {
-                            this.availableCountries = response.data
-                        });
-                },
-                getCountryInfo: function () {
-                    axios.get('/Api/v2/CountryInfo')
-                        .then(response => {
-                            this.countryInfo = response.data
-                            this.getNextPublicHolidays();
-                        });
-                },
-                getNextPublicHolidays: function () {
-                    axios.get('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
-                        .then(response => {
-                            this.publicHolidays = response.data
-                        });
-                },
-                getNextPublicHolidaysWorldwide: function () {
-                    axios.get('/Api/v2/NextPublicHolidaysWorldwide')
-                        .then(response => {
-                            this.publicHolidaysWorldwide = response.data
-                        });
-                }
             }
-        })
+        },
+        computed: {
+            filteredCountries: function () {
+                if (this.search === null) {
+                    return this.availableCountries;
+                }
 
-    </script>
+                let search = this.search.toLowerCase();
+                let filteredItems = this.availableCountries.filter(o => o.value.toLowerCase().includes(search) || o.key.toLowerCase().includes(search));
+
+                return filteredItems;
+            }
+        },
+        mounted() {
+            this.getAvailableCountries();
+            this.getCountryInfo();
+            this.getNextPublicHolidaysWorldwide();
+        },
+        created() {
+            var locale = window.navigator.userLanguage || window.navigator.language;
+            moment.locale(locale);
+        },
+        methods: {
+            inDays: function (date) {
+                let fromNow = moment(date).fromNow();
+
+                // ensure the date is displayed with today and yesterday
+                return moment(date).calendar(null, {
+                    // when the date is closer, specify custom values
+                    sameDay: '[Today]',
+                    nextDay: '[Tomorrow]',
+                    nextWeek: function () {
+                        return "[" + fromNow + "]";
+                    },
+                    sameElse: function () {
+                        return "[" + fromNow + "]";
+                    }
+                });
+            },
+            shortLocalDate: function (date) {
+                return moment(date).format('L');
+            },
+            longLocalDate: function (date) {
+                return moment(date).format('dd L');
+            },
+            getAvailableCountries: function () {
+                axios.get('/Api/v2/AvailableCountries')
+                    .then(response => {
+                        this.availableCountries = response.data
+                    });
+            },
+            getCountryInfo: function () {
+                axios.get('/Api/v2/CountryInfo')
+                    .then(response => {
+                        this.countryInfo = response.data
+                        this.getNextPublicHolidays();
+                    });
+            },
+            getNextPublicHolidays: function () {
+                axios.get('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
+                    .then(response => {
+                        this.publicHolidays = response.data
+                    });
+            },
+            getNextPublicHolidaysWorldwide: function () {
+                axios.get('/Api/v2/NextPublicHolidaysWorldwide')
+                    .then(response => {
+                        this.publicHolidaysWorldwide = response.data
+                    });
+            }
+        }
+    };
+
+    Vue.createApp(App).mount('#app');
+
+</script>
 }

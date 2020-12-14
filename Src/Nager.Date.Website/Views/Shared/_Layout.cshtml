@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,14 +7,21 @@
     <meta name="Description" content="@ViewData["Description"]" />
     <meta name="Keywords" content="public holidays, holiday, holidays, national holidays, international holidays, longweekends" />
 
+    <link rel="stylesheet" href="~/css/bundle.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+        <link rel="stylesheet" href="~/images/flags/flags.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />*@
 
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
-    <link rel="stylesheet" href="~/images/flags/flags.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preload" as="script" href="~/lib/axios/axios.js">
+    <link rel="preload" as="script" href="~/lib/vue/vue.global.prod.js">
+    <link rel="preload" as="script" href="~/lib/moment/moment-with-locales.min.js">
+
+    <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 </head>
 <body>
-    <nav id="Navigation" class="navbar navbar-expand-lg navbar-dark">
+    <nav id="navigation" class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid">
             <button @@click="show" class="navbar-toggler" type="button" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -39,24 +46,24 @@
             <div class="row">
                 <div class="footer-col col-md-8">
                     <div class="mb-4">
-                        <h3><i class="fab fa-github"></i> Help to improve this project</h3>
+                        <div class="h3"><i class="fab fa-github"></i> Help to improve this project</div>
                         <a href="https://github.com/nager/Nager.Date">github.com/nager/Nager.Date</a>
                     </div>
                     <div class="mb-4">
-                        <h3><i class="fas fa-bug"></i> Report a failure</h3>
+                        <div class="h3"><i class="fas fa-bug"></i> Report a failure</div>
                         If you found a failure please create a new <a href="https://github.com/nager/Nager.Date/issues">issue</a>.
                     </div>
                 </div>
                 <div class="footer-col col-md-4">
                     <div class="mb-4">
-                        <h3><i class="fas fa-gavel"></i> Imprint</h3>
+                        <div class="h3"><i class="fas fa-gavel"></i> Imprint</div>
                         <ul>
                             <li>Project of <a href="https://www.nager.at">nager.at</a></li>
                             <li><a href="https://www.nager.at/privacypolicy.html">Privacy policy</a></li>
                         </ul>
                     </div>
                     <div class="mb-4">
-                        <h3><i class="fas fa-hands-helping"></i> Supporter</h3>
+                        <div class="h3"><i class="fas fa-hands-helping"></i> Supporter</div>
                         Logo Design - <a href="https://zummedium.at/">zumtobel zummedium.at</a>
                     </div>
                 </div>
@@ -71,22 +78,25 @@
         </div>
     </div>
 
-    <script src="~/lib/axios/axios.min.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/lib/vue/vue.global.prod.js"></script>
     <script src="~/lib/moment/moment-with-locales.min.js"></script>
-    <script src="~/lib/vue/vue.min.js"></script>
     <script>
 
-        new Vue({
-            el: '#Navigation',
-            data: {
-                hideNavigation: true,
+        const Navigation = {
+            data() {
+                return {
+                    hideNavigation: true
+                };
             },
             methods: {
                 show: function () {
                     this.hideNavigation = !this.hideNavigation;
                 }
             }
-        })
+        };
+
+        Vue.createApp(Navigation).mount('#navigation');
 
     </script>
 

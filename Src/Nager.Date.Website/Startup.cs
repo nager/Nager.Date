@@ -42,7 +42,7 @@ namespace Nager.Date.WebsiteCore
                 options.JsonSerializerOptions.Converters.Add(new PublicHolidayTypeConverter());
             });
 
-            services.AddControllersWithViews();//.AddRazorRuntimeCompilation();
+            services.AddControllersWithViews();
 
             services.AddCors(o => o.AddPolicy("ApiPolicy", builder =>
             {
@@ -92,9 +92,10 @@ namespace Nager.Date.WebsiteCore
             {
                 OnPrepareResponse = ctx =>
                 {
-                    const int durationInSeconds = 60 * 60 * 24 * 7;
-                    ctx.Context.Response.Headers[HeaderNames.CacheControl] = "public,max-age=" + durationInSeconds;
-                    ctx.Context.Response.Headers[HeaderNames.Expires] = new[] { DateTime.UtcNow.AddDays(7).ToString("R") }; // Format RFC1123
+                    const int cacheDays = 365;
+                    const int durationInSeconds = 60 * 60 * 24 * cacheDays;
+                    ctx.Context.Response.Headers[HeaderNames.CacheControl] = $"public,max-age={durationInSeconds}";
+                    ctx.Context.Response.Headers[HeaderNames.Expires] = new[] { DateTime.UtcNow.AddDays(cacheDays).ToString("R") }; // Format RFC1123
                 }
             });
 

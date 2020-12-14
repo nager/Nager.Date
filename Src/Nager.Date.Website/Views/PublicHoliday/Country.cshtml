@@ -8,18 +8,18 @@
 <header class="public-holiday-country-header">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-xl-2 mt-5 text-center">
-                <img src="~/images/flags/blank.gif" class="flag flag-@Model.CountryCode.ToLower()" alt="@Model.Country" title="@Model.Country" />
+            <div class="col-12 col-xl-2 text-center">
+                <img src="~/images/circle-flags/flags/@(Model.CountryCode.ToLower()).svg" class="mt-2 mt-xl-5" alt="@Model.Country" title="@Model.Country" width="64" height="64" />
             </div>
             <div class="col-12 col-xl-10">
-                <h1 class="display-4 mt-4">Public Holidays in @Model.Country in @Model.Year</h1>
-                <h4 class="mt-2 d-none d-sm-block">A list of public holidays observed in @Model.Country</h4>
+                <h1 class="display-4 mt-2 mt-xl-5">Public Holidays in @Model.Country in @Model.Year</h1>
+                <div class="mt-2 d-none d-sm-block h6 text-center">A list of public holidays observed in @Model.Country</div>
             </div>
         </div>
     </div>
 </header>
 
-<div class="container-fluid" id="App" v-cloak>
+<div class="container-fluid" id="app" v-cloak>
 
     <div class="row">
         <div class="col-12 col-xl-8 mt-4">
@@ -41,7 +41,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="publicHoliday in publicHolidays" itemscope itemtype="http://schema.org/Event">
-                                <td itemprop="startDate" :content="publicHoliday.date | iso8601Date">{{ publicHoliday.date | longLocalDate }}</td>
+                                <td itemprop="startDate" :content="publicHoliday.date | iso8601Date">{{ longLocalDate(publicHoliday.date) }}</td>
                                 <td itemprop="name" class="d-none d-sm-table-cell">{{ publicHoliday.localName }}</td>
                                 <td itemprop="alternateName" class="d-none d-sm-table-cell">{{ publicHoliday.name }}</td>
                                 <td class="d-sm-none"><strong>{{ publicHoliday.localName }}</strong><br />{{ publicHoliday.name }}</td>
@@ -97,13 +97,13 @@
                                     <strong>{{ longWeekend.dayCount }}</strong>
                                     <small>days</small>
                                 </td>
-                                <td class="d-none d-sm-table-cell info-start">{{ longWeekend.startDate | monthNameWithDay }}</td>
+                                <td class="d-none d-sm-table-cell info-start">{{ monthNameWithDay(longWeekend.startDate) }}</td>
                                 <td v-for="day in getDates(longWeekend.startDate, longWeekend.endDate)" class="day">
-                                    <span class="d-block" :style="isSunday(day) ? 'color:red; font-weight:bold;' : ''">{{ day | onlyDayName }}</span>
-                                    <strong>{{ day | onlyDayNumber }}</strong><br />
+                                    <span class="d-block" :style="isSunday(day) ? 'color:red; font-weight:bold;' : ''">{{ onlyDayName(day) }}</span>
+                                    <strong>{{ onlyDayNumber(day) }}</strong><br />
                                     <span class="d-sm-none d-block">{{ day | onlyMonthName }}</span>
                                 </td>
-                                <td class="d-none d-sm-table-cell info-end">{{ longWeekend.endDate | monthNameWithDay }}</td>
+                                <td class="d-none d-sm-table-cell info-end">{{ monthNameWithDay(longWeekend.endDate) }}</td>
                             </tr>
                         </table>
                     </div>
@@ -122,11 +122,11 @@
                 <header class="card-header border-0">Border countries</header>
                 <div class="mb-2">
                     <div v-for="border in countryInfo.borders" class="d-inline-block text-center ml-2 mb-2" style="width:140px;">
-                        <a :href="'/PublicHoliday/Country/' + border.countryCode" class="d-block">
-                            <img src="~/images/flags/blank.gif" :class="'flag flag-' + border.countryCode.toLowerCase()" :alt="border.countryCode" :title="border.countryCode" />
+                        <a :href="`/PublicHoliday/Country/${border.countryCode}`" class="d-block">
+                            <img :src="`/images/circle-flags/flags/${border.countryCode}.svg`" width="60" height="60" :alt="border.countryCode" :title="border.countryCode" />
                         </a>
-                        <a :href="'/PublicHoliday/Country/' + border.countryCode">{{ border.commonName }}</a>
-                    </div>    
+                        <a :href="`/PublicHoliday/Country/${border.countryCode}`">{{ border.commonName }}</a>
+                    </div>
                 </div>
             </section>
 
@@ -134,9 +134,6 @@
                 <header class="card-header border-0"><i class="fas fa-file-download"></i> Downloads</header>
                 <div>
                     <ul class="list-group">
-                        @*<li class="list-group-item">
-                                <i class="fa fa-calendar" aria-hidden="true"></i> <a href="/PublicHoliday/DownloadCSV/@(Model.CountryCode)/@(Model.Year)">PDF Calendar</a>
-                        </li>*@
                         <li class="list-group-item">
                             <i class="fas fa-file-csv"></i> <a href="/PublicHoliday/Country/@(Model.CountryCode)/@(Model.Year)/CSV">CSV</a>
                         </li>
@@ -152,102 +149,103 @@
 
 <script type="text/javascript">
 
-new Vue({
-    el: '#App',
-    data: {
-        countryInfo: null,
-        longWeekends: null,
-        publicHolidays: null
-    },
-    mounted() {
-        this.getPublicHolidays();
-        this.getCountryInfo();
-        this.getLongWeekends();
-    },
-    created() {
-        var locale = window.navigator.userLanguage || window.navigator.language;
-        moment.locale(locale);
-    },
-    filters: {
-        shortLocalDate: function (date) {
-            return moment(date).format('L');
+    const App = {
+        data() {
+            return {
+                countryInfo: null,
+                longWeekends: null,
+                publicHolidays: null
+            }
         },
-        longLocalDate: function (date) {
-            return moment(date).format('dd L');
+        mounted() {
+            this.getPublicHolidays();
+            this.getCountryInfo();
+            this.getLongWeekends();
         },
-        onlyDayName: function (date) {
-            return moment(date).format('dd');
+        created() {
+            var locale = window.navigator.userLanguage || window.navigator.language;
+            moment.locale(locale);
         },
-        onlyDayNumber: function (date) {
-            return moment(date).format('DD');
+        computed: {
+            showColumnCounty: function () {
+                if (this.publicHolidays === null) {
+                    return false;
+                }
+                let count = this.publicHolidays.filter(o => !o.global);
+                return count.length !== 0;
+            }
         },
-        monthNameWithDay: function (date) {
-            return moment(date).format('DD. MMM');
-        },
-        onlyMonthName: function (date) {
-            return moment(date).format('MMM');
-        },
-        iso8601Date: function (date) {
-            return moment(date).toISOString();
-        }
-    },
-    computed: {
-        showColumnCounty: function () {
-            if (this.publicHolidays === null) {
+        methods: {
+            shortLocalDate: function (date) {
+                return moment(date).format('L');
+            },
+            longLocalDate: function (date) {
+                return moment(date).format('dd L');
+            },
+            onlyDayName: function (date) {
+                return moment(date).format('dd');
+            },
+            onlyDayNumber: function (date) {
+                return moment(date).format('DD');
+            },
+            monthNameWithDay: function (date) {
+                return moment(date).format('DD. MMM');
+            },
+            onlyMonthName: function (date) {
+                return moment(date).format('MMM');
+            },
+            iso8601Date: function (date) {
+                return moment(date).toISOString();
+            },
+            getCountryInfo: function () {
+                axios.get('/Api/v2/CountryInfo?countryCode=@(Model.CountryCode)')
+                    .then(response => {
+                        this.countryInfo = response.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+            },
+            getLongWeekends: function () {
+                axios.get('/Api/v2/LongWeekend/@(Model.Year)/@(Model.CountryCode)')
+                    .then(response => {
+                        this.longWeekends = response.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+            },
+            getPublicHolidays: function () {
+                axios.get('/Api/v2/PublicHolidays/@(Model.Year)/@(Model.CountryCode)')
+                    .then(response => {
+                        this.publicHolidays = response.data
+                    })
+                    .catch(error => {
+                        this.publicHolidays = [];
+                        console.log(error)
+                    });
+            },
+            getDates: function (startDate, stopDate) {
+                var dateArray = [];
+                var currentDate = moment(startDate);
+                var stopDate = moment(stopDate);
+                while (currentDate <= stopDate) {
+                    dateArray.push(moment(currentDate).format('YYYY-MM-DD'))
+                    currentDate = moment(currentDate).add(1, 'days');
+                }
+                return dateArray;
+            },
+            isSunday: function (date) {
+                var currentDate = moment(date);
+                if (currentDate.day() === 0) {
+                    return true;
+                }
                 return false;
             }
-            let count = this.publicHolidays.filter(o => !o.global);
-            return count.length !== 0;
         }
-    },
-    methods: {
-        getCountryInfo: function () {
-            axios.get('/Api/v2/CountryInfo?countryCode=@(Model.CountryCode)')
-                .then(response => {
-                    this.countryInfo = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                });
-        },
-        getLongWeekends: function () {
-            axios.get('/Api/v2/LongWeekend/@(Model.Year)/@(Model.CountryCode)')
-                .then(response => {
-                    this.longWeekends = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                });
-        },
-        getPublicHolidays: function () {
-            axios.get('/Api/v2/PublicHolidays/@(Model.Year)/@(Model.CountryCode)')
-                .then(response => {
-                    this.publicHolidays = response.data
-                })
-                .catch(error => {
-                    this.publicHolidays = [];
-                    console.log(error)
-                });
-        },
-        getDates: function (startDate, stopDate) {
-            var dateArray = [];
-            var currentDate = moment(startDate);
-            var stopDate = moment(stopDate);
-            while(currentDate <= stopDate) {
-                dateArray.push(moment(currentDate).format('YYYY-MM-DD'))
-                currentDate = moment(currentDate).add(1, 'days');
-            }
-            return dateArray;
-        },
-        isSunday: function (date) {
-            var currentDate = moment(date);
-            if (currentDate.day() === 0) {
-                return true;
-            }
-            return false;
-        }
-    }
-})
+    };
+
+    Vue.createApp(App).mount('#app');
 
 </script>
 }
