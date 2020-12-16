@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Nager.Date.WebsiteCore.Model;
 using Nager.Date.WebsiteCore.Models;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -63,7 +64,9 @@ namespace Nager.Date.WebsiteCore.Controllers
                 using (var streamWriter = new StreamWriter(memoryStream))
                 using (var csv = new CsvWriter(streamWriter, CultureInfo.InvariantCulture))
                 {
-                    csv.WriteRecords(items.Select(o => new PublicHolidayCsv(o)));
+                    var csvItems = items.Select(o => new PublicHolidayCsv(o)).ToArray();
+
+                    csv.WriteRecords(csvItems);
                     streamWriter.Flush();
 
                     var csvData = memoryStream.ToArray();

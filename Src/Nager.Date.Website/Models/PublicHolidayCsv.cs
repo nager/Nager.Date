@@ -1,4 +1,5 @@
 ﻿using Nager.Date.Model;
+using System.Linq;
 
 namespace Nager.Date.WebsiteCore.Model
 {
@@ -11,10 +12,16 @@ namespace Nager.Date.WebsiteCore.Model
         public string CountryCode { get; }
         public bool Fixed { get; }
         public bool Global { get; }
-        //ISO_3166-2
-        public string[] Counties { get; }
         public int? LaunchYear { get; }
         public PublicHolidayType Type { get; }
+        /// <summary>
+        /// Counties in ISO_3166-2
+        /// </summary>
+        public string Counties { get; }
+
+        public PublicHolidayCsv()
+        {
+        }
 
         public PublicHolidayCsv(PublicHoliday item)
         {
@@ -24,9 +31,9 @@ namespace Nager.Date.WebsiteCore.Model
             this.CountryCode = item.CountryCode.ToString();
             this.Fixed = item.Fixed;
             this.Global = item.Global;
-            this.Counties = item.Counties;
             this.LaunchYear = item.LaunchYear;
             this.Type = item.Type;
+            this.Counties = item.Counties == null ? "" : $"{string.Join(',', item.Counties)}";
         }
     }
 }
