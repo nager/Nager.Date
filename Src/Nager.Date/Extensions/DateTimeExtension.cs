@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Nager.Date.Extensions
 {
@@ -13,7 +12,6 @@ namespace Nager.Date.Extensions
 
         public static DateTime Shift(this DateTime value, Func<DateTime, DateTime> saturday, Func<DateTime, DateTime> sunday, Func<DateTime, DateTime> monday = null)
         {
-            var daysOff = new List<DateTime>();
             switch (value.DayOfWeek)
             {
                 case DayOfWeek.Saturday:
@@ -82,7 +80,14 @@ namespace Nager.Date.Extensions
             return value;
         }
 
-        public static DateTime Shift(this DateTime value, DayOfWeek dayOfWeek, Func<DateTime, DateTime> shift) =>
-            (shift != null && value.DayOfWeek == dayOfWeek) ? shift.Invoke(value) : value;
+        public static DateTime Shift(this DateTime value, DayOfWeek dayOfWeek, Func<DateTime, DateTime> shift)
+        {
+            if (shift != null && value.DayOfWeek == dayOfWeek)
+            {
+                return shift.Invoke(value);
+            }
+
+            return value;
+        }
     }
 }
