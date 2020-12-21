@@ -30,11 +30,15 @@ namespace Nager.Date.Model
         /// <summary>
         /// Is this public holiday in every county (federal state)
         /// </summary>
-        public bool Global { get { return this.Counties?.Length > 0 ? false : true; } }
+        public bool Global { get { return this.Counties?.Length > 0 || this.Cities?.Length > 0 ? false : true; } }
         /// <summary>
         /// ISO-3166-2 - Federal states
         /// </summary>
         public string[] Counties { get; set; }
+        /// <summary>
+        /// Cities - Local name
+        /// </summary>
+        public string[] Cities { get; set; }
         /// <summary>
         /// A list of types the public holiday it is valid
         /// </summary>
@@ -55,8 +59,9 @@ namespace Nager.Date.Model
         /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
         /// <param name="launchYear"></param>
         /// <param name="counties">ISO-3166-2</param>
+        /// <param name="cities"></param>
         /// <param name="type">The type of the public holiday</param>
-        public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, PublicHolidayType type = PublicHolidayType.Public)
+        public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, string[] cities = null, PublicHolidayType type = PublicHolidayType.Public)
         {
             this.Date = new DateTime(year, month, day);
             this.LocalName = localName;
@@ -68,6 +73,10 @@ namespace Nager.Date.Model
             if (counties?.Length > 0)
             {
                 this.Counties = counties;
+            }
+            if (cities?.Length > 0)
+            {
+                this.Cities = cities;
             }
         }
 
