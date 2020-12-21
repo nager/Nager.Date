@@ -89,8 +89,9 @@ namespace Nager.Date.Model
         /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
         /// <param name="launchYear"></param>
         /// <param name="counties">ISO-3166-2</param>
+        /// <param name="cities"></param>
         /// /// <param name="type">The type of the public holiday</param>
-        public PublicHoliday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, PublicHolidayType type = PublicHolidayType.Public)
+        public PublicHoliday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, string[] cities = null, PublicHolidayType type = PublicHolidayType.Public)
         {
             this.Date = date;
             this.LocalName = localName;
@@ -102,6 +103,10 @@ namespace Nager.Date.Model
             if (counties?.Length > 0)
             {
                 this.Counties = counties;
+            }
+            if (cities?.Length > 0)
+            {
+                this.Cities = cities;
             }
         }
 
