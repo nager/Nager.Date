@@ -109,7 +109,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 8, 16, "Dia do Concelho", "Municipal Holiday", countryCode, 1910, null, new string[] { "São Roque do Pico" }));
             items.Add(new PublicHoliday(year, 8, 20, "Dia do Concelho", "Municipal Holiday", countryCode, 1910, null, new string[] { "Viana do Castelo" }));
             items.Add(new PublicHoliday(year, 8, 21, "Dia da Cidade do Funchal", "Funchal City Day", countryCode, 1910, null, new string[] { "Funchal" }));
-            items.Add(new PublicHoliday(year, 9, 8, "Natividade de Nossa Senhora	Celebrated", "Nativity of Mary", countryCode, 1910, null, new string[] { "Lagoa", "Alcoutim", "Ponta do Sol", "Lamego", "Mangualde", "Marco de Canaveses", "Marvão", "Montemor-o-Velho", "Murtosa", "Nazaré", "Odemira", "Ourique", "Sabrosa" }));
+            items.Add(new PublicHoliday(year, 9, 8, "Natividade de Nossa Senhora", "Nativity of Mary", countryCode, 1910, null, new string[] { "Lagoa", "Alcoutim", "Ponta do Sol", "Lamego", "Mangualde", "Marco de Canaveses", "Marvão", "Montemor-o-Velho", "Murtosa", "Nazaré", "Odemira", "Ourique", "Sabrosa" }));
             items.Add(new PublicHoliday(year, 9, 21, "Dia de São Mateus", "St. Matthew's Day", countryCode, 1910, null, new string[] { "Viseu", "Elvas" }));
             items.Add(new PublicHoliday(year, 10, 4, "Dia do Concelho", "Municipal Holiday", countryCode, 1910, null, new string[] { "Câmara de Lobos" }));
             items.Add(new PublicHoliday(year, 10, 9, "Dia do Concelho", "Municipal Holiday", countryCode, 1910, null, new string[] { "Machico" }));
