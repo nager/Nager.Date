@@ -84,5 +84,15 @@ namespace Nager.Date.Extensions
 
         public static DateTime Shift(this DateTime value, DayOfWeek dayOfWeek, Func<DateTime, DateTime> shift) =>
             (shift != null && value.DayOfWeek == dayOfWeek) ? shift.Invoke(value) : value;
+
+        public static DateTime FirstDayOfWeekOnOrAfter(this DateTime date, DayOfWeek dayOfWeek)
+        {
+            if (date.DayOfWeek == dayOfWeek)
+            {
+                return date;
+            }
+
+            return date.AddDays(7 - Math.Abs(dayOfWeek - date.DayOfWeek));
+        }
     }
 }
