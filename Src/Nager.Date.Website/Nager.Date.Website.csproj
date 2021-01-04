@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCoreRateLimit" Version="3.2.2" />
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="CsvHelper" Version="18.0.0" />
     <PackageReference Include="Mapster" Version="7.0.1" />

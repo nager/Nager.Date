@@ -1,4 +1,5 @@
-﻿using Mapster;
+﻿using AspNetCoreRateLimit;
+using Mapster;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -27,6 +28,25 @@ namespace Nager.Date.WebsiteCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region IpRateLimit
+
+            services.AddOptions();
+            services.AddMemoryCache();
+
+            //load general configuration from appsettings.json
+            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
+
+            //load ip rules from appsettings.json
+            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
+
+            // inject counter and rules stores
+            services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+            services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+
+            #endregion
+
             services.AddResponseCompression(options =>
             {
                 options.Providers.Add<GzipCompressionProvider>();
@@ -78,6 +98,8 @@ namespace Nager.Date.WebsiteCore
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+
+            app.UseIpRateLimiting();
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
