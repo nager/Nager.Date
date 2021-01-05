@@ -8,10 +8,10 @@ Nager.Date is open source software and is completely free for commercial use. If
 
 ## How can I use it?
 
-If you are use .net you can install the package over nuget for all other languages we have a docker image with a web api available.
+If you are use .net you can install the package via nuget for all other languages we have a docker image with a web api available.
 
 ### nuget
-The package is available on [nuget](https://www.nuget.org/packages/Nager.Date)
+The package is available via [nuget](https://www.nuget.org/packages/Nager.Date)
 ```
 PM> install-package Nager.Date
 ```
@@ -20,8 +20,11 @@ PM> install-package Nager.Date
 - **public** use the public api [date.nager.at API](https://date.nager.at/API)
   - If you need more as 50 requests per day please use your own private api (docker).
 - **private** use the docker container available on [dockerhub](https://hub.docker.com/r/nagerat/nager-date)
-  - `docker run -p 80:80 nagerat/nager-date`
-  - `docker run -e "ASPNETCORE_ENVIRONMENT=Development" -p 80:80 nagerat/nager-date` (allow CORS)
+  - To run a local instance of the docker image run the following command<br>
+  `docker run -e "ASPNETCORE_ENVIRONMENT=Development" -e "IpRateLimiting__EndpointWhitelist__0=*:*" -p 80:80 nagerat/nager-date`
+    - `ASPNETCORE_ENVIRONMENT=Development` activate CORS support
+    - `IpRateLimiting__EndpointWhitelist__0=*:*` disable IpRateLimiting
+    - `-p 80:80` publish the port 80 from the docker to your host.
 
 ## Donation possibilities
 If this project help you reduce time to develop, you can give me a beer :beer:
