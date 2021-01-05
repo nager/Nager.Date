@@ -88,10 +88,13 @@ namespace Nager.Date.WebsiteCore
             //Initialize Mapster
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetEntryAssembly());
 
+            var enableCors = Configuration.GetValue<bool>("EnableCors");
+            var enableIpRateLimiting = Configuration.GetValue<bool>("EnableIpRateLimiting");
+            var enableSwaggerMode = Configuration.GetValue<bool>("EnableSwaggerMode");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseCors("ApiPolicy");
             }
             else
             {
@@ -99,12 +102,25 @@ namespace Nager.Date.WebsiteCore
                 app.UseHsts();
             }
 
-            app.UseIpRateLimiting();
+            if (enableCors)
+            {
+                app.UseCors("ApiPolicy");
+            }
+
+            if (enableIpRateLimiting)
+            {
+                app.UseIpRateLimiting();
+            }
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "Nager.Date API V1");
+
+                if (enableSwaggerMode)
+                {
+                    c.RoutePrefix = string.Empty;
+                }
             });
 
             app.UseHttpsRedirection();
