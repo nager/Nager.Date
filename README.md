@@ -21,9 +21,10 @@ PM> install-package Nager.Date
   - If you need more as 50 requests per day please use your own private api (docker).
 - **private** use the docker container available on [dockerhub](https://hub.docker.com/r/nagerat/nager-date)
   - To run a local instance of the docker image run the following command<br>
-  `docker run -e "ASPNETCORE_ENVIRONMENT=Development" -e "IpRateLimiting__EndpointWhitelist__0=*:*" -p 80:80 nagerat/nager-date`
-    - `ASPNETCORE_ENVIRONMENT=Development` activate CORS support
-    - `IpRateLimiting__EndpointWhitelist__0=*:*` disable IpRateLimiting
+  `docker run -e "EnableCors=true" -e "EnableIpRateLimiting=false" -e "EnableSwaggerMode=true" -p 80:80 nagerat/nager-date`
+    - `EnableCors=true` activate CORS support
+    - `EnableIpRateLimiting=false` disable IpRateLimiting
+    - `EnableSwaggerMode=true` activate Swagger UI as start page
     - `-p 80:80` publish the port 80 from the docker to your host.
 
 ## Donation possibilities
