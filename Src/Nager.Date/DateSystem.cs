@@ -357,9 +357,9 @@ namespace Nager.Date
         {
             var items = new List<PublicHoliday>();
 
-            foreach (var publicHolidayProvider in _publicHolidaysProviders)
+            foreach (var publicHolidayProvider in _publicHolidaysProviders.Keys)
             {
-                items.AddRange(GetPublicHoliday(startDate, endDate, publicHolidayProvider.Key));
+                items.AddRange(GetPublicHoliday(startDate, endDate, publicHolidayProvider));
             }
 
             return items;
