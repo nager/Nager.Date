@@ -13,7 +13,6 @@ namespace Nager.Date
     /// </summary>
     public static class DateSystem
     {
-        private static readonly NoHolidaysProvider _noHolidaysProvider = new NoHolidaysProvider();
         private static readonly ICatholicProvider _catholicProvider = new CatholicProvider();
         private static readonly IOrthodoxProvider _orthodoxProvider = new OrthodoxProvider();
 
@@ -182,8 +181,12 @@ namespace Nager.Date
         /// <returns></returns>
         public static IPublicHolidayProvider GetPublicHolidayProvider(CountryCode countryCode)
         {
-            _publicHolidaysProviders.TryGetValue(countryCode, out IPublicHolidayProvider provider);
-            return provider ?? _noHolidaysProvider;
+            if (_publicHolidaysProviders.TryGetValue(countryCode, out IPublicHolidayProvider provider))
+            {
+                return provider;
+            }
+
+            return NoHolidaysProvider.Instance;
         }
 
         /// <summary>
@@ -349,7 +352,7 @@ namespace Nager.Date
         public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate)
         {
             var items = new List<PublicHoliday>();
-            
+
             foreach (var publicHolidayProvider in _publicHolidaysProviders)
             {
                 items.AddRange(GetPublicHoliday(startDate, endDate, publicHolidayProvider.Key));
@@ -544,7 +547,7 @@ namespace Nager.Date
                 {
                     return specificDayDate;
                 }
-              
+
             }
             return startDay;
         }
