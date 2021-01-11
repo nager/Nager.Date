@@ -196,8 +196,12 @@ namespace Nager.Date
         /// <returns></returns>
         public static IWeekendProvider GetWeekendProvider(CountryCode countryCode)
         {
-            _nonUniversalWeekendProviders.TryGetValue(countryCode, out IWeekendProvider provider);
-            return provider ?? WeekendProvider.Universal;
+            if (_nonUniversalWeekendProviders.TryGetValue(countryCode, out IWeekendProvider provider))
+            {
+                return provider;
+            }
+
+            return WeekendProvider.Universal;
         }
 
         #region Public Holidays for a given year
