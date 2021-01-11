@@ -502,18 +502,7 @@ namespace Nager.Date
         /// <returns></returns>
         public static DateTime FindDay(int year, int month, int day, DayOfWeek dayOfWeek)
         {
-            var calculationDay = new DateTime(year, month, day);
-
-            if ((int)dayOfWeek >= (int)calculationDay.DayOfWeek)
-            {
-                var daysNeeded = (int)dayOfWeek - (int)calculationDay.DayOfWeek;
-                return calculationDay.AddDays(daysNeeded);
-            }
-            else
-            {
-                var daysNeeded = (int)dayOfWeek - (int)calculationDay.DayOfWeek;
-                return calculationDay.AddDays(daysNeeded + 7);
-            }
+            return FindDay(new DateTime(year, month, day), dayOfWeek);
         }
 
         /// <summary>
@@ -524,7 +513,14 @@ namespace Nager.Date
         /// <returns></returns>
         public static DateTime FindDay(DateTime date, DayOfWeek dayOfWeek)
         {
-            return FindDay(date.Year, date.Month, date.Day, dayOfWeek);
+            var daysNeeded = (int)dayOfWeek - (int)date.DayOfWeek;
+
+            if ((int)dayOfWeek >= (int)date.DayOfWeek)
+            {
+                return date.AddDays(daysNeeded);
+            }
+
+            return date.AddDays(daysNeeded + 7);
         }
 
         /// <summary>
