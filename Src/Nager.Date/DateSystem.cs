@@ -124,43 +124,43 @@ namespace Nager.Date
                 { CountryCode.ZW, new Lazy<IPublicHolidayProvider>(() => new ZimbabweProvider(_catholicProvider))}
             };
 
-        private static readonly Dictionary<CountryCode, IWeekendProvider> _nonUniversalWeekendProviders =
-            new Dictionary<CountryCode, IWeekendProvider>
+        private static readonly Dictionary<CountryCode, Lazy<IWeekendProvider>> _nonUniversalWeekendProviders =
+            new Dictionary<CountryCode, Lazy<IWeekendProvider>>
             {
                 // https://en.wikipedia.org/wiki/Workweek_and_weekend
-                { CountryCode.AE, WeekendProvider.SemiUniversal }, // since 2006 // TODO handle launch dates in weekends
-                { CountryCode.AF, WeekendProvider.SemiUniversal },
-                { CountryCode.BD, WeekendProvider.SemiUniversal },
-                { CountryCode.BH, WeekendProvider.SemiUniversal },
-                { CountryCode.BN, WeekendProvider.FridaySunday },
-                // { CountryCode.CO, WeekendProvider.SundayOnly }, // No information on in which case it occurs
-                { CountryCode.DJ, WeekendProvider.FridayOnly },
-                { CountryCode.DZ, WeekendProvider.SemiUniversal },
-                { CountryCode.EG, WeekendProvider.SemiUniversal },
-                { CountryCode.GQ, WeekendProvider.SundayOnly },
-                { CountryCode.HK, WeekendProvider.SundayOnly },
-                { CountryCode.IL, WeekendProvider.SemiUniversal },
-                // { CountryCode.IN, WeekendProvider.SundayOnly }, // Except for Government offices and IT industry
-                { CountryCode.IQ, WeekendProvider.SemiUniversal },
-                { CountryCode.IR, WeekendProvider.FridayOnly },
-                { CountryCode.JO, WeekendProvider.SemiUniversal },
-                { CountryCode.KW, WeekendProvider.SemiUniversal },
-                { CountryCode.LY, WeekendProvider.SemiUniversal },
-                { CountryCode.MV, WeekendProvider.SemiUniversal },
-                { CountryCode.MX, WeekendProvider.SundayOnly },
-                // { CountryCode.MY, WeekendProvider.SemiUniversal }, // except in some counties // TODO Add county in weekend handling
-                { CountryCode.NP, WeekendProvider.SaturdayOnly },
-                { CountryCode.OM, WeekendProvider.SemiUniversal },
-                { CountryCode.PH, WeekendProvider.SundayOnly },
-                // { CountryCode.PK, WeekendProvider.SemiUniversal }, // only partially, often universal
-                { CountryCode.PS, WeekendProvider.SemiUniversal },
-                { CountryCode.QA, WeekendProvider.SemiUniversal },
-                { CountryCode.SA, WeekendProvider.SemiUniversal },
-                { CountryCode.SD, WeekendProvider.SemiUniversal },
-                { CountryCode.SO, WeekendProvider.FridayOnly },
-                { CountryCode.SY, WeekendProvider.SemiUniversal },
-                { CountryCode.UG, WeekendProvider.SundayOnly },
-                { CountryCode.YE, WeekendProvider.SemiUniversal },
+                { CountryCode.AE, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) }, // since 2006 // TODO handle launch dates in weekends
+                { CountryCode.AF, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.BD, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.BH, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.BN, new Lazy<IWeekendProvider>(() => WeekendProvider.FridaySunday) },
+                // { CountryCode.CO, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) }, // No information on in which case it occurs
+                { CountryCode.DJ, new Lazy<IWeekendProvider>(() => WeekendProvider.FridayOnly) },
+                { CountryCode.DZ, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.EG, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.GQ, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                { CountryCode.HK, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                { CountryCode.IL, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                // { CountryCode.IN, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) }, // Except for Government offices and IT industry
+                { CountryCode.IQ, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.IR, new Lazy<IWeekendProvider>(() => WeekendProvider.FridayOnly) },
+                { CountryCode.JO, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.KW, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.LY, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.MV, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.MX, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                // { CountryCode.MY, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) }, // except in some counties // TODO Add county in weekend handling
+                { CountryCode.NP, new Lazy<IWeekendProvider>(() => WeekendProvider.SaturdayOnly) },
+                { CountryCode.OM, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.PH, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                // { CountryCode.PK, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) }, // only partially, often universal
+                { CountryCode.PS, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.QA, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.SA, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.SD, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.SO, new Lazy<IWeekendProvider>(() => WeekendProvider.FridayOnly) },
+                { CountryCode.SY, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.UG, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                { CountryCode.YE, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
             };
 
         /// <summary>
@@ -196,9 +196,9 @@ namespace Nager.Date
         /// <returns></returns>
         public static IWeekendProvider GetWeekendProvider(CountryCode countryCode)
         {
-            if (_nonUniversalWeekendProviders.TryGetValue(countryCode, out IWeekendProvider provider))
+            if (_nonUniversalWeekendProviders.TryGetValue(countryCode, out Lazy<IWeekendProvider> provider))
             {
-                return provider;
+                return provider.Value;
             }
 
             return WeekendProvider.Universal;
