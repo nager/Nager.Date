@@ -8,7 +8,18 @@
     <Authors>Tino Hager</Authors>
     <PackageReleaseNotes>
   - Removed `DateSystem.GetDate` method, because this method does not fit thematically anymore.
-  - Revised internal management of holiday providers so that they are loaded only as needed.
+  - Converted NoHolidaysProvider to singleton
+    NoHolidaysProvider converted to a singleton to minimize the number of object references held.
+  - Refactored DateSystem.GetWeekendProvider
+    To use the return value of .TryGetValue instead of an additional null check
+  - Converted _publicHolidaysProviders to Lazy Values
+    This ensures that all content is available. However, only instantiated by the initial call, so that only the providers that are needed are loaded.
+  - Fixed UnitTest based on latest changes on NoHolidayProvider
+  - Use Keys collection instead of iterating the KeyValuePairs.
+  - Simplified usage of FindDay
+    Instead of splitting the date components to use them.
+  - Instantiates only once per WeekendProvider instead of on every call.
+  - Creates the respective IWeekendProviders only as needed.
     </PackageReleaseNotes>
     <PackageTags>Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday NationalHoliday Åland Andorra Argentina Austria Australia Bahamas Barbados Belarus Belgium Belize Benin Bolivia Botswana Brazil Bulgaria Canada Chile China Colombia CostaRica Croatia Cuba Cyprus CzechRepublic Denmark DominicanRepublic Ecuador Egypt ElSalvador Estonia FaroeIslands Finland France Gabon Gambia Germany Greece Grenada Guatemala Guyana Haiti Honduras Hungary Iceland Indonesia Ireland IsleOfMan Italy Jamaica Jersey Latvia Lesotho Liechtenstein Lithuania Luxembourg Macedonia Madagascar Malta Mexico Moldova Monaco Mongolia Morocco Mozambique Namibia Netherlands Nicaragua Niger Norway NewZealand Panana Paraguay Peru Poland Portugal PuertoRico Romania Russia SanMarino Serbia SvalbardAndJanMayen Slovakia Slovenia SouthAfrica Spain Surianme Sweden Switzerland Tunisia Venezuela Ukraine UnitedKingdom UnitedStates Uruguay VaticanCity Vietnam</PackageTags>
     <PackageProjectUrl>https://date.nager.at</PackageProjectUrl>
