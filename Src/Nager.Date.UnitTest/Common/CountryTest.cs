@@ -15,13 +15,9 @@ namespace Nager.Date.UnitTest.Common
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
                 var provider = DateSystem.GetPublicHolidayProvider(countryCode);
-                if (provider.GetType() == typeof(NoHolidaysProvider))
-                {
-                    continue;
-                }
 
                 var publicHolidays = provider.Get(2018);
-                if (publicHolidays.Any())
+                if (!publicHolidays.Any())
                 {
                     continue;
                 }
@@ -66,7 +62,7 @@ namespace Nager.Date.UnitTest.Common
         {
             var result = DateSystem.GetPublicHoliday(2018, "de");
             var result2 = DateSystem.GetPublicHoliday(2018, "DE");
-            
+
             Assert.IsNotNull(result);
             Assert.IsNotNull(result2);
         }

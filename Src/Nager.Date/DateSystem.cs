@@ -13,155 +13,154 @@ namespace Nager.Date
     /// </summary>
     public static class DateSystem
     {
-        private static readonly NoHolidaysProvider _noHolidaysProvider = new NoHolidaysProvider();
         private static readonly ICatholicProvider _catholicProvider = new CatholicProvider();
         private static readonly IOrthodoxProvider _orthodoxProvider = new OrthodoxProvider();
 
-        private static readonly Dictionary<CountryCode, IPublicHolidayProvider> _publicHolidaysProviders =
-            new Dictionary<CountryCode, IPublicHolidayProvider>
+        private static readonly Dictionary<CountryCode, Lazy<IPublicHolidayProvider>> _publicHolidaysProviders =
+            new Dictionary<CountryCode, Lazy<IPublicHolidayProvider>>
             {
-                { CountryCode.AL, new AlbaniaProvider(_orthodoxProvider) },
-                { CountryCode.AD, new AndorraProvider() },
-                { CountryCode.AR, new ArgentinaProvider(_catholicProvider) },
-                { CountryCode.AT, new AustriaProvider(_catholicProvider) },
-                { CountryCode.AU, new AustraliaProvider(_catholicProvider) },
-                { CountryCode.AX, new AlandProvider(_catholicProvider) },
-                { CountryCode.BB, new BarbadosProvider(_catholicProvider) },
-                { CountryCode.BE, new BelgiumProvider(_catholicProvider) },
-                { CountryCode.BG, new BulgariaProvider(_orthodoxProvider) },
-                { CountryCode.BJ, new BeninProvider(_catholicProvider) },
-                { CountryCode.BO, new BoliviaProvider(_catholicProvider) },
-                { CountryCode.BR, new BrazilProvider(_catholicProvider) },
-                { CountryCode.BS, new BahamasProvider(_catholicProvider) },
-                { CountryCode.BW, new BotswanaProvider(_catholicProvider) },
-                { CountryCode.BY, new BelarusProvider(_orthodoxProvider) },
-                { CountryCode.BZ, new BelizeProvider(_catholicProvider) },
-                { CountryCode.CA, new CanadaProvider(_catholicProvider) },
-                { CountryCode.CH, new SwitzerlandProvider(_catholicProvider) },
-                { CountryCode.CL, new ChileProvider(_catholicProvider) },
-                { CountryCode.CN, new ChinaProvider() },
-                { CountryCode.CO, new ColombiaProvider(_catholicProvider) },
-                { CountryCode.CR, new CostaRicaProvider(_catholicProvider) },
-                { CountryCode.CU, new CubaProvider(_catholicProvider) },
-                { CountryCode.CY, new CyprusProvider(_orthodoxProvider) },
-                { CountryCode.CZ, new CzechRepublicProvider(_catholicProvider) },
-                { CountryCode.DE, new GermanyProvider(_catholicProvider) },
-                { CountryCode.DK, new DenmarkProvider(_catholicProvider) },
-                { CountryCode.DO, new DominicanRepublicProvider(_catholicProvider) },
-                { CountryCode.EC, new EcuadorProvider(_catholicProvider) },
-                { CountryCode.EE, new EstoniaProvider(_catholicProvider) },
-                { CountryCode.EG, new EgyptProvider() },
-                { CountryCode.ES, new SpainProvider(_catholicProvider) },
-                { CountryCode.FI, new FinlandProvider(_catholicProvider) },
-                { CountryCode.FO, new FaroeIslandsProvider(_catholicProvider) },
-                { CountryCode.FR, new FranceProvider(_catholicProvider) },
-                { CountryCode.GA, new GabonProvider(_catholicProvider) },
-                { CountryCode.GB, new UnitedKingdomProvider(_catholicProvider) },
-                { CountryCode.GD, new GrenadaProvider(_catholicProvider) },
-                { CountryCode.GL, new GreenlandProvider(_catholicProvider) },
-                { CountryCode.GM, new GambiaProvider(_catholicProvider) },
-                { CountryCode.GR, new GreeceProvider(_orthodoxProvider) },
-                { CountryCode.GT, new GuatemalaProvider(_catholicProvider) },
-                { CountryCode.GY, new GuyanaProvider(_catholicProvider) },
-                { CountryCode.HN, new HondurasProvider(_catholicProvider) },
-                { CountryCode.HR, new CroatiaProvider(_catholicProvider) },
-                { CountryCode.HT, new HaitiProvider(_catholicProvider) },
-                { CountryCode.HU, new HungaryProvider(_catholicProvider) },
-                { CountryCode.IE, new IrelandProvider(_catholicProvider) },
-                { CountryCode.ID, new IndonesiaProvider(_catholicProvider) },
-                { CountryCode.IM, new IsleOfManProvider(_catholicProvider) },
-                { CountryCode.IS, new IcelandProvider(_catholicProvider) },
-                { CountryCode.IT, new ItalyProvider(_catholicProvider) },
-                { CountryCode.LI, new LiechtensteinProvider(_catholicProvider) },
-                { CountryCode.LS, new LesothoProvider(_catholicProvider) },
-                { CountryCode.LT, new LithuaniaProvider(_catholicProvider) },
-                { CountryCode.LU, new LuxembourgProvider(_catholicProvider) },
-                { CountryCode.LV, new LatviaProvider(_catholicProvider) },
-                { CountryCode.JE, new JerseyProvider(_catholicProvider) },
-                { CountryCode.JM, new JamaicaProvider(_catholicProvider) },
-                { CountryCode.JP, new JapanProvider() },
-                { CountryCode.MA, new MoroccoProvider() },
-                { CountryCode.MC, new MonacoProvider(_catholicProvider) },
-                { CountryCode.MD, new MoldovaProvider(_orthodoxProvider) },
-                { CountryCode.MG, new MadagascarProvider(_catholicProvider) },
-                { CountryCode.MK, new MacedoniaProvider(_orthodoxProvider) },
-                { CountryCode.MN, new MongoliaProvider() },
-                { CountryCode.MT, new MaltaProvider(_catholicProvider) },
-                { CountryCode.MX, new MexicoProvider(_catholicProvider) },
-                { CountryCode.MZ, new MozambiqueProvider() },
-                { CountryCode.NA, new NamibiaProvider(_catholicProvider) },
-                { CountryCode.NE, new NigerProvider(_catholicProvider) },
-                { CountryCode.NI, new NicaraguaProvider(_catholicProvider) },
-                { CountryCode.NL, new NetherlandsProvider(_catholicProvider) },
-                { CountryCode.NO, new NorwayProvider(_catholicProvider) },
-                { CountryCode.NZ, new NewZealandProvider(_catholicProvider) },
-                { CountryCode.PA, new PanamaProvider(_catholicProvider) },
-                { CountryCode.PE, new PeruProvider(_catholicProvider) },
-                { CountryCode.PL, new PolandProvider(_catholicProvider) },
-                { CountryCode.PR, new PuertoRicoProvider(_catholicProvider) },
-                { CountryCode.PT, new PortugalProvider(_catholicProvider) },
-                { CountryCode.PY, new ParaguayProvider(_catholicProvider) },
-                { CountryCode.RO, new RomaniaProvider(_orthodoxProvider) },
-                { CountryCode.RS, new SerbiaProvider(_orthodoxProvider) },
-                { CountryCode.RU, new RussiaProvider() },
-                { CountryCode.SE, new SwedenProvider(_catholicProvider) },
-                { CountryCode.SI, new SloveniaProvider(_catholicProvider) },
-                { CountryCode.SJ, new SvalbardAndJanMayenProvider(_catholicProvider) },
-                { CountryCode.SK, new SlovakiaProvider(_catholicProvider) },
-                { CountryCode.SM, new SanMarinoProvider(_catholicProvider) },
-                { CountryCode.SR, new SurinameProvider(_catholicProvider) },
-                { CountryCode.SV, new ElSalvadorProvider(_catholicProvider) },
-                { CountryCode.TN, new TunisiaProvider() },
-                { CountryCode.TR, new TurkeyProvider() },
-                { CountryCode.UA, new UkraineProvider(_orthodoxProvider) },
-                { CountryCode.US, new UnitedStatesProvider() },
-                { CountryCode.UY, new UruguayProvider(_catholicProvider) },
-                { CountryCode.VA, new VaticanCityProvider(_catholicProvider) },
-                { CountryCode.VE, new VenezuelaProvider(_catholicProvider) },
-                { CountryCode.VN, new VietnamProvider() },
+                { CountryCode.AL, new Lazy<IPublicHolidayProvider>(() => new AlbaniaProvider(_orthodoxProvider))},
+                { CountryCode.AD, new Lazy<IPublicHolidayProvider>(() => new AndorraProvider())},
+                { CountryCode.AR, new Lazy<IPublicHolidayProvider>(() => new ArgentinaProvider(_catholicProvider))},
+                { CountryCode.AT, new Lazy<IPublicHolidayProvider>(() => new AustriaProvider(_catholicProvider))},
+                { CountryCode.AU, new Lazy<IPublicHolidayProvider>(() => new AustraliaProvider(_catholicProvider))},
+                { CountryCode.AX, new Lazy<IPublicHolidayProvider>(() => new AlandProvider(_catholicProvider))},
+                { CountryCode.BB, new Lazy<IPublicHolidayProvider>(() => new BarbadosProvider(_catholicProvider))},
+                { CountryCode.BE, new Lazy<IPublicHolidayProvider>(() => new BelgiumProvider(_catholicProvider))},
+                { CountryCode.BG, new Lazy<IPublicHolidayProvider>(() => new BulgariaProvider(_orthodoxProvider))},
+                { CountryCode.BJ, new Lazy<IPublicHolidayProvider>(() => new BeninProvider(_catholicProvider))},
+                { CountryCode.BO, new Lazy<IPublicHolidayProvider>(() => new BoliviaProvider(_catholicProvider))},
+                { CountryCode.BR, new Lazy<IPublicHolidayProvider>(() => new BrazilProvider(_catholicProvider))},
+                { CountryCode.BS, new Lazy<IPublicHolidayProvider>(() => new BahamasProvider(_catholicProvider))},
+                { CountryCode.BW, new Lazy<IPublicHolidayProvider>(() => new BotswanaProvider(_catholicProvider))},
+                { CountryCode.BY, new Lazy<IPublicHolidayProvider>(() => new BelarusProvider(_orthodoxProvider))},
+                { CountryCode.BZ, new Lazy<IPublicHolidayProvider>(() => new BelizeProvider(_catholicProvider))},
+                { CountryCode.CA, new Lazy<IPublicHolidayProvider>(() => new CanadaProvider(_catholicProvider))},
+                { CountryCode.CH, new Lazy<IPublicHolidayProvider>(() => new SwitzerlandProvider(_catholicProvider))},
+                { CountryCode.CL, new Lazy<IPublicHolidayProvider>(() => new ChileProvider(_catholicProvider))},
+                { CountryCode.CN, new Lazy<IPublicHolidayProvider>(() => new ChinaProvider())},
+                { CountryCode.CO, new Lazy<IPublicHolidayProvider>(() => new ColombiaProvider(_catholicProvider))},
+                { CountryCode.CR, new Lazy<IPublicHolidayProvider>(() => new CostaRicaProvider(_catholicProvider))},
+                { CountryCode.CU, new Lazy<IPublicHolidayProvider>(() => new CubaProvider(_catholicProvider))},
+                { CountryCode.CY, new Lazy<IPublicHolidayProvider>(() => new CyprusProvider(_orthodoxProvider))},
+                { CountryCode.CZ, new Lazy<IPublicHolidayProvider>(() => new CzechRepublicProvider(_catholicProvider))},
+                { CountryCode.DE, new Lazy<IPublicHolidayProvider>(() => new GermanyProvider(_catholicProvider))},
+                { CountryCode.DK, new Lazy<IPublicHolidayProvider>(() => new DenmarkProvider(_catholicProvider))},
+                { CountryCode.DO, new Lazy<IPublicHolidayProvider>(() => new DominicanRepublicProvider(_catholicProvider))},
+                { CountryCode.EC, new Lazy<IPublicHolidayProvider>(() => new EcuadorProvider(_catholicProvider))},
+                { CountryCode.EE, new Lazy<IPublicHolidayProvider>(() => new EstoniaProvider(_catholicProvider))},
+                { CountryCode.EG, new Lazy<IPublicHolidayProvider>(() => new EgyptProvider())},
+                { CountryCode.ES, new Lazy<IPublicHolidayProvider>(() => new SpainProvider(_catholicProvider))},
+                { CountryCode.FI, new Lazy<IPublicHolidayProvider>(() => new FinlandProvider(_catholicProvider))},
+                { CountryCode.FO, new Lazy<IPublicHolidayProvider>(() => new FaroeIslandsProvider(_catholicProvider))},
+                { CountryCode.FR, new Lazy<IPublicHolidayProvider>(() => new FranceProvider(_catholicProvider))},
+                { CountryCode.GA, new Lazy<IPublicHolidayProvider>(() => new GabonProvider(_catholicProvider))},
+                { CountryCode.GB, new Lazy<IPublicHolidayProvider>(() => new UnitedKingdomProvider(_catholicProvider))},
+                { CountryCode.GD, new Lazy<IPublicHolidayProvider>(() => new GrenadaProvider(_catholicProvider))},
+                { CountryCode.GL, new Lazy<IPublicHolidayProvider>(() => new GreenlandProvider(_catholicProvider))},
+                { CountryCode.GM, new Lazy<IPublicHolidayProvider>(() => new GambiaProvider(_catholicProvider))},
+                { CountryCode.GR, new Lazy<IPublicHolidayProvider>(() => new GreeceProvider(_orthodoxProvider))},
+                { CountryCode.GT, new Lazy<IPublicHolidayProvider>(() => new GuatemalaProvider(_catholicProvider))},
+                { CountryCode.GY, new Lazy<IPublicHolidayProvider>(() => new GuyanaProvider(_catholicProvider))},
+                { CountryCode.HN, new Lazy<IPublicHolidayProvider>(() => new HondurasProvider(_catholicProvider))},
+                { CountryCode.HR, new Lazy<IPublicHolidayProvider>(() => new CroatiaProvider(_catholicProvider))},
+                { CountryCode.HT, new Lazy<IPublicHolidayProvider>(() => new HaitiProvider(_catholicProvider))},
+                { CountryCode.HU, new Lazy<IPublicHolidayProvider>(() => new HungaryProvider(_catholicProvider))},
+                { CountryCode.IE, new Lazy<IPublicHolidayProvider>(() => new IrelandProvider(_catholicProvider))},
+                { CountryCode.ID, new Lazy<IPublicHolidayProvider>(() => new IndonesiaProvider(_catholicProvider))},
+                { CountryCode.IM, new Lazy<IPublicHolidayProvider>(() => new IsleOfManProvider(_catholicProvider))},
+                { CountryCode.IS, new Lazy<IPublicHolidayProvider>(() => new IcelandProvider(_catholicProvider))},
+                { CountryCode.IT, new Lazy<IPublicHolidayProvider>(() => new ItalyProvider(_catholicProvider))},
+                { CountryCode.LI, new Lazy<IPublicHolidayProvider>(() => new LiechtensteinProvider(_catholicProvider))},
+                { CountryCode.LS, new Lazy<IPublicHolidayProvider>(() => new LesothoProvider(_catholicProvider))},
+                { CountryCode.LT, new Lazy<IPublicHolidayProvider>(() => new LithuaniaProvider(_catholicProvider))},
+                { CountryCode.LU, new Lazy<IPublicHolidayProvider>(() => new LuxembourgProvider(_catholicProvider))},
+                { CountryCode.LV, new Lazy<IPublicHolidayProvider>(() => new LatviaProvider(_catholicProvider))},
+                { CountryCode.JE, new Lazy<IPublicHolidayProvider>(() => new JerseyProvider(_catholicProvider))},
+                { CountryCode.JM, new Lazy<IPublicHolidayProvider>(() => new JamaicaProvider(_catholicProvider))},
+                { CountryCode.JP, new Lazy<IPublicHolidayProvider>(() => new JapanProvider())},
+                { CountryCode.MA, new Lazy<IPublicHolidayProvider>(() => new MoroccoProvider())},
+                { CountryCode.MC, new Lazy<IPublicHolidayProvider>(() => new MonacoProvider(_catholicProvider))},
+                { CountryCode.MD, new Lazy<IPublicHolidayProvider>(() => new MoldovaProvider(_orthodoxProvider))},
+                { CountryCode.MG, new Lazy<IPublicHolidayProvider>(() => new MadagascarProvider(_catholicProvider))},
+                { CountryCode.MK, new Lazy<IPublicHolidayProvider>(() => new MacedoniaProvider(_orthodoxProvider))},
+                { CountryCode.MN, new Lazy<IPublicHolidayProvider>(() => new MongoliaProvider())},
+                { CountryCode.MT, new Lazy<IPublicHolidayProvider>(() => new MaltaProvider(_catholicProvider))},
+                { CountryCode.MX, new Lazy<IPublicHolidayProvider>(() => new MexicoProvider(_catholicProvider))},
+                { CountryCode.MZ, new Lazy<IPublicHolidayProvider>(() => new MozambiqueProvider())},
+                { CountryCode.NA, new Lazy<IPublicHolidayProvider>(() => new NamibiaProvider(_catholicProvider))},
+                { CountryCode.NE, new Lazy<IPublicHolidayProvider>(() => new NigerProvider(_catholicProvider))},
+                { CountryCode.NI, new Lazy<IPublicHolidayProvider>(() => new NicaraguaProvider(_catholicProvider))},
+                { CountryCode.NL, new Lazy<IPublicHolidayProvider>(() => new NetherlandsProvider(_catholicProvider))},
+                { CountryCode.NO, new Lazy<IPublicHolidayProvider>(() => new NorwayProvider(_catholicProvider))},
+                { CountryCode.NZ, new Lazy<IPublicHolidayProvider>(() => new NewZealandProvider(_catholicProvider))},
+                { CountryCode.PA, new Lazy<IPublicHolidayProvider>(() => new PanamaProvider(_catholicProvider))},
+                { CountryCode.PE, new Lazy<IPublicHolidayProvider>(() => new PeruProvider(_catholicProvider))},
+                { CountryCode.PL, new Lazy<IPublicHolidayProvider>(() => new PolandProvider(_catholicProvider))},
+                { CountryCode.PR, new Lazy<IPublicHolidayProvider>(() => new PuertoRicoProvider(_catholicProvider))},
+                { CountryCode.PT, new Lazy<IPublicHolidayProvider>(() => new PortugalProvider(_catholicProvider))},
+                { CountryCode.PY, new Lazy<IPublicHolidayProvider>(() => new ParaguayProvider(_catholicProvider))},
+                { CountryCode.RO, new Lazy<IPublicHolidayProvider>(() => new RomaniaProvider(_orthodoxProvider))},
+                { CountryCode.RS, new Lazy<IPublicHolidayProvider>(() => new SerbiaProvider(_orthodoxProvider))},
+                { CountryCode.RU, new Lazy<IPublicHolidayProvider>(() => new RussiaProvider())},
+                { CountryCode.SE, new Lazy<IPublicHolidayProvider>(() => new SwedenProvider(_catholicProvider))},
+                { CountryCode.SI, new Lazy<IPublicHolidayProvider>(() => new SloveniaProvider(_catholicProvider))},
+                { CountryCode.SJ, new Lazy<IPublicHolidayProvider>(() => new SvalbardAndJanMayenProvider(_catholicProvider))},
+                { CountryCode.SK, new Lazy<IPublicHolidayProvider>(() => new SlovakiaProvider(_catholicProvider))},
+                { CountryCode.SM, new Lazy<IPublicHolidayProvider>(() => new SanMarinoProvider(_catholicProvider))},
+                { CountryCode.SR, new Lazy<IPublicHolidayProvider>(() => new SurinameProvider(_catholicProvider))},
+                { CountryCode.SV, new Lazy<IPublicHolidayProvider>(() => new ElSalvadorProvider(_catholicProvider))},
+                { CountryCode.TN, new Lazy<IPublicHolidayProvider>(() => new TunisiaProvider())},
+                { CountryCode.TR, new Lazy<IPublicHolidayProvider>(() => new TurkeyProvider())},
+                { CountryCode.UA, new Lazy<IPublicHolidayProvider>(() => new UkraineProvider(_orthodoxProvider))},
+                { CountryCode.US, new Lazy<IPublicHolidayProvider>(() => new UnitedStatesProvider())},
+                { CountryCode.UY, new Lazy<IPublicHolidayProvider>(() => new UruguayProvider(_catholicProvider))},
+                { CountryCode.VA, new Lazy<IPublicHolidayProvider>(() => new VaticanCityProvider(_catholicProvider))},
+                { CountryCode.VE, new Lazy<IPublicHolidayProvider>(() => new VenezuelaProvider(_catholicProvider))},
+                { CountryCode.VN, new Lazy<IPublicHolidayProvider>(() => new VietnamProvider())},
                 //Not officially assigned https://www.iso.org/obp/ui/#iso:pub:PUB500001:en
-                //{ CountryCode.XK, new KosovoProvider(_orthodoxProvider, _catholicProvider) },
-                { CountryCode.ZA, new SouthAfricaProvider(_catholicProvider) },
-                { CountryCode.ZW, new ZimbabweProvider(_catholicProvider) }
+                //{ CountryCode.XK, new Lazy<IPublicHolidayProvider>(() => new KosovoProvider(_orthodoxProvider, _catholicProvider))},
+                { CountryCode.ZA, new Lazy<IPublicHolidayProvider>(() => new SouthAfricaProvider(_catholicProvider))},
+                { CountryCode.ZW, new Lazy<IPublicHolidayProvider>(() => new ZimbabweProvider(_catholicProvider))}
             };
 
-        private static readonly Dictionary<CountryCode, IWeekendProvider> _nonUniversalWeekendProviders =
-            new Dictionary<CountryCode, IWeekendProvider>
+        private static readonly Dictionary<CountryCode, Lazy<IWeekendProvider>> _nonUniversalWeekendProviders =
+            new Dictionary<CountryCode, Lazy<IWeekendProvider>>
             {
                 // https://en.wikipedia.org/wiki/Workweek_and_weekend
-                { CountryCode.AE, WeekendProvider.SemiUniversal }, // since 2006 // TODO handle launch dates in weekends
-                { CountryCode.AF, WeekendProvider.SemiUniversal },
-                { CountryCode.BD, WeekendProvider.SemiUniversal },
-                { CountryCode.BH, WeekendProvider.SemiUniversal },
-                { CountryCode.BN, WeekendProvider.FridaySunday },
-                // { CountryCode.CO, WeekendProvider.SundayOnly }, // No information on in which case it occurs
-                { CountryCode.DJ, WeekendProvider.FridayOnly },
-                { CountryCode.DZ, WeekendProvider.SemiUniversal },
-                { CountryCode.EG, WeekendProvider.SemiUniversal },
-                { CountryCode.GQ, WeekendProvider.SundayOnly },
-                { CountryCode.HK, WeekendProvider.SundayOnly },
-                { CountryCode.IL, WeekendProvider.SemiUniversal },
-                // { CountryCode.IN, WeekendProvider.SundayOnly }, // Except for Government offices and IT industry
-                { CountryCode.IQ, WeekendProvider.SemiUniversal },
-                { CountryCode.IR, WeekendProvider.FridayOnly },
-                { CountryCode.JO, WeekendProvider.SemiUniversal },
-                { CountryCode.KW, WeekendProvider.SemiUniversal },
-                { CountryCode.LY, WeekendProvider.SemiUniversal },
-                { CountryCode.MV, WeekendProvider.SemiUniversal },
-                { CountryCode.MX, WeekendProvider.SundayOnly },
-                // { CountryCode.MY, WeekendProvider.SemiUniversal }, // except in some counties // TODO Add county in weekend handling
-                { CountryCode.NP, WeekendProvider.SaturdayOnly },
-                { CountryCode.OM, WeekendProvider.SemiUniversal },
-                { CountryCode.PH, WeekendProvider.SundayOnly },
-                // { CountryCode.PK, WeekendProvider.SemiUniversal }, // only partially, often universal
-                { CountryCode.PS, WeekendProvider.SemiUniversal },
-                { CountryCode.QA, WeekendProvider.SemiUniversal },
-                { CountryCode.SA, WeekendProvider.SemiUniversal },
-                { CountryCode.SD, WeekendProvider.SemiUniversal },
-                { CountryCode.SO, WeekendProvider.FridayOnly },
-                { CountryCode.SY, WeekendProvider.SemiUniversal },
-                { CountryCode.UG, WeekendProvider.SundayOnly },
-                { CountryCode.YE, WeekendProvider.SemiUniversal },
+                { CountryCode.AE, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) }, // since 2006 // TODO handle launch dates in weekends
+                { CountryCode.AF, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.BD, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.BH, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.BN, new Lazy<IWeekendProvider>(() => WeekendProvider.FridaySunday) },
+                // { CountryCode.CO, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) }, // No information on in which case it occurs
+                { CountryCode.DJ, new Lazy<IWeekendProvider>(() => WeekendProvider.FridayOnly) },
+                { CountryCode.DZ, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.EG, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.GQ, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                { CountryCode.HK, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                { CountryCode.IL, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                // { CountryCode.IN, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) }, // Except for Government offices and IT industry
+                { CountryCode.IQ, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.IR, new Lazy<IWeekendProvider>(() => WeekendProvider.FridayOnly) },
+                { CountryCode.JO, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.KW, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.LY, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.MV, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.MX, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                // { CountryCode.MY, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) }, // except in some counties // TODO Add county in weekend handling
+                { CountryCode.NP, new Lazy<IWeekendProvider>(() => WeekendProvider.SaturdayOnly) },
+                { CountryCode.OM, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.PH, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                // { CountryCode.PK, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) }, // only partially, often universal
+                { CountryCode.PS, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.QA, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.SA, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.SD, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.SO, new Lazy<IWeekendProvider>(() => WeekendProvider.FridayOnly) },
+                { CountryCode.SY, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.UG, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
+                { CountryCode.YE, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
             };
 
         /// <summary>
@@ -182,8 +181,12 @@ namespace Nager.Date
         /// <returns></returns>
         public static IPublicHolidayProvider GetPublicHolidayProvider(CountryCode countryCode)
         {
-            _publicHolidaysProviders.TryGetValue(countryCode, out IPublicHolidayProvider provider);
-            return provider ?? _noHolidaysProvider;
+            if (_publicHolidaysProviders.TryGetValue(countryCode, out Lazy<IPublicHolidayProvider> provider))
+            {
+                return provider.Value;
+            }
+
+            return NoHolidaysProvider.Instance;
         }
 
         /// <summary>
@@ -193,8 +196,12 @@ namespace Nager.Date
         /// <returns></returns>
         public static IWeekendProvider GetWeekendProvider(CountryCode countryCode)
         {
-            _nonUniversalWeekendProviders.TryGetValue(countryCode, out IWeekendProvider provider);
-            return provider ?? WeekendProvider.Universal;
+            if (_nonUniversalWeekendProviders.TryGetValue(countryCode, out Lazy<IWeekendProvider> provider))
+            {
+                return provider.Value;
+            }
+
+            return WeekendProvider.Universal;
         }
 
         #region Public Holidays for a given year
@@ -349,10 +356,10 @@ namespace Nager.Date
         public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate)
         {
             var items = new List<PublicHoliday>();
-            
-            foreach (var publicHolidayProvider in _publicHolidaysProviders)
+
+            foreach (var publicHolidayProvider in _publicHolidaysProviders.Keys)
             {
-                items.AddRange(GetPublicHoliday(startDate, endDate, publicHolidayProvider.Key));
+                items.AddRange(GetPublicHoliday(startDate, endDate, publicHolidayProvider));
             }
 
             return items;
@@ -495,18 +502,7 @@ namespace Nager.Date
         /// <returns></returns>
         public static DateTime FindDay(int year, int month, int day, DayOfWeek dayOfWeek)
         {
-            var calculationDay = new DateTime(year, month, day);
-
-            if ((int)dayOfWeek >= (int)calculationDay.DayOfWeek)
-            {
-                var daysNeeded = (int)dayOfWeek - (int)calculationDay.DayOfWeek;
-                return calculationDay.AddDays(daysNeeded);
-            }
-            else
-            {
-                var daysNeeded = (int)dayOfWeek - (int)calculationDay.DayOfWeek;
-                return calculationDay.AddDays(daysNeeded + 7);
-            }
+            return FindDay(new DateTime(year, month, day), dayOfWeek);
         }
 
         /// <summary>
@@ -517,7 +513,14 @@ namespace Nager.Date
         /// <returns></returns>
         public static DateTime FindDay(DateTime date, DayOfWeek dayOfWeek)
         {
-            return FindDay(date.Year, date.Month, date.Day, dayOfWeek);
+            var daysNeeded = (int)dayOfWeek - (int)date.DayOfWeek;
+
+            if ((int)dayOfWeek >= (int)date.DayOfWeek)
+            {
+                return date.AddDays(daysNeeded);
+            }
+
+            return date.AddDays(daysNeeded + 7);
         }
 
         /// <summary>
@@ -544,7 +547,7 @@ namespace Nager.Date
                 {
                     return specificDayDate;
                 }
-              
+
             }
             return startDay;
         }

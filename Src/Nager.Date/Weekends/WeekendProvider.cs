@@ -49,12 +49,12 @@ namespace Nager.Date.Weekends
 
         public DayOfWeek LastWeekendDay { get; }
 
-        public static WeekendProvider FridayOnly => new WeekendProvider(DayOfWeek.Friday);
-        public static WeekendProvider SaturdayOnly => new WeekendProvider(DayOfWeek.Saturday);
-        public static WeekendProvider SundayOnly => new WeekendProvider(DayOfWeek.Sunday);
-        public static WeekendProvider FridaySunday => new WeekendProvider(DayOfWeek.Friday, DayOfWeek.Sunday);
-        public static WeekendProvider SemiUniversal => new WeekendProvider(DayOfWeek.Friday, DayOfWeek.Saturday);
-        public static WeekendProvider Universal => new WeekendProvider(DayOfWeek.Saturday, DayOfWeek.Sunday);
+        public static IWeekendProvider FridayOnly { get; } = new WeekendProvider(DayOfWeek.Friday);
+        public static IWeekendProvider SaturdayOnly { get; } = new WeekendProvider(DayOfWeek.Saturday);
+        public static IWeekendProvider SundayOnly { get; } = new WeekendProvider(DayOfWeek.Sunday);
+        public static IWeekendProvider FridaySunday { get; } = new WeekendProvider(DayOfWeek.Friday, DayOfWeek.Sunday);
+        public static IWeekendProvider SemiUniversal { get; } = new WeekendProvider(DayOfWeek.Friday, DayOfWeek.Saturday);
+        public static IWeekendProvider Universal { get; } = new WeekendProvider(DayOfWeek.Saturday, DayOfWeek.Sunday);
 
     }
 }
