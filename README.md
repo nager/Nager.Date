@@ -78,12 +78,6 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 }
 ```
 
-### Calculate age
-```cs
-var date = new DateTime(1900, 1, 1);
-var age = DateSystem.GetAge(date);
-```
-
 ## Country Support
 
 The list of supported countries can be found on the [wiki](https://github.com/nager/Nager.Date/wiki/Supported-Countries).

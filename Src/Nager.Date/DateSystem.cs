@@ -635,24 +635,6 @@ namespace Nager.Date
 
         #endregion
 
-        #region Birthday
-
-        /// <summary>
-        /// Get the age of a person from a given date
-        /// </summary>
-        /// <param name="birthdate">The birthdate</param>
-        /// <returns></returns>
-        public static int GetAge(DateTime birthdate)
-        {
-            var today = DateTime.UtcNow;
-            var age = today.Year - birthdate.Year;
-            if (birthdate > today.AddYears(-age)) age--;
-
-            return age;
-        }
-
-        #endregion
-
         #region Long Weekends
 
         /// <summary>
