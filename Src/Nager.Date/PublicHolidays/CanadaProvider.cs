@@ -22,10 +22,7 @@ namespace Nager.Date.PublicHolidays
             this._catholicProvider = catholicProvider;
         }
 
-        /// <summary>
-        /// GetCounties
-        /// </summary>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IDictionary<string, string> GetCounties()
         {
             var items = new Dictionary<string, string>();
@@ -45,11 +42,7 @@ namespace Nager.Date.PublicHolidays
             return items;
         }
 
-        /// <summary>
-        /// Get
-        /// </summary>
-        /// <param name="year">The year</param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.CA;
@@ -113,10 +106,7 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday[] { new PublicHoliday(year, 7, 1, "Canada Day", "Canada Day", countryCode) };
         }
 
-        /// <summary>
-        /// Get the Holiday Sources
-        /// </summary>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<string> GetSources()
         {
             return new string[]

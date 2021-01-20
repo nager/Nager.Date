@@ -7,11 +7,7 @@ namespace Nager.Date.Contract
     /// </summary>
     public class OrthodoxProvider : IOrthodoxProvider
     {
-        /// <summary>
-        /// Get Orthodox easter for requested year
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public DateTime EasterSunday(int year)
         {
             var a = year % 19;

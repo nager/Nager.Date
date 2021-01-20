@@ -11,7 +11,6 @@ namespace Nager.Date.Contract
     public class LongWeekendCalculator : ILongWeekendCalculator
     {
         private readonly IWeekendProvider _weekendProvider;
-        private readonly IEnumerable<PublicHoliday> _publicHolidays;
 
         /// <summary>
         /// LongWeekendCalculator

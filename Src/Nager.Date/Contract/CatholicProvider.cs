@@ -7,11 +7,7 @@ namespace Nager.Date.Contract
     /// </summary>
     public class CatholicProvider : ICatholicProvider
     {
-        /// <summary>
-        /// Get Catholic easter for requested year
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public DateTime EasterSunday(int year)
         {
             //http://stackoverflow.com/questions/2510383/how-can-i-calculate-what-date-good-friday-falls-on-given-a-year
@@ -33,11 +29,7 @@ namespace Nager.Date.Contract
             return new DateTime(year, month, day);
         }
 
-        /// <summary>
-        /// Get advent sunday for requested year
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public DateTime AdventSunday(int year)
         {
             var christmasDate = new DateTime(year, 12, 24);

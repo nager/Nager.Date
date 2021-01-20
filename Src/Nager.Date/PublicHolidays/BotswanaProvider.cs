@@ -22,11 +22,7 @@ namespace Nager.Date.PublicHolidays
             this._catholicProvider = catholicProvider;
         }
 
-        /// <summary>
-        /// Get
-        /// </summary>
-        /// <param name="year">The year</param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.BW;
@@ -50,10 +46,7 @@ namespace Nager.Date.PublicHolidays
             return items.OrderBy(o => o.Date);
         }
 
-        /// <summary>
-        /// Get the Holiday Sources
-        /// </summary>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<string> GetSources()
         {
             return new string[]
