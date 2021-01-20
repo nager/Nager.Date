@@ -1,5 +1,4 @@
 ﻿using Mapster;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nager.Date.Model;
@@ -49,21 +48,21 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <summary>
         /// Get Public Holiday
         /// </summary>
-        /// <param name="countrycode"></param>
+        /// <param name="countryCode"></param>
         /// <param name="year"></param>
         /// <returns></returns>
         [HttpGet]
         [Route("v1/Get/{countrycode}/{year}")]
         public ActionResult<IEnumerable<PublicHolidayDto>> CountryJson(
-            [FromRoute] [Required] string countrycode,
+            [FromRoute] [Required] string countryCode,
             [FromRoute] [Required] int year)
         {
-            if (!Enum.TryParse(countrycode, true, out CountryCode countryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
                 return StatusCode(StatusCodes.Status404NotFound);
             }
 
-            var publicHolidays = DateSystem.GetPublicHoliday(year, countryCode);
+            var publicHolidays = DateSystem.GetPublicHoliday(year, parsedCountryCode);
             if (publicHolidays?.Count() > 0)
             {
                 var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
@@ -76,21 +75,21 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <summary>
         /// Get Public Holiday
         /// </summary>
-        /// <param name="countrycode"></param>
+        /// <param name="countryCode"></param>
         /// <param name="year"></param>
         /// <returns></returns>
         [HttpGet]
         [Route("v2/PublicHolidays/{year}/{countrycode}")]
         public ActionResult<IEnumerable<PublicHolidayDto>> PublicHolidays(
             [FromRoute] [Required] int year,
-            [FromRoute] [Required] string countrycode)
+            [FromRoute] [Required] string countryCode)
         {
-            if (!Enum.TryParse(countrycode, true, out CountryCode countryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
                 return StatusCode(StatusCodes.Status404NotFound);
             }
 
-            var items = DateSystem.GetPublicHoliday(year, countryCode);
+            var items = DateSystem.GetPublicHoliday(year, parsedCountryCode);
             if (items?.Count() > 0)
             {
                 return StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
@@ -100,7 +99,50 @@ namespace Nager.Date.WebsiteCore.Controllers
         }
 
         /// <summary>
+        /// Is today a public holiday
+        /// </summary>
+        /// <remarks>
+        /// This i a special endpoint for `curl`<br/><br/>
+        /// 200 = Today is a public holiday<br/>
+        /// 204 = Today is not a public holiday<br/><br/>
+        /// `STATUSCODE=$(curl --silent --output /dev/stderr --write-out "%{http_code}" https://date.nager.at/Api/v2/IsTodayPublicHoliday/AT)`<br/><br/>
+        /// `if [ $STATUSCODE -ne 200 ]; then # error handling; fi`
+        /// </remarks>
+        /// <param name="countryCode"></param>
+        /// <param name="countyCode"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("v2/IsTodayPublicHoliday/{countrycode}")]
+        public ActionResult<IEnumerable<PublicHolidayDto>> PublicHolidays(
+            [FromRoute][Required] string countryCode,
+            [FromQuery] string countyCode)
+        {
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            {
+                return StatusCode(StatusCodes.Status404NotFound);
+            }
+
+            if (string.IsNullOrEmpty(countyCode))
+            {
+                if (DateSystem.IsPublicHoliday(DateTime.Today, parsedCountryCode))
+                {
+                    return StatusCode(StatusCodes.Status200OK);
+                }
+
+                return StatusCode(StatusCodes.Status204NoContent);
+            }
+
+            if (DateSystem.IsPublicHoliday(DateTime.Today, parsedCountryCode, countyCode))
+            {
+                return StatusCode(StatusCodes.Status200OK);
+            }
+
+            return StatusCode(StatusCodes.Status204NoContent);
+        }
+
+        /// <summary>
         /// Get next public holidays for a given country
+        /// in the next 365 days
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -119,6 +161,7 @@ namespace Nager.Date.WebsiteCore.Controllers
 
         /// <summary>
         /// Get next public holidays worldwide
+        /// in the next 7 days
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -132,21 +175,21 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <summary>
         /// Get long weekends for a given country
         /// </summary>
-        /// <param name="countrycode"></param>
+        /// <param name="countryCode"></param>
         /// <param name="year"></param>
         /// <returns></returns>
         [HttpGet]
         [Route("v2/LongWeekend/{year}/{countrycode}")]
         public ActionResult<LongWeekendDto[]> LongWeekend(
             [FromRoute] [Required] int year,
-            [FromRoute] [Required] string countrycode)
+            [FromRoute] [Required] string countryCode)
         {
-            if (!Enum.TryParse(countrycode, true, out CountryCode countryCode))
+            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
                 return StatusCode(StatusCodes.Status404NotFound);
             }
 
-            var items = DateSystem.GetLongWeekend(year, countryCode);
+            var items = DateSystem.GetLongWeekend(year, parsedCountryCode);
             return items.Adapt<LongWeekendDto[]>();
         }
 
