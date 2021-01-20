@@ -168,7 +168,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        [Obsolete("Please use GetPublicHolidayProvider instead")]
+        [Obsolete("Please use GetPublicHolidayProvider instead", error: true)]
         public static IPublicHolidayProvider GetProvider(CountryCode countryCode)
         {
             return GetPublicHolidayProvider(countryCode);
@@ -228,7 +228,7 @@ namespace Nager.Date
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="year">The year</param>
         /// <returns></returns>
-        [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed")]
+        [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), parsedCountryCode))
@@ -257,7 +257,7 @@ namespace Nager.Date
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="year">The year</param>
         /// <returns></returns>
-        [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed")]
+        [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, int year)
         {
             var provider = GetPublicHolidayProvider(countryCode);
@@ -292,7 +292,7 @@ namespace Nager.Date
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
         /// <returns></returns>
-        [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed")]
+        [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, DateTime startDate, DateTime endDate)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
@@ -341,7 +341,7 @@ namespace Nager.Date
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
         /// <returns></returns>
-        [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed")]
+        [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, DateTime startDate, DateTime endDate)
         {
             return GetPublicHoliday(startDate, endDate, countryCode);
@@ -448,7 +448,7 @@ namespace Nager.Date
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="countyCode">Federal state</param>
         /// <returns></returns>
-        [Obsolete("Use IsPublicHoliday instead")]
+        [Obsolete("Use IsPublicHoliday instead", error: true)]
         public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
             return IsPublicHoliday(date, countryCode, countyCode);
@@ -611,7 +611,7 @@ namespace Nager.Date
         {
             if (occurrence == 0 || occurrence > 5)
             {
-                throw new Exception("Occurance is invalid");
+                throw new ArgumentException("Occurance is invalid", nameof(occurrence));
             }
 
             var firstDayOfMonth = new DateTime(year, month, 1);
@@ -658,7 +658,7 @@ namespace Nager.Date
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="year">The year</param>
         /// <returns></returns>
-        [Obsolete("Use GetLongWeekend instead, the sorting of the parameters was changed")]
+        [Obsolete("Use GetLongWeekend instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<LongWeekend> GetLongWeekend(CountryCode countryCode, int year)
         {
             return GetLongWeekend(year, countryCode);
