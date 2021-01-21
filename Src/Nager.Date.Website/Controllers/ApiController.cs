@@ -52,7 +52,7 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <param name="year"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("v1/Get/{countrycode}/{year}")]
+        [Route("v1/Get/{countryCode}/{year}")]
         public ActionResult<IEnumerable<PublicHolidayDto>> CountryJson(
             [FromRoute] [Required] string countryCode,
             [FromRoute] [Required] int year)
@@ -79,7 +79,7 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <param name="year"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("v2/PublicHolidays/{year}/{countrycode}")]
+        [Route("v2/PublicHolidays/{year}/{countryCode}")]
         public ActionResult<IEnumerable<PublicHolidayDto>> PublicHolidays(
             [FromRoute] [Required] int year,
             [FromRoute] [Required] string countryCode)
@@ -112,7 +112,7 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <param name="countyCode"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("v2/IsTodayPublicHoliday/{countrycode}")]
+        [Route("v2/IsTodayPublicHoliday/{countryCode}")]
         public ActionResult<IEnumerable<PublicHolidayDto>> PublicHolidays(
             [FromRoute][Required] string countryCode,
             [FromQuery] string countyCode)
@@ -179,7 +179,7 @@ namespace Nager.Date.WebsiteCore.Controllers
         /// <param name="year"></param>
         /// <returns></returns>
         [HttpGet]
-        [Route("v2/LongWeekend/{year}/{countrycode}")]
+        [Route("v2/LongWeekend/{year}/{countryCode}")]
         public ActionResult<LongWeekendDto[]> LongWeekend(
             [FromRoute] [Required] int year,
             [FromRoute] [Required] string countryCode)
