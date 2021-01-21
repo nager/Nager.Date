@@ -11,8 +11,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env:
-      DOCKER_TAG_PREFIX: dev
 
     steps:
     - uses: actions/checkout@v1
@@ -22,4 +20,6 @@ jobs:
         docker build . --file Dockerfile --tag nagerat/nager-date:$DOCKER_TAG_PREFIX-$GITHUB_RUN_NUMBER --tag nagerat/nager-date:latest
         docker push nagerat/nager-date:$DOCKER_TAG_PREFIX-$GITHUB_RUN_NUMBER
         docker push nagerat/nager-date:latest
+      env:
+        DOCKER_TAG_PREFIX: dev
         
