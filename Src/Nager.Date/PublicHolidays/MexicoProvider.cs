@@ -12,27 +12,18 @@ namespace Nager.Date.PublicHolidays
     /// </summary>
     public class MexicoProvider : IPublicHolidayProvider
     {
-        private readonly ICatholicProvider _catholicProvider;
-
         /// <summary>
         /// MexicoProvider
         /// </summary>
-        /// <param name="catholicProvider"></param>
-        public MexicoProvider(ICatholicProvider catholicProvider)
+        public MexicoProvider()
         {
-            this._catholicProvider = catholicProvider;
         }
 
-        /// <summary>
-        /// Get
-        /// </summary>
-        /// <param name="year">The year</param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             //Only Statutory holidays
             var countryCode = CountryCode.MX;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayOfFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 1);
             var thirdMondayOfMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 3);
@@ -58,10 +49,7 @@ namespace Nager.Date.PublicHolidays
             return items.OrderBy(o => o.Date);
         }
 
-        /// <summary>
-        /// Get the Holiday Sources
-        /// </summary>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<string> GetSources()
         {
             return new string[]

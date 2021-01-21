@@ -25,11 +25,7 @@ namespace Nager.Date.PublicHolidays
             //this._timeZone = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
         }
 
-        /// <summary>
-        /// Get
-        /// </summary>
-        /// <param name="year">The year</param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.JP;
@@ -110,10 +106,7 @@ namespace Nager.Date.PublicHolidays
         //    return converDt;
         //}
 
-        /// <summary>
-        /// Get the Holiday Sources
-        /// </summary>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<string> GetSources()
         {
             return new string[]

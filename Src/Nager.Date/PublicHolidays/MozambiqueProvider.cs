@@ -17,11 +17,7 @@ namespace Nager.Date.PublicHolidays
         {
         }
 
-        /// <summary>
-        /// Get
-        /// </summary>
-        /// <param name="year">The year</param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.MZ;
@@ -40,6 +36,7 @@ namespace Nager.Date.PublicHolidays
             return items.OrderBy(o => o.Date);
         }
 
+        ///<inheritdoc/>
         public IDictionary<string, string> GetCounties()
         {
             //List of Provinces
@@ -60,10 +57,7 @@ namespace Nager.Date.PublicHolidays
             };
         }
 
-        /// <summary>
-        /// Get the Holiday Sources
-        /// </summary>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<string> GetSources()
         {
             return new string[]

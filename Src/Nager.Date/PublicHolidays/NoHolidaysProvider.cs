@@ -24,20 +24,13 @@ namespace Nager.Date.PublicHolidays
 
         private NoHolidaysProvider() { }
 
-        /// <summary>
-        /// Get
-        /// </summary>
-        /// <param name="year">The year</param>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<PublicHoliday> Get(int year)
         {
             return Enumerable.Empty<PublicHoliday>();
         }
 
-        /// <summary>
-        /// Get the Holiday Sources
-        /// </summary>
-        /// <returns></returns>
+        ///<inheritdoc/>
         public IEnumerable<string> GetSources()
         {
             return Enumerable.Empty<string>();
