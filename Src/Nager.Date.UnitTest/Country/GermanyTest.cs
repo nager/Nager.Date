@@ -13,7 +13,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestGermanyCorpusChristi()
         {
             var yearToTest = 2017;
-            var catholicProvider = new MockProvider(new CatholicProvider());
+            var catholicProvider = new MockPublicHolidayProvider(new CatholicProvider());
             var publicHolidays = DateSystem.GetPublicHoliday(yearToTest, CountryCode.DE);
             var easterSunday = catholicProvider.EasterSunday(yearToTest);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;

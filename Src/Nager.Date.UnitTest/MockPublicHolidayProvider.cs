@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace Nager.Date.UnitTest
 {
-    public class MockProvider : IPublicHolidayProvider
+    public class MockPublicHolidayProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
-        public MockProvider(ICatholicProvider catholicProvider)
+        public MockPublicHolidayProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
         }
@@ -30,3 +30,4 @@ namespace Nager.Date.UnitTest
         }
     }
 }
+
