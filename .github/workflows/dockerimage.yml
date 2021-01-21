@@ -11,11 +11,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      DOCKER_TAG_PREFIX: dev
 
     steps:
     - uses: actions/checkout@v1
-    - env:
-        DOCKER_TAG_PREFIX: dev
     - name: Build the Docker image
       run: |
         docker login -u ${{ secrets.DOCKERHUB_USER }} -p ${{ secrets.DOCKERHUB_TOKEN }}
