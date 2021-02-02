@@ -9,7 +9,7 @@ namespace Nager.Date.UnitTest.Country
     public class HungaryTest
     {
         [TestMethod]
-        public void TestHungary()
+        public void TestHungaryHoliday2018()
         {
             var publicHolidays = DateSystem.GetPublicHoliday(2018, CountryCode.HU).ToArray();
 

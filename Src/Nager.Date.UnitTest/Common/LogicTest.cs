@@ -28,36 +28,21 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void CheckEasterSunday()
+        [DataRow(1900, 4, 15)]
+        [DataRow(2014, 4, 20)]
+        [DataRow(2015, 4, 5)]
+        [DataRow(2016, 3, 27)]
+        [DataRow(2017, 4, 16)]
+        [DataRow(2018, 4, 1)]
+        [DataRow(2019, 4, 21)]
+        [DataRow(2020, 4, 12)]
+        [DataRow(2200, 4, 6)]
+        public void CheckEasterSunday(int year, int month, int day)
         {
             var catholicProvider = new MockPublicHolidayProvider(new CatholicProvider());
 
-            var easterSunday = catholicProvider.EasterSunday(1900);
-            Assert.AreEqual(new DateTime(1900, 4, 15), easterSunday);
-
-            easterSunday = catholicProvider.EasterSunday(2014);
-            Assert.AreEqual(new DateTime(2014, 4, 20), easterSunday);
-
-            easterSunday = catholicProvider.EasterSunday(2015);
-            Assert.AreEqual(new DateTime(2015, 4, 5), easterSunday);
-
-            easterSunday = catholicProvider.EasterSunday(2016);
-            Assert.AreEqual(new DateTime(2016, 3, 27), easterSunday);
-
-            easterSunday = catholicProvider.EasterSunday(2017);
-            Assert.AreEqual(new DateTime(2017, 4, 16), easterSunday);
-
-            easterSunday = catholicProvider.EasterSunday(2018);
-            Assert.AreEqual(new DateTime(2018, 4, 1), easterSunday);
-
-            easterSunday = catholicProvider.EasterSunday(2019);
-            Assert.AreEqual(new DateTime(2019, 4, 21), easterSunday);
-
-            easterSunday = catholicProvider.EasterSunday(2020);
-            Assert.AreEqual(new DateTime(2020, 4, 12), easterSunday);
-
-            easterSunday = catholicProvider.EasterSunday(2200);
-            Assert.AreEqual(new DateTime(2200, 4, 6), easterSunday);
+            var easterSunday = catholicProvider.EasterSunday(year);
+            Assert.AreEqual(new DateTime(year, month, day), easterSunday);
         }
 
         [TestMethod]

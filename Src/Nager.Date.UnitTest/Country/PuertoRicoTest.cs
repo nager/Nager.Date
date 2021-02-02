@@ -1,5 +1,4 @@
-﻿
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using System;
@@ -19,7 +18,7 @@ namespace Nager.Date.UnitTest.Country
             var catholic = new MockPublicHolidayProvider(new CatholicProvider());
             var expectedGoodFriday = catholic.EasterSunday(2017).AddDays(-2);
 
-            var goodFriday = holidays.First(h => h.Name == "Good Friday");
+            var goodFriday = holidays.First(holiday => holiday.Name == "Good Friday");
             Assert.IsNotNull(goodFriday);
             Assert.AreEqual(expectedGoodFriday.Day, goodFriday.Date.Day);
         }

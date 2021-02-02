@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
-using Nager.Date.PublicHolidays;
 using System;
 using System.Linq;
 
@@ -47,7 +46,7 @@ namespace Nager.Date.UnitTest.Common
                             continue;
                         }
 
-                        if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Count())
+                        if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Length)
                         {
                             var diff = publicHoliday.Counties.Except(counties.Keys);
                             Assert.Fail($"Unknown countie in {provider} {string.Join(",", diff)}");
@@ -58,13 +57,15 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void CheckCaseInsensitive()
+        [DataRow("de")]
+        [DataRow("De")]
+        [DataRow("dE")]
+        [DataRow("DE")]
+        public void CheckCaseInsensitive(string countryCode)
         {
-            var result = DateSystem.GetPublicHoliday(2018, "de");
-            var result2 = DateSystem.GetPublicHoliday(2018, "DE");
+            var result = DateSystem.GetPublicHoliday(2018, countryCode);
 
             Assert.IsNotNull(result);
-            Assert.IsNotNull(result2);
         }
 
         [TestMethod]

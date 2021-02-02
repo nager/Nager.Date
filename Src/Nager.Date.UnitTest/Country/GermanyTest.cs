@@ -47,10 +47,11 @@ namespace Nager.Date.UnitTest.Country
                 new DateTime(2019, 5, 8),
                 new DateTime(2021, 5, 8),
                 CountryCode.DE);
+
             var liberationDays = publicHolidays.Where(x => x.LocalName == "Tag der Befreiung").ToList();
+            var liberationDay = liberationDays.FirstOrDefault();
 
             Assert.AreEqual(1, liberationDays.Count);
-            var liberationDay = liberationDays.FirstOrDefault();
             Assert.IsNotNull(liberationDay);
             Assert.AreEqual(new DateTime(2020, 5, 8), liberationDay.Date);
             Assert.IsNotNull(liberationDay.Counties);

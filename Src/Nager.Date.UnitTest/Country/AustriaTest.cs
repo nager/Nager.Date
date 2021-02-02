@@ -49,16 +49,16 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2018, 10, 12, false)]
         [DataRow(2018, 10, 13, true)]
         [DataRow(2018, 10, 14, true)]
-        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expected)
+        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expectedIsWeekend)
         {
             // Arrange
             var date = new DateTime(year, month, day);
 
             // Act
-            var result = date.IsWeekend(CountryCode.AT);
+            var isWeekend = date.IsWeekend(CountryCode.AT);
 
             // Assert
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
     }
 }
