@@ -21,12 +21,12 @@ namespace Nager.Date.Model
         /// </summary>
         public int DayCount { get { return this.EndDate.Subtract(this.StartDate).Days + 1; } }
         /// <summary>
-        /// If a additional holiday needed
+        /// If an additional holiday needed
         /// </summary>
         public bool Bridge { get; set; }
 
         /// <summary>
-        /// ToString
+        /// ToString - StartDate EndDate and DayCount
         /// </summary>
         /// <returns></returns>
         public override string ToString()
