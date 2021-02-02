@@ -34,16 +34,16 @@ namespace Nager.Date.PublicHolidays
                 var leapMonth = koreanCalendar.GetLeapMonth(year);
 
                 var lunarNewYear1 = koreanCalendar.ToDateTime(year, this.MoveMonth(1, leapMonth), 1, 0, 0, 0, 0);   //Has substitute holiday
-                lunarNewYear1 = lunarNewYear1.Shift(sunday => sunday.AddDays(1), sunday => sunday.AddDays(1));
-                var lunarNewYear2 = lunarNewYear1.AddDays(+1).Shift(sunday => sunday.AddDays(1), sunday => sunday.AddDays(1));
-                var lunarNewYear3 = lunarNewYear1.AddDays(-1).Shift(sunday => sunday.AddDays(1), sunday => sunday.AddDays(1));
+                lunarNewYear1 = lunarNewYear1.Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                var lunarNewYear2 = lunarNewYear1.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                var lunarNewYear3 = lunarNewYear1.AddDays(-1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
                 var buddhaBday = koreanCalendar.ToDateTime(year, this.MoveMonth(4, leapMonth), 8, 0, 0, 0, 0);
 
                 var Chuseok1 = koreanCalendar.ToDateTime(year, this.MoveMonth(8, leapMonth), 14, 0, 0, 0, 0);   //Has substitute holiday
-                Chuseok1 = Chuseok1.Shift(sunday => sunday.AddDays(1), sunday => sunday.AddDays(1));
-                var Chuseok2 = Chuseok1.AddDays(+1).Shift(sunday=>sunday.AddDays(1), sunday=>sunday.AddDays(1));
-                var Chuseok3 = Chuseok2.AddDays(+1).Shift(sunday=>sunday.AddDays(1), sunday=>sunday.AddDays(1));
+                Chuseok1 = Chuseok1.Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                var Chuseok2 = Chuseok1.AddDays(+1).Shift(saturday => saturday, sunday=>sunday.AddDays(1));
+                var Chuseok3 = Chuseok2.AddDays(+1).Shift(saturday => saturday, sunday=>sunday.AddDays(1));
 
                 items.Add(new PublicHoliday(lunarNewYear1, "설날", "Lunar New Year", countryCode));
                 items.Add(new PublicHoliday(lunarNewYear2, "설날", "Lunar New Year", countryCode));
