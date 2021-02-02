@@ -26,11 +26,9 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.KR;
             var items = new List<PublicHoliday>();
 
-            if (year > 918 && year < 2050)
+            var koreanCalendar = new KoreanLunisolarCalendar();
+            if (year >= koreanCalendar.MinSupportedDateTime.Year && year < koreanCalendar.MaxSupportedDateTime.Year)
             {
-                //LunisolarCalendar .net implementation only valid are between 918 and 2050, inclusive.
-                //https://docs.microsoft.com/en-us/dotnet/api/system.globalization.koreanlunisolarcalendar?view=net-5.0
-                var koreanCalendar = new KoreanLunisolarCalendar();
                 var leapMonth = koreanCalendar.GetLeapMonth(year);
 
                 var lunarNewYear1 = koreanCalendar.ToDateTime(year, this.MoveMonth(1, leapMonth), 1, 0, 0, 0, 0);   //Has substitute holiday
