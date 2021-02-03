@@ -16,7 +16,7 @@ namespace Nager.Date.PublicHolidays
         /// <summary>
         /// PapuaNewGuineaProvider
         /// </summary>
-        /// <param name="catholicProvider"></param>
+        /// <param name="catholicProvider">CatholicProvider</param>
         public PapuaNewGuineaProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
