@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Nager.Date.WebsiteCore
+namespace Nager.Date.Website
 {
     public class Program
     {

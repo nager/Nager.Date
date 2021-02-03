@@ -3,7 +3,7 @@ using SimpleMvcSitemap;
 using System;
 using System.Collections.Generic;
 
-namespace Nager.Date.WebsiteCore.Controllers
+namespace Nager.Date.Website.Controllers
 {
     /// <summary>
     /// Sitemap

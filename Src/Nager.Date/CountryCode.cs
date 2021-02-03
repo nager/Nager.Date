@@ -981,10 +981,10 @@
         /// Samoa
         /// </summary>
         WS,
-        /// <summary>
-        /// Kosovo
-        /// </summary>
-        XK,
+        ///// <summary>
+        ///// Kosovo
+        ///// </summary>
+        //XK,
         /// <summary>
         /// Yemen
         /// </summary>

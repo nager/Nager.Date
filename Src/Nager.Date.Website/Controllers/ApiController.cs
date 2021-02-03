@@ -2,14 +2,15 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nager.Date.Model;
-using Nager.Date.WebsiteCore.Models;
+using Nager.Date.Website.Helper;
+using Nager.Date.Website.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 
-namespace Nager.Date.WebsiteCore.Controllers
+namespace Nager.Date.Website.Controllers
 {
     /// <summary>
     /// Api
@@ -213,15 +214,7 @@ namespace Nager.Date.WebsiteCore.Controllers
                 return StatusCode(StatusCodes.Status404NotFound);
             }
 
-            var countryInfo = new CountryInfoDto
-            {
-                CommonName = country.CommonName,
-                OfficialName = country.OfficialName,
-                CountryCode = countryCode,
-                AlternativeSpellings = country.Translations.Select(o => o.Name).ToArray(),
-                Region = country.Region.ToString(),
-                Borders = this.GetCountryInfos(country.BorderCountrys)
-            };
+            var countryInfo = CountryHelper.Convert(country);
 
             return StatusCode(StatusCodes.Status200OK, countryInfo);
         }
@@ -250,30 +243,6 @@ namespace Nager.Date.WebsiteCore.Controllers
             }
 
             return country.CommonName;
-        }
-
-        private CountryInfoDto[] GetCountryInfos(Country.Alpha2Code[] countryCodes)
-        {
-            var countryProvider = new Country.CountryProvider();
-            var items = new List<CountryInfoDto>();
-
-            foreach (var countryCode in countryCodes)
-            {
-                var country = countryProvider.GetCountry(countryCode);
-
-                var countryInfo = new CountryInfoDto
-                {
-                    CommonName = country.CommonName,
-                    OfficialName = country.OfficialName,
-                    CountryCode = country.Alpha2Code.ToString(),
-                    AlternativeSpellings = country.Translations.Select(o => o.Name).ToArray(),
-                    Region = country.Region.ToString()
-                };
-
-                items.Add(countryInfo);
-            }
-
-            return items.ToArray();
         }
     }
 }

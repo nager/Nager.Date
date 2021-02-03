@@ -1,13 +1,12 @@
 ﻿using CsvHelper;
 using Microsoft.AspNetCore.Mvc;
-using Nager.Date.WebsiteCore.Model;
-using Nager.Date.WebsiteCore.Models;
+using Nager.Date.Website.Models;
 using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace Nager.Date.WebsiteCore.Controllers
+namespace Nager.Date.Website.Controllers
 {
     /// <summary>
     /// Public Holiday

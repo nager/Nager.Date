@@ -9,12 +9,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
-using Nager.Date.WebsiteCore.Contract;
+using Nager.Date.Website.Contract;
 using System;
 using System.IO;
 using System.Reflection;
 
-namespace Nager.Date.WebsiteCore
+namespace Nager.Date.Website
 {
     public class Startup
     {

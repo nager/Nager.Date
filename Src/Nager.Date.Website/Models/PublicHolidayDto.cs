@@ -4,7 +4,7 @@ using Newtonsoft.Json.Converters;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Nager.Date.WebsiteCore.Models
+namespace Nager.Date.Website.Models
 {
     public class PublicHolidayDto
     {

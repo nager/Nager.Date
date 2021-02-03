@@ -1,4 +1,4 @@
-namespace Nager.Date.WebsiteCore.Models
+namespace Nager.Date.Website.Models
 {
     public class ErrorViewModel
     {

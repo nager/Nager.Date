@@ -3,7 +3,7 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Nager.Date.WebsiteCore.Contract
+namespace Nager.Date.Website.Contract
 {
     public class PublicHolidayTypeConverter : JsonConverter<PublicHolidayType>
     {

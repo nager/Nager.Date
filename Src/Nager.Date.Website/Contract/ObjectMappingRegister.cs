@@ -1,8 +1,8 @@
 ﻿using Mapster;
 using Nager.Date.Model;
-using Nager.Date.WebsiteCore.Models;
+using Nager.Date.Website.Models;
 
-namespace Nager.Date.WebsiteCore.Contract
+namespace Nager.Date.Website.Contract
 {
     public class ObjectMappingRegister : IRegister
     {
