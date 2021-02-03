@@ -80,7 +80,7 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 
 ## Country Support
 
-The list of supported countries can be found on the [wiki](https://github.com/nager/Nager.Date/wiki/Supported-Countries).
+The list of supported countries can be found [here](https://date.nager.at/Home/RegionStatistic).
 
 ## Areas of Application
 - telephone systems
