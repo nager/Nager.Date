@@ -36,7 +36,7 @@ namespace Nager.Date.PublicHolidays
                 var lunarNewYear2 = lunarNewYear1.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
                 var lunarNewYear3 = lunarNewYear1.AddDays(-1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
                 if (lunarNewYear1 == lunarNewYear3)
-                    lunarNewYear3 = lunarNewYear3.AddDays(-3);
+                    lunarNewYear3 = lunarNewYear3.AddDays(-2);
 
                 var buddhaBday = koreanCalendar.ToDateTime(year, this.MoveMonth(4, leapMonth), 8, 0, 0, 0, 0);
 
