@@ -1,10 +1,14 @@
-[![GitHub Release](https://img.shields.io/github/release/tinohager/nager.date.svg?style=flat-square)](https://github.com/tinohager/nager.date/releases) [![Build status](https://ci.appveyor.com/api/projects/status/hbwtadup7wnhnjp6?svg=true)](https://ci.appveyor.com/project/tinohager/nager-date) ![Docker Image CI](https://github.com/nager/Nager.Date/workflows/Docker%20Image%20CI/badge.svg)
+[![Build status](https://ci.appveyor.com/api/projects/status/hbwtadup7wnhnjp6?svg=true)](https://ci.appveyor.com/project/tinohager/nager-date) ![Docker Image CI](https://github.com/nager/Nager.Date/workflows/Docker%20Image%20CI/badge.svg)
 
 # :calendar: Nager.Date - [Official Website](https://date.nager.at)
 
 Nager.Date is a popular project to query holidays. We currently support over 100 countries. The project is based on .NET but provides a REST interface to retrieve the data. There are several ways to use Nager.Date, there is a public api, you can start your own docker container or you can use the nuget package.
 
 Nager.Date is open source software and is completely free for commercial use. If you would like to support the project you can award a GitHub star :star: or send a small donation to me :beers:
+
+## Country Support
+
+The list of supported countries can be found [here](https://date.nager.at/Home/RegionStatistic).
 
 ## How can I use it?
 
@@ -27,9 +31,8 @@ PM> install-package Nager.Date
     - `EnableSwaggerMode=true` activate Swagger UI as start page
     - `-p 80:80` publish the port 80 from the docker to your host.
 
-## Donation possibilities
-If this project help you reduce time to develop, you can give me a beer :beer:
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/nagerat/25)
+## Sponsor us
+Your sponsorship helps us spend more time working on OpenSource related to Nager.Date, [become a sponsor now](https://github.com/sponsors/nager)
 
 ## Examples for .NET (nuget package)
 
@@ -78,14 +81,15 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 }
 ```
 
-## Country Support
-
-The list of supported countries can be found [here](https://date.nager.at/Home/RegionStatistic).
-
 ## Areas of Application
 - telephone systems
 - carrier (land transport)
 - time recording
+
+## Who uses Nager.Date?
+
+| Your logo here | Your logo here | Your logo here | Your logo here |
+|---|---|---|---|
 
 ## Blog Posts
 
