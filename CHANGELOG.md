@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add Region Statistic
 - Add Papua New Guinea
 ### Changed
+- Docker Image location
 ### Deprecated
 ### Removed
 ### Fixed
@@ -49,7 +50,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- United Kingdom - Add Queen’s Platinum Jubilee
+- United Kingdom - Add Queenâ€™s Platinum Jubilee
 - Ireland add Good Friday
 
 ### Fixed
