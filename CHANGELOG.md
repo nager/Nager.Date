@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
  
-## [Unreleased] - yyyy-mm-dd
+## [Unreleased 1.28.1] - yyyy-mm-dd
  
 ### Added
 - Add CHANGELOG file
@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Deprecated
 ### Removed
 ### Fixed
+- Fix Åland, Midsummer Day and All Saints Day
 
 ## [1.28.0] - 2021-01-20
 

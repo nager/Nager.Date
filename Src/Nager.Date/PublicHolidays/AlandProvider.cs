@@ -28,9 +28,9 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.AX;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var thirdFridayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Friday, 3);
-            var thirdSaturdayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Friday, 3);
-            var firstSaturdayInNovember = DateSystem.FindDay(year, 11, DayOfWeek.Friday, 3);
+            var thirdFridayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Friday, Occurrence.Third);
+            var thirdSaturdayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Third);
+            var firstSaturdayInNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Saturday, Occurrence.First);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
@@ -49,7 +49,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thirdSaturdayInJune, "Midsommardagen", "Midsummer Day", countryCode));
             items.Add(new PublicHoliday(firstSaturdayInNovember, "Alla helgons dag", "All Saints Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 6, "Självständighetsdagen", "Independence Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 24, "Julafton", "	Christmas Eve", countryCode));
+            items.Add(new PublicHoliday(year, 12, 24, "Julafton", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Juldagen", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Annandag jul", "St. Stephen's Day", countryCode));
 
@@ -61,6 +61,7 @@ namespace Nager.Date.PublicHolidays
         {
             return new string[]
             {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_%C3%85land",
                 "https://de.wikipedia.org/wiki/%C3%85land"
             };
         }
