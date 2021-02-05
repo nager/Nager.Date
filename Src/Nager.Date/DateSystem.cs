@@ -637,6 +637,19 @@ namespace Nager.Date
             return new DateTime(year, month, resultedDay);
         }
 
+        /// <summary>
+        /// Find for example the 3th monday in a month
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <param name="month">The month</param>
+        /// <param name="day">The day</param>
+        /// <param name="occurrence">The occurrence e.g. First</param>
+        /// <returns></returns>
+        public static DateTime FindDay(int year, Month month, DayOfWeek day, Occurrence occurrence)
+        {
+            return FindDay(year, (int)month, day, (int)occurrence);
+        }
+
         #endregion
 
         #region Long Weekends
