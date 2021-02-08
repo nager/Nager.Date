@@ -27,11 +27,12 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.CN;
             var items = new List<PublicHoliday>();
 
-            if (year > 1901 && year < 2100)
+            var chineseCalendar = new ChineseLunisolarCalendar();
+            if (year > chineseCalendar.MinSupportedDateTime.Year && year < chineseCalendar.MaxSupportedDateTime.Year)
             {
                 //LunisolarCalendar .net implementation only valid are between 1901 and 2100, inclusive.
                 //https://github.com/dotnet/coreclr/blob/master/src/mscorlib/shared/System/Globalization/ChineseLunisolarCalendar.cs
-                var chineseCalendar = new ChineseLunisolarCalendar();
+
                 var leapMonth = chineseCalendar.GetLeapMonth(year);
                 var springFestival = chineseCalendar.ToDateTime(year, this.MoveMonth(1, leapMonth), 1, 0, 0, 0, 0);
                 var dragonBoatFestival = chineseCalendar.ToDateTime(year, this.MoveMonth(5, leapMonth), 5, 0, 0, 0, 0);

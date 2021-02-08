@@ -494,6 +494,18 @@ namespace Nager.Date
         }
 
         /// <summary>
+        /// Find the latest weekday for example monday in a month
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <param name="month">The month</param>
+        /// <param name="day">The name of the day</param>
+        /// <returns></returns>
+        public static DateTime FindLastDay(int year, Month month, DayOfWeek day)
+        {
+            return FindLastDay(year, (int)month, day);
+        }
+
+        /// <summary>
         /// Find the next weekday for example monday from a specific date
         /// </summary>
         /// <param name="year">The year</param>

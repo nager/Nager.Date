@@ -28,7 +28,7 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.BW;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var thirdMondayInJuly = DateSystem.FindDay(year, 7, DayOfWeek.Monday, 3);
+            var thirdMondayInJuly = DateSystem.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.Third);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));

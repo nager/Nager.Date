@@ -29,7 +29,7 @@ namespace Nager.Date.PublicHolidays
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstDayOfSummer = DateSystem.FindDay(year, 4, 19, DayOfWeek.Thursday);
-            var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
+            var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nýársdagur", "New Year's Day", countryCode));

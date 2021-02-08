@@ -28,7 +28,7 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.GY;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var firstMondayInJuly = DateSystem.FindDay(year, 7, DayOfWeek.Monday, 1);
+            var firstMondayInJuly = DateSystem.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.First);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));

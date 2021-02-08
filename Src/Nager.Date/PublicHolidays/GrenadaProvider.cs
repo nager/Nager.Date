@@ -28,7 +28,7 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.GD;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
+            var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));

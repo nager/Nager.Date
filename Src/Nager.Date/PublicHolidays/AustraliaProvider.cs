@@ -44,14 +44,14 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.AU;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var firstMondayInMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 1);
-            var secondMondayInMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 2);
-            var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
+            var firstMondayInMarch = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.First);
+            var secondMondayInMarch = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
+            var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
             var firstMondayAfterOr27May = DateSystem.FindDay(year, 5, 27, DayOfWeek.Monday);
-            var firstMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 1);
-            var secondMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 2);
-            var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
-            var firstMondayInOctober = DateSystem.FindDay(year, 10, DayOfWeek.Monday, 1);
+            var firstMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
+            var secondMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
+            var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
