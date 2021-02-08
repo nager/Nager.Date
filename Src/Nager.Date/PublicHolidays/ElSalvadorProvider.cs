@@ -31,7 +31,7 @@ namespace Nager.Date.PublicHolidays
 
             //TODO: Add Holy Week / Easter bad documentation on wikipedia
 
-            items.Add(new PublicHoliday(year, 5, 1, "Día del trabajo	", "Labor Day", countryCode));
+            items.Add(new PublicHoliday(year, 5, 1, "Día del trabajo", "Labor Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 3, "Día de la Cru", "The Day of the Cross", countryCode));
             items.Add(new PublicHoliday(year, 5, 7, "Día del Soldado", "Soldiers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 10, "Día de las Madres", "Mother's Day", countryCode));

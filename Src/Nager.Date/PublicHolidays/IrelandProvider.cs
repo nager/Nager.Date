@@ -28,10 +28,10 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.IE;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
-            var firstMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 1);
-            var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
-            var lastMondayInOctober = DateSystem.FindLastDay(year, 10, DayOfWeek.Monday);
+            var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
+            var lastMondayInOctober = DateSystem.FindLastDay(year, Month.October, DayOfWeek.Monday);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Lá Caille", "New Year's Day", countryCode));
