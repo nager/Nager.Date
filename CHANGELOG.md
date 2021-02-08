@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add CHANGELOG file
 - Add Region Statistic
 - Add Papua New Guinea
+- Add Guernsey
+- Add Gibraltar
 ### Changed
 - Docker Image location
 ### Deprecated
