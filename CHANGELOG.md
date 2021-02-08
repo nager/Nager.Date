@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add Papua New Guinea
 - Add Guernsey
 - Add Gibraltar
+- Add Montserrat
 ### Changed
 - Docker Image location
 ### Deprecated
