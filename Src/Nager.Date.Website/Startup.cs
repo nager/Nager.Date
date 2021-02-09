@@ -123,28 +123,45 @@ namespace Nager.Date.Website
                 }
             });
 
-            app.UseHttpsRedirection();
+            if (!enableSwaggerMode)
+            {
+                app.UseHttpsRedirection();
+            }
 
             app.UseResponseCompression();
-            app.UseStaticFiles(new StaticFileOptions
+
+            if (!enableSwaggerMode)
             {
-                OnPrepareResponse = ctx =>
+                app.UseStaticFiles(new StaticFileOptions
                 {
-                    const int cacheDays = 365;
-                    const int durationInSeconds = 60 * 60 * 24 * cacheDays;
-                    ctx.Context.Response.Headers[HeaderNames.CacheControl] = $"public,max-age={durationInSeconds}";
-                    ctx.Context.Response.Headers[HeaderNames.Expires] = new[] { DateTime.UtcNow.AddDays(cacheDays).ToString("R") }; // Format RFC1123
+                    OnPrepareResponse = ctx =>
+                    {
+                        const int cacheDays = 365;
+                        const int durationInSeconds = 60 * 60 * 24 * cacheDays;
+                        ctx.Context.Response.Headers[HeaderNames.CacheControl] = $"public,max-age={durationInSeconds}";
+                        ctx.Context.Response.Headers[HeaderNames.Expires] = new[] { DateTime.UtcNow.AddDays(cacheDays).ToString("R") }; // Format RFC1123
                 }
-            });
+                });
+            }
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+            if (enableSwaggerMode)
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
+            }
+            else
+            {
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllerRoute(
+                        name: "default",
+                        pattern: "{controller=Home}/{action=Index}/{id?}");
+                });
+            }
         }
     }
 }

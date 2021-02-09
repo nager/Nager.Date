@@ -3,6 +3,12 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+# Install cultures (same approach as Alpine SDK image)
+RUN apk add --no-cache icu-libs
+
+# Disable the invariant mode (set in base image)
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
 WORKDIR /src
 COPY ["Src/Nager.Date/Nager.Date.csproj", "Nager.Date/"]
