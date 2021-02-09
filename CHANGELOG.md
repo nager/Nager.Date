@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 - Fix Åland, Midsummer Day and All Saints Day
+- Fix Docker Container crash
 
 ## [1.28.0] - 2021-01-20
 
