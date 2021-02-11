@@ -30,7 +30,7 @@ namespace Nager.Date.Model
         /// <summary>
         /// Is this public holiday in every county (federal state)
         /// </summary>
-        public bool Global { get { return this.Counties?.Length > 0; } }
+        public bool Global { get { return this.Counties?.Length > 0 ? false : true; } }
         /// <summary>
         /// ISO-3166-2 - Federal states
         /// </summary>
