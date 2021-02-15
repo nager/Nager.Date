@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Fix Åland, Midsummer Day and All Saints Day
 - Fix Docker Container crash
-
+- Fix Australia, Add Weekend shift
 ## [1.28.0] - 2021-01-20
 
 ### Added
