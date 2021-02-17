@@ -48,7 +48,6 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.CA;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var secondMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Second);
             var thirdMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
             var mondayOnOrBeforeMay24 = DateSystem.FindDayBefore(year, 5, 25, DayOfWeek.Monday);
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
@@ -58,10 +57,8 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(secondMondayInFebruary, "Family Day", "Family Day", countryCode, 2013, new string[] { "CA-BC" }));
             items.Add(new PublicHoliday(thirdMondayInFebruary, "Louis Riel Day", "Louis Riel Day", countryCode, null, new string[] { "CA-MB" }));
             items.Add(new PublicHoliday(thirdMondayInFebruary, "Islander Day", "Islander Day", countryCode, null, new string[] { "CA-PE" }));
-            items.Add(new PublicHoliday(thirdMondayInFebruary, "Family Day", "Family Day", countryCode, null, new string[] { "CA-AB", "CA-ON", "CA-SK" }));
             items.Add(new PublicHoliday(thirdMondayInFebruary, "Heritage Day", "Heritage Day", countryCode, null, new string[] { "CA-NS" }));
             items.Add(new PublicHoliday(year, 3, 17, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));            
@@ -87,23 +84,45 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "St. Stephen's Day", "St. Stephen's Day", countryCode, null, new string[] { "CA-AB", "CA-NB", "CA-NS", "CA-ON", "CA-PE" }));
 
             items.AddRange(this.CanadaDay(year, countryCode));
+            items.AddRange(this.FamilyDay(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday[] CanadaDay(int year, CountryCode countryCode)
+        private PublicHoliday[] FamilyDay(int year, CountryCode countryCode)
         {
-            var canadaDay = new DateTime(year, 7, 1);
-            if (canadaDay.DayOfWeek == DayOfWeek.Sunday)
+            var holidayName = "Family Day";
+            var thirdMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
+
+            if (year < 2019)
             {
+                var secondMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Second);
                 return new PublicHoliday[] {
-                    new PublicHoliday(year, 7, 1, "Canada Day", "Canada Day", countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NB", "CA-NL", "CA-NS", "CA-ON", "CA-PE", "CA-QC", "CA-SK", "CA-NT", "CA-NU", "CA-YT" } ),
-                    //Canada Day is on July 1 every year except when it falls on a Sunday, then it’s on July 2.
-                    new PublicHoliday(year, 7, 2, "Canada Day", "Canada Day", countryCode, null, new string[] { "CA-AB" }) { Fixed = false }
+                    new PublicHoliday(secondMondayInFebruary, holidayName, holidayName, countryCode, 2013, new string[] { "CA-BC" }),
+                    new PublicHoliday(thirdMondayInFebruary, holidayName, holidayName, countryCode, null, new string[] { "CA-AB", "CA-ON", "CA-SK" })
                 };
             }
 
-            return new PublicHoliday[] { new PublicHoliday(year, 7, 1, "Canada Day", "Canada Day", countryCode) };
+            return new PublicHoliday[] {
+                new PublicHoliday(thirdMondayInFebruary, holidayName, holidayName, countryCode, null, new string[] { "CA-AB", "CA-BC", "CA-ON", "CA-SK" })
+            };
+        }
+
+        private PublicHoliday[] CanadaDay(int year, CountryCode countryCode)
+        {
+            var holidayName = "Canada Day";
+            var canadaDay = new DateTime(year, 7, 1);
+
+            if (canadaDay.DayOfWeek == DayOfWeek.Sunday)
+            {
+                return new PublicHoliday[] {
+                    new PublicHoliday(year, 7, 1, holidayName, holidayName, countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NB", "CA-NL", "CA-NS", "CA-ON", "CA-PE", "CA-QC", "CA-SK", "CA-NT", "CA-NU", "CA-YT" } ),
+                    //Canada Day is on July 1 every year except when it falls on a Sunday, then it’s on July 2.
+                    new PublicHoliday(year, 7, 2, holidayName, holidayName, countryCode, null, new string[] { "CA-AB" }) { Fixed = false }
+                };
+            }
+
+            return new PublicHoliday[] { new PublicHoliday(year, 7, 1, holidayName, holidayName, countryCode) };
         }
 
         ///<inheritdoc/>
