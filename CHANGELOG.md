@@ -3,8 +3,16 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [Unreleased 1.28.X] - yyyy-mm-dd
  
-## [Unreleased 1.28.1] - yyyy-mm-dd
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+
+## [1.28.1] - 2021-02-17
  
 ### Added
 - Add CHANGELOG file
@@ -15,13 +23,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Add Montserrat
 ### Changed
 - Docker Image location
-### Deprecated
-### Removed
 ### Fixed
 - Fix Åland, Midsummer Day and All Saints Day
 - Fix Canada, FamilyDay
 - Fix Docker Container crash
 - Fix Australia, Add Weekend shift
+
 ## [1.28.0] - 2021-01-20
 
 ### Added
