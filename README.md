@@ -32,7 +32,7 @@ PM> install-package Nager.Date
     - `-p 80:80` publish the port 80 from the docker to your host.
 
 ## Sponsor us
-Your sponsorship helps us spend more time working on OpenSource related to Nager.Date, [become a sponsor now](https://github.com/sponsors/nager)
+Your sponsorship helps us spend more time working on OpenSource related to Nager.Date, [become a sponsor now](https://github.com/sponsors/nager). 
 We started in 2014 and look forward to many more years...
 
 ## Examples for .NET (nuget package)
