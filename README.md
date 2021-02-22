@@ -89,7 +89,7 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 
 ## Who uses Nager.Date?
 
-| [resourcify.de](https://www.resourcify.de) | Your company here | Your company here | Your company here |
+| Your company here | Your company here | Your company here | Your company here |
 |---|---|---|---|
 
 ## Blog Posts
