@@ -65,7 +65,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode, null, new string[] { "CA-AB", "CA-PE" }));
             items.Add(new PublicHoliday(year, 4, 23, "Saint George's Day", "Saint George's Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(new PublicHoliday(mondayOnOrBeforeMay24, "National Patriots' Day", "National Patriots' Day", countryCode, null, new string[] { "CA-QC" }));
-            items.Add(new PublicHoliday(mondayOnOrBeforeMay24, "Victoria Day", "Victoria Day", countryCode, null, new string[] { "CA-AB", "CA-BC", "CA-MB", "CA-NB", "CA-NT", "CA-NS", "CA-NU", "CA-ON", "CA-PE", "CA-SK", "CA-YT" }));
+            items.Add(new PublicHoliday(mondayOnOrBeforeMay24, "Victoria Day", "Victoria Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 21, "National Aboriginal Day", "National Aboriginal Day", countryCode, null, new string[] { "CA-NT" }));
             items.Add(new PublicHoliday(year, 6, 24, "Discovery Day", "Discovery Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(new PublicHoliday(year, 6, 24, "Fête nationale du Québec", "National Holiday", countryCode, null, new string[] { "CA-QC" }));
