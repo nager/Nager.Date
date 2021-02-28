@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Deprecated
 ### Removed
 ### Fixed
+- Fix Canada Victoria day
 
 ## [1.28.1] - 2021-02-17
  
