@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 
-## [Unreleased 1.28.2] - 2021-03-08
+## [1.28.2] - 2021-03-08
  
 ### Added
 - Add Montenegro
