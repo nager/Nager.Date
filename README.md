@@ -31,7 +31,7 @@ PM> install-package Nager.Date
     - `EnableSwaggerMode=true` activate Swagger UI as start page
     - `-p 80:80` publish the port 80 from the docker to your host.
 
-#### Generate a client for web api
+#### Generate a client for the web api
 
 You can use `autorest` to create a client for the api (csharp, go, java, python, nodejs, typescript, ruby, php)
 
