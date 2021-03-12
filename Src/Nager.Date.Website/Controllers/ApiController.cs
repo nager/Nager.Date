@@ -225,11 +225,11 @@ namespace Nager.Date.Website.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("v2/AvailableCountries")]
-        public ActionResult<IEnumerable<PublicHolidayDto>> AvailableCountries()
+        public ActionResult<IEnumerable<CountryDto>> AvailableCountries()
         {
             var countries = from CountryCode o in Enum.GetValues(typeof(CountryCode))
                             where DateSystem.GetPublicHoliday(DateTime.Today.Year, o).Any()
-                            select new { Key = o.ToString(), Value = this.GetCountryName(o) };
+                            select new CountryDto { Key = o.ToString(), Value = this.GetCountryName(o) };
 
             return StatusCode(StatusCodes.Status200OK, countries);
         }
