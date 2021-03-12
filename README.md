@@ -21,15 +21,24 @@ PM> install-package Nager.Date
 ```
 
 ### web api
-- **public** use the public api [date.nager.at API](https://date.nager.at/API)
+- **public** use the public api [date.nager.at](https://date.nager.at/API)
   - If you need more as 50 requests per day please use your own private api (docker).
-- **private** use the docker container available on [dockerhub](https://hub.docker.com/r/nager/nager-date)
+- **private** use your own api, docker container available on [dockerhub](https://hub.docker.com/r/nager/nager-date)
   - To run a local instance of the docker image run the following command<br>
   `docker run -e "EnableCors=true" -e "EnableIpRateLimiting=false" -e "EnableSwaggerMode=true" -p 80:80 nager/nager-date`
     - `EnableCors=true` activate CORS support
     - `EnableIpRateLimiting=false` disable IpRateLimiting
     - `EnableSwaggerMode=true` activate Swagger UI as start page
     - `-p 80:80` publish the port 80 from the docker to your host.
+
+#### Generate a client for web api
+
+You can use `autorest` to create a client for the api (csharp, go, java, python, nodejs, typescript, ruby, php)
+
+```
+npm install -g autorest
+autorest --input-file=https://date.nager.at/swagger/v1.0/swagger.json --csharp --output-folder=./generated/code/
+```
 
 ## Sponsor us
 Your sponsorship helps us spend more time working on OpenSource related to Nager.Date, [become a sponsor now](https://github.com/sponsors/nager). 
