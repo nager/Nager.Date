@@ -114,7 +114,7 @@ namespace Nager.Date.Website.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("v2/IsTodayPublicHoliday/{countryCode}")]
-        public ActionResult<IEnumerable<PublicHolidayDto>> PublicHolidays(
+        public ActionResult<IEnumerable<PublicHolidayDto>> IsTodayPublicHoliday(
             [FromRoute][Required] string countryCode,
             [FromQuery] string countyCode)
         {
