@@ -33,11 +33,10 @@ PM> install-package Nager.Date
 
 #### Generate a client for the web api
 
-You can use `autorest` to create a client for the api (csharp, go, java, python, nodejs, typescript, ruby, php)
+You can use `swagger-codegen-cli` to create a client for the api
 
 ```
-npm install -g autorest
-autorest --input-file=https://date.nager.at/swagger/v1.0/swagger.json --csharp --output-folder=./generated/code/
+docker run --rm -v C:\Temp:/local swaggerapi/swagger-codegen-cli-v3 generate -i https://date.nager.at/swagger/v1.0/swagger.json -l csharp-dotnet2 -o /local/out
 ```
 
 ## Sponsor us
