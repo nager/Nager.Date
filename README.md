@@ -95,11 +95,6 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 - carrier (land transport)
 - time recording
 
-## Who uses Nager.Date?
-
-| Your company here | Your company here | Your company here | Your company here |
-|---|---|---|---|
-
 ## Blog Posts
 
 [Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
