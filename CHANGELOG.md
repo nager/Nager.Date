@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 - Fix Canada, FamilyDay for New-Brunswick
+- Fix Vatican City, Wrong char in Anniversary of the election of Pope Francis
 
 ## [1.28.2] - 2021-03-08
  

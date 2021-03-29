@@ -31,7 +31,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Maria Santissima Madre di Dio", "Solemnity of Mary, Mother of God", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Epifania del Signore", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 2, 11, "Anniversario della istituzione dello Stato della Città del Vaticano", "Anniversary of the foundation of Vatican City", countryCode));
-            items.Add(new PublicHoliday(year, 3, 13, "Anniversario dell'Elezione del Santo Padre", "Anniversary of the election of Pope Francis	", countryCode));
+            items.Add(new PublicHoliday(year, 3, 13, "Anniversario dell'Elezione del Santo Padre", "Anniversary of the election of Pope Francis", countryCode));
             items.Add(new PublicHoliday(year, 3, 19, "San Giuseppe", "Saint Joseph's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Lunedì dell'Angelo", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 4, 23, "Onomastico del Santo Padre", "Saint George", countryCode));
