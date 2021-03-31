@@ -103,7 +103,7 @@ namespace Nager.Date.Website.Controllers
         /// Is today a public holiday
         /// </summary>
         /// <remarks>
-        /// This i a special endpoint for `curl`<br/><br/>
+        /// This is a special endpoint for `curl`<br/><br/>
         /// 200 = Today is a public holiday<br/>
         /// 204 = Today is not a public holiday<br/><br/>
         /// `STATUSCODE=$(curl --silent --output /dev/stderr --write-out "%{http_code}" https://date.nager.at/Api/v2/IsTodayPublicHoliday/AT)`<br/><br/>
@@ -112,9 +112,12 @@ namespace Nager.Date.Website.Controllers
         /// <param name="countryCode"></param>
         /// <param name="countyCode"></param>
         /// <returns></returns>
+        /// <response code="200">Today is a public holiday</response>
+        /// <response code="204">Today is not a public holiday</response>
+        /// <response code="404">CountryCode is unknown</response>
         [HttpGet]
         [Route("v2/IsTodayPublicHoliday/{countryCode}")]
-        public ActionResult<IEnumerable<PublicHolidayDto>> IsTodayPublicHoliday(
+        public ActionResult IsTodayPublicHoliday(
             [FromRoute][Required] string countryCode,
             [FromQuery] string countyCode)
         {
@@ -191,7 +194,7 @@ namespace Nager.Date.Website.Controllers
             }
 
             var items = DateSystem.GetLongWeekend(year, parsedCountryCode);
-            return items.Adapt<LongWeekendDto[]>();
+            return StatusCode(StatusCodes.Status200OK, items.Adapt<LongWeekendDto[]>());
         }
 
         /// <summary>
