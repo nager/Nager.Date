@@ -14,25 +14,32 @@ namespace Nager.Date.UnitTest.Country
             var publicHolidays = DateSystem.GetPublicHoliday(2017, CountryCode.TR).ToArray();
 
             //New Year's Day
-            Assert.AreEqual(new DateTime(2017, 1, 1), publicHolidays[0].Date);
+            var newYearDay = new DateTime(2017, 1, 1);
+            Assert.AreEqual(newYearDay, publicHolidays.Where(op => op.Date == newYearDay).FirstOrDefault().Date);
 
             //National Independence & Children's Day
-            Assert.AreEqual(new DateTime(2017, 4, 23), publicHolidays[1].Date);
+            var childrenDay = new DateTime(2017, 4, 23);
+            Assert.AreEqual(childrenDay, publicHolidays.Where(op => op.Date == childrenDay).FirstOrDefault().Date);
 
             //Labour Day
-            Assert.AreEqual(new DateTime(2017, 5, 1), publicHolidays[2].Date);
+            var labourDay = new DateTime(2017, 5, 1);
+            Assert.AreEqual(labourDay, publicHolidays.Where(op => op.Date == labourDay).FirstOrDefault().Date);
 
             //Atatürk Commemoration & Youth Day
-            Assert.AreEqual(new DateTime(2017, 5, 19), publicHolidays[3].Date);
+            var AtaturkDay = new DateTime(2017, 5, 19);
+            Assert.AreEqual(AtaturkDay, publicHolidays.Where(op => op.Date == AtaturkDay).FirstOrDefault().Date);
 
             //Democracy Day
-            Assert.AreEqual(new DateTime(2017, 7, 15), publicHolidays[4].Date);
+            var democracyDay = new DateTime(2017, 7, 15);
+            Assert.AreEqual(democracyDay, publicHolidays.Where(op => op.Date == democracyDay).FirstOrDefault().Date);
 
             //Victory Day
-            Assert.AreEqual(new DateTime(2017, 8, 30), publicHolidays[5].Date);
+            var victoryDay = new DateTime(2017, 8, 30);
+            Assert.AreEqual(victoryDay, publicHolidays.Where(op => op.Date == victoryDay).FirstOrDefault().Date);
 
             //Republic Day
-            Assert.AreEqual(new DateTime(2017, 10, 29), publicHolidays[6].Date);
+            var republicDay = new DateTime(2017, 10, 29);
+            Assert.AreEqual(republicDay, publicHolidays.Where(op => op.Date == republicDay).FirstOrDefault().Date);
 
         }
 
