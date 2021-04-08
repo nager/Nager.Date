@@ -187,7 +187,7 @@ namespace Nager.Date
         /// <returns></returns>
         public static IPublicHolidayProvider GetPublicHolidayProvider(CountryCode countryCode)
         {
-            if (_publicHolidaysProviders.TryGetValue(countryCode, out Lazy<IPublicHolidayProvider> provider))
+            if (_publicHolidaysProviders.TryGetValue(countryCode, out var provider))
             {
                 return provider.Value;
             }
@@ -202,7 +202,7 @@ namespace Nager.Date
         /// <returns></returns>
         public static IWeekendProvider GetWeekendProvider(CountryCode countryCode)
         {
-            if (_nonUniversalWeekendProviders.TryGetValue(countryCode, out Lazy<IWeekendProvider> provider))
+            if (_nonUniversalWeekendProviders.TryGetValue(countryCode, out var provider))
             {
                 return provider.Value;
             }
@@ -377,12 +377,10 @@ namespace Nager.Date
 
         private static Func<PublicHoliday, bool> GetPublicHolidayFilter(DateTime date, string countyCode = null)
         {
-            bool func(PublicHoliday o) => o.Date == date.Date
-                && (o.Counties == null || countyCode != null && o.Counties.Contains(countyCode))
-                && (o.LaunchYear == null || date.Year >= o.LaunchYear)
-                && o.Type.HasFlag(PublicHolidayType.Public);
-
-            return func;
+            return o => o.Date == date.Date
+                        && (o.Counties == null || countyCode != null && o.Counties.Contains(countyCode))
+                        && (o.LaunchYear == null || date.Year >= o.LaunchYear)
+                        && o.Type.HasFlag(PublicHolidayType.Public);
         }
 
         /// <summary>
@@ -553,13 +551,13 @@ namespace Nager.Date
         /// <returns></returns>
         public static DateTime FindDayBetween(int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd, DayOfWeek dayOfWeek)
         {
-            DateTime startDay = new DateTime(yearStart, monthStart, dayStart);
-            DateTime endDay = new DateTime(yearEnd, monthEnd, dayEnd);
-            TimeSpan diff = endDay - startDay;
-            int days = diff.Days;
+            var startDay = new DateTime(yearStart, monthStart, dayStart);
+            var endDay = new DateTime(yearEnd, monthEnd, dayEnd);
+            var diff = endDay - startDay;
+            var days = diff.Days;
             for (var i = 0; i <= days; i++)
             {
-                DateTime specificDayDate = startDay.AddDays(i);
+                var specificDayDate = startDay.AddDays(i);
                 if (specificDayDate.DayOfWeek == dayOfWeek)
                 {
                     return specificDayDate;
