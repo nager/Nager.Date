@@ -37,8 +37,8 @@ namespace Nager.Date.TestConsole
 		private static void Test3()
 		{
 			//performane test
-			Stopwatch sw = Stopwatch.StartNew();
-			for (int i = 0; i < 10000; i++)
+			var sw = Stopwatch.StartNew();
+			for (var i = 0; i < 10000; i++)
 			{
 				var x = DateSystem.IsPublicHoliday(new DateTime(2017, 07, 04), CountryCode.JP);
 			}
