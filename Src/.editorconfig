@@ -47,11 +47,6 @@ dotnet_separate_import_directive_groups                    = false
 dotnet_style_predefined_type_for_locals_parameters_members = true : error
 dotnet_style_predefined_type_for_member_access             = true : error
 
-# Prefer object/collection initializers
-# This is a suggestion because there are cases where this is necessary
-dotnet_style_object_initializer                            = true : warning
-dotnet_style_collection_initializer                        = true : warning
-
 # C# 7: Prefer using named tuple names over '.Item1', '.Item2', etc.
 dotnet_style_explicit_tuple_names                          = true : warning
 
@@ -108,9 +103,6 @@ dotnet_naming_rule.all_parameters.style                    = all_parameters
 dotnet_naming_rule.all_parameters.symbols                  = all_parameters
 
 [*.cs]
-# Placement for using directives
-csharp_using_directive_placement                      = inside_namespace : warning
-
 # Use 'var' in all cases where it can be used
 csharp_style_var_for_built_in_types                   = true : error
 csharp_style_var_when_type_is_apparent                = true : error
