@@ -1,4 +1,4 @@
-﻿using Mapster;
+using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nager.Date.Model;
@@ -121,7 +121,7 @@ namespace Nager.Date.Website.Controllers
         [HttpGet]
         [Route("v2/IsTodayPublicHoliday/{countryCode}")]
         public ActionResult IsTodayPublicHoliday(
-            [FromRoute][Required] string countryCode,
+            [FromRoute] [Required] string countryCode,
             [FromQuery] string countyCode,
             [FromQuery] [Range(-12, 12)] int offset = 0)
         {
