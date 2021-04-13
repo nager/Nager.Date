@@ -1,4 +1,4 @@
-﻿using AspNetCoreRateLimit;
+using AspNetCoreRateLimit;
 using Mapster;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -74,7 +74,22 @@ namespace Nager.Date.Website
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1.0", new OpenApiInfo { Title = "Nager.Date API", Version = "v1.0" });
+                c.SwaggerDoc("v1.0", new OpenApiInfo
+                {
+                    Title = "Nager.Date API",
+                    Description = "Nager.Date is open source software and is completely free for commercial use. If you would like to support the project you can award a GitHub star ⭐ or even better <a href='https://github.com/sponsors/nager'>actively support us</a>",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Nager.Date on GitHub",
+                        Url = new Uri("https://github.com/nager/Nager.Date/issues")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT License",
+                        Url = new Uri("https://github.com/nager/Nager.Date/blob/master/LICENSE.md")
+                    },
+                    Version = "v1.0"
+                });
 
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
