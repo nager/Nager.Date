@@ -1,4 +1,4 @@
-﻿using Mapster;
+using Mapster;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nager.Date.Model;
@@ -103,6 +103,7 @@ namespace Nager.Date.Website.Controllers
         /// Is today a public holiday
         /// </summary>
         /// <remarks>
+        /// The calculation is made on the basis of UTC time to adjust the time please use the offset.<br/>
         /// This is a special endpoint for `curl`<br/><br/>
         /// 200 = Today is a public holiday<br/>
         /// 204 = Today is not a public holiday<br/><br/>
@@ -111,15 +112,18 @@ namespace Nager.Date.Website.Controllers
         /// </remarks>
         /// <param name="countryCode"></param>
         /// <param name="countyCode"></param>
+        /// <param name="offset">utc timezone offset</param>
         /// <returns></returns>
         /// <response code="200">Today is a public holiday</response>
         /// <response code="204">Today is not a public holiday</response>
+        /// <response code="400">Validation failure</response>
         /// <response code="404">CountryCode is unknown</response>
         [HttpGet]
         [Route("v2/IsTodayPublicHoliday/{countryCode}")]
         public ActionResult IsTodayPublicHoliday(
-            [FromRoute][Required] string countryCode,
-            [FromQuery] string countyCode)
+            [FromRoute] [Required] string countryCode,
+            [FromQuery] string countyCode,
+            [FromQuery] [Range(-12, 12)] int offset = 0)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
@@ -128,7 +132,7 @@ namespace Nager.Date.Website.Controllers
 
             if (string.IsNullOrEmpty(countyCode))
             {
-                if (DateSystem.IsPublicHoliday(DateTime.Today, parsedCountryCode))
+                if (DateSystem.IsPublicHoliday(DateTime.UtcNow.AddHours(offset), parsedCountryCode))
                 {
                     return StatusCode(StatusCodes.Status200OK);
                 }
@@ -136,7 +140,7 @@ namespace Nager.Date.Website.Controllers
                 return StatusCode(StatusCodes.Status204NoContent);
             }
 
-            if (DateSystem.IsPublicHoliday(DateTime.Today, parsedCountryCode, countyCode))
+            if (DateSystem.IsPublicHoliday(DateTime.UtcNow.AddHours(offset), parsedCountryCode, countyCode))
             {
                 return StatusCode(StatusCodes.Status200OK);
             }
