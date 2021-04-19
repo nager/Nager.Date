@@ -47,7 +47,7 @@ We started in 2014 and look forward to many more years...
 
 ### Get all publicHolidays of a country and year
 ```cs
-var publicHolidays = DateSystem.GetPublicHoliday(2017, "DE");
+var publicHolidays = DateSystem.GetPublicHolidays(2021, "DE");
 foreach (var publicHoliday in publicHolidays)
 {
     //publicHoliday...
@@ -64,8 +64,8 @@ foreach (var publicHoliday in publicHolidays)
 ### Get all publicHolidays for a date range
 ```cs
 var startDate = new DateTime(2016, 5, 1);
-var endDate = new DateTime(2018, 5, 31);
-var publicHolidays = DateSystem.GetPublicHoliday(startDate, endDate, CountryCode.DE);
+var endDate = new DateTime(2021, 5, 31);
+var publicHolidays = DateSystem.GetPublicHolidays(startDate, endDate, CountryCode.DE);
 foreach (var publicHoliday in publicHolidays)
 {
 	//publicHoliday...
@@ -74,7 +74,7 @@ foreach (var publicHoliday in publicHolidays)
 
 ### Check if a date is a public holiday
 ```cs
-var date = new DateTime(2017, 1, 1);
+var date = new DateTime(2021, 1, 1);
 if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 {
     Console.WriteLine("Is public holiday");
@@ -83,7 +83,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 
 ### Check if a date is a weekend day
 ```cs
-var date = new DateTime(2017, 1, 1);
+var date = new DateTime(2021, 1, 1);
 if (DateSystem.IsWeekend(date, CountryCode.DE))
 {
     Console.WriteLine("Is weekend");

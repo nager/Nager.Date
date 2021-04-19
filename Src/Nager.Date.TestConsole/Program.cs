@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
 using Nager.Date.Extensions;
+using System;
 using System.Diagnostics;
 
 namespace Nager.Date.TestConsole
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Test3();
 
@@ -27,7 +26,7 @@ namespace Nager.Date.TestConsole
 
         private static void Test2()
         {
-            var publicHolidays = DateSystem.GetPublicHoliday(2017, CountryCode.CH);
+            var publicHolidays = DateSystem.GetPublicHolidays(2017, CountryCode.CH);
             foreach (var publicHoliday in publicHolidays)
             {
                 Console.WriteLine("{0:dd.MM.yyyy} {1} {2}", publicHoliday.Date, publicHoliday.LocalName, publicHoliday.Global);

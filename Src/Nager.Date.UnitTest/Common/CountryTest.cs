@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
 using System;
 using System.Linq;
@@ -38,7 +38,7 @@ namespace Nager.Date.UnitTest.Common
                 {
                     var counties = countyProvider.GetCounties();
 
-                    var publicHolidays = DateSystem.GetPublicHoliday(DateTime.Now.Year, countryCode);
+                    var publicHolidays = DateSystem.GetPublicHolidays(DateTime.Now.Year, countryCode);
                     foreach (var publicHoliday in publicHolidays)
                     {
                         if (publicHoliday.Counties == null)
@@ -63,7 +63,7 @@ namespace Nager.Date.UnitTest.Common
         [DataRow("DE")]
         public void CheckCaseInsensitive(string countryCode)
         {
-            var result = DateSystem.GetPublicHoliday(2018, countryCode);
+            var result = DateSystem.GetPublicHolidays(2018, countryCode);
 
             Assert.IsNotNull(result);
         }
@@ -71,7 +71,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void ThrowOnUndefinedEnum()
         {
-            Assert.ThrowsException<ArgumentException>(() => DateSystem.GetPublicHoliday(2018, "1000"));
+            Assert.ThrowsException<ArgumentException>(() => DateSystem.GetPublicHolidays(2018, "1000"));
         }
     }
 }

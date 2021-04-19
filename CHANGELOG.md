@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  
 ### Added
 ### Changed
+- Straighten method names GetPublicHoliday to GetPublicHolidays
 ### Deprecated
 ### Removed
 ### Fixed

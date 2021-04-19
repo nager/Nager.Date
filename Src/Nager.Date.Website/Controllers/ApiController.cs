@@ -63,7 +63,7 @@ namespace Nager.Date.Website.Controllers
                 return StatusCode(StatusCodes.Status404NotFound);
             }
 
-            var publicHolidays = DateSystem.GetPublicHoliday(year, parsedCountryCode);
+            var publicHolidays = DateSystem.GetPublicHolidays(year, parsedCountryCode);
             if (publicHolidays?.Count() > 0)
             {
                 var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
@@ -90,7 +90,7 @@ namespace Nager.Date.Website.Controllers
                 return StatusCode(StatusCodes.Status404NotFound);
             }
 
-            var items = DateSystem.GetPublicHoliday(year, parsedCountryCode);
+            var items = DateSystem.GetPublicHolidays(year, parsedCountryCode);
             if (items?.Count() > 0)
             {
                 return StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
@@ -157,7 +157,7 @@ namespace Nager.Date.Website.Controllers
         [Route("v2/NextPublicHolidays/{countryCode}")]
         public ActionResult<IEnumerable<PublicHolidayDto>> NextPublicHolidays([FromRoute] [Required] string countryCode)
         {
-            var publicHolidays = DateSystem.GetPublicHoliday(DateTime.Today, DateTime.Today.AddYears(1), countryCode);
+            var publicHolidays = DateSystem.GetPublicHolidays(DateTime.Today, DateTime.Today.AddYears(1), countryCode);
             if (publicHolidays?.Count() > 0)
             {
                 var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
@@ -235,7 +235,7 @@ namespace Nager.Date.Website.Controllers
         public ActionResult<IEnumerable<CountryDto>> AvailableCountries()
         {
             var countries = from CountryCode o in Enum.GetValues(typeof(CountryCode))
-                            where DateSystem.GetPublicHoliday(DateTime.Today.Year, o).Any()
+                            where DateSystem.GetPublicHolidays(DateTime.Today.Year, o).Any()
                             select new CountryDto { Key = o.ToString(), Value = this.GetCountryName(o) };
 
             return StatusCode(StatusCodes.Status200OK, countries);
