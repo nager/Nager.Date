@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using System;
@@ -14,7 +14,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var yearToTest = 2017;
             var catholicProvider = new MockPublicHolidayProvider(new CatholicProvider());
-            var publicHolidays = DateSystem.GetPublicHoliday(yearToTest, CountryCode.DE);
+            var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
             var easterSunday = catholicProvider.EasterSunday(yearToTest);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
             Assert.AreEqual(easterSunday.AddDays(60), corpusChristi);
@@ -24,7 +24,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestGermanyCorpusChristi2017()
         {
             var yearToTest = 2017;
-            var publicHolidays = DateSystem.GetPublicHoliday(yearToTest, CountryCode.DE);
+            var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
             var expectedDate2017 = new DateTime(yearToTest, 6, 15);
             Assert.AreEqual(expectedDate2017, corpusChristi);
@@ -34,7 +34,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestGermanyCorpusChristi2026()
         {
             var yearToTest = 2026;
-            var publicHolidays = DateSystem.GetPublicHoliday(yearToTest, CountryCode.DE);
+            var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
             var expectedDate2026 = new DateTime(yearToTest, 6, 4);
             Assert.AreEqual(expectedDate2026, corpusChristi);
@@ -43,7 +43,7 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestGermanyLiberationDay2020()
         {
-            var publicHolidays = DateSystem.GetPublicHoliday(
+            var publicHolidays = DateSystem.GetPublicHolidays(
                 new DateTime(2019, 5, 8),
                 new DateTime(2021, 5, 8),
                 CountryCode.DE);

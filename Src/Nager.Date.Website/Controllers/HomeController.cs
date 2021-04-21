@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Nager.Country;
 using Nager.Date.Website.Helper;
 using Nager.Date.Website.Models;
@@ -37,7 +37,7 @@ namespace Nager.Date.Website.Controllers
             var countryCodes = (CountryCode[])Enum.GetValues(typeof(CountryCode));
 
             var availableCountryCodes = from CountryCode countryCode in countryCodes
-                                        where DateSystem.GetPublicHoliday(DateTime.Today.Year, countryCode).Any()
+                                        where DateSystem.GetPublicHolidays(DateTime.Today.Year, countryCode).Any()
                                         select countryCode;
 
             var countries = availableCountryCodes.Select(countryCode => new KeyValuePair<string, string>(countryCode.ToString(), this.GetName(countryCode)));
@@ -53,7 +53,7 @@ namespace Nager.Date.Website.Controllers
             var countryCodes = (CountryCode[])Enum.GetValues(typeof(CountryCode));
 
             var availableCountryCodes = from CountryCode countryCode in countryCodes
-                                        where DateSystem.GetPublicHoliday(DateTime.Today.Year, countryCode).Any()
+                                        where DateSystem.GetPublicHolidays(DateTime.Today.Year, countryCode).Any()
                                         select countryCode;
 
             var missingCountryCodes = countryCodes.Except(availableCountryCodes);

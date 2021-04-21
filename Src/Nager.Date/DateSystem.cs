@@ -13,6 +13,8 @@ namespace Nager.Date
     /// </summary>
     public static class DateSystem
     {
+        private const bool IsObsolete2022 = false;
+
         private static readonly ICatholicProvider _catholicProvider = new CatholicProvider();
         private static readonly IOrthodoxProvider _orthodoxProvider = new OrthodoxProvider();
 
@@ -218,14 +220,26 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, string countryCode)
+        public static IEnumerable<PublicHoliday> GetPublicHolidays(int year, string countryCode)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), parsedCountryCode))
             {
                 throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
             }
 
-            return GetPublicHoliday(year, parsedCountryCode);
+            return GetPublicHolidays(year, parsedCountryCode);
+        }
+
+        /// <summary>
+        /// Get Public Holidays of a given year
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
+        [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
+        public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, string countryCode)
+        {
+            return GetPublicHolidays(year, countryCode);
         }
 
         /// <summary>
@@ -242,7 +256,7 @@ namespace Nager.Date
                 throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
             }
 
-            return GetPublicHoliday(year, parsedCountryCode);
+            return GetPublicHolidays(year, parsedCountryCode);
         }
 
         /// <summary>
@@ -251,10 +265,22 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, CountryCode countryCode)
+        public static IEnumerable<PublicHoliday> GetPublicHolidays(int year, CountryCode countryCode)
         {
             var provider = GetPublicHolidayProvider(countryCode);
             return provider.Get(year);
+        }
+
+        /// <summary>
+        /// Get Public Holidays of a given year
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
+        [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
+        public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, CountryCode countryCode)
+        {
+            return GetPublicHolidays(year, countryCode);
         }
 
         /// <summary>
@@ -281,14 +307,27 @@ namespace Nager.Date
         /// <param name="endDate">The end date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        public static IEnumerable<PublicHoliday> GetPublicHoliday(DateTime startDate, DateTime endDate, string countryCode)
+        public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate, string countryCode)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
                 return null;
             }
 
-            return GetPublicHoliday(startDate, endDate, parsedCountryCode);
+            return GetPublicHolidays(startDate, endDate, parsedCountryCode);
+        }
+
+        /// <summary>
+        /// Get Public Holidays of a given date range
+        /// </summary>
+        /// <param name="startDate">The start date</param>
+        /// <param name="endDate">The end date</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
+        [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
+        public static IEnumerable<PublicHoliday> GetPublicHoliday(DateTime startDate, DateTime endDate, string countryCode)
+        {
+            return GetPublicHolidays(startDate, endDate, countryCode);
         }
 
         /// <summary>
@@ -316,7 +355,7 @@ namespace Nager.Date
         /// <param name="endDate">The end date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        public static IEnumerable<PublicHoliday> GetPublicHoliday(DateTime startDate, DateTime endDate, CountryCode countryCode)
+        public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate, CountryCode countryCode)
         {
             if (startDate > endDate)
             {
@@ -328,7 +367,7 @@ namespace Nager.Date
 
             while (currentYear <= endYear)
             {
-                var items = GetPublicHoliday(currentYear, countryCode);
+                var items = GetPublicHolidays(currentYear, countryCode);
                 foreach (var item in items)
                 {
                     if (item.Date.Date >= startDate.Date && item.Date.Date <= endDate.Date)
@@ -338,6 +377,19 @@ namespace Nager.Date
                 }
                 currentYear++;
             }
+        }
+
+        /// <summary>
+        /// Get Public Holidays of a given date range
+        /// </summary>
+        /// <param name="startDate">The start date</param>
+        /// <param name="endDate">The end date</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
+        [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
+        public static IEnumerable<PublicHoliday> GetPublicHoliday(DateTime startDate, DateTime endDate, CountryCode countryCode)
+        {
+            return GetPublicHolidays(startDate, endDate, countryCode);
         }
 
         /// <summary>
@@ -365,7 +417,7 @@ namespace Nager.Date
 
             foreach (var publicHolidayProvider in _publicHolidaysProviders.Keys)
             {
-                items.AddRange(GetPublicHoliday(startDate, endDate, publicHolidayProvider));
+                items.AddRange(GetPublicHolidays(startDate, endDate, publicHolidayProvider));
             }
 
             return items;
@@ -420,7 +472,7 @@ namespace Nager.Date
         /// <returns></returns>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, out PublicHoliday[] publicHolidays)
         {
-            var items = GetPublicHoliday(date.Year, countryCode);
+            var items = GetPublicHolidays(date.Year, countryCode);
             publicHolidays = items.Where(GetPublicHolidayFilter(date)).ToArray();
             return publicHolidays.Any();
         }
@@ -440,7 +492,7 @@ namespace Nager.Date
                 throw new ArgumentException($"Invalid countyCode {countyCode}");
             }
 
-            var items = GetPublicHoliday(date.Year, countryCode);
+            var items = GetPublicHolidays(date.Year, countryCode);
             return items.Any(GetPublicHolidayFilter(date, countyCode));
         }
 
@@ -677,7 +729,7 @@ namespace Nager.Date
         public static IEnumerable<LongWeekend> GetLongWeekend(int year, CountryCode countryCode)
         {
             var calculator = new LongWeekendCalculator(GetWeekendProvider(countryCode));
-            return calculator.Calculate(GetPublicHoliday(year, countryCode));
+            return calculator.Calculate(GetPublicHolidays(year, countryCode));
         }
 
         /// <summary>

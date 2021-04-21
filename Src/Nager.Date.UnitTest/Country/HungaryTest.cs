@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Extensions;
 using System;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestHungaryHoliday2018()
         {
-            var publicHolidays = DateSystem.GetPublicHoliday(2018, CountryCode.HU).ToArray();
+            var publicHolidays = DateSystem.GetPublicHolidays(2018, CountryCode.HU).ToArray();
 
             //New Year's Day
             Assert.AreEqual(new DateTime(2018, 1, 1), publicHolidays[0].Date);

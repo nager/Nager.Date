@@ -1,4 +1,4 @@
-﻿using CsvHelper;
+using CsvHelper;
 using Microsoft.AspNetCore.Mvc;
 using Nager.Date.Website.Models;
 using System;
@@ -54,7 +54,7 @@ namespace Nager.Date.Website.Controllers
                 return NotFound();
             }
 
-            var items = DateSystem.GetPublicHoliday(year, countryCode).ToList();
+            var items = DateSystem.GetPublicHolidays(year, countryCode).ToList();
 
             if (items.Count > 0)
             {
