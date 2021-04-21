@@ -13,6 +13,8 @@ namespace Nager.Date
     /// </summary>
     public static class DateSystem
     {
+        private const bool IsObsolete2022 = false;
+
         private static readonly ICatholicProvider _catholicProvider = new CatholicProvider();
         private static readonly IOrthodoxProvider _orthodoxProvider = new OrthodoxProvider();
 
@@ -234,7 +236,7 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        [Obsolete("Use GetPublicHolidays")]
+        [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, string countryCode)
         {
             return GetPublicHolidays(year, countryCode);
@@ -275,7 +277,7 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        [Obsolete("Use GetPublicHolidays instead")]
+        [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, CountryCode countryCode)
         {
             return GetPublicHolidays(year, countryCode);
@@ -322,7 +324,7 @@ namespace Nager.Date
         /// <param name="endDate">The end date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        [Obsolete("Use GetPublicHolidays instead")]
+        [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(DateTime startDate, DateTime endDate, string countryCode)
         {
             return GetPublicHolidays(startDate, endDate, countryCode);
@@ -384,7 +386,7 @@ namespace Nager.Date
         /// <param name="endDate">The end date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
-        [Obsolete("Use GetPublicHolidays instead")]
+        [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(DateTime startDate, DateTime endDate, CountryCode countryCode)
         {
             return GetPublicHolidays(startDate, endDate, countryCode);
