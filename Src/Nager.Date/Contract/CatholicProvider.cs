@@ -1,4 +1,5 @@
-﻿using System;
+using Nager.Date.Model;
+using System;
 
 namespace Nager.Date.Contract
 {
@@ -36,6 +37,13 @@ namespace Nager.Date.Contract
             var daysToAdvent = 21 + (int)christmasDate.DayOfWeek;
 
             return christmasDate.AddDays(-daysToAdvent);
+        }
+
+        ///<inheritdoc/>
+        public PublicHoliday AscensionDay(string localName, int year, CountryCode countryCode)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday.AddDays(39), localName, "Ascension Day", countryCode);
         }
     }
 }

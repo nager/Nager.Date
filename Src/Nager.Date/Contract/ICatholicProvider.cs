@@ -1,4 +1,5 @@
-﻿using System;
+using Nager.Date.Model;
+using System;
 
 namespace Nager.Date.Contract
 {
@@ -19,5 +20,13 @@ namespace Nager.Date.Contract
         /// <param name="year"></param>
         /// <returns></returns>
         DateTime AdventSunday(int year);
+        /// <summary>
+        /// Get the AscensionDay
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
+        PublicHoliday AscensionDay(string localName, int year, CountryCode countryCode);
     }
 }

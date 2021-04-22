@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
@@ -34,7 +34,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 27, "La Sainte Dévote", "Saint Devota's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Le 1er mai", "May Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(40), "L’Ascension", "Ascension Day", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("L’Ascension", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(50), "Le lundi de Pentecôte", "Whit Monday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "La Fête Dieu", "Corpus Christi", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "L'Assomption de Marie", "Assumption Day", countryCode));

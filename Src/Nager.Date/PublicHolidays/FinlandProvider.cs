@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -39,7 +39,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday, "Pääsiäispäivä", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "2. pääsiäispäivä", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Vappu", "May Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Helatorstai", "Ascension Day", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Helatorstai", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(49), "Helluntaipäivä", "Pentecost", countryCode));
             items.Add(new PublicHoliday(midsummerEve, "Juhannusaatto", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(midsummerDay, "Juhannuspäivä", "Midsummer Day", countryCode));
