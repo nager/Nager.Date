@@ -34,7 +34,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 9, "Europadag", "Europe Day", countryCode, 2019));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Karfreideg", "Good Friday", countryCode, type: PublicHolidayType.Bank));
             items.Add(this._catholicProvider.AscensionDay("Christi Himmelfaart", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Péngschtméindeg", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Péngschtméindeg", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 23, "Groussherzogsgebuertsdag", "Sovereign's birthday", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Léiffrawëschdag", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Allerhellgen", "All Saints' Day", countryCode));

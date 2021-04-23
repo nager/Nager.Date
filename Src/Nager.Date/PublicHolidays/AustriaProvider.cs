@@ -52,7 +52,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 5, 1, "Staatsfeiertag", "National Holiday", countryCode, 1955));
             //items.Add(new PublicHoliday(year, 5, 1, "St. Florian", "Saint Florian", countryCode, type: PublicHolidayType.School, counties: new string[] { "AT-4" }));
             items.Add(this._catholicProvider.AscensionDay("Christi Himmelfahrt", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Pfingstmontag", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Maria Himmelfahrt", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 10, 26, "Nationalfeiertag", "National Holiday", countryCode));

@@ -1,4 +1,5 @@
-﻿using System;
+using Nager.Date.Model;
+using System;
 
 namespace Nager.Date.Contract
 {
@@ -23,6 +24,20 @@ namespace Nager.Date.Contract
             var day = (key > 30) ? key - 30 : key;
 
             return new DateTime(year, month, day);
+        }
+
+        ///<inheritdoc/>
+        public PublicHoliday Pentecost(string localName, int year, CountryCode countryCode)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday.AddDays(49), localName, "Pentecost", countryCode);
+        }
+
+        ///<inheritdoc/>
+        public PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode, string[] counties = null)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday.AddDays(50), localName, "Whit Monday", countryCode, null, counties);
         }
     }
 }

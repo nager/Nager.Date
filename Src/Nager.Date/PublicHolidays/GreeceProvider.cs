@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +37,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday, "Κυριακή του Πάσχα", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Δευτέρα του Πάσχα", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Εργατική Πρωτομαγιά", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Πεντηκοστή'", "Pentecost", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Δευτέρα Πεντηκοστής", "Whit Monday", countryCode));
+            items.Add(this._orthodoxProvider.Pentecost("Πεντηκοστή'", year, countryCode));
+            items.Add(this._orthodoxProvider.WhitMonday("Δευτέρα Πεντηκοστής", year, countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Κοίμηση της Θεοτόκου", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 10, 28, "Το Όχι", "Ochi Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Χριστούγεννα", "Christmas Day", countryCode));

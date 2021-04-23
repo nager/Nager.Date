@@ -43,10 +43,10 @@ namespace Nager.Date.PublicHolidays
             {
                 items.Add(new PublicHoliday(year, 6, 6, "Sveriges nationaldag", "National Day of Sweden", countryCode));
             }
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Pingstdagen", "Pentecost Sunday", countryCode));
+            items.Add(this._catholicProvider.Pentecost("Pingstdagen", year, countryCode));
             if (year < 2005)
             {
-                items.Add(new PublicHoliday(easterSunday.AddDays(50), "Annandag Pingst", "Pentecost Monday", countryCode));
+                items.Add(this._catholicProvider.WhitMonday("Annandag Pingst", year, countryCode));
             }
             items.Add(new PublicHoliday(midsummerDay.AddDays(-1), "Midsommarafton", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(midsummerDay, "Midsommar", "Midsummer Day", countryCode));

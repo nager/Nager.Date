@@ -42,8 +42,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, 30, "Valborgsmässoafton", "Walpurgis Night", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Första maj", "May Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Kristi himmelsfärdsdagn", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Pingstdagen", "Pentecost", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Annandag Pingst", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.Pentecost("Pingstdagen", year, countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Annandag Pingst", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 9, "Självstyrelsedagen", "Autonomy Day", countryCode));
             items.Add(new PublicHoliday(thirdFridayInJune, "Midsommarafton", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(thirdSaturdayInJune, "Midsommardagen", "Midsummer Day", countryCode));

@@ -36,8 +36,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, 25, "Flaggdagur", "National Flag Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(26), "Store bededag", "General Prayer Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Kristi himmalsferðar dagur", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Hvítasunnudagur", "Pentecost", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "2. Hvítasunnudagur", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.Pentecost("Hvítasunnudagur", year, countryCode));
+            items.Add(this._catholicProvider.WhitMonday("2. Hvítasunnudagur", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 5, "Grundlógardagur Danmarkar", "Constitution Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 28, "Ólavsøkuaftan", "Saint Olav's Eve", countryCode));
             items.Add(new PublicHoliday(year, 7, 29, "Ólavsøkudagur", "Saint Olav's Day", countryCode));

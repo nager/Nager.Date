@@ -60,7 +60,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter Monday", countryCode, 1642));
             items.Add(new PublicHoliday(year, 5, 1, "Tag der Arbeit", "Labour Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Christi Himmelfahrt", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Pfingstmontag", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Pfingstmontag", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "Fronleichnam", "Corpus Christi", countryCode,null, new string[] { "DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL" }));
             items.Add(new PublicHoliday(year, 8, 15, "Mariä Himmelfahrt", "Assumption Day", countryCode, null, new string[] { "DE-SL" }));
             items.Add(new PublicHoliday(year, 9, 20, "Weltkindertag", "World Children's Day", countryCode, 2019, new string[] { "DE-TH" }));

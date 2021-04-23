@@ -35,7 +35,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Le 1er mai", "May Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("L’Ascension", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Le lundi de Pentecôte", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Le lundi de Pentecôte", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "La Fête Dieu", "Corpus Christi", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "L'Assomption de Marie", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "L’Immaculée Conception", "The Immaculate Conception", countryCode));
