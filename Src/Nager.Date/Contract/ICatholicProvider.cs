@@ -23,6 +23,15 @@ namespace Nager.Date.Contract
         DateTime AdventSunday(int year);
 
         /// <summary>
+        /// Get Easter Monday
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
+        PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode);
+
+        /// <summary>
         /// Get Ascension Day
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
@@ -46,8 +55,7 @@ namespace Nager.Date.Contract
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
-        /// <param name="counties"></param>
         /// <returns></returns>
-        PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode, string[] counties = null);
+        PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode);
     }
 }

@@ -47,6 +47,13 @@ namespace Nager.Date.Contract
         }
 
         ///<inheritdoc/>
+        public PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday.AddDays(1), localName, "Easter Monday", countryCode);
+        }
+
+        ///<inheritdoc/>
         public PublicHoliday AscensionDay(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
@@ -60,10 +67,10 @@ namespace Nager.Date.Contract
             return new PublicHoliday(easterSunday.AddDays(49), localName, "Pentecost", countryCode);
         }
 
-        public PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode, string[] counties = null)
+        public PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday.AddDays(50), localName, "Whit Monday", countryCode, null, counties);
+            return new PublicHoliday(easterSunday.AddDays(50), localName, "Whit Monday", countryCode);
         }
     }
 }

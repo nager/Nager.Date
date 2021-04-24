@@ -57,7 +57,7 @@ namespace Nager.Date.PublicHolidays
             if (year >= 1990)
             {
                 //in 1990, the day was declared to be a national holiday
-                liberationDay.Type = PublicHolidayType.Authorities | PublicHolidayType.School;
+                liberationDay.SetType(PublicHolidayType.Authorities | PublicHolidayType.School);
                 items.Add(liberationDay);
             }
             else if (year >= 1945)

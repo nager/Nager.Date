@@ -37,7 +37,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 6, "Loppiainen", "Epiphany", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Pitkäperjantai", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday, "Pääsiäispäivä", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "2. pääsiäispäivä", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterMonday("2. pääsiäispäivä", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Vappu", "May Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Helatorstai", year, countryCode));
             items.Add(this._catholicProvider.Pentecost("Helluntaipäivä", year, countryCode));

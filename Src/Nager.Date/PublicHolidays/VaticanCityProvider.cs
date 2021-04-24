@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +25,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.VA;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Maria Santissima Madre di Dio", "Solemnity of Mary, Mother of God", countryCode));
@@ -33,7 +32,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 2, 11, "Anniversario della istituzione dello Stato della Città del Vaticano", "Anniversary of the foundation of Vatican City", countryCode));
             items.Add(new PublicHoliday(year, 3, 13, "Anniversario dell'Elezione del Santo Padre", "Anniversary of the election of Pope Francis", countryCode));
             items.Add(new PublicHoliday(year, 3, 19, "San Giuseppe", "Saint Joseph's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Lunedì dell'Angelo", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Lunedì dell'Angelo", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 23, "Onomastico del Santo Padre", "Saint George", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "San Giuseppe lavoratore", "Saint Joseph the Worker", countryCode));
             items.Add(new PublicHoliday(year, 6, 29, "Santi Pietro e Paolo", "Saints Peter and Paul", countryCode));

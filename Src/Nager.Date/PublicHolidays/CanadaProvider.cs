@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -116,13 +116,13 @@ namespace Nager.Date.PublicHolidays
             if (canadaDay.DayOfWeek == DayOfWeek.Sunday)
             {
                 return new PublicHoliday[] {
-                    new PublicHoliday(year, 7, 1, holidayName, holidayName, countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NB", "CA-NL", "CA-NS", "CA-ON", "CA-PE", "CA-QC", "CA-SK", "CA-NT", "CA-NU", "CA-YT" } ),
+                    new PublicHoliday(canadaDay, holidayName, holidayName, countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NB", "CA-NL", "CA-NS", "CA-ON", "CA-PE", "CA-QC", "CA-SK", "CA-NT", "CA-NU", "CA-YT" } ),
                     //Canada Day is on July 1 every year except when it falls on a Sunday, then it’s on July 2.
-                    new PublicHoliday(year, 7, 2, holidayName, holidayName, countryCode, null, new string[] { "CA-AB" }) { Fixed = false }
+                    new PublicHoliday(canadaDay.AddDays(1), holidayName, holidayName, countryCode, null, new string[] { "CA-AB" })
                 };
             }
 
-            return new PublicHoliday[] { new PublicHoliday(year, 7, 1, holidayName, holidayName, countryCode) };
+            return new PublicHoliday[] { new PublicHoliday(canadaDay, holidayName, holidayName, countryCode) };
         }
 
         ///<inheritdoc/>

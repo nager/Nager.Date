@@ -31,7 +31,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Nowy Rok", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Święto Trzech Króli", "Epiphany", countryCode));
             items.Add(new PublicHoliday(easterSunday, "Wielkanoc", "Easter Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Drugi Dzień Wielkanocy", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Drugi Dzień Wielkanocy", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Święto Pracy", "May Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 3, "Święto Narodowe Trzeciego Maja", "Constitution Day", countryCode));
             items.Add(this._catholicProvider.Pentecost("Zielone Świątki", year, countryCode));

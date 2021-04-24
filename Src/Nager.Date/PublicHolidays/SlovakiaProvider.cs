@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Deň vzniku Slovenskej republiky", "Day of the Establishment of the Slovak Republic", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Zjavenie Pána", "Epiphany", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Veľkonočný piatok", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Veľkonočný pondelok", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Veľkonočný pondelok", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Sviatok práce", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 8, "Deň víťazstva nad fašizmom", "Day of victory over fascism", countryCode));
             items.Add(new PublicHoliday(year, 7, 5, "Sviatok svätého Cyrila a svätého Metoda", "St. Cyril and Methodius Day", countryCode));

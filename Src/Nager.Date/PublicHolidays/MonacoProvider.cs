@@ -32,7 +32,7 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             
             items.Add(new PublicHoliday(year, 1, 27, "La Sainte Dévote", "Saint Devota's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Le 1er mai", "May Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("L’Ascension", year, countryCode));
             items.Add(this._catholicProvider.WhitMonday("Le lundi de Pentecôte", year, countryCode));

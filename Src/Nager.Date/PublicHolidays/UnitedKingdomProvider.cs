@@ -121,7 +121,7 @@ namespace Nager.Date.PublicHolidays
         {
             if (year == 2022)
             {
-                return new PublicHoliday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
+                return new PublicHoliday(year, 6, 3, "Queenâ€™s Platinum Jubilee", "Queenâ€™s Platinum Jubilee", countryCode);
             }
 
             return null;
@@ -129,17 +129,17 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday GetEarlyMayBankHoliday(int year, CountryCode countryCode)
         {
-            var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
-            var earlyMayBankHoliday = new PublicHoliday(firstMondayInMay, "Early May Bank Holiday", "Early May Bank Holiday", countryCode, 1978);
+            var holidayName = "Early May Bank Holiday";
 
             if (year == 2020)
             {
                 //https://www.bbc.co.uk/news/uk-48565417
                 var secondFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 2);
-                earlyMayBankHoliday.Date = secondFridayInMay;
+                return new PublicHoliday(secondFridayInMay, holidayName, holidayName, countryCode, 1978);
             }
 
-            return earlyMayBankHoliday;
+            var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
+            return new PublicHoliday(firstMondayInMay, holidayName, holidayName, countryCode, 1978);
         }
 
         ///<inheritdoc/>

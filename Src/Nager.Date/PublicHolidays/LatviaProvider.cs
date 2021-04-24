@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Jaunais Gads", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Lielā Piektdiena", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday, "Lieldienas", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Otrās Lieldienas", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Otrās Lieldienas", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Darba svētki", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 4, "Latvijas Republikas Neatkarības atjaunošanas diena", "Restoration of Independence day", countryCode));
             items.Add(new PublicHoliday(secondSundayInMay, "Mātes diena", "Mother's day", countryCode));

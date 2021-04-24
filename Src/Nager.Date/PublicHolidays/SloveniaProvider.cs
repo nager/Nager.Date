@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +32,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 2, "novo leto", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 8, "Prešernov dan", "Prešeren Day", countryCode));
             items.Add(new PublicHoliday(easterSunday, "velikonočna nedelja in ponedeljek", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "velikonočna nedelja in ponedeljek", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterMonday("velikonočna nedelja in ponedeljek", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 27, "dan upora proti okupatorju", "Day of Uprising Against Occupation", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "praznik dela", "May Day Holiday", countryCode, 1949));
             items.Add(new PublicHoliday(year, 5, 2, "praznik dela", "May Day Holiday", countryCode, 1949));

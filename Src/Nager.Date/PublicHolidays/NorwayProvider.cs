@@ -32,7 +32,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Skjærtorsdag", "Maundy Thursday", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Langfredag", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday, "Første påskedag", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Andre påskedag", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Andre påskedag", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Første mai", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 17, "Syttende mai", "Constitution Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Kristi himmelfartsdag", year, countryCode));
