@@ -459,7 +459,7 @@ namespace Nager.Date
         /// <returns></returns>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
-            var items = GetPublicHoliday(date.Year, countryCode);
+            var items = GetPublicHolidays(date.Year, countryCode);
             return items.Any(GetPublicHolidayFilter(date));
         }
 

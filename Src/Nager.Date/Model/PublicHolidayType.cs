@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Nager.Date.Model
 {
@@ -6,7 +6,7 @@ namespace Nager.Date.Model
     /// The type of a public holiday
     /// </summary>
     [Flags]
-    public enum PublicHolidayType : int
+    public enum PublicHolidayType
     {
         /// <summary>
         /// Public holiday

@@ -25,8 +25,7 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.NE;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
-
+ 
             //TODO: Add islamic public holidays
 
             var items = new List<PublicHoliday>();
