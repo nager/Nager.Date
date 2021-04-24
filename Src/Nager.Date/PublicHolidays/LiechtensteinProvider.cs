@@ -26,6 +26,8 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.LI;
             var easterSunday = this._catholicProvider.EasterSunday(year);
+            var easterMonday = this._catholicProvider.EasterMonday("Ostermontag", year, countryCode);
+            easterMonday.SetLaunchYear(1642);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
@@ -34,7 +36,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 2, 2, "Mariä Lichtmess", "Candlemas", countryCode));
             items.Add(new PublicHoliday(year, 3, 19, "Josefstag", "Saint Joseph's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Karfreitag", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Ostermontag", "Easter Monday", countryCode, 1642));
+            items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 5, 1, "Tag der Arbeit", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 29, "Auffahrt", "Ascension", countryCode));
             items.Add(this._catholicProvider.WhitMonday("Pfingstmontag", year, countryCode));

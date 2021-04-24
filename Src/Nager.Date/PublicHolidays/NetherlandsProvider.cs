@@ -27,6 +27,8 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.NL;
             var easterSunday = this._catholicProvider.EasterSunday(year);
+            var easterMonday = this._catholicProvider.EasterMonday("Tweede Paasdag", year, countryCode);
+            easterMonday.SetLaunchYear(1642);
 
             #region King's Day is Sunday fallback
 
@@ -43,7 +45,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Nieuwjaarsdag", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Goede Vrijdag", "Good Friday", countryCode, type: PublicHolidayType.Authorities | PublicHolidayType.School));
             items.Add(new PublicHoliday(easterSunday, "Eerste Paasdag", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Tweede Paasdag", "Easter Monday", countryCode, 1642));
+            items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 4, kingsDay, "Koningsdag", "King's Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Hemelvaartsdag", year, countryCode));
             items.Add(this._catholicProvider.WhitMonday("Pinksteren", year, countryCode));

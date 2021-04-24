@@ -35,7 +35,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, 1, "Κυπριακή Εθνική Επέτειος", "Cyprus National Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Μεγάλη Παρασκευή", "Good Friday", countryCode));
             //Holy Saturday // Μεγάλο Σάββατο??            
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Δευτέρα της Διακαινησίμου", "Easter Monday", countryCode));
+            items.Add(this._orthodoxProvider.EasterMonday("Δευτέρα της Διακαινησίμου", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(2), "Τρίτη της Διακαινησίμου", "Easter Tuesday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Πρωτομαγιά", "Labour Day", countryCode));
             items.Add(this._orthodoxProvider.Pentecost("Αγίου Πνεύματος", year, countryCode));

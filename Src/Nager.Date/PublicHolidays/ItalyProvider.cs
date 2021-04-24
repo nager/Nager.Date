@@ -26,12 +26,14 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.IT;
             var easterSunday = this._catholicProvider.EasterSunday(year);
+            var easterMonday = this._catholicProvider.EasterMonday("Lunedì dell'Angelo", year, countryCode);
+            easterMonday.SetLaunchYear(1642);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Capodanno", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 1, 6, "Epifania", "Epiphany", countryCode));
             items.Add(new PublicHoliday(easterSunday, "Pasqua", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Lunedì dell'Angelo", "Easter Monday", countryCode, 1642));
+            items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 4, 25, "Festa della Liberazione", "Liberation Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Festa del Lavoro", "International Workers Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 2, "Festa della Repubblica", "Republic Day", countryCode));

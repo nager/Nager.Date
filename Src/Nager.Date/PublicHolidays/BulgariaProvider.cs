@@ -32,7 +32,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 3, 3, "Ден на Освобождението на България от османско робство", "Liberation Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Разпети петък", "Good Friday", countryCode));
             items.Add(new PublicHoliday(easterSunday, "Великден", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Велики понеделник", "Easter Monday", countryCode));
+            items.Add(this._orthodoxProvider.EasterMonday("Велики понеделник", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Ден на труда и на международната работническа солидарност", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 6, "Гергьовден, ден на храбростта и Българската армия", "Saint George's Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 24, "Ден на българската просвета и култура и на славянската писменост", "Saints Cyril and Methodius Day", countryCode));
