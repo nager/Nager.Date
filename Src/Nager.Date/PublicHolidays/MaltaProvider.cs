@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,14 +25,13 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.MT;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "L-Ewwel tas-Sena", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 10, "In-Nawfraġju ta’ San Pawl", "Feast of St. Paul's Shipwreck", countryCode));
             items.Add(new PublicHoliday(year, 3, 19, "San Ġużepp", "Feast of St. Joseph", countryCode));
             items.Add(new PublicHoliday(year, 3, 31, "Jum il-Ħelsien", "Freedom Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Il-Ġimgħa l-Kbira", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Il-Ġimgħa l-Kbira", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Jum il-Ħaddiem", "Worker's Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 7, "Sette Giugno", "​Sette Giugno", countryCode));
             items.Add(new PublicHoliday(year, 6, 29, "L-Imnarja", "​​Feast of St.Peter and St.Paul", countryCode));

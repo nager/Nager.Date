@@ -66,7 +66,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(secondMondayInMarch, "March Public Holiday", "March Public Holiday", countryCode, null, new string[] { "AUS-SA" }));
             items.Add(new PublicHoliday(secondMondayInMarch, "Eight Hours Day", "Eight Hours Day", countryCode, null, new string[] { "AUS-TAS" }));
             items.Add(new PublicHoliday(secondMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AUS-VIC" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Easter Eve", "Holy Saturday", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-NT", "AUS-QLD", "AUS-SA", "AUS-VIC" }));
             items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-VIC" }));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));

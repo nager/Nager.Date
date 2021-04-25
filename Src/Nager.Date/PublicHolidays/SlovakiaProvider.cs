@@ -25,12 +25,11 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.SK;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Deň vzniku Slovenskej republiky", "Day of the Establishment of the Slovak Republic", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Zjavenie Pána", "Epiphany", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Veľkonočný piatok", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Veľkonočný piatok", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Veľkonočný pondelok", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Sviatok práce", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 8, "Deň víťazstva nad fašizmom", "Day of victory over fascism", countryCode));

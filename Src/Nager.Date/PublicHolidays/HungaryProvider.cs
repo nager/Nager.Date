@@ -43,7 +43,7 @@ namespace Nager.Date.PublicHolidays
 
             if (year >= 2017)
             {
-                items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Nagypéntek", "Good Friday", countryCode));
+                items.Add(this._catholicProvider.GoodFriday("Nagypéntek", year, countryCode));
             }
 
             return items.OrderBy(o => o.Date);

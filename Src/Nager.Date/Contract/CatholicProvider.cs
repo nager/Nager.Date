@@ -47,6 +47,13 @@ namespace Nager.Date.Contract
         }
 
         ///<inheritdoc/>
+        public PublicHoliday GoodFriday(string localName, int year, CountryCode countryCode)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday.AddDays(-2), localName, "Good Friday", countryCode);
+        }
+
+        ///<inheritdoc/>
         public PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);

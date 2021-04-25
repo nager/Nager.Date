@@ -39,7 +39,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 1, "Trettondagen", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 3, 30, "Ålands demilitariseringsdag", "Demilitarization Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Långfredag", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Långfredag", year, countryCode));
             items.Add(new PublicHoliday(easterSunday, "Påskdagen", "Easter Sunday", countryCode, 1642));
             items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 4, 30, "Valborgsmässoafton", "Walpurgis Night", countryCode));

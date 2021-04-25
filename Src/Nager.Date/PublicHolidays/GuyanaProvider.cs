@@ -26,7 +26,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.GY;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayInJuly = DateSystem.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.First);
 
@@ -34,7 +33,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 23, "Republic Day", "Republic Day", countryCode));
             //TODO:Phagwah ??? (Hindu calendar)
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 5, "Arrival Day", "Arrival Day", countryCode));

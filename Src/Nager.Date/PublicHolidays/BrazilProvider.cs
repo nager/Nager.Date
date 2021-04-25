@@ -41,7 +41,7 @@ namespace Nager.Date.PublicHolidays
             // non fixed days (Easter, Carnival, Passion of Jesus and Corpus Christi)
             items.Add(new PublicHoliday(easterSunday, "Domingo de Pascoa", "Easter Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Sexta feira Santa", "Passion of Jesus", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Sexta feira Santa", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "Corpus Christi", "Corpus Christi", countryCode));
             // TODO non-official holidays
 

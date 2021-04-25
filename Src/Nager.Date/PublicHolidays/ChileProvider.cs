@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
@@ -56,7 +56,7 @@ namespace Nager.Date.PublicHolidays
 
             var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
             items.Add(new PublicHoliday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Viernes Santo", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Sábado Santo", "Holy Saturday", countryCode));
             //Census
             items.Add(new PublicHoliday(year, 5, 1, "Día del Trabajo", "Labour Day", countryCode));

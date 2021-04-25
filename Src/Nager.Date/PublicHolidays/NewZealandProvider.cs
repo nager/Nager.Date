@@ -27,7 +27,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.NZ;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 1);
             var fourthMondayInOctober = DateSystem.FindDay(year, 10, DayOfWeek.Monday, 4);
@@ -86,7 +85,7 @@ namespace Nager.Date.PublicHolidays
 
             #endregion
 
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
             items.Add(new PublicHoliday(firstMondayInJune, "Queen's Birthday", "Queen's Birthday", countryCode));
             items.Add(new PublicHoliday(fourthMondayInOctober, "Labour Day", "Labour Day", countryCode));

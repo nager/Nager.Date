@@ -40,7 +40,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnival", "Carnival", countryCode));
             items.Add(new PublicHoliday(year, 3, 19, "Día de San José", "Saint Joseph's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Jueves Santo", "Maundy Thursday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Viernes Santo", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Primero de Mayo", "Labour Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Ascensión del señor", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(60), "Corpus Christi", "Corpus Christi", countryCode));

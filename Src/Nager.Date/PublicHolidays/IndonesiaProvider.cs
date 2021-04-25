@@ -42,7 +42,7 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Tahun Baru Masehi", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Wafat Isa Almasih", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Wafat Isa Almasih", year, countryCode));
             items.Add(new PublicHoliday(easterSunday, "Paskah", "Easter Sunday", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Hari Buruh Internasional", "Labour Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Kenaikan Isa Almasih", year, countryCode));

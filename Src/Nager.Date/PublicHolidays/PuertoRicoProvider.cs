@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Nager.Date.Contract;
@@ -28,7 +28,6 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.PR;
 
-            var easterSunday = this._catholicProvider.EasterSunday(year);
             var secondMondayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Monday, 2);
             var thirdMondayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Monday, 3);
             var thirdMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 3);
@@ -54,7 +53,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thirdMondayInFebruary, "Día de los Presidentes", "Presidents' Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 18, "Natalicio de Luis Muñoz Marín", "Birthday of Luis Muñoz Marín", countryCode));
             items.Add(new PublicHoliday(year, 3, 22, "Día de la Abolición de Esclavitud", "Emancipation Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Viernes Santo", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(new PublicHoliday(thirdMondayInApril, "Natalicio de José de Diego", "Birthday of José de Diego", countryCode));
             items.Add(new PublicHoliday(lastMondayInMay, "Recordación de los Muertos de la Guerra", "Memorial Day", countryCode));
 

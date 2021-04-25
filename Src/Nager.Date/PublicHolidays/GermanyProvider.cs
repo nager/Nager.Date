@@ -58,7 +58,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 1, 6, "Heilige Drei Könige", "Epiphany", countryCode, 1967, new string[] { "DE-BW", "DE-BY", "DE-ST" }));
             items.Add(new PublicHoliday(year, 3, 8, "Internationaler Frauentag", "International Women's Day", countryCode, 2019, new string[] { "DE-BE" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Karfreitag", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Karfreitag", year, countryCode));
             items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 5, 1, "Tag der Arbeit", "Labour Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Christi Himmelfahrt", year, countryCode));
