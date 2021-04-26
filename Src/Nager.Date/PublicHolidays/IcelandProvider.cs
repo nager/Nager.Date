@@ -39,7 +39,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(firstDayOfSummer, "Sumardagurinn fyrsti", "First Day of Summer", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Verkalýðsdagurinn", "May Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Uppstigningardagur", year, countryCode));
-            items.Add(this._catholicProvider.Pentecost("Hvítasunnudagur", year, countryCode);
+            items.Add(this._catholicProvider.Pentecost("Hvítasunnudagur", year, countryCode));
             items.Add(this._catholicProvider.WhitMonday("Annar í hvítasunnu", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 17, "Þjóðhátíðardagurinn", "Icelandic National Day", countryCode));
             items.Add(new PublicHoliday(firstMondayInAugust, "Frídagur verslunarmanna", "Commerce Day", countryCode));
