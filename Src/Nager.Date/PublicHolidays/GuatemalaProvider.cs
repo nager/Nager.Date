@@ -29,10 +29,10 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Maundy Thursday", "Maundy Thursday", countryCode));
+            items.Add(this._catholicProvider.MaundyThursday("Maundy Thursday", year, countryCode));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Holy Saturday", "Holy Saturday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "International Workers' Day", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 30, "Army Day", "Army Day", countryCode));
             items.Add(new PublicHoliday(year, 9, 15, "Independence Day", "Independence Day", countryCode));

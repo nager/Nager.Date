@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,6 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.ME;
 
             var orthodoxEasterSunday = this._orthodoxProvider.EasterSunday(year);
-            var catholicEasterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nova godina", "New Year's Day", countryCode));
@@ -44,19 +43,31 @@ namespace Nager.Date.PublicHolidays
 
             #region Orthodox holidays
 
+            var easterMondayOrthodox = this._orthodoxProvider.EasterMonday("Vaskrs", year, countryCode);
+            easterMondayOrthodox.SetType(PublicHolidayType.Optional);
+
             items.Add(new PublicHoliday(year, 1, 6, "Badnji dan", "Orthodox Christmas Eve", countryCode, null, null, PublicHolidayType.Optional));
             items.Add(new PublicHoliday(year, 1, 7, "Božić", "Orthodox Christmas Day", countryCode, null, null, PublicHolidayType.Optional));
             items.Add(new PublicHoliday(year, 1, 8, "Božić", "Orthodox Christmas Day", countryCode, null, null, PublicHolidayType.Optional));
             items.Add(new PublicHoliday(orthodoxEasterSunday.AddDays(-2), "Vaskrs", "Orthodox Good Friday", countryCode, null, null, PublicHolidayType.Optional));
-            items.Add(new PublicHoliday(orthodoxEasterSunday.AddDays(1), "Vaskrs", "Orthodox Easter Monday", countryCode, null, null, PublicHolidayType.Optional));
+            items.Add(easterMondayOrthodox);
 
             #endregion
 
             #region Catholic holidays
 
-            items.Add(new PublicHoliday(catholicEasterSunday.AddDays(-2), "Veliki petak", "Catholic Good Friday", countryCode, null, null, PublicHolidayType.Optional));
-            items.Add(new PublicHoliday(catholicEasterSunday, "Uskrs", "Catholic Easter Day", countryCode, null, null, PublicHolidayType.Optional));
-            items.Add(new PublicHoliday(catholicEasterSunday.AddDays(1), "Uskrs", "Catholic Easter Monday", countryCode, null, null, PublicHolidayType.Optional));
+            var easterSunday = this._catholicProvider.EasterSunday("Uskrs", year, countryCode);
+            easterSunday.SetType(PublicHolidayType.Optional);
+
+            var easterMonday = this._catholicProvider.EasterMonday("Uskrs", year, countryCode);
+            easterMonday.SetType(PublicHolidayType.Optional);
+
+            var goodFriday = this._catholicProvider.GoodFriday("Veliki petak", year, countryCode);
+            goodFriday.SetType(PublicHolidayType.Optional);
+
+            items.Add(goodFriday);
+            items.Add(easterSunday);
+            items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 11, 1, "Svi Sveti", "Catholic All Saints' Day", countryCode, null, null, PublicHolidayType.Optional));
             items.Add(new PublicHoliday(year, 12, 24, "Badnji dan", "Catholic Christmas Eve", countryCode, null, null, PublicHolidayType.Optional));
             items.Add(new PublicHoliday(year, 12, 25, "Božić", "Catholic Christmas Day", countryCode, null, null, PublicHolidayType.Optional));

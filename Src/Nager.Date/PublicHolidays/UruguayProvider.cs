@@ -32,7 +32,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 6, "Día de los Niños", "Children's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-48), "Carnaval", "Carnival", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Semana de Turismo", "Maundy Thursday", countryCode));
+            items.Add(this._catholicProvider.MaundyThursday("Semana de Turismo", year, countryCode));
             items.Add(this._catholicProvider.GoodFriday("Semana de Turismo", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 19, "Desembarco de los 33 Orientales", "Landing of the 33 Patriots Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Día de los Trabajadores", "International Workers' Day", countryCode));

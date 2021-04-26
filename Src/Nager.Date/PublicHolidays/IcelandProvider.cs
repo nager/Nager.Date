@@ -33,9 +33,9 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nýársdagur", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Skírdagur", "Maundy Thursday", countryCode));
+            items.Add(this._catholicProvider.MaundyThursday("Skírdagur", year, countryCode));
             items.Add(this._catholicProvider.GoodFriday("Föstudagurinn langi", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Páskadagur", "Easter Day", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Páskadagur", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Annar í páskum", year, countryCode));
             items.Add(new PublicHoliday(firstDayOfSummer, "Sumardagurinn fyrsti", "First Day of Summer", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Verkalýðsdagurinn", "May Day", countryCode));

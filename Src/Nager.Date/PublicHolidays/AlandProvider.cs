@@ -26,7 +26,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.AX;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var thirdFridayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Friday, Occurrence.Third);
             var thirdSaturdayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Third);
@@ -35,12 +34,15 @@ namespace Nager.Date.PublicHolidays
             var easterMonday = this._catholicProvider.EasterMonday("Annandag påsk", year, countryCode);
             easterMonday.SetLaunchYear(1642);
 
+            var easterSunday = this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode);
+            easterSunday.SetLaunchYear(1642);
+
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 1, "Trettondagen", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 3, 30, "Ålands demilitariseringsdag", "Demilitarization Day", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Långfredag", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Påskdagen", "Easter Sunday", countryCode, 1642));
+            items.Add(easterSunday);
             items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 4, 30, "Valborgsmässoafton", "Walpurgis Night", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Första maj", "May Day", countryCode));

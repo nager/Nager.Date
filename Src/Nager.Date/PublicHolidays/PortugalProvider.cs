@@ -59,10 +59,10 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Ano Novo", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode, null, null, PublicHolidayType.Optional));
             items.Add(this._catholicProvider.GoodFriday("Sexta-feira Santa", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Domingo de Páscoa", "Easter Day", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Domingo de Páscoa", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 25, "Dia da Liberdade", "Freedom Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Dia do Trabalhador", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(60), "Corpo de Deus", "Corpus Christi", countryCode));
+            items.Add(this._catholicProvider.CorpusChristi("Corpo de Deus", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 1, "Dia dos Açores", "Azores Day", countryCode, null, new string[] { "PT-20" }));
             items.Add(new PublicHoliday(year, 6, 10, "Dia de Portugal, de Camões e das Comunidades Portuguesas", "National Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 1, "Dia da Madeira", "Madeira Day", countryCode, null, new string[] { "PT-30" }));

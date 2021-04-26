@@ -63,10 +63,16 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.ES;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
+
             var easterMonday = this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode);
             easterMonday.SetLaunchYear(1642);
             easterMonday.SetCounties("ES-CT", "ES-IB", "ES-LO", "ES-NA", "ES-PV", "ES-VC");
+
+            var corpusChristi = this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode);
+            corpusChristi.SetCounties("ES-CM");
+
+            var maundyThursday = this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode);
+            maundyThursday.SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-LO", "ES-M", "ES-MU", "ES-NA", "ES-O", "ES-PV", "ES-CB");
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode, 1967));
@@ -74,14 +80,14 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 2, 28, "Día de Andalucía", "Regional Holiday", countryCode, null, new string[] { "ES-AN" }));
             items.Add(new PublicHoliday(year, 3, 1, "Dia de les Illes Balears", "Regional Holiday", countryCode, null, new string[] { "ES-IB" }));
             items.Add(new PublicHoliday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, new string[] { "ES-EX", "ES-PV", "ES-GA", "ES-M", "ES-MU", "ES-NA", "ES-VC" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Jueves Santo", "Maundy Thursday", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-LO", "ES-M", "ES-MU", "ES-NA", "ES-O", "ES-PV", "ES-CB" }));
+            items.Add(maundyThursday);
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 4, 23, "San Jorge (Día de Aragón)", "Regional Holiday", countryCode, null, new string[] { "ES-AR" }));
             items.Add(new PublicHoliday(year, 4, 23, "Día de Castilla y León", "Regional Holiday", countryCode, null, new string[] { "ES-CL" }));
             items.Add(new PublicHoliday(year, 5, 17, "Día das Letras Galegas", "Regional Holiday", countryCode, null, new string[] { "ES-GA" }));
             items.Add(new PublicHoliday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Regional Holiday", countryCode, null, new string[] { "ES-CM" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(60), "Corpus Christi", "Corpus Christi", countryCode, null, new string[] { "ES-CM" }));
+            items.Add(corpusChristi);
             items.Add(new PublicHoliday(year, 6, 9, "Día de la Región de Murcia", "Regional Holiday", countryCode, null, new string[] { "ES-MU" }));
             items.Add(new PublicHoliday(year, 6, 9, "Día de La Rioja", "Regional Holiday", countryCode, null, new string[] { "ES-LO" }));
             items.Add(new PublicHoliday(year, 6, 24, "Sant Joan", "St. John's Day", countryCode, null, new string[] { "ES-CT", "ES-VC" }));

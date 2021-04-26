@@ -34,7 +34,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 2, 15, "Dan državnosti Srbije", "Statehood Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 16, "Dan državnosti Srbije", "Statehood Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Veliki petak", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Vaskrs (Uskrs)", "Easter Sunday", countryCode));
+            items.Add(this._orthodoxProvider.EasterSunday("Vaskrs (Uskrs)", year, countryCode));
             items.Add(this._orthodoxProvider.EasterMonday("Vaskrsni (Uskrsni) ponedeljak", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Praznik rada", "May Day / International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 2, "Praznik rada", "May Day / International Workers' Day", countryCode));

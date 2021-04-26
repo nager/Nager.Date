@@ -27,10 +27,12 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.GB;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
             var lastMondayInAugust = DateSystem.FindLastDay(year, 8, DayOfWeek.Monday);
+
+            var easterMonday = this._catholicProvider.EasterMonday("Easter Monday", year, countryCode);
+            easterMonday.SetCounties("GB-ENG", "GB-WLS", "GB-NIR");
 
             var items = new List<PublicHoliday>();
 
@@ -62,7 +64,7 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(new PublicHoliday(year, 3, 17, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode, null, new string[] { "GB-ENG", "GB-WLS", "GB-NIR" }));
+            items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 11, 30, "Saint Andrew's Day", "Saint Andrew's Day", countryCode, null, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(year, 7, 12, "Battle of the Boyne", "Battle of the Boyne", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));

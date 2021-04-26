@@ -23,6 +23,15 @@ namespace Nager.Date.Contract
         DateTime AdventSunday(int year);
 
         /// <summary>
+        /// Get Maundy Thursday
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
+        PublicHoliday MaundyThursday(string localName, int year, CountryCode countryCode);
+
+        /// <summary>
         /// Get Good Friday
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
@@ -30,6 +39,15 @@ namespace Nager.Date.Contract
         /// <param name="countryCode"></param>
         /// <returns></returns>
         PublicHoliday GoodFriday(string localName, int year, CountryCode countryCode);
+
+        /// <summary>
+        /// Get Easter Sunday
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
+        PublicHoliday EasterSunday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Easter Monday
@@ -66,5 +84,14 @@ namespace Nager.Date.Contract
         /// <param name="countryCode"></param>
         /// <returns></returns>
         PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode);
+
+        /// <summary>
+        /// Get Corpus Christi
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
+        PublicHoliday CorpusChristi(string localName, int year, CountryCode countryCode);
     }
 }

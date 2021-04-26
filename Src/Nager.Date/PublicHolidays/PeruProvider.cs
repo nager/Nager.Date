@@ -31,7 +31,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Jueves Santo", "Holy Thursday", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Domingo Santo", "Easter Day", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Domingo Santo", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Día del Trabajo", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 29, "Día de San Pedro y San Pablo", "St. Peter and St. Paul", countryCode));
             items.Add(new PublicHoliday(year, 7, 28, "Día de la Independencia", "Independence Day", countryCode));

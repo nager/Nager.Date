@@ -51,7 +51,7 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Holy Saturday", "Holy Saturday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
 
             #region Labour Day

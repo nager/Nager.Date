@@ -26,14 +26,13 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.LV;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var secondSundayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Sunday, 2);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Jaunais Gads", "New Year's Day", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Lielā Piektdiena", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Lieldienas", "Easter Sunday", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Lieldienas", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Otrās Lieldienas", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Darba svētki", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 4, "Latvijas Republikas Neatkarības atjaunošanas diena", "Restoration of Independence day", countryCode));

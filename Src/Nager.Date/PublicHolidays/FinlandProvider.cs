@@ -26,7 +26,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.FI;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var midsummerEve = DateSystem.FindDay(year, 6, 19, DayOfWeek.Friday);
             var midsummerDay = DateSystem.FindDay(year, 6, 20, DayOfWeek.Saturday);
@@ -36,7 +35,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Uudenvuodenpäivä", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Loppiainen", "Epiphany", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Pitkäperjantai", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Pääsiäispäivä", "Easter Sunday", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Pääsiäispäivä", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("2. pääsiäispäivä", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Vappu", "May Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Helatorstai", year, countryCode));
