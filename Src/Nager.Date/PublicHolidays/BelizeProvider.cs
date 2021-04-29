@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
@@ -49,10 +49,10 @@ namespace Nager.Date.PublicHolidays
 
             #endregion
 
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Holy Saturday", "Holy Saturday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
 
             #region Labour Day
 

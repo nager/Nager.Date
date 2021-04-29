@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,18 +25,17 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.SI;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "novo leto", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 2, "novo leto", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 8, "Prešernov dan", "Prešeren Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "velikonočna nedelja in ponedeljek", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "velikonočna nedelja in ponedeljek", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.EasterSunday("velikonočna nedelja in ponedeljek", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("velikonočna nedelja in ponedeljek", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 27, "dan upora proti okupatorju", "Day of Uprising Against Occupation", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "praznik dela", "May Day Holiday", countryCode, 1949));
             items.Add(new PublicHoliday(year, 5, 2, "praznik dela", "May Day Holiday", countryCode, 1949));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "binkoštna nedelja, binkošti", "Whit Sunday", countryCode));
+            items.Add(this._catholicProvider.Pentecost("binkoštna nedelja, binkošti", year, countryCode));
             //items.Add(new PublicHoliday(year, 6, 8, "dan Primoža Trubarja", "Primož Trubar Day", countryCode)); not work-free
             items.Add(new PublicHoliday(year, 6, 25, "dan državnosti", "Statehood Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Marijino vnebovzetje", "Assumption Day", countryCode, 1992));

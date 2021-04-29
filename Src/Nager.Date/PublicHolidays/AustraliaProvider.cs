@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
@@ -57,6 +57,8 @@ namespace Nager.Date.PublicHolidays
             var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             var australiaDay = new DateTime(year, 1, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
 
+            var easterSunday1 = this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode);
+            easterSunday1.SetCounties("AUS-ACT", "AUS-NSW", "AUS-VIC");
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
@@ -66,10 +68,10 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(secondMondayInMarch, "March Public Holiday", "March Public Holiday", countryCode, null, new string[] { "AUS-SA" }));
             items.Add(new PublicHoliday(secondMondayInMarch, "Eight Hours Day", "Eight Hours Day", countryCode, null, new string[] { "AUS-TAS" }));
             items.Add(new PublicHoliday(secondMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AUS-VIC" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Easter Eve", "Holy Saturday", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-NT", "AUS-QLD", "AUS-SA", "AUS-VIC" }));
-            items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-VIC" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Easter Monday", "Easter Monday", countryCode));
+            items.Add(easterSunday1);
+            items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode));
             items.Add(new PublicHoliday(firstMondayInMay, "May Day", "May Day", countryCode, null, new string[] { "AUS-NT" }));
             items.Add(new PublicHoliday(firstMondayInMay, "Labour Day", "Labour Day", countryCode, null, new string[] { "AUS-QLD" }));

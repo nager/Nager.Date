@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,20 +25,18 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.SJ;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Første nyttårsdag", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Skjærtorsdag", "Maundy Thursday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Langfredag", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Første påskedag", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Andre påskedag", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.MaundyThursday("Skjærtorsdag", year, countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Langfredag", year, countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Første påskedag", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Andre påskedag", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Første mai", "May Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 17, "Syttende mai", "Constitution Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Kristi himmelfartsdag", "Ascension Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Første pinsedag", "Whit Sunday", countryCode));
-
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Andre pinsedag", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Kristi himmelfartsdag", year, countryCode));
+            items.Add(this._catholicProvider.Pentecost("Første pinsedag", year, countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Andre pinsedag", year, countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Første juledag", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Andre juledag", "Second day of Christmas", countryCode));
 

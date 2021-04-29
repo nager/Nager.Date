@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Nager.Date.Model
 {
@@ -10,23 +10,23 @@ namespace Nager.Date.Model
         /// <summary>
         /// The date
         /// </summary>
-        public DateTime Date { get; set; }
+        public DateTime Date { get; private set; }
         /// <summary>
         /// Local name
         /// </summary>
-        public string LocalName { get; set; }
+        public string LocalName { get; private set; }
         /// <summary>
         /// English name
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; private set; }
         /// <summary>
         /// ISO 3166-1 alpha-2
         /// </summary>
-        public CountryCode CountryCode { get; set; }
+        public CountryCode CountryCode { get; private set; }
         /// <summary>
         /// Is this public holiday every year on the same date
         /// </summary>
-        public bool Fixed { get; set; }
+        public bool Fixed { get; private set; }
         /// <summary>
         /// Is this public holiday in every county (federal state)
         /// </summary>
@@ -34,15 +34,15 @@ namespace Nager.Date.Model
         /// <summary>
         /// ISO-3166-2 - Federal states
         /// </summary>
-        public string[] Counties { get; set; }
+        public string[] Counties { get; private set; }
         /// <summary>
         /// A list of types the public holiday it is valid
         /// </summary>
-        public PublicHolidayType Type { get; set; }
+        public PublicHolidayType Type { get; private set; }
         /// <summary>
         /// The launch year of the public holiday
         /// </summary>
-        public int? LaunchYear { get; set; }
+        public int? LaunchYear { get; private set; }
 
         /// <summary>
         /// Add Public Holiday (fixed is true)
@@ -103,6 +103,21 @@ namespace Nager.Date.Model
         public override string ToString()
         {
             return $"{this.Date:yyyy-MM-dd} {this.Name}";
+        }
+
+        internal void SetCounties(params string[] counties)
+        {
+            this.Counties = counties;
+        }
+
+        internal void SetType(PublicHolidayType publicHolidayType)
+        {
+            this.Type = publicHolidayType;
+        }
+
+        internal void SetLaunchYear(int launchYear)
+        {
+            this.LaunchYear = launchYear;
         }
     }
 }

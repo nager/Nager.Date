@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,18 +25,23 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.FR;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
+
+            var easterMonday = this._catholicProvider.EasterMonday("Lundi de Pâques", year, countryCode);
+            easterMonday.SetLaunchYear(1642);
+
+            var goodFriday = this._catholicProvider.GoodFriday("Vendredi saint", year, countryCode);
+            goodFriday.SetCounties("FR-A", "FR-57");
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Jour de l'an", "New Year's Day", countryCode, 1967));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Vendredi saint", "Good Friday", countryCode, null, new string[] { "FR-A", "FR-57" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Lundi de Pâques", "Easter Monday", countryCode, 1642));
+            items.Add(goodFriday);
+            items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 5, 1, "Fête du premier mai", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Jour de l'Ascension", "Ascension Day", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Jour de l'Ascension", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 8, "Fête de la Victoire", "Victory in Europe Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 22, "Abolition de l'esclavage", "Abolition of Slavery", countryCode, null, new string[] { "FR-MQ" }));
             items.Add(new PublicHoliday(year, 5, 27, "Abolition of Slavery", "Abolition de l'esclavage", countryCode, null, new string[] { "FR-GP", "FR-MF", "FR-BL" }));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Lundi de Pentecôte", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Lundi de Pentecôte", year, countryCode));
             items.Add(new PublicHoliday(year, 7, 14, "Fête nationale", "Bastille Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "L'Assomption de Marie", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "La Toussaint", "All Saints' Day", countryCode));

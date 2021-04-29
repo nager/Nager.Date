@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +25,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.DO;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
@@ -33,9 +32,9 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 21, "Our Lady of Altagracia", "Our Lady of Altagracia", countryCode));
             items.Add(new PublicHoliday(year, 1, 26, "Duarte's Birthday", "Duarte's Birthday", countryCode));
             items.Add(new PublicHoliday(year, 2, 27, "Independence Day", "Independence Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(60), "Corpus Christi", "Corpus Christi", countryCode));
+            items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 28, "Mother's Day", "Mother's Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 16, "Restoration Day", "Restoration Day", countryCode));
             items.Add(new PublicHoliday(year, 9, 24, "Nuestra Senora de las Mercedes", "Our Lady of Mercy", countryCode));

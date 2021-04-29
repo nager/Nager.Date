@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,12 +25,14 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.CZ;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
+ 
+            var goodFriday = this._catholicProvider.GoodFriday("Velký pátek", year, countryCode);
+            goodFriday.SetLaunchYear(2016);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Den obnovy samostatného českého státu; Nový rok", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Velký pátek", "Good Friday", countryCode, 2016));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Velikonoční pondělí", "Easter Monday", countryCode));
+            items.Add(goodFriday);
+            items.Add(this._catholicProvider.EasterMonday("Velikonoční pondělí", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Svátek práce", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 8, "Den vítězství", "Liberation Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 5, "Den slovanských věrozvěstů Cyrila a Metoděje", "Saints Cyril and Methodius Day", countryCode));

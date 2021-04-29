@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +32,12 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 2, "Anul Nou", "Day after New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 24, "Unirea Principatelor Române/Mica Unire", "Union Day/Small Union", countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Vinerea mare", "Good Friday", countryCode, 2018));
-            items.Add(new PublicHoliday(easterSunday, "Paștele", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Paștele", "Easter Monday", countryCode));
+            items.Add(this._orthodoxProvider.EasterSunday("Paștele", year, countryCode));
+            items.Add(this._orthodoxProvider.EasterMonday("Paștele", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Ziua Muncii", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 1, "Ziua Copilului", "Children's Day", countryCode, 2017));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Rusaliile", "Pentecost", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Rusaliile", "Whit Monday", countryCode));
+            items.Add(this._orthodoxProvider.Pentecost("Rusaliile", year, countryCode));
+            items.Add(this._orthodoxProvider.WhitMonday("Rusaliile", year, countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Adormirea Maicii Domnului/Sfânta Maria Mare", "Dormition of the Theotokos", countryCode));
             items.Add(new PublicHoliday(year, 11, 30, "Sfântul Andrei", "St. Andrew's Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 1, "Ziua Națională/Marea Unire", "National Day/Great Union", countryCode));

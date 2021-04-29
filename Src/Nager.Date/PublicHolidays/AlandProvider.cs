@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -26,24 +26,29 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.AX;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var thirdFridayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Friday, Occurrence.Third);
             var thirdSaturdayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Third);
             var firstSaturdayInNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Saturday, Occurrence.First);
 
+            var easterMonday = this._catholicProvider.EasterMonday("Annandag påsk", year, countryCode);
+            easterMonday.SetLaunchYear(1642);
+
+            var easterSunday = this._catholicProvider.EasterSunday("Påskdagen", year, countryCode);
+            easterSunday.SetLaunchYear(1642);
+
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 1, "Trettondagen", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 3, 30, "Ålands demilitariseringsdag", "Demilitarization Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Långfredag", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Påskdagen", "Easter Sunday", countryCode, 1642));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Annandag påsk", "Easter Monday", countryCode, 1642));
+            items.Add(this._catholicProvider.GoodFriday("Långfredag", year, countryCode));
+            items.Add(easterSunday);
+            items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 4, 30, "Valborgsmässoafton", "Walpurgis Night", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Första maj", "May Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Kristi himmelsfärdsdagn", "Ascension Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Pingstdagen", "Pentecost", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Annandag Pingst", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Kristi himmelsfärdsdagn", year, countryCode));
+            items.Add(this._catholicProvider.Pentecost("Pingstdagen", year, countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Annandag Pingst", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 9, "Självstyrelsedagen", "Autonomy Day", countryCode));
             items.Add(new PublicHoliday(thirdFridayInJune, "Midsommarafton", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(thirdSaturdayInJune, "Midsommardagen", "Midsummer Day", countryCode));

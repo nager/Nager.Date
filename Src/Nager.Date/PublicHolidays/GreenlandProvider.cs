@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +30,13 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Epiphany", "Epiphany", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Maundy Thursday", "Maundy Thursday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Vendredi saint", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Lundi de Pâques", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.MaundyThursday("Maundy Thursday", year, countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Vendredi saint", year, countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Lundi de Pâques", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(26), "Store Bededag", "Store Bededag", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Ascension Day", "Ascension Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Whit Monday", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Ascension Day", year, countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Whit Monday", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 21, "Ullortuneq", "Ullortuneq", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Christmas Eve", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));

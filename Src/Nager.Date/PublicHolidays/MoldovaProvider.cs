@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -26,7 +26,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.MD;
-            var easterSunday = this._orthodoxProvider.EasterSunday(year);
 
             var lastMondayInMay = DateSystem.FindLastDay(year, 8, DayOfWeek.Monday);
 
@@ -36,7 +35,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 8, "Craciun pe stil Vechi (Orthodox Christmas)", "Craciun pe stil Vechi (Orthodox Christmas)", countryCode));
             items.Add(new PublicHoliday(year, 2, 23, "Day of Veterans of the Armed Forces and Law Enforcement Agencies", "Day of Veterans of the Armed Forces and Law Enforcement Agencies", countryCode));
             items.Add(new PublicHoliday(year, 3, 8, "International Women's Day", "International Women's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Orthodox Easter", "Orthodox Easter", countryCode));
+            items.Add(this._orthodoxProvider.EasterSunday("Orthodox Easter", year, countryCode));
             items.Add(new PublicHoliday(lastMondayInMay, "Memorial Day", "Memorial Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Labour Day (Moldova)", "Labour Day (Moldova)", countryCode));
             items.Add(new PublicHoliday(year, 5, 9, "Victory and Commemoration Day", "Victory and Commemoration Day", countryCode));

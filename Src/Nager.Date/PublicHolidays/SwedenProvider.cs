@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -26,7 +26,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.SE;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var midsummerDay = DateSystem.FindDay(year, 6, 20, DayOfWeek.Saturday);
             var allSaintsDay = DateSystem.FindDay(year, 10, 31, DayOfWeek.Saturday);
@@ -34,19 +33,19 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 6, "Trettondedag jul", "Epiphany", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Långfredagen", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Påskdagen", "Easter Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Annandag påsk", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Långfredagen", year, countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Påskdagen", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Annandag påsk", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Första maj", "International Workers' Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Kristi himmelsfärds dag", "Ascension Day", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Kristi himmelsfärds dag", year, countryCode));
             if (year >= 2005)
             {
                 items.Add(new PublicHoliday(year, 6, 6, "Sveriges nationaldag", "National Day of Sweden", countryCode));
             }
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Pingstdagen", "Pentecost Sunday", countryCode));
+            items.Add(this._catholicProvider.Pentecost("Pingstdagen", year, countryCode));
             if (year < 2005)
             {
-                items.Add(new PublicHoliday(easterSunday.AddDays(50), "Annandag Pingst", "Pentecost Monday", countryCode));
+                items.Add(this._catholicProvider.WhitMonday("Annandag Pingst", year, countryCode));
             }
             items.Add(new PublicHoliday(midsummerDay.AddDays(-1), "Midsommarafton", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(midsummerDay, "Midsommar", "Midsummer Day", countryCode));

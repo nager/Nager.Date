@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Новий Рік", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 7, "Різдво", "(Julian) Christmas", countryCode));
             items.Add(new PublicHoliday(year, 3, 8, "Міжнародний жіночий день", "International Women's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Великдень", "(Julian) Easter Sunday", countryCode));
+            items.Add(this._orthodoxProvider.EasterSunday("Великдень", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(49), "Трійця", "(Julian) Pentecost", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "День праці", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 9, "День перемоги над нацизмом у Другій світовій війні", "Victory day over Nazism in World War II", countryCode));

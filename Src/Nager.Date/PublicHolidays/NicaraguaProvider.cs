@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -26,7 +26,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.NI;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstThursdayInApril = DateSystem.FindDay(year, 4, DayOfWeek.Thursday, 1);
 

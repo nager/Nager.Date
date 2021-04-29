@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,14 +38,13 @@ namespace Nager.Date.PublicHolidays
             //Add Birth of the Prophet (Maulid Nabi Muhammad)
 
             var countryCode = CountryCode.ID;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Tahun Baru Masehi", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Wafat Isa Almasih", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Paskah", "Easter Sunday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Wafat Isa Almasih", year, countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Paskah", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Hari Buruh Internasional", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(40), "Kenaikan Isa Almasih", "Ascension Day", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Kenaikan Isa Almasih", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 1, "Hari Lahir Pancasila", "Pancasila Day", countryCode, launchYear: 2017));
             items.Add(new PublicHoliday(year, 8, 17, "Hari Ulang Tahun Kemerdekaan Republik Indonesia", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Hari Raya Natal", "Christmas Day", countryCode));

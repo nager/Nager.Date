@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,15 +25,14 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.EE;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "uusaasta", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 24, "iseseisvuspäev", "Independence Day", countryCode, 1918));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "suur reede", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "ülestõusmispühade 1. püha", "Easter Sunday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("suur reede", year, countryCode));
+            items.Add(this._catholicProvider.EasterSunday("ülestõusmispühade 1. püha", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "kevadpüha", "Spring Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "nelipühade 1. püha", "Pentecost", countryCode));
+            items.Add(this._catholicProvider.Pentecost("nelipühade 1. püha", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 23, "võidupüha and jaanilaupäev", "Victory Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 24, "jaanipäev", "Midsummer Day", countryCode));
             items.Add(new PublicHoliday(year, 8, 20, "taasiseseisvumispäev", "Day of Restoration of Independence", countryCode, 1991));

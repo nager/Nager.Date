@@ -1,3 +1,4 @@
+using Nager.Date.Model;
 using System;
 using System.Collections.Concurrent;
 
@@ -30,6 +31,34 @@ namespace Nager.Date.Contract
 
                 return new DateTime(y, month, day);
             });
+        }
+
+        ///<inheritdoc/>
+        public PublicHoliday EasterSunday(string localName, int year, CountryCode countryCode)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday, localName, "Easter Sunday", countryCode);
+        }
+
+        ///<inheritdoc/>
+        public PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday.AddDays(1), localName, "Easter Monday", countryCode);
+        }
+
+        ///<inheritdoc/>
+        public PublicHoliday Pentecost(string localName, int year, CountryCode countryCode)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday.AddDays(49), localName, "Pentecost", countryCode);
+        }
+
+        ///<inheritdoc/>
+        public PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode, string[] counties = null)
+        {
+            var easterSunday = this.EasterSunday(year);
+            return new PublicHoliday(easterSunday.AddDays(50), localName, "Whit Monday", countryCode, null, counties);
         }
     }
 }

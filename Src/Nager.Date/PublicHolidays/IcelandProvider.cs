@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -26,22 +26,21 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.IS;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var firstDayOfSummer = DateSystem.FindDay(year, 4, 19, DayOfWeek.Thursday);
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nýársdagur", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-3), "Skírdagur", "Maundy Thursday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Föstudagurinn langi", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Páskadagur", "Easter Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Annar í páskum", "Easter Monday", countryCode));
+            items.Add(this._catholicProvider.MaundyThursday("Skírdagur", year, countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Föstudagurinn langi", year, countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Páskadagur", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Annar í páskum", year, countryCode));
             items.Add(new PublicHoliday(firstDayOfSummer, "Sumardagurinn fyrsti", "First Day of Summer", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Verkalýðsdagurinn", "May Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Uppstigningardagur", "Ascension Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Hvítasunnudagur", "Whit Sunday", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(50), "Annar í hvítasunnu", "Whit Monday", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Uppstigningardagur", year, countryCode));
+            items.Add(this._catholicProvider.Pentecost("Hvítasunnudagur", year, countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Annar í hvítasunnu", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 17, "Þjóðhátíðardagurinn", "Icelandic National Day", countryCode));
             items.Add(new PublicHoliday(firstMondayInAugust, "Frídagur verslunarmanna", "Commerce Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Aðfangadagur", "Christmas Eve", countryCode));

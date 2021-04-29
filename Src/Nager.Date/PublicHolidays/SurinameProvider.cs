@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.SR;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var thirdSundayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Sunday, 1);
 
@@ -37,10 +36,10 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thirdSundayInJanuary, "World Religion Day", "World Religion Day", countryCode));
             items.Add(new PublicHoliday(year, 2, 25, "Day of the Revolution", "Day of the Revolution", countryCode));
             //TODO:Holi
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Good Friday", "Good Friday", countryCode));
-            items.Add(new PublicHoliday(easterSunday, "Easter Sunday", "Easter Sunday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
+            items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(39), "Ascension Day", "Ascension Day", countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Ascension Day", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 5, "Indian Arrival Day", "Indian Arrival Day", countryCode));
             items.Add(new PublicHoliday(year, 7, 1, "Keti Koti", "Keti Koti", countryCode));
             items.Add(new PublicHoliday(year, 8, 8, "Javanese Arrival Day", "Javanese Arrival Day", countryCode));

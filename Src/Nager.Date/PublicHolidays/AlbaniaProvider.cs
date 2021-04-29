@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +35,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 3, 22, "Dita e Sulltan Nevruzit", "Nowruz", countryCode));
             //Catholic Easter is not implemented
             //Orthodox easter and monday
-            items.Add(new PublicHoliday(easterSunday, "Pashkët Ortodokse", "Orthodox Easter", countryCode));
+            items.Add(this._orthodoxProvider.EasterSunday("Pashkët Ortodokse", year, countryCode));
             items.Add(new PublicHoliday(easterMonday, "Pashkët Ortodokse", "Orthodox Easter", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Dita Ndërkombëtare e Punonjësve", "May Day", countryCode));
             //Eid ul-Fitr is not implemented

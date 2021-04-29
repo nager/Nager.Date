@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -37,7 +37,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode));
             items.Add(new PublicHoliday(year, 3, 24, "Día Nacional de la Memoria por la Verdad y la Justicia", "Day of Remembrance for Truth and Justice", countryCode));
             items.Add(new PublicHoliday(year, 4, 2, "Día del Veterano y de los Caídos en la Guerra de Malvinas", "Day of the Veterans and Fallen of the Malvinas War", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-2), "Viernes Santo", "Good Friday", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Día del Trabajador", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 25, "Día de la Revolución de Mayo", "May Revolution", countryCode));
             items.Add(new PublicHoliday(year, 6, 17, "Paso a la Inmortalidad del General Martín Miguel de Güemes", "Anniversary of the Passing of General Martín Miguel de Güemes", countryCode, 2016));
