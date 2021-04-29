@@ -35,6 +35,7 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Jour de l'an", "New Year's Day", countryCode, 1967));
             items.Add(goodFriday);
+            items.Add(easterMonday);
             items.Add(new PublicHoliday(year, 5, 1, "Fête du premier mai", "Labour Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Jour de l'Ascension", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 8, "Fête de la Victoire", "Victory in Europe Day", countryCode));
