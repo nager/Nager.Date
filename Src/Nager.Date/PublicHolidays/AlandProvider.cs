@@ -34,7 +34,7 @@ namespace Nager.Date.PublicHolidays
             var easterMonday = this._catholicProvider.EasterMonday("Annandag påsk", year, countryCode);
             easterMonday.SetLaunchYear(1642);
 
-            var easterSunday = this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode);
+            var easterSunday = this._catholicProvider.EasterSunday("Påskdagen", year, countryCode);
             easterSunday.SetLaunchYear(1642);
 
             var items = new List<PublicHoliday>();
