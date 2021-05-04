@@ -536,6 +536,18 @@ namespace Nager.Date
         /// <param name="month">The month</param>
         /// <param name="day">The name of the day</param>
         /// <returns></returns>
+        public static DateTime FindLastDay(int year, Month month, DayOfWeek day)
+        {
+            return FindLastDay(year, (int)month, day);
+        }
+
+        /// <summary>
+        /// Find the latest weekday for example monday in a month
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <param name="month">The month</param>
+        /// <param name="day">The name of the day</param>
+        /// <returns></returns>
         public static DateTime FindLastDay(int year, int month, DayOfWeek day)
         {
             var resultedDay = FindDay(year, month, day, 5);
@@ -548,15 +560,16 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Find the latest weekday for example monday in a month
+        /// Find the next weekday for example monday from a specific date
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
-        /// <param name="day">The name of the day</param>
+        /// <param name="day">The day</param>
+        /// <param name="dayOfWeek">The name of the day</param>
         /// <returns></returns>
-        public static DateTime FindLastDay(int year, Month month, DayOfWeek day)
+        public static DateTime FindDay(int year, Month month, int day, DayOfWeek dayOfWeek)
         {
-            return FindLastDay(year, (int)month, day);
+            return FindDay(year, (int)month, day, dayOfWeek);
         }
 
         /// <summary>
@@ -629,6 +642,19 @@ namespace Nager.Date
         public static DateTime FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
         {
             return FindDayBetween(startDate.Year, startDate.Month, startDate.Day, endDate.Year, endDate.Month, endDate.Day, dayOfWeek);
+        }
+
+        /// <summary>
+        /// Find the next weekday for example monday before a specific date
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <param name="month">The month</param>
+        /// <param name="day">The day</param>
+        /// <param name="dayOfWeek">The name of the day</param>
+        /// <returns></returns>
+        public static DateTime FindDayBefore(int year, Month month, int day, DayOfWeek dayOfWeek)
+        {
+            return FindDayBefore(year, (int)month, day, dayOfWeek);
         }
 
         /// <summary>

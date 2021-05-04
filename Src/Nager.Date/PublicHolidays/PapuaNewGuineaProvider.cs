@@ -28,7 +28,7 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.PG;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var secondMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 2);
+            var secondMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));

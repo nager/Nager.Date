@@ -61,8 +61,8 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.CH;
 
-            var firstSundayOfSeptember = DateSystem.FindDay(year, 9, DayOfWeek.Sunday, 1);
-            var thirdMondayOfSeptember = DateSystem.FindDay(year, 9, DayOfWeek.Monday, 3);
+            var firstSundayOfSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.First);
+            var thirdMondayOfSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Third);
 
             var goodFriday = this._catholicProvider.GoodFriday("Karfreitag", year, countryCode);
             goodFriday.SetCounties("CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-VD", "CH-NE", "CH-GE", "CH-JU");

@@ -27,7 +27,7 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.LV;
 
-            var secondSundayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Sunday, 2);
+            var secondSundayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Sunday, Occurrence.Second);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Jaunais Gads", "New Year's Day", countryCode));

@@ -28,8 +28,8 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.NZ;
 
-            var firstMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 1);
-            var fourthMondayInOctober = DateSystem.FindDay(year, 10, DayOfWeek.Monday, 4);
+            var firstMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
+            var fourthMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Fourth);
 
             var items = new List<PublicHoliday>();
 

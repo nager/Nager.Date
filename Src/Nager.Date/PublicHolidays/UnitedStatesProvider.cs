@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
@@ -24,12 +24,12 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.US;
 
-            var thirdMondayInJanuar = DateSystem.FindDay(year, 1, DayOfWeek.Monday, 3);
-            var thirdMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 3);
-            var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
-            var firstMondayInSeptember = DateSystem.FindDay(year, 9, DayOfWeek.Monday, 1);
-            var secondMondayInOctober = DateSystem.FindDay(year, 10, DayOfWeek.Monday, 2);
-            var fourthThursdayInNovember = DateSystem.FindDay(year, 11, DayOfWeek.Thursday, 4);
+            var thirdMondayInJanuar = DateSystem.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Third);
+            var thirdMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
+            var lastMondayInMay = DateSystem.FindLastDay(year, Month.May, DayOfWeek.Monday);
+            var firstMondayInSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.First);
+            var secondMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
+            var fourthThursdayInNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Thursday, Occurrence.Fourth);
 
             var items = new List<PublicHoliday>();
 

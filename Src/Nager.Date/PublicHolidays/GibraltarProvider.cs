@@ -27,10 +27,10 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.GI;
 
-            var secondMondayInMarch = DateSystem.FindDay(year, 3, DayOfWeek.Monday, 2);
-            var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
-            var thirdMondayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Monday, 2);
-            var lastMondayInAugust = DateSystem.FindLastDay(year, 8, DayOfWeek.Monday);
+            var secondMondayInMarch = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
+            var lastMondayInMay = DateSystem.FindLastDay(year, Month.May, DayOfWeek.Monday);
+            var thirdMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
+            var lastMondayInAugust = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));

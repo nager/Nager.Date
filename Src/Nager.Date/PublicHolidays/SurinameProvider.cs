@@ -28,7 +28,7 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.SR;
 
-            var thirdSundayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Sunday, 1);
+            var thirdSundayInJanuary = DateSystem.FindDay(year, Month.January, DayOfWeek.Sunday, Occurrence.Third);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
