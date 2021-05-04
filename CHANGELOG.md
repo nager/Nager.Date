@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased 1.28.3] - yyyy-mm-dd
  
 ### Added
+- Add Nigeria
 ### Changed
 - Straighten method names GetPublicHoliday to GetPublicHolidays
 ### Deprecated
