@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
@@ -25,17 +25,17 @@ namespace Nager.Date.PublicHolidays
                 var leapMonth = koreanCalendar.GetLeapMonth(year);
 
                 var lunarNewYear1 = koreanCalendar.ToDateTime(year, this.MoveMonth(1, leapMonth), 1, 0, 0, 0, 0); //Has substitute holiday
-                lunarNewYear1 = lunarNewYear1.Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                lunarNewYear1 = lunarNewYear1.Shift(0, 1);
 
-                var lunarNewYear2 = lunarNewYear1.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-                var lunarNewYear3 = lunarNewYear1.AddDays(-1).Shift(saturday => saturday, sunday => sunday.AddDays(-1));
+                var lunarNewYear2 = lunarNewYear1.AddDays(+1).Shift(0, 1);
+                var lunarNewYear3 = lunarNewYear1.AddDays(-1).Shift(0, -1);
 
                 var buddhaBday = koreanCalendar.ToDateTime(year, this.MoveMonth(4, leapMonth), 8, 0, 0, 0, 0);
 
                 var chuseok1 = koreanCalendar.ToDateTime(year, this.MoveMonth(8, leapMonth), 14, 0, 0, 0, 0); //Has substitute holiday
-                chuseok1 = chuseok1.Shift(saturday => saturday, sunday => sunday.AddDays(1));
-                var chuseok2 = chuseok1.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-                var chuseok3 = chuseok2.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                chuseok1 = chuseok1.Shift(0, 1);
+                var chuseok2 = chuseok1.AddDays(+1).Shift(0, 1);
+                var chuseok3 = chuseok2.AddDays(+1).Shift(0, 1);
 
                 items.Add(new PublicHoliday(lunarNewYear1, "설날", "Lunar New Year", countryCode));
                 items.Add(new PublicHoliday(lunarNewYear2, "설날", "Lunar New Year", countryCode));
@@ -49,7 +49,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "새해", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 1, "3·1절", "Independence Movement Day", countryCode));
 
-            var childrenDay = new DateTime(year, 5, 5).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1)); //Substitute holiday
+            var childrenDay = new DateTime(year, 5, 5).Shift(2, 1); //Substitute holiday
             items.Add(new PublicHoliday(childrenDay, "어린이날", "Children's Day", countryCode)); //Has substitute holiday
 
             items.Add(new PublicHoliday(year, 6, 6, "현충일", "Memorial Day", countryCode));

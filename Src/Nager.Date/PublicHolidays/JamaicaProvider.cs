@@ -39,14 +39,14 @@ namespace Nager.Date.PublicHolidays
 
             #region Independence Day
 
-            var independenceDay = new DateTime(year, 8, 6).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            var independenceDay = new DateTime(year, 8, 6).Shift(0, 1);
             items.Add(new PublicHoliday(independenceDay, "Independence Day", "Independence Day", countryCode));
 
             #endregion
 
             items.Add(new PublicHoliday(year, 10, 16, "National Heroes Day", "National Heroes Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "Boxing Day", "St. Stephen's Day", countryCode));            
+            items.Add(new PublicHoliday(year, 12, 26, "Boxing Day", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

@@ -54,8 +54,8 @@ namespace Nager.Date.PublicHolidays
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
             var firstMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
 
-            var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            var australiaDay = new DateTime(year, 1, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+            var boxingDay = new DateTime(year, 12, 26).Shift(2, 1);
+            var australiaDay = new DateTime(year, 1, 26).Shift(2, 1);
 
             var easterSunday1 = this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode);
             easterSunday1.SetCounties("AUS-ACT", "AUS-NSW", "AUS-VIC");

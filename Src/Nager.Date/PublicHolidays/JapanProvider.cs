@@ -35,16 +35,16 @@ namespace Nager.Date.PublicHolidays
             var thirdMondayInSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Third);
             var secondMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
 
-            var newYearsDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var foundationDay = new DateTime(year, 2, 11).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var showaDay = new DateTime(year, 4, 29).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var memorialDay = new DateTime(year, 5, 3).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var greeneryDay = new DateTime(year, 5, 4).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var childrensDay = new DateTime(year, 5, 5).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var mountainDay = new DateTime(year, 8, 11).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var cultureDay = new DateTime(year, 11, 3).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var thanksgivingDay = new DateTime(year, 11, 23).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var emperorsBirthday = new DateTime(year, 12, 23).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            var newYearsDay = new DateTime(year, 1, 1).Shift(0, 1);
+            var foundationDay = new DateTime(year, 2, 11).Shift(0, 1);
+            var showaDay = new DateTime(year, 4, 29).Shift(0, 1);
+            var memorialDay = new DateTime(year, 5, 3).Shift(0, 1);
+            var greeneryDay = new DateTime(year, 5, 4).Shift(0, 1);
+            var childrensDay = new DateTime(year, 5, 5).Shift(0, 1);
+            var mountainDay = new DateTime(year, 8, 11).Shift(0, 1);
+            var cultureDay = new DateTime(year, 11, 3).Shift(0, 1);
+            var thanksgivingDay = new DateTime(year, 11, 23).Shift(0, 1);
+            var emperorsBirthday = new DateTime(year, 12, 23).Shift(0, 1);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(newYearsDay, "元日", "New Year's Day", countryCode));
@@ -75,7 +75,7 @@ namespace Nager.Date.PublicHolidays
         /// <param name="year"></param>
         public DateTime GetGoldenWeekStartDate(int year)
         {
-            var showaDay = new DateTime(year, 4, 29).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            var showaDay = new DateTime(year, 4, 29).Shift(0, 1);
 
             return showaDay;
         }

@@ -54,7 +54,7 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
 
-            var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            var newYearDay = new DateTime(year, 1, 1).Shift(0, 1);
             items.Add(new PublicHoliday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Sábado Santo", "Holy Saturday", countryCode));

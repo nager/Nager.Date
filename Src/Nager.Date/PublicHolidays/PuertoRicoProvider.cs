@@ -42,7 +42,7 @@ namespace Nager.Date.PublicHolidays
 
             #region New Years Day with fallback
 
-            var newYearsDay = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
+            var newYearsDay = new DateTime(year, 1, 1).Shift(-1, 1);
             items.Add(new PublicHoliday(newYearsDay, "Día de Año Nuevo", "New Year's Day", countryCode));
 
             #endregion
@@ -59,7 +59,7 @@ namespace Nager.Date.PublicHolidays
 
             #region Independence Day with fallback
 
-            var independenceDay = new DateTime(year, 7, 4).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
+            var independenceDay = new DateTime(year, 7, 4).Shift(-1, 1);
             items.Add(new PublicHoliday(independenceDay, "Día de la Independencia de los Estados Unidos", "Independence Day", countryCode));
 
             #endregion
@@ -72,7 +72,7 @@ namespace Nager.Date.PublicHolidays
 
             #region Veterans Day with fallback
 
-            var veteransDay = new DateTime(year, 11, 11).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
+            var veteransDay = new DateTime(year, 11, 11).Shift(-1, 1);
             items.Add(new PublicHoliday(veteransDay, "Día del Veterano Día del Armisticio", "Veterans Day", countryCode));
 
             #endregion

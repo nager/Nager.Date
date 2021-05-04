@@ -106,7 +106,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" }));
-            
+
             var labourDay = this.LabourDay(year, countryCode);
             if (labourDay != null)
             {
@@ -130,14 +130,14 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday LabourDay(int year, CountryCode countryCode)
         {
-            var date = new DateTime(year, 5, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            var date = new DateTime(year, 5, 1).Shift(0, 1);
 
             return new PublicHoliday(date, "Fiesta del trabajo", "Labour Day", countryCode);
         }
 
         private PublicHoliday DayOfMadrid(int year, CountryCode countryCode, PublicHoliday labourDay)
         {
-            var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            var date = new DateTime(year, 5, 2).Shift(0, 1);
             if (labourDay.Date == date)
             {
                 date = date.AddDays(1);
@@ -148,7 +148,7 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday Assumption(int year, CountryCode countryCode)
         {
-            var date = new DateTime(year, 8, 15).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            var date = new DateTime(year, 8, 15).Shift(0, 1);
 
             return new PublicHoliday(date, "Asunción", "Assumption", countryCode);
         }

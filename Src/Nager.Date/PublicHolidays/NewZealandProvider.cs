@@ -35,10 +35,10 @@ namespace Nager.Date.PublicHolidays
 
             #region New Year's Day with fallback
 
-            var newYearDay1 = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+            var newYearDay1 = new DateTime(year, 1, 1).Shift(2, 1);
             items.Add(new PublicHoliday(newYearDay1, "New Year's Day", "New Year's Day", countryCode));
 
-            var newYearDay2 = new DateTime(year, 1, 2).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
+            var newYearDay2 = new DateTime(year, 1, 2).Shift(2, 2);
             items.Add(new PublicHoliday(newYearDay2, "Day after New Year's Day", "Day after New Year's Day", countryCode));
 
             #endregion
@@ -47,7 +47,7 @@ namespace Nager.Date.PublicHolidays
 
             if (year >= 2015)
             {
-                var anzacDay = new DateTime(year, 4, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+                var anzacDay = new DateTime(year, 4, 25).Shift(2, 1);
                 items.Add(new PublicHoliday(anzacDay, "Anzac Day", "Anzac Day", countryCode));
             }
             else
@@ -61,7 +61,7 @@ namespace Nager.Date.PublicHolidays
 
             if (year >= 2016)
             {
-                var anzacDay = new DateTime(year, 2, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+                var anzacDay = new DateTime(year, 2, 6).Shift(2, 1);
                 items.Add(new PublicHoliday(anzacDay, "Waitangi Day", "Waitangi Day", countryCode));
             }
             else
@@ -73,14 +73,14 @@ namespace Nager.Date.PublicHolidays
 
             #region Christmas Day with fallback
 
-            var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+            var christmasDay = new DateTime(year, 12, 25).Shift(2, 1);
             items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
 
             #endregion
 
             #region Boxing Day with fallback
 
-            var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
+            var boxingDay = new DateTime(year, 12, 26).Shift(2, 2);
             items.Add(new PublicHoliday(boxingDay, "Boxing Day", "Boxing Day", countryCode));
 
             #endregion
