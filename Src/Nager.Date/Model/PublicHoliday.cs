@@ -2,6 +2,8 @@ using System;
 
 namespace Nager.Date.Model
 {
+    using Extensions;
+
     /// <summary>
     /// Public Holiday
     /// </summary>
@@ -118,6 +120,13 @@ namespace Nager.Date.Model
         internal void SetLaunchYear(int launchYear)
         {
             this.LaunchYear = launchYear;
+        }
+
+        internal PublicHoliday Shift(Func<DateTime, DateTime> shiftSaturday, Func<DateTime, DateTime> shiftSunday)
+        {
+            Date = Date.Shift(shiftSaturday, shiftSunday);
+
+            return this;
         }
     }
 }
