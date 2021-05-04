@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard2.0;net5.0</TargetFrameworks>
@@ -16,6 +16,9 @@
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <!-- Use latest c# LangVersion to support new language features -->
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,12 +30,12 @@
       <Pack>true</Pack>
       <PackagePath>\</PackagePath>
     </Content>
-  
+
     <None Include="..\..\Doc\Icons\calendar.png">
       <Pack>true</Pack>
       <Visible>false</Visible>
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-  
+
 </Project>
