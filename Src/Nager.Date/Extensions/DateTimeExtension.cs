@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 
 namespace Nager.Date.Extensions
 {
+    using System.Runtime.CompilerServices;
+
     /// <summary>
     /// DateTimeExtension
     /// </summary>
@@ -27,6 +29,7 @@ namespace Nager.Date.Extensions
         /// <param name="sunday">shift for Sunday</param>
         /// <param name="monday">shift for Monday</param>
         /// <returns></returns>
+        [Obsolete("Please use .Shift(DateTime, int, int, int = default) instead", Flags.IsObsolete2022)]
         public static DateTime Shift(this DateTime value, Func<DateTime, DateTime> saturday, Func<DateTime, DateTime> sunday, Func<DateTime, DateTime> monday = null)
         {
             switch (value.DayOfWeek)
@@ -49,6 +52,28 @@ namespace Nager.Date.Extensions
             }
 
             return value;
+        }
+
+        /// <summary>
+        /// If the given date on this Weekday it can be shifted
+        /// </summary>
+        /// <param name="value">The date to evaluate</param>
+        /// <param name="saturday">Shift Saturdays by x days, 0 disables shifting.</param>
+        /// <param name="sunday">Shift Sundays by x days, 0 disables shifting.</param>
+        /// <param name="monday">Shift Mondays by x days, 0 disables shifting.</param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime Shift(this DateTime value, int saturday, int sunday, int monday = default)
+        {
+            var shiftBy = value.DayOfWeek switch
+            {
+                DayOfWeek.Saturday => saturday,
+                DayOfWeek.Sunday => sunday,
+                DayOfWeek.Monday => monday,
+                _ => default
+            };
+
+            return shiftBy == default ? value : value.AddDays(shiftBy);
         }
 
         /// <summary>
@@ -78,6 +103,7 @@ namespace Nager.Date.Extensions
         /// <param name="thursday"></param>
         /// <param name="friday"></param>
         /// <returns></returns>
+        [Obsolete("Please use .ShiftWeekdays(DateTime, int = default, int = default, int = default, int = default, int = default) instead", Flags.IsObsolete2022)]
         public static DateTime ShiftWeekdays(this DateTime value, Func<DateTime, DateTime> monday = null, Func<DateTime, DateTime> tuesday = null, Func<DateTime, DateTime> wednesday = null, Func<DateTime, DateTime> thursday = null, Func<DateTime, DateTime> friday = null)
         {
             switch (value.DayOfWeek)
@@ -122,6 +148,33 @@ namespace Nager.Date.Extensions
             }
 
             return value;
+        }
+
+        /// <summary>
+        /// If the given date on this Weekday it can be shifted
+        /// </summary>
+        /// <param name="value">The date to evaluate</param>
+        /// <param name="monday">Shift Mondays by x days, 0 disables shifting.</param>
+        /// <param name="tuesday">Shift Tuesdays by x days, 0 disables shifting.</param>
+        /// <param name="wednesday">Shift Wednesdays by x days, 0 disables shifting.</param>
+        /// <param name="thursday">Shift Thursdays by x days, 0 disables shifting.</param>
+        /// <param name="friday">Shift Fridays by x days, 0 disables shifting.</param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static DateTime ShiftWeekdays(this DateTime value, int monday = default, int tuesday = default, int wednesday = default, int thursday = default, int friday = default)
+        {
+
+            var shiftBy = value.DayOfWeek switch
+            {
+                DayOfWeek.Monday => monday,
+                DayOfWeek.Tuesday => tuesday,
+                DayOfWeek.Wednesday => wednesday,
+                DayOfWeek.Thursday => thursday,
+                DayOfWeek.Friday => friday,
+                _ => default
+            };
+
+            return shiftBy == default ? value : value.AddDays(shiftBy);
         }
     }
 }
