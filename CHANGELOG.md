@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fix Canada, FamilyDay for New-Brunswick
 - Fix Vatican City, Wrong char in Anniversary of the election of Pope Francis
 - Fix DateSystem.IsPublicHoliday(DateTime date, CountryCode countryCode)
+- Fix Japan, Emperors Birthday
 
 ## [1.28.2] - 2021-03-08
  
