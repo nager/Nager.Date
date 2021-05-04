@@ -38,7 +38,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 10, 1, "National Day", "National Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "National Youth Day", "National Youth Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1)));
-            items.Add(new PublicHoliday(year, 12, 26, "Boxing Day", "Boxing Day", countryCode).Shift(saturday => saturday.Add(2), sunday => sunday.AddDays(2)));
+            items.Add(new PublicHoliday(year, 12, 26, "Boxing Day", "Boxing Day", countryCode).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2)));
 
             return items.OrderBy(o => o.Date);
         }
