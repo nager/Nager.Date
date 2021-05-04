@@ -27,7 +27,7 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.NI;
 
-            var firstThursdayInApril = DateSystem.FindDay(year, 4, DayOfWeek.Thursday, 1);
+            var firstThursdayInApril = DateSystem.FindDay(year, Month.April, DayOfWeek.Thursday, Occurrence.First);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));

@@ -28,15 +28,15 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.PR;
 
-            var secondMondayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Monday, 2);
-            var thirdMondayInJanuary = DateSystem.FindDay(year, 1, DayOfWeek.Monday, 3);
-            var thirdMondayInFebruary = DateSystem.FindDay(year, 2, DayOfWeek.Monday, 3);
-            var thirdMondayInApril = DateSystem.FindDay(year, 4, DayOfWeek.Monday, 3);
-            var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
-            var thirdMondayInJuly = DateSystem.FindDay(year, 7, DayOfWeek.Monday, 3);
-            var firstMondayInSeptember = DateSystem.FindDay(year, 9, DayOfWeek.Monday, 1);
-            var secondMondayInOctober = DateSystem.FindDay(year, 10, DayOfWeek.Monday, 2);
-            var fourthThursdayInNovember = DateSystem.FindDay(year, 11, DayOfWeek.Thursday, 4);
+            var secondMondayInJanuary = DateSystem.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Second);
+            var thirdMondayInJanuary = DateSystem.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Third);
+            var thirdMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
+            var thirdMondayInApril = DateSystem.FindDay(year, Month.April, DayOfWeek.Monday, Occurrence.Third);
+            var lastMondayInMay = DateSystem.FindLastDay(year, Month.May, DayOfWeek.Monday);
+            var thirdMondayInJuly = DateSystem.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.Third);
+            var firstMondayInSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.First);
+            var secondMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
+            var fourthThursdayInNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Thursday, Occurrence.Fourth);
 
             var items = new List<PublicHoliday>();
 

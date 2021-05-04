@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -30,9 +30,9 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.VE;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var secondSundayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Sunday, 2);
-            var thirdSundayInJune = DateSystem.FindDay(year, 6, DayOfWeek.Sunday, 3);
-            var thirdSundayInJuly = DateSystem.FindDay(year, 7, DayOfWeek.Sunday, 3);
+            var secondSundayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Sunday, Occurrence.Second);
+            var thirdSundayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Sunday, Occurrence.Third);
+            var thirdSundayInJuly = DateSystem.FindDay(year, Month.July, DayOfWeek.Sunday, Occurrence.Third);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Día de Año Nuevo", "New Year's Day", countryCode));

@@ -28,8 +28,8 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.GB;
 
-            var firstMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 1);
-            var lastMondayInAugust = DateSystem.FindLastDay(year, 8, DayOfWeek.Monday);
+            var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
+            var lastMondayInAugust = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var easterMonday = this._catholicProvider.EasterMonday("Easter Monday", year, countryCode);
             easterMonday.SetCounties("GB-ENG", "GB-WLS", "GB-NIR");
@@ -41,8 +41,8 @@ namespace Nager.Date.PublicHolidays
             var newYearDay = new DateTime(year, 1, 1);
             if (newYearDay.IsWeekend(countryCode))
             {
-                var newYearDayMonday = DateSystem.FindDay(year, 1, 1, DayOfWeek.Monday);
-                var newYearDayTuesday = DateSystem.FindDay(year, 1, 1, DayOfWeek.Tuesday);
+                var newYearDayMonday = DateSystem.FindDay(year, Month.January, 1, DayOfWeek.Monday);
+                var newYearDayTuesday = DateSystem.FindDay(year, Month.January, 1, DayOfWeek.Tuesday);
 
                 items.Add(new PublicHoliday(newYearDay, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-NIR" }));
                 items.Add(new PublicHoliday(newYearDayMonday, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-ENG", "GB-WLS" }));
@@ -115,7 +115,7 @@ namespace Nager.Date.PublicHolidays
                 return new PublicHoliday(year, 6, 2, name, name, countryCode);
             }
 
-            var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
+            var lastMondayInMay = DateSystem.FindLastDay(year, Month.May, DayOfWeek.Monday);
             return new PublicHoliday(lastMondayInMay, name, name, countryCode, 1971);
         }
 
@@ -136,11 +136,11 @@ namespace Nager.Date.PublicHolidays
             if (year == 2020)
             {
                 //https://www.bbc.co.uk/news/uk-48565417
-                var secondFridayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Friday, 2);
+                var secondFridayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Friday, Occurrence.Second);
                 return new PublicHoliday(secondFridayInMay, holidayName, holidayName, countryCode, 1978);
             }
 
-            var firstMondayInMay = DateSystem.FindDay(year, 5, DayOfWeek.Monday, 1);
+            var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
             return new PublicHoliday(firstMondayInMay, holidayName, holidayName, countryCode, 1978);
         }
 
