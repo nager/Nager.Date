@@ -34,6 +34,15 @@ namespace Nager.Date.Contract
         PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
+        /// Get Good Friday
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns></returns>
+        PublicHoliday GoodFriday(string localName, int year, CountryCode countryCode);
+
+        /// <summary>
         /// Get Pentecost
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
