@@ -29,8 +29,6 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.ME;
 
-            var orthodoxEasterSunday = this._orthodoxProvider.EasterSunday(year);
-
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nova godina", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 2, "Nova godina", "New Year's Day", countryCode));
@@ -46,10 +44,13 @@ namespace Nager.Date.PublicHolidays
             var easterMondayOrthodox = this._orthodoxProvider.EasterMonday("Vaskrs", year, countryCode);
             easterMondayOrthodox.SetType(PublicHolidayType.Optional);
 
+            var goodFridayOrthodox = this._orthodoxProvider.GoodFriday("Vaskrs", year, countryCode);
+            goodFridayOrthodox.SetType(PublicHolidayType.Optional);
+
             items.Add(new PublicHoliday(year, 1, 6, "Badnji dan", "Orthodox Christmas Eve", countryCode, null, null, PublicHolidayType.Optional));
             items.Add(new PublicHoliday(year, 1, 7, "Božić", "Orthodox Christmas Day", countryCode, null, null, PublicHolidayType.Optional));
             items.Add(new PublicHoliday(year, 1, 8, "Božić", "Orthodox Christmas Day", countryCode, null, null, PublicHolidayType.Optional));
-            items.Add(new PublicHoliday(orthodoxEasterSunday.AddDays(-2), "Vaskrs", "Orthodox Good Friday", countryCode, null, null, PublicHolidayType.Optional));
+            items.Add(goodFridayOrthodox);
             items.Add(easterMondayOrthodox);
 
             #endregion

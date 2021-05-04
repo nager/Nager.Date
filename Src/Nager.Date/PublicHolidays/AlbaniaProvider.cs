@@ -25,21 +25,19 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.AL;
-            var easterSunday = this._orthodoxProvider.EasterSunday(year);
-            var easterMonday = easterSunday.AddDays(1);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Viti i Ri", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 2, "Viti i Ri", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 14, "Dita e Verës", "Summer Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 22, "Dita e Sulltan Nevruzit", "Nowruz", countryCode));
-            //Catholic Easter is not implemented
+            //TODO: Catholic Easter is not implemented
             //Orthodox easter and monday
             items.Add(this._orthodoxProvider.EasterSunday("Pashkët Ortodokse", year, countryCode));
-            items.Add(new PublicHoliday(easterMonday, "Pashkët Ortodokse", "Orthodox Easter", countryCode));
+            items.Add(this._orthodoxProvider.EasterMonday("Pashkët Ortodokse", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Dita Ndërkombëtare e Punonjësve", "May Day", countryCode));
-            //Eid ul-Fitr is not implemented
-            //Eid ul-Adha is not implemented
+            //TODO: Eid ul-Fitr is not implemented
+            //TODO: Eid ul-Adha is not implemented
 
             items.Add(new PublicHoliday(year, 10, 19, "Dita e Nënë Terezës", "Mother Teresa Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 28, "Dita e Pavarësisë", "Independence Day", countryCode));

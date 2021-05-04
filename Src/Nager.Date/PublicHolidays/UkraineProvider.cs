@@ -25,14 +25,13 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.UA;
-            var easterSunday = this._orthodoxProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Новий Рік", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 7, "Різдво", "(Julian) Christmas", countryCode));
             items.Add(new PublicHoliday(year, 3, 8, "Міжнародний жіночий день", "International Women's Day", countryCode));
             items.Add(this._orthodoxProvider.EasterSunday("Великдень", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(49), "Трійця", "(Julian) Pentecost", countryCode));
+            items.Add(this._orthodoxProvider.Pentecost("Трійця", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "День праці", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 9, "День перемоги над нацизмом у Другій світовій війні", "Victory day over Nazism in World War II", countryCode));
             items.Add(new PublicHoliday(year, 6, 28, "День Конституції", "Constitution Day", countryCode));
