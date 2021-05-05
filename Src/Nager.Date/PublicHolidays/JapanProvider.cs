@@ -62,7 +62,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(cultureDay, "文化の日", "Culture Day", countryCode));
             items.Add(new PublicHoliday(thanksgivingDay, "勤労感謝の日", "Labour Thanksgiving Day", countryCode));
             //Will change to the date of the new emperor on the death of the current one
-            var emperorsBirthday = GetEmperorsBirthday(year, countryCode);
+            var emperorsBirthday = this.GetEmperorsBirthday(year, countryCode);
             if (emperorsBirthday != null)
             {
                 items.Add(emperorsBirthday);
@@ -84,7 +84,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         /// <summary>
-        /// Adds the emperors birthday based on the era/emperor in th
+        /// Adds the emperor's birthday based on the era/emperor of the current year.
         /// </summary>
         /// <see cref="https://en.wikipedia.org/wiki/The_Emperor%27s_Birthday#Emperor_birthday_list" />
         /// <param name="year"></param>
