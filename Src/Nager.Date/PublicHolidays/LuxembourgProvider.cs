@@ -26,15 +26,12 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.LU;
 
-            var goodFriday = this._catholicProvider.GoodFriday("Karfreideg", year, countryCode);
-            goodFriday.SetType(PublicHolidayType.Bank);
-
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neijoerschdag", "New Year's Day", countryCode));
             items.Add(this._catholicProvider.EasterMonday("Ouschterméindeg", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Dag vun der Aarbecht", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 9, "Europadag", "Europe Day", countryCode, 2019));
-            items.Add(goodFriday);
+            items.Add(this._catholicProvider.GoodFriday("Karfreideg", year, countryCode).SetType(PublicHolidayType.Bank));
             items.Add(this._catholicProvider.AscensionDay("Christi Himmelfaart", year, countryCode));
             items.Add(this._catholicProvider.WhitMonday("Péngschtméindeg", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 23, "Groussherzogsgebuertsdag", "Sovereign's birthday", countryCode));

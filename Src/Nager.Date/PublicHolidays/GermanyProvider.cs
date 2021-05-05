@@ -50,21 +50,17 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> Get(int year)
         {
             var countryCode = CountryCode.DE;
-            var easterMonday = this._catholicProvider.EasterMonday("Ostermontag", year, countryCode);
-            easterMonday.SetLaunchYear(1642);
-            var corpusChristi = this._catholicProvider.CorpusChristi("Fronleichnam", year, countryCode);
-            corpusChristi.SetCounties("DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL");
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 1, 6, "Heilige Drei Könige", "Epiphany", countryCode, 1967, new string[] { "DE-BW", "DE-BY", "DE-ST" }));
             items.Add(new PublicHoliday(year, 3, 8, "Internationaler Frauentag", "International Women's Day", countryCode, 2019, new string[] { "DE-BE" }));
             items.Add(this._catholicProvider.GoodFriday("Karfreitag", year, countryCode));
-            items.Add(easterMonday);
+            items.Add(this._catholicProvider.EasterMonday("Ostermontag", year, countryCode).SetLaunchYear(1642));
             items.Add(new PublicHoliday(year, 5, 1, "Tag der Arbeit", "Labour Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Christi Himmelfahrt", year, countryCode));
             items.Add(this._catholicProvider.WhitMonday("Pfingstmontag", year, countryCode));
-            items.Add(corpusChristi);
+            items.Add(this._catholicProvider.CorpusChristi("Fronleichnam", year, countryCode).SetCounties("DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL"));
             items.Add(new PublicHoliday(year, 8, 15, "Mariä Himmelfahrt", "Assumption Day", countryCode, null, new string[] { "DE-SL" }));
             items.Add(new PublicHoliday(year, 9, 20, "Weltkindertag", "World Children's Day", countryCode, 2019, new string[] { "DE-TH" }));
             items.Add(new PublicHoliday(year, 10, 3, "Tag der Deutschen Einheit", "German Unity Day", countryCode));
