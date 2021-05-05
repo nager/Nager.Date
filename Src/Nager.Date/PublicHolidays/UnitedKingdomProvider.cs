@@ -31,9 +31,6 @@ namespace Nager.Date.PublicHolidays
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
             var lastMondayInAugust = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
-            var easterMonday = this._catholicProvider.EasterMonday("Easter Monday", year, countryCode);
-            easterMonday.SetCounties("GB-ENG", "GB-WLS", "GB-NIR");
-
             var items = new List<PublicHoliday>();
 
             #region New Year's Day with fallback
@@ -64,7 +61,7 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(new PublicHoliday(year, 3, 17, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            items.Add(easterMonday);
+            items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode).SetCounties("GB-ENG", "GB-WLS", "GB-NIR"));
             items.Add(new PublicHoliday(year, 11, 30, "Saint Andrew's Day", "Saint Andrew's Day", countryCode, null, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(year, 7, 12, "Battle of the Boyne", "Battle of the Boyne", countryCode, null, new string[] { "GB-NIR" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));
