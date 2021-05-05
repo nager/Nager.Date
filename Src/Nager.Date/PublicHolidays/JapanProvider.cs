@@ -92,7 +92,7 @@ namespace Nager.Date.PublicHolidays
         /// <returns>Emperors Birthday object or null</returns>
         private PublicHoliday GetEmperorsBirthday(int year, CountryCode countryCode)
         {
-            if (year < 1868 || year == 2019)
+            if (year < 1868)
             {
                 return null;
             }
@@ -123,6 +123,10 @@ namespace Nager.Date.PublicHolidays
             else if (year < 2019)
             {
                 result = new DateTime(year, 12, 23);
+            }
+            else if (year == 2019)
+            {
+                return null;
             }
             else
             {
