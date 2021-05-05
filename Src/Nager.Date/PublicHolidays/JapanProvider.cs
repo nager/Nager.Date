@@ -44,7 +44,6 @@ namespace Nager.Date.PublicHolidays
             var mountainDay = new DateTime(year, 8, 11).Shift(saturday => saturday, sunday => sunday.AddDays(1));
             var cultureDay = new DateTime(year, 11, 3).Shift(saturday => saturday, sunday => sunday.AddDays(1));
             var thanksgivingDay = new DateTime(year, 11, 23).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            var emperorsBirthday = new DateTime(year, 12, 23).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(newYearsDay, "元日", "New Year's Day", countryCode));
@@ -63,7 +62,11 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(cultureDay, "文化の日", "Culture Day", countryCode));
             items.Add(new PublicHoliday(thanksgivingDay, "勤労感謝の日", "Labour Thanksgiving Day", countryCode));
             //Will change to the date of the new emperor on the death of the current one
-            items.Add(new PublicHoliday(emperorsBirthday, "天皇誕生日", "The Emperor's Birthday", countryCode));
+            var emperorsBirthday = this.GetEmperorsBirthday(year, countryCode);
+            if (emperorsBirthday != null)
+            {
+                items.Add(emperorsBirthday);
+            }
 
             return items.OrderBy(o => o.Date);
         }
@@ -78,6 +81,63 @@ namespace Nager.Date.PublicHolidays
             var showaDay = new DateTime(year, 4, 29).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             return showaDay;
+        }
+
+        /// <summary>
+        /// Adds the emperor's birthday based on the era/emperor of the current year.
+        /// </summary>
+        /// <see cref="https://en.wikipedia.org/wiki/The_Emperor%27s_Birthday#Emperor_birthday_list" />
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns>Emperors Birthday object or null</returns>
+        private PublicHoliday GetEmperorsBirthday(int year, CountryCode countryCode)
+        {
+            if (year < 1868)
+            {
+                return null;
+            }
+
+            DateTime result;
+
+            if (year < 1873)
+            {
+                //TODO: Period 1868 - 1872 based on Lunisolar calendar
+                return null;
+            }
+            else if (year < 1912)
+            {
+                result = new DateTime(year, 11, 3);
+            }
+            else if (year < 1913)
+            {
+                result = new DateTime(year, 8, 31);
+            }
+            else if (year < 1927)
+            {
+                result = new DateTime(year, 10, 31);
+            }
+            else if (year < 1989)
+            {
+                result = new DateTime(year, 4, 29);
+            }
+            else if (year < 2019)
+            {
+                result = new DateTime(year, 12, 23);
+            }
+            else if (year == 2019)
+            {
+                return null;
+            }
+            else
+            {
+                result = new DateTime(year, 2, 23);
+            }
+
+            return new PublicHoliday(
+                result.Shift(saturday => saturday, sunday => sunday.AddDays(1)),
+                year < 1948 ? "天長節" : "天皇誕生日",
+                "The Emperor's Birthday",
+                countryCode);
         }
 
         //private DateTime GetVernalEquinox(int year)
@@ -113,7 +173,8 @@ namespace Nager.Date.PublicHolidays
             {
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Japan",
                 "https://en.wikipedia.org/wiki/Golden_Week_(Japan)",
-                "https://www.boj.or.jp/en/about/outline/holi.htm/"
+                "https://www.boj.or.jp/en/about/outline/holi.htm/",
+                "https://en.wikipedia.org/wiki/The_Emperor%27s_Birthday#Emperor_birthday_list"
             };
         }
     }
