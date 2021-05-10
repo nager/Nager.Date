@@ -113,7 +113,7 @@ namespace Nager.Date.PublicHolidays
         private void ApplyLaw9875Shift(ref DateTime date, IEnumerable<int> exceptionYears = default)
         {
             var applicableYears = new int[] { 2020, 2021, 2022, 2023, 2024 };
-            if (applicableYears.Contains(date.Year) && (exceptionYears == null || !exceptionYears.Contains(date.Year)))
+            if ((exceptionYears == null || !exceptionYears.Contains(date.Year)) && applicableYears.Contains(date.Year))
             {
                 date = date.Shift(saturday: saturday => saturday.AddDays(2), sunday: sunday => sunday.AddDays(1));
                 date = date.ShiftWeekdays(
