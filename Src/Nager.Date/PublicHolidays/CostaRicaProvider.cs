@@ -65,7 +65,7 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday GetJuanSantamariaDay(int year, CountryCode countryCode)
         {
             var juanSantamariaDay = new DateTime(year, 4, 11);
-            ApplyLaw9875Shift(ref juanSantamariaDay, exceptionYears: new int[] { 2020, 2021 });
+            ApplyLaw9875Shift(ref juanSantamariaDay, exceptionYears: new int[] { 2020, 2021, 2022 });
 
             return new PublicHoliday(juanSantamariaDay, "Día de Juan Santamaría", "Juan Santamaría Day", countryCode);
         }
@@ -73,7 +73,7 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday GetLabourDay(int year, CountryCode countryCode)
         {
             var labourDay = new DateTime(year, 5, 1);
-            ApplyLaw9875Shift(ref labourDay, exceptionYears: new int[] { 2022, 2024 });
+            ApplyLaw9875Shift(ref labourDay, exceptionYears: new int[] { 2020, 2022, 2023, 2024 });
 
             return new PublicHoliday(labourDay, "Día Internacional del Trabajo", "Labour Day", countryCode);
         }
@@ -81,7 +81,7 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday GetAnnexationDay(int year, CountryCode countryCode)
         {
             var annexationDay = new DateTime(year, 7, 25);
-            ApplyLaw9875Shift(ref annexationDay);
+            ApplyLaw9875Shift(ref annexationDay, exceptionYears: new int[] { 2022 });
 
             return new PublicHoliday(annexationDay, "Anexión del Partido de Nicoya a Costa Rica", "Annexation of the Party of Nicoya to Costa Rica", countryCode);
         }
@@ -89,7 +89,7 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday GetMothersDay(int year, CountryCode countryCode)
         {
             var mothersDay = new DateTime(year, 8, 15);
-            ApplyLaw9875Shift(ref mothersDay, exceptionYears: new int[] { 2021 });
+            ApplyLaw9875Shift(ref mothersDay, exceptionYears: new int[] { 2021, 2022 });
 
             return new PublicHoliday(mothersDay, "Día de la Madre", "Mother's Day", countryCode);
         }
@@ -97,7 +97,7 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday GetIndenpendenceDay(int year, CountryCode countryCode)
         {
             var indenpendenceDay = new DateTime(year, 9, 15);
-            ApplyLaw9875Shift(ref indenpendenceDay, exceptionYears: new int[] { 2024 });
+            ApplyLaw9875Shift(ref indenpendenceDay, exceptionYears: new int[] { 2023, 2024 });
 
             return new PublicHoliday(indenpendenceDay, "Día de la Independencia", "Independence Day", countryCode);
         }
@@ -105,12 +105,12 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday GetArmyAbolitionDay(int year, CountryCode countryCode)
         {
             var armyAbolitionDay = new DateTime(year, 12, 1);
-            ApplyLaw9875Shift(ref armyAbolitionDay, exceptionYears: new int[] { 2024 });
+            ApplyLaw9875Shift(ref armyAbolitionDay, exceptionYears: new int[] { 2023, 2024 });
 
             return new PublicHoliday(armyAbolitionDay, "Día de la Abolición del Ejército", "Army Abolition Day", countryCode);
         }
 
-        private void ApplyLaw9875Shift(ref DateTime date, IEnumerable<int> exceptionYears = null)
+        private void ApplyLaw9875Shift(ref DateTime date, IEnumerable<int> exceptionYears = default)
         {
             var applicableYears = new int[] { 2020, 2021, 2022, 2023, 2024 };
             if (applicableYears.Contains(date.Year) && (exceptionYears == null || !exceptionYears.Contains(date.Year)))
