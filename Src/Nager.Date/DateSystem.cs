@@ -359,7 +359,7 @@ namespace Nager.Date
         {
             if (startDate > endDate)
             {
-                throw new ArgumentException("startDate is before endDate");
+                throw new ArgumentException($"{nameof(endDate)} is before {nameof(startDate)}", nameof(endDate));
             }
 
             var currentYear = startDate.Year;

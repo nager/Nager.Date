@@ -159,7 +159,7 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "startDate is before endDate")]
+        [ExpectedException(typeof(ArgumentException), "endDate is before startDate")]
         public void CheckPublicHolidayWithDateFilter2()
         {
             DateSystem.GetPublicHolidays(new DateTime(2016, 1, 2), new DateTime(2016, 1, 1), CountryCode.DE).First();
