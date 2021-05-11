@@ -27,8 +27,8 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.FI;
 
-            var midsummerEve = DateSystem.FindDay(year, 6, 19, DayOfWeek.Friday);
-            var midsummerDay = DateSystem.FindDay(year, 6, 20, DayOfWeek.Saturday);
+            var midsummerEve = DateSystem.FindDay(year, Month.June, 19, DayOfWeek.Friday);
+            var midsummerDay = DateSystem.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
             var allSaintsDay = DateSystem.FindDayBetween(year, 10, 31, year, 11, 6, DayOfWeek.Saturday);
 
             var items = new List<PublicHoliday>();

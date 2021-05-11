@@ -27,12 +27,6 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.NL;
 
-            var easterMonday = this._catholicProvider.EasterMonday("Tweede Paasdag", year, countryCode);
-            easterMonday.SetLaunchYear(1642);
-
-            var goodFriday = this._catholicProvider.GoodFriday("Eerste Paasdag", year, countryCode);
-            goodFriday.SetType(PublicHolidayType.Authorities | PublicHolidayType.School);
-
             #region King's Day is Sunday fallback
 
             var kingsDay = 27;
@@ -46,9 +40,9 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nieuwjaarsdag", "New Year's Day", countryCode, 1967));
-            items.Add(goodFriday);
+            items.Add(this._catholicProvider.GoodFriday("Eerste Paasdag", year, countryCode).SetType(PublicHolidayType.Authorities | PublicHolidayType.School));
             items.Add(this._catholicProvider.EasterSunday("Eerste Paasdag", year, countryCode));
-            items.Add(easterMonday);
+            items.Add(this._catholicProvider.EasterMonday("Tweede Paasdag", year, countryCode).SetLaunchYear(1642));
             items.Add(new PublicHoliday(year, 4, kingsDay, "Koningsdag", "King's Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Hemelvaartsdag", year, countryCode));
             items.Add(this._catholicProvider.WhitMonday("Pinksteren", year, countryCode));
@@ -62,8 +56,7 @@ namespace Nager.Date.PublicHolidays
             if (year >= 1990)
             {
                 //in 1990, the day was declared to be a national holiday
-                liberationDay.SetType(PublicHolidayType.Authorities | PublicHolidayType.School);
-                items.Add(liberationDay);
+                items.Add(liberationDay.SetType(PublicHolidayType.Authorities | PublicHolidayType.School));
             }
             else if (year >= 1945)
             {

@@ -48,14 +48,11 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.CA;
 
             var thirdMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
-            var mondayOnOrBeforeMay24 = DateSystem.FindDayBefore(year, 5, 25, DayOfWeek.Monday);
+            var mondayOnOrBeforeMay24 = DateSystem.FindDayBefore(year, Month.May, 25, DayOfWeek.Monday);
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
             var thirdMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.Third);
             var firstMondayInSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.First);
             var secondMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
-
-            var easterMonday = this._catholicProvider.EasterMonday("Easter Monday", year, countryCode);
-            easterMonday.SetCounties("CA-AB", "CA-PE");
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
@@ -64,7 +61,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thirdMondayInFebruary, "Heritage Day", "Heritage Day", countryCode, null, new string[] { "CA-NS" }));
             items.Add(new PublicHoliday(year, 3, 17, "Saint Patrick's Day", "Saint Patrick's Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            items.Add(easterMonday);
+            items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode).SetCounties("CA-AB", "CA-PE"));
             items.Add(new PublicHoliday(year, 4, 23, "Saint George's Day", "Saint George's Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(new PublicHoliday(mondayOnOrBeforeMay24, "National Patriots' Day", "National Patriots' Day", countryCode, null, new string[] { "CA-QC" }));
             items.Add(new PublicHoliday(mondayOnOrBeforeMay24, "Victoria Day", "Victoria Day", countryCode));

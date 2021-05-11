@@ -27,7 +27,7 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.IS;
 
-            var firstDayOfSummer = DateSystem.FindDay(year, 4, 19, DayOfWeek.Thursday);
+            var firstDayOfSummer = DateSystem.FindDay(year, Month.April, 19, DayOfWeek.Thursday);
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
 
             var items = new List<PublicHoliday>();

@@ -2,6 +2,8 @@ using System;
 
 namespace Nager.Date.Model
 {
+    using Extensions;
+
     /// <summary>
     /// Public Holiday
     /// </summary>
@@ -105,19 +107,32 @@ namespace Nager.Date.Model
             return $"{this.Date:yyyy-MM-dd} {this.Name}";
         }
 
-        internal void SetCounties(params string[] counties)
+        internal PublicHoliday SetCounties(params string[] counties)
         {
             this.Counties = counties;
+
+            return this;
         }
 
-        internal void SetType(PublicHolidayType publicHolidayType)
+        internal PublicHoliday SetType(PublicHolidayType publicHolidayType)
         {
             this.Type = publicHolidayType;
+
+            return this;
         }
 
-        internal void SetLaunchYear(int launchYear)
+        internal PublicHoliday SetLaunchYear(int launchYear)
         {
             this.LaunchYear = launchYear;
+
+            return this;
+        }
+
+        internal PublicHoliday Shift(Func<DateTime, DateTime> shiftSaturday, Func<DateTime, DateTime> shiftSunday)
+        {
+            Date = Date.Shift(shiftSaturday, shiftSunday);
+
+            return this;
         }
     }
 }

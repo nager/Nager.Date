@@ -48,7 +48,7 @@ namespace Nager.Date.PublicHolidays
             var firstMondayInMarch = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.First);
             var secondMondayInMarch = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
             var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
-            var firstMondayAfterOr27May = DateSystem.FindDay(year, 5, 27, DayOfWeek.Monday);
+            var firstMondayAfterOr27May = DateSystem.FindDay(year, Month.May, 27, DayOfWeek.Monday);
             var firstMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
             var secondMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
@@ -56,9 +56,6 @@ namespace Nager.Date.PublicHolidays
 
             var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             var australiaDay = new DateTime(year, 1, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-
-            var easterSunday1 = this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode);
-            easterSunday1.SetCounties("AUS-ACT", "AUS-NSW", "AUS-VIC");
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
@@ -70,7 +67,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(secondMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AUS-VIC" }));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Easter Eve", "Holy Saturday", countryCode, null, new string[] { "AUS-ACT", "AUS-NSW", "AUS-NT", "AUS-QLD", "AUS-SA", "AUS-VIC" }));
-            items.Add(easterSunday1);
+            items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode).SetCounties("AUS-ACT", "AUS-NSW", "AUS-VIC"));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode));
             items.Add(new PublicHoliday(firstMondayInMay, "May Day", "May Day", countryCode, null, new string[] { "AUS-NT" }));

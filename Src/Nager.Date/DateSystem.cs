@@ -97,6 +97,7 @@ namespace Nager.Date
                 { CountryCode.MZ, new Lazy<IPublicHolidayProvider>(() => new MozambiqueProvider())},
                 { CountryCode.NA, new Lazy<IPublicHolidayProvider>(() => new NamibiaProvider(_catholicProvider))},
                 { CountryCode.NE, new Lazy<IPublicHolidayProvider>(() => new NigerProvider(_catholicProvider))},
+                { CountryCode.NG, new Lazy<IPublicHolidayProvider>(() => new NigeriaProvider(_catholicProvider)) },
                 { CountryCode.NI, new Lazy<IPublicHolidayProvider>(() => new NicaraguaProvider(_catholicProvider))},
                 { CountryCode.NL, new Lazy<IPublicHolidayProvider>(() => new NetherlandsProvider(_catholicProvider))},
                 { CountryCode.NO, new Lazy<IPublicHolidayProvider>(() => new NorwayProvider(_catholicProvider))},
@@ -536,6 +537,18 @@ namespace Nager.Date
         /// <param name="month">The month</param>
         /// <param name="day">The name of the day</param>
         /// <returns></returns>
+        public static DateTime FindLastDay(int year, Month month, DayOfWeek day)
+        {
+            return FindLastDay(year, (int)month, day);
+        }
+
+        /// <summary>
+        /// Find the latest weekday for example monday in a month
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <param name="month">The month</param>
+        /// <param name="day">The name of the day</param>
+        /// <returns></returns>
         public static DateTime FindLastDay(int year, int month, DayOfWeek day)
         {
             var resultedDay = FindDay(year, month, day, 5);
@@ -548,15 +561,16 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Find the latest weekday for example monday in a month
+        /// Find the next weekday for example monday from a specific date
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
-        /// <param name="day">The name of the day</param>
+        /// <param name="day">The day</param>
+        /// <param name="dayOfWeek">The name of the day</param>
         /// <returns></returns>
-        public static DateTime FindLastDay(int year, Month month, DayOfWeek day)
+        public static DateTime FindDay(int year, Month month, int day, DayOfWeek dayOfWeek)
         {
-            return FindLastDay(year, (int)month, day);
+            return FindDay(year, (int)month, day, dayOfWeek);
         }
 
         /// <summary>
@@ -629,6 +643,19 @@ namespace Nager.Date
         public static DateTime FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
         {
             return FindDayBetween(startDate.Year, startDate.Month, startDate.Day, endDate.Year, endDate.Month, endDate.Day, dayOfWeek);
+        }
+
+        /// <summary>
+        /// Find the next weekday for example monday before a specific date
+        /// </summary>
+        /// <param name="year">The year</param>
+        /// <param name="month">The month</param>
+        /// <param name="day">The day</param>
+        /// <param name="dayOfWeek">The name of the day</param>
+        /// <returns></returns>
+        public static DateTime FindDayBefore(int year, Month month, int day, DayOfWeek dayOfWeek)
+        {
+            return FindDayBefore(year, (int)month, day, dayOfWeek);
         }
 
         /// <summary>

@@ -28,8 +28,8 @@ namespace Nager.Date.PublicHolidays
             var countryCode = CountryCode.ZW;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var secondMondayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Monday, 2);
-            var secondTuesdayInAugust = DateSystem.FindDay(year, 8, DayOfWeek.Tuesday, 2);
+            var secondMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.Second);
+            var secondTuesdayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Tuesday, Occurrence.Second);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));

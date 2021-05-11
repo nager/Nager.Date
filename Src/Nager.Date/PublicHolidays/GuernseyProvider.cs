@@ -27,8 +27,8 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.GG;
 
-            var lastMondayInMay = DateSystem.FindLastDay(year, 5, DayOfWeek.Monday);
-            var lastMondayInAugust = DateSystem.FindLastDay(year, 8, DayOfWeek.Monday);
+            var lastMondayInMay = DateSystem.FindLastDay(year, Month.May, DayOfWeek.Monday);
+            var lastMondayInAugust = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
