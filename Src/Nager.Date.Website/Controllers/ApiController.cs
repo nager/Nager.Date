@@ -21,7 +21,7 @@ namespace Nager.Date.Website.Controllers
     {
         private string AutoDetectCountryCode()
         {
-            var acceptLanguages = HttpContext?.Request?.GetTypedHeaders()?.AcceptLanguage;
+            var acceptLanguages = this.HttpContext?.Request?.GetTypedHeaders()?.AcceptLanguage;
             var firstLanguage = acceptLanguages?.FirstOrDefault()?.ToString();
 
             if (string.IsNullOrEmpty(firstLanguage))
@@ -43,7 +43,7 @@ namespace Nager.Date.Website.Controllers
         [ApiExplorerSettings(IgnoreApi = true)]
         public IActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         /// <summary>
@@ -55,22 +55,22 @@ namespace Nager.Date.Website.Controllers
         [HttpGet]
         [Route("v1/Get/{countryCode}/{year}")]
         public ActionResult<IEnumerable<PublicHolidayDto>> CountryJson(
-            [FromRoute] [Required] string countryCode,
-            [FromRoute] [Required] int year)
+            [FromRoute][Required] string countryCode,
+            [FromRoute][Required] int year)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
-                return StatusCode(StatusCodes.Status404NotFound);
+                return this.StatusCode(StatusCodes.Status404NotFound);
             }
 
             var publicHolidays = DateSystem.GetPublicHolidays(year, parsedCountryCode);
             if (publicHolidays?.Count() > 0)
             {
                 var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
-                return StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
+                return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
             }
 
-            return StatusCode(StatusCodes.Status404NotFound);
+            return this.StatusCode(StatusCodes.Status404NotFound);
         }
 
         /// <summary>
@@ -82,21 +82,21 @@ namespace Nager.Date.Website.Controllers
         [HttpGet]
         [Route("v2/PublicHolidays/{year}/{countryCode}")]
         public ActionResult<IEnumerable<PublicHolidayDto>> PublicHolidays(
-            [FromRoute] [Required] int year,
-            [FromRoute] [Required] string countryCode)
+            [FromRoute][Required] int year,
+            [FromRoute][Required] string countryCode)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
-                return StatusCode(StatusCodes.Status404NotFound);
+                return this.StatusCode(StatusCodes.Status404NotFound);
             }
 
             var items = DateSystem.GetPublicHolidays(year, parsedCountryCode);
             if (items?.Count() > 0)
             {
-                return StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
+                return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
             }
 
-            return StatusCode(StatusCodes.Status404NotFound);
+            return this.StatusCode(StatusCodes.Status404NotFound);
         }
 
         /// <summary>
@@ -121,31 +121,31 @@ namespace Nager.Date.Website.Controllers
         [HttpGet]
         [Route("v2/IsTodayPublicHoliday/{countryCode}")]
         public ActionResult IsTodayPublicHoliday(
-            [FromRoute] [Required] string countryCode,
+            [FromRoute][Required] string countryCode,
             [FromQuery] string countyCode,
-            [FromQuery] [Range(-12, 12)] int offset = 0)
+            [FromQuery][Range(-12, 12)] int offset = 0)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
-                return StatusCode(StatusCodes.Status404NotFound);
+                return this.StatusCode(StatusCodes.Status404NotFound);
             }
 
             if (string.IsNullOrEmpty(countyCode))
             {
                 if (DateSystem.IsPublicHoliday(DateTime.UtcNow.AddHours(offset), parsedCountryCode))
                 {
-                    return StatusCode(StatusCodes.Status200OK);
+                    return this.StatusCode(StatusCodes.Status200OK);
                 }
 
-                return StatusCode(StatusCodes.Status204NoContent);
+                return this.StatusCode(StatusCodes.Status204NoContent);
             }
 
             if (DateSystem.IsPublicHoliday(DateTime.UtcNow.AddHours(offset), parsedCountryCode, countyCode))
             {
-                return StatusCode(StatusCodes.Status200OK);
+                return this.StatusCode(StatusCodes.Status200OK);
             }
 
-            return StatusCode(StatusCodes.Status204NoContent);
+            return this.StatusCode(StatusCodes.Status204NoContent);
         }
 
         /// <summary>
@@ -155,16 +155,16 @@ namespace Nager.Date.Website.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("v2/NextPublicHolidays/{countryCode}")]
-        public ActionResult<IEnumerable<PublicHolidayDto>> NextPublicHolidays([FromRoute] [Required] string countryCode)
+        public ActionResult<IEnumerable<PublicHolidayDto>> NextPublicHolidays([FromRoute][Required] string countryCode)
         {
             var publicHolidays = DateSystem.GetPublicHolidays(DateTime.Today, DateTime.Today.AddYears(1), countryCode);
             if (publicHolidays?.Count() > 0)
             {
                 var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
-                return StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
+                return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
             }
 
-            return StatusCode(StatusCodes.Status404NotFound);
+            return this.StatusCode(StatusCodes.Status404NotFound);
         }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace Nager.Date.Website.Controllers
         public ActionResult<IEnumerable<PublicHolidayDto>> NextPublicHolidaysWorldwide()
         {
             var items = DateSystem.GetPublicHolidays(DateTime.Today, DateTime.Today.AddDays(7)).OrderBy(o => o.Date);
-            return StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
+            return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayDto[]>());
         }
 
         /// <summary>
@@ -189,16 +189,16 @@ namespace Nager.Date.Website.Controllers
         [HttpGet]
         [Route("v2/LongWeekend/{year}/{countryCode}")]
         public ActionResult<LongWeekendDto[]> LongWeekend(
-            [FromRoute] [Required] int year,
-            [FromRoute] [Required] string countryCode)
+            [FromRoute][Required] int year,
+            [FromRoute][Required] string countryCode)
         {
             if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
             {
-                return StatusCode(StatusCodes.Status404NotFound);
+                return this.StatusCode(StatusCodes.Status404NotFound);
             }
 
             var items = DateSystem.GetLongWeekend(year, parsedCountryCode);
-            return StatusCode(StatusCodes.Status200OK, items.Adapt<LongWeekendDto[]>());
+            return this.StatusCode(StatusCodes.Status200OK, items.Adapt<LongWeekendDto[]>());
         }
 
         /// <summary>
@@ -218,12 +218,12 @@ namespace Nager.Date.Website.Controllers
             var country = new Country.CountryProvider().GetCountry(countryCode);
             if (country == null)
             {
-                return StatusCode(StatusCodes.Status404NotFound);
+                return this.StatusCode(StatusCodes.Status404NotFound);
             }
 
             var countryInfo = CountryHelper.Convert(country);
 
-            return StatusCode(StatusCodes.Status200OK, countryInfo);
+            return this.StatusCode(StatusCodes.Status200OK, countryInfo);
         }
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace Nager.Date.Website.Controllers
                             where DateSystem.GetPublicHolidays(DateTime.Today.Year, o).Any()
                             select new CountryDto { Key = o.ToString(), Value = this.GetCountryName(o) };
 
-            return StatusCode(StatusCodes.Status200OK, countries);
+            return this.StatusCode(StatusCodes.Status200OK, countries);
         }
 
         private string GetCountryName(CountryCode countrycode)
