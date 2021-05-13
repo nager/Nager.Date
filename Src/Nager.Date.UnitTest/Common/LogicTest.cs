@@ -153,7 +153,7 @@ namespace Nager.Date.UnitTest.Common
         {
             var items = DateSystem.GetPublicHolidays(startDate, endDate, CountryCode.DE);
 
-            Assert.AreEqual(38, items.Count());
+            Assert.AreEqual(43, items.Count());
             Assert.IsTrue(items.First().Date > new DateTime(2016, 4, 28));
             Assert.IsTrue(items.Last().Date < new DateTime(2018, 6, 1));
         }
