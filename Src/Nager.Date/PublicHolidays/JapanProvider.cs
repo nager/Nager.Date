@@ -86,7 +86,7 @@ namespace Nager.Date.PublicHolidays
         /// <summary>
         /// Adds the emperor's birthday based on the era/emperor of the current year.
         /// </summary>
-        /// <see cref="https://en.wikipedia.org/wiki/The_Emperor%27s_Birthday#Emperor_birthday_list" />
+        /// <see href="https://en.wikipedia.org/wiki/The_Emperor%27s_Birthday#Emperor_birthday_list" />
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Emperors Birthday object or null</returns>
