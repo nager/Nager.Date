@@ -42,6 +42,12 @@ charset     = utf-8-bom
 dotnet_sort_system_directives_first                        = false
 dotnet_separate_import_directive_groups                    = false
 
+# Force the usage of 'this.'/'Me.' prefix for anything
+dotnet_style_qualification_for_field                       = true : warning
+dotnet_style_qualification_for_property                    = true : warning
+dotnet_style_qualification_for_method                      = true : warning
+dotnet_style_qualification_for_event                       = true : warning
+
 # Use language keywords over framework type names for type references
 # i.e. prefer 'string' over 'String'
 dotnet_style_predefined_type_for_locals_parameters_members = true : error
@@ -114,7 +120,7 @@ csharp_style_pattern_matching_over_as_with_null_check = true : warning
 
 # C# 7: Prefer using 'out var' where possible
 csharp_style_inlined_variable_declaration             = true : error
-
+csharp_using_directive_placement                      = outside_namespace : warning
 # C# 7: Use throw expressions when null-checking
 csharp_style_throw_expression                         = false : error
 
