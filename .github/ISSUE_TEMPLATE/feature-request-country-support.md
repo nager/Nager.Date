@@ -9,7 +9,7 @@ assignees: ''
 
 <!--
     The following template is designed to help you report incorrect or missing holidays.
-    Please fill in the following questions as detailed as possible, so that we can directly ease the work.
+    Please fill in the following questions as detailed as possible, this will directly facilitate our work.
  -->
 
 **Which country is affected?**
