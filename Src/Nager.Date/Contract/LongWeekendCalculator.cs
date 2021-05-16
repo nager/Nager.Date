@@ -1,4 +1,4 @@
-﻿using Nager.Date.Model;
+using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace Nager.Date.Contract
         {
             var items = new List<LongWeekend>();
 
-            foreach (var publicHoliday in publicHolidays)
+            foreach (var publicHoliday in publicHolidays.Where(o => o.Global && o.Type == PublicHolidayType.Public))
             {
                 var previoudDayResult = this.AvailableDay(publicHoliday.Date, -1, publicHolidays);
                 var nextDayResult = this.AvailableDay(publicHoliday.Date, 1, publicHolidays);
