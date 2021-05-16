@@ -1,6 +1,6 @@
 ---
 name: 'Feature request: Country support'
-about: Suggest an country and information for this project
+about: Suggest a country and information for this project
 title: ''
 labels: enhancement
 assignees: ''
