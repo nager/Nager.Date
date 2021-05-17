@@ -28,12 +28,14 @@ namespace Nager.Date.Contract
         /// <returns></returns>
         public IEnumerable<LongWeekend> Calculate(IEnumerable<PublicHoliday> publicHolidays)
         {
+            var filteredPublicHolidays = publicHolidays.Where(o => o.Global && o.Type == PublicHolidayType.Public);
+
             var items = new List<LongWeekend>();
 
-            foreach (var publicHoliday in publicHolidays.Where(o => o.Global && o.Type == PublicHolidayType.Public))
+            foreach (var publicHoliday in filteredPublicHolidays)
             {
-                var previoudDayResult = this.AvailableDay(publicHoliday.Date, -1, publicHolidays);
-                var nextDayResult = this.AvailableDay(publicHoliday.Date, 1, publicHolidays);
+                var previoudDayResult = this.AvailableDay(publicHoliday.Date, -1, filteredPublicHolidays);
+                var nextDayResult = this.AvailableDay(publicHoliday.Date, 1, filteredPublicHolidays);
 
                 if (previoudDayResult.DayCount == 0 && nextDayResult.DayCount == 0)
                 {

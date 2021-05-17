@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
 using Nager.Date.Model;
 using Nager.Date.Weekends;
@@ -10,7 +10,7 @@ namespace Nager.Date.UnitTest.Common
     public class LongWeekendTest
     {
         [TestMethod]
-        public void LongWeekend1()
+        public void GetLongWeekend_Austria2017_Succcessful()
         {
             var longWeekends = DateSystem.GetLongWeekend(2017, CountryCode.AT).ToArray();
 
@@ -18,7 +18,7 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void LongWeekend2()
+        public void Calculate_FromFridayToMonday_Successful()
         {
             var publicHolidays = new PublicHoliday[]
             {
@@ -37,7 +37,7 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void LongWeekend3()
+        public void Calculate_VeryLongWeekendWithoutBridgeDay_Successful()
         {
             var publicHolidays = new PublicHoliday[]
             {
@@ -57,7 +57,7 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void LongWeekend4()
+        public void Calculate_VeryLongWeekendWithBridgeDay_Successful()
         {
             var publicHolidays = new PublicHoliday[]
             {
@@ -76,7 +76,7 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void LongWeekend5()
+        public void Calculate_TwoLongWeekendsWithBridgeDay_Successful()
         {
             var publicHolidays = new PublicHoliday[]
             {
@@ -93,13 +93,13 @@ namespace Nager.Date.UnitTest.Common
             Assert.AreEqual(4, firstLongWeekend.DayCount);
             Assert.IsTrue(firstLongWeekend.Bridge);
 
-            var lastLongWeekend = longWeekends.First();
+            var lastLongWeekend = longWeekends.Last();
             Assert.AreEqual(4, lastLongWeekend.DayCount);
             Assert.IsTrue(lastLongWeekend.Bridge);
         }
 
         [TestMethod]
-        public void LongWeekend6()
+        public void Calculate_NoLongWeekend_Successful()
         {
             var publicHolidays = new PublicHoliday[]
             {
@@ -110,6 +110,22 @@ namespace Nager.Date.UnitTest.Common
             var longWeekends = longWeekendCalculator.Calculate(publicHolidays);
 
             Assert.AreEqual(0, longWeekends.Count());
+        }
+
+        [TestMethod]
+        public void Calculate_OneHolidayIsNotPublic_Successful()
+        {
+            var publicHolidays = new PublicHoliday[]
+            {
+                new PublicHoliday(2021, 05, 13, "Day1", "Day1", CountryCode.AT),
+                new PublicHoliday(2021, 05, 14, "Day2", "Day2", CountryCode.AT, null, null, PublicHolidayType.Bank | PublicHolidayType.School | PublicHolidayType.Optional),
+            };
+
+            ILongWeekendCalculator longWeekendCalculator = new LongWeekendCalculator(WeekendProvider.Universal);
+            var longWeekends = longWeekendCalculator.Calculate(publicHolidays).ToArray();
+
+            Assert.AreEqual(4, longWeekends[0].DayCount);
+            Assert.IsTrue(longWeekends[0].Bridge);
         }
     }
 }
