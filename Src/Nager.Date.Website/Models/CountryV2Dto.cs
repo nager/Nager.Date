@@ -1,6 +1,6 @@
-﻿namespace Nager.Date.Website.Models
+namespace Nager.Date.Website.Models
 {
-    public class CountryDto
+    public class CountryV2Dto
     {
         public string Key { get; set; }
         public string Value { get; set; }
