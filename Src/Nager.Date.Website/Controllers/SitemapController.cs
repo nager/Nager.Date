@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using SimpleMvcSitemap;
 using System;
 using System.Collections.Generic;

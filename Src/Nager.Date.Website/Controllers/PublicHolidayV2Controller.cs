@@ -20,27 +20,6 @@ namespace Nager.Date.Website.Controllers
     [Route("api/v2")]
     public class PublicHolidayV2Controller : Controller
     {
-        private string AutoDetectCountryCode()
-        {
-            var acceptLanguages = this.HttpContext?.Request?.GetTypedHeaders()?.AcceptLanguage;
-            var firstLanguage = acceptLanguages?.FirstOrDefault()?.ToString();
-
-            if (string.IsNullOrEmpty(firstLanguage))
-            {
-                return "US";
-            }
-
-            var cultureInfo = CultureInfo.GetCultureInfo(firstLanguage);
-            if (cultureInfo.IsNeutralCulture)
-            {
-                var regionInfo = new RegionInfo(firstLanguage);
-                return regionInfo.TwoLetterISORegionName;
-            }
-
-            var region = new RegionInfo(cultureInfo.CompareInfo.LCID);
-            return region.TwoLetterISORegionName;
-        }
-
         /// <summary>
         /// Get Public Holidays
         /// </summary>
@@ -144,57 +123,6 @@ namespace Nager.Date.Website.Controllers
         {
             var items = DateSystem.GetPublicHolidays(DateTime.Today, DateTime.Today.AddDays(7)).OrderBy(o => o.Date);
             return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV2Dto[]>());
-        }
-
-        /// <summary>
-        /// Get country info from request header `accept-language` or from query parameter
-        /// </summary>
-        /// <param name="countryCode"></param>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("CountryInfo")]
-        public ActionResult<CountryInfoDto> CountryInfo([FromQuery] string countryCode = null)
-        {
-            if (string.IsNullOrEmpty(countryCode))
-            {
-                countryCode = this.AutoDetectCountryCode();
-            }
-
-            var country = new Country.CountryProvider().GetCountry(countryCode);
-            if (country == null)
-            {
-                return this.StatusCode(StatusCodes.Status404NotFound);
-            }
-
-            var countryInfo = CountryHelper.Convert(country);
-
-            return this.StatusCode(StatusCodes.Status200OK, countryInfo);
-        }
-
-        /// <summary>
-        /// Get all available countries
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("AvailableCountries")]
-        public ActionResult<IEnumerable<CountryDto>> AvailableCountries()
-        {
-            var countries = from CountryCode o in Enum.GetValues(typeof(CountryCode))
-                            where DateSystem.GetPublicHolidays(DateTime.Today.Year, o).Any()
-                            select new CountryDto { Key = o.ToString(), Value = this.GetCountryName(o) };
-
-            return this.StatusCode(StatusCodes.Status200OK, countries);
-        }
-
-        private string GetCountryName(CountryCode countrycode)
-        {
-            var country = new Country.CountryProvider().GetCountry(countrycode.ToString());
-            if (country == null)
-            {
-                return string.Empty;
-            }
-
-            return country.CommonName;
         }
     }
 }
