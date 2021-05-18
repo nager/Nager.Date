@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Nager.Date.Website.Contract;
+using Nager.Date.Website.Models;
 using System;
 using System.IO;
 using System.Reflection;
@@ -26,9 +27,17 @@ namespace Nager.Date.Website
 
         public IConfiguration Configuration { get; }
 
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region MappingConfig
+
+            TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
+
+            #endregion
+
             #region IpRateLimit
 
             services.AddOptions();
@@ -90,6 +99,9 @@ namespace Nager.Date.Website
                     },
                     Version = "v1.0"
                 });
+
+                c.TagActionsBy(api => new[] { api.GroupName });
+                c.DocInclusionPredicate((name, api) => true);
 
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -154,10 +166,10 @@ namespace Nager.Date.Website
                 {
                     OnPrepareResponse = ctx =>
                     {
-                        const int cacheDays = 365;
-                        const int durationInSeconds = 60 * 60 * 24 * cacheDays;
-                        ctx.Context.Response.Headers[HeaderNames.CacheControl] = $"public,max-age={durationInSeconds}";
-                        ctx.Context.Response.Headers[HeaderNames.Expires] = new[] { DateTime.UtcNow.AddDays(cacheDays).ToString("R") }; // Format RFC1123
+                        const int CacheDays = 365;
+                        const int DurationInSeconds = 60 * 60 * 24 * CacheDays;
+                        ctx.Context.Response.Headers[HeaderNames.CacheControl] = $"public,max-age={DurationInSeconds}";
+                        ctx.Context.Response.Headers[HeaderNames.Expires] = new[] { DateTime.UtcNow.AddDays(CacheDays).ToString("R") }; // Format RFC1123
                 }
                 });
             }
