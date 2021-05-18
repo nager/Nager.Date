@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased 1.28.X] - yyyy-mm-dd
+## [Unreleased 1.29.X] - yyyy-mm-dd
  
 ### Added
 ### Changed
@@ -12,12 +12,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 
-## [Unreleased 1.28.3] - yyyy-mm-dd
+## [Unreleased 1.29.0] - 2021-05-18
  
 ### Added
 - Add Nigeria
 ### Changed
 - Straighten method names GetPublicHoliday to GetPublicHolidays
+- Move religious holidays in the Catholic or Orthodox provider
 ### Deprecated
 ### Removed
 ### Fixed
@@ -25,6 +26,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fix Vatican City, Wrong char in Anniversary of the election of Pope Francis
 - Fix DateSystem.IsPublicHoliday(DateTime date, CountryCode countryCode)
 - Fix Japan, Emperors Birthday
+- Fix LongWeekend calculation (only PublicHolidayType Public)
+- Fix Bahamas, Lack of rules for the shifting of holidays
 
 ## [1.28.2] - 2021-03-08
  
