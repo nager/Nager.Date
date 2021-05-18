@@ -130,7 +130,14 @@ namespace Nager.Date.Model
 
         internal PublicHoliday Shift(Func<DateTime, DateTime> shiftSaturday, Func<DateTime, DateTime> shiftSunday)
         {
-            Date = Date.Shift(shiftSaturday, shiftSunday);
+            this.Date = this.Date.Shift(shiftSaturday, shiftSunday);
+
+            return this;
+        }
+
+        internal PublicHoliday ShiftWeekdays(Func<DateTime, DateTime> monday = null, Func<DateTime, DateTime> tuesday = null, Func<DateTime, DateTime> wednesday = null, Func<DateTime, DateTime> thursday = null, Func<DateTime, DateTime> friday = null)
+        {
+            this.Date = this.Date.ShiftWeekdays(monday, tuesday, wednesday, thursday, friday);
 
             return this;
         }
