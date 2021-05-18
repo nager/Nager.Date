@@ -1,4 +1,4 @@
-﻿using Nager.Date.Model;
+using Nager.Date.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Nager.Date.Website.Models
 {
-    public class PublicHolidayDto
+    public class PublicHolidayV3Dto
     {
         /// <summary>
         /// The date
@@ -45,6 +45,6 @@ namespace Nager.Date.Website.Models
         /// A list of types the public holiday it is valid
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
-        public PublicHolidayType Type { get; set; }
+        public PublicHolidayType[] Types { get; set; }
     }
 }
