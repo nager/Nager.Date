@@ -12,15 +12,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 
-## [Unreleased 1.29.0] - 2021-05-18
+## [1.29.0] - 2021-05-18
  
 ### Added
 - Add Nigeria
 ### Changed
 - Straighten method names GetPublicHoliday to GetPublicHolidays
 - Move religious holidays in the Catholic or Orthodox provider
-### Deprecated
-### Removed
 ### Fixed
 - Fix Canada, FamilyDay for New-Brunswick
 - Fix Vatican City, Wrong char in Anniversary of the election of Pope Francis
