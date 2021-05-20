@@ -108,7 +108,12 @@ namespace Nager.Date.Website
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
 
-                c.CustomOperationIds(description => (description.ActionDescriptor as ControllerActionDescriptor)?.ActionName);
+                // Create good names with NSwag
+                c.CustomOperationIds(description =>
+                {
+                    var actionDescriptor = description.ActionDescriptor as ControllerActionDescriptor;
+                    return $"{actionDescriptor.ControllerName}{actionDescriptor.ActionName}";
+                });
             });
         }
 
