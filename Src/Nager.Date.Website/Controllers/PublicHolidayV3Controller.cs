@@ -105,7 +105,7 @@ namespace Nager.Date.Website.Controllers
             if (publicHolidays?.Count() > 0)
             {
                 var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
-                return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV2Dto[]>());
+                return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV3Dto[]>());
             }
 
             return this.StatusCode(StatusCodes.Status404NotFound);
@@ -120,7 +120,7 @@ namespace Nager.Date.Website.Controllers
         public ActionResult<IEnumerable<PublicHolidayV3Dto>> NextPublicHolidaysWorldwide()
         {
             var items = DateSystem.GetPublicHolidays(DateTime.Today, DateTime.Today.AddDays(7)).OrderBy(o => o.Date);
-            return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV2Dto[]>());
+            return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV3Dto[]>());
         }
     }
 }
