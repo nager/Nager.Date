@@ -122,7 +122,7 @@ namespace Nager.Date
                 { CountryCode.TN, new Lazy<IPublicHolidayProvider>(() => new TunisiaProvider())},
                 { CountryCode.TR, new Lazy<IPublicHolidayProvider>(() => new TurkeyProvider())},
                 { CountryCode.UA, new Lazy<IPublicHolidayProvider>(() => new UkraineProvider(_orthodoxProvider))},
-                { CountryCode.US, new Lazy<IPublicHolidayProvider>(() => new UnitedStatesProvider())},
+                { CountryCode.US, new Lazy<IPublicHolidayProvider>(() => new UnitedStatesProvider(_catholicProvider))},
                 { CountryCode.UY, new Lazy<IPublicHolidayProvider>(() => new UruguayProvider(_catholicProvider))},
                 { CountryCode.VA, new Lazy<IPublicHolidayProvider>(() => new VaticanCityProvider(_catholicProvider))},
                 { CountryCode.VE, new Lazy<IPublicHolidayProvider>(() => new VenezuelaProvider(_catholicProvider))},

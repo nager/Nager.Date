@@ -12,11 +12,14 @@ namespace Nager.Date.PublicHolidays
     /// </summary>
     public class UnitedStatesProvider : IPublicHolidayProvider
     {
+        private readonly ICatholicProvider _catholicProvider;
+
         /// <summary>
         /// UnitedStatesProvider
         /// </summary>
-        public UnitedStatesProvider()
+        public UnitedStatesProvider(ICatholicProvider catholicProvider)
         {
+            this._catholicProvider = catholicProvider;
         }
 
         ///<inheritdoc/>
@@ -43,6 +46,9 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thirdMondayInJanuar, "Martin Luther King, Jr. Day", "Martin Luther King, Jr. Day", countryCode));
             items.Add(new PublicHoliday(thirdMondayInFebruary, "Presidents Day", "Washington's Birthday", countryCode));
             items.Add(new PublicHoliday(lastMondayInMay, "Memorial Day", "Memorial Day", countryCode));
+
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode).SetCounties("US-CT", "US-DE", "US-HI", "US-IN", "US-KY", "US-LA", "US-NC", "US-ND", "US-NJ", "US-TN"));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode).SetType(PublicHolidayType.Optional).SetCounties("US-TX"));
 
             #region Independence Day with fallback
 
