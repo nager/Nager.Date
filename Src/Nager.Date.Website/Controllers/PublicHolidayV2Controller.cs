@@ -107,7 +107,7 @@ namespace Nager.Date.Website.Controllers
             if (publicHolidays?.Count() > 0)
             {
                 var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
-                return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV2Dto[]>());
+                return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV3Dto[]>());
             }
 
             return this.StatusCode(StatusCodes.Status404NotFound);
