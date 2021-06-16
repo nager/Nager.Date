@@ -4,13 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased 1.29.X] - yyyy-mm-dd
+## [Unreleased 1.X.X] - yyyy-mm-dd
  
 ### Added
 ### Changed
 ### Deprecated
 ### Removed
 ### Fixed
+
+## [1.29.1] - 2021-06-16
+ 
+### Added
+- Add GoodFriday to UnitedStates
+### Changed
+- WebApi Swagger OperationId
+### Fixed
+- Fix Costa Rica, Law 9803
+- Fix German, EasterSunday
 
 ## [1.29.0] - 2021-05-18
  
