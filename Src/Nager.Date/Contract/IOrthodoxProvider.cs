@@ -52,7 +52,7 @@ namespace Nager.Date.Contract
         PublicHoliday Pentecost(string localName, int year, CountryCode countryCode);
 
         /// <summary>
-        /// Get Whit Monday
+        /// Get Whit Monday / Pentecost Monday
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
