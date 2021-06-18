@@ -50,10 +50,20 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode).SetCounties("US-CT", "US-DE", "US-HI", "US-IN", "US-KY", "US-LA", "US-NC", "US-ND", "US-NJ", "US-TN"));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode).SetType(PublicHolidayType.Optional).SetCounties("US-TX"));
 
+            #region Juneteenth
+
+            if (DateTime.Now.Year >= 2021)
+            {
+                var juneteenth = new DateTime(year, 6, 19).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
+                items.Add(new PublicHoliday(juneteenth, "Juneteenth", "Juneteenth", countryCode, 2021));
+            }
+
+            #endregion
+
             #region Independence Day with fallback
 
             var independenceDay = new DateTime(year, 7, 4).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
-            items.Add(new PublicHoliday(independenceDay, "Independence Day", "Independence Day", countryCode));
+            items.Add(new PublicHoliday(juneteenth, "Independence Day", "Independence Day", countryCode));
 
             #endregion
 
@@ -100,7 +110,8 @@ namespace Nager.Date.PublicHolidays
         {
             return new string[]
             {
-                "https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States"
+                "https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States",
+                "https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/06/17/remarks-by-president-biden-at-signing-of-the-juneteenth-national-independence-day-act/"
             };
         }
     }
