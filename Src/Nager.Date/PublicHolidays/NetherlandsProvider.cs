@@ -40,7 +40,7 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nieuwjaarsdag", "New Year's Day", countryCode, 1967));
-            items.Add(this._catholicProvider.GoodFriday("Eerste Paasdag", year, countryCode).SetType(PublicHolidayType.Authorities | PublicHolidayType.School));
+            items.Add(this._catholicProvider.GoodFriday("Goede Vrijdag", year, countryCode).SetType(PublicHolidayType.Authorities | PublicHolidayType.School));
             items.Add(this._catholicProvider.EasterSunday("Eerste Paasdag", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Tweede Paasdag", year, countryCode).SetLaunchYear(1642));
             items.Add(new PublicHoliday(year, 4, kingsDay, "Koningsdag", "King's Day", countryCode));
