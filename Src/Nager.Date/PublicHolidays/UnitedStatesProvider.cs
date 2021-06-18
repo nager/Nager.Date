@@ -52,7 +52,7 @@ namespace Nager.Date.PublicHolidays
 
             #region Juneteenth
 
-            if (DateTime.Now.Year >= 2021)
+            if (year >= 2021)
             {
                 var juneteenth = new DateTime(year, 6, 19).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
                 items.Add(new PublicHoliday(juneteenth, "Juneteenth", "Juneteenth", countryCode, 2021));
