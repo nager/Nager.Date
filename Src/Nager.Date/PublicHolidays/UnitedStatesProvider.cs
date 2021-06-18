@@ -63,7 +63,7 @@ namespace Nager.Date.PublicHolidays
             #region Independence Day with fallback
 
             var independenceDay = new DateTime(year, 7, 4).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
-            items.Add(new PublicHoliday(juneteenth, "Independence Day", "Independence Day", countryCode));
+            items.Add(new PublicHoliday(independenceDay, "Independence Day", "Independence Day", countryCode));
 
             #endregion
 
