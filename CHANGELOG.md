@@ -12,6 +12,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 
+## [1.29.2] - 2021-06-21
+ 
+### Added
+- Add Whit Monday to Cyprus
+- Add Juneteenth to UnitedStates
+### Fixed
+- Fix Netherlands - Local translation Good Friday
+
 ## [1.29.1] - 2021-06-16
  
 ### Added
