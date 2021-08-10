@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 - Fix Netherlands - Holiday Type of Good Friday
+- Fix Chile - Set Battle of Arica only valid in CL-AP
 
 ## [1.29.2] - 2021-06-21
  
