@@ -12,6 +12,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 
+## [Unreleased 1.29.3] - yyyy-mm-dd
+ 
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+- Fix Netherlands - Holiday Type of Good Friday
+
 ## [1.29.2] - 2021-06-21
  
 ### Added
