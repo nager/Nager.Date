@@ -61,7 +61,7 @@ namespace Nager.Date.PublicHolidays
             //Census
             items.Add(new PublicHoliday(year, 5, 1, "Día del Trabajo", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 21, "Día de las Glorias Navales", "Navy Day", countryCode));
-            items.Add(new PublicHoliday(year, 6, 7, "Asalto y Toma del Morro de Arica", "Battle of Arica", countryCode));
+            items.Add(new PublicHoliday(year, 6, 7, "Asalto y Toma del Morro de Arica", "Battle of Arica", countryCode, null, new string[] { "CL-AP" }));
             items.Add(new PublicHoliday(year, 6, 26, "San Pedro y San Pablo", "Saint Peter and Saint Paul", countryCode));
             //Presidential and Congress Primary Elections
             items.Add(new PublicHoliday(year, 7, 16, "Virgen del Carmen", "Our Lady of Mount Carmel", countryCode));
