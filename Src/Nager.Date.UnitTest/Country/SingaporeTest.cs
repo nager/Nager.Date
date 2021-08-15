@@ -15,5 +15,32 @@ namespace Nager.Date.UnitTest.Country
 
             Assert.AreEqual("New Year’s Day", publicHolidays[0].Name);
         }
+
+        [TestMethod]
+        public void HolidayCount()
+        {
+            for (var year = 2018; year <= 2022; year++)
+            {
+                var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.SG).ToArray();
+                Assert.AreEqual(11, publicHolidays.Length);
+            }
+        }
+
+        [TestMethod]
+        [DataRow(2022, 1, 1, true)]
+        [DataRow(2022, 1, 3, false)]
+        [DataRow(2022, 5, 2, true)]
+        [DataRow(2022, 7, 29, true)]
+        public void Year2022(int year, int month, int day, bool expected)
+        {
+            // Arrange
+            var date = new DateTime(year, month, day);
+
+            // Act
+            var result = DateSystem.IsPublicHoliday(date, CountryCode.SG);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
     }
 }

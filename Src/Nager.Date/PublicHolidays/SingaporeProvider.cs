@@ -57,7 +57,7 @@ namespace Nager.Date.PublicHolidays
                     break;
                 case 2020:
                     items.Add(new PublicHoliday(year, 4, 10, "Good Friday", "Good Friday", countryCode));
-                    items.Add(new PublicHoliday(year, 5, 07, "Vesak Day", "Vesak Day", countryCode));
+                    items.Add(new PublicHoliday(year, 5, 7, "Vesak Day", "Vesak Day", countryCode));
                     items.Add(new PublicHoliday(year, 5, 24, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
                     items.Add(new PublicHoliday(year, 7, 31, "Hari Raya Haji", "Hari Raya Haji", countryCode));
                     items.Add(new PublicHoliday(year, 11, 14, "Deepavali", "Deepavali", countryCode));
