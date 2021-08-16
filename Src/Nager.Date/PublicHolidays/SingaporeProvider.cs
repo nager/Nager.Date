@@ -2,6 +2,7 @@ using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Nager.Date.PublicHolidays
@@ -11,11 +12,15 @@ namespace Nager.Date.PublicHolidays
     /// </summary>
     public class SingaporeProvider : IPublicHolidayProvider
     {
+        private readonly ICatholicProvider _catholicProvider;
+
         /// <summary>
         /// SingaporeProvider
         /// </summary>
-        public SingaporeProvider()
+        /// <param name="catholicProvider"></param>
+        public SingaporeProvider(ICatholicProvider catholicProvider)
         {
+            this._catholicProvider = catholicProvider;
         }
 
         ///<inheritdoc/>
@@ -32,45 +37,53 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>
             {
                 new PublicHoliday(year, 1, 1, "New Year’s Day", "New Year’s Day", countryCode),
-                new PublicHoliday(year, 2, 1, "Chinese New Year", "Chinese New Year", countryCode),
-                new PublicHoliday(year, 2, 2, "Chinese New Year", "Chinese New Year", countryCode),
                 new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode),
                 new PublicHoliday(year, 8, 9, "National Day", "National Day", countryCode),
                 new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode),
             };
 
+            // Good Friday
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
+
+            // Chinese New Year, 2 days
+            if (year > 1901 && year < 2100)
+            {
+                //LunisolarCalendar .net implementation only valid are between 1901 and 2100, inclusive.
+                //https://github.com/dotnet/coreclr/blob/master/src/mscorlib/shared/System/Globalization/ChineseLunisolarCalendar.cs
+                //https://stackoverflow.com/questions/30719176/algorithm-to-find-the-gregorian-date-of-the-chinese-new-year-of-a-certain-gregor
+                var chineseCalendar = new ChineseLunisolarCalendar();
+                var chineseNewYear = chineseCalendar.ToDateTime(year, 1, 1, 0, 0, 0, 0);
+                items.Add(new PublicHoliday(chineseNewYear, "Chinese New Year", "Chinese New Year", countryCode));
+                items.Add(new PublicHoliday(chineseNewYear.AddDays(1), "Chinese New Year", "Chinese New Year", countryCode));
+            }
+
             switch (year)
             {
                 case 2018:
-                    items.Add(new PublicHoliday(year, 4, 19, "Good Friday", "Good Friday", countryCode));
                     items.Add(new PublicHoliday(year, 5, 19, "Vesak Day", "Vesak Day", countryCode));
                     items.Add(new PublicHoliday(year, 6, 5, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
                     items.Add(new PublicHoliday(year, 8, 11, "Hari Raya Haji", "Hari Raya Haji", countryCode));
                     items.Add(new PublicHoliday(year, 10, 27, "Deepavali", "Deepavali", countryCode));
                     break;
                 case 2019:
-                    items.Add(new PublicHoliday(year, 3, 30, "Good Friday", "Good Friday", countryCode));
                     items.Add(new PublicHoliday(year, 5, 29, "Vesak Day", "Vesak Day", countryCode));
                     items.Add(new PublicHoliday(year, 6, 15, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
                     items.Add(new PublicHoliday(year, 8, 22, "Hari Raya Haji", "Hari Raya Haji", countryCode));
                     items.Add(new PublicHoliday(year, 11, 6, "Deepavali", "Deepavali", countryCode));
                     break;
                 case 2020:
-                    items.Add(new PublicHoliday(year, 4, 10, "Good Friday", "Good Friday", countryCode));
                     items.Add(new PublicHoliday(year, 5, 7, "Vesak Day", "Vesak Day", countryCode));
                     items.Add(new PublicHoliday(year, 5, 24, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
                     items.Add(new PublicHoliday(year, 7, 31, "Hari Raya Haji", "Hari Raya Haji", countryCode));
                     items.Add(new PublicHoliday(year, 11, 14, "Deepavali", "Deepavali", countryCode));
                     break;
                 case 2021:
-                    items.Add(new PublicHoliday(year, 4, 2, "Good Friday", "Good Friday", countryCode));
                     items.Add(new PublicHoliday(year, 5, 26, "Vesak Day", "Vesak Day", countryCode));
                     items.Add(new PublicHoliday(year, 5, 13, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
                     items.Add(new PublicHoliday(year, 7, 20, "Hari Raya Haji", "Hari Raya Haji", countryCode));
                     items.Add(new PublicHoliday(year, 11, 4, "Deepavali", "Deepavali", countryCode));
                     break;
                 case 2022:
-                    items.Add(new PublicHoliday(year, 4, 15, "Good Friday", "Good Friday", countryCode));
                     items.Add(new PublicHoliday(year, 5, 2, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
                     items.Add(new PublicHoliday(year, 5, 15, "Vesak Day", "Vesak Day", countryCode));
                     items.Add(new PublicHoliday(year, 7, 9, "Hari Raya Haji", "Hari Raya Haji", countryCode));
