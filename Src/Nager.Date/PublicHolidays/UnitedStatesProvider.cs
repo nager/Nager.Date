@@ -68,7 +68,65 @@ namespace Nager.Date.PublicHolidays
             #endregion
 
             items.Add(new PublicHoliday(firstMondayInSeptember, "Labor Day", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-CO", "US-CT", "US-DC", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-ME", "US-MD", "US-MA", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NY", "US-NC", "US-OH", "US-OK", "US-PA", "US-RI", "US-SC", "US-TN", "US-UT", "US-VA", "US-WV" }));
+            if (year > 1971)
+            {
+                // Federally chartered banks/credit unions are closed
+                items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode).SetType(PublicHolidayType.Bank));
+                // Hawaii has never observed Columbus Day
+                items.Add(new PublicHoliday(secondMondayInOctober, "Discoverers' Day", "Discoverers' Day", countryCode, null, new string[] { "US-HI" }).SetType(PublicHolidayType.Observance));
+                if (year < 1989)
+                {
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AK", "US-AL", "US-AZ", "US-AR", "US-CA", "US-CO", "US-CT", "US-DC", "US-DE", "US-FL", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-MA", "US-MD", "US-ME", "US-MI", "US-MN", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NV", "US-NY", "US-NC", "US-ND", "US-OH", "US-OK", "US-OR", "US-PA", "US-RI", "US-SC", "US-SD", "US-TN", "US-TX", "US-UT", "US-VA", "US-VT", "US-VA", "US-WA", "US-WV", "US-WI", "US-WY" }));
+                }
+                else if (year < 2015)
+                {
+                    // South Dakota moves to celebrating Native American Day starting in 1989
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AK", "US-AL", "US-AZ", "US-AR", "US-CA", "US-CO", "US-CT", "US-DC", "US-DE", "US-FL", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-MA", "US-MD", "US-ME", "US-MI", "US-MN", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NV", "US-NY", "US-NC", "US-ND", "US-OH", "US-OK", "US-OR", "US-PA", "US-RI", "US-SC", "US-TN", "US-TX", "US-UT", "US-VA", "US-VT", "US-VA", "US-WA", "US-WV", "US-WI", "US-WY" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Native American Day", "Native American Day", countryCode, null, new string[] { "US-SD" }));
+                }
+                else if (year < 2016)
+                {
+                    // Alaska moves to celebrating Indigenous Peoples' Day starting in 2015
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-AR", "US-CA", "US-CO", "US-CT", "US-DC", "US-DE", "US-FL", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-MA", "US-MD", "US-ME", "US-MI", "US-MN", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NV", "US-NY", "US-NC", "US-ND", "US-OH", "US-OK", "US-OR", "US-PA", "US-RI", "US-SC", "US-TN", "US-TX", "US-UT", "US-VA", "US-VT", "US-VA", "US-WA", "US-WV", "US-WI", "US-WY" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Native American Day", "Native American Day", countryCode, null, new string[] { "US-SD" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Indigenous Peoples' Day", "Indigenous Peoples' Day", countryCode, null, new string[] { "US-AK" }));
+                }
+                else if (year < 2018)
+                {
+                    // Vermont and Minnesota join Alaska starting in 2016
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-AR", "US-CA", "US-CO", "US-CT", "US-DC", "US-DE", "US-FL", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-MA", "US-MD", "US-ME", "US-MI", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NV", "US-NY", "US-NC", "US-ND", "US-OH", "US-OK", "US-OR", "US-PA", "US-RI", "US-SC", "US-TN", "US-TX", "US-UT", "US-VA", "US-VA", "US-WA", "US-WV", "US-WI", "US-WY" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Native American Day", "Native American Day", countryCode, null, new string[] { "US-SD" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Indigenous Peoples' Day", "Indigenous Peoples' Day", countryCode, null, new string[] { "US-AK", "US-MN", "US-VT" }));
+                }
+                else if (year < 2019)
+                {
+                    // Iowa and North Carolina celebrate Indigenous Peoples' Day starting in 2018
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-AR", "US-CA", "US-CO", "US-CT", "US-DC", "US-DE", "US-FL", "US-GA", "US-ID", "US-IL", "US-IN", "US-KS", "US-KY", "US-LA", "US-MA", "US-MD", "US-ME", "US-MI", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NV", "US-NY", "US-ND", "US-OH", "US-OK", "US-OR", "US-PA", "US-RI", "US-SC", "US-TN", "US-TX", "US-UT", "US-VA", "US-VA", "US-WA", "US-WV", "US-WI", "US-WY" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Native American Day", "Native American Day", countryCode, null, new string[] { "US-SD" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Indigenous Peoples' Day", "Indigenous Peoples' Day", countryCode, null, new string[] { "US-AK", "US-IA", "US-MN", "US-NC", "US-VT" }));
+                }
+                else if (year < 2020)
+                {
+                    // Wisconsin, DC, Califorina, Maine, New Mexico, and Louisiana celebrate Indigenous Peoples' Day starting in 2019
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-AR", "US-CO", "US-CT", "US-DE", "US-FL", "US-GA", "US-ID", "US-IL", "US-IN", "US-KS", "US-KY", "US-MA", "US-MD", "US-MI", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NV", "US-NY", "US-ND", "US-OH", "US-OK", "US-OR", "US-PA", "US-RI", "US-SC", "US-TN", "US-TX", "US-UT", "US-VA", "US-VA", "US-WA", "US-WV", "US-WY" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Native American Day", "Native American Day", countryCode, null, new string[] { "US-SD" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Indigenous Peoples' Day", "Indigenous Peoples' Day", countryCode, null, new string[] { "US-AK", "US-CA", "US-DC", "US-IA", "US-LA", "US-ME", "US-MN", "US-NC", "US-NM", "US-VT", "US-WI" }));
+                }
+                else if (year < 2021)
+                {
+                    // Virginia and Michigan celebrate Indigenous Peoples' Day starting in 2020
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-AR", "US-CO", "US-CT", "US-DE", "US-FL", "US-GA", "US-ID", "US-IL", "US-IN", "US-KS", "US-KY", "US-MA", "US-MD", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NV", "US-NY", "US-ND", "US-OH", "US-OK", "US-OR", "US-PA", "US-RI", "US-SC", "US-TN", "US-TX", "US-UT", "US-VA", "US-WA", "US-WV", "US-WY" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Native American Day", "Native American Day", countryCode, null, new string[] { "US-SD" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Indigenous Peoples' Day", "Indigenous Peoples' Day", countryCode, null, new string[] { "US-AK", "US-CA", "US-DC", "US-IA", "US-LA", "US-ME", "US-MI", "US-MN", "US-NC", "US-NM", "US-VA", "US-VT", "US-WI" }));
+                }
+                else
+                {
+                    // As of writing this, Oregon and Texas celebrate Indigenous Peoples' Day starting in 2021
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-AR", "US-CO", "US-CT", "US-DE", "US-FL", "US-GA", "US-ID", "US-IL", "US-IN", "US-KS", "US-KY", "US-MA", "US-MD", "US-MI", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NV", "US-NY", "US-ND", "US-OH", "US-OK", "US-PA", "US-RI", "US-SC", "US-TN", "US-UT", "US-VA", "US-WA", "US-WV", "US-WY" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Native American Day", "Native American Day", countryCode, null, new string[] { "US-SD" }));
+                    items.Add(new PublicHoliday(secondMondayInOctober, "Indigenous Peoples' Day", "Indigenous Peoples' Day", countryCode, null, new string[] { "US-AK", "US-CA", "US-DC", "US-IA", "US-LA", "US-ME", "US-MI", "US-MN", "US-NC", "US-NM", "US-OR", "US-TX", "US-VA", "US-VT", "US-WI" }));
+                }
+            }
 
             #region Veterans Day with fallback
 
@@ -111,6 +169,7 @@ namespace Nager.Date.PublicHolidays
             return new string[]
             {
                 "https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States",
+                "https://en.wikipedia.org/wiki/Indigenous_Peoples%27_Day#Indigenous_Peoples'_Day_observers",
                 "https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/06/17/remarks-by-president-biden-at-signing-of-the-juneteenth-national-independence-day-act/"
             };
         }
