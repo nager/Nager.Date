@@ -83,7 +83,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "Stephanstag", "St. Stephen's Day", countryCode, null, new string[] { "CH-AG", "CH-AI", "CH-AR", "CH-BL", "CH-BS", "CH-BE", "CH-FR", "CH-GL", "CH-GR", "CH-LU", "CH-NW", "CH-OW", "CH-SG", "CH-SH", "CH-SZ", "CH-SO", "CH-TG", "CH-TI", "CH-UR", "CH-ZG", "CH-ZH" }));
 
             items.Add(new PublicHoliday(firstSundayOfSeptember.AddDays(4), "Jeûne genevois", "Geneva Prayday", countryCode, null, new string[] { "CH-GE" }));
-            items.Add(new PublicHoliday(thirdMondayOfSeptember, "Eidgenössischer Dank-, Buss- und Bettag", "Federal Day of Thanksgiving", countryCode, null, new string[] { "CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-VD", "CH-VS", "CH-NE", "CH-JU" }));
+            items.Add(new PublicHoliday(thirdMondayOfSeptember, "Lundi du Jeûne", "Prayer Monday", countryCode, null, new string[] { "CH-VD" }));
 
             return items.OrderBy(o => o.Date);
         }
