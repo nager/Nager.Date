@@ -1,6 +1,5 @@
 using Nager.Date.Contract;
 using Nager.Date.Model;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -26,11 +25,6 @@ namespace Nager.Date.PublicHolidays
         ///<inheritdoc/>
         public IEnumerable<PublicHoliday> Get(int year)
         {
-            if (year < 2018 || year > 2022)
-            {
-                throw new NotImplementedException($"Year {year} for Singapore is not implemented.");
-            }
-
             var countryCode = CountryCode.SG;
 
             // Fixed holidays
@@ -45,53 +39,50 @@ namespace Nager.Date.PublicHolidays
             // Good Friday
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
 
-            // Chinese New Year, 2 days
-            if (year > 1901 && year < 2100)
+            var chineseCalendar = new ChineseLunisolarCalendar();
+            if (year > chineseCalendar.MinSupportedDateTime.Year && year < chineseCalendar.MaxSupportedDateTime.Year)
             {
-                //LunisolarCalendar .net implementation only valid are between 1901 and 2100, inclusive.
-                //https://github.com/dotnet/coreclr/blob/master/src/mscorlib/shared/System/Globalization/ChineseLunisolarCalendar.cs
-                //https://stackoverflow.com/questions/30719176/algorithm-to-find-the-gregorian-date-of-the-chinese-new-year-of-a-certain-gregor
-                var chineseCalendar = new ChineseLunisolarCalendar();
                 var chineseNewYear = chineseCalendar.ToDateTime(year, 1, 1, 0, 0, 0, 0);
                 items.Add(new PublicHoliday(chineseNewYear, "Chinese New Year", "Chinese New Year", countryCode));
                 items.Add(new PublicHoliday(chineseNewYear.AddDays(1), "Chinese New Year", "Chinese New Year", countryCode));
             }
 
-            switch (year)
-            {
-                case 2018:
-                    items.Add(new PublicHoliday(year, 5, 19, "Vesak Day", "Vesak Day", countryCode));
-                    items.Add(new PublicHoliday(year, 6, 5, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-                    items.Add(new PublicHoliday(year, 8, 11, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-                    items.Add(new PublicHoliday(year, 10, 27, "Deepavali", "Deepavali", countryCode));
-                    break;
-                case 2019:
-                    items.Add(new PublicHoliday(year, 5, 29, "Vesak Day", "Vesak Day", countryCode));
-                    items.Add(new PublicHoliday(year, 6, 15, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-                    items.Add(new PublicHoliday(year, 8, 22, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-                    items.Add(new PublicHoliday(year, 11, 6, "Deepavali", "Deepavali", countryCode));
-                    break;
-                case 2020:
-                    items.Add(new PublicHoliday(year, 5, 7, "Vesak Day", "Vesak Day", countryCode));
-                    items.Add(new PublicHoliday(year, 5, 24, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-                    items.Add(new PublicHoliday(year, 7, 31, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-                    items.Add(new PublicHoliday(year, 11, 14, "Deepavali", "Deepavali", countryCode));
-                    break;
-                case 2021:
-                    items.Add(new PublicHoliday(year, 5, 26, "Vesak Day", "Vesak Day", countryCode));
-                    items.Add(new PublicHoliday(year, 5, 13, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-                    items.Add(new PublicHoliday(year, 7, 20, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-                    items.Add(new PublicHoliday(year, 11, 4, "Deepavali", "Deepavali", countryCode));
-                    break;
-                case 2022:
-                    items.Add(new PublicHoliday(year, 5, 2, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-                    items.Add(new PublicHoliday(year, 5, 15, "Vesak Day", "Vesak Day", countryCode));
-                    items.Add(new PublicHoliday(year, 7, 9, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-                    items.Add(new PublicHoliday(year, 10, 24, "Deepavali", "Deepavali", countryCode));
-                    break;
-                default:
-                    break;
-            }
+
+            //switch (year)
+            //{
+            //    case 2018:
+            //        items.Add(new PublicHoliday(year, 5, 19, "Vesak Day", "Vesak Day", countryCode));
+            //        items.Add(new PublicHoliday(year, 6, 5, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
+            //        items.Add(new PublicHoliday(year, 8, 11, "Hari Raya Haji", "Hari Raya Haji", countryCode));
+            //        items.Add(new PublicHoliday(year, 10, 27, "Deepavali", "Deepavali", countryCode));
+            //        break;
+            //    case 2019:
+            //        items.Add(new PublicHoliday(year, 5, 29, "Vesak Day", "Vesak Day", countryCode));
+            //        items.Add(new PublicHoliday(year, 6, 15, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
+            //        items.Add(new PublicHoliday(year, 8, 22, "Hari Raya Haji", "Hari Raya Haji", countryCode));
+            //        items.Add(new PublicHoliday(year, 11, 6, "Deepavali", "Deepavali", countryCode));
+            //        break;
+            //    case 2020:
+            //        items.Add(new PublicHoliday(year, 5, 7, "Vesak Day", "Vesak Day", countryCode));
+            //        items.Add(new PublicHoliday(year, 5, 24, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
+            //        items.Add(new PublicHoliday(year, 7, 31, "Hari Raya Haji", "Hari Raya Haji", countryCode));
+            //        items.Add(new PublicHoliday(year, 11, 14, "Deepavali", "Deepavali", countryCode));
+            //        break;
+            //    case 2021:
+            //        items.Add(new PublicHoliday(year, 5, 26, "Vesak Day", "Vesak Day", countryCode));
+            //        items.Add(new PublicHoliday(year, 5, 13, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
+            //        items.Add(new PublicHoliday(year, 7, 20, "Hari Raya Haji", "Hari Raya Haji", countryCode));
+            //        items.Add(new PublicHoliday(year, 11, 4, "Deepavali", "Deepavali", countryCode));
+            //        break;
+            //    case 2022:
+            //        items.Add(new PublicHoliday(year, 5, 2, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
+            //        items.Add(new PublicHoliday(year, 5, 15, "Vesak Day", "Vesak Day", countryCode));
+            //        items.Add(new PublicHoliday(year, 7, 9, "Hari Raya Haji", "Hari Raya Haji", countryCode));
+            //        items.Add(new PublicHoliday(year, 10, 24, "Deepavali", "Deepavali", countryCode));
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             return items.OrderBy(o => o.Date);
         }
