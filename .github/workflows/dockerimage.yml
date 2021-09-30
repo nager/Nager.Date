@@ -3,7 +3,7 @@ name: Docker Image CI
 on:
   push:
     paths:
-    - 'Src/**'
+    - 'src/**'
     - '.github/workflows/**'
     branches: [ master ]
 
