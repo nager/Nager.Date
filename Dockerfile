@@ -11,11 +11,11 @@ ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build
 WORKDIR /src
-COPY ["Src/Nager.Date/Nager.Date.csproj", "Nager.Date/"]
+COPY ["src/Nager.Date/Nager.Date.csproj", "Nager.Date/"]
 RUN dotnet restore "Nager.Date/Nager.Date.csproj"
-COPY ["Src/Nager.Date.Website/Nager.Date.Website.csproj", "Nager.Date.Website/"]
+COPY ["src/Nager.Date.Website/Nager.Date.Website.csproj", "Nager.Date.Website/"]
 RUN dotnet restore "Nager.Date.Website/Nager.Date.Website.csproj"
-COPY ./Src/ .
+COPY ./src/ .
 WORKDIR "/src/Nager.Date.Website"
 RUN dotnet build "Nager.Date.Website.csproj" -c Release -o /app/build
 
