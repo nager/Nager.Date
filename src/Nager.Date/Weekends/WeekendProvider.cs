@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -39,15 +39,15 @@ namespace Nager.Date.Weekends
 
         ///<inheritdoc/>
         public bool IsWeekend(DateTime date) =>
-            IsWeekend(date.DayOfWeek);
+            this.IsWeekend(date.DayOfWeek);
 
         ///<inheritdoc/>
         public bool IsWeekend(PublicHoliday publicHoliday) =>
-            IsWeekend(publicHoliday.Date);
+            this.IsWeekend(publicHoliday.Date);
 
         ///<inheritdoc/>
         public bool IsWeekend(DayOfWeek dayOfWeek) =>
-            WeekendDays.Contains(dayOfWeek);
+            this.WeekendDays.Contains(dayOfWeek);
 
         ///<inheritdoc/>
         public DayOfWeek FirstWeekendDay { get; }
