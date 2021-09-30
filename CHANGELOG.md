@@ -12,15 +12,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 
-## [Unreleased 1.29.3] - yyyy-mm-dd
+## [1.30.0] - 2021-09-30
  
 ### Added
-### Changed
-### Deprecated
-### Removed
+- Add Bosnia and Herzegovina
+- Add Singapore
 ### Fixed
 - Fix Netherlands - Holiday Type of Good Friday
 - Fix Chile - Set Battle of Arica only valid in CL-AP
+- Fix Switzerland - Federal Day of Thanksgiving
 
 ## [1.29.2] - 2021-06-21
  

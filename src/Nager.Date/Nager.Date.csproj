@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Tino Hager</Authors>
+    <Company>nager.at</Company>
+    <Description>Calculate Public Holidays / Federal Holidays for a given year, translation native and english. Country and County support. Supports more than 100 countries</Description>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <IncludeSymbols>true</IncludeSymbols>
+
+    <PackageIcon>calendar.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>A changelog is available at https://github.com/nager/Nager.Date/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageProjectUrl>https://date.nager.at</PackageProjectUrl>
+    <PackageTags>Holiday Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday NationalHoliday</PackageTags>
+    
+    <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
+    
+    <TargetFrameworks>net45;netstandard2.0;net5.0</TargetFrameworks>
+
+    <Version>1.30.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="readme.txt" Pack="true" PackagePath="\" />
+    <None Include="..\..\doc\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\doc\Icons\calendar.png" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+  
+</Project>
