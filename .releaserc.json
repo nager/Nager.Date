@@ -1,0 +1,20 @@
+{
+    "branches": [
+        "master"
+    ],
+    "repositoryUrl": "https://github.com/nager/Nager.Date.git",
+    "tagFormat": "${version}",
+    "plugins": [
+       "@semantic-release/commit-analyzer",
+       ["@semantic-release/exec", {
+		"prepareCmd": "sed -i \"s/<Version>.*<\\\/Version>/<Version>${nextRelease.version}<\\\/Version>/g\" src/Nager.Date/Nager.Date.csproj"
+       }],
+       "@semantic-release/release-notes-generator",
+       "@semantic-release/changelog",
+       ["@semantic-release/git", {
+          "assets": ["src/Nager.Date/Nager.Date.csproj", "CHANGELOG.md"],
+          "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
+       }],
+       "@semantic-release/github"
+    ]
+}
