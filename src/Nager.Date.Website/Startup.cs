@@ -11,7 +11,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Nager.Date.Website.Contract;
-using Nager.Date.Website.Models;
 using System;
 using System.IO;
 using System.Reflection;
@@ -46,12 +45,12 @@ namespace Nager.Date.Website
             //load general configuration from appsettings.json
             services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
 
-            //load ip rules from appsettings.json
-            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
+            //load specific IP policies not covered above in "IpRateLimiting" section of config
+            //currently unused - uncomment below if required:
+            //services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
 
             // inject counter and rules stores
-            services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
-            services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+            services.AddInMemoryRateLimiting();
 
             services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
@@ -77,7 +76,7 @@ namespace Nager.Date.Website
             services.AddCors(o => o.AddPolicy("ApiPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
-                       .AllowAnyMethod()
+                       .WithMethods("GET")
                        .AllowAnyHeader();
             }));
 
@@ -137,11 +136,6 @@ namespace Nager.Date.Website
                 app.UseHsts();
             }
 
-            if (enableCors)
-            {
-                app.UseCors("ApiPolicy");
-            }
-
             if (enableIpRateLimiting)
             {
                 app.UseIpRateLimiting();
@@ -180,6 +174,15 @@ namespace Nager.Date.Website
             }
 
             app.UseRouting();
+
+            // please note https://docs.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-5.0
+            // The CORS middleware must be configured to execute between the calls to UseRouting and UseEndpoints.
+            // If adding UseAuthorization and/or UseResponseCaching, calls must also be placed after useCors.
+
+            if (enableCors)
+            {
+                app.UseCors("ApiPolicy");
+            }
 
             if (enableSwaggerMode)
             {
