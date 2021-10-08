@@ -46,8 +46,8 @@ namespace Nager.Date.Website
             services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
 
             //load specific IP policies not covered above in "IpRateLimiting" section of config
-            //currently unused - uncomment below if required:
-            //services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
+            //currently unused
+            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
 
             // inject counter and rules stores
             services.AddInMemoryRateLimiting();
@@ -117,7 +117,7 @@ namespace Nager.Date.Website
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             //Initialize Mapster
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetEntryAssembly());
