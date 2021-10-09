@@ -21,12 +21,12 @@ namespace Nager.Date.IntegrationTests
         public async Task TestNoRateLimitIfLocalhost()
         {
             var appSettings = await GetThrottledIpAppSettings();
-            using var s = await TestConfigHelpers.CreateServer(appSettings, FakeRemoteIP.Localhost);
-            using var c = s.CreateClient();
-            var requests = _testApiPathEndpoints.Select(c.GetAsync).ToArray();
-            await Task.WhenAll(requests);
-            foreach (var r in requests) {
-                r.Result.EnsureSuccessStatusCode();
+            using var server = await TestConfigHelpers.CreateServer(appSettings, FakeRemoteIP.Localhost);
+            using var client = server.CreateClient();
+            foreach (var path in _testApiPathEndpoints)
+            {
+                var res = await client.GetAsync(path);
+                Assert.AreNotEqual(HttpStatusCode.TooManyRequests, res.StatusCode);
             }
         }
 
@@ -37,45 +37,49 @@ namespace Nager.Date.IntegrationTests
             appSettings.IpRateLimiting.IpWhitelist = new List<string> {
                 FakeRemoteIpAddressMiddleware._testNet2IP.ToString()
             };
-            using var s = await TestConfigHelpers.CreateServer(appSettings, FakeRemoteIP.TestNet2);
-            using var c = s.CreateClient();
-            var requests = _testApiPathEndpoints.Select(c.GetAsync).ToArray();
-            await Task.WhenAll(requests);
-            foreach (var r in requests)
+            using var server = await TestConfigHelpers.CreateServer(appSettings, FakeRemoteIP.TestNet2);
+            using var client = server.CreateClient();
+            foreach (var path in _testApiPathEndpoints)
             {
-                r.Result.EnsureSuccessStatusCode();
+                var res = await client.GetAsync(path);
+                Assert.AreNotEqual(HttpStatusCode.TooManyRequests, res.StatusCode);
             }
         }
         [TestMethod]
-        public async Task TestDoesRateLimitNonWhitelist()
+        public async Task TestRateLimitsNonIPWhitelist()
         {
             var appSettings = await GetThrottledIpAppSettings();
-            using var s = await TestConfigHelpers.CreateServer(appSettings, FakeRemoteIP.TestNet2);
-            using var c = s.CreateClient();
-            var requests = _testApiPathEndpoints.Select(c.GetAsync).ToArray();
-            await Task.WhenAll(requests);
-            var tooManyStatusCode = appSettings.IpRateLimiting.HttpStatusCode == default
-                ? HttpStatusCode.TooManyRequests
-                : (HttpStatusCode)appSettings.IpRateLimiting.HttpStatusCode;
-            var responseStatus = requests.Select(r => r.Result.StatusCode).ToList();
-            var expectedStatus = Enumerable.Repeat(tooManyStatusCode, requests.Length - 1).ToList();
-            // 1 request allowed through
-            expectedStatus.Add(HttpStatusCode.OK);
-            CollectionAssert.AreEquivalent(expectedStatus, responseStatus);
+            using var server = await TestConfigHelpers.CreateServer(appSettings, FakeRemoteIP.TestNet2);
+            using var client = server.CreateClient();
+            // 1st request gets through
+            var res = await client.GetAsync(_testApiPathEndpoints[0]);
+            Assert.AreNotEqual(HttpStatusCode.TooManyRequests, res.StatusCode);
+            // subsequent requests do not proceed
+            foreach (var path in _testApiPathEndpoints.Skip(1))
+            {
+                res = await client.GetAsync(path);
+                Assert.AreEqual(HttpStatusCode.TooManyRequests, res.StatusCode);
+            }
+        }
+        [TestMethod]
+        public async Task TestNoRateLimitOnMVCEndPoint()
+        {
+            var appSettings = await GetThrottledIpAppSettings();
+            using var server = await TestConfigHelpers.CreateServer(appSettings, FakeRemoteIP.TestNet2);
+            using var client = server.CreateClient();
             // check our endpoint whitelist works for MVC pages
-            requests = new[] {
+            var mvcEndpoints = new[] {
                 // not currently working for "/" - I'll make a PR and uncomment when
                 // the underlying IpRateLimit package is fixed
                 // "/",
                 "/home/Countries",
-                "/publicholiday/Country/NZ" }.Select(c.GetAsync).ToArray();
-            await Task.WhenAll(requests);
-            foreach (var r in requests)
+                "/publicholiday/Country/NZ" };
+            foreach (var path in mvcEndpoints)
             {
-                r.Result.EnsureSuccessStatusCode();
+                var res = await client.GetAsync(path);
+                Assert.AreNotEqual(HttpStatusCode.TooManyRequests, res.StatusCode);
             }
         }
-
         private static async Task<TestableAppSettings> GetThrottledIpAppSettings()
         {
             var existingAppSettings = await TestConfigHelpers.FromAppSettings();

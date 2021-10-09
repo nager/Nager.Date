@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nager.Date.IntegrationTests", "Nager.Date.IntegrationTests\Nager.Date.IntegrationTests.csproj", "{281DE037-AB0E-4AD0-98F6-C7C95156621B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,18 @@ Global
 		{79A3D247-2618-4D0F-817E-9973E2D8727D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{79A3D247-2618-4D0F-817E-9973E2D8727D}.Release|x86.ActiveCfg = Release|Any CPU
 		{79A3D247-2618-4D0F-817E-9973E2D8727D}.Release|x86.Build.0 = Release|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Debug|x86.Build.0 = Debug|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Release|x86.ActiveCfg = Release|Any CPU
+		{281DE037-AB0E-4AD0-98F6-C7C95156621B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

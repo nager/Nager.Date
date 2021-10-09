@@ -20,15 +20,15 @@ namespace Nager.Date.IntegrationTests
         [TestMethod]
         public async Task TestAllowCors()
         {
-            using var s = await TestConfigHelpers.CreateServer(new TestableAppSettings { EnableCors = true });
-            using var c = s.CreateClient();
-            c.BaseAddress = new System.Uri(FakeOrigin);
-            var res = await c.SendAsync(PreflightGet());
+            using var server = await TestConfigHelpers.CreateServer(new TestableAppSettings { EnableCors = true });
+            using var client = server.CreateClient();
+            client.BaseAddress = new System.Uri(FakeOrigin);
+            var res = await client.SendAsync(PreflightGet());
             const string CorsHeaderKey = "Access-Control-Allow-Origin";
             Assert.IsTrue(res.Headers.Contains(CorsHeaderKey));
             var corsHeaders = res.Headers.GetValues(CorsHeaderKey).ToList();
             Assert.AreEqual(1, corsHeaders.Count);
-            CollectionAssert.Contains(new[] { "*", FakeOrigin }, corsHeaders);
+            CollectionAssert.Contains(new[] { "*", FakeOrigin }, corsHeaders[0]);
         }
 
         private static HttpRequestMessage PreflightGet()
