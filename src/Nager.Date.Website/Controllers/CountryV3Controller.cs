@@ -53,9 +53,9 @@ namespace Nager.Date.Website.Controllers
             return this.StatusCode(StatusCodes.Status200OK, countries);
         }
 
-        private string GetCountryName(CountryCode countrycode)
+        private string GetCountryName(CountryCode countryCode)
         {
-            var country = new Country.CountryProvider().GetCountry(countrycode.ToString());
+            var country = new Country.CountryProvider().GetCountry(countryCode.ToString());
             if (country == null)
             {
                 return string.Empty;

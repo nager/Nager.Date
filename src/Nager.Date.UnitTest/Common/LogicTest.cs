@@ -54,6 +54,28 @@ namespace Nager.Date.UnitTest.Common
 
             isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), CountryCode.AT);
             Assert.AreEqual(true, isPublicHoliday);
+
+            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
+            Assert.AreEqual(true, isPublicHoliday);
+
+            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
+            Assert.AreEqual(true, isPublicHoliday);
+        }
+
+        [TestMethod]
+        public void CheckIsWeekend()
+        {
+            var isPublicHoliday = DateSystem.IsWeekend(new DateTime(2021, 10, 20), CountryCode.AT);
+            Assert.IsFalse(isPublicHoliday);
+
+            isPublicHoliday = DateSystem.IsWeekend(new DateTime(2021, 10, 20), "AT");
+            Assert.IsFalse(isPublicHoliday);
+
+            isPublicHoliday = DateSystem.IsWeekend(new DateTime(2021, 10, 24), CountryCode.AT);
+            Assert.IsTrue(isPublicHoliday);
+
+            isPublicHoliday = DateSystem.IsWeekend(new DateTime(2021, 10, 24), "AT");
+            Assert.IsTrue(isPublicHoliday);
         }
 
         [TestMethod]

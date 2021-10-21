@@ -30,7 +30,7 @@ namespace Nager.Date.Website.Controllers
             [FromRoute][Required] string countryCode,
             [FromRoute][Required] int year)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!DateSystem.ParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 return this.StatusCode(StatusCodes.Status404NotFound);
             }

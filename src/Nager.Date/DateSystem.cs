@@ -15,6 +15,8 @@ namespace Nager.Date
     {
         private const bool IsObsolete2022 = false;
 
+        private const string CountryCodeParsingError = "Country code {0} is not valid according to ISO 3166-1 ALPHA-2";
+
         private static readonly ICatholicProvider _catholicProvider = new CatholicProvider();
         private static readonly IOrthodoxProvider _orthodoxProvider = new OrthodoxProvider();
 
@@ -190,6 +192,21 @@ namespace Nager.Date
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns></returns>
+        public static IPublicHolidayProvider GetPublicHolidayProvider(string countryCode)
+        {
+            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            {
+                throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
+            }
+
+            return GetPublicHolidayProvider(parsedCountryCode);
+        }
+
+        /// <summary>
+        /// GetPublicHolidayProvider
+        /// </summary>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
         public static IPublicHolidayProvider GetPublicHolidayProvider(CountryCode countryCode)
         {
             if (_publicHolidaysProviders.TryGetValue(countryCode, out var provider))
@@ -198,6 +215,21 @@ namespace Nager.Date
             }
 
             return NoHolidaysProvider.Instance;
+        }
+
+        /// <summary>
+        /// GetWeekendProvider
+        /// </summary>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
+        public static IWeekendProvider GetWeekendProvider(string countryCode)
+        {
+            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            {
+                throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
+            }
+
+            return GetWeekendProvider(parsedCountryCode);
         }
 
         /// <summary>
@@ -215,6 +247,17 @@ namespace Nager.Date
             return WeekendProvider.Universal;
         }
 
+        /// <summary>
+        /// Parses given string to find CurrencyCode
+        /// </summary>
+        /// <param name="countryCode"></param>
+        /// <param name="parsedCountryCode"></param>
+        /// <returns></returns>
+        public static bool ParseCountryCode(string countryCode, out CountryCode parsedCountryCode)
+        {
+            return Enum.TryParse(countryCode, true, out parsedCountryCode) && Enum.IsDefined(typeof(CountryCode), parsedCountryCode);
+        }
+
         #region Public Holidays for a given year
 
         /// <summary>
@@ -225,9 +268,9 @@ namespace Nager.Date
         /// <returns></returns>
         public static IEnumerable<PublicHoliday> GetPublicHolidays(int year, string countryCode)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), parsedCountryCode))
+            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
             {
-                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
+                throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
 
             return GetPublicHolidays(year, parsedCountryCode);
@@ -254,9 +297,9 @@ namespace Nager.Date
         [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), parsedCountryCode))
+            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
             {
-                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
+                throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
 
             return GetPublicHolidays(year, parsedCountryCode);
@@ -312,9 +355,9 @@ namespace Nager.Date
         /// <returns></returns>
         public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate, string countryCode)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
             {
-                return null;
+                throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
 
             return GetPublicHolidays(startDate, endDate, parsedCountryCode);
@@ -343,9 +386,9 @@ namespace Nager.Date
         [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, DateTime startDate, DateTime endDate)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
             {
-                return null;
+                throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
 
             return GetPublicHoliday(parsedCountryCode, startDate, endDate);
@@ -446,9 +489,9 @@ namespace Nager.Date
         /// <returns></returns>
         public static bool IsPublicHoliday(DateTime date, string countryCode)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode) || !Enum.IsDefined(typeof(CountryCode), parsedCountryCode))
+            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
             {
-                throw new ArgumentException($"Country code {countryCode} is not valid according to ISO 3166-1 ALPHA-2");
+                throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
 
             return IsPublicHoliday(date, parsedCountryCode);
@@ -515,6 +558,22 @@ namespace Nager.Date
         #endregion
 
         #region Check a date is a Weekend
+
+        /// <summary>
+        /// Check is a give date in the Weekend
+        /// </summary>
+        /// <param name="date">The date to check</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <returns></returns>
+        public static bool IsWeekend(DateTime date, string countryCode)
+        {
+            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            {
+                throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
+            }
+
+            return IsWeekend(date, parsedCountryCode);
+        }
 
         /// <summary>
         /// Check is a give date in the Weekend

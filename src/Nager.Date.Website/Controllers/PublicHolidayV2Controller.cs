@@ -32,7 +32,7 @@ namespace Nager.Date.Website.Controllers
             [FromRoute][Required] int year,
             [FromRoute][Required] string countryCode)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!DateSystem.ParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 return this.StatusCode(StatusCodes.Status404NotFound);
             }
@@ -72,7 +72,7 @@ namespace Nager.Date.Website.Controllers
             [FromQuery] string countyCode,
             [FromQuery][Range(-12, 12)] int offset = 0)
         {
-            if (!Enum.TryParse(countryCode, true, out CountryCode parsedCountryCode))
+            if (!DateSystem.ParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 return this.StatusCode(StatusCodes.Status404NotFound);
             }
@@ -103,12 +103,16 @@ namespace Nager.Date.Website.Controllers
         [Route("NextPublicHolidays/{countryCode}")]
         public ActionResult<IEnumerable<PublicHolidayV2Dto>> NextPublicHolidays([FromRoute][Required] string countryCode)
         {
-            var publicHolidays = DateSystem.GetPublicHolidays(DateTime.Today, DateTime.Today.AddYears(1), countryCode);
-            if (publicHolidays?.Count() > 0)
+            try
             {
-                var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
-                return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV3Dto[]>());
+                var publicHolidays = DateSystem.GetPublicHolidays(DateTime.Today, DateTime.Today.AddYears(1), countryCode);
+                if (publicHolidays?.Count() > 0)
+                {
+                    var items = publicHolidays.Where(o => o.Type.HasFlag(PublicHolidayType.Public));
+                    return this.StatusCode(StatusCodes.Status200OK, items.Adapt<PublicHolidayV3Dto[]>());
+                }
             }
+            catch (Exception) { }
 
             return this.StatusCode(StatusCodes.Status404NotFound);
         }
