@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,9 +36,7 @@ namespace Nager.Date.Website.Middleware
                         await this._next(httpContext);
                         return;
                     }
-                    httpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                    httpContext.Response.ContentType = "text/plain";
-                    await httpContext.Response.WriteAsync("invalid API key");
+                    await WriteErrorAsync(httpContext.Response, "invalid api_key", StatusCodes.Status401Unauthorized);
                     return;
                 }
                 if (httpContext.User.Identity.IsAuthenticated)
@@ -46,7 +45,25 @@ namespace Nager.Date.Website.Middleware
                     await this._next(httpContext);
                     return;
                 }
-                if (httpContext.Session.TryGetDateTime(MvcPageRequestedKey, out var timestamp))
+                if (!httpContext.Request.Headers.TryGetValue("Origin", out var origin))
+                {
+                    if (!httpContext.Request.Headers.TryGetValue("Referer", out origin)) {
+                        await WriteErrorAsync(httpContext.Response,
+                            "Request is missing both Origin and Referer headers");
+                        return;
+                    }
+                }
+                // we could use host to strip out port, however for testing on a localhost
+                // it is easier to send CORS requests from another port and have them treated as CORS requests
+                // of course down side is the port is not going to be constant in every development environment
+                var authority = new Uri(origin.ToString().ToLowerInvariant()).Authority;
+#if DEBUG
+                const string CurrentAuthority = "localhost:44389";
+#else
+                const string CurrentAuthority = "date.nager.at";
+#endif         
+                if (authority == CurrentAuthority &&
+                    httpContext.Session.TryGetDateTime(MvcPageRequestedKey, out var timestamp))
                 {
                     var elapsed = DateTime.UtcNow - timestamp;
                     if (elapsed.Ticks > 0 && elapsed <= this._keepAlive)
@@ -54,19 +71,25 @@ namespace Nager.Date.Website.Middleware
                         await this._next(httpContext);
                         return;
                     }
-                    httpContext.Response.StatusCode = StatusCodes.Status410Gone;
-                    httpContext.Response.ContentType = "text/plain";
-                    await httpContext.Response.WriteAsync("Too much time between page request and API request");
+                    await WriteErrorAsync(httpContext.Response,
+                        "Too much time between page request and subsequent API request",
+                        StatusCodes.Status410Gone);
+                    return;
                 }
-                httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-                httpContext.Response.ContentType = "text/plain";
-                await httpContext.Response.WriteAsync("missing query parameter api_key");
+                await WriteErrorAsync(httpContext.Response,
+                    "missing query parameter api_key",
+                    StatusCodes.Status401Unauthorized);
                 return;
             }
             await this._next(httpContext);
         }
+        private static Task WriteErrorAsync(HttpResponse response, string message, int statusCode = StatusCodes.Status400BadRequest)
+        {
+            response.StatusCode = statusCode;
+            response.ContentType = "text/plain";
+            return response.WriteAsync(message);
+        }
     }
-
     internal static class SessionExtensions
     {
         public static bool TryGetDateTime(this ISession session, string key, out DateTime value)
