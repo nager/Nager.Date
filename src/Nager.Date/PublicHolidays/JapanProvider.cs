@@ -56,7 +56,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(childrensDay, "こどもの日", "Children's Day", countryCode));
             items.Add(new PublicHoliday(thirdMondayInJuly, "海の日", "Marine Day", countryCode));
             items.Add(new PublicHoliday(mountainDay, "山の日", "Mountain Day", countryCode));
-            items.Add(new PublicHoliday(thirdMondayInSeptember, "(敬老の日", "Respect for the Aged Day", countryCode));
+            items.Add(new PublicHoliday(thirdMondayInSeptember, "敬老の日", "Respect for the Aged Day", countryCode));
             //items.Add(new PublicHoliday(this.GetAutumnalEquinox(year), "秋分の日", "Autumnal Equinox Day", countryCode));
             items.Add(new PublicHoliday(secondMondayInOctober, "体育の日", "Health and Sports Day", countryCode));
             items.Add(new PublicHoliday(cultureDay, "文化の日", "Culture Day", countryCode));
