@@ -1,0 +1,70 @@
+﻿@page
+@model Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Internal.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1 >@ViewData["Title"]</h1>
+
+<div class="row">
+  <div class="col-md-7">
+    <section>
+      <h3>Please Read First</h3>
+      <hr />
+      <p>
+        Please register in order to access the
+        @Html.ActionLink("API", "Index", "Api")
+        from an app or another website.
+      </p>
+      <p>
+        After registering and confirming your email,
+        you will be able to log in and view your api_key.
+        You will also be able to view your usage statistics.
+      </p>
+      <p>
+        We may email from time to time with any policy changes or if you are a high volume user (see below).
+        As per our <a href="https://www.nager.at/privacypolicy.html">privacy policy</a>,
+        your email will not be shared or onsold.
+      </p>
+      <p>
+        Please limit API requests to less than 50 per day, per registered user.
+        Please also acknowledge Nager.Date in your consuming app or website.
+        If your use case is likely to exceed 50 requests per day, please either:
+      </p>
+      <ol>
+        <li>
+          Become a <a href="https://github.com/sponsors/nager">sponsor</a> of the project.
+          We are happy to receive many more API requests from sponsors.
+        </li>
+        <li>
+          Host your own instance. A
+          <a href="https://hub.docker.com/r/nagerat/nager-date">docker container</a>
+          is available.
+        </li>
+      </ol>
+    </section>
+  </div>
+  <div class="col-md-4 offset-md-1">
+    <form novalidate asp-route-returnUrl="@Model.ReturnUrl" method="post">
+      <h4>Create a new account.</h4>
+      <hr />
+      <div asp-validation-summary="All" class="text-danger"></div>
+      <div class="form-group">
+        <label asp-for="Input.Email"></label>
+        <input asp-for="Input.Email" class="form-control" autocomplete="email" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Input.Password"></label>
+        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Input.ConfirmPassword"></label>
+        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" />
+        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+</div>

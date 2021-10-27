@@ -1,0 +1,159 @@
+﻿@page "{userId:int?}"
+@model IndexModel
+@{
+  ViewData["Title"] = "User Info";
+  ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h3>@ViewData["Title"]</h3>
+<div class="row">
+  <section class="col-12">
+    <div class="card mt-4">
+      <header class="card-header">
+        API Key:
+        <kbd>@Model.UserDetails.APIKey</kbd>
+      </header>
+      <div class="card-body">
+        <p>Example request:</p>
+        <div class="alert alert-secondary">
+          GET <a href="@Model.ExampleLink">@Model.ExampleUrl</a>
+        </div>
+        <hr />
+        <form method="post" id="reset-key-form">
+          <div class="form-group">
+            <button type="submit" class="btn btn-warning">
+              Reset API Key<sup>*</sup>
+            </button>
+            <div class="text-muted">
+              <sup>*</sup>This cannot be undone and will invalidate the existing key
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="row">
+  <section class="col-md-7">
+    <div class="card mt-4">
+      <header class="card-header">
+        Summary Stats
+      </header>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              Since<sup>*</sup>
+            </th>
+            <th>
+              Hits
+            </th>
+            <th>
+              IPs Used
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (var h in Model.UserDetails.Hits)
+          {
+            <tr>
+              <td>
+                @h.DescribeDaysPrior
+              </td>
+              <td>
+                @h.HitCount
+              </td>
+              <td>
+                @h.DistinctIPCount
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      <div class="card-footer">
+        <small class="text-muted"><sup>*</sup>Taken from UTC midnight</small>
+      </div>
+    </div>
+  </section>
+  <div class="col-md-5">
+    <section class="row">
+      <div class="col-12">
+        <div class="card mt-4">
+          <header class="card-header">
+            Joined
+          </header>
+          <div class="card-body">
+            <p class="card-text">@Model.UserDetails.UserSince</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    @if (Model.UserDetails.PopularDates.Any())
+    {
+      <section class="row">
+        <div class="col-12">
+          <div class="card mt-4">
+            <header class="card-header">
+              Highest Traffic
+            </header>
+            <div class="card-body">
+              <h6 class="card-subtitle">Top @Model.UserDetails.PopularDates.Count Dates</h6>
+              <ol>
+                @foreach (var d in Model.UserDetails.PopularDates)
+                {
+                  <li>
+                    @d.Date
+                    <span class="badge badge-info">@d.HitCount</span>
+                  </li>
+                }
+              </ol>
+              <h6 class="card-subtitle">Top @Model.UserDetails.PopularIPs.Count IP Addresses</h6>
+              <ol>
+                @foreach (var ip in Model.UserDetails.PopularIPs)
+                {
+                  <li>
+                    @ip.IPAddress
+                    <span class="badge badge-info">@ip.HitCount</span>
+                  </li>
+                }
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+  </div>
+</div>
+@section Scripts {
+  <script>
+    document.getElementById("reset-key-form")
+      .addEventListener("submit", function (evt) {
+        if (!confirm("Please confirm you wish to update your API key. This cannot be undone and will require you update to the new key in all apps or websites.")) {
+          evt.preventDefault();
+        }
+      });
+  </script>
+}
+<!--
+
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="col-md-4 offset-md-1">
+  <form id="profile-form" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+      <label asp-for="Username"></label>
+      <input asp-for="Username" class="form-control" disabled />
+    </div>
+    <div class="form-group">
+      <label asp-for="Input.PhoneNumber"></label>
+      <input asp-for="Input.PhoneNumber" class="form-control" />
+      <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+    </div>
+    <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+</div>
+[at]section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}
+  -->

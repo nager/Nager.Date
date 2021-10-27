@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Nager.Country;
 using Nager.Date.Website.Helper;
+using Nager.Date.Website.Middleware;
 using Nager.Date.Website.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Nager.Date.Website.Controllers
     /// <summary>
     /// Home
     /// </summary>
+    [TimestampSession]
     [ApiExplorerSettings(IgnoreApi = true)]
     public class HomeController : Controller
     {

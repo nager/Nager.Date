@@ -1,0 +1,12 @@
+﻿@{
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="container-md">
+  @RenderBody()
+</main>
+
+@section Scripts {
+  <partial name="_ValidationScriptsPartial" />
+  @RenderSection("Scripts", required: false)
+}

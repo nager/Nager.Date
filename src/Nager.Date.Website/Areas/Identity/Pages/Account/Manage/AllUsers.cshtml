@@ -1,0 +1,72 @@
+﻿@page
+@model Nager.Date.Website.Areas.Identity.Pages.Account.Manage.AllUsersModel
+@{
+  ViewData["Title"] = "All Users";
+  ViewData["ActivePage"] = ManageNavPages.AllUsers;
+}
+<h3>
+  @ViewData["Title"]
+</h3>
+<div class="row">
+  <section class="col-12">
+    <div class="card mt-4">
+      <header class="card-header">
+        Activity
+      </header>
+      <div class="card-body" id="all-users-app">
+        <form method="get" class="form-inline">
+          <label for="days-data-required" class="mb-2 mr-sm-2">Over last</label>
+          <div class="input-group mb-2 mr-sm-2">
+            <input type="number" id="days-data-required" name="daysPrior" class="form-control" value="@Model.DaysPrior" step="1" min="1"
+                   style="max-width: 5em;" required>
+            <div class="input-group-append">
+              <span class="input-group-text">Days</span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Update</button>
+        </form>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                Email
+              </th>
+              <th>
+                Joined <i class="far fa-calendar-check"></i>
+              </th>
+              <th>
+                Hits <i class="fas fa-bullseye"></i>
+              </th>
+              <th>
+                <i class="fa fa-info-circle"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach (var u in Model.UsersDetails)
+            {
+              <tr>
+                <td>
+                  <a href="mailto:@u.Email">
+                    @u.Email
+                  </a>
+                </td>
+                <td>
+                  @u.UserSince.ToString("yyyy-MM-dd")
+                </td>
+                <td>
+                  @u.Hits
+                </td>
+                <td>
+                  <a asp-page="./Index" asp-route-userId="@u.Id">
+                    <i class="far fa-user"></i>
+                  </a>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>

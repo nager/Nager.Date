@@ -9,7 +9,7 @@
         <h2>Public Holiday API</h2>
         
         You can use this project direct if you are use .net or alternative you can use the api.<br />
-        If you need many request please host your own api instance a <a href="https://hub.docker.com/r/nagerat/nager-date">docker container</a> is available.<br /><br />
+        If you need many request please host your own api instance. A <a href="https://hub.docker.com/r/nagerat/nager-date">docker container</a> is available.<br /><br />
         <a href="/swagger" class="btn btn-primary">API Documentation</a>
     </div>
 
@@ -17,7 +17,7 @@
 
     <div class="card mt-4">
         <div class="p-4">
-            <a href="/api/v3/PublicHolidays/2017/AT">https://date.nager.at/api/v3/publicholidays/2017/AT</a>
+            <a href="/api/v3/PublicHolidays/2017/AT">https://date.nager.at/api/v3/publicholidays/2017/AT?api_key=0123456789</a>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
         <div class="p-4">
 
             <div class="alert alert-success">
-                <strong>GET</strong> /api/v3/PublicHolidays/{Year}/{CountryCode}
+                <strong>GET</strong> /api/v3/PublicHolidays/{Year}/{CountryCode}?api_key={your-api-key-here}
             </div>
 
             <table class="table" style="background-color:#ffffff;">

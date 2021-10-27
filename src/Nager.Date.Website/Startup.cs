@@ -3,14 +3,21 @@ using Mapster;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
+using Nager.Date.Website.Context;
+using Nager.Date.Website.Context.Entities;
 using Nager.Date.Website.Contract;
+using Nager.Date.Website.Middleware;
+using Nager.Date.Website.Services;
 using System;
 using System.IO;
 using System.Reflection;
@@ -34,6 +41,36 @@ namespace Nager.Date.Website
             #region MappingConfig
 
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
+
+            #endregion
+
+            #region Membership
+            services.AddDbContext<UserContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
+            services.AddDefaultIdentity<RegisteredConsumer>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredUniqueChars = 5;
+                options.Password.RequiredLength = 8;
+            })
+                .AddRoles<IdentityRole<int>>()
+                .AddEntityFrameworkStores<UserContext>();
+
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+            services.AddTransient<IEmailSender, EmailSender>();
+            #endregion
+
+            #region Session
+            // this is used to allow the MVC page to consume the API
+            // whereas cross site requests to the API must register for an api_key
+            var allowApiAccessOptions = Configuration.GetSection("AllowApiAccessOptions");
+            services.Configure<AllowApiAccessOptions>(allowApiAccessOptions);
+            // slight hack here:
+            services.AddAllowApiAccess(allowApiAccessOptions.Get<AllowApiAccessOptions>().APIKeyBypassSeconds);
 
             #endregion
 
@@ -126,9 +163,11 @@ namespace Nager.Date.Website
             var enableIpRateLimiting = Configuration.GetValue<bool>("EnableIpRateLimiting");
             var enableSwaggerMode = Configuration.GetValue<bool>("EnableSwaggerMode");
 
+            app.UseForwardedHeaders();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {
@@ -184,6 +223,11 @@ namespace Nager.Date.Website
                 app.UseCors("ApiPolicy");
             }
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseAllowApiAccess();
+
             if (enableSwaggerMode)
             {
                 app.UseEndpoints(endpoints =>
@@ -198,6 +242,8 @@ namespace Nager.Date.Website
                     endpoints.MapControllerRoute(
                         name: "default",
                         pattern: "{controller=Home}/{action=Index}/{id?}");
+                    // below required for default membership pages
+                    endpoints.MapRazorPages();
                 });
             }
         }
