@@ -41,6 +41,9 @@ namespace Nager.Date.Website.Middleware
                 }
                 if (httpContext.User.Identity.IsAuthenticated)
                 {
+                    // it could be argued that it is only requests with an api_key we wish to track
+                    // however, this would provide a back door into the app for unrestricted use
+                    // plus it is useful on the development server 
                     _ = this._apiKeyLookup.AddHit(httpContext.User, httpContext.Connection.RemoteIpAddress);
                     await this._next(httpContext);
                     return;

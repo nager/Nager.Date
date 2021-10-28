@@ -1,9 +1,10 @@
-﻿[
+[
   {
     "outputFileName": "wwwroot/css/bundle.min.css",
     "inputFiles": [
       "wwwroot/lib/bootstrap/css/bootstrap.css",
       "wwwroot/lib/font-awesome/css/all.css",
+      "wwwroot/images/flags/flags.min.css",
       "wwwroot/css/site.css"
     ]
   }

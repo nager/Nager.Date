@@ -14,11 +14,6 @@
     },
     {
       "provider": "cdnjs",
-      "library": "axios@0.21.0",
-      "destination": "wwwroot/lib/axios/"
-    },
-    {
-      "provider": "cdnjs",
       "library": "moment.js@2.29.1",
       "destination": "wwwroot/lib/moment/"
     },

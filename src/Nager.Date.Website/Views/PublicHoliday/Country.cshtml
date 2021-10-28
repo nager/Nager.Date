@@ -198,7 +198,7 @@
                 return moment(date).toISOString();
             },
             getCountryInfo: function () {
-                axios.get('/Api/v2/CountryInfo?countryCode=@(Model.CountryCode)')
+                getNagerApi('/Api/v2/CountryInfo?countryCode=@(Model.CountryCode)')
                     .then(response => {
                         this.countryInfo = response.data
                     })
@@ -207,7 +207,7 @@
                     });
             },
             getLongWeekends: function () {
-                axios.get('/Api/v2/LongWeekend/@(Model.Year)/@(Model.CountryCode)')
+                getNagerApi('/Api/v2/LongWeekend/@(Model.Year)/@(Model.CountryCode)')
                     .then(response => {
                         this.longWeekends = response.data
                     })
@@ -216,7 +216,7 @@
                     });
             },
             getPublicHolidays: function () {
-                axios.get('/Api/v2/PublicHolidays/@(Model.Year)/@(Model.CountryCode)')
+                getNagerApi('/Api/v2/PublicHolidays/@(Model.Year)/@(Model.CountryCode)')
                     .then(response => {
                         this.publicHolidays = response.data
                     })

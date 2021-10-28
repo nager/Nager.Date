@@ -103,16 +103,6 @@
 
   <script type="text/javascript">
     // moving from axios to fetch because we can instruct fetch to return cookies we can't read with javascript
-    const getApi = async (endPoint) => {
-      const response = await fetch(endPoint, { credentials: 'same-origin' });
-      if (!response.ok) {
-        if (response.bodyUsed) {
-          console.error(await response.text());
-        }
-        throw new Error(response.statusText);
-      }
-      return await response.json();
-    }
     const App = {
       data() {
         return {
@@ -168,26 +158,26 @@
           return moment(date).format('dd L');
         },
         getAvailableCountries: function () {
-          getApi('/Api/v2/AvailableCountries')
+          getNagerApi('/Api/v2/AvailableCountries')
             .then(data => {
               this.availableCountries = data;
             });
         },
         getCountryInfo: function () {
-          getApi('/Api/v2/CountryInfo')
+          getNagerApi('/Api/v2/CountryInfo')
             .then(data => {
               this.countryInfo = data
               this.getNextPublicHolidays();
             });
         },
         getNextPublicHolidays: function () {
-          getApi('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
+          getNagerApi('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
             .then(data => {
               this.publicHolidays = data;
             });
         },
         getNextPublicHolidaysWorldwide: function () {
-          getApi('/Api/v2/NextPublicHolidaysWorldwide')
+          getNagerApi('/Api/v2/NextPublicHolidaysWorldwide')
             .then(data => {
               this.publicHolidaysWorldwide = data;
             });
