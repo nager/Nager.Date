@@ -14,16 +14,18 @@
   <link rel="preload" href="~/css/bundle.min.css" as="style">
   <link rel="stylesheet" href="~/css/bundle.min.css" />
   @*<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
-  <link rel="stylesheet" href="~/images/flags/flags.min.css" />
-  <link rel="stylesheet" href="~/css/site.css" />*@
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/images/flags/flags.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />*@
 
-  <link rel="preload" as="script" href="~/lib/vue/vue.global.prod.js">
-  <link rel="preload" as="script" href="~/lib/moment/moment-with-locales.min.js">
+<environment exclude="Development">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/vue@3.2.20/dist/vue.global.prod.min.js">
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment-with-locales.min.js">
+</environment>
 
   <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 </head>
 <body>
   <nav id="navigation" class="navbar navbar-expand-lg navbar-dark">
@@ -115,13 +117,46 @@
       </div>
     </div>
   </div>
-  <script src="~/js/getNagerApi.js"></script>
-  <script src="~/lib/vue/vue.global.prod.js"></script>
-  <script src="~/lib/moment/moment-with-locales.min.js"></script>
-  <script>
+  <!-- polyfill `nomodule` in Safari 10.1: -->
+  <script type="module">
+    !function (e, t, n) { !("noModule" in (t = e.createElement("script"))) && "onbeforeload" in t && (n = !1, e.addEventListener("beforeload", function (e) { if (e.target === t) n = !0; else if (!e.target.hasAttribute("nomodule") || !n) return; e.preventDefault() }, !0), t.type = "module", t.src = ".", e.head.appendChild(t), t.remove()) }(document)
+  </script>
 
-    const Navigation = {
-      data() {
+  <environment names="Development">
+    <!-- 90+% of browsers: -->
+    <script src="~/lib/vue3/vue.global.js"></script>
+
+    <!-- IE, Edge <16, Safari <10.1, old desktop: -->
+    <script src="~/lib/promise-polyfill/polyfill.js" nomodule></script>
+    <script src="~/lib/whatwg-fetch/dist/fetch.umd.js" nomodule></script>
+    <script src="~/legacy/vue2/vue.js" nomodule></script>
+    <script src="~/js/mountVue2AsVue3.js" nomodule></script>
+  </environment>
+  <environment exclude="Development">
+    <!-- 90+% of browsers: -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.20/dist/vue.global.prod.min.js"></script>
+
+    <!-- IE, Edge <16, Safari <10.1, old desktop: -->
+    <script src="~/js/legacy.bundle.min.js" nomodule></script>
+  </environment>
+
+  <!--All browsers-->
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment-with-locales.min.js"></script>
+  <script>
+    var getNagerApi = function (endPoint) {
+      return fetch(endPoint, { credentials: 'same-origin' }).then(function (response) {
+        if (response.ok) {
+          return response.json();
+        }
+        if (response.bodyUsed) {
+          response.text().then(function (errBody) { console.error(errBody); });
+        }
+        throw new Error(response.statusText);
+      })
+    }
+
+    const navigation = {
+      data: function () {
         return {
           hideNavigation: true
         };
@@ -133,8 +168,7 @@
       }
     };
 
-    Vue.createApp(Navigation).mount('#navigation');
-
+    Vue.createApp(navigation).mount('#navigation');
   </script>
 
   @RenderSection("Scripts", required: false)

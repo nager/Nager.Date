@@ -51,4 +51,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\promise-polyfill\" />
+  </ItemGroup>
+
 </Project>

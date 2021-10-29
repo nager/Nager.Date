@@ -1,5 +1,6 @@
 using CsvHelper;
 using Microsoft.AspNetCore.Mvc;
+using Nager.Date.Website.Middleware;
 using Nager.Date.Website.Models;
 using System;
 using System.Globalization;
@@ -13,6 +14,7 @@ namespace Nager.Date.Website.Controllers
     /// </summary>
     [Route("[controller]")]
     [ApiExplorerSettings(IgnoreApi = true)]
+    [TimestampSession]
     public class PublicHolidayController : Controller
     {
         [Route("Country/{countrycode}/{year}")]

@@ -7,5 +7,14 @@
       "wwwroot/images/flags/flags.min.css",
       "wwwroot/css/site.css"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/legacy.bundle.min.js",
+    "inputFiles": [
+      "wwwroot/lib/promise-polyfill/polyfill.min.js",
+      "wwwroot/lib/whatwg-fetch/dist/fetch.umd.js",
+      "wwwroot/legacy/vue2/vue.min.js",
+      "wwwroot/js/mountVue2AsVue3.js"
+    ]
   }
 ]

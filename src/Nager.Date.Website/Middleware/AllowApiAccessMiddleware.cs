@@ -1,9 +1,10 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,14 +15,15 @@ namespace Nager.Date.Website.Middleware
     {
         private readonly RequestDelegate _next;
         private readonly IApiKeyLookup _apiKeyLookup;
-
+        private readonly bool _isDev;
         private readonly TimeSpan _keepAlive;
 
-        public AllowApiAccessMiddleware(RequestDelegate next, IOptions<AllowApiAccessOptions> options, IApiKeyLookup apiKeyLookup)
+        public AllowApiAccessMiddleware(RequestDelegate next, IOptions<AllowApiAccessOptions> options, IApiKeyLookup apiKeyLookup, IWebHostEnvironment env)
         {
             this._next = next;
             this._apiKeyLookup = apiKeyLookup;
             this._keepAlive = TimeSpan.FromSeconds(options.Value?.APIKeyBypassSeconds ?? 10);
+            this._isDev = env.IsDevelopment();
         }
 
         internal const string MvcPageRequestedKey = "mvc_page_requested";
@@ -60,12 +62,11 @@ namespace Nager.Date.Website.Middleware
                 // it is easier to send CORS requests from another port and have them treated as CORS requests
                 // of course down side is the port is not going to be constant in every development environment
                 var authority = new Uri(origin.ToString().ToLowerInvariant()).Authority;
-#if DEBUG
-                const string CurrentAuthority = "localhost:44389";
-#else
-                const string CurrentAuthority = "date.nager.at";
-#endif         
-                if (authority == CurrentAuthority &&
+                
+                var currentAuthority = this._isDev ? "localhost:44389"
+                                                :"date.nager.at";
+        
+                if (authority == currentAuthority &&
                     httpContext.Session.TryGetDateTime(MvcPageRequestedKey, out var timestamp))
                 {
                     var elapsed = DateTime.UtcNow - timestamp;

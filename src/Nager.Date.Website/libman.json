@@ -4,13 +4,13 @@
   "libraries": [
     {
       "provider": "cdnjs",
-      "library": "twitter-bootstrap@4.5.3",
+      "library": "twitter-bootstrap@4.6.0",
       "destination": "wwwroot/lib/bootstrap/"
     },
     {
       "provider": "cdnjs",
-      "library": "vue@3.0.2",
-      "destination": "wwwroot/lib/vue/"
+      "library": "vue@3.2.20",
+      "destination": "wwwroot/lib/vue3/"
     },
     {
       "provider": "cdnjs",
@@ -19,8 +19,18 @@
     },
     {
       "provider": "cdnjs",
-      "library": "font-awesome@5.15.1",
+      "library": "font-awesome@5.15.4",
       "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "promise-polyfill@8.2.1",
+      "destination": "wwwroot/lib/promise-polyfill/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "whatwg-fetch@3.6.2",
+      "destination": "wwwroot/lib/whatwg-fetch/"
     }
   ]
 }

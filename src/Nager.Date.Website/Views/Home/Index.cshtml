@@ -32,7 +32,7 @@
             <div class="pre-scrollable">
               <table class="table" v-if="filteredCountries.length > 0">
                 <tr v-for="item in filteredCountries">
-                  <td class="pl-4"><a :href="`/PublicHoliday/Country/${item.key}`">{{ item.value }} ({{ item.key }})</a></td>
+                  <td class="pl-4"><a :href="'/PublicHoliday/Country/'+item.key">{{ item.value }} ({{ item.key }})</a></td>
                 </tr>
               </table>
               <div v-else class="p-3">
@@ -61,7 +61,7 @@
                   <td>{{ inDays(item.date) }}</td>
                   <td>{{ shortLocalDate(item.date) }}</td>
                   <td>{{ item.name }}</td>
-                  <td><a :href="`/PublicHoliday/Country/${item.countryCode}`">{{ item.countryCode }}</a></td>
+                  <td><a :href="'/PublicHoliday/Country/'+item.countryCode">{{ item.countryCode }}</a></td>
                 </tr>
               </tbody>
             </table>
@@ -102,9 +102,8 @@
 @section scripts {
 
   <script type="text/javascript">
-    // moving from axios to fetch because we can instruct fetch to return cookies we can't read with javascript
-    const App = {
-      data() {
+    const app = {
+      data: function() {
         return {
           countryInfo: null,
           availableCountries: null,
@@ -120,18 +119,17 @@
           }
 
           let search = this.search.toLowerCase();
-          let filteredItems = this.availableCountries.filter(o => o.value.toLowerCase().includes(search) || o.key.toLowerCase().includes(search));
-
+          let filteredItems = this.availableCountries.filter(function (o) { return o.value.toLowerCase().includes(search) || o.key.toLowerCase().includes(search); });
           return filteredItems;
         }
       },
-      mounted() {
+      mounted: function() {
         this.getAvailableCountries();
         this.getCountryInfo();
         this.getNextPublicHolidaysWorldwide();
       },
-      created() {
-        var locale = window.navigator.userLanguage || window.navigator.language;
+      created: function() {
+        const locale = window.navigator.userLanguage || window.navigator.language;
         moment.locale(locale);
       },
       methods: {
@@ -158,34 +156,38 @@
           return moment(date).format('dd L');
         },
         getAvailableCountries: function () {
+          const vm = this;
           getNagerApi('/Api/v2/AvailableCountries')
-            .then(data => {
-              this.availableCountries = data;
+            .then(function(data) {
+              vm.availableCountries = data;
             });
         },
         getCountryInfo: function () {
+          const vm = this;
           getNagerApi('/Api/v2/CountryInfo')
-            .then(data => {
-              this.countryInfo = data
-              this.getNextPublicHolidays();
+            .then(function(data) {
+              vm.countryInfo = data
+              vm.getNextPublicHolidays();
             });
         },
         getNextPublicHolidays: function () {
+          const vm = this;
           getNagerApi('/Api/v2/NextPublicHolidays/' + this.countryInfo.countryCode)
-            .then(data => {
-              this.publicHolidays = data;
+            .then(function(data) {
+              vm.publicHolidays = data;
             });
         },
         getNextPublicHolidaysWorldwide: function () {
+          const vm = this;
           getNagerApi('/Api/v2/NextPublicHolidaysWorldwide')
-            .then(data => {
-              this.publicHolidaysWorldwide = data;
+            .then(function(data) {
+              vm.publicHolidaysWorldwide = data;
             });
         }
       }
     };
 
-    Vue.createApp(App).mount('#app');
+    Vue.createApp(app).mount('#app');
 
   </script>
 }
