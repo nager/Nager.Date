@@ -86,7 +86,7 @@ namespace Nager.Date.PublicHolidays
 
         #endregion
 
-            #region Regional Aniversary Days
+            #region Regional Anniversary Days
             // https://www.employment.govt.nz/leave-and-holidays/public-holidays/public-holidays-and-anniversary-dates/
             var auckl = new DateTime(year, 1, 29).ShiftToClosest(DayOfWeek.Monday);
             items.Add(new PublicHoliday(auckl, "Auckland/Northland Anniversary Day", "Auckland Anniversary Day", countryCode, counties: new[] { "NZ-AUK", "NZ-NTL", "NZ-MWT", "NZ-WKO", "NZ-GIS", "NZ-BOP", "NZ-HKB" }));
