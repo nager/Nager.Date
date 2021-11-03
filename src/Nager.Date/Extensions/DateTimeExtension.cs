@@ -123,12 +123,18 @@ namespace Nager.Date.Extensions
 
             return value;
         }
+        /// <summary>
+        /// Find the closest matching day of the week (before or after a given date)
+        /// </summary>
+        /// <param name="value">The starting date</param>
+        /// <param name="targetDayOfWeek">The day of the week the date is shifted to</param>
+        /// <returns>A Date which will be a maximum of 3 days before or after the starting date, having the specified day of the week</returns>
         public static DateTime ShiftToClosest(this DateTime value, DayOfWeek targetDayOfWeek)
         {
-            var daysDif = targetDayOfWeek - value.DayOfWeek;
-            if (daysDif < -3) { daysDif += 7; }
-            else if (daysDif > 3) { daysDif -= 7;  }
-            return value.AddDays(daysDif);
+            var daysDifference = targetDayOfWeek - value.DayOfWeek;
+            if (daysDifference < -3) { daysDifference += 7; }
+            else if (daysDifference > 3) { daysDifference -= 7;  }
+            return value.AddDays(daysDifference);
         }
     }
 }
