@@ -127,6 +127,7 @@ namespace Nager.Date.Extensions
         {
             var daysDif = targetDayOfWeek - value.DayOfWeek;
             if (daysDif < -3) { daysDif += 7; }
+            else if (daysDif > 3) { daysDif -= 7;  }
             return value.AddDays(daysDif);
         }
     }
