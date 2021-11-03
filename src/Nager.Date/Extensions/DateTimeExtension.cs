@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Nager.Date.Extensions
 {
@@ -122,6 +122,12 @@ namespace Nager.Date.Extensions
             }
 
             return value;
+        }
+        public static DateTime ShiftToClosest(this DateTime value, DayOfWeek targetDayOfWeek)
+        {
+            var daysDif = targetDayOfWeek - value.DayOfWeek;
+            if (daysDif < -3) { daysDif += 7; }
+            return value.AddDays(daysDif);
         }
     }
 }
