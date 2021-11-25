@@ -1,4 +1,3 @@
-using AspNetCoreRateLimit;
 using Mapster;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +10,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Nager.Date.Website.Contract;
-using Nager.Date.Website.Models;
 using System;
 using System.IO;
 using System.Reflection;
@@ -27,33 +25,12 @@ namespace Nager.Date.Website
 
         public IConfiguration Configuration { get; }
 
-
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             #region MappingConfig
 
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
-
-            #endregion
-
-            #region IpRateLimit
-
-            services.AddOptions();
-            services.AddMemoryCache();
-
-            //load general configuration from appsettings.json
-            services.Configure<IpRateLimitOptions>(Configuration.GetSection("IpRateLimiting"));
-
-            //load ip rules from appsettings.json
-            services.Configure<IpRateLimitPolicies>(Configuration.GetSection("IpRateLimitPolicies"));
-
-            // inject counter and rules stores
-            services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
-            services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
-
-            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
             #endregion
 
@@ -123,8 +100,6 @@ namespace Nager.Date.Website
             //Initialize Mapster
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetEntryAssembly());
 
-            var enableCors = Configuration.GetValue<bool>("EnableCors");
-            var enableIpRateLimiting = Configuration.GetValue<bool>("EnableIpRateLimiting");
             var enableSwaggerMode = Configuration.GetValue<bool>("EnableSwaggerMode");
 
             if (env.IsDevelopment())
@@ -134,18 +109,9 @@ namespace Nager.Date.Website
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
             }
 
-            if (enableCors)
-            {
-                app.UseCors("ApiPolicy");
-            }
-
-            if (enableIpRateLimiting)
-            {
-                app.UseIpRateLimiting();
-            }
+            app.UseCors("ApiPolicy");
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -157,11 +123,6 @@ namespace Nager.Date.Website
                     c.RoutePrefix = string.Empty;
                 }
             });
-
-            if (!enableSwaggerMode)
-            {
-                app.UseHttpsRedirection();
-            }
 
             app.UseResponseCompression();
 

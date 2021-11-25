@@ -26,9 +26,7 @@ PM> install-package Nager.Date
   - If you need more as 50 requests per day please use your own private api (docker).
 - **self-hosted** use your own api, docker container available on [dockerhub](https://hub.docker.com/r/nager/nager-date)
   - To run a local instance of the docker image run the following command<br>
-  `docker run -e "EnableCors=true" -e "EnableIpRateLimiting=false" -e "EnableSwaggerMode=true" -p 80:80 nager/nager-date`
-    - `EnableCors=true` activate CORS support
-    - `EnableIpRateLimiting=false` disable IpRateLimiting
+  `docker run -e "EnableSwaggerMode=true" -p 80:80 nager/nager-date`
     - `EnableSwaggerMode=true` activate Swagger UI as start page
     - `-p 80:80` publish the port 80 from the docker to your host.
 
