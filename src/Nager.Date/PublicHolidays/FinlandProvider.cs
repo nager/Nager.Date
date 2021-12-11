@@ -36,7 +36,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 6, "Loppiainen", "Epiphany", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Pitkäperjantai", year, countryCode));
             items.Add(this._catholicProvider.EasterSunday("Pääsiäispäivä", year, countryCode));
-            items.Add(this._catholicProvider.EasterMonday("2. pääsiäispäivä", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Toinen pääsiäispäivä", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Vappu", "May Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Helatorstai", year, countryCode));
             items.Add(this._catholicProvider.Pentecost("Helluntaipäivä", year, countryCode));
@@ -46,7 +46,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 6, "Itsenäisyyspäivä", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Jouluaatto", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Joulupäivä", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "2. joulupäivä", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "Tapaninpäivä", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }
