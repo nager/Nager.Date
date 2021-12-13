@@ -123,7 +123,7 @@
                 <div class="mb-2">
                     <div v-for="border in countryInfo.borders" class="d-inline-block text-center ml-2 mb-2" style="width:140px;">
                         <a :href="`/PublicHoliday/Country/${border.countryCode}`" class="d-block">
-                            <img :src="`/images/circle-flags/flags/${border.countryCode}.svg`" width="60" height="60" :alt="border.countryCode" :title="border.countryCode" />
+                            <img :src="`/images/circle-flags/flags/${border.countryCode.toLowerCase()}.svg`" width="60" height="60" :alt="border.countryCode" :title="border.countryCode" />
                         </a>
                         <a :href="`/PublicHoliday/Country/${border.countryCode}`">{{ border.commonName }}</a>
                     </div>
