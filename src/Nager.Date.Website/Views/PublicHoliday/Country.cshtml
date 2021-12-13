@@ -101,7 +101,7 @@
                                 <td v-for="day in getDates(longWeekend.startDate, longWeekend.endDate)" class="day">
                                     <span class="d-block" :style="isSunday(day) ? 'color:red; font-weight:bold;' : ''">{{ onlyDayName(day) }}</span>
                                     <strong>{{ onlyDayNumber(day) }}</strong><br />
-                                    <span class="d-sm-none d-block">{{ day | onlyMonthName }}</span>
+                                    <span class="d-sm-none d-block">{{ onlyMonthName(day) }}</span>
                                 </td>
                                 <td class="d-none d-sm-table-cell info-end">{{ monthNameWithDay(longWeekend.endDate) }}</td>
                             </tr>
