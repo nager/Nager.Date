@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Bosnia and Herzegovina
     /// </summary>
-    public class BosniaAndHerzegovinaProvider : IPublicHolidayProvider
+    public class BosniaAndHerzegovinaProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
 
@@ -53,7 +53,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._orthodoxProvider.GoodFriday("Veliki petak", year, countryCode).SetCounties("BA-RS"));
             items.Add(this._orthodoxProvider.EasterSunday("Vaskrs (Uskrs)", year, countryCode).SetCounties("BA-RS"));
             items.Add(this._orthodoxProvider.EasterMonday("Vaskrsni (Uskrsni) ponedeljak", year, countryCode).SetCounties("BA-RS"));
-            
+
 
             return items.OrderBy(o => o.Date);
         }
