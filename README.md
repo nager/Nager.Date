@@ -1,5 +1,4 @@
 ![Build status](https://github.com/nager/Nager.Date/actions/workflows/dotnet.yml/badge.svg)
-[![Build status](https://github.com/nager/Nager.Date/actions/workflows/dockerimage.yml/badge.svg)](https://hub.docker.com/r/nager/nager-date)
 
 # :calendar: Nager.Date - [Official Website](https://date.nager.at)
 
