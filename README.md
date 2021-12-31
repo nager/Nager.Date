@@ -8,7 +8,7 @@ Nager.Date is open source software and is completely free for commercial use. If
 
 ## Country Support
 
-The list of supported countries can be found [here](https://date.nager.at/Home/RegionStatistic).
+The list of supported countries can be found [here](https://date.nager.at/Country/Coverage).
 
 ## How can I use it?
 
