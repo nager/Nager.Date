@@ -12,6 +12,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 ### Fixed
 
+
+## [1.31.0] - 2022-01-02
+ 
+### Changed
+- Change Access Modifier of NoHolidaysProvider to check the country is supported
+
 ## [1.30.0] - 2021-09-30
  
 ### Added
