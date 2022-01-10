@@ -76,6 +76,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thirdMondayInAugust, "Gold Cup Parade Day", "Gold Cup Parade Day", countryCode, null, new string[] { "CA-PE" }));
             items.Add(new PublicHoliday(thirdMondayInAugust, "Discovery Day", "Discovery Day", countryCode, null, new string[] { "CA-YT" }));
             items.Add(new PublicHoliday(firstMondayInSeptember, "Labour Day", "Labour Day", countryCode));
+            items.Add(new PublicHoliday(year, 9, 30, "National Day for Truth and Reconciliation", "National Day for Truth and Reconciliation", countryCode));
             items.Add(new PublicHoliday(secondMondayInOctober, "Thanksgiving", "Thanksgiving", countryCode));
             items.Add(new PublicHoliday(year, 11, 11, "Armistice Day", "Armistice Day", countryCode, null, new string[] { "CA-NL" }));
             items.Add(new PublicHoliday(year, 11, 11, "Remembrance Day", "Remembrance Day", countryCode, null, new string[] { "CA-AB", "CA-BC", "CA-NB", "CA-NT", "CA-NS", "CA-NU", "CA-PE", "CA-SK", "CA-YT" }));
@@ -130,6 +131,7 @@ namespace Nager.Date.PublicHolidays
             return new string[]
             {
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Canada",
+                "https://www.canada.ca/en/department-national-defence/maple-leaf/defence/2021/07/federal-statutory-holiday-national-day-for-truth-and-reconciliation.html"
             };
         }
     }
