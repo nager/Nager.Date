@@ -27,7 +27,7 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.US;
 
-            var thirdMondayInJanuar = DateSystem.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Third);
+            var thirdMondayInJanuary = DateSystem.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Third);
             var thirdMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
             var lastMondayInMay = DateSystem.FindLastDay(year, Month.May, DayOfWeek.Monday);
             var firstMondayInSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.First);
@@ -43,7 +43,7 @@ namespace Nager.Date.PublicHolidays
 
             #endregion
 
-            items.Add(new PublicHoliday(thirdMondayInJanuar, "Martin Luther King, Jr. Day", "Martin Luther King, Jr. Day", countryCode));
+            items.Add(new PublicHoliday(thirdMondayInJanuary, "Martin Luther King, Jr. Day", "Martin Luther King, Jr. Day", countryCode));
             items.Add(new PublicHoliday(thirdMondayInFebruary, "Presidents Day", "Washington's Birthday", countryCode));
             items.Add(new PublicHoliday(lastMondayInMay, "Memorial Day", "Memorial Day", countryCode));
 
