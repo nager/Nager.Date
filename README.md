@@ -1,5 +1,4 @@
 ![Build status](https://github.com/nager/Nager.Date/actions/workflows/dotnet.yml/badge.svg)
-[![Build status](https://github.com/nager/Nager.Date/actions/workflows/dockerimage.yml/badge.svg)](https://hub.docker.com/r/nager/nager-date)
 
 # :calendar: Nager.Date - [Official Website](https://date.nager.at)
 
@@ -9,7 +8,7 @@ Nager.Date is open source software and is completely free for commercial use. If
 
 ## Country Support
 
-The list of supported countries can be found [here](https://date.nager.at/Home/RegionStatistic).
+The list of supported countries can be found [here](https://date.nager.at/Country/Coverage).
 
 ## How can I use it?
 
@@ -26,10 +25,7 @@ PM> install-package Nager.Date
   - If you need more as 50 requests per day please use your own private api (docker).
 - **self-hosted** use your own api, docker container available on [dockerhub](https://hub.docker.com/r/nager/nager-date)
   - To run a local instance of the docker image run the following command<br>
-  `docker run -e "EnableCors=true" -e "EnableIpRateLimiting=false" -e "EnableSwaggerMode=true" -p 80:80 nager/nager-date`
-    - `EnableCors=true` activate CORS support
-    - `EnableIpRateLimiting=false` disable IpRateLimiting
-    - `EnableSwaggerMode=true` activate Swagger UI as start page
+  `docker run -p 80:80 nager/nager-date`
     - `-p 80:80` publish the port 80 from the docker to your host.
 
 #### Generate a client for the web api

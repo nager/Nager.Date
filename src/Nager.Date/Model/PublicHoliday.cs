@@ -1,9 +1,8 @@
+using Nager.Date.Extensions;
 using System;
 
 namespace Nager.Date.Model
 {
-    using Extensions;
-
     /// <summary>
     /// Public Holiday
     /// </summary>
