@@ -100,7 +100,7 @@ namespace Nager.Date.Model
         /// <summary>
         /// Date and Name of the PublicHoliday
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Public holiday info formated</returns>
         public override string ToString()
         {
             return $"{this.Date:yyyy-MM-dd} {this.Name}";

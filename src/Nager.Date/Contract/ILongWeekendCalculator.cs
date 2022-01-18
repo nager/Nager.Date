@@ -1,4 +1,4 @@
-﻿using Nager.Date.Model;
+using Nager.Date.Model;
 using System.Collections.Generic;
 
 namespace Nager.Date.Contract
@@ -12,7 +12,7 @@ namespace Nager.Date.Contract
         /// Calculate Long weekends
         /// </summary>
         /// <param name="publicHolidays"></param>
-        /// <returns></returns>
+        /// <returns>Set of long weekends for given public holidays</returns>
         IEnumerable<LongWeekend> Calculate(IEnumerable<PublicHoliday> publicHolidays);
     }
 }

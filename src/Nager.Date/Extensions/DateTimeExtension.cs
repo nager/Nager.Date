@@ -12,7 +12,7 @@ namespace Nager.Date.Extensions
         /// </summary>
         /// <param name="dateTime">The date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>True if given date is in the weekend in given country, false otherwise</returns>
         public static bool IsWeekend(this DateTime dateTime, CountryCode countryCode)
         {
             var provider = DateSystem.GetWeekendProvider(countryCode);
@@ -26,7 +26,7 @@ namespace Nager.Date.Extensions
         /// <param name="saturday">shift for Saturday</param>
         /// <param name="sunday">shift for Sunday</param>
         /// <param name="monday">shift for Monday</param>
-        /// <returns></returns>
+        /// <returns>Shifted date</returns>
         public static DateTime Shift(this DateTime value, Func<DateTime, DateTime> saturday, Func<DateTime, DateTime> sunday, Func<DateTime, DateTime> monday = null)
         {
             switch (value.DayOfWeek)
@@ -57,7 +57,7 @@ namespace Nager.Date.Extensions
         /// <param name="value">The date</param>
         /// <param name="dayOfWeek">Weekday</param>
         /// <param name="shift"></param>
-        /// <returns></returns>
+        /// <returns>Shifted date</returns>
         public static DateTime Shift(this DateTime value, DayOfWeek dayOfWeek, Func<DateTime, DateTime> shift)
         {
             if (shift != null && value.DayOfWeek == dayOfWeek)
@@ -77,7 +77,7 @@ namespace Nager.Date.Extensions
         /// <param name="wednesday"></param>
         /// <param name="thursday"></param>
         /// <param name="friday"></param>
-        /// <returns></returns>
+        /// <returns>Shifted date</returns>
         public static DateTime ShiftWeekdays(this DateTime value, Func<DateTime, DateTime> monday = null, Func<DateTime, DateTime> tuesday = null, Func<DateTime, DateTime> wednesday = null, Func<DateTime, DateTime> thursday = null, Func<DateTime, DateTime> friday = null)
         {
             switch (value.DayOfWeek)
