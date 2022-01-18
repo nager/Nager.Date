@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Nager.Date.Model
 {
@@ -28,7 +28,7 @@ namespace Nager.Date.Model
         /// <summary>
         /// ToString - StartDate EndDate and DayCount
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Long weekend info formated</returns>
         public override string ToString()
         {
             return $"{this.StartDate} - {this.EndDate} ({this.DayCount})";

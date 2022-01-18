@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Nager.Date.Contract
 {
@@ -10,7 +10,7 @@ namespace Nager.Date.Contract
         /// <summary>
         /// Get Counties
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Set of counties</returns>
         IDictionary<string, string> GetCounties();
     }
 }

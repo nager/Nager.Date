@@ -25,7 +25,7 @@ namespace Nager.Date.Contract
         /// Calculate long weekends
         /// </summary>
         /// <param name="publicHolidays"></param>
-        /// <returns></returns>
+        /// <returns>Set of long weekends for given set of public holidays</returns>
         public IEnumerable<LongWeekend> Calculate(IEnumerable<PublicHoliday> publicHolidays)
         {
             var filteredPublicHolidays = publicHolidays.Where(o => o.Global && o.Type == PublicHolidayType.Public);

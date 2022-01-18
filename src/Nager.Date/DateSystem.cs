@@ -180,7 +180,6 @@ namespace Nager.Date
         /// Get Provider
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
         [Obsolete("Please use GetPublicHolidayProvider instead", error: true)]
         public static IPublicHolidayProvider GetProvider(CountryCode countryCode)
         {
@@ -191,7 +190,8 @@ namespace Nager.Date
         /// GetPublicHolidayProvider
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Public holiday provider for given country</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static IPublicHolidayProvider GetPublicHolidayProvider(string countryCode)
         {
             if (!ParseCountryCode(countryCode, out var parsedCountryCode))
@@ -206,7 +206,7 @@ namespace Nager.Date
         /// GetPublicHolidayProvider
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Public holiday provider for given country</returns>
         public static IPublicHolidayProvider GetPublicHolidayProvider(CountryCode countryCode)
         {
             if (_publicHolidaysProviders.TryGetValue(countryCode, out var provider))
@@ -221,7 +221,8 @@ namespace Nager.Date
         /// GetWeekendProvider
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Specialized weekend provider for country if exists, universal weekend provider otherwise</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static IWeekendProvider GetWeekendProvider(string countryCode)
         {
             if (!ParseCountryCode(countryCode, out var parsedCountryCode))
@@ -236,7 +237,7 @@ namespace Nager.Date
         /// GetWeekendProvider
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Specialized weekend provider for country if exists, universal weekend provider otherwise</returns>
         public static IWeekendProvider GetWeekendProvider(CountryCode countryCode)
         {
             if (_nonUniversalWeekendProviders.TryGetValue(countryCode, out var provider))
@@ -252,7 +253,10 @@ namespace Nager.Date
         /// </summary>
         /// <param name="countryCode"></param>
         /// <param name="parsedCountryCode"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// True for existing country code, false for non existent.
+        /// Parsed country code is returned in out parameter.
+        /// </returns>
         public static bool ParseCountryCode(string countryCode, out CountryCode parsedCountryCode)
         {
             return Enum.TryParse(countryCode, true, out parsedCountryCode) && Enum.IsDefined(typeof(CountryCode), parsedCountryCode);
@@ -265,7 +269,8 @@ namespace Nager.Date
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Set of public holidays for given country and year</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static IEnumerable<PublicHoliday> GetPublicHolidays(int year, string countryCode)
         {
             if (!ParseCountryCode(countryCode, out var parsedCountryCode))
@@ -281,7 +286,6 @@ namespace Nager.Date
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
         [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, string countryCode)
         {
@@ -293,7 +297,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="year">The year</param>
-        /// <returns></returns>
+        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, int year)
         {
@@ -310,7 +314,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Set of public holidays for given country and year</returns>
         public static IEnumerable<PublicHoliday> GetPublicHolidays(int year, CountryCode countryCode)
         {
             var provider = GetPublicHolidayProvider(countryCode);
@@ -322,7 +326,6 @@ namespace Nager.Date
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
         [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(int year, CountryCode countryCode)
         {
@@ -334,7 +337,6 @@ namespace Nager.Date
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="year">The year</param>
-        /// <returns></returns>
         [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, int year)
         {
@@ -352,7 +354,8 @@ namespace Nager.Date
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Set of public holidays for given country and date range</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate, string countryCode)
         {
             if (!ParseCountryCode(countryCode, out var parsedCountryCode))
@@ -369,7 +372,6 @@ namespace Nager.Date
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
         [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(DateTime startDate, DateTime endDate, string countryCode)
         {
@@ -382,7 +384,7 @@ namespace Nager.Date
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
-        /// <returns></returns>
+        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(string countryCode, DateTime startDate, DateTime endDate)
         {
@@ -400,7 +402,8 @@ namespace Nager.Date
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Set of public holidays for given country and date range</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given end date is before given start date</exception>
         public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate, CountryCode countryCode)
         {
             if (startDate > endDate)
@@ -431,7 +434,6 @@ namespace Nager.Date
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
         [Obsolete("Use GetPublicHolidays instead", IsObsolete2022)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(DateTime startDate, DateTime endDate, CountryCode countryCode)
         {
@@ -444,7 +446,6 @@ namespace Nager.Date
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
-        /// <returns></returns>
         [Obsolete("Use GetPublicHoliday instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<PublicHoliday> GetPublicHoliday(CountryCode countryCode, DateTime startDate, DateTime endDate)
         {
@@ -456,7 +457,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
-        /// <returns></returns>
+        /// <returns>Set of public holidays for date range</returns>
         public static IEnumerable<PublicHoliday> GetPublicHolidays(DateTime startDate, DateTime endDate)
         {
             var items = new List<PublicHoliday>();
@@ -486,7 +487,8 @@ namespace Nager.Date
         /// </summary>
         /// <param name="date">The date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>True if given date is public holiday in given country, false otherwise</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static bool IsPublicHoliday(DateTime date, string countryCode)
         {
             if (!ParseCountryCode(countryCode, out var parsedCountryCode))
@@ -502,7 +504,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="date">The date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>True if given date is public holiday in given country, false otherwise</returns>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetPublicHolidays(date.Year, countryCode);
@@ -515,7 +517,10 @@ namespace Nager.Date
         /// <param name="date">The date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="publicHolidays">if available the public holidays on this date</param>
-        /// <returns></returns>
+        /// <returns>
+        /// True if given date is public holiday in given country, false otherwise.
+        /// Set of public holidays for given day is returned in out parameter.
+        /// </returns>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, out PublicHoliday[] publicHolidays)
         {
             var items = GetPublicHolidays(date.Year, countryCode);
@@ -529,7 +534,8 @@ namespace Nager.Date
         /// <param name="date">The date to check</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="countyCode">Federal state</param>
-        /// <returns></returns>
+        /// <returns>True if given date is public holiday in given country and county, false otherwise</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given county code is not recognized valid</exception>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, string countyCode)
         {
             var provider = GetPublicHolidayProvider(countryCode);
@@ -548,7 +554,6 @@ namespace Nager.Date
         /// <param name="date">The date to check</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="countyCode">Federal state</param>
-        /// <returns></returns>
         [Obsolete("Use IsPublicHoliday instead", error: true)]
         public static bool IsOfficialPublicHolidayByCounty(DateTime date, CountryCode countryCode, string countyCode)
         {
@@ -564,7 +569,8 @@ namespace Nager.Date
         /// </summary>
         /// <param name="date">The date to check</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>True if given date is weekend in given country, false otherwise</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static bool IsWeekend(DateTime date, string countryCode)
         {
             if (!ParseCountryCode(countryCode, out var parsedCountryCode))
@@ -580,7 +586,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="date">The date to check</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>True if given date is weekend in given country, false otherwise</returns>
         public static bool IsWeekend(DateTime date, CountryCode countryCode)
         {
             var provider = GetWeekendProvider(countryCode);
@@ -597,7 +603,7 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
         /// <param name="day">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindLastDay(int year, Month month, DayOfWeek day)
         {
             return FindLastDay(year, (int)month, day);
@@ -609,7 +615,7 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
         /// <param name="day">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindLastDay(int year, int month, DayOfWeek day)
         {
             var resultedDay = FindDay(year, month, day, 5);
@@ -628,7 +634,7 @@ namespace Nager.Date
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
         /// <param name="dayOfWeek">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDay(int year, Month month, int day, DayOfWeek dayOfWeek)
         {
             return FindDay(year, (int)month, day, dayOfWeek);
@@ -641,7 +647,7 @@ namespace Nager.Date
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
         /// <param name="dayOfWeek">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDay(int year, int month, int day, DayOfWeek dayOfWeek)
         {
             return FindDay(new DateTime(year, month, day), dayOfWeek);
@@ -652,7 +658,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="date">The search date</param>
         /// <param name="dayOfWeek">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDay(DateTime date, DayOfWeek dayOfWeek)
         {
             var daysNeeded = (int)dayOfWeek - (int)date.DayOfWeek;
@@ -675,7 +681,7 @@ namespace Nager.Date
         /// <param name="monthEnd">The end month</param>
         /// <param name="dayEnd">The end day</param>
         /// <param name="dayOfWeek">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDayBetween(int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd, DayOfWeek dayOfWeek)
         {
             var startDay = new DateTime(yearStart, monthStart, dayStart);
@@ -700,7 +706,7 @@ namespace Nager.Date
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
         /// <param name="dayOfWeek">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
         {
             return FindDayBetween(startDate.Year, startDate.Month, startDate.Day, endDate.Year, endDate.Month, endDate.Day, dayOfWeek);
@@ -713,7 +719,7 @@ namespace Nager.Date
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
         /// <param name="dayOfWeek">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDayBefore(int year, Month month, int day, DayOfWeek dayOfWeek)
         {
             return FindDayBefore(year, (int)month, day, dayOfWeek);
@@ -726,7 +732,7 @@ namespace Nager.Date
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
         /// <param name="dayOfWeek">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDayBefore(int year, int month, int day, DayOfWeek dayOfWeek)
         {
             var calculationDay = new DateTime(year, month, day);
@@ -748,20 +754,21 @@ namespace Nager.Date
         /// </summary>
         /// <param name="date">The date where the search starts</param>
         /// <param name="dayOfWeek">The name of the day</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDayBefore(DateTime date, DayOfWeek dayOfWeek)
         {
             return FindDayBefore(date.Year, date.Month, date.Day, dayOfWeek);
         }
 
         /// <summary>
-        /// Find for example the 3th monday in a month
+        /// Find for example the 3rd monday in a month
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
         /// <param name="occurrence"></param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
+        /// <exception cref="System.ArgumentException">Thrown when given occurrence number is either too low or too high</exception>
         public static DateTime FindDay(int year, int month, DayOfWeek day, int occurrence)
         {
             if (occurrence == 0 || occurrence > 5)
@@ -792,13 +799,13 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Find for example the 3th monday in a month
+        /// Find for example the 3rd monday in a month
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
         /// <param name="occurrence">The occurrence e.g. First</param>
-        /// <returns></returns>
+        /// <returns>Date of day found</returns>
         public static DateTime FindDay(int year, Month month, DayOfWeek day, Occurrence occurrence)
         {
             return FindDay(year, (int)month, day, (int)occurrence);
@@ -813,7 +820,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns></returns>
+        /// <returns>Set of long weekends for given country in a given year</returns>
         public static IEnumerable<LongWeekend> GetLongWeekend(int year, CountryCode countryCode)
         {
             var calculator = new LongWeekendCalculator(GetWeekendProvider(countryCode));
@@ -825,7 +832,6 @@ namespace Nager.Date
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <param name="year">The year</param>
-        /// <returns></returns>
         [Obsolete("Use GetLongWeekend instead, the sorting of the parameters was changed", error: true)]
         public static IEnumerable<LongWeekend> GetLongWeekend(CountryCode countryCode, int year)
         {
