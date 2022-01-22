@@ -4,14 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased 1.X.X] - yyyy-mm-dd
+## [1.32.0] - 2022-01-21
  
-### Added
 ### Changed
-### Deprecated
+- Optimize New Zealand
+- Optimize Finland translation
+- Optimize return description
+- Docker no longer requires enviorment variables for swagger mode
 ### Removed
+- Docker Remove Ip Rate Limiting
+- Docker Remove CORS configuration
 ### Fixed
-
+- Fix spelling issue on United States
 
 ## [1.31.0] - 2022-01-02
  
@@ -166,3 +170,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Fixes for Switzerland
 - Fix Australia add Reconciliation Day
+
+
+--------------------------------------------------------
+
+
+## [Unreleased 1.X.X] - yyyy-mm-dd
+ 
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
