@@ -12,18 +12,19 @@ The list of supported countries can be found [here](https://date.nager.at/Countr
 
 ## How can I use it?
 
-If you are use .net you can install the package via nuget for all other languages we have a docker image with a web api available.
+If you are use **.NET** you can install the package via nuget, for all other languages we have a public web api available.
+If you have restrictive regulations in your company or you need high availability then you can also use the Docker Container.
 
 ### nuget
-The package is available via [nuget](https://www.nuget.org/packages/Nager.Date)
+The package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)
 ```
 PM> install-package Nager.Date
 ```
 
 ### web api
 - **public** use the public api [date.nager.at](https://date.nager.at/API)
-  - If you need more as 50 requests per day please use your own private api (docker).
-- **self-hosted** use your own api, docker container available on [dockerhub](https://hub.docker.com/r/nager/nager-date)
+  - If you need the Api for a large number of requests, we also provide a Docker container.
+- **self-hosted (docker)** use your own api, the docker container is available on [Docker Hub](https://hub.docker.com/r/nager/nager-date)
   - To run a local instance of the docker image run the following command<br>
   `docker run -p 80:80 nager/nager-date`
     - `-p 80:80` publish the port 80 from the docker to your host.
