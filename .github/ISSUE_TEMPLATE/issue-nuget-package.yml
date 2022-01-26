@@ -1,0 +1,30 @@
+---
+name: Issue with the NuGet package
+description: Report an issue with the NuGet package
+title: "**short summary**"
+labels: ["question", "nuget"]
+body:
+
+- type: markdown
+  attributes:
+    value: |
+      Please fill out the information in this issue template so that we can efficiently process your request
+      
+      https://www.nuget.org/packages/Nager.Date
+
+- type: input
+  id: version
+  attributes:
+    label: NuGet Package Version
+    description: "Which version is affected"
+    placeholder: "1.32.0"
+  validations:
+    required: true
+
+- type: textarea
+  id: information
+  attributes:
+    label: More information
+    description: "You can enter more information here."
+  validations:
+    required: true

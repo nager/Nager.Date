@@ -1,0 +1,19 @@
+---
+name: Other request
+description: For general requests
+title: "**short summary**"
+labels: ["question"]
+body:
+
+- type: markdown
+  attributes:
+    value: |
+      Please fill out the information in this issue template so that we can efficiently process your request
+
+- type: textarea
+  id: information
+  attributes:
+    label: More information
+    description: "You can enter more information here."
+  validations:
+    required: true

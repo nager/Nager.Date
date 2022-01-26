@@ -1,0 +1,46 @@
+---
+name: Missing public holiday
+description: Report a missing public holiday
+title: "**short summary**"
+labels: ["bug"]
+body:
+
+- type: markdown
+  attributes:
+    value: |
+      Please fill out the information in this issue template so that we can efficiently process your request
+
+- type: input
+  id: country
+  attributes:
+    label: Affected country
+    description: "The affected country, e.g. Germany"
+    placeholder: "Germany"
+  validations:
+    required: true
+
+- type: input
+  id: publicholiday
+  attributes:
+    label: Affected public holiday
+    description: "The affected public holiday, e.g. New Year's Day"
+    placeholder: "New Year's Day"
+  validations:
+    required: true
+
+- type: input
+  id: source
+  attributes:
+    label: Source of the information
+    description: "To validate the information a source would help us a lot, e.g. Wikipedia link"
+    placeholder: "https://en.wikipedia.org/wiki/Public_holidays_in_Germany"
+  validations:
+    required: true
+
+- type: textarea
+  id: information
+  attributes:
+    label: More information
+    description: "You can enter more information here. Is it a recurring holiday or a one-time holiday? Is the holiday celebrated on a different day if it falls on a Sunday, for example?"
+  validations:
+    required: false
