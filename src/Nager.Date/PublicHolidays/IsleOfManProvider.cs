@@ -74,7 +74,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
 
             var stStephensDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
-            items.Add(new PublicHoliday(sanktStehpenDay, "Boxing Day", "St. Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(stStephensDay, "Boxing Day", "St. Stephen's Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }
