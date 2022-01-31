@@ -34,6 +34,51 @@ namespace Nager.Date.PublicHolidays
             var secondMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
             var fourthThursdayInNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Thursday, Occurrence.Fourth);
 
+            var weekendObservedRuleSet = new ObservedRuleSet
+            {
+                Saturday = date => date.AddDays(-1),
+                Sunday = date => date.AddDays(1),
+            };
+
+            var specifications = new PublicHolidaySpecification[]
+            {
+                new PublicHolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 25),
+                    EnglishName = "New Year's Day",
+                    LocalName = "New Year's Day",
+                    ObservedRuleSet = weekendObservedRuleSet
+                },
+                new PublicHolidaySpecification
+                {
+                    Date = thirdMondayInJanuary,
+                    EnglishName = "Martin Luther King, Jr. Day",
+                    LocalName = "Martin Luther King, Jr. Day",
+                },
+                new PublicHolidaySpecification
+                {
+                    Date = thirdMondayInFebruary,
+                    EnglishName = "Washington's Birthday",
+                    LocalName = "Presidents Day",
+                },
+                new PublicHolidaySpecification
+                {
+                    Date = lastMondayInMay,
+                    EnglishName = "Memorial Dayay",
+                    LocalName = "Memorial Day",
+                },
+                new PublicHolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 25),
+                    EnglishName = "Christmas Day",
+                    LocalName = "Christmas Day",
+                    ObservedRuleSet = weekendObservedRuleSet
+                }
+            };
+
+            var specificationProcessor = new PublicHolidaySpecificationProcessor();
+            var items1 = specificationProcessor.Process(specifications, countryCode);
+
             var items = new List<PublicHoliday>();
 
             #region New Years Day with fallback
