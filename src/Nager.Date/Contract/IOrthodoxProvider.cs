@@ -16,6 +16,24 @@ namespace Nager.Date.Contract
         DateTime EasterSunday(int year);
 
         /// <summary>
+        /// Get Good Friday
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns>Public holiday info for Orthodox Good Friday for given year and country</returns>
+        PublicHoliday GoodFriday(string localName, int year, CountryCode countryCode);
+
+        /// <summary>
+        /// Get Holy Saturday
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="countryCode"></param>
+        /// <returns>Public holiday info for Orthodox Holy Saturday for given year and country</returns>
+        PublicHoliday HolySaturday(string localName, int year, CountryCode countryCode);
+
+        /// <summary>
         /// Get Easter Sunday
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
@@ -32,15 +50,6 @@ namespace Nager.Date.Contract
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Orthodox Easter Monday for given year and country</returns>
         PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode);
-
-        /// <summary>
-        /// Get Good Friday
-        /// </summary>
-        /// <param name="localName">The local name of the holiday</param>
-        /// <param name="year"></param>
-        /// <param name="countryCode"></param>
-        /// <returns>Public holiday info for Orthodox Good Friday for given year and country</returns>
-        PublicHoliday GoodFriday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Pentecost
