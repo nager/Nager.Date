@@ -100,85 +100,251 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.28.0] - 2021-01-20
 
 ### Added
-
 - South Korea
 
 ## [1.27.1] - 2021-01-20
 
 ### Added
-
 - Add .net 5 target
 
 ## [1.27.0] - 2021-01-13
 
 ### Changed
-
 - Performance improvements
 - Simplified usage of FindDay
 
 ### Fixed
-
 - Croatia - Fix Remembrance Day and National Day
 - Spain - Fix Maundy Thursday
 
 ## [1.26.7] - 2020-12-18
 
 ### Fixed
-
 - Spain - Fix boe.es
 
 ## [1.26.5] - 2020-11-20
 
 ### Added
-
 - United Kingdom - Add Queen’s Platinum Jubilee
 - Ireland - Add Good Friday
 
 ### Fixed
-
 - Croatia - Fix Remembrance Day and National Day
 - Spain - Fix Maundy Thursday
 
 ## [1.26.4] - 2020-10-22
 
 ### Added
-
 - Publish nuget symbols
 
 ## [1.26.3] - 2020-08-26
 
 ### Fixed
-
 - Croatia - Fix Public Holiday
 
 ## [1.26.2] - 2020-07-01
 
 ### Fixed
-
 - United Kingdom - Fix Christmas Day and Boxing Day
 
 ## [1.26.1] - 2020-06-16
 
 ### Changed
-
 - Simplify IsPublicHoliday
 
 ### Fixed
-
 - Lithuania - Small fix
 
 ## [1.26.0] - 2020-05-29
 
 ### Added
-
 - Bulgaria - Add Good Friday
 - Ireland - Add Good Friday
 
 ### Fixed
-
 - Switzerland - Some fixes
 - Australia - Fix Reconciliation Day
 
+## [1.25.0] - 2019-06-10
+ 
+### Fixed
+- Added UK May Bank Holiday Change VE Day 2020
+
+## [1.23.0] - 2019-01-05
+ 
+### Added
+- Mongolia
+- Vietnam
+- Indonesia
+### Fixed
+- Some small fixes, cleanup code
+
+## [1.22.0] - 2018-09-08
+ 
+### Added
+- Lesotho
+### Removed
+- Powershell install script
+### Fixed
+- United Kingdom - Fix St Andrews Day for Scotland
+
+## [1.21.0] - 2018-08-15
+ 
+### Added
+- Moldova
+- Tunisia
+- Egypt
+- Serbia
+- Vatican City
+- San Marino
+- Barbados
+- Grenada
+- Ukraine
+- Faroe Islands
+- Svalbard
+- Jan Mayen
+
+## [1.20.0] - 2018-08-01
+ 
+### Added
+- Morocco
+- Gabon
+- Macedonia
+
+## [1.19.0] - 2018-01-22
+ 
+### Added
+- Nicaragua
+- Mexico
+- Belize
+
+## [1.18.0] - 2017-11-27
+ 
+### Added
+- Åland
+
+## [1.17.0] - 2017-11-26
+ 
+### Added
+- Chile
+- Haiti
+- Guyana
+- Suriname
+- China
+### Fixed
+- Germany - Optimize Provider
+
+## [1.16.0] - 2017-11-05
+ 
+### Added
+- Dominican Republic
+- Jamaica
+- Ecuador
+- Cuba
+
+## [1.15.0] - 2017-10-09
+ 
+### Added
+- Colombia
+- Andorra
+- Monaco
+- Jersey
+- Isle of Man
+
+## [1.14.0] - 2017-10-04
+ 
+### Added
+- Costa Rica
+- Puerto Rico
+
+## [1.13.0] - 2017-09-30
+ 
+### Added
+- Venezuela
+### Changed
+- Change to .netstandard 2.0
+
+## [1.12.0] - 2017-09-17
+ 
+### Added
+- Panama
+### Changed
+- Change to .netstandard 2.0
+
+## [1.11.0] - 2017-09-11
+ 
+### Added
+- Argentina
+### Changed
+- Change to .netstandard 2.0
+
+## [1.10.0] - 2017-08-28
+ 
+### Added
+- Uruguay
+### Changed
+- Change to .netstandard 2.0
+### Fixed
+- Somes fixes
+
+## [1.9.0] - 2017-05-18
+ 
+### Added
+- Bahamas
+### Fixed
+- Somes fixes
+
+## [1.8.0] - 2017-05-18
+ 
+### Added
+- Australia
+- Guatemala
+### Fixed
+- Somes fixes
+
+## [1.7.0] - 2017-05-04
+ 
+### Added
+- Add .net standard and .net 4.5 target
+
+## [1.6.0] - 2017-03-26
+ 
+### Added
+- Botswana
+- Namibia
+- Iceland
+- Paraguay
+- Honduras
+
+## [1.5.1] - 2017-03-19
+ 
+### Added
+- Bolivia
+
+## [1.4.1] - 2017-03-12
+ 
+### Added
+- Madagascar
+- South Africa
+- New Zealand
+- Brazil
+- Peru
+### Fixed
+- Some bugfixes
+
+## [1.2.0] - 2017-02-28
+ 
+### Added
+- Belarus
+- Greenland
+- Russia
+
+## [1.1.0] - 2017-02-25
+ 
+### Added
+- Add Worldmap
+### Fixed
+- United Kingdom - Fix CountryCode
 
 --------------------------------------------------------
 
