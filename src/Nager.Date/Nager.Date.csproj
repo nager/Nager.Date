@@ -19,9 +19,9 @@
     
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
     
-    <TargetFrameworks>net472;netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0;net6.0</TargetFrameworks>
 
-    <Version>1.33.0</Version>
+    <Version>1.33.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
