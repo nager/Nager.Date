@@ -4,18 +4,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.33.0] - 2022-03-16
+ 
+### Added
+- Bulgaria - Add Holy Saturday
+### Fixed
+- Bulgaria - Fix spelling issues
+- Japan - Fix AutumnalEquinox and VernalEquinox
+- Isle of Man - Fix Bank Holidays
+
 ## [1.32.0] - 2022-01-21
  
 ### Changed
-- Optimize New Zealand
-- Optimize Finland translation
+- New Zealand - Optimize
+- Finland - Optimize translation
 - Optimize return description
 - Docker no longer requires enviorment variables for swagger mode
 ### Removed
 - Docker Remove Ip Rate Limiting
 - Docker Remove CORS configuration
 ### Fixed
-- Fix spelling issue on United States
+- United States - Fix spelling issue
 
 ## [1.31.0] - 2022-01-02
  
@@ -25,75 +34,74 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.30.0] - 2021-09-30
  
 ### Added
-- Add Bosnia and Herzegovina
-- Add Singapore
+- Bosnia and Herzegovina
+- Singapore
 ### Fixed
-- Fix Netherlands - Holiday Type of Good Friday
-- Fix Chile - Set Battle of Arica only valid in CL-AP
-- Fix Switzerland - Federal Day of Thanksgiving
+- Netherlands - Fix Holiday Type of Good Friday
+- Chile - Fix Battle of Arica only valid in CL-AP
+- Switzerland -Fix Federal Day of Thanksgiving
 
 ## [1.29.2] - 2021-06-21
  
 ### Added
-- Add Whit Monday to Cyprus
-- Add Juneteenth to UnitedStates
+- Cyprus - Add Whit Monday
+- UnitedStates - Add Juneteenth
 ### Fixed
-- Fix Netherlands - Local translation Good Friday
+- Netherlands - Fix Local translation Good Friday
 
 ## [1.29.1] - 2021-06-16
  
 ### Added
-- Add GoodFriday to UnitedStates
+- UnitedStates - Add GoodFriday
 ### Changed
 - WebApi Swagger OperationId
 ### Fixed
-- Fix Costa Rica, Law 9803
-- Fix German, EasterSunday
+- Costa Rica - Fix Law 9803
 
 ## [1.29.0] - 2021-05-18
  
 ### Added
-- Add Nigeria
+- Nigeria
 ### Changed
 - Straighten method names GetPublicHoliday to GetPublicHolidays
 - Move religious holidays in the Catholic or Orthodox provider
 ### Fixed
-- Fix Canada, FamilyDay for New-Brunswick
-- Fix Vatican City, Wrong char in Anniversary of the election of Pope Francis
-- Fix DateSystem.IsPublicHoliday(DateTime date, CountryCode countryCode)
-- Fix Japan, Emperors Birthday
+- Canada - Fix FamilyDay for New-Brunswick
+- Vatican City - Fix wrong char in Anniversary of the election of Pope Francis
+- Japan - Fix Emperors Birthday
+- Bahamas - Fix lack of rules for the shifting of holidays
 - Fix LongWeekend calculation (only PublicHolidayType Public)
-- Fix Bahamas, Lack of rules for the shifting of holidays
+- Fix DateSystem.IsPublicHoliday(DateTime date, CountryCode countryCode)
 
 ## [1.28.2] - 2021-03-08
  
 ### Added
-- Add Montenegro
+- Montenegro
 ### Fixed
-- Fix Canada Victoria day
+- Canada - Fix Victoria day
 
 ## [1.28.1] - 2021-02-17
  
 ### Added
 - Add CHANGELOG file
 - Add Region Statistic
-- Add Papua New Guinea
-- Add Guernsey
-- Add Gibraltar
-- Add Montserrat
+- Papua New Guinea
+- Guernsey
+- Gibraltar
+- Montserrat
 ### Changed
 - Docker Image location
 ### Fixed
-- Fix Åland, Midsummer Day and All Saints Day
-- Fix Canada, FamilyDay
+- Åland - Fix Midsummer Day and All Saints Day
+- Canada - Fix FamilyDay
+- Australia - Fix Weekend shift
 - Fix Docker Container crash
-- Fix Australia, Add Weekend shift
 
 ## [1.28.0] - 2021-01-20
 
 ### Added
 
-- Add South Korea
+- South Korea
 
 ## [1.27.1] - 2021-01-20
 
@@ -124,7 +132,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - United Kingdom - Add Queen’s Platinum Jubilee
-- Ireland add Good Friday
+- Ireland - Add Good Friday
 
 ### Fixed
 
@@ -141,13 +149,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
-- Fix Croatia Public Holiday
+- Croatia - Fix Public Holiday
 
 ## [1.26.2] - 2020-07-01
 
 ### Fixed
 
-- Fix United Kingdom Christmas Day and Boxing Day
+- United Kingdom - Fix Christmas Day and Boxing Day
 
 ## [1.26.1] - 2020-06-16
 
@@ -157,19 +165,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 
-- Fix Lithuania
+- Lithuania - Small fix
 
 ## [1.26.0] - 2020-05-29
 
 ### Added
 
-- Bulgaria add Good Friday
-- Ireland add Good Friday
+- Bulgaria - Add Good Friday
+- Ireland - Add Good Friday
 
 ### Fixed
 
-- Fixes for Switzerland
-- Fix Australia add Reconciliation Day
+- Switzerland - Some fixes
+- Australia - Fix Reconciliation Day
 
 
 --------------------------------------------------------
