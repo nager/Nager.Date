@@ -164,20 +164,20 @@ namespace Nager.Date.PublicHolidays
             var mod = year % 4;
             var array = new int[4];
             if (1900 <= year && year <= 1923){array= new int[] {21,21,21,22};}
-            if (1924 <= year && year <= 1959){array= new int[] {21,21,21,21};}
-            if (1960 <= year && year <= 1991){array= new int[] {20,21,21,21};}
-            if (1992 <= year && year <= 2023){array= new int[] {20,20,21,21};}
-            if (2024 <= year && year <= 2055){array= new int[] {20,20,20,21};}
-            if (2056 <= year && year <= 2091){array= new int[] {20,20,20,20};}
-            if (2092 <= year && year <= 2099){array= new int[] {19,20,20,20};}
-            if (2100 <= year && year <= 2123){array= new int[] {20,21,21,21};}
-            if (2124 <= year && year <= 2155){array= new int[] {20,20,21,21};}
-            if (2156 <= year && year <= 2187){array= new int[] {20,20,20,21};}
-            if (2188 <= year && year <= 2199){array= new int[] {20,20,20,20};}
-            if (2200 <= year && year <= 2223){array= new int[] {21,21,21,21};}
-            if (2224 <= year && year <= 2255){array= new int[] {20,21,21,21};}
-            if (2256 <= year && year <= 2287){array= new int[] {20,20,21,21};}
-            if (2288 <= year && year <= 2299){array= new int[] {20,20,20,21};}
+            else if (1924 <= year && year <= 1959){array= new int[] {21,21,21,21};}
+            else if (1960 <= year && year <= 1991){array= new int[] {20,21,21,21};}
+            else if (1992 <= year && year <= 2023){array= new int[] {20,20,21,21};}
+            else if (2024 <= year && year <= 2055){array= new int[] {20,20,20,21};}
+            else if (2056 <= year && year <= 2091){array= new int[] {20,20,20,20};}
+            else if (2092 <= year && year <= 2099){array= new int[] {19,20,20,20};}
+            else if (2100 <= year && year <= 2123){array= new int[] {20,21,21,21};}
+            else if (2124 <= year && year <= 2155){array= new int[] {20,20,21,21};}
+            else if (2156 <= year && year <= 2187){array= new int[] {20,20,20,21};}
+            else if (2188 <= year && year <= 2199){array= new int[] {20,20,20,20};}
+            else if (2200 <= year && year <= 2223){array= new int[] {21,21,21,21};}
+            else if (2224 <= year && year <= 2255){array= new int[] {20,21,21,21};}
+            else if (2256 <= year && year <= 2287){array= new int[] {20,20,21,21};}
+            else if (2288 <= year && year <= 2299){array= new int[] {20,20,20,21};}
             var dt = new DateTime((int)curYear, (int)month, (int)array[mod], (int)hour, (int)minutes, (int)seconds);
             if(array.Length == 0){
                 dt = new DateTime((int)curYear, (int)month, (int)day, (int)hour, (int)minutes, (int)seconds);
@@ -210,20 +210,20 @@ namespace Nager.Date.PublicHolidays
             var mod = year % 4;
             var array = new int[4];
             if (1900 <= year && year <= 1919){array = new int[] {23,24,24,24};}
-            if (1920 <= year && year <= 1947){array = new int[] {23,23,24,24};}
-            if (1948 <= year && year <= 1979){array = new int[] {23,23,23,24};}
-            if (1980 <= year && year <= 2011){array = new int[] {23,23,23,23};}
-            if (2012 <= year && year <= 2043){array = new int[] {22,23,23,23};}
-            if (2044 <= year && year <= 2075){array = new int[] {22,22,23,23};}
-            if (2076 <= year && year <= 2099){array = new int[] {22,22,22,23};}
-            if (2100 <= year && year <= 2107){array = new int[] {23,23,23,24};}
-            if (2108 <= year && year <= 2139){array = new int[] {23,23,23,23};}
-            if (2140 <= year && year <= 2167){array = new int[] {22,23,23,23};}
-            if (2168 <= year && year <= 2199){array = new int[] {22,22,23,23};}
-            if (2200 <= year && year <= 2227){array = new int[] {23,23,23,24};}
-            if (2228 <= year && year <= 2263){array = new int[] {23,23,23,23};}
-            if (2264 <= year && year <= 2291){array = new int[] {22,23,23,23};}
-            if (2292 <= year && year <= 2299){array = new int[] {22,22,23,23};}
+            else if (1920 <= year && year <= 1947){array = new int[] {23,23,24,24};}
+            else if (1948 <= year && year <= 1979){array = new int[] {23,23,23,24};}
+            else if (1980 <= year && year <= 2011){array = new int[] {23,23,23,23};}
+            else if (2012 <= year && year <= 2043){array = new int[] {22,23,23,23};}
+            else if (2044 <= year && year <= 2075){array = new int[] {22,22,23,23};}
+            else if (2076 <= year && year <= 2099){array = new int[] {22,22,22,23};}
+            else if (2100 <= year && year <= 2107){array = new int[] {23,23,23,24};}
+            else if (2108 <= year && year <= 2139){array = new int[] {23,23,23,23};}
+            else if (2140 <= year && year <= 2167){array = new int[] {22,23,23,23};}
+            else if (2168 <= year && year <= 2199){array = new int[] {22,22,23,23};}
+            else if (2200 <= year && year <= 2227){array = new int[] {23,23,23,24};}
+            else if (2228 <= year && year <= 2263){array = new int[] {23,23,23,23};}
+            else if (2264 <= year && year <= 2291){array = new int[] {22,23,23,23};}
+            else if (2292 <= year && year <= 2299){array = new int[] {22,22,23,23};}
             var dt = new DateTime((int)curYear, (int)month, (int)array[mod], (int)hour, (int)minutes, (int)seconds);
             if(array.Length == 0){
                 dt = new DateTime((int)curYear, (int)month, (int)day, (int)hour, (int)minutes, (int)seconds);
