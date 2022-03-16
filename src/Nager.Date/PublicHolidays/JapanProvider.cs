@@ -49,7 +49,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(newYearsDay, "元日", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(secondMondayInJanuary, "成人の日", "Coming of Age Day", countryCode));
             items.Add(new PublicHoliday(foundationDay, "建国記念の日", "Foundation Day", countryCode));
-            //items.Add(new PublicHoliday(this.GetVernalEquinox(year), "春分の日", "Vernal Equinox Day", countryCode));
+            items.Add(new PublicHoliday(this.GetVernalEquinox(year), "春分の日", "Vernal Equinox Day", countryCode));
             items.Add(new PublicHoliday(showaDay, "昭和の日", "Shōwa Day", countryCode));
             items.Add(new PublicHoliday(memorialDay, "憲法記念日", "Constitution Memorial Day", countryCode));
             items.Add(new PublicHoliday(greeneryDay, "みどりの日", "Greenery Day", countryCode));
@@ -57,7 +57,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thirdMondayInJuly, "海の日", "Marine Day", countryCode));
             items.Add(new PublicHoliday(mountainDay, "山の日", "Mountain Day", countryCode));
             items.Add(new PublicHoliday(thirdMondayInSeptember, "敬老の日", "Respect for the Aged Day", countryCode));
-            //items.Add(new PublicHoliday(this.GetAutumnalEquinox(year), "秋分の日", "Autumnal Equinox Day", countryCode));
+            items.Add(new PublicHoliday(this.GetAutumnalEquinox(year), "秋分の日", "Autumnal Equinox Day", countryCode));
             items.Add(new PublicHoliday(secondMondayInOctober, "体育の日", "Health and Sports Day", countryCode));
             items.Add(new PublicHoliday(cultureDay, "文化の日", "Culture Day", countryCode));
             items.Add(new PublicHoliday(thanksgivingDay, "勤労感謝の日", "Labour Thanksgiving Day", countryCode));
