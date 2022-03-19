@@ -237,7 +237,7 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Parses given string to find CurrencyCode
+        /// Parse given string to CountryCode
         /// </summary>
         /// <param name="countryCode"></param>
         /// <param name="parsedCountryCode"></param>
