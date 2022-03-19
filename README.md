@@ -6,6 +6,10 @@ Nager.Date is a popular project to query holidays. We currently support over 100
 
 Nager.Date is open source software and is completely free for commercial use. If you would like to support the project you can award a GitHub star :star: or even better [actively support us](https://github.com/sponsors/nager)
 
+## :mega: Announcement
+
+Starting May 1, 2022, the Docker container and the NuGet package will require a Licence Key provided to the sponsors of this project. The public WebApi will remain freely accessible.
+
 ## Country Support
 
 The list of supported countries can be found [here](https://date.nager.at/Country/Coverage).
