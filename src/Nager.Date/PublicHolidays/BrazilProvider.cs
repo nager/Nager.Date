@@ -33,15 +33,15 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, 21, "Dia de Tiradentes", "Tiradentes", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Dia do Trabalhador", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 9, 7, "Dia da Independência", "Independence Day", countryCode));
-            items.Add(new PublicHoliday(year, 10, 12, "Nossa Senhora Aparecida", "Children's Day", countryCode));
-            items.Add(new PublicHoliday(year, 11, 2, "Dia de Finados", "Day of the Dead", countryCode));
+            items.Add(new PublicHoliday(year, 10, 12, "Nossa Senhora Aparecida", "Our Lady of Aparecida", countryCode));
+            items.Add(new PublicHoliday(year, 11, 2, "Dia de Finados", "All Souls' Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 15, "Proclamação da República", "Republic Proclamation Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Natal", "Christmas Day", countryCode));
 
-            // non fixed days (Easter, Carnival, Passion of Jesus and Corpus Christi)
-            items.Add(this._catholicProvider.EasterSunday("Domingo de Pascoa", year, countryCode));
+            // non fixed days (Easter, Carnival, Good Friday and Corpus Christi)
+            items.Add(this._catholicProvider.EasterSunday("Domingo de Páscoa", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode));
-            items.Add(this._catholicProvider.GoodFriday("Sexta feira Santa", year, countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Sexta-feira Santa", year, countryCode));
             items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode));
             // TODO non-official holidays
 
