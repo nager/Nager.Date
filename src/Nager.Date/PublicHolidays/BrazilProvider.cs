@@ -45,6 +45,11 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode));
             // TODO non-official holidays
 
+            //State holidays
+
+            //SP
+            items.Add(new PublicHoliday(year, 7, 9, "Revolução Constitucionalista de 1932", "Constitutionalist Revolution of 1932", countryCode).SetCounties("BR-SP"));
+
             return items.OrderBy(o => o.Date);
         }
 
