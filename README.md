@@ -8,7 +8,7 @@ There are several ways to use Nager.Date, there is a public api, you can start y
 
 ## :mega: Announcement
 
-Starting May 1, 2022, the Docker container and the NuGet package will require a Licence Key provided to the sponsors of this project. The public WebApi will remain freely accessible.
+Starting May 1, 2022, the Docker container and the NuGet package will require a License Key provided to the sponsors of this project. The public WebApi will remain freely accessible.
 
 ## Country Support
 
