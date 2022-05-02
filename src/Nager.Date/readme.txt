@@ -19,7 +19,7 @@ Examples of use:
 Set Licence Key
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
 
-    DateSystem.LicenceKey = "TheLicenceKey"
+    DateSystem.LicenseKey = "TheLicenseKey"
 
 Get all publicHolidays of a given year and country
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
