@@ -175,7 +175,7 @@ namespace Nager.Date
             };
 
         /// <summary>
-        /// Licence Key
+        /// License Key
         /// </summary>
         /// <remarks>
         /// As a GitHub sponsor of this project you will receive a license key, https://github.com/sponsors/nager

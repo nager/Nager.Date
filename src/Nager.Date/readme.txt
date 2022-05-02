@@ -16,7 +16,7 @@ https://date.nager.at/Api
 
 Examples of use:
 
-Set Licence Key
+Set License Key
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
 
     DateSystem.LicenseKey = "TheLicenseKey"
