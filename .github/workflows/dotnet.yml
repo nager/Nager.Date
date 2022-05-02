@@ -29,6 +29,7 @@ jobs:
     - name: Change LicenseKey
       working-directory: ./src
       run: sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date/DateSystem.cs
+      run: sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date.UnitTest/AssemblyInitialize.cs
     - name: Restore dependencies
       working-directory: ./src
       run: dotnet restore
