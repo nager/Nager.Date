@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.34.0] - 2022-05-02
+ 
+### Added
+- Add LicenseKey for NuGet Package and Docker Container
+- Greenland - Add local Translations
+### Removed
+- Remove obsolete methods in DateSystem.cs
+### Fixed
+- Fix summary in DateSystem.cs
+- Brazil - Fix holiday names
+
 ## [1.33.1] - 2022-03-16
 
 ### Changed
