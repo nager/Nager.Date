@@ -2,9 +2,9 @@
 
 # :calendar: Nager.Date - [Official Website](https://date.nager.at)
 
-Nager.Date is a popular project to query holidays. We currently support over 100 countries. The project is based on .NET but provides a REST interface to retrieve the data. There are several ways to use Nager.Date, there is a public api, you can start your own docker container or you can use the nuget package.
-
-Nager.Date is open source software and is completely free for commercial use. If you would like to support the project you can award a GitHub star :star: or even better [actively support us](https://github.com/sponsors/nager)
+Nager.Date is a popular project to query holidays. We currently support over 100 countries.
+The project is based on .NET but provides a REST interface to retrieve the data.
+There are several ways to use Nager.Date, there is a public api, you can start your own docker container or you can use the nuget package.
 
 ## :mega: Announcement
 
@@ -27,7 +27,7 @@ PM> install-package Nager.Date
 
 ### web api
 - **public** use the public api [date.nager.at](https://date.nager.at/API)
-  - If you need the Api for a large number of requests, we also provide a Docker container.
+  - The easiest way to retrieve the holidays
 - **self-hosted (docker)** use your own api, the docker container is available on [Docker Hub](https://hub.docker.com/r/nager/nager-date)
   - To run a local instance of the docker image run the following command<br>
   `docker run -p 80:80 nager/nager-date`

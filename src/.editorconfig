@@ -77,6 +77,7 @@ dotnet_naming_rule.all_const.symbols                       = all_const
 
 dotnet_naming_style.all_fields.required_prefix             = _
 dotnet_naming_style.all_fields.capitalization              = camel_case
+dotnet_naming_symbols.all_fields.applicable_accessibilities = private
 dotnet_naming_symbols.all_fields.applicable_kinds          = field
 dotnet_naming_rule.all_fields.severity                     = error
 dotnet_naming_rule.all_fields.style                        = all_fields

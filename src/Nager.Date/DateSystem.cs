@@ -175,6 +175,14 @@ namespace Nager.Date
             };
 
         /// <summary>
+        /// Licence Key
+        /// </summary>
+        /// <remarks>
+        /// As a GitHub sponsor of this project you will receive a license key, https://github.com/sponsors/nager
+        /// </remarks>
+        public static string LicenseKey = null;
+
+        /// <summary>
         /// GetPublicHolidayProvider
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
@@ -197,6 +205,12 @@ namespace Nager.Date
         /// <returns>Public holiday provider for given country</returns>
         public static IPublicHolidayProvider GetPublicHolidayProvider(CountryCode countryCode)
         {
+            if (string.IsNullOrEmpty(LicenseKey) ||
+                !LicenseKey.Equals("Thank you for supporting open source projects"))
+            {
+                throw new NoLicenseKeyException();
+            }
+
             if (_publicHolidaysProviders.TryGetValue(countryCode, out var provider))
             {
                 return provider.Value;

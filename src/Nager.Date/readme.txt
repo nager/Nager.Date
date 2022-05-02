@@ -6,19 +6,20 @@
    ██    ██   ██ ██   ██ ██   ████ ██   ██        ██     ██████   ██████
 
 
-Thank you for using this project. This project is completely free for commercial use.
+Thank you for using this project.
 
-However, if you use our project commercially we would like you to support us with a sponsorship.
-The maintenance and support costs time and we would like to ensure this for the future with your help.
-You can easily support us via the Github Sponsor function. https://github.com/sponsors/nager
+This package requires a license key that you receive as a GitHub sponsor.
+https://github.com/sponsors/nager
 
-We would also be very happy about a GitHub Star ★
-
-Project Source: https://github.com/nager/Nager.Date
-
-
+Our public WebApi is still available without limitation.
+https://date.nager.at/Api
 
 Examples of use:
+
+Set Licence Key
+══════════════════════════════════════════════════════════════════════════════════════════════════════
+
+    DateSystem.LicenceKey = "TheLicenceKey"
 
 Get all publicHolidays of a given year and country
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
