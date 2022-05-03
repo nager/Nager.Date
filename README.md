@@ -19,7 +19,63 @@ More Informations about client generation you can find [here](https://openapi-ge
 
 #### nuget
 The nuget package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)<br>
-Examples for the use of the library can be found [here](doc/README-NUGET-PACKAGE.md)
+
+<details>
+  <summary>Code Examples</summary>
+  
+## Examples for .NET (nuget package)
+
+### Set the license key
+```cs
+DateSystem.LicenseKey = "LicenseKey1234";
+```
+
+### Get all publicHolidays of a country and year
+```cs
+var publicHolidays = DateSystem.GetPublicHolidays(2021, "DE");
+foreach (var publicHoliday in publicHolidays)
+{
+    //publicHoliday...
+    //publicHoliday.Date -> The date
+    //publicHoliday.LocalName -> The local name
+    //publicHoliday.Name -> The english name
+    //publicHoliday.Fixed -> Is this public holiday every year on the same date
+    //publicHoliday.Global -> Is this public holiday in every county (federal state)
+    //publicHoliday.Counties -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
+    //publicHoliday.Type -> Public, Bank, School, Authorities, Optional, Observance
+}
+```
+
+### Get all publicHolidays for a date range
+```cs
+var startDate = new DateTime(2016, 5, 1);
+var endDate = new DateTime(2021, 5, 31);
+var publicHolidays = DateSystem.GetPublicHolidays(startDate, endDate, CountryCode.DE);
+foreach (var publicHoliday in publicHolidays)
+{
+	//publicHoliday...
+}
+```
+
+### Check if a date is a public holiday
+```cs
+var date = new DateTime(2021, 1, 1);
+if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
+{
+    Console.WriteLine("Is public holiday");
+}
+```
+
+### Check if a date is a weekend day
+```cs
+var date = new DateTime(2021, 1, 1);
+if (DateSystem.IsWeekend(date, CountryCode.DE))
+{
+    Console.WriteLine("Is weekend");
+}
+```
+</details>
+
 ```
 PM> install-package Nager.Date
 ```
