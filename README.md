@@ -20,6 +20,10 @@ More Informations about client generation you can find [here](https://openapi-ge
 #### nuget
 The nuget package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)<br>
 
+```
+PM> install-package Nager.Date
+```
+
 <details>
   <summary>Code Examples</summary>
   
@@ -76,17 +80,12 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 ```
 </details>
 
-```
-PM> install-package Nager.Date
-```
-
 #### docker
 If high availability is important for you and you want to avoid access to the Internet, we can also offer you your own Docker container.
 
 The docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date)<br>
 To run a local instance of the docker image run the following command<br>
 `docker run -p 80:80 nager/nager-date`
-> `-p 80:80` publish the port 80 from the docker to your host.
 
 
 ## Areas of Application
