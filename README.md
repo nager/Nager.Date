@@ -15,6 +15,61 @@ Starting May 1, 2022, the Docker container and the NuGet package will require a 
 Using the [Swagger definition](https://date.nager.at/swagger), they can have a client created for their programming language. You can find the information in our Api section.
 More Informations about client generation you can find [here](https://openapi-generator.tech)
 
+### Examples
+
+<details>
+  <summary>.NET/C# (click to expand)</summary>
+	
+```cs
+using System;
+using System.Net.Http;
+using System.Text.Json;
+
+var jsonSerializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+using var httpClient = new HttpClient();
+var response = await httpClient.GetAsync("https://date.nager.at/api/v3/publicholidays/2022/US");
+if (response.IsSuccessStatusCode)
+{
+    using var jsonStream = await response.Content.ReadAsStreamAsync();
+    var publicHolidays = JsonSerializer.Deserialize<PublicHoliday[]>(jsonStream, jsonSerializerOptions);
+}
+
+class PublicHoliday
+{
+    public DateTime Date { get; set; }
+    public string LocalName { get; set; }
+    public string Name { get; set; }
+    public string CountryCode { get; set; }
+    public bool Fixed { get; set; }
+    public bool Global { get; set; }
+    public string[] Counties { get; set; }
+    public int? LaunchYear { get; set; }
+    public string[] Types { get; set; }
+}
+```
+	
+</details>	
+
+<details>
+  <summary>PHP (click to expand)</summary>
+
+This example use the [guzzle](https://github.com/guzzle/guzzle) project
+	
+```php
+<?php
+require_once 'vendor/autoload.php';
+$client = new \GuzzleHttp\Client();
+$response = $client->request('GET', 'https://date.nager.at/api/v3/publicholidays/2022/US');
+if ($response->getStatusCode() == 200) {
+    $json = $response->getBody();
+    print_r(json_decode($json);
+}
+?>
+```
+	
+</details>
+	
 ### For our sponsors, we also offer a Docker container and a NuGet package
 
 #### nuget
