@@ -25,7 +25,7 @@ PM> install-package Nager.Date
 ```
 
 <details>
-  <summary>Code Examples</summary>
+  <summary>Code Examples (click to expand)</summary>
   
 ## Examples for .NET (nuget package)
 
