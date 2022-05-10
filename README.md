@@ -63,7 +63,7 @@ $client = new \GuzzleHttp\Client();
 $response = $client->request('GET', 'https://date.nager.at/api/v3/publicholidays/2022/US');
 if ($response->getStatusCode() == 200) {
     $json = $response->getBody();
-    print_r(json_decode($json);
+    print_r(json_decode($json));
 }
 ?>
 ```
