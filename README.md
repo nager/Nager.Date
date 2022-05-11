@@ -70,6 +70,51 @@ if ($response->getStatusCode() == 200) {
 	
 </details>
 	
+<details>
+  <summary>JAVA (click to expand)</summary>
+
+This example use the springframework. Code tested with [onecompiler.com](https://onecompiler.com)
+	
+`Main.java`
+```java
+import java.util.*;
+import org.springframework.web.client.RestTemplate;
+import com.google.gson.*;
+
+public class Main {
+    public static void main(String[] args) {
+      String json = new RestTemplate().getForObject("https://date.nager.at/api/v3/publicholidays/2022/US", String.class);
+      JsonElement rootJsonElement = new JsonParser().parse(json);
+      JsonArray publicHolidays = rootJsonElement.getAsJsonArray();
+      Iterator<JsonElement> iterator = publicHolidays.iterator();
+      while (iterator.hasNext()) {
+        JsonElement publicHoliday = (JsonElement)iterator.next();
+        System.out.println(publicHoliday);
+      }
+    }
+}
+```
+	
+`build.gradle`
+```java
+apply plugin:'application'
+mainClassName = 'Main'
+
+run { standardInput = System.in }
+sourceSets { main { java { srcDir './' } } }
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:2.6.7");
+    compile("com.google.code.gson:gson:2.9");
+}
+```
+	
+</details>
+	
 ### For our sponsors, we also offer a Docker container and a NuGet package
 
 #### nuget
