@@ -73,7 +73,7 @@ if ($response->getStatusCode() == 200) {
 <details>
   <summary>JAVA (click to expand)</summary>
 
-This example use the springframework. Code tested with [onecompiler.com](https://onecompiler.com)
+This example use the springframework. Code tested with [onecompiler.com](https://onecompiler.com/java/3y3rzm3mt)
 	
 `Main.java`
 ```java
