@@ -34,7 +34,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._catholicProvider.EasterSunday("Páskadagur", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("2. Páskadagur", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 25, "Flaggdagur", "National Flag Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(26), "Store bededag", "General Prayer Day", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(26), "Dýri biðidagur", "General Prayer Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Kristi himmalsferðar dagur", year, countryCode));
             items.Add(this._catholicProvider.Pentecost("Hvítasunnudagur", year, countryCode));
             items.Add(this._catholicProvider.WhitMonday("2. Hvítasunnudagur", year, countryCode));
@@ -55,6 +55,7 @@ namespace Nager.Date.PublicHolidays
             return new string[]
             {
                 "https://en.wikipedia.org/wiki/Public_holidays_in_the_Faroe_Islands",
+                "https://en.wikipedia.org/wiki/Store_Bededag"
             };
         }
     }
