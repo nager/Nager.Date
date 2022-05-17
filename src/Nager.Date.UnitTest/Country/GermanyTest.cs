@@ -13,6 +13,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestGermanyCorpusChristi()
         {
             var yearToTest = 2017;
+
             var catholicProvider = new MockPublicHolidayProvider(new CatholicProvider());
             var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
             var easterSunday = catholicProvider.EasterSunday(yearToTest);
@@ -24,20 +25,22 @@ namespace Nager.Date.UnitTest.Country
         public void TestGermanyCorpusChristi2017()
         {
             var yearToTest = 2017;
+
             var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
-            var expectedDate2017 = new DateTime(yearToTest, 6, 15);
-            Assert.AreEqual(expectedDate2017, corpusChristi);
+            var expectedDate = new DateTime(yearToTest, 6, 15);
+            Assert.AreEqual(expectedDate, corpusChristi);
         }
 
         [TestMethod]
         public void TestGermanyCorpusChristi2026()
         {
             var yearToTest = 2026;
+
             var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
-            var expectedDate2026 = new DateTime(yearToTest, 6, 4);
-            Assert.AreEqual(expectedDate2026, corpusChristi);
+            var expectedDate = new DateTime(yearToTest, 6, 4);
+            Assert.AreEqual(expectedDate, corpusChristi);
         }
 
         [TestMethod]

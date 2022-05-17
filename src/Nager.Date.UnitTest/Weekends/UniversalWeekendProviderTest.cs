@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Weekends;
 using System;
 
@@ -19,10 +19,10 @@ namespace Nager.Date.UnitTest.Weekends
         {
             // Arrange
             var date = new DateTime(year, month, day);
-            var sut = WeekendProvider.Universal;
+            var weekendProvider = WeekendProvider.Universal;
 
             // Act
-            var result = sut.IsWeekend(date);
+            var result = weekendProvider.IsWeekend(date);
 
             // Assert
             Assert.AreEqual(expected, result);
