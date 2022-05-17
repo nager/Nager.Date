@@ -76,7 +76,6 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, 23, "San Jorge (Día de Aragón)", "Regional Holiday", countryCode, null, new string[] { "ES-AR" }));
             items.Add(new PublicHoliday(year, 4, 23, "Día de Castilla y León", "Regional Holiday", countryCode, null, new string[] { "ES-CL" }));
             items.Add(new PublicHoliday(year, 5, 1, "Fiesta del trabajo", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(year, 5, 2, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-M" }));
             items.Add(new PublicHoliday(year, 5, 17, "Día das Letras Galegas", "Regional Holiday", countryCode, null, new string[] { "ES-GA" }));
             items.Add(new PublicHoliday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Regional Holiday", countryCode, null, new string[] { "ES-CM" }));
             items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode).SetCounties("ES-CM"));
@@ -100,10 +99,9 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" }));
 
             var assumption = this.Assumption(year, countryCode);
-            if (assumption != null)
-            {
-                items.Add(assumption);
-            }
+            items.Add(assumption);
+            var dayOfMadrid = this.DayOfMadrid(year, countryCode);
+            items.Add(dayOfMadrid);
 
             return items.OrderBy(o => o.Date);
         }
@@ -113,6 +111,13 @@ namespace Nager.Date.PublicHolidays
             var date = new DateTime(year, 8, 15).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             return new PublicHoliday(date, "Asunción", "Assumption", countryCode);
+        }
+
+        private PublicHoliday DayOfMadrid(int year, CountryCode countryCode)
+        {
+            var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+
+            return new PublicHoliday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-M" });
         }
 
         ///<inheritdoc/>
