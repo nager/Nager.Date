@@ -37,7 +37,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._catholicProvider.EasterSunday("Påskdagen", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Annandag påsk", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Första maj", "International Workers' Day", countryCode));
-            items.Add(this._catholicProvider.AscensionDay("Kristi himmelsfärds dag", year, countryCode));
+            items.Add(this._catholicProvider.AscensionDay("Kristi himmelsfärdsdag", year, countryCode));
             if (year >= 2005)
             {
                 items.Add(new PublicHoliday(year, 6, 6, "Sveriges nationaldag", "National Day of Sweden", countryCode));
@@ -48,7 +48,7 @@ namespace Nager.Date.PublicHolidays
                 items.Add(this._catholicProvider.WhitMonday("Annandag Pingst", year, countryCode));
             }
             items.Add(new PublicHoliday(midsummerDay.AddDays(-1), "Midsommarafton", "Midsummer Eve", countryCode));
-            items.Add(new PublicHoliday(midsummerDay, "Midsommar", "Midsummer Day", countryCode));
+            items.Add(new PublicHoliday(midsummerDay, "Midsommardagen", "Midsummer Day", countryCode));
             items.Add(new PublicHoliday(allSaintsDay, "Alla helgons dag", "All Saints' Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Julafton", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Juldagen", "Christmas Day", countryCode));
