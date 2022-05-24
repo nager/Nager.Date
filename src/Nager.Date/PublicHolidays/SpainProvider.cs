@@ -75,6 +75,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode).SetLaunchYear(1642).SetCounties("ES-CT", "ES-IB", "ES-LO", "ES-NA", "ES-PV", "ES-VC"));
             items.Add(new PublicHoliday(year, 4, 23, "San Jorge (Día de Aragón)", "Regional Holiday", countryCode, null, new string[] { "ES-AR" }));
             items.Add(new PublicHoliday(year, 4, 23, "Día de Castilla y León", "Regional Holiday", countryCode, null, new string[] { "ES-CL" }));
+            items.Add(new PublicHoliday(year, 5, 1, "Fiesta del trabajo", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 17, "Día das Letras Galegas", "Regional Holiday", countryCode, null, new string[] { "ES-GA" }));
             items.Add(new PublicHoliday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Regional Holiday", countryCode, null, new string[] { "ES-CM" }));
             items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode).SetCounties("ES-CM"));
@@ -97,43 +98,12 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" }));
 
-            var labourDay = this.LabourDay(year, countryCode);
-            if (labourDay != null)
-            {
-                items.Add(labourDay);
-            }
-
-            var dayOfMadrid = this.DayOfMadrid(year, countryCode, labourDay);
-            if (dayOfMadrid != null)
-            {
-                items.Add(dayOfMadrid);
-            }
-
             var assumption = this.Assumption(year, countryCode);
-            if (assumption != null)
-            {
-                items.Add(assumption);
-            }
+            items.Add(assumption);
+            var dayOfMadrid = this.DayOfMadrid(year, countryCode);
+            items.Add(dayOfMadrid);
 
             return items.OrderBy(o => o.Date);
-        }
-
-        private PublicHoliday LabourDay(int year, CountryCode countryCode)
-        {
-            var date = new DateTime(year, 5, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-
-            return new PublicHoliday(date, "Fiesta del trabajo", "Labour Day", countryCode);
-        }
-
-        private PublicHoliday DayOfMadrid(int year, CountryCode countryCode, PublicHoliday labourDay)
-        {
-            var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            if (labourDay.Date == date)
-            {
-                date = date.AddDays(1);
-            }
-
-            return new PublicHoliday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-M" });
         }
 
         private PublicHoliday Assumption(int year, CountryCode countryCode)
@@ -141,6 +111,13 @@ namespace Nager.Date.PublicHolidays
             var date = new DateTime(year, 8, 15).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             return new PublicHoliday(date, "Asunción", "Assumption", countryCode);
+        }
+
+        private PublicHoliday DayOfMadrid(int year, CountryCode countryCode)
+        {
+            var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+
+            return new PublicHoliday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-M" });
         }
 
         ///<inheritdoc/>
