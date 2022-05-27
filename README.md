@@ -204,6 +204,7 @@ To run a local instance of the docker image run the following command<br>
 | PHP | [yasumi](https://github.com/azuyalabs/yasumi) | 34 |
 | JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) | 142 |
 | Java | [jollyday](https://github.com/svendiedrichsen/jollyday) | 64 |
+| Java | [focus-shift jollyday](https://github.com/focus-shift/jollyday/) | 74 |
 | .NET | [Holiday](https://github.com/martinjw/Holiday) | 21 |
 | Python | [python-holidays](https://github.com/ryanss/python-holidays) | 34 |
 | Python | [workalendar](https://github.com/peopledoc/workalendar) | 59 |
