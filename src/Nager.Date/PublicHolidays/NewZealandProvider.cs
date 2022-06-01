@@ -13,6 +13,7 @@ namespace Nager.Date.PublicHolidays
     public class NewZealandProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
+        private IDictionary<int, DateTime> _matariki;
 
         /// <summary>
         /// NewZealandProvider
@@ -21,6 +22,7 @@ namespace Nager.Date.PublicHolidays
         public NewZealandProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
+            this.InitMatariki();
         }
 
         ///<inheritdoc/>
@@ -84,7 +86,7 @@ namespace Nager.Date.PublicHolidays
             var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             items.Add(new PublicHoliday(boxingDay, "Boxing Day", "Boxing Day", countryCode));
 
-        #endregion
+            #endregion
 
             #region Regional Anniversary Days
             // https://www.employment.govt.nz/leave-and-holidays/public-holidays/public-holidays-and-anniversary-dates/
@@ -135,7 +137,61 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(queensBirthday, "Queen's Birthday", "Queen's Birthday", countryCode));
             items.Add(new PublicHoliday(labourDay, "Labour Day", "Labour Day", countryCode));
 
+            #region Matariki
+
+            if (this._matariki.TryGetValue(year, out var matariki))
+            {
+                items.Add(new PublicHoliday(matariki, "Matariki", "Matariki", countryCode));
+            }
+
+            #endregion
+
             return items.OrderBy(o => o.Date);
+        }
+
+        /// <summary>
+        /// Matariki (Maori New Year) is introduced as a national public holiday beginning in 2022.
+        /// The first 30 years of dates have been agreed upon by the Matariki Advisory Committee.
+        /// The dates have been chosen to account for adjustments between the Maori lunar calendar and
+        /// the Gregorian calendar, while ensuring the public holiday falls on a Friday.
+        /// </summary>
+        private void InitMatariki()
+        {
+            this._matariki = new DateTime[]
+            {
+                new DateTime(2022, 6, 24),
+                new DateTime(2023, 7, 14),
+                new DateTime(2024, 6, 28),
+                new DateTime(2025, 6, 20),
+                new DateTime(2026, 7, 10),
+                new DateTime(2027, 6, 25),
+                new DateTime(2028, 7, 14),
+                new DateTime(2029, 7, 6),
+                new DateTime(2030, 6, 21),
+                new DateTime(2031, 7, 11),
+                new DateTime(2032, 7, 2),
+                new DateTime(2033, 6, 24),
+                new DateTime(2034, 7, 7),
+                new DateTime(2035, 6, 29),
+                new DateTime(2036, 7, 18),
+                new DateTime(2037, 7, 10),
+                new DateTime(2038, 6, 25),
+                new DateTime(2039, 7, 15),
+                new DateTime(2040, 7, 6),
+                new DateTime(2041, 7, 19),
+                new DateTime(2042, 7, 11),
+                new DateTime(2043, 7, 3),
+                new DateTime(2044, 6, 24),
+                new DateTime(2045, 7, 7),
+                new DateTime(2046, 6, 29),
+                new DateTime(2047, 7, 19),
+                new DateTime(2048, 7, 3),
+                new DateTime(2049, 6, 25),
+                new DateTime(2050, 7, 15),
+                new DateTime(2051, 6, 30),
+                new DateTime(2052, 6, 21),
+            }
+            .ToDictionary(data => data.Year);
         }
 
         ///<inheritdoc/>
@@ -143,7 +199,8 @@ namespace Nager.Date.PublicHolidays
         {
             return new string[]
             {
-                "https://en.wikipedia.org/wiki/Public_holidays_in_New_Zealand"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_New_Zealand",
+                "https://www.mbie.govt.nz/assets/matariki-dates-2022-to-2052-matariki-advisory-group.pdf"
             };
         }
     }
