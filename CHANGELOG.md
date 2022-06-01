@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [1.35.0] - 2022-06-01
+ 
+### Added
+- New Zealand - Add Matariki
+### Fixed
+- Spain - Fix Labour Day and Day of Madrid 
+- Swedish - Fix Ascension Day
+- Faroe Islands - Fix General Prayer Day
+
 ## [1.34.1] - 2022-05-02
  
 ### Fixed
