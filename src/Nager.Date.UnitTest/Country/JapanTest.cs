@@ -7,7 +7,7 @@ namespace Nager.Date.UnitTest.Country
     [TestClass]
     public class JapanTest
     {
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(1955, 1955, 03, 21)]
         [DataRow(1956, 1956, 03, 21)]
         [DataRow(1964, 1964, 03, 20)]
@@ -24,7 +24,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(new DateTime(expectedYear, expectedMonth, expectedDay), publicHoliday.Date);
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(1955, 1955, 09, 24)]
         [DataRow(1956, 1956, 09, 23)]
         [DataRow(1964, 1964, 09, 23)]

@@ -28,7 +28,7 @@ namespace Nager.Date.UnitTest.Common
             }
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(1900, 4, 15)]
         [DataRow(2014, 4, 20)]
         [DataRow(2015, 4, 5)]

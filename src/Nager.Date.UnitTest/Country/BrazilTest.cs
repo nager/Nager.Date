@@ -15,7 +15,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(true, isPublicHoliday);
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(null, false)]
         [DataRow("BR-SP", true)]
         public void TestBrazilSPRevolutionOf1932(string countyCode, bool expected)
@@ -25,7 +25,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(expected, isPublicHoliday);
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

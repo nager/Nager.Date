@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Extensions;
 using System;
 
@@ -7,7 +7,7 @@ namespace Nager.Date.UnitTest.DateTimeExtension
     [TestClass]
     public class DateTimeExtension_Shift
     {
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8)]
         [DataRow(2018, 10, 9)]
         [DataRow(2018, 10, 10)]
@@ -21,7 +21,7 @@ namespace Nager.Date.UnitTest.DateTimeExtension
             Assert.AreEqual(date, date.Shift(DayOfWeek.Monday, null));
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, DayOfWeek.Tuesday)]
         [DataRow(2018, 10, 9, DayOfWeek.Monday)]
         [DataRow(2018, 10, 10, DayOfWeek.Tuesday)]
@@ -35,7 +35,7 @@ namespace Nager.Date.UnitTest.DateTimeExtension
             Assert.AreEqual(date, date.Shift(dayOfWeek, d => d.AddDays(1)));
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, DayOfWeek.Monday)]
         [DataRow(2018, 10, 9, DayOfWeek.Tuesday)]
         [DataRow(2018, 10, 10, DayOfWeek.Wednesday)]

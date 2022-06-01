@@ -7,7 +7,7 @@ namespace Nager.Date.UnitTest.DateTimeExtension
     [TestClass]
     public class DateTimeExtension_ShiftToClosest
     {
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, DayOfWeek.Monday)]
         [DataRow(2018, 10, 9, DayOfWeek.Tuesday)]
         [DataRow(2018, 10, 10, DayOfWeek.Wednesday)]

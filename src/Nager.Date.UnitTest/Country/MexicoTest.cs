@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Extensions;
 using System;
 
@@ -7,7 +7,7 @@ namespace Nager.Date.UnitTest.Country
     [TestClass]
     public class MexicoTest
     {
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

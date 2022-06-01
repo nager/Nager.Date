@@ -17,7 +17,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(new DateTime(2017, 1, 1), publicHolidays[0].Date);
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

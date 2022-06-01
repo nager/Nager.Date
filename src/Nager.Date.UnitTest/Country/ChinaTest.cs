@@ -84,7 +84,7 @@ namespace Nager.Date.UnitTest.Country
             }
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

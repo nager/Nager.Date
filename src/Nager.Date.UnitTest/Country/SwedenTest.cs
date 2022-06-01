@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Nager.Date.UnitTest.Country
@@ -6,7 +6,7 @@ namespace Nager.Date.UnitTest.Country
     [TestClass]
     public class SwedenTest
     {
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2000, false)]
         [DataRow(2004, false)]
         [DataRow(2005, true)]
@@ -23,7 +23,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(expected, result, date.ToString());
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2000, 6, 12, true)]
         [DataRow(2004, 5, 31, true)]
         [DataRow(2005, 5, 16, false)]

@@ -20,7 +20,7 @@ namespace Nager.Date.UnitTest.Country
             }
         }
 
-        [TestMethod]
+        [DataTestMethod]
         public void CheckDayOfMadridIsThirdMayIn2021()
         {
             var yearToTest = 2021;
@@ -31,7 +31,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(expectedDate2021, dayOfMadrid.Date);
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

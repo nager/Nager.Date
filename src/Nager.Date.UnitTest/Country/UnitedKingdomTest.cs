@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Extensions;
 using System;
 
@@ -23,7 +23,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(true, isPublicHoliday);
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]
@@ -43,7 +43,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(expected, result);
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2019, 5, 6, true)]
         [DataRow(2020, 5, 1, false)]
         [DataRow(2020, 5, 8, true)]
@@ -56,7 +56,7 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(expected, result);
         }
         
-        [TestMethod]
+        [DataTestMethod]
         [DataRow(2015, 12, 25, 28)]
         [DataRow(2016, 12, 27, 26)]
         [DataRow(2017, 12, 25, 26)]
