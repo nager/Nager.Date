@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - New Zealand - Add Matariki
 ### Fixed
 - Spain - Fix Labour Day and Day of Madrid 
-- Swedish - Fix Ascension Day
+- Sweden - Fix Ascension Day
 - Faroe Islands - Fix General Prayer Day
 
 ## [1.34.1] - 2022-05-02
