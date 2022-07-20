@@ -38,18 +38,24 @@ namespace Nager.Date.UnitTest.Common
                 {
                     var counties = countyProvider.GetCounties();
 
-                    var publicHolidays = DateSystem.GetPublicHolidays(DateTime.Now.Year, countryCode);
-                    foreach (var publicHoliday in publicHolidays)
-                    {
-                        if (publicHoliday.Counties == null)
-                        {
-                            continue;
-                        }
+                    var startYear = DateTime.Today.Year - 100;
+                    var endYear = DateTime.Today.Year + 100;
 
-                        if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Length)
+                    for (var year = startYear; year <= endYear; year++)
+                    {
+                        var publicHolidays = DateSystem.GetPublicHolidays(year, countryCode);
+                        foreach (var publicHoliday in publicHolidays)
                         {
-                            var diff = publicHoliday.Counties.Except(counties.Keys);
-                            Assert.Fail($"Unknown countie in {provider} {string.Join(",", diff)}");
+                            if (publicHoliday.Counties == null)
+                            {
+                                continue;
+                            }
+
+                            if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Length)
+                            {
+                                var diff = publicHoliday.Counties.Except(counties.Keys);
+                                Assert.Fail($"Unknown countie in {provider} {string.Join(",", diff)}");
+                            }
                         }
                     }
                 }
