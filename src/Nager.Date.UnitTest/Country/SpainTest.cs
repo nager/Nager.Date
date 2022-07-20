@@ -11,12 +11,12 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestSpain()
         {
-            var holidayCount = 34;
+            var globalHolidayCount = 10;
 
-            for (var year = DateTime.Now.Year; year < 3000; year++)
+            for (var year = DateTime.Today.Year; year < 3000; year++)
             {
                 var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.ES);
-                Assert.AreEqual(holidayCount, publicHolidays.Count());
+                Assert.AreEqual(globalHolidayCount, publicHolidays.Where(o => o.Global).Count());
             }
         }
 
