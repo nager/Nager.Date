@@ -69,7 +69,6 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 2, 28, "Día de Andalucía", "Regional Holiday", countryCode, null, new string[] { "ES-AN" }));
             items.Add(new PublicHoliday(year, 3, 1, "Dia de les Illes Balears", "Regional Holiday", countryCode, null, new string[] { "ES-IB" }));
-            items.Add(new PublicHoliday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, new string[] { "ES-EX", "ES-PV", "ES-GA", "ES-M", "ES-MU", "ES-NA", "ES-VC" }));
             items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-LO", "ES-M", "ES-MU", "ES-NA", "ES-O", "ES-PV", "ES-CB"));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode).SetLaunchYear(1642).SetCounties("ES-CT", "ES-IB", "ES-LO", "ES-NA", "ES-PV", "ES-VC"));
@@ -103,6 +102,12 @@ namespace Nager.Date.PublicHolidays
             var dayOfMadrid = this.DayOfMadrid(year, countryCode);
             items.Add(dayOfMadrid);
 
+            var sanJose = this.SanJose(year, countryCode);
+            if (sanJose != null)
+            {
+                items.Add(sanJose);
+            }
+
             return items.OrderBy(o => o.Date);
         }
 
@@ -118,6 +123,65 @@ namespace Nager.Date.PublicHolidays
             var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             return new PublicHoliday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-M" });
+        }
+
+        private PublicHoliday SanJose(int year, CountryCode countryCode)
+        {
+            if (year < 2000)
+            {
+                return null;
+            }
+
+            string[] counties;
+
+            switch (year)
+            {
+                case 2000:
+                case 2001:
+                case 2002:
+                case 2003:
+                case 2004:
+                case 2005:
+                case 2006:
+                case 2007:
+                case 2008:
+                case 2009:
+                case 2010:
+                case 2011:
+                case 2012:
+                case 2013:
+                case 2014:
+                    counties = new string[] { "ES-AR", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-M", "ES-ML", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    break;
+                case 2015:
+                    counties = new string[] { "ES-CM", "ES-M", "ES-ML", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    break;
+                case 2016:
+                    counties = new string[] { "ES-ML", "ES-MU", "ES-PV", "ES-VC" };
+                    break;
+                case 2017:
+                    counties = new string[] { "ES-EX", "ES-M" };
+                    break;
+                case 2018:
+                case 2019:
+                    counties = new string[] { "ES-GA", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    break;
+                case 2020:
+                    counties = new string[] { "ES-CM", "ES-GA", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    break;
+                case 2021:
+                    counties = new string[] { "ES-EX", "ES-GA", "ES-M", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    break;
+                case 2022:
+                    counties = new string[] { "ES-GA", "ES-VC" };
+                    break;
+                case 2023:
+                default:
+                    counties = new string[] { "ES-GA", "ES-NA", "ES-VC" };
+                    break;
+            }
+
+            return new PublicHoliday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, counties);
         }
 
         ///<inheritdoc/>
