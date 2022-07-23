@@ -125,19 +125,19 @@ namespace Nager.Date.PublicHolidays
             switch (year)
             {
                 case 2017:
-                    counties = new string[] { "ES-CL", "ES-CN", "ES-GA", "ES-M", "ES-NA", "ES-PV" };
+                    counties = new string[] { "ES-CL", "ES-CN", "ES-GA", "ES-MD", "ES-PV" };
                     break;
                 case 2018:
                     counties = new string[] { "ES-GA" };
                     break;
                 case 2019:
-                    counties = new string[] { "ES-GA", "ES-PV", "ES-S" };
+                    counties = new string[] { "ES-GA", "ES-PV" };
                     break;
                 case 2020:
                     counties = new string[] { "ES-GA", "ES-PV" };
                     break;
                 case 2022:
-                    counties = new string[] { "ES-GA", "ES-M", "ES-NA", "ES-PV" };
+                    counties = new string[] { "ES-GA", "ES-MD", "ES-PV" };
                     break;
                 case 2023:
                 case 2024:
