@@ -28,6 +28,7 @@ namespace Nager.Date.PublicHolidays
         {
             return new Dictionary<string, string>
             {
+                //https://en.wikipedia.org/wiki/ISO_3166-2:ES
                 { "ES-AN", "Andalusia" },
                 { "ES-AR", "Aragon" },
                 { "ES-AS", "Principality of Asturias" },
@@ -47,16 +48,6 @@ namespace Nager.Date.PublicHolidays
                 { "ES-NC", "Chartered Community of Navarre" },
                 { "ES-PV", "Basque Country" },
                 { "ES-VC", "Valencian Community" },
-
-                //Provinces
-                //TODO: Optimize code add provinces behind counties
-                //https://en.wikipedia.org/wiki/ISO_3166-2:ES
-                { "ES-O", "Asturias" },
-                { "ES-NA", "Navarra" },
-                { "ES-MU", "Murcia" },
-                { "ES-M", "Madrid" },
-                { "ES-LO", "La Rioja" },
-                { "ES-S", "Cantabria" }
             };
         }
 
@@ -70,24 +61,24 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 2, 28, "Día de Andalucía", "Regional Holiday", countryCode, null, new string[] { "ES-AN" }));
             items.Add(new PublicHoliday(year, 3, 1, "Dia de les Illes Balears", "Regional Holiday", countryCode, null, new string[] { "ES-IB" }));
-            items.Add(new PublicHoliday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, new string[] { "ES-EX", "ES-PV", "ES-GA", "ES-M", "ES-MU", "ES-NA", "ES-VC" }));
-            items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-LO", "ES-M", "ES-MU", "ES-NA", "ES-O", "ES-PV", "ES-CB"));
+            items.Add(new PublicHoliday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, new string[] { "ES-EX", "ES-PV", "ES-GA", "ES-MD", "ES-MC", "ES-NC", "ES-VC" }));
+            items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC", "ES-AS", "ES-PV", "ES-CB"));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            items.Add(this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode).SetLaunchYear(1642).SetCounties("ES-CT", "ES-IB", "ES-LO", "ES-NA", "ES-PV", "ES-VC"));
+            items.Add(this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode).SetLaunchYear(1642).SetCounties("ES-CT", "ES-IB", "ES-RI", "ES-NC", "ES-PV", "ES-VC"));
             items.Add(new PublicHoliday(year, 4, 23, "San Jorge (Día de Aragón)", "Regional Holiday", countryCode, null, new string[] { "ES-AR" }));
             items.Add(new PublicHoliday(year, 4, 23, "Día de Castilla y León", "Regional Holiday", countryCode, null, new string[] { "ES-CL" }));
             items.Add(new PublicHoliday(year, 5, 1, "Fiesta del trabajo", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 17, "Día das Letras Galegas", "Regional Holiday", countryCode, null, new string[] { "ES-GA" }));
             items.Add(new PublicHoliday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Regional Holiday", countryCode, null, new string[] { "ES-CM" }));
             items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode).SetCounties("ES-CM"));
-            items.Add(new PublicHoliday(year, 6, 9, "Día de la Región de Murcia", "Regional Holiday", countryCode, null, new string[] { "ES-MU" }));
-            items.Add(new PublicHoliday(year, 6, 9, "Día de La Rioja", "Regional Holiday", countryCode, null, new string[] { "ES-LO" }));
+            items.Add(new PublicHoliday(year, 6, 9, "Día de la Región de Murcia", "Regional Holiday", countryCode, null, new string[] { "ES-MC" }));
+            items.Add(new PublicHoliday(year, 6, 9, "Día de La Rioja", "Regional Holiday", countryCode, null, new string[] { "ES-RI" }));
             items.Add(new PublicHoliday(year, 6, 24, "Sant Joan", "St. John's Day", countryCode, null, new string[] { "ES-CT", "ES-VC" }));
             items.Add(new PublicHoliday(year, 7, 20, "Fiesta del Sacrificio-Eidul Adha", "Eidul Adha", countryCode, null, new string[] { "ES-CE" }));
             items.Add(new PublicHoliday(year, 7, 21, "Fiesta del Sacrificio-Aid Al Adha", "Aid Al Adha", countryCode, null, new string[] { "ES-ML" }));
             items.Add(new PublicHoliday(year, 7, 28, "Día de las Instituciones de Cantabria", "Regional Holiday", countryCode, null, new string[] { "ES-CB" }));
             items.Add(new PublicHoliday(year, 9, 2, "Día de Ceuta", "Municipal Holiday", countryCode, null, new string[] { "ES-CE" }));
-            items.Add(new PublicHoliday(year, 9, 8, "Día de Asturias", "Regional Holiday", countryCode, null, new string[] { "ES-O" }));
+            items.Add(new PublicHoliday(year, 9, 8, "Día de Asturias", "Regional Holiday", countryCode, null, new string[] { "ES-AS" }));
             items.Add(new PublicHoliday(year, 9, 8, "Día de Extremadura", "Regional Holiday", countryCode, null, new string[] { "ES-EX" }));
             items.Add(new PublicHoliday(year, 9, 11, "Diada Nacional de Catalunya", "National Day of Catalonia", countryCode, null, new string[] { "ES-CT" }));
             items.Add(new PublicHoliday(year, 9, 15, "La Bien Aparecida", "Regional Holiday", countryCode, null, new string[] { "ES-CB" }));
@@ -124,7 +115,7 @@ namespace Nager.Date.PublicHolidays
         {
             var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
-            return new PublicHoliday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-M" });
+            return new PublicHoliday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-MD" });
         }
 
         private PublicHoliday SantiagoApostol(int year, CountryCode countryCode)
@@ -168,7 +159,8 @@ namespace Nager.Date.PublicHolidays
             return new string[]
             {
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Spain",
-                "https://www.boe.es/boe/dias/2020/11/02/pdfs/BOE-A-2020-13343.pdf"
+                "https://www.boe.es/boe/dias/2020/11/02/pdfs/BOE-A-2020-13343.pdf",
+                "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2021-17113"
             };
         }
     }
