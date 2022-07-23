@@ -61,7 +61,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 2, 28, "Día de Andalucía", "Regional Holiday", countryCode, null, new string[] { "ES-AN" }));
             items.Add(new PublicHoliday(year, 3, 1, "Dia de les Illes Balears", "Regional Holiday", countryCode, null, new string[] { "ES-IB" }));
-            items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-LO", "ES-M", "ES-MU", "ES-NA", "ES-O", "ES-PV", "ES-CB"));
+            items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC", "ES-AS", "ES-PV", "ES-CB"));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode).SetLaunchYear(1642).SetCounties("ES-CT", "ES-IB", "ES-RI", "ES-NC", "ES-PV", "ES-VC"));
             items.Add(new PublicHoliday(year, 4, 23, "San Jorge (Día de Aragón)", "Regional Holiday", countryCode, null, new string[] { "ES-AR" }));
@@ -143,33 +143,33 @@ namespace Nager.Date.PublicHolidays
                 case 2012:
                 case 2013:
                 case 2014:
-                    counties = new string[] { "ES-AR", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-M", "ES-ML", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-AR", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-MD", "ES-ML", "ES-PV", "ES-VC" };
                     break;
                 case 2015:
-                    counties = new string[] { "ES-CM", "ES-M", "ES-ML", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-CM", "ES-MD", "ES-ML", "ES-PV", "ES-VC" };
                     break;
                 case 2016:
-                    counties = new string[] { "ES-ML", "ES-MU", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-ML", "ES-PV", "ES-VC" };
                     break;
                 case 2017:
-                    counties = new string[] { "ES-EX", "ES-M" };
+                    counties = new string[] { "ES-EX", "ES-MD" };
                     break;
                 case 2018:
                 case 2019:
-                    counties = new string[] { "ES-GA", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-GA", "ES-PV", "ES-VC" };
                     break;
                 case 2020:
-                    counties = new string[] { "ES-CM", "ES-GA", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-CM", "ES-GA", "ES-PV", "ES-VC" };
                     break;
                 case 2021:
-                    counties = new string[] { "ES-EX", "ES-GA", "ES-M", "ES-MU", "ES-NA", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-EX", "ES-GA", "ES-MD", "ES-PV", "ES-VC" };
                     break;
                 case 2022:
                     counties = new string[] { "ES-GA", "ES-VC" };
                     break;
                 case 2023:
                 default:
-                    counties = new string[] { "ES-GA", "ES-NA", "ES-VC" };
+                    counties = new string[] { "ES-GA", "ES-VC" };
                     break;
             }
 
