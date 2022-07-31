@@ -95,6 +95,12 @@ namespace Nager.Date.PublicHolidays
             var dayOfMadrid = this.DayOfMadrid(year, countryCode);
             items.Add(dayOfMadrid);
 
+            var santiagoApostol = this.SantiagoApostol(year, countryCode);
+            if (santiagoApostol != null)
+            {
+                items.Add(santiagoApostol);
+            }
+
             return items.OrderBy(o => o.Date);
         }
 
@@ -110,6 +116,41 @@ namespace Nager.Date.PublicHolidays
             var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             return new PublicHoliday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-MD" });
+        }
+
+        private PublicHoliday SantiagoApostol(int year, CountryCode countryCode)
+        {
+            string[] counties;
+
+            switch (year)
+            {
+                case 2017:
+                    counties = new string[] { "ES-CL", "ES-CN", "ES-GA", "ES-MD", "ES-PV" };
+                    break;
+                case 2018:
+                    counties = new string[] { "ES-GA" };
+                    break;
+                case 2019:
+                    counties = new string[] { "ES-GA", "ES-PV" };
+                    break;
+                case 2020:
+                    counties = new string[] { "ES-GA", "ES-PV" };
+                    break;
+                case 2022:
+                    counties = new string[] { "ES-GA", "ES-MD", "ES-PV" };
+                    break;
+                case 2023:
+                case 2024:
+                case 2025:
+                case 2026:
+                case 2027:
+                    counties = new string[] { "ES-GA", "ES-PV" };
+                    break;
+                default:
+                    return null;
+            }
+
+            return new PublicHoliday(year, 7, 25, "Santiago Apóstol", "Santiago Apóstol", countryCode, null, counties);
         }
 
         ///<inheritdoc/>
