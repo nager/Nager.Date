@@ -165,11 +165,10 @@ namespace Nager.Date.PublicHolidays
                     counties = new string[] { "ES-EX", "ES-GA", "ES-MD", "ES-PV", "ES-VC" };
                     break;
                 case 2022:
-                    counties = new string[] { "ES-GA", "ES-VC" };
+                    counties = new string[] { "ES-VC" };
                     break;
-                case 2023:
                 default:
-                    counties = new string[] { "ES-GA", "ES-VC" };
+                    counties = new string[] { "ES-VC" };
                     break;
             }
 
