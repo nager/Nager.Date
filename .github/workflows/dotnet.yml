@@ -1,15 +1,11 @@
-name: Build, Test & Publish
+name: Build and deploy
 
 on:
-  push:
-    paths:
-    - 'src/**'
-    - '.github/workflows/**'
-    branches: [ master ]
-  pull_request:
-    paths:
-    - 'src/**'
-    branches: [ master ]
+  workflow_dispatch:
+    inputs:
+        imageVersion:
+          description: 'Docker Image Version (x.x.x)'     
+          required: true
 
 jobs:
   build:
@@ -17,17 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: set env 'WS_NAME'
+      run: echo ::set-env name=WS_NAME::nager-date
     - uses: actions/checkout@v2
+    - name: Setup .NET Core 3.1	
+      uses: actions/setup-dotnet@v1	
+      with:	
+        dotnet-version: 3.1.x
     - name: Setup .NET 6.0
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Change LicenseKey
-      if: github.event_name != 'pull_request'
-      working-directory: ./src
-      run: |
-        sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date/DateSystem.cs
-        sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date.UnitTest/AssemblyInitialize.cs
     - name: Restore dependencies
       working-directory: ./src
       run: dotnet restore
@@ -41,8 +37,10 @@ jobs:
     - name: Build project and generate NuGet package
       run: |
         dotnet pack --configuration Release --output $GITHUB_WORKSPACE/out src/Nager.Date/Nager.Date.csproj
-    - name: Push NuGet package
-      if: github.event_name != 'pull_request'
-      run: |
-        cd $GITHUB_WORKSPACE/out
-        dotnet nuget push *.nupkg --source https://www.nuget.org/api/v2/package --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate --no-symbols
+    - name: Build Docker image
+      uses: docker/build-push-action@v1.1.1
+      with: 
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: ${{ secrets.DOCKER_REGISTRY }}
+        tags: ${{ env.IMAGE_PREFIX }}${{ github.event.inputs.imageVersion }}
