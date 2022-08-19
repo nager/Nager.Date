@@ -60,12 +60,12 @@ namespace Nager.Date.PublicHolidays
 
             #endregion
 
-            #region Anzac Day with fallback
+            #region Waitangi Day with fallback
 
             if (year >= 2016)
             {
-                var anzacDay = new DateTime(year, 2, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-                items.Add(new PublicHoliday(anzacDay, "Waitangi Day", "Waitangi Day", countryCode));
+                var waitangiDay = new DateTime(year, 2, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+                items.Add(new PublicHoliday(waitangiDay, "Waitangi Day", "Waitangi Day", countryCode));
             }
             else
             {
