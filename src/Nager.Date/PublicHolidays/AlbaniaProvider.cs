@@ -15,9 +15,11 @@ namespace Nager.Date.PublicHolidays
         /// <summary>
         /// AlbaniaProvider
         /// </summary>
+        /// <param name="catholicProvider"></param>
         /// <param name="orthodoxProvider"></param>
-        public AlbaniaProvider(IOrthodoxProvider orthodoxProvider)
+        public AlbaniaProvider(ICatholicProvider catholicProvider, IOrthodoxProvider orthodoxProvider)
         {
+            this._catholicProvider = catholicProvider;
             this._orthodoxProvider = orthodoxProvider;
         }
 
@@ -31,10 +33,12 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 2, "Viti i Ri", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 14, "Dita e Verës", "Summer Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 22, "Dita e Sulltan Nevruzit", "Nowruz", countryCode));
-            //TODO: Catholic Easter is not implemented
-            //Orthodox easter and monday
+            //Catholic Easter and monday
+            items.Add(this._catholicProvider.EasterSunday("Pashkët Katolike", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Hënen e Pashkët Katolike", year, countryCode));
+            //Orthodox easter and monday            
             items.Add(this._orthodoxProvider.EasterSunday("Pashkët Ortodokse", year, countryCode));
-            items.Add(this._orthodoxProvider.EasterMonday("Pashkët Ortodokse", year, countryCode));
+            items.Add(this._orthodoxProvider.EasterMonday("Hënen e Pashkët Ortodokse", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Dita Ndërkombëtare e Punonjësve", "May Day", countryCode));
             //TODO: Eid ul-Fitr is not implemented
             //TODO: Eid ul-Adha is not implemented
