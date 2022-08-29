@@ -106,7 +106,25 @@ namespace Nager.Date.PublicHolidays
                 items.Add(santiagoApostol);
             }
 
+            var whitMonday = this.WhitMonday(year, countryCode);
+            if (whitMonday != null)
+            {
+                items.Add(whitMonday);
+            }
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday WhitMonday(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                var whitMonday = this._catholicProvider.WhitMonday("Lunes de Pascua Granada", year, countryCode);
+                whitMonday.SetCounties("ES-CT");
+                return whitMonday;
+            }
+
+            return null;
         }
 
         private PublicHoliday Assumption(int year, CountryCode countryCode)
