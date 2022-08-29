@@ -42,7 +42,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._catholicProvider.Pentecost("Helluntaipäivä", year, countryCode));
             items.Add(new PublicHoliday(midsummerEve, "Juhannusaatto", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(midsummerDay, "Juhannuspäivä", "Midsummer Day", countryCode));
-            items.Add(new PublicHoliday(allSaintsDay, "Pyhäinpäivä", "All Saints' Day", countryCode));
+            items.Add(new PublicHoliday(allSaintsDay.Value, "Pyhäinpäivä", "All Saints' Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 6, "Itsenäisyyspäivä", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Jouluaatto", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Joulupäivä", "Christmas Day", countryCode));
