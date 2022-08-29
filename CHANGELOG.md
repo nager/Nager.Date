@@ -5,6 +5,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [Unreleased 1.36.0] - 2022-08-29
+
+### Added
+- Spain - Add Santiago Apóstol
+### Changed
+- Unit tests - Optimize
+- San Marino - Optimize St. Stephen's Day
+- Spain - Updated regions, removed provinces
+### Deprecated
+### Removed
+### Fixed
+- DateSystem - Fix bug FindDayBetween 
+- Spain - Fix San Jose Day
+
+
 ## [1.35.0] - 2022-06-01
  
 ### Added

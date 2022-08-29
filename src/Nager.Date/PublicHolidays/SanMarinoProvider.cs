@@ -43,7 +43,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 8, "Immaculate Conception", "Immaculate Conception", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Christmas Eve", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "Saint Stephen's Day", "Saint Stephen's Day", countryCode));
+            items.Add(new PublicHoliday(year, 12, 26, "St. Stephen's Day", "St. Stephen's Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 31, "New Year's Eve", "New Year's Eve", countryCode));
 
             return items.OrderBy(o => o.Date);
