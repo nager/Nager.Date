@@ -117,6 +117,8 @@ dependencies {
 	
 ### For our sponsors, we also offer a Docker container and a NuGet package
 
+With a sponsorship you get the license key to use the variants locally without a dependency to our REST Api.
+
 #### nuget
 The nuget package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)<br>
 
