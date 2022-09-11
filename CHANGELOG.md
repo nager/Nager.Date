@@ -16,12 +16,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - San Marino - Optimize St. Stephen's Day
 - Spain - Updated regions, removed provinces
 - Spain - Change Christmas Day counties for 2022
-### Deprecated
-### Removed
 ### Fixed
 - DateSystem - Fix bug FindDayBetween 
 - Spain - Fix San Jose Day
-
 
 ## [1.35.0] - 2022-06-01
  
