@@ -86,7 +86,6 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 11, 1, "Día de todos los Santos", "All Saints Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 6, "Día de la Constitución", "Constitution Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" }));
 
             var assumption = this.Assumption(year, countryCode);
@@ -112,7 +111,24 @@ namespace Nager.Date.PublicHolidays
                 items.Add(whitMonday);
             }
 
+            var christmasDay = this.ChristmasDay(year, countryCode);
+            if (christmasDay != null)
+            {
+                items.Add(christmasDay);
+            }
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday ChristmasDay(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                return new PublicHoliday(christmasDay, "Navidad", "Christmas Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CN", "ES-CB", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-ML", "ES-MC", "ES-NC" });
+            }
+
+            return new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode);
         }
 
         private PublicHoliday WhitMonday(int year, CountryCode countryCode)
