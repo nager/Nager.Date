@@ -122,10 +122,13 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(lastMondayInMay, name, name, countryCode, 1971);
         }
 
+        #region Royal family
+
         private PublicHoliday GetQueensPlatinumJubilee(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
+                //Majesty Queen Elizabeth II’s
                 return new PublicHoliday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
             }
 
@@ -136,11 +139,14 @@ namespace Nager.Date.PublicHolidays
         {
             if (year == 2022)
             {
+                //Majesty Queen Elizabeth II’s (https://www.gov.uk/government/news/bank-holiday-announced-for-her-majesty-queen-elizabeth-iis-state-funeral-on-monday-19-september)
                 return new PublicHoliday(year, 9, 19, "Queen’s State Funeral", "Queen’s State Funeral", countryCode);
             }
 
             return null;
         }
+
+        #endregion
 
         private PublicHoliday GetEarlyMayBankHoliday(int year, CountryCode countryCode)
         {
