@@ -85,6 +85,12 @@ namespace Nager.Date.PublicHolidays
                 items.Add(queensPlatinumJubilee);
             }
 
+            var queensStateFuneral = this.GetQueensStateFuneral(year, countryCode);
+            if (queensStateFuneral != null)
+            {
+                items.Add(queensStateFuneral);
+            }
+
             #region Christmas Day with fallback
 
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
@@ -116,15 +122,31 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(lastMondayInMay, name, name, countryCode, 1971);
         }
 
+        #region Royal family
+
         private PublicHoliday GetQueensPlatinumJubilee(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
+                //Majesty Queen Elizabeth II’s
                 return new PublicHoliday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
             }
 
             return null;
         }
+
+        private PublicHoliday GetQueensStateFuneral(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                //Majesty Queen Elizabeth II’s (https://www.gov.uk/government/news/bank-holiday-announced-for-her-majesty-queen-elizabeth-iis-state-funeral-on-monday-19-september)
+                return new PublicHoliday(year, 9, 19, "Queen’s State Funeral", "Queen’s State Funeral", countryCode);
+            }
+
+            return null;
+        }
+
+        #endregion
 
         private PublicHoliday GetEarlyMayBankHoliday(int year, CountryCode countryCode)
         {
