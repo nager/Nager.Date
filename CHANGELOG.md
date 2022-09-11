@@ -5,14 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [Unreleased 1.36.0] - 2022-08-29
+## [1.36.0] - 2022-09-11
 
 ### Added
 - Spain - Add Santiago Apóstol
+- Spain - Add Lunes de Pascua Granada
+- United Kingdom - Queen Elizabeth II’s State Funeral
 ### Changed
 - Unit tests - Optimize
 - San Marino - Optimize St. Stephen's Day
 - Spain - Updated regions, removed provinces
+- Spain - Change Christmas Day counties for 2022
 ### Deprecated
 ### Removed
 ### Fixed
