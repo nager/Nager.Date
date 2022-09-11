@@ -85,6 +85,12 @@ namespace Nager.Date.PublicHolidays
                 items.Add(queensPlatinumJubilee);
             }
 
+            var queensStateFuneral = this.GetQueensStateFuneral(year, countryCode);
+            if (queensStateFuneral != null)
+            {
+                items.Add(queensStateFuneral);
+            }
+
             #region Christmas Day with fallback
 
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
@@ -121,6 +127,16 @@ namespace Nager.Date.PublicHolidays
             if (year == 2022)
             {
                 return new PublicHoliday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
+            }
+
+            return null;
+        }
+
+        private PublicHoliday GetQueensStateFuneral(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                return new PublicHoliday(year, 9, 19, "Queen’s State Funeral", "Queen’s State Funeral", countryCode);
             }
 
             return null;
