@@ -67,25 +67,25 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(firstMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(lastMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-ENG", "GB-WLS", "GB-NIR" }));
 
-            var earlyMayBankHoliday = this.GetEarlyMayBankHoliday(year, countryCode);
+            var earlyMayBankHoliday = this.EarlyMayBankHoliday(year, countryCode);
             if (earlyMayBankHoliday != null)
             {
                 items.Add(earlyMayBankHoliday);
             }
 
-            var springBankHoliday = this.GetSpringBankHoliday(year, countryCode);
+            var springBankHoliday = this.SpringBankHoliday(year, countryCode);
             if (springBankHoliday != null)
             {
                 items.Add(springBankHoliday);
             }
 
-            var queensPlatinumJubilee = this.GetQueensPlatinumJubilee(year, countryCode);
+            var queensPlatinumJubilee = this.QueensPlatinumJubilee(year, countryCode);
             if (queensPlatinumJubilee != null)
             {
                 items.Add(queensPlatinumJubilee);
             }
 
-            var queensStateFuneral = this.GetQueensStateFuneral(year, countryCode);
+            var queensStateFuneral = this.QueensStateFuneral(year, countryCode);
             if (queensStateFuneral != null)
             {
                 items.Add(queensStateFuneral);
@@ -108,7 +108,7 @@ namespace Nager.Date.PublicHolidays
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday GetSpringBankHoliday(int year, CountryCode countryCode)
+        private PublicHoliday SpringBankHoliday(int year, CountryCode countryCode)
         {
             var name = "Spring Bank Holiday";
 
@@ -124,7 +124,7 @@ namespace Nager.Date.PublicHolidays
 
         #region Royal family
 
-        private PublicHoliday GetQueensPlatinumJubilee(int year, CountryCode countryCode)
+        private PublicHoliday QueensPlatinumJubilee(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
@@ -135,7 +135,7 @@ namespace Nager.Date.PublicHolidays
             return null;
         }
 
-        private PublicHoliday GetQueensStateFuneral(int year, CountryCode countryCode)
+        private PublicHoliday QueensStateFuneral(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
@@ -148,7 +148,7 @@ namespace Nager.Date.PublicHolidays
 
         #endregion
 
-        private PublicHoliday GetEarlyMayBankHoliday(int year, CountryCode countryCode)
+        private PublicHoliday EarlyMayBankHoliday(int year, CountryCode countryCode)
         {
             var holidayName = "Early May Bank Holiday";
 
