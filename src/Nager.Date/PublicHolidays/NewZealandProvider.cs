@@ -146,7 +146,25 @@ namespace Nager.Date.PublicHolidays
 
             #endregion
 
+            var memorialDayForQueenElizabeth = this.MemorialDayForQueenElizabeth(year, countryCode);
+            if (memorialDayForQueenElizabeth != null)
+            {
+                items.Add(memorialDayForQueenElizabeth);
+            }
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday MemorialDayForQueenElizabeth(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                //Public Holiday on 26 September to mark passing of Queen Elizabeth II
+                //https://www.beehive.govt.nz/release/public-holiday-26-september-mark-passing-queen-elizabeth-ii
+                return new PublicHoliday(year, 9, 26, "Queen Elizabeth II Memorial Day", "Queen Elizabeth II Memorial Day", countryCode);
+            }
+
+            return null;
         }
 
         /// <summary>
