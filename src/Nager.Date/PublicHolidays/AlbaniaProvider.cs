@@ -56,7 +56,7 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday ApplyShiftingRules(PublicHoliday holiday)
         {
             return holiday
-                .Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1))
+                .Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
         }
 
         ///<inheritdoc/>
