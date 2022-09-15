@@ -32,10 +32,10 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 6, "Reis", "Epiphany", countryCode));
             ///TODO: Carnaval is not implemented : how to find the date ? 
             items.Add(new PublicHoliday(year, 3, 14, "Dia de la Constitució", "Constitution Day", countryCode));
-            items.Add(this._catholicProvider.GoodFriday("Divendres Sant", year, countryCode);
-            items.Add(this._catholicProvider.EasterMonday("Dilluns de Pasqua", year, countryCode);        
+            items.Add(this._catholicProvider.GoodFriday("Divendres Sant", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Dilluns de Pasqua", year, countryCode));        
             items.Add(new PublicHoliday(year, 5, 1, "Festa del Treball", "Labour Day", countryCode));
-            items.Add(this._catholicProvider.WhitMonday("Dilluns de Pentecosta", year, countryCode);
+            items.Add(this._catholicProvider.WhitMonday("Dilluns de Pentecosta", year, countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Assumpció", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 9, 8, "Mare de Déu de Meritxell", "National Holiday", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Tots Sants", "All Saints' Day", countryCode));
