@@ -11,6 +11,7 @@ namespace Nager.Date.PublicHolidays
     public class AlbaniaProvider : IPublicHolidayProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
+        private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
         /// AlbaniaProvider
