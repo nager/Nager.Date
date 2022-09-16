@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased 1.36.2] - yyyy-mm-dd
+ 
+### Added
+- Albania - Add catholic easter
+### Changed
+- Albania - Optimized Weekend Shift
+### Deprecated
+### Removed
+### Fixed
+
 ## [1.36.1] - 2022-09-13
 
 ### Added
