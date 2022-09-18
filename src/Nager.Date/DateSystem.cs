@@ -21,8 +21,8 @@ namespace Nager.Date
         private static readonly Dictionary<CountryCode, Lazy<IPublicHolidayProvider>> _publicHolidaysProviders =
             new Dictionary<CountryCode, Lazy<IPublicHolidayProvider>>
             {
-                { CountryCode.AL, new Lazy<IPublicHolidayProvider>(() => new AlbaniaProvider(_orthodoxProvider))},
                 { CountryCode.AD, new Lazy<IPublicHolidayProvider>(() => new AndorraProvider(_catholicProvider))},
+                { CountryCode.AL, new Lazy<IPublicHolidayProvider>(() => new AlbaniaProvider(_catholicProvider, _orthodoxProvider))},
                 { CountryCode.AR, new Lazy<IPublicHolidayProvider>(() => new ArgentinaProvider(_catholicProvider))},
                 { CountryCode.AT, new Lazy<IPublicHolidayProvider>(() => new AustriaProvider(_catholicProvider))},
                 { CountryCode.AU, new Lazy<IPublicHolidayProvider>(() => new AustraliaProvider(_catholicProvider))},
@@ -567,7 +567,7 @@ namespace Nager.Date
         /// <param name="dayEnd">The end day</param>
         /// <param name="dayOfWeek">The name of the day</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindDayBetween(int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd, DayOfWeek dayOfWeek)
+        public static DateTime? FindDayBetween(int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd, DayOfWeek dayOfWeek)
         {
             var startDay = new DateTime(yearStart, monthStart, dayStart);
             var endDay = new DateTime(yearEnd, monthEnd, dayEnd);
@@ -582,7 +582,13 @@ namespace Nager.Date
                 }
 
             }
-            return startDay;
+
+            if (startDay.DayOfWeek == dayOfWeek)
+            {
+                return startDay;
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -592,7 +598,7 @@ namespace Nager.Date
         /// <param name="endDate">The end date</param>
         /// <param name="dayOfWeek">The name of the day</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
+        public static DateTime? FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
         {
             return FindDayBetween(startDate.Year, startDate.Month, startDate.Day, endDate.Year, endDate.Month, endDate.Day, dayOfWeek);
         }

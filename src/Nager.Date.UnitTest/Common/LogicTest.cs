@@ -147,19 +147,44 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void CheckFindDayBetween()
+        public void CheckFindDayBetween1()
         {
             var result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Tuesday);
-            Assert.AreEqual(new DateTime(2019, 7, 2), result);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(new DateTime(2019, 7, 2), result.Value);
+        }
 
-            result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Wednesday);
-            Assert.AreEqual(new DateTime(2019, 7, 3), result);
 
-            result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Friday);
-            Assert.AreEqual(new DateTime(2019, 7, 5), result);
+        [TestMethod]
+        public void CheckFindDayBetween2()
+        {
+            var result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Wednesday);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(new DateTime(2019, 7, 3), result.Value);
+        }
 
-            result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Saturday);
-            Assert.AreEqual(new DateTime(2019, 7, 6), result);
+
+        [TestMethod]
+        public void CheckFindDayBetween3()
+        {
+            var result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Friday);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(new DateTime(2019, 7, 5), result.Value);
+        }
+
+        [TestMethod]
+        public void CheckFindDayBetween4()
+        {
+            var result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Saturday);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(new DateTime(2019, 7, 6), result.Value);
+        }
+
+        [TestMethod]
+        public void CheckFindDayBetween5()
+        {
+            var result = DateSystem.FindDayBetween(2022, 08, 25, 2022, 08, 28, DayOfWeek.Tuesday);
+            Assert.IsNull(result);
         }
 
         [TestMethod]

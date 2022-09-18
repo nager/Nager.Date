@@ -8,18 +8,6 @@ namespace Nager.Date.UnitTest.Country
     [TestClass]
     public class SpainTest
     {
-        [TestMethod]
-        public void TestSpain()
-        {
-            var globalHolidayCount = 10;
-
-            for (var year = DateTime.Today.Year; year < 3000; year++)
-            {
-                var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.ES);
-                Assert.AreEqual(globalHolidayCount, publicHolidays.Where(o => o.Global).Count());
-            }
-        }
-
         [DataTestMethod]
         public void CheckDayOfMadridIsThirdMayIn2021()
         {

@@ -86,7 +86,25 @@ namespace Nager.Date.PublicHolidays
             items.AddRange(this.CanadaDay(year, countryCode));
             items.AddRange(this.FamilyDay(year, countryCode));
 
+            var queensStateFuneral = this.FuneralForQueenElizabeth(year, countryCode);
+            if (queensStateFuneral != null)
+            {
+                items.Add(queensStateFuneral);
+            }
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday FuneralForQueenElizabeth(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                //Canada announces a national holiday to mark Queen Elizabeth’s death
+                //https://globalnews.ca/news/9122726/canada-national-holiday-sept-19-queens-funeral/
+                return new PublicHoliday(year, 9, 19, "State Funeral of Queen Elizabeth II", "State Funeral of Queen Elizabeth II", countryCode);
+            }
+
+            return null;
         }
 
         private PublicHoliday[] FamilyDay(int year, CountryCode countryCode)

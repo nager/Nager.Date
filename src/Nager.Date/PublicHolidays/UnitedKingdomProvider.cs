@@ -67,22 +67,28 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(firstMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(lastMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-ENG", "GB-WLS", "GB-NIR" }));
 
-            var earlyMayBankHoliday = this.GetEarlyMayBankHoliday(year, countryCode);
+            var earlyMayBankHoliday = this.EarlyMayBankHoliday(year, countryCode);
             if (earlyMayBankHoliday != null)
             {
                 items.Add(earlyMayBankHoliday);
             }
 
-            var springBankHoliday = this.GetSpringBankHoliday(year, countryCode);
+            var springBankHoliday = this.SpringBankHoliday(year, countryCode);
             if (springBankHoliday != null)
             {
                 items.Add(springBankHoliday);
             }
 
-            var queensPlatinumJubilee = this.GetQueensPlatinumJubilee(year, countryCode);
+            var queensPlatinumJubilee = this.QueensPlatinumJubilee(year, countryCode);
             if (queensPlatinumJubilee != null)
             {
                 items.Add(queensPlatinumJubilee);
+            }
+
+            var queensStateFuneral = this.QueensStateFuneral(year, countryCode);
+            if (queensStateFuneral != null)
+            {
+                items.Add(queensStateFuneral);
             }
 
             #region Christmas Day with fallback
@@ -102,7 +108,7 @@ namespace Nager.Date.PublicHolidays
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday GetSpringBankHoliday(int year, CountryCode countryCode)
+        private PublicHoliday SpringBankHoliday(int year, CountryCode countryCode)
         {
             var name = "Spring Bank Holiday";
 
@@ -116,17 +122,33 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(lastMondayInMay, name, name, countryCode, 1971);
         }
 
-        private PublicHoliday GetQueensPlatinumJubilee(int year, CountryCode countryCode)
+        #region Royal family
+
+        private PublicHoliday QueensPlatinumJubilee(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
+                //Majesty Queen Elizabeth II’s
                 return new PublicHoliday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
             }
 
             return null;
         }
 
-        private PublicHoliday GetEarlyMayBankHoliday(int year, CountryCode countryCode)
+        private PublicHoliday QueensStateFuneral(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                //Majesty Queen Elizabeth II’s (https://www.gov.uk/government/news/bank-holiday-announced-for-her-majesty-queen-elizabeth-iis-state-funeral-on-monday-19-september)
+                return new PublicHoliday(year, 9, 19, "Queen’s State Funeral", "Queen’s State Funeral", countryCode);
+            }
+
+            return null;
+        }
+
+        #endregion
+
+        private PublicHoliday EarlyMayBankHoliday(int year, CountryCode countryCode)
         {
             var holidayName = "Early May Bank Holiday";
 

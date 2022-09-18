@@ -4,6 +4,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased 1.36.2] - yyyy-mm-dd
+ 
+### Added
+- Albania - Add catholic easter
+### Changed
+- Albania - Optimized Weekend Shift
+### Deprecated
+### Removed
+### Fixed
+
+## [1.36.1] - 2022-09-13
+
+### Added
+- Canada - Add State Funeral of Queen Elizabeth II
+- New Zealand - Add Queen Elizabeth II Memorial Day
+- Australia - Add National Day of Mourning for Queen Elizabeth II
+
+## [1.36.0] - 2022-09-11
+
+### Added
+- Spain - Add Santiago Apóstol
+- Spain - Add Lunes de Pascua Granada
+- United Kingdom - Queen Elizabeth II’s State Funeral
+### Changed
+- Unit tests - Optimize
+- San Marino - Optimize St. Stephen's Day
+- Spain - Updated regions, removed provinces
+- Spain - Change Christmas Day counties for 2022
+### Fixed
+- DateSystem - Fix bug FindDayBetween 
+- Spain - Fix San Jose Day
 
 ## [1.35.0] - 2022-06-01
  

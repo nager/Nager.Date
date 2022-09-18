@@ -80,7 +80,26 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(boxingDay, "Boxing Day", "St. Stephen's Day", countryCode));
 
+            var mourningForQueenElizabeth = this.MourningForQueenElizabeth(year, countryCode);
+            if (mourningForQueenElizabeth != null)
+            {
+                items.Add(mourningForQueenElizabeth);
+            }
+
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday MourningForQueenElizabeth(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                //Australia's national day of mourning for Queen Elizabeth II to be public holiday
+                //https://www.abc.net.au/news/2022-09-11/national-day-of-mourning-queen-death-to-be-public-holiday/101427050
+                return new PublicHoliday(year, 9, 22, "National Day of Mourning", "National Day of Mourning", countryCode);
+            }
+
+            return null;
         }
 
         ///<inheritdoc/>
