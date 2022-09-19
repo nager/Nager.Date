@@ -55,34 +55,118 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
 
             var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+
             items.Add(new PublicHoliday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Sábado Santo", "Holy Saturday", countryCode));
-            //Census
             items.Add(new PublicHoliday(year, 5, 1, "Día del Trabajo", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 21, "Día de las Glorias Navales", "Navy Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 7, "Asalto y Toma del Morro de Arica", "Battle of Arica", countryCode, null, new string[] { "CL-AP" }));
-            items.Add(new PublicHoliday(year, 6, 26, "San Pedro y San Pablo", "Saint Peter and Saint Paul", countryCode));
-            //Presidential and Congress Primary Elections
-            items.Add(new PublicHoliday(year, 7, 16, "Virgen del Carmen", "Our Lady of Mount Carmel", countryCode));
-            items.Add(new PublicHoliday(year, 8, 10, "San Lorenzo de Tarapacá", "Saint Lawrence", countryCode, null, new string[] { "CL-TA" }));
-            items.Add(new PublicHoliday(year, 8, 10, "Día del Minero", "National Miner's Day", countryCode, null, new string[] { "CL-AT" }));
+
+            //TODO:National Day of Aboriginal Peoples (This holiday is to be observed on each Winter Solstice.)
+            //The winter solstice, also called the hibernal solstice, occurs when either of Earth's poles reaches its maximum tilt away from the Sun
+
+            items.Add(new PublicHoliday(year, 7, 16, "Virgen del Carmen", "Our Lady of Mount Carmel", countryCode, launchYear: 2007));
             items.Add(new PublicHoliday(year, 8, 15, "Asunción de la Virgen", "Assumption of Mary", countryCode));
-            //items.Add(new PublicHoliday(year, 8, 20, "Nacimiento del Prócer de la Independencia", "Nativity of Liberator Bernardo O'Higgins", countryCode)); //Only Valid in a communes
+            items.Add(new PublicHoliday(year, 9, 4, "Plebiscito nacional", "National plebiscite", countryCode));
             items.Add(new PublicHoliday(year, 9, 18, "Fiestas Patrias", "National holiday", countryCode));
             items.Add(new PublicHoliday(year, 9, 19, "Día de las Glorias del Ejército", "Army Day", countryCode));
-            items.Add(new PublicHoliday(year, 9, 20, "Feast of La Pampilla", "Fiesta de La Pampilla", countryCode, null, new string[] { "CL-CO" }));
-            items.Add(new PublicHoliday(year, 9, 21, "Toma de posesión del estrecho de Magallanes", "National Possession of the Strait of Magellan", countryCode, null, new string[] { "CL-MA" }));
-            items.Add(new PublicHoliday(year, 10, 2, "Aniversario de la Creación de la XIV Región de Los Ríos", "Los Ríos Region Anniversary", countryCode, null, new string[] { "CL-LR" }));
-            items.Add(new PublicHoliday(year, 10, 9, "Día del Descubrimiento de Dos Mundos", "Columbus Day", countryCode));
-            items.Add(new PublicHoliday(year, 10, 27, "Día Nacional de las Iglesias Evangélicas y Protestantes", "Reformation Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Día de Todos los Santos", "All Saints", countryCode));
-            items.Add(new PublicHoliday(year, 11, 19, "Elecciones presidencial, congresistas y regionales", "Presidential, parliamentary and regional elections", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
-            //Presidential election, runoff
             items.Add(new PublicHoliday(year, 12, 25, "Navidad / Natividad del Señor", "Christmas Day", countryCode));
 
+            var saintPeterAndSaintPaul = this.SaintPeterAndSaintPaul(year, countryCode);
+            if (saintPeterAndSaintPaul != null)
+            {
+                items.Add(saintPeterAndSaintPaul);
+            }
+
+            var columbusDay = this.ColumbusDay(year, countryCode);
+            if (columbusDay != null)
+            {
+                items.Add(columbusDay);
+            }
+
+            var reformationDay = this.ReformationDay(year, countryCode);
+            if (reformationDay != null)
+            {
+                items.Add(reformationDay);
+            }
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday SaintPeterAndSaintPaul(int year, CountryCode countryCode)
+        {
+            var date = new DateTime(year, 6, 27);
+
+            switch (date.DayOfWeek)
+            {
+                case DayOfWeek.Saturday:
+                case DayOfWeek.Sunday:
+                case DayOfWeek.Monday:
+                    break;
+                case DayOfWeek.Tuesday:
+                    date = date.AddDays(-1);
+                    break;
+                case DayOfWeek.Wednesday:
+                    date = date.AddDays(-2);
+                    break;
+                case DayOfWeek.Thursday:
+                    date = date.AddDays(-3);
+                    break;
+                case DayOfWeek.Friday:
+                    date = date.AddDays(1);
+                    break;
+            }
+
+            return new PublicHoliday(date, "San Pedro y San Pablo", "Saint Peter and Saint Paul", countryCode);
+        }
+
+        private PublicHoliday ColumbusDay(int year, CountryCode countryCode)
+        {
+            var date = new DateTime(year, 10, 12);
+
+            switch (date.DayOfWeek)
+            {
+                case DayOfWeek.Saturday:
+                case DayOfWeek.Sunday:
+                case DayOfWeek.Monday:
+                    break;
+                case DayOfWeek.Tuesday:
+                    date = date.AddDays(-1);
+                    break;
+                case DayOfWeek.Wednesday:
+                    date = date.AddDays(-2);
+                    break;
+                case DayOfWeek.Thursday:
+                    date = date.AddDays(-3);
+                    break;
+                case DayOfWeek.Friday:
+                    date = date.AddDays(1);
+                    break;
+            }
+
+            return new PublicHoliday(date, "Día del Descubrimiento de Dos Mundos", "Columbus Day", countryCode);
+        }
+
+        private PublicHoliday ReformationDay(int year, CountryCode countryCode)
+        {
+            var date = new DateTime(year, 10, 31);
+
+            switch (date.DayOfWeek)
+            {
+                case DayOfWeek.Wednesday:
+                    date = date.AddDays(2);
+                    break;
+                case DayOfWeek.Tuesday:
+                    date = date.AddDays(-4);
+                    break;
+                default:
+                    break;
+            }
+
+            return new PublicHoliday(date, "Día Nacional de las Iglesias Evangélicas y Protestantes", "Reformation Day", countryCode);
         }
 
         ///<inheritdoc/>
