@@ -9,31 +9,18 @@ namespace Nager.Date.UnitTest.Country
     public class TurkeyTest
     {
         [TestMethod]
-        public void TestTurkey()
+        public void TestTurkey2017()
         {
-            var publicHolidays = DateSystem.GetPublicHolidays(2017, CountryCode.TR).ToArray();
+            var year = 2017;
+            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR).ToArray();
 
-            //New Year's Day
-            Assert.AreEqual(new DateTime(2017, 1, 1), publicHolidays[0].Date);
-
-            //National Independence & Children's Day
-            Assert.AreEqual(new DateTime(2017, 4, 23), publicHolidays[1].Date);
-
-            //Labour Day
-            Assert.AreEqual(new DateTime(2017, 5, 1), publicHolidays[2].Date);
-
-            //Atatürk Commemoration & Youth Day
-            Assert.AreEqual(new DateTime(2017, 5, 19), publicHolidays[3].Date);
-
-            //Democracy Day
-            Assert.AreEqual(new DateTime(2017, 7, 15), publicHolidays[4].Date);
-
-            //Victory Day
-            Assert.AreEqual(new DateTime(2017, 8, 30), publicHolidays[5].Date);
-
-            //Republic Day
-            Assert.AreEqual(new DateTime(2017, 10, 29), publicHolidays[6].Date);
-
+            Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].Name} is wrong");
+            Assert.AreEqual(new DateTime(year, 4, 23), publicHolidays[1].Date, $"{publicHolidays[1].Name} is wrong");
+            Assert.AreEqual(new DateTime(year, 5, 1), publicHolidays[2].Date, $"{publicHolidays[2].Name} is wrong");
+            Assert.AreEqual(new DateTime(year, 5, 19), publicHolidays[3].Date, $"{publicHolidays[3].Name} is wrong");
+            Assert.AreEqual(new DateTime(year, 7, 15), publicHolidays[4].Date, $"{publicHolidays[4].Name} is wrong");
+            Assert.AreEqual(new DateTime(year, 8, 30), publicHolidays[5].Date, $"{publicHolidays[5].Name} is wrong");
+            Assert.AreEqual(new DateTime(year, 10, 29), publicHolidays[6].Date, $"{publicHolidays[6].Name} is wrong");
         }
 
         [DataTestMethod]
@@ -44,16 +31,11 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2018, 10, 12, false)]
         [DataRow(2018, 10, 13, true)]
         [DataRow(2018, 10, 14, true)]
-        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expected)
+        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expectedIsWeekend)
         {
-            // Arrange
             var date = new DateTime(year, month, day);
-
-            // Act
-            var result = date.IsWeekend(CountryCode.TR);
-
-            // Assert
-            Assert.AreEqual(expected, result);
+            var isWeekend = date.IsWeekend(CountryCode.TR);
+            Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
     }
 }

@@ -9,16 +9,11 @@ namespace Nager.Date.UnitTest.Country
         [DataTestMethod]
         [DataRow(2021, 5, 13, true)]
         [DataRow(2021, 5, 14, false)]
-        public void ChecksIsPublicHoliday(int year, int month, int day, bool expected)
+        public void ChecksIsPublicHoliday(int year, int month, int day, bool expectedIsPublicHoliday)
         {
-            // Arrange
             var date = new DateTime(year, month, day);
-
-            // Act
-            var result = DateSystem.IsPublicHoliday(date, CountryCode.DK);
-
-            // Assert
-            Assert.AreEqual(expected, result);
+            var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.DK);
+            Assert.AreEqual(expectedIsPublicHoliday, isPublicHoliday);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var testDate = new DateTime(2017, 08, 28);
             var isPublicHoliday = DateSystem.IsPublicHoliday(testDate, CountryCode.GB, "GB-ENG");
-            Assert.AreEqual(true, isPublicHoliday);
+            Assert.IsTrue(isPublicHoliday);
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var testDate = new DateTime(2017, 03, 17);
             var isPublicHoliday = DateSystem.IsPublicHoliday(testDate, CountryCode.GB, "GB-NIR");
-            Assert.AreEqual(true, isPublicHoliday);
+            Assert.IsTrue(isPublicHoliday);
         }
 
         [DataTestMethod]
@@ -31,29 +31,22 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2018, 10, 12, false)]
         [DataRow(2018, 10, 13, true)]
         [DataRow(2018, 10, 14, true)]
-        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expected)
+        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expectedIsWeekend)
         {
-            // Arrange
             var date = new DateTime(year, month, day);
-
-            // Act
-            var result = date.IsWeekend(CountryCode.US);
-
-            // Assert
-            Assert.AreEqual(expected, result);
+            var isWeekend = date.IsWeekend(CountryCode.US);
+            Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
 
         [DataTestMethod]
         [DataRow(2019, 5, 6, true)]
         [DataRow(2020, 5, 1, false)]
         [DataRow(2020, 5, 8, true)]
-        public void CheckMayDay(int year, int month, int day, bool expected)
+        public void CheckMayDay(int year, int month, int day, bool expectedIsPublicHoliday)
         {
             var date = new DateTime(year, month, day);
-
-            var result = DateSystem.IsPublicHoliday(date, CountryCode.GB);
-
-            Assert.AreEqual(expected, result);
+            var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.GB);
+            Assert.AreEqual(expectedIsPublicHoliday, isPublicHoliday);
         }
 
         [DataTestMethod]

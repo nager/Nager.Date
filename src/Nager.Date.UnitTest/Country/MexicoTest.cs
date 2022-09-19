@@ -15,16 +15,11 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2018, 10, 12, false)]
         [DataRow(2018, 10, 13, false)]
         [DataRow(2018, 10, 14, true)]
-        public void ChecksThatSundayOnlyWeekendIsUsed(int year, int month, int day, bool expected)
+        public void ChecksThatSundayOnlyWeekendIsUsed(int year, int month, int day, bool expectedIsWeekend)
         {
-            // Arrange
             var date = new DateTime(year, month, day);
-
-            // Act
-            var result = date.IsWeekend(CountryCode.MX);
-
-            // Assert
-            Assert.AreEqual(expected, result);
+            var isWeekend = date.IsWeekend(CountryCode.MX);
+            Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
     }
 }

@@ -31,16 +31,11 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2018, 10, 12, false)]
         [DataRow(2018, 10, 13, true)]
         [DataRow(2018, 10, 14, true)]
-        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expected)
+        public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expectedIsWeekend)
         {
-            // Arrange
             var date = new DateTime(year, month, day);
-
-            // Act
-            var result = date.IsWeekend(CountryCode.PR);
-
-            // Assert
-            Assert.AreEqual(expected, result);
+            var isWeekend = date.IsWeekend(CountryCode.PR);
+            Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
     }
 }
