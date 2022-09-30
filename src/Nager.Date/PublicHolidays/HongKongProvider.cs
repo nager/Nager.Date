@@ -10,7 +10,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Hong Kong
     /// </summary>
-    public class HongKongProvider : IPublicHolidayProvider
+    internal class HongKongProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -24,8 +24,11 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
+            //TODO: Sunday move logic
+            //https://github.com/nager/Nager.Date/pull/262
+
             var countryCode = CountryCode.HK;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
