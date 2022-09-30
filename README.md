@@ -1,53 +1,141 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/hbwtadup7wnhnjp6?svg=true)](https://ci.appveyor.com/project/tinohager/nager-date) [![Docker Image CI](https://github.com/nager/Nager.Date/workflows/Docker%20Image%20CI/badge.svg)](https://hub.docker.com/r/nager/nager-date)
+![Build status](https://github.com/nager/Nager.Date/actions/workflows/dotnet.yml/badge.svg)
 
 # :calendar: Nager.Date - [Official Website](https://date.nager.at)
 
-Nager.Date is a popular project to query holidays. We currently support over 100 countries. The project is based on .NET but provides a REST interface to retrieve the data. There are several ways to use Nager.Date, there is a public api, you can start your own docker container or you can use the nuget package.
-
-Nager.Date is open source software and is completely free for commercial use. If you would like to support the project you can award a GitHub star :star: or even better [actively support us](https://github.com/sponsors/nager)
-
-## Country Support
-
-The list of supported countries can be found [here](https://date.nager.at/Home/RegionStatistic).
+**Nager.Date** is a popular project to query holidays. We currently **support over 100 countries**.<br>
+The project is based on .NET and provides a [public REST Api](https://date.nager.at/Api) for accessing the data.<br>
+A docker container or a NuGet package is also available, but for this you need a license key.
+You can find an overview of the supported countries [here](https://date.nager.at/Country/Coverage).
 
 ## How can I use it?
 
-If you are use .net you can install the package via nuget for all other languages we have a docker image with a web api available.
+Using the [Swagger definition](https://date.nager.at/swagger), they can have a client created for their programming language. You can find the information in our Api section.
+More Informations about client generation you can find [here](https://openapi-generator.tech)
 
-### nuget
-The package is available via [nuget](https://www.nuget.org/packages/Nager.Date)
+### Examples
+
+<details>
+  <summary>.NET/C# (click to expand)</summary>
+	
+```cs
+using System;
+using System.Net.Http;
+using System.Text.Json;
+
+var jsonSerializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+using var httpClient = new HttpClient();
+var response = await httpClient.GetAsync("https://date.nager.at/api/v3/publicholidays/2022/US");
+if (response.IsSuccessStatusCode)
+{
+    using var jsonStream = await response.Content.ReadAsStreamAsync();
+    var publicHolidays = JsonSerializer.Deserialize<PublicHoliday[]>(jsonStream, jsonSerializerOptions);
+}
+
+class PublicHoliday
+{
+    public DateTime Date { get; set; }
+    public string LocalName { get; set; }
+    public string Name { get; set; }
+    public string CountryCode { get; set; }
+    public bool Fixed { get; set; }
+    public bool Global { get; set; }
+    public string[] Counties { get; set; }
+    public int? LaunchYear { get; set; }
+    public string[] Types { get; set; }
+}
+```
+	
+</details>	
+
+<details>
+  <summary>PHP (click to expand)</summary>
+
+This example use the [guzzle](https://github.com/guzzle/guzzle) project
+	
+```php
+<?php
+require_once 'vendor/autoload.php';
+$client = new \GuzzleHttp\Client();
+$response = $client->request('GET', 'https://date.nager.at/api/v3/publicholidays/2022/US');
+if ($response->getStatusCode() == 200) {
+    $json = $response->getBody();
+    print_r(json_decode($json));
+}
+?>
+```
+	
+</details>
+	
+<details>
+  <summary>JAVA (click to expand)</summary>
+
+This example use the springframework. Code tested with [onecompiler.com](https://onecompiler.com)
+	
+`Main.java`
+```java
+import java.util.*;
+import org.springframework.web.client.RestTemplate;
+import com.google.gson.*;
+
+public class Main {
+    public static void main(String[] args) {
+      String json = new RestTemplate().getForObject("https://date.nager.at/api/v3/publicholidays/2022/US", String.class);
+      JsonElement rootJsonElement = new JsonParser().parse(json);
+      JsonArray publicHolidays = rootJsonElement.getAsJsonArray();
+      Iterator<JsonElement> iterator = publicHolidays.iterator();
+      while (iterator.hasNext()) {
+        JsonElement publicHoliday = (JsonElement)iterator.next();
+        System.out.println(publicHoliday);
+      }
+    }
+}
+```
+	
+`build.gradle`
+```java
+apply plugin:'application'
+mainClassName = 'Main'
+
+run { standardInput = System.in }
+sourceSets { main { java { srcDir './' } } }
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:2.6.7");
+    compile("com.google.code.gson:gson:2.9");
+}
+```
+	
+</details>
+	
+### For our sponsors, we also offer a Docker container and a NuGet package
+
+With a sponsorship you get the license key to use the variants locally without a dependency to our REST Api.
+
+#### nuget
+The nuget package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)<br>
+
 ```
 PM> install-package Nager.Date
 ```
 
-### web api
-- **public** use the public api [date.nager.at](https://date.nager.at/API)
-  - If you need more as 50 requests per day please use your own private api (docker).
-- **private** use your own api, docker container available on [dockerhub](https://hub.docker.com/r/nager/nager-date)
-  - To run a local instance of the docker image run the following command<br>
-  `docker run -e "EnableCors=true" -e "EnableIpRateLimiting=false" -e "EnableSwaggerMode=true" -p 80:80 nager/nager-date`
-    - `EnableCors=true` activate CORS support
-    - `EnableIpRateLimiting=false` disable IpRateLimiting
-    - `EnableSwaggerMode=true` activate Swagger UI as start page
-    - `-p 80:80` publish the port 80 from the docker to your host.
-
-#### Generate a client for the web api
-
-You can use `swagger-codegen-cli` to create a client for the api
-
-```
-docker run --rm -v C:\Temp:/local swaggerapi/swagger-codegen-cli-v3 generate -i https://date.nager.at/swagger/v1.0/swagger.json -l csharp-dotnet2 -o /local/out
-```
-
-## Sponsor us
-Your sponsorship helps us spend more time working on OpenSource related to Nager.Date, [become a sponsor now](https://github.com/sponsors/nager). 
-We started in 2014 and look forward to many more years...
-
+<details>
+  <summary>Code Examples (click to expand)</summary>
+  
 ## Examples for .NET (nuget package)
+
+### Set the license key
+```cs
+DateSystem.LicenseKey = "LicenseKey1234";
+```
 
 ### Get all publicHolidays of a country and year
 ```cs
-var publicHolidays = DateSystem.GetPublicHoliday(2017, "DE");
+var publicHolidays = DateSystem.GetPublicHolidays(2021, "DE");
 foreach (var publicHoliday in publicHolidays)
 {
     //publicHoliday...
@@ -64,8 +152,8 @@ foreach (var publicHoliday in publicHolidays)
 ### Get all publicHolidays for a date range
 ```cs
 var startDate = new DateTime(2016, 5, 1);
-var endDate = new DateTime(2018, 5, 31);
-var publicHolidays = DateSystem.GetPublicHoliday(startDate, endDate, CountryCode.DE);
+var endDate = new DateTime(2021, 5, 31);
+var publicHolidays = DateSystem.GetPublicHolidays(startDate, endDate, CountryCode.DE);
 foreach (var publicHoliday in publicHolidays)
 {
 	//publicHoliday...
@@ -74,7 +162,7 @@ foreach (var publicHoliday in publicHolidays)
 
 ### Check if a date is a public holiday
 ```cs
-var date = new DateTime(2017, 1, 1);
+var date = new DateTime(2021, 1, 1);
 if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 {
     Console.WriteLine("Is public holiday");
@@ -83,12 +171,21 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 
 ### Check if a date is a weekend day
 ```cs
-var date = new DateTime(2017, 1, 1);
+var date = new DateTime(2021, 1, 1);
 if (DateSystem.IsWeekend(date, CountryCode.DE))
 {
     Console.WriteLine("Is weekend");
 }
 ```
+</details>
+
+#### docker
+If high availability is important for you and you want to avoid access to the Internet, we can also offer you your own Docker container.
+
+The docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date)<br>
+To run a local instance of the docker image run the following command<br>
+`docker run -p 80:80 nager/nager-date`
+
 
 ## Areas of Application
 - telephone systems

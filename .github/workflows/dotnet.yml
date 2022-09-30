@@ -1,0 +1,48 @@
+name: Build, Test & Publish
+
+on:
+  push:
+    paths:
+    - 'src/**'
+    - '.github/workflows/**'
+    branches: [ master ]
+  pull_request:
+    paths:
+    - 'src/**'
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET 6.0
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Change LicenseKey
+      if: github.event_name != 'pull_request'
+      working-directory: ./src
+      run: |
+        sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date/DateSystem.cs
+        sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date.UnitTest/AssemblyInitialize.cs
+    - name: Restore dependencies
+      working-directory: ./src
+      run: dotnet restore
+    - name: Build
+      working-directory: ./src
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      working-directory: ./src
+      run: |
+        dotnet test --configuration Release --no-restore --no-build --verbosity normal
+    - name: Build project and generate NuGet package
+      run: |
+        dotnet pack --configuration Release --output $GITHUB_WORKSPACE/out src/Nager.Date/Nager.Date.csproj
+    - name: Push NuGet package
+      if: github.event_name != 'pull_request'
+      run: |
+        cd $GITHUB_WORKSPACE/out
+        dotnet nuget push *.nupkg --source https://www.nuget.org/api/v2/package --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate --no-symbols

@@ -1,0 +1,143 @@
+# This means that editor config files above this file will be ignored
+root = true
+
+# Default settings
+[*]
+indent_style             = space
+indent_size              = 4
+charset                  = utf-8
+end_of_line              = crlf
+insert_final_newline     = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+# Json files
+[*.json]
+indent_size = 2
+
+# Xml project files
+[*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj}]
+indent_size = 2
+
+# Xml config files
+[*.{props,targets,ruleset,config,nuspec,resx,vsixmanifest,vsct}]
+indent_size = 2
+
+# Yaml files
+[*.{yml,yaml}]
+indent_size = 2
+
+# Razor and cshtml files
+# UTF-8-BOM is set as default, as all official template files use UTF-8-BOM
+# See https://github.com/dotnet/aspnetcore/pull/23502 and https://github.com/dotnet/aspnetcore/issues/22753
+[*.{razor,cshtml}]
+indent_size = 2
+charset     = utf-8-bom
+
+# .NET Code Style Settings
+# See https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
+[{*.cs,*.vb}]
+dotnet_sort_system_directives_first                        = false
+dotnet_separate_import_directive_groups                    = false
+
+# Force the usage of 'this.'/'Me.' prefix for anything
+dotnet_style_qualification_for_field                       = true : warning
+dotnet_style_qualification_for_property                    = true : warning
+dotnet_style_qualification_for_method                      = true : warning
+dotnet_style_qualification_for_event                       = true : warning
+
+# Use language keywords over framework type names for type references
+# i.e. prefer 'string' over 'String'
+dotnet_style_predefined_type_for_locals_parameters_members = true : error
+dotnet_style_predefined_type_for_member_access             = true : error
+
+# C# 7: Prefer using named tuple names over '.Item1', '.Item2', etc.
+dotnet_style_explicit_tuple_names                          = true : warning
+
+# Prefer using 'foo ?? bar' over 'foo != null ? foo : bar'
+dotnet_style_coalesce_expression                           = true : warning
+
+# Prefer using '?.' over ternary null checking where possible
+dotnet_style_null_propagation                              = true : warning
+
+# Modifier preferences
+# See https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-language-conventions?view=vs-2019#normalize-modifiers
+dotnet_style_require_accessibility_modifiers               = always : error
+dotnet_style_readonly_field                                = true : warning
+
+# Required Styles
+dotnet_naming_style.all_const.capitalization               = pascal_case
+dotnet_naming_symbols.all_const.applicable_kinds           = field, local
+dotnet_naming_symbols.all_const.required_modifiers         = const
+dotnet_naming_rule.all_const.severity                      = error
+dotnet_naming_rule.all_const.style                         = all_const
+dotnet_naming_rule.all_const.symbols                       = all_const
+
+dotnet_naming_style.all_fields.required_prefix             = _
+dotnet_naming_style.all_fields.capitalization              = camel_case
+dotnet_naming_symbols.all_fields.applicable_accessibilities = private
+dotnet_naming_symbols.all_fields.applicable_kinds          = field
+dotnet_naming_rule.all_fields.severity                     = error
+dotnet_naming_rule.all_fields.style                        = all_fields
+dotnet_naming_rule.all_fields.symbols                      = all_fields
+
+dotnet_naming_style.all_interfaces.required_prefix         = I
+dotnet_naming_style.all_interfaces.capitalization          = pascal_case
+dotnet_naming_symbols.all_interfaces.applicable_kinds      = interface
+dotnet_naming_rule.all_interfaces.severity                 = error
+dotnet_naming_rule.all_interfaces.style                    = all_interfaces
+dotnet_naming_rule.all_interfaces.symbols                  = all_interfaces
+
+dotnet_naming_style.all_type_parameter.required_prefix     = T
+dotnet_naming_style.all_type_parameter.capitalization      = pascal_case
+dotnet_naming_symbols.all_type_parameter.applicable_kinds  = type_parameter
+dotnet_naming_rule.all_type_parameter.severity             = error
+dotnet_naming_rule.all_type_parameter.style                = all_type_parameter
+dotnet_naming_rule.all_type_parameter.symbols              = all_type_parameter
+
+dotnet_naming_style.all_elements.capitalization            = pascal_case
+dotnet_naming_symbols.all_elements.applicable_kinds        = namespace,class,struct,interface,enum,property,method,event,delegate,local_function
+dotnet_naming_rule.all_elements.severity                   = error
+dotnet_naming_rule.all_elements.style                      = all_elements
+dotnet_naming_rule.all_elements.symbols                    = all_elements
+
+dotnet_naming_style.all_parameters.capitalization          = camel_case
+dotnet_naming_symbols.all_parameters.applicable_kinds      = parameter,local
+dotnet_naming_rule.all_parameters.severity                 = error
+dotnet_naming_rule.all_parameters.style                    = all_parameters
+dotnet_naming_rule.all_parameters.symbols                  = all_parameters
+
+[*.cs]
+# Use 'var' in all cases where it can be used
+csharp_style_var_for_built_in_types                   = true : error
+csharp_style_var_when_type_is_apparent                = true : error
+csharp_style_var_elsewhere                            = true : error
+
+# C# 7: Prefer using pattern matching over "if(x is T) { var t = (T)x; }" and "var t = x as T; if(t != null) { ... }"
+csharp_style_pattern_matching_over_is_with_cast_check = true : warning
+csharp_style_pattern_matching_over_as_with_null_check = true : warning
+
+# C# 7: Prefer using 'out var' where possible
+csharp_style_inlined_variable_declaration             = true : error
+csharp_using_directive_placement                      = outside_namespace : warning
+# C# 7: Use throw expressions when null-checking
+csharp_style_throw_expression                         = false : error
+
+# Prefer using "func?.Invoke(args)" over "if(func != null) { func(args); }"
+csharp_style_conditional_delegate_call                = true : error
+
+# Newline settings
+csharp_new_line_before_open_brace                     = all
+csharp_new_line_before_else                           = true
+csharp_new_line_before_catch                          = true
+csharp_new_line_before_finally                        = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types     = true
+
+# Prefer Braces even for one line of code, because of
+csharp_prefer_braces                                  = true : error
+
+# Tuple Preferences
+csharp_style_deconstructed_variable_declaration       = true : warning

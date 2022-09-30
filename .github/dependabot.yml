@@ -1,0 +1,20 @@
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "tinohager"
+      - "samtrion"
+    commit-message:
+      prefix: chore
+      prefix-development: chore(dev)
+    labels:
+      - "dependencies"
+      - "enhancement"
+    # Allow up to 5 open pull requests for nuget dependencies
+    open-pull-requests-limit: 5
