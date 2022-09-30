@@ -4,14 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased 1.36.3] - yyyy-mm-dd
+## [1.36.3] - 2022-09-30
  
-### Added
 ### Changed
 - Chile - Apply changes from Wikipedia
-### Deprecated
-### Removed
-### Fixed
+- DateSystem - Change holiday provider access level
+- DateSystem - Rename get method in providers
 
 ## [1.36.2] - 2022-09-19
  

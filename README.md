@@ -4,11 +4,8 @@
 
 **Nager.Date** is a popular project to query holidays. We currently **support over 100 countries**.<br>
 The project is based on .NET and provides a [public REST Api](https://date.nager.at/Api) for accessing the data.<br>
+A docker container or a NuGet package is also available, but for this you need a license key.
 You can find an overview of the supported countries [here](https://date.nager.at/Country/Coverage).
-
-## :mega: Announcement
-
-Starting May 1, 2022, the Docker container and the NuGet package will require a License Key provided to the sponsors of this project. The public WebApi will remain freely accessible.
 
 ## How can I use it?
 
