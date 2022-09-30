@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Vietnam
     /// </summary>
-    public class VietnamProvider : IPublicHolidayProvider
+    internal class VietnamProvider : IPublicHolidayProvider
     {
         /// <summary>
         /// VietnamProvider
@@ -18,7 +18,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             //TODO: Add Lunar Calendar support
             //Add Tết (Tết Nguyên Đán)

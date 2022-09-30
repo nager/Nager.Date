@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Albania
     /// </summary>
-    public class AlbaniaProvider : IPublicHolidayProvider
+    internal class AlbaniaProvider : IPublicHolidayProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
         private readonly ICatholicProvider _catholicProvider;
@@ -25,7 +25,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.AL;
 

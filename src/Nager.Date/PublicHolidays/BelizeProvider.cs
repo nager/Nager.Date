@@ -10,7 +10,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Belize
     /// </summary>
-    public class BelizeProvider : IPublicHolidayProvider
+    internal class BelizeProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -24,7 +24,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.BZ;
             var easterSunday = this._catholicProvider.EasterSunday(year);

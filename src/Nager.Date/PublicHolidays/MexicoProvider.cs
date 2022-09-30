@@ -10,7 +10,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Mexico 
     /// </summary>
-    public class MexicoProvider : IPublicHolidayProvider
+    internal class MexicoProvider : IPublicHolidayProvider
     {
         /// <summary>
         /// MexicoProvider
@@ -20,7 +20,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             //Only Statutory holidays
             var countryCode = CountryCode.MX;

@@ -9,7 +9,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Venezuela
     /// </summary>
-    public class VenezuelaProvider : IPublicHolidayProvider
+    internal class VenezuelaProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -23,7 +23,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             //TODO: Add countie support, Feria de la Chinita is only in Zulia...
 

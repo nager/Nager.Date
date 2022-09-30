@@ -15,7 +15,7 @@ namespace Nager.Date.UnitTest.Common
             {
                 var provider = DateSystem.GetPublicHolidayProvider(countryCode);
 
-                var publicHolidays = provider.Get(2018);
+                var publicHolidays = provider.GetHolidays(2018);
                 if (!publicHolidays.Any())
                 {
                     continue;

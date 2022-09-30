@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Faroe Islands, adaptation of DenmarkProvider
     /// </summary>
-    public class FaroeIslandsProvider : IPublicHolidayProvider
+    internal class FaroeIslandsProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -22,7 +22,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.FO;
             var easterSunday = this._catholicProvider.EasterSunday(year);

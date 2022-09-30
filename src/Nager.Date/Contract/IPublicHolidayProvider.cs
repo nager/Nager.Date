@@ -13,7 +13,7 @@ namespace Nager.Date.Contract
         /// </summary>
         /// <param name="year"></param>
         /// <returns>Set of public holidays for given year</returns>
-        IEnumerable<PublicHoliday> Get(int year);
+        IEnumerable<PublicHoliday> GetHolidays(int year);
 
         /// <summary>
         ///Get the Holiday Sources

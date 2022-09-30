@@ -10,7 +10,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// New Zealand
     /// </summary>
-    public class NewZealandProvider : IPublicHolidayProvider
+    internal class NewZealandProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
         private IDictionary<int, DateTime> _matariki;
@@ -26,7 +26,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.NZ;
 

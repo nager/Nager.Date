@@ -9,7 +9,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// NoHolidaysProvider
     /// </summary>
-    public class NoHolidaysProvider : IPublicHolidayProvider
+    internal class NoHolidaysProvider : IPublicHolidayProvider
     {
         private static readonly Lazy<IPublicHolidayProvider> _instance =
             new Lazy<IPublicHolidayProvider>(() => new NoHolidaysProvider());
@@ -25,7 +25,7 @@ namespace Nager.Date.PublicHolidays
         private NoHolidaysProvider() { }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             return Enumerable.Empty<PublicHoliday>();
         }

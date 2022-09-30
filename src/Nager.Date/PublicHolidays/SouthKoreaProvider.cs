@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
@@ -11,10 +11,10 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// South Korea
     /// </summary>
-    public class SouthKoreaProvider : IPublicHolidayProvider
+    internal class SouthKoreaProvider : IPublicHolidayProvider
     {
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.KR;
             var items = new List<PublicHoliday>();

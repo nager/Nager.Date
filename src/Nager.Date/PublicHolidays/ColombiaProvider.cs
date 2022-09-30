@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Colombia
     /// </summary>
-    public class ColombiaProvider : IPublicHolidayProvider
+    internal class ColombiaProvider : IPublicHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -22,7 +22,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             //TODO: Check, movable holiday: when they do not fall on a Monday, these holidays are observed the following Monday.
             //TODO: Check weekends in Colombia as they can be Universal or only sundays (in which case? how to handle that?)

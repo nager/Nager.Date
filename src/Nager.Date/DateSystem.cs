@@ -292,7 +292,7 @@ namespace Nager.Date
         public static IEnumerable<PublicHoliday> GetPublicHolidays(int year, CountryCode countryCode)
         {
             var provider = GetPublicHolidayProvider(countryCode);
-            return provider.Get(year);
+            return provider.GetHolidays(year);
         }
 
         #endregion

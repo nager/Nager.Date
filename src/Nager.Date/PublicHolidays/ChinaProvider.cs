@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Globalization;
@@ -9,7 +9,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// China
     /// </summary>
-    public class ChinaProvider : IPublicHolidayProvider
+    internal class ChinaProvider : IPublicHolidayProvider
     {
         /// <summary>
         /// ChinaProvider
@@ -19,7 +19,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             //TODO: Provider incomplete
             //Tomb-Sweeping-Day is invalid (5th solar term)

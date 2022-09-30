@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.Contract;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Mozambique
     /// </summary>
-    public class MozambiqueProvider : IPublicHolidayProvider, ICountyProvider
+    internal class MozambiqueProvider : IPublicHolidayProvider, ICountyProvider
     {
         /// <summary>
         /// MozambiqueProvider
@@ -18,7 +18,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> Get(int year)
+        public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.MZ;
 
