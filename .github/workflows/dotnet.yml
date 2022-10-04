@@ -5,11 +5,11 @@ on:
     paths:
     - 'src/**'
     - '.github/workflows/**'
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
     paths:
     - 'src/**'
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
