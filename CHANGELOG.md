@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.36.4] - 2022-10-04
+ 
+### Fixed
+- DateSystem - NoHolidaysProvider Access Modifier public
+
 ## [1.36.3] - 2022-09-30
  
 ### Changed

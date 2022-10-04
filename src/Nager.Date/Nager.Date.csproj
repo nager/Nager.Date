@@ -21,7 +21,7 @@
     
     <TargetFrameworks>net472;netstandard2.0;net6.0</TargetFrameworks>
 
-    <Version>1.36.3</Version>
+    <Version>1.36.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
