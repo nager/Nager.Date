@@ -24,6 +24,18 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "GB-NIR", "Northern Ireland" },
+                { "GB-SCT", "Scotland" },
+                { "GB-ENG", "England" },
+                { "GB-WLS", "Wales" },
+            };
+        }
+
+        ///<inheritdoc/>
         public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.GB;
@@ -161,18 +173,6 @@ namespace Nager.Date.PublicHolidays
 
             var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
             return new PublicHoliday(firstMondayInMay, holidayName, holidayName, countryCode, 1978);
-        }
-
-        ///<inheritdoc/>
-        public IDictionary<string, string> GetCounties()
-        {
-            return new Dictionary<string, string>
-            {
-                { "GB-NIR", "Northern Ireland" },
-                { "GB-SCT", "Scotland" },
-                { "GB-ENG", "England" },
-                { "GB-WLS", "Wales" },
-            };
         }
 
         ///<inheritdoc/>

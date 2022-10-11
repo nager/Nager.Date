@@ -26,9 +26,10 @@ namespace Nager.Date.PublicHolidays
         ///<inheritdoc/>
         public IDictionary<string, string> GetCounties()
         {
+            //https://en.wikipedia.org/wiki/ISO_3166-2:ES
+
             return new Dictionary<string, string>
             {
-                //https://en.wikipedia.org/wiki/ISO_3166-2:ES
                 { "ES-AN", "Andalusia" },
                 { "ES-AR", "Aragon" },
                 { "ES-AS", "Principality of Asturias" },

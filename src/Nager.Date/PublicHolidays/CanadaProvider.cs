@@ -25,21 +25,22 @@ namespace Nager.Date.PublicHolidays
         ///<inheritdoc/>
         public IDictionary<string, string> GetCounties()
         {
-            var items = new Dictionary<string, string>();
-            items.Add("CA-AB", "Alberta");
-            items.Add("CA-BC", "British Columbia");
-            items.Add("CA-MB", "Manitoba");
-            items.Add("CA-NB", "New Brunswick");
-            items.Add("CA-NL", "Newfoundland and Labrador");
-            items.Add("CA-NS", "Nova Scotia");
-            items.Add("CA-ON", "Ontario");
-            items.Add("CA-PE", "Prince Edward Island");
-            items.Add("CA-QC", "Québec");
-            items.Add("CA-SK", "Saskatchewan");
-            items.Add("CA-NT", "Northwest Territories");
-            items.Add("CA-NU", "Nunavut");
-            items.Add("CA-YT", "Yukon");
-            return items;
+            return new Dictionary<string, string>
+            {
+                { "CA-AB", "Alberta" },
+                { "CA-BC", "British Columbia" },
+                { "CA-MB", "Manitoba" },
+                { "CA-NB", "New Brunswick" },
+                { "CA-NL", "Newfoundland and Labrador" },
+                { "CA-NS", "Nova Scotia" },
+                { "CA-ON", "Ontario" },
+                { "CA-PE", "Prince Edward Island" },
+                { "CA-QC", "Québec" },
+                { "CA-SK", "Saskatchewan" },
+                { "CA-NT", "Northwest Territories" },
+                { "CA-NU", "Nunavut" },
+                { "CA-YT", "Yukon" }
+            };
         }
 
         ///<inheritdoc/>
@@ -115,7 +116,8 @@ namespace Nager.Date.PublicHolidays
             if (year < 2019)
             {
                 var secondMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Second);
-                return new PublicHoliday[] {
+                return new PublicHoliday[]
+                {
                     new PublicHoliday(secondMondayInFebruary, holidayName, holidayName, countryCode, 2013, new string[] { "CA-BC" }),
                     new PublicHoliday(thirdMondayInFebruary, holidayName, holidayName, countryCode, null, new string[] { "CA-AB", "CA-ON", "CA-SK" })
                 };
@@ -133,7 +135,8 @@ namespace Nager.Date.PublicHolidays
 
             if (canadaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                return new PublicHoliday[] {
+                return new PublicHoliday[]
+                {
                     new PublicHoliday(canadaDay, holidayName, holidayName, countryCode, null, new string[] { "CA-BC", "CA-MB", "CA-NB", "CA-NL", "CA-NS", "CA-ON", "CA-PE", "CA-QC", "CA-SK", "CA-NT", "CA-NU", "CA-YT" } ),
                     //Canada Day is on July 1 every year except when it falls on a Sunday, then it’s on July 2.
                     new PublicHoliday(canadaDay.AddDays(1), holidayName, holidayName, countryCode, null, new string[] { "CA-AB" })

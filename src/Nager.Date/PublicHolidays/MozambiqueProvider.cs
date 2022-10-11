@@ -18,6 +18,27 @@ namespace Nager.Date.PublicHolidays
         }
 
         ///<inheritdoc/>
+        public IDictionary<string, string> GetCounties()
+        {
+            //List of Provinces https://en.wikipedia.org/wiki/Provinces_of_Mozambique
+
+            return new Dictionary<string, string>
+            {
+                { "MZ-CD","Cabo Delgado" },
+                { "MZ-GZ", "Gaza" },
+                { "MZ-IH", "Inhambane" },
+                { "MZ-MA", "Manica" },
+                { "MZ-MP", "Maputo Cidade" },
+                { "MZ-MT", "Maputo" },
+                { "MZ-NA", "Nampula" },
+                { "MZ-NI", "Niassa" },
+                { "MZ-SO", "Sofala" },
+                { "MZ-TE", "Tete" },
+                { "MZ-ZA", "Zambezia" }
+            };
+        }
+
+        ///<inheritdoc/>
         public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.MZ;
@@ -34,27 +55,6 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Natal", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
-        }
-
-        ///<inheritdoc/>
-        public IDictionary<string, string> GetCounties()
-        {
-            //List of Provinces
-            //https://en.wikipedia.org/wiki/Provinces_of_Mozambique
-            return new Dictionary<string, string>
-            {
-                { "MZ-CD","Cabo Delgado" },
-                { "MZ-GZ", "Gaza" },
-                { "MZ-IH", "Inhambane" },
-                { "MZ-MA", "Manica" },
-                { "MZ-MP", "Maputo Cidade" },
-                { "MZ-MT", "Maputo" },
-                { "MZ-NA", "Nampula" },
-                { "MZ-NI", "Niassa" },
-                { "MZ-SO", "Sofala" },
-                { "MZ-TE", "Tete" },
-                { "MZ-ZA", "Zambezia" }
-            };
         }
 
         ///<inheritdoc/>
