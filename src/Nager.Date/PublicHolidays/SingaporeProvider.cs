@@ -92,11 +92,9 @@ namespace Nager.Date.PublicHolidays
         {
             return new string[]
             {
-                "https://www.mom.gov.sg/newsroom/press-releases/2017/0405-singapore-public-holidays-2018",
-                "https://www.mom.gov.sg/newsroom/press-releases/2018/0404-public-holidays-for-2019",
-                "https://www.mom.gov.sg/employment-practices/public-holidays#Year-2020",
-                "https://www.mom.gov.sg/employment-practices/public-holidays#Year-2021",
-                "https://www.mom.gov.sg/employment-practices/public-holidays#Year-2022"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Singapore",
+                "https://www.mom.gov.sg/newsroom/press-releases?keywords=holiday",
+                "https://www.mom.gov.sg/employment-practices/public-holidays",
             };
         }
     }
