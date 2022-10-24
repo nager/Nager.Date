@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.36.5] - yyyy-mm-dd
+ 
+### Added
+### Changed
+- France - Holidays revised, county information revised
+### Deprecated
+### Removed
+### Fixed
+
+
 ## [1.36.4] - 2022-10-04
  
 ### Fixed
