@@ -8,19 +8,104 @@ namespace Nager.Date.UnitTest.Country
     [TestClass]
     public class TurkeyTest
     {
-        [TestMethod]
-        public void TestTurkey2017()
+        [DataTestMethod]
+        [DataRow(1, 1)]
+        [DataRow(4, 23)]
+        [DataRow(5, 1)]
+        [DataRow(5, 2)]
+        [DataRow(5, 3)]
+        [DataRow(5, 4)]
+        [DataRow(5, 19)]
+        [DataRow(7, 9)]
+        [DataRow(7, 10)]
+        [DataRow(7, 11)]
+        [DataRow(7, 12)]
+        [DataRow(7, 15)]
+        [DataRow(8, 30)]
+        [DataRow(10, 29)]
+        public void TestHolidays2022(int month, int day)
+        {
+            var year = 2022;
+            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
+
+            var holiday = new DateTime(year, month, day);
+            var actual = publicHolidays.Any(x => x.Date == holiday);
+            Assert.AreEqual(true, actual, $"{holiday.ToString("D")} is not a holiday");
+        }
+
+        [DataTestMethod]
+        [DataRow(1, 1)]
+        [DataRow(4, 23)]
+        [DataRow(5, 1)]
+        [DataRow(5, 19)]
+        [DataRow(5, 24)]
+        [DataRow(5, 25)]
+        [DataRow(5, 26)]
+        [DataRow(7, 15)]
+        [DataRow(7, 31)]
+        [DataRow(8, 1)]
+        [DataRow(8, 2)]
+        [DataRow(8, 3)]
+        [DataRow(8, 30)]
+        [DataRow(10, 29)]
+        public void TestHolidays2020(int month, int day)
+        {
+            var year = 2020;
+            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
+
+            var holiday = new DateTime(year, month, day);
+            var actual = publicHolidays.Any(x => x.Date == holiday);
+            Assert.AreEqual(true, actual, $"{holiday.ToString("D")} is not a holiday");
+        }
+
+        [DataTestMethod]
+        [DataRow(1, 1)]
+        [DataRow(4, 23)]
+        [DataRow(5, 1)]
+        [DataRow(5, 19)]
+        [DataRow(6, 25)]
+        [DataRow(6, 26)]
+        [DataRow(6, 27)]
+        [DataRow(7, 15)]
+        [DataRow(8, 30)]
+        [DataRow(9, 1)]
+        [DataRow(9, 2)]
+        [DataRow(9, 3)]
+        [DataRow(9, 4)]
+        [DataRow(10, 29)]
+        public void TestHolidays2017(int month, int day)
         {
             var year = 2017;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR).ToArray();
+            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
 
-            Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 4, 23), publicHolidays[1].Date, $"{publicHolidays[1].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 5, 1), publicHolidays[2].Date, $"{publicHolidays[2].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 5, 19), publicHolidays[3].Date, $"{publicHolidays[3].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 7, 15), publicHolidays[4].Date, $"{publicHolidays[4].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 8, 30), publicHolidays[5].Date, $"{publicHolidays[5].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 10, 29), publicHolidays[6].Date, $"{publicHolidays[6].Name} is wrong");
+            var holiday = new DateTime(year, month, day);
+            var actual = publicHolidays.Any(x => x.Date == holiday);
+            Assert.AreEqual(true, actual, $"{holiday.ToString("D")} is not a holiday");
+        }
+
+
+        [DataTestMethod]
+        [DataRow(1, 1)]
+        [DataRow(4, 23)]
+        [DataRow(5, 1)]
+        [DataRow(5, 19)]
+        [DataRow(7, 28)]
+        [DataRow(7, 29)]
+        [DataRow(7, 30)]
+        [DataRow(8, 30)]
+        [DataRow(10, 4)]
+        [DataRow(10, 5)]
+        [DataRow(10, 6)]
+        [DataRow(10, 7)]
+        [DataRow(10, 29)]
+        public void TestHolidays2014(int month, int day)
+        {
+            var year = 2014;
+            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
+
+            var holiday = new DateTime(year, month, day);
+            var actual = publicHolidays.Any(x => x.Date == holiday);
+            Assert.AreEqual(true, actual, $"{holiday.ToString("D")} is not a holiday");
         }
 
         [DataTestMethod]
