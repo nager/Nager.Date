@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.36.5] - yyyy-mm-dd
  
 ### Added
+- Singapore - Add Hari Raya Puasa, Vesak Day, Hari Raya Haji, Deepavali
 ### Changed
 - France - Holidays revised, county information revised
 ### Deprecated
 ### Removed
 ### Fixed
+- Singapore - Fix missing sunday shift
 
 
 ## [1.36.4] - 2022-10-04

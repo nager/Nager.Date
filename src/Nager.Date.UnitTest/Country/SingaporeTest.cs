@@ -20,7 +20,7 @@ namespace Nager.Date.UnitTest.Country
             for (var year = 2018; year <= 2022; year++)
             {
                 var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.SG).ToArray();
-                Assert.AreEqual(7, publicHolidays.Length);
+                Assert.AreEqual(11, publicHolidays.Length);
             }
         }
     }

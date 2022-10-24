@@ -27,16 +27,11 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.SG;
 
-            // Fixed holidays
-            var items = new List<PublicHoliday>
-            {
-                new PublicHoliday(year, 1, 1, "New Year’s Day", "New Year’s Day", countryCode),
-                new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode),
-                new PublicHoliday(year, 8, 9, "National Day", "National Day", countryCode),
-                new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode),
-            };
-
-            // Good Friday
+            var items = new List<PublicHoliday>();
+            items.Add(new PublicHoliday(year, 1, 1, "New Year’s Day", "New Year’s Day", countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1)));
+            items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1)));
+            items.Add(new PublicHoliday(year, 8, 9, "National Day", "National Day", countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1)));
+            items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1)));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
 
             var chineseCalendar = new ChineseLunisolarCalendar();
@@ -47,44 +42,163 @@ namespace Nager.Date.PublicHolidays
                 items.Add(new PublicHoliday(chineseNewYear.AddDays(1), "Chinese New Year", "Chinese New Year", countryCode));
             }
 
+            var hariRayaPuasa = this.HariRayaPuasa(year, countryCode);
+            if (hariRayaPuasa != null)
+            {
+                items.Add(hariRayaPuasa);
+            }
 
-            //switch (year)
-            //{
-            //    case 2018:
-            //        items.Add(new PublicHoliday(year, 5, 19, "Vesak Day", "Vesak Day", countryCode));
-            //        items.Add(new PublicHoliday(year, 6, 5, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-            //        items.Add(new PublicHoliday(year, 8, 11, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-            //        items.Add(new PublicHoliday(year, 10, 27, "Deepavali", "Deepavali", countryCode));
-            //        break;
-            //    case 2019:
-            //        items.Add(new PublicHoliday(year, 5, 29, "Vesak Day", "Vesak Day", countryCode));
-            //        items.Add(new PublicHoliday(year, 6, 15, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-            //        items.Add(new PublicHoliday(year, 8, 22, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-            //        items.Add(new PublicHoliday(year, 11, 6, "Deepavali", "Deepavali", countryCode));
-            //        break;
-            //    case 2020:
-            //        items.Add(new PublicHoliday(year, 5, 7, "Vesak Day", "Vesak Day", countryCode));
-            //        items.Add(new PublicHoliday(year, 5, 24, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-            //        items.Add(new PublicHoliday(year, 7, 31, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-            //        items.Add(new PublicHoliday(year, 11, 14, "Deepavali", "Deepavali", countryCode));
-            //        break;
-            //    case 2021:
-            //        items.Add(new PublicHoliday(year, 5, 26, "Vesak Day", "Vesak Day", countryCode));
-            //        items.Add(new PublicHoliday(year, 5, 13, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-            //        items.Add(new PublicHoliday(year, 7, 20, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-            //        items.Add(new PublicHoliday(year, 11, 4, "Deepavali", "Deepavali", countryCode));
-            //        break;
-            //    case 2022:
-            //        items.Add(new PublicHoliday(year, 5, 2, "Hari Raya Puasa", "Hari Raya Puasa", countryCode));
-            //        items.Add(new PublicHoliday(year, 5, 15, "Vesak Day", "Vesak Day", countryCode));
-            //        items.Add(new PublicHoliday(year, 7, 9, "Hari Raya Haji", "Hari Raya Haji", countryCode));
-            //        items.Add(new PublicHoliday(year, 10, 24, "Deepavali", "Deepavali", countryCode));
-            //        break;
-            //    default:
-            //        break;
-            //}
+            var vesakDay = this.VesakDay(year, countryCode);
+            if (vesakDay != null)
+            {
+                items.Add(vesakDay);
+            }
+
+            var hariRayaHaji = this.HariRayaHaji(year, countryCode);
+            if (hariRayaHaji != null)
+            {
+                items.Add(hariRayaHaji);
+            }
+
+            var deepavali = this.Deepavali(year, countryCode);
+            if (deepavali != null)
+            {
+                items.Add(deepavali);
+            }
 
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday HariRayaPuasa(int year, CountryCode countryCode)
+        {
+            var name = "Hari Raya Puasa";
+
+            switch (year)
+            {
+                case 2017:
+                    return new PublicHoliday(year, 6, 25, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2018:
+                    return new PublicHoliday(year, 6, 15, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2019:
+                    return new PublicHoliday(year, 6, 5, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2020:
+                    return new PublicHoliday(year, 5, 24, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2021:
+                    return new PublicHoliday(year, 5, 13, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2022:
+                    return new PublicHoliday(year, 5, 3, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2023:
+                    return new PublicHoliday(year, 4, 22, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2024:
+                    return new PublicHoliday(year, 4, 10, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2025:
+                    return new PublicHoliday(year, 3, 31, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2026:
+                    return new PublicHoliday(year, 3, 20, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2027:
+                    return new PublicHoliday(year, 3, 10, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                default:
+                    break;
+            }
+
+            return null;
+        }
+
+        private PublicHoliday VesakDay(int year, CountryCode countryCode)
+        {
+            var name = "Vesak Day";
+
+            switch (year)
+            {
+                case 2017:
+                    return new PublicHoliday(year, 5, 10, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2018:
+                    return new PublicHoliday(year, 5, 29, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2019:
+                    return new PublicHoliday(year, 5, 19, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2020:
+                    return new PublicHoliday(year, 5, 7, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2021:
+                    return new PublicHoliday(year, 5, 26, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2022:
+                    return new PublicHoliday(year, 5, 15, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2023:
+                    return new PublicHoliday(year, 6, 2, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2024:
+                    return new PublicHoliday(year, 5, 22, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2025:
+                    return new PublicHoliday(year, 5, 12, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                default:
+                    break;
+            }
+
+            return null;
+        }
+
+        private PublicHoliday HariRayaHaji(int year, CountryCode countryCode)
+        {
+            var name = "Hari Raya Haji";
+
+            switch (year)
+            {
+                case 2017:
+                    return new PublicHoliday(year, 9, 1, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2018:
+                    return new PublicHoliday(year, 8, 22, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2019:
+                    return new PublicHoliday(year, 8, 11, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2020:
+                    return new PublicHoliday(year, 7, 31, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2021:
+                    return new PublicHoliday(year, 7, 20, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2022:
+                    return new PublicHoliday(year, 7, 10, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2023:
+                    return new PublicHoliday(year, 6, 29, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2024:
+                    return new PublicHoliday(year, 6, 17, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2025:
+                    return new PublicHoliday(year, 6, 6, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                default:
+                    break;
+            }
+
+            return null;
+        }
+
+        private PublicHoliday Deepavali(int year, CountryCode countryCode)
+        {
+            var name = "Deepavali";
+
+            switch (year)
+            {
+                case 2017:
+                    return new PublicHoliday(year, 10, 18, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2018:
+                    return new PublicHoliday(year, 11, 6, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2019:
+                    return new PublicHoliday(year, 10, 27, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2020:
+                    return new PublicHoliday(year, 11, 14, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2021:
+                    return new PublicHoliday(year, 11, 4, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2022:
+                    return new PublicHoliday(year, 10, 24, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2023:
+                    return new PublicHoliday(year, 11, 13, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2024:
+                    return new PublicHoliday(year, 11, 1, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2025:
+                    return new PublicHoliday(year, 10, 21, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2026:
+                    return new PublicHoliday(year, 11, 8, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                case 2027:
+                    return new PublicHoliday(year, 10, 29, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                default:
+                    break;
+            }
+
+            return null;
         }
 
         ///<inheritdoc/>
