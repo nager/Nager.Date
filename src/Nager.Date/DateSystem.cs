@@ -172,6 +172,7 @@ namespace Nager.Date
                 { CountryCode.SY, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
                 { CountryCode.UG, new Lazy<IWeekendProvider>(() => WeekendProvider.SundayOnly) },
                 { CountryCode.YE, new Lazy<IWeekendProvider>(() => WeekendProvider.SemiUniversal) },
+                { CountryCode.TR, new Lazy<IWeekendProvider>(() => WeekendProvider.Universal) },
             };
 
         /// <summary>
