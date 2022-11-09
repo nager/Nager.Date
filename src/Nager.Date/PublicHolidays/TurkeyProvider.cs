@@ -75,7 +75,7 @@ namespace Nager.Date.PublicHolidays
             {
                 new PublicHoliday(year, calculateDate1.Month, calculateDate1.Day, "Kurban Bayramı 1. Gün", "Eid al-Adha First Day", countryCode),
                 new PublicHoliday(year, calculateDate2.Month, calculateDate2.Day, "Kurban Bayramı 2. Gün", "Eid al-Adha Second Day", countryCode),
-                new PublicHoliday(year, calculateDate3.Month, calculateDate3.Day, "Kurban Bayramı 3. Gün", "Eid al-Adhae Third Day", countryCode),
+                new PublicHoliday(year, calculateDate3.Month, calculateDate3.Day, "Kurban Bayramı 3. Gün", "Eid al-Adha Third Day", countryCode),
                 new PublicHoliday(year, calculateDate4.Month, calculateDate4.Day, "Kurban Bayramı 4. Gün", "Eid al-Adha Fourth Day", countryCode)
             };
         }
