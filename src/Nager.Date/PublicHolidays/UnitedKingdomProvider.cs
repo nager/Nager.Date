@@ -106,8 +106,8 @@ namespace Nager.Date.PublicHolidays
             var coronationBankHoliday = this.CoronationBankHoliday(year, countryCode);
             if (coronationBankHoliday != null)
             {
-                    items.Add(coronationBankHoliday);
-                }
+                items.Add(coronationBankHoliday);
+            }
 
             #region Christmas Day with fallback
 
@@ -168,7 +168,9 @@ namespace Nager.Date.PublicHolidays
         {
             if (year == 2023)
             {
-                //Bank holiday proclaimed in honour of the coronation of His Majesty King Charles III (https://www.gov.uk/government/news/bank-holiday-proclaimed-in-honour-of-the-coronation-of-his-majesty-king-charles-iii)
+                //Bank holiday proclaimed in honour of the coronation of His Majesty King Charles III
+                //https://www.gov.uk/government/news/bank-holiday-proclaimed-in-honour-of-the-coronation-of-his-majesty-king-charles-iii
+
                 return new PublicHoliday(year, 5, 8, "Coronation Bank Holiday", "Coronation Bank Holiday", countryCode);
             }
 
