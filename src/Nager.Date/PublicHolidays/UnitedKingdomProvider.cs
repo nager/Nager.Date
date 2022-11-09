@@ -103,6 +103,12 @@ namespace Nager.Date.PublicHolidays
                 items.Add(queensStateFuneral);
             }
 
+            var coronationBankHoliday = this.CoronationBankHoliday(year, countryCode);
+            if (coronationBankHoliday != null)
+            {
+                items.Add(coronationBankHoliday);
+            }
+
             #region Christmas Day with fallback
 
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
@@ -153,6 +159,19 @@ namespace Nager.Date.PublicHolidays
             {
                 //Majesty Queen Elizabeth II’s (https://www.gov.uk/government/news/bank-holiday-announced-for-her-majesty-queen-elizabeth-iis-state-funeral-on-monday-19-september)
                 return new PublicHoliday(year, 9, 19, "Queen’s State Funeral", "Queen’s State Funeral", countryCode);
+            }
+
+            return null;
+        }
+
+        private PublicHoliday CoronationBankHoliday(int year, CountryCode countryCode)
+        {
+            if (year == 2023)
+            {
+                //Bank holiday proclaimed in honour of the coronation of His Majesty King Charles III
+                //https://www.gov.uk/government/news/bank-holiday-proclaimed-in-honour-of-the-coronation-of-his-majesty-king-charles-iii
+
+                return new PublicHoliday(year, 5, 8, "Coronation Bank Holiday", "Coronation Bank Holiday", countryCode);
             }
 
             return null;

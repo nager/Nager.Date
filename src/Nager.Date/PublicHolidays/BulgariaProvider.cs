@@ -30,13 +30,13 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 1, 1, "Нова година", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 3, 3, "Ден на oсвобождението на България от Oсманско робство", "Liberation Day", countryCode));
             items.Add(this._orthodoxProvider.GoodFriday("Разпети петък", year, countryCode));
-            items.Add(this._orthodoxProvider.HolySaturday("Велика Cъбота", year, countryCode));
+            items.Add(this._orthodoxProvider.HolySaturday("Велика събота", year, countryCode));
             items.Add(this._orthodoxProvider.EasterSunday("Великден", year, countryCode));
             items.Add(this._orthodoxProvider.EasterMonday("Велики понеделник", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Ден на труда и на международната работническа солидарност", "International Workers' Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 6, "Гергьовден, ден на храбростта и Българската армия", "Saint George's Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 24, "Ден на Българската просвета и култура и на славянската писменост", "Saints Cyril and Methodius Day", countryCode));
-            items.Add(new PublicHoliday(year, 9, 6, "Ден на cъединението", "Unification Day", countryCode));
+            items.Add(new PublicHoliday(year, 9, 6, "Ден на съединението", "Unification Day", countryCode));
             items.Add(new PublicHoliday(year, 9, 22, "Ден на независимостта на България", "Independence Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 24, "Бъдни вечер", "Christmas Eve", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Рождество Христово", "Christmas Day", countryCode));
