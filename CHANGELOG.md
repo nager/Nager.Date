@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  
 ### Added
 - Singapore - Add Hari Raya Puasa, Vesak Day, Hari Raya Haji, Deepavali
-- United Kingdom - Coronation Bank Holiday
+- United Kingdom - Add Coronation Bank Holiday
+- Turkey - Add Eid al-Adha, add Eid al-Fitr
 ### Changed
 - France - Holidays revised, county information revised
 ### Deprecated
