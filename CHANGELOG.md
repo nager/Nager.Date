@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.36.5] - yyyy-mm-dd
+## [1.37.0] - 2022-11-09
  
 ### Added
 - Singapore - Add Hari Raya Puasa, Vesak Day, Hari Raya Haji, Deepavali
@@ -12,8 +12,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Turkey - Add Eid al-Adha, add Eid al-Fitr
 ### Changed
 - France - Holidays revised, county information revised
-### Deprecated
-### Removed
 ### Fixed
 - Singapore - Fix missing sunday shift
 
