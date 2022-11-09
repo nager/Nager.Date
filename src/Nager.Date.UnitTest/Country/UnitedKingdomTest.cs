@@ -71,5 +71,15 @@ namespace Nager.Date.UnitTest.Country
         {
             Assert.AreEqual(DateSystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB), isBankHoliday);
         }
+
+        [DataTestMethod]
+        [DataRow(2021, 5, 8, false)]
+        [DataRow(2022, 5, 8, false)]
+        [DataRow(2023, 5, 8, true)]
+        [DataRow(2024, 5, 8, false)]
+        public void CheckKingCharlesCoronation(int year, int month, int day, bool isBankHoliday)
+        {
+            Assert.AreEqual(DateSystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB), isBankHoliday);
+        }
     }
 }
