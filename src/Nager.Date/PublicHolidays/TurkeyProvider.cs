@@ -32,28 +32,30 @@ namespace Nager.Date.PublicHolidays
             return calender.ToDateTime(year, month, day, 0, 0, 0, 0);
         }
 
+        private int GetHijriYear(int year)
+        {
+            var diff = year - 621;
+            return Convert.ToInt32(Math.Round(diff + decimal.Divide(diff, 33)));
+        }
+
         /// <summary>
         /// Eid al-Fitr(Feast Of Ramadan) Holidays
         /// </summary>
         /// <param name="year"></param>
         /// <returns></returns>
-        private List<PublicHoliday> GetEidAlFitr(int year)
+        private PublicHoliday[] GetEidAlFitr(int year, CountryCode countryCode)
         {
-            var countryCode = CountryCode.TR;
-            var items = new List<PublicHoliday>();
-            var diff = year - 621;
-            var hijriYear = Convert.ToInt32(Math.Round(diff + decimal.Divide(diff, 33)));
+            var hijriYear = this.GetHijriYear(year);
+            var calculateDate1 = this.ConvertHijriToGregorian(hijriYear, 10, 1);
+            var calculateDate2 = this.ConvertHijriToGregorian(hijriYear, 10, 2);
+            var calculateDate3 = this.ConvertHijriToGregorian(hijriYear, 10, 3);
 
-            var calculateDate = this.ConvertHijriToGregorian(hijriYear, 10, 1);
-            items.Add(new PublicHoliday(year, calculateDate.Month, calculateDate.Day, "Ramazan Bayramı 1. Gün", "Eid al-Fitr First Day", countryCode));
-
-            calculateDate = this.ConvertHijriToGregorian(hijriYear, 10, 2);
-            items.Add(new PublicHoliday(year, calculateDate.Month, calculateDate.Day, "Ramazan Bayramı 2. Gün", "Eid al-Fitr Second Day", countryCode));
-
-            calculateDate = this.ConvertHijriToGregorian(hijriYear, 10, 3);
-            items.Add(new PublicHoliday(year, calculateDate.Month, calculateDate.Day, "Ramazan Bayramı 3. Gün", "Eid al-Fitr Third Day", countryCode));
-
-            return items;
+            return new PublicHoliday[]
+            {
+                new PublicHoliday(year, calculateDate1.Month, calculateDate1.Day, "Ramazan Bayramı 1. Gün", "Eid al-Fitr First Day", countryCode),
+                new PublicHoliday(year, calculateDate2.Month, calculateDate2.Day, "Ramazan Bayramı 2. Gün", "Eid al-Fitr Second Day", countryCode),
+                new PublicHoliday(year, calculateDate3.Month, calculateDate3.Day, "Ramazan Bayramı 3. Gün", "Eid al-Fitr Third Day", countryCode)
+            };
         }
 
         /// <summary>
@@ -61,25 +63,21 @@ namespace Nager.Date.PublicHolidays
         /// </summary>
         /// <param name="year"></param>
         /// <returns></returns>
-        private List<PublicHoliday> GetEidAlAdha(int year)
+        private PublicHoliday[] GetEidAlAdha(int year, CountryCode countryCode)
         {
-            var countryCode = CountryCode.TR;
-            var items = new List<PublicHoliday>();
-            var diff = year - 621;
-            var hijriYear = Convert.ToInt32(Math.Round(diff + decimal.Divide(diff, 33)));
+            var hijriYear = this.GetHijriYear(year);
+            var calculateDate1 = this.ConvertHijriToGregorian(hijriYear, 12, 10);
+            var calculateDate2 = this.ConvertHijriToGregorian(hijriYear, 12, 11);
+            var calculateDate3 = this.ConvertHijriToGregorian(hijriYear, 12, 12);
+            var calculateDate4 = this.ConvertHijriToGregorian(hijriYear, 12, 13);
 
-            var calculateDate = this.ConvertHijriToGregorian(hijriYear, 12, 10);
-            items.Add(new PublicHoliday(year, calculateDate.Month, calculateDate.Day, "Kurban Bayramı 1. Gün", "Eid al-Adha First Day", countryCode));
-
-            calculateDate = this.ConvertHijriToGregorian(hijriYear, 12, 11);
-            items.Add(new PublicHoliday(year, calculateDate.Month, calculateDate.Day, "Kurban Bayramı 2. Gün", "Eid al-Adha Second Day", countryCode));
-
-            calculateDate = this.ConvertHijriToGregorian(hijriYear, 12, 12);
-            items.Add(new PublicHoliday(year, calculateDate.Month, calculateDate.Day, "Kurban Bayramı 3. Gün", "Eid al-Adhae Third Day", countryCode));
-
-            calculateDate = this.ConvertHijriToGregorian(hijriYear, 12, 13);
-            items.Add(new PublicHoliday(year, calculateDate.Month, calculateDate.Day, "Kurban Bayramı 4. Gün", "Eid al-Adha Fourth Day", countryCode));
-            return items;
+            return new PublicHoliday[]
+            {
+                new PublicHoliday(year, calculateDate1.Month, calculateDate1.Day, "Kurban Bayramı 1. Gün", "Eid al-Adha First Day", countryCode),
+                new PublicHoliday(year, calculateDate2.Month, calculateDate2.Day, "Kurban Bayramı 2. Gün", "Eid al-Adha Second Day", countryCode),
+                new PublicHoliday(year, calculateDate3.Month, calculateDate3.Day, "Kurban Bayramı 3. Gün", "Eid al-Adhae Third Day", countryCode),
+                new PublicHoliday(year, calculateDate4.Month, calculateDate4.Day, "Kurban Bayramı 4. Gün", "Eid al-Adha Fourth Day", countryCode)
+            };
         }
 
         /// <summary>
@@ -99,8 +97,8 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 8, 30, "Zafer Bayramı", "Victory Day", countryCode));
             items.Add(new PublicHoliday(year, 10, 29, "Cumhuriyet Bayramı", "Republic Day", countryCode));
 
-            items.AddRange(this.GetEidAlFitr(year));
-            items.AddRange(this.GetEidAlAdha(year));
+            items.AddRange(this.GetEidAlFitr(year, countryCode));
+            items.AddRange(this.GetEidAlAdha(year, countryCode));
 
             if (year >= 2017)
             {
