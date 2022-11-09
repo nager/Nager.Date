@@ -29,8 +29,8 @@ namespace Nager.Date.UnitTest.Country
             var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
 
             var holiday = new DateTime(year, month, day);
-            var actual = publicHolidays.Any(x => x.Date == holiday);
-            Assert.AreEqual(true, actual, $"{holiday.ToString("D")} is not a holiday");
+            var isHolidayFound = publicHolidays.Any(x => x.Date == holiday);
+            Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
         [DataTestMethod]
@@ -54,8 +54,8 @@ namespace Nager.Date.UnitTest.Country
             var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
 
             var holiday = new DateTime(year, month, day);
-            var actual = publicHolidays.Any(x => x.Date == holiday);
-            Assert.AreEqual(true, actual, $"{holiday.ToString("D")} is not a holiday");
+            var isHolidayFound = publicHolidays.Any(x => x.Date == holiday);
+            Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
         [DataTestMethod]
@@ -79,8 +79,8 @@ namespace Nager.Date.UnitTest.Country
             var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
 
             var holiday = new DateTime(year, month, day);
-            var actual = publicHolidays.Any(x => x.Date == holiday);
-            Assert.AreEqual(true, actual, $"{holiday.ToString("D")} is not a holiday");
+            var isHolidayFound = publicHolidays.Any(x => x.Date == holiday);
+            Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
 
@@ -104,8 +104,8 @@ namespace Nager.Date.UnitTest.Country
             var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
 
             var holiday = new DateTime(year, month, day);
-            var actual = publicHolidays.Any(x => x.Date == holiday);
-            Assert.AreEqual(true, actual, $"{holiday.ToString("D")} is not a holiday");
+            var isHolidayFound = publicHolidays.Any(x => x.Date == holiday);
+            Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
         [DataTestMethod]
