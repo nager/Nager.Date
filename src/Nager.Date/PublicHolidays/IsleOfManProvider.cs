@@ -166,6 +166,7 @@ namespace Nager.Date.PublicHolidays
             {
                 //Bank holiday proclaimed in honour of the coronation of His Majesty King Charles III
                 //https://www.gov.uk/government/news/bank-holiday-proclaimed-in-honour-of-the-coronation-of-his-majesty-king-charles-iii
+                //https://www.iomtoday.co.im/news/extra-bank-holiday-to-mark-king-charles-iiis-coronation-571967
 
                 return new PublicHoliday(year, 5, 8, "Coronation Bank Holiday", "Coronation Bank Holiday", countryCode);
             }
