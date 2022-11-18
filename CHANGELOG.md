@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [Unreleased 1.X.X] - yyyy-mm-dd
+ 
+### Added
+- Isle of Man - Add Missing Royal Holidays
+### Changed
+### Deprecated
+### Removed
+### Fixed
+
+
 ## [1.37.0] - 2022-11-09
  
 ### Added
