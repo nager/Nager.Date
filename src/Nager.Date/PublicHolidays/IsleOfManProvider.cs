@@ -52,10 +52,22 @@ namespace Nager.Date.PublicHolidays
                 items.Add(springBankHoliday);
             }
 
-            var queensPlatinumJubilee = this.GetQueensPlatinumJubilee(year, countryCode);
+            var queensPlatinumJubilee = this.QueensPlatinumJubilee(year, countryCode);
             if (queensPlatinumJubilee != null)
             {
                 items.Add(queensPlatinumJubilee);
+            }
+
+            var queensStateFuneral = this.QueensStateFuneral(year, countryCode);
+            if (queensStateFuneral != null)
+            {
+                items.Add(queensStateFuneral);
+            }
+
+            var coronationBankHoliday = this.CoronationBankHoliday(year, countryCode);
+            if (coronationBankHoliday != null)
+            {
+                items.Add(coronationBankHoliday);
             }
 
             var ttRaceDay = this.GetTTRaceDay(year, countryCode);
@@ -123,16 +135,47 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(lastMondayInMay, name, name, countryCode);
         }
 
-        private PublicHoliday GetQueensPlatinumJubilee(int year, CountryCode countryCode)
+
+        #region Royal family
+
+        private PublicHoliday QueensPlatinumJubilee(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
-                //https://www.bbc.co.uk/news/uk-59929077
+                //Majesty Queen Elizabeth II’s
                 return new PublicHoliday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
             }
 
             return null;
         }
+
+        private PublicHoliday QueensStateFuneral(int year, CountryCode countryCode)
+        {
+            if (year == 2022)
+            {
+                //Majesty Queen Elizabeth II’s (https://www.gov.uk/government/news/bank-holiday-announced-for-her-majesty-queen-elizabeth-iis-state-funeral-on-monday-19-september)
+                return new PublicHoliday(year, 9, 19, "Queen’s State Funeral", "Queen’s State Funeral", countryCode);
+            }
+
+            return null;
+        }
+
+        private PublicHoliday CoronationBankHoliday(int year, CountryCode countryCode)
+        {
+            if (year == 2023)
+            {
+                //Bank holiday proclaimed in honour of the coronation of His Majesty King Charles III
+                //https://www.gov.uk/government/news/bank-holiday-proclaimed-in-honour-of-the-coronation-of-his-majesty-king-charles-iii
+                //https://www.iomtoday.co.im/news/extra-bank-holiday-to-mark-king-charles-iiis-coronation-571967
+
+                return new PublicHoliday(year, 5, 8, "Coronation Bank Holiday", "Coronation Bank Holiday", countryCode);
+            }
+
+            return null;
+        }
+
+        #endregion
+
 
         ///<inheritdoc/>
         public IEnumerable<string> GetSources()
