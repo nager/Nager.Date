@@ -68,7 +68,6 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(new PublicHoliday(year, 7, 16, "Virgen del Carmen", "Our Lady of Mount Carmel", countryCode, launchYear: 2007));
             items.Add(new PublicHoliday(year, 8, 15, "Asunción de la Virgen", "Assumption of Mary", countryCode));
-            items.Add(new PublicHoliday(year, 9, 4, "Plebiscito nacional", "National plebiscite", countryCode));
             items.Add(new PublicHoliday(year, 9, 18, "Fiestas Patrias", "National holiday", countryCode));
             items.Add(new PublicHoliday(year, 9, 19, "Día de las Glorias del Ejército", "Army Day", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Día de Todos los Santos", "All Saints", countryCode));
@@ -91,6 +90,12 @@ namespace Nager.Date.PublicHolidays
             if (reformationDay != null)
             {
                 items.Add(reformationDay);
+            }
+
+            var nationalPlebiscite = this.NationalPlebiscite(year, countryCode);
+            if (nationalPlebiscite != null)
+            {
+                items.Add(nationalPlebiscite);
             }
 
             return items.OrderBy(o => o.Date);
@@ -167,6 +172,16 @@ namespace Nager.Date.PublicHolidays
             }
 
             return new PublicHoliday(date, "Día Nacional de las Iglesias Evangélicas y Protestantes", "Reformation Day", countryCode);
+        }
+
+        private PublicHoliday NationalPlebiscite(int year, CountryCode countryCode)
+        {
+            if (year != 2022)
+            {
+                return null;
+            }
+
+            return new PublicHoliday(year, 9, 4, "Plebiscito nacional", "National plebiscite", countryCode);
         }
 
         ///<inheritdoc/>
