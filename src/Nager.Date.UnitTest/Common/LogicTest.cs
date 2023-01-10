@@ -217,17 +217,17 @@ namespace Nager.Date.UnitTest.Common
         {
             var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU);
             Assert.IsFalse(isPublicHoliday);
-            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-NT");
+            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AU-NT");
             Assert.IsTrue(isPublicHoliday);
-            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-WA");
+            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AU-WA");
             Assert.IsFalse(isPublicHoliday);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Invalid countyCode AU-NT")]
+        [ExpectedException(typeof(ArgumentException), "Invalid countyCode AUS-NT")]
         public void CheckIsOfficialPublicHolidayByCounty2()
         {
-            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AU-NT");
+            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-NT");
             Assert.IsTrue(isPublicHoliday);
         }
 
