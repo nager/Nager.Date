@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  
 ### Added
 - Isle of Man - Add Missing Royal Holidays
+- Canada - Add Saskatchewan Day
 ### Changed
 ### Deprecated
 ### Removed
@@ -16,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Chile - Fix National Plebiscite
 - Australia - Fix incorrect counties
 - Bosnia And Herzegovina - Fix incorrect counties
+- Canada - Fix St. Stephen's Day naming
 
 
 ## [1.37.0] - 2022-11-09
