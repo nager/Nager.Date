@@ -44,7 +44,33 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Lá Nollag", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Lá Fhéile Stiofáin", "St. Stephen's Day", countryCode));
 
+            var saintBrigidsDay = this.SaintBrigidsDay(year, countryCode);
+            if (saintBrigidsDay != null)
+            {
+                items.Add(saintBrigidsDay);
+            }
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday SaintBrigidsDay(int year, CountryCode countryCode)
+        {
+            if (year < 2023)
+            {
+                return null;
+            }
+
+            var englishName = "Saint Brigid's Day";
+            var localName = "Lá Fhéile Bríde";
+
+            var firstFebruary = new DateTime(year, 2, 1);
+            if (firstFebruary.DayOfWeek == DayOfWeek.Friday)
+            {
+                return new PublicHoliday(firstFebruary, localName, englishName, countryCode, launchYear: 2023);
+            }
+
+            var firstMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.First);
+            return new PublicHoliday(firstMondayInFebruary, localName, englishName, countryCode, launchYear: 2023);
         }
 
         ///<inheritdoc/>
