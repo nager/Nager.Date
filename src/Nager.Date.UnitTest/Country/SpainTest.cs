@@ -12,11 +12,11 @@ namespace Nager.Date.UnitTest.Country
         public void CheckDayOfMadridIsThirdMayIn2021()
         {
             var yearToTest = 2021;
-            var expectedDate2021 = new DateTime(2021, 5, 3);
+            var expectedDate = new DateTime(yearToTest, 5, 3);
 
             var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.ES);
-            var dayOfMadrid = publicHolidays.Where(publicHoliday => publicHoliday.Name == "Day of Madrid").FirstOrDefault();
-            Assert.AreEqual(expectedDate2021, dayOfMadrid.Date);
+            var publicHoliday = publicHolidays.Where(publicHoliday => publicHoliday.Name == "Day of Madrid").FirstOrDefault();
+            Assert.AreEqual(expectedDate, publicHoliday.Date);
         }
 
         [DataTestMethod]
