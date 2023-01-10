@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Australia - Fix incorrect counties
 - Bosnia And Herzegovina - Fix incorrect counties
 - Canada - Fix St. Stephen's Day naming
+- Turkey - Check Hijri year is supported
 
 
 ## [1.37.0] - 2022-11-09
