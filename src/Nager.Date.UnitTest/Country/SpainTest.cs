@@ -8,7 +8,7 @@ namespace Nager.Date.UnitTest.Country
     [TestClass]
     public class SpainTest
     {
-        [DataTestMethod]
+        [TestMethod]
         public void CheckDayOfMadridIsThirdMayIn2021()
         {
             var yearToTest = 2021;
