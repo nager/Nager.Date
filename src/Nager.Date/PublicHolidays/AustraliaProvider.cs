@@ -86,7 +86,6 @@ namespace Nager.Date.PublicHolidays
                 items.Add(mourningForQueenElizabeth);
             }
 
-
             return items.OrderBy(o => o.Date);
         }
 
