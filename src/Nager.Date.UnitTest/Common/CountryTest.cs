@@ -54,7 +54,7 @@ namespace Nager.Date.UnitTest.Common
                             if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Length)
                             {
                                 var diff = publicHoliday.Counties.Except(counties.Keys);
-                                Assert.Fail($"Unknown countie in {provider} {string.Join(",", diff)}");
+                                Assert.Fail($"Unknown county in {provider} {string.Join(",", diff)}");
                             }
                         }
                     }
