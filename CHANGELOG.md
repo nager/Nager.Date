@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Isle of Man - Add Missing Royal Holidays
 - Canada - Add Saskatchewan Day
+- Ireland - Add Saint Brigid's Day
 ### Changed
 ### Deprecated
 ### Removed
