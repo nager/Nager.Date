@@ -5,22 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [Unreleased 1.X.X] - yyyy-mm-dd
+## [1.38.0] - 2023-01-11
  
 ### Added
 - Isle of Man - Add Missing Royal Holidays
 - Canada - Add Saskatchewan Day
 - Ireland - Add Saint Brigid's Day
-### Changed
-### Deprecated
-### Removed
 ### Fixed
 - Chile - Fix National Plebiscite
 - Australia - Fix incorrect counties
 - Bosnia And Herzegovina - Fix incorrect counties
 - Canada - Fix St. Stephen's Day naming
 - Turkey - Check Hijri year is supported
-
 
 ## [1.37.0] - 2022-11-09
  
@@ -32,7 +28,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - France - Holidays revised, county information revised
 ### Fixed
 - Singapore - Fix missing sunday shift
-
 
 ## [1.36.4] - 2022-10-04
  
