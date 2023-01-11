@@ -10,7 +10,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// United States of America
     /// </summary>
-    internal class UnitedStatesProvider : IPublicHolidayProvider
+    internal class UnitedStatesProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -20,6 +20,64 @@ namespace Nager.Date.PublicHolidays
         public UnitedStatesProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
+        }
+
+        ///<inheritdoc/>
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "US-AL", "Alabama" },
+                { "US-AK", "Alaska" },
+                { "US-AZ", "Arizona" },
+                { "US-AR", "Arkansas" },
+                { "US-CA", "California" },
+                { "US-CO", "Colorado" },
+                { "US-CT", "Connecticut" },
+                { "US-DE", "Delaware" },
+                { "US-FL", "Florida" },
+                { "US-GA", "Georgia" },
+                { "US-HI", "Hawaii" },
+                { "US-ID", "Idaho" },
+                { "US-IL", "Illinois" },
+                { "US-IN", "Indiana" },
+                { "US-IA", "Iowa" },
+                { "US-KS", "Kansas" },
+                { "US-KY", "Kentucky" },
+                { "US-LA", "Louisiana" },
+                { "US-ME", "Maine" },
+                { "US-MD", "Maryland" },
+                { "US-MA", "Massachusetts" },
+                { "US-MI", "Michigan" },
+                { "US-MN", "Minnesota" },
+                { "US-MS", "Mississippi" },
+                { "US-MO", "Missouri" },
+                { "US-MT", "Montana" },
+                { "US-NE", "Nebraska" },
+                { "US-NV", "Nevada" },
+                { "US-NH", "New Hampshire" },
+                { "US-NJ", "New Jersey" },
+                { "US-NM", "New Mexico" },
+                { "US-NY", "New York" },
+                { "US-NC", "North Carolina" },
+                { "US-ND", "North Dakota" },
+                { "US-OH", "Ohio" },
+                { "US-OK", "Oklahoma" },
+                { "US-OR", "Oregon" },
+                { "US-PA", "Pennsylvania" },
+                { "US-RI", "Rhode Island" },
+                { "US-SC", "South Carolina" },
+                { "US-SD", "South Dakota" },
+                { "US-TN", "Tennessee" },
+                { "US-TX", "Texas" },
+                { "US-UT", "Utah" },
+                { "US-VT", "Vermont" },
+                { "US-VA", "Virginia" },
+                { "US-WA", "Washington" },
+                { "US-WV", "West Virginia" },
+                { "US-WI", "Wisconsin" },
+                { "US-WY", "Wyoming" }
+            };
         }
 
         ///<inheritdoc/>
@@ -68,7 +126,7 @@ namespace Nager.Date.PublicHolidays
             #endregion
 
             items.Add(new PublicHoliday(firstMondayInSeptember, "Labor Day", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-CO", "US-CT", "US-DC", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-ME", "US-MD", "US-MA", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NY", "US-NC", "US-OH", "US-OK", "US-PA", "US-RI", "US-SC", "US-TN", "US-UT", "US-VA", "US-WV" }));
+            items.Add(new PublicHoliday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-CO", "US-CT", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-ME", "US-MD", "US-MA", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NY", "US-NC", "US-OH", "US-OK", "US-PA", "US-RI", "US-SC", "US-TN", "US-UT", "US-VA", "US-WV" }));
 
             #region Veterans Day with fallback
 
@@ -83,22 +141,6 @@ namespace Nager.Date.PublicHolidays
 
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
             items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
-
-            #endregion
-
-            #region Inauguration Day (every 4 years)
-
-            if ((year - 1) % 4 == 0)
-            {
-                if (year >= 1937)
-                {
-                    items.Add(new PublicHoliday(year, 1, 20, "Inauguration Day", "Inauguration Day", countryCode, null, new string[] { "US-DC", "US-LA", "US-MD", "US-VA" }));
-                }
-                else
-                {
-                    items.Add(new PublicHoliday(year, 3, 4, "Inauguration Day", "Inauguration Day", countryCode, null, new string[] { "US-DC", "US-LA", "US-MD", "US-VA" }));
-                }
-            }
 
             #endregion
 

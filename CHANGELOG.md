@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased 1.X.X] - yyyy-mm-dd
  
 ### Added
+- United States - Add counties
 ### Changed
 ### Deprecated
 ### Removed
+- United States - Remove wrong Inauguration Day
 ### Fixed
 - Colombia - Fix missing Monday shift
 
