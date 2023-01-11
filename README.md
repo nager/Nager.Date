@@ -2,15 +2,15 @@
 
 # :calendar: Nager.Date - [Official Website](https://date.nager.at)
 
-**Nager.Date** is a popular project to query holidays. We currently **support over 100 countries**.<br>
-The project is based on .NET and provides a [public REST Api](https://date.nager.at/Api) for accessing the data.<br>
-A docker container or a NuGet package is also available, but for this you need a license key.
+Discover the convenience of easily accessing holidays from **over 100 countries** with Nager.Date. Our popular project utilizes the power of .NET and offers a user-friendly public [REST API](https://date.nager.at/Api) for seamless integration into your application.
+
 You can find an overview of the supported countries [here](https://date.nager.at/Country/Coverage).
+
+Need offline access to our functionality? No problem! We also provide solutions that allow you to use our services on your own infrastructure without an internet connection. Easily integrate our service into your system with the [Docker](https://hub.docker.com/r/nager/nager-date) container or the [NuGet](https://www.nuget.org/packages/Nager.Date) package. Both options require a license key. As a [sponsor of nager](https://github.com/sponsors/nager), you get a license key.
 
 ## How can I use it?
 
-Using the [Swagger definition](https://date.nager.at/swagger), they can have a client created for their programming language. You can find the information in our Api section.
-More Informations about client generation you can find [here](https://openapi-generator.tech)
+Easily create a client in your preferred programming language by utilizing our [Swagger definition](https://date.nager.at/swagger). Find all the necessary information in our API section. Get more details about client generation in the [documentation](https://openapi-generator.tech).
 
 ### Examples
 
@@ -112,11 +112,11 @@ dependencies {
 	
 </details>
 	
-### For our sponsors, we also offer a Docker container and a NuGet package
+## Offline Solution
 
-With a sponsorship you get the license key to use the variants locally without a dependency to our REST Api.
+Don't let internet connectivity issues disrupt your workflow. Our offline solutions enable you to use our services on your own infrastructure without an internet connection. With a sponsorship you get the license key to use the variants locally without a dependency to our REST Api.
 
-#### nuget
+### nuget
 The nuget package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)<br>
 
 ```
@@ -179,8 +179,7 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 ```
 </details>
 
-#### docker
-If high availability is important for you and you want to avoid access to the Internet, we can also offer you your own Docker container.
+### docker
 
 The docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date)<br>
 To run a local instance of the docker image run the following command<br>
