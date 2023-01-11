@@ -198,9 +198,11 @@ There are several business fields in which it is important to know the holidays 
 - **Telephone systems:** To automatically turn on the answering machine on holidays.
 - **Time recording:** To automatically fill the missing hours with the normal working hours.
 
-## Blog Posts
+## Articles about this project
 
-[Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
+- [Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
+- [Youtube use the nuget package](https://www.youtube.com/watch?v=oS_uvbEV4Pw)
+- [Feiertagsrechner (German)](https://www.dotnetpro.de/core/frameworks/feiertagsrechner-2661291.html)
 
 ## Alternative projects
 
