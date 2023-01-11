@@ -187,9 +187,16 @@ To run a local instance of the docker image run the following command<br>
 
 
 ## Areas of Application
-- telephone systems
-- carrier (land transport)
-- time recording
+
+There are several business fields in which it is important to know the holidays in different countries.
+
+- **E-commerce**: If an online retailer sells its products in different countries, it should know the holidays in these countries to adjust delivery times and customer service accordingly.
+- **Travel industry:** A tour operator should know the holidays of the countries to which it offers trips, to alert its customers to special events or closed attractions.
+- **Staff scheduling:** Companies with branches in several countries must know the holidays in each country to be able to plan their staff needs accordingly.
+- **Financial industry:** Banks and financial institutions should know the holidays in the countries in which they conduct business to ensure that transfers and transactions are performed on time and to estimate the impact of holidays on the foreign exchange market.
+- **Logistics and supply chains:** Companies managing logistics or supply chains across several countries, must know the holidays in these countries to adjust planning and supply chain decisions.
+- **Telephone systems:** To automatically turn on the answering machine on holidays.
+- **Time recording:** To automatically fill the missing hours with the normal working hours.
 
 ## Blog Posts
 
@@ -197,11 +204,11 @@ To run a local instance of the docker image run the following command<br>
 
 ## Alternative projects
 
-| Language | Project | Supported Countries (January 2019) |
+| Project | Technology | Supported Countries (January 2019) |
 | ------------- | ------------- | ------------- |
-| PHP | [yasumi](https://github.com/azuyalabs/yasumi) | 34 |
-| JavaScript | [date-holidays](https://github.com/commenthol/date-holidays) | 142 |
-| Java | [jollyday](https://github.com/svendiedrichsen/jollyday) | 64 |
-| .NET | [Holiday](https://github.com/martinjw/Holiday) | 21 |
-| Python | [python-holidays](https://github.com/ryanss/python-holidays) | 34 |
-| Python | [workalendar](https://github.com/peopledoc/workalendar) | 59 |
+| [yasumi](https://github.com/azuyalabs/yasumi)| PHP | 34 |
+| [date-holidays](https://github.com/commenthol/date-holidays) | JavaScript | 142 |
+| [jollyday](https://github.com/svendiedrichsen/jollyday) | Java | 64 |
+| [Holiday](https://github.com/martinjw/Holiday) | .NET | 21 |
+| [python-holidays](https://github.com/ryanss/python-holidays) | Python | 34 |
+| [workalendar](https://github.com/peopledoc/workalendar) | Python | 59 |
