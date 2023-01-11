@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased 1.X.X] - yyyy-mm-dd
+ 
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+- Colombia - Fix missing Monday shift
 
 ## [1.38.0] - 2023-01-11
  
