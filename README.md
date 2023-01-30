@@ -68,7 +68,7 @@ if ($response->getStatusCode() == 200) {
 </details>
 	
 <details>
-  <summary>JAVA (click to expand)</summary>
+  <summary>Java (click to expand)</summary>
 
 This example use the springframework. Code tested with [onecompiler.com](https://onecompiler.com)
 	
@@ -114,10 +114,10 @@ dependencies {
 	
 ## Offline Solution
 
-Don't let internet connectivity issues disrupt your workflow. Our offline solutions enable you to use our services on your own infrastructure without an internet connection. With a sponsorship you get the license key to use the variants locally without a dependency to our REST Api.
+Don't let internet connectivity issues disrupt your workflow. Our offline solutions enable you to use our services on your own infrastructure without an internet connection. With a sponsorship you get the license key to use the variants locally without a dependency to our REST API.
 
-### nuget
-The nuget package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)<br>
+### NuGet
+The NuGet package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)<br>
 
 ```
 PM> install-package Nager.Date
@@ -126,7 +126,7 @@ PM> install-package Nager.Date
 <details>
   <summary>Code Examples (click to expand)</summary>
   
-## Examples for .NET (nuget package)
+## Examples for .NET (NuGet package)
 
 ### Set the license key
 ```cs
@@ -179,10 +179,10 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 ```
 </details>
 
-### docker
+### Docker
 
-The docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date)<br>
-To run a local instance of the docker image run the following command<br>
+The Docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date)<br>
+To run a local instance of the Docker image run the following command<br>
 `docker run -p 80:80 nager/nager-date`
 
 
@@ -201,7 +201,7 @@ There are several business fields in which it is important to know the holidays 
 ## Articles about this project
 
 - [Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
-- [Youtube use the nuget package](https://www.youtube.com/watch?v=oS_uvbEV4Pw)
+- [YouTube use the NuGet package](https://www.youtube.com/watch?v=oS_uvbEV4Pw)
 - [dotnetpro - Feiertagsrechner (German)](https://www.dotnetpro.de/core/frameworks/feiertagsrechner-2661291.html)
 
 ## Alternative projects
