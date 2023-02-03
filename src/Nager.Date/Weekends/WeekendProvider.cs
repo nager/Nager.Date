@@ -17,20 +17,20 @@ namespace Nager.Date.Weekends
         /// <param name="weekendDays"></param>
         public WeekendProvider(params DayOfWeek[] weekendDays)
         {
-            WeekendDays = weekendDays;
+            this.WeekendDays = weekendDays;
 
-            var min = WeekendDays.Min();
-            var max = WeekendDays.Max();
+            var min = this.WeekendDays.Min();
+            var max = this.WeekendDays.Max();
 
             if (max - min > (min + 7) - max)
             {
-                FirstWeekendDay = min;
-                LastWeekendDay = max;
+                this.FirstWeekendDay = min;
+                this.LastWeekendDay = max;
             }
             else
             {
-                FirstWeekendDay = max;
-                LastWeekendDay = min;
+                this.FirstWeekendDay = max;
+                this.LastWeekendDay = min;
             }
         }
 
