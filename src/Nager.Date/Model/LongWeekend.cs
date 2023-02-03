@@ -12,14 +12,17 @@ namespace Nager.Date.Model
         /// Start date
         /// </summary>
         public DateTime StartDate { get; set; }
+
         /// <summary>
         /// End date
         /// </summary>
         public DateTime EndDate { get; set; }
+
         /// <summary>
         /// Count of days
         /// </summary>
         public int DayCount { get { return this.EndDate.Subtract(this.StartDate).Days + 1; } }
+
         /// <summary>
         /// If an additional holiday needed
         /// </summary>

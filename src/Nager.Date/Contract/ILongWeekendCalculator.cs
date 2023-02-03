@@ -12,7 +12,8 @@ namespace Nager.Date.Contract
         /// Calculate Long weekends
         /// </summary>
         /// <param name="publicHolidays"></param>
+        /// <param name="availableBridgeDays"></param>
         /// <returns>Set of long weekends for given public holidays</returns>
-        IEnumerable<LongWeekend> Calculate(IEnumerable<PublicHoliday> publicHolidays);
+        IEnumerable<LongWeekend> Calculate(IEnumerable<PublicHoliday> publicHolidays, int availableBridgeDays = 1);
     }
 }
