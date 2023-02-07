@@ -60,65 +60,59 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
-            items.Add(new PublicHoliday(year, 2, 28, "Día de Andalucía", "Regional Holiday", countryCode, null, new string[] { "ES-AN" }));
-            items.Add(new PublicHoliday(year, 3, 1, "Dia de les Illes Balears", "Regional Holiday", countryCode, null, new string[] { "ES-IB" }));
-            items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC", "ES-AS", "ES-PV", "ES-CB"));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            items.Add(this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode).SetLaunchYear(1642).SetCounties("ES-CT", "ES-IB", "ES-RI", "ES-NC", "ES-PV", "ES-VC"));
-            items.Add(new PublicHoliday(year, 4, 23, "San Jorge (Día de Aragón)", "Regional Holiday", countryCode, null, new string[] { "ES-AR" }));
-            items.Add(new PublicHoliday(year, 4, 23, "Día de Castilla y León", "Regional Holiday", countryCode, null, new string[] { "ES-CL" }));
             items.Add(new PublicHoliday(year, 5, 1, "Fiesta del trabajo", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(year, 5, 17, "Día das Letras Galegas", "Regional Holiday", countryCode, null, new string[] { "ES-GA" }));
-            items.Add(new PublicHoliday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Regional Holiday", countryCode, null, new string[] { "ES-CM" }));
-            items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode).SetCounties("ES-CM"));
-            items.Add(new PublicHoliday(year, 6, 9, "Día de la Región de Murcia", "Regional Holiday", countryCode, null, new string[] { "ES-MC" }));
-            items.Add(new PublicHoliday(year, 6, 9, "Día de La Rioja", "Regional Holiday", countryCode, null, new string[] { "ES-RI" }));
-            items.Add(new PublicHoliday(year, 6, 24, "Sant Joan", "St. John's Day", countryCode, null, new string[] { "ES-CT", "ES-VC" }));
-            items.Add(new PublicHoliday(year, 7, 20, "Fiesta del Sacrificio-Eidul Adha", "Eidul Adha", countryCode, null, new string[] { "ES-CE" }));
-            items.Add(new PublicHoliday(year, 7, 21, "Fiesta del Sacrificio-Aid Al Adha", "Aid Al Adha", countryCode, null, new string[] { "ES-ML" }));
-            items.Add(new PublicHoliday(year, 7, 28, "Día de las Instituciones de Cantabria", "Regional Holiday", countryCode, null, new string[] { "ES-CB" }));
-            items.Add(new PublicHoliday(year, 9, 2, "Día de Ceuta", "Municipal Holiday", countryCode, null, new string[] { "ES-CE" }));
-            items.Add(new PublicHoliday(year, 9, 8, "Día de Asturias", "Regional Holiday", countryCode, null, new string[] { "ES-AS" }));
-            items.Add(new PublicHoliday(year, 9, 8, "Día de Extremadura", "Regional Holiday", countryCode, null, new string[] { "ES-EX" }));
-            items.Add(new PublicHoliday(year, 9, 11, "Diada Nacional de Catalunya", "National Day of Catalonia", countryCode, null, new string[] { "ES-CT" }));
-            items.Add(new PublicHoliday(year, 9, 15, "La Bien Aparecida", "Regional Holiday", countryCode, null, new string[] { "ES-CB" }));
-            items.Add(new PublicHoliday(year, 10, 9, "Dia de la Comunitat Valenciana", "Regional Holiday", countryCode, null, new string[] { "ES-VC" }));
             items.Add(new PublicHoliday(year, 10, 12, "Fiesta Nacional de España", "Fiesta Nacional de España", countryCode));
             items.Add(new PublicHoliday(year, 11, 1, "Día de todos los Santos", "All Saints Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 6, "Día de la Constitución", "Constitution Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" }));
 
-            var assumption = this.Assumption(year, countryCode);
-            items.Add(assumption);
-            var dayOfMadrid = this.DayOfMadrid(year, countryCode);
-            items.Add(dayOfMadrid);
+            items.AddIfNotNull(this.EasterMonday(year, countryCode));
+            items.AddIfNotNull(this.CorpusChristi(year, countryCode));
+            items.AddIfNotNull(this.MaundyThursday(year, countryCode));
 
-            var sanJose = this.SanJose(year, countryCode);
-            if (sanJose != null)
-            {
-                items.Add(sanJose);
-            }
-            
-            var santiagoApostol = this.SantiagoApostol(year, countryCode);
-            if (santiagoApostol != null)
-            {
-                items.Add(santiagoApostol);
-            }
-
-            var whitMonday = this.WhitMonday(year, countryCode);
-            if (whitMonday != null)
-            {
-                items.Add(whitMonday);
-            }
-
-            var christmasDay = this.ChristmasDay(year, countryCode);
-            if (christmasDay != null)
-            {
-                items.Add(christmasDay);
-            }
+            items.AddIfNotNull(this.Assumption(year, countryCode));
+            items.AddIfNotNull(this.DayOfMadrid(year, countryCode));
+            items.AddIfNotNull(this.SanJose(year, countryCode));
+            items.AddIfNotNull(this.SantiagoApostol(year, countryCode));
+            items.AddIfNotNull(this.WhitMonday(year, countryCode));
+            items.AddIfNotNull(this.ChristmasDay(year, countryCode));
+            items.AddIfNotNull(this.StStephensDay(year, countryCode));
+            items.AddIfNotNull(this.DayOfTheValencianCommunity(year, countryCode));
+            items.AddIfNotNull(this.LaBienAparecida(year, countryCode));
+            items.AddIfNotNull(this.NationalDayOfCatalonia(year, countryCode));
+            items.AddIfNotNull(this.DayOfExtremadura(year, countryCode));
+            items.AddIfNotNull(this.DayOfAsturias(year, countryCode));
+            items.AddIfNotNull(this.CeutaDay(year, countryCode));
+            items.AddIfNotNull(this.DayOfTheCantabrianInstitutions(year, countryCode));
+            items.AddIfNotNull(this.AidAlAdha(year, countryCode));
+            items.AddIfNotNull(this.EidulAdha(year, countryCode));
+            items.AddIfNotNull(this.StJohnsDay(year, countryCode));
+            items.AddIfNotNull(this.DayOfLaRioja(year, countryCode));
+            items.AddIfNotNull(this.DayOfMurcia(year, countryCode));
+            items.AddIfNotNull(this.DayOfCastillaLaMancha(year, countryCode));
+            items.AddIfNotNull(this.CastileAndLeonDay(year, countryCode));
+            items.AddIfNotNull(this.GalicianLiteratureDay(year, countryCode));
+            items.AddIfNotNull(this.DayOfAragon(year, countryCode));
+            items.AddIfNotNull(this.DayOfTheBalearicIslands(year, countryCode));
+            items.AddIfNotNull(this.DayOfAndalucía(year, countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday EasterMonday(int year, CountryCode countryCode)
+        {
+            return this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode).SetLaunchYear(1642).SetCounties("ES-CT", "ES-IB", "ES-RI", "ES-NC", "ES-PV", "ES-VC");
+        }
+
+        private PublicHoliday CorpusChristi(int year, CountryCode countryCode)
+        {
+            return this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode).SetCounties("ES-CM");
+        }
+
+        private PublicHoliday MaundyThursday(int year, CountryCode countryCode)
+        {
+            return this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC", "ES-AS", "ES-PV", "ES-CB");
         }
 
         private PublicHoliday ChristmasDay(int year, CountryCode countryCode)
@@ -249,6 +243,101 @@ namespace Nager.Date.PublicHolidays
             }
 
             return new PublicHoliday(year, 7, 25, "Santiago Apóstol", "Santiago Apóstol", countryCode, null, counties);
+        }
+
+        private PublicHoliday StStephensDay(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" });
+        }
+
+        private PublicHoliday DayOfTheValencianCommunity(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 10, 9, "Dia de la Comunitat Valenciana", "Day of the Valencian Community", countryCode, null, new string[] { "ES-VC" });
+        }
+
+        private PublicHoliday LaBienAparecida(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 9, 15, "La Bien Aparecida", "Regional Holiday", countryCode, null, new string[] { "ES-CB" });
+        }
+
+        private PublicHoliday NationalDayOfCatalonia(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 9, 11, "Diada Nacional de Catalunya", "National Day of Catalonia", countryCode, null, new string[] { "ES-CT" });
+        }
+
+        private PublicHoliday DayOfExtremadura(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 9, 8, "Día de Extremadura", "Day of Extremadura", countryCode, null, new string[] { "ES-EX" });
+        }
+
+        private PublicHoliday DayOfAsturias(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 9, 8, "Día de Asturias", "Day of Asturias", countryCode, null, new string[] { "ES-AS" });
+        }
+
+        private PublicHoliday CeutaDay(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 9, 2, "Día de Ceuta", "Ceuta Day", countryCode, null, new string[] { "ES-CE" });
+        }
+
+        private PublicHoliday DayOfTheCantabrianInstitutions(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 7, 28, "Día de las Instituciones de Cantabria", "Day of the Cantabrian Institutions", countryCode, null, new string[] { "ES-CB" });
+        }
+
+        private PublicHoliday AidAlAdha(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 7, 21, "Fiesta del Sacrificio-Aid Al Adha", "Aid Al Adha", countryCode, null, new string[] { "ES-ML" });
+        }
+
+        private PublicHoliday EidulAdha(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 7, 20, "Fiesta del Sacrificio-Eidul Adha", "Eidul Adha", countryCode, null, new string[] { "ES-CE" });
+        }
+
+        private PublicHoliday StJohnsDay(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 6, 24, "Sant Joan", "St. John's Day", countryCode, null, new string[] { "ES-CT", "ES-VC" });
+        }
+
+        private PublicHoliday DayOfLaRioja(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 6, 9, "Día de La Rioja", "Day of La Rioja", countryCode, null, new string[] { "ES-RI" });
+        }
+
+        private PublicHoliday DayOfMurcia(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 6, 9, "Día de la Región de Murcia", "Day of Murcia", countryCode, null, new string[] { "ES-MC" });
+        }
+
+        private PublicHoliday DayOfCastillaLaMancha(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Day of Castilla-La Mancha", countryCode, null, new string[] { "ES-CM" });
+        }
+
+        private PublicHoliday CastileAndLeonDay(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 4, 23, "Día de Castilla y León", "Castile and León Day", countryCode, null, new string[] { "ES-CL" });
+        }
+
+        private PublicHoliday GalicianLiteratureDay(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 5, 17, "Día das Letras Galegas", "Galician Literature Day", countryCode, null, new string[] { "ES-GA" });
+        }
+
+        private PublicHoliday DayOfAragon(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 4, 23, "San Jorge (Día de Aragón)", "Day of Aragón", countryCode, null, new string[] { "ES-AR" });
+        }
+
+        private PublicHoliday DayOfTheBalearicIslands(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 3, 1, "Dia de les Illes Balears", "Day of the Balearic Islands", countryCode, null, new string[] { "ES-IB" });
+        }
+
+        private PublicHoliday DayOfAndalucía(int year, CountryCode countryCode)
+        {
+            return new PublicHoliday(year, 2, 28, "Día de Andalucía", "Day of Andalucía", countryCode, null, new string[] { "ES-AN" });
         }
 
         ///<inheritdoc/>
