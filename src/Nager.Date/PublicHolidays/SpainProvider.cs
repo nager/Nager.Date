@@ -57,11 +57,9 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.ES;
 
-            var newYearsDay = new PublicHoliday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode, 1967)
-                .Shift(saturday => saturday, sunday => sunday.AddDays(1)); ;
+            
 
             var items = new List<PublicHoliday>();
-            items.Add(newYearsDay);
             items.Add(new PublicHoliday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Fiesta del trabajo", "Labour Day", countryCode));
@@ -92,10 +90,12 @@ namespace Nager.Date.PublicHolidays
             items.AddIfNotNull(this.DayOfTheCanaryIslands(year, countryCode));
             items.AddIfNotNull(this.DayOfTheCantabrianInstitutions(year, countryCode));
             items.AddIfNotNull(this.DayOfTheValencianCommunity(year, countryCode));
+            items.AddIfNotNull(this.EidAlFitr(year, countryCode));
             items.AddIfNotNull(this.EidulAdha(year, countryCode));
             items.AddIfNotNull(this.GalicianLiteratureDay(year, countryCode));
             items.AddIfNotNull(this.LaBienAparecida(year, countryCode));
             items.AddIfNotNull(this.NationalDayOfCatalonia(year, countryCode));
+            items.AddRangeIfNotNull(this.NewYearsDay(year, countryCode));
             items.AddIfNotNull(this.SantiagoApostol(year, countryCode));
             items.AddIfNotNull(this.StJohnsDay(year, countryCode));
             items.AddIfNotNull(this.StJosephsDay(year, countryCode));
@@ -103,6 +103,28 @@ namespace Nager.Date.PublicHolidays
             items.AddIfNotNull(this.WhitMonday(year, countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday[] NewYearsDay(int year, CountryCode countryCode)
+        {
+            var newYearsDay = new PublicHoliday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode, 1967);
+
+            switch (year)
+            {
+                case 2023:
+                    var newYearsDay2 = new PublicHoliday(year, 1, 2, "Año Nuevo", "New Year's Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CL", "ES-MC" });
+
+                    return new PublicHoliday[]
+                    {
+                        newYearsDay,
+                        newYearsDay2
+                    };
+            }
+
+            return new PublicHoliday[]
+            {
+                newYearsDay
+            };
         }
 
         private PublicHoliday EasterMonday(int year, CountryCode countryCode)
@@ -327,6 +349,41 @@ namespace Nager.Date.PublicHolidays
                     return new PublicHoliday(year, 5, 17, localName, englishName, countryCode, null, counties);
                 case 2028:
                     return new PublicHoliday(year, 5, 5, localName, englishName, countryCode, null, counties);
+            }
+
+            return null;
+        }
+
+        private PublicHoliday EidAlFitr(int year, CountryCode countryCode)
+        {
+            var localName = "Eid al-Fitr";
+            var englishName = "Eid al-Fitr";
+            var counties = new string[] { "ES-CE", "ES-ML" };
+
+            switch (year)
+            {
+                case 2018:
+                    return new PublicHoliday(year, 6, 15, localName, englishName, countryCode, null, counties);
+                case 2019:
+                    return new PublicHoliday(year, 6, 5, localName, englishName, countryCode, null, counties);
+                case 2020:
+                    return new PublicHoliday(year, 5, 24, localName, englishName, countryCode, null, counties);
+                case 2021:
+                    return new PublicHoliday(year, 5, 13, localName, englishName, countryCode, null, counties);
+                case 2022:
+                    return new PublicHoliday(year, 5, 3, localName, englishName, countryCode, null, counties);
+                case 2023:
+                    return new PublicHoliday(year, 4, 22, localName, englishName, countryCode, null, counties);
+                case 2024:
+                    return new PublicHoliday(year, 4, 10, localName, englishName, countryCode, null, counties);
+                case 2025:
+                    return new PublicHoliday(year, 3, 31, localName, englishName, countryCode, null, counties);
+                case 2026:
+                    return new PublicHoliday(year, 3, 20, localName, englishName, countryCode, null, counties);
+                case 2027:
+                    return new PublicHoliday(year, 3, 10, localName, englishName, countryCode, null, counties);
+                case 2028:
+                    return new PublicHoliday(year, 2, 27, localName, englishName, countryCode, null, counties);
             }
 
             return null;
