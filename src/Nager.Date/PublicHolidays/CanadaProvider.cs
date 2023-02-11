@@ -124,7 +124,8 @@ namespace Nager.Date.PublicHolidays
                 };
             }
 
-            return new PublicHoliday[] {
+            return new PublicHoliday[]
+            {
                 new PublicHoliday(thirdMondayInFebruary, holidayName, holidayName, countryCode, null, new string[] { "CA-AB", "CA-BC", "CA-NB", "CA-ON", "CA-SK" })
             };
         }
