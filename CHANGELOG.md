@@ -4,16 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased 1.X.X] - yyyy-mm-dd
+## [1.39.0] - 2023-02-11
  
 ### Added
 - United States - Add counties
-### Changed
-### Deprecated
 ### Removed
 - United States - Remove wrong Inauguration Day
 ### Fixed
 - Colombia - Fix missing Monday shift
+- Spain - Fix holidays for 2023 changes
+- South Africa - Fix missing holiday shift
 
 ## [1.38.0] - 2023-01-11
  
