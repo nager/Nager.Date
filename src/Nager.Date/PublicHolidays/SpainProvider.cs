@@ -38,17 +38,18 @@ namespace Nager.Date.PublicHolidays
                 { "ES-CL", "Castile and León" },
                 { "ES-CM", "Castile-La Mancha" },
                 { "ES-CT", "Catalonia" },
-                { "ES-CE", "Ceuta" },
                 { "ES-EX", "Extremadura" },
                 { "ES-GA", "Galicia" },
                 { "ES-IB", "Balearic Islands" },
                 { "ES-RI", "La Rioja" },
                 { "ES-MD", "Community of Madrid" },
-                { "ES-ML", "Melilla" },
                 { "ES-MC", "Region of Murcia" },
                 { "ES-NC", "Chartered Community of Navarre" },
                 { "ES-PV", "Basque Country" },
                 { "ES-VC", "Valencian Community" },
+                //Not a community
+                //{ "ES-CE", "Ceuta" },
+                //{ "ES-ML", "Melilla" },
             };
         }
 
@@ -56,8 +57,6 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.ES;
-
-            
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
@@ -76,7 +75,6 @@ namespace Nager.Date.PublicHolidays
             items.AddIfNotNull(this.Assumption(year, countryCode));
             items.AddIfNotNull(this.CarnivalTuesday(year, countryCode));
             items.AddIfNotNull(this.CastileAndLeonDay(year, countryCode));
-            items.AddIfNotNull(this.CeutaDay(year, countryCode));
             items.AddIfNotNull(this.DayOfAndalucia(year, countryCode));
             items.AddIfNotNull(this.DayOfAragon(year, countryCode));
             items.AddIfNotNull(this.DayOfAsturias(year, countryCode));
@@ -85,13 +83,10 @@ namespace Nager.Date.PublicHolidays
             items.AddIfNotNull(this.DayOfLaRioja(year, countryCode));
             items.AddIfNotNull(this.DayOfMadrid(year, countryCode));
             items.AddIfNotNull(this.DayOfMurcia(year, countryCode));
-            items.AddIfNotNull(this.DayOfOurLadyOfAfrica(year, countryCode));
             items.AddIfNotNull(this.DayOfTheBalearicIslands(year, countryCode));
             items.AddIfNotNull(this.DayOfTheCanaryIslands(year, countryCode));
             items.AddIfNotNull(this.DayOfTheCantabrianInstitutions(year, countryCode));
             items.AddIfNotNull(this.DayOfTheValencianCommunity(year, countryCode));
-            items.AddIfNotNull(this.EidAlFitr(year, countryCode));
-            items.AddIfNotNull(this.EidulAdha(year, countryCode));
             items.AddIfNotNull(this.GalicianLiteratureDay(year, countryCode));
             items.AddIfNotNull(this.LaBienAparecida(year, countryCode));
             items.AddIfNotNull(this.NationalDayOfCatalonia(year, countryCode));
@@ -139,7 +134,7 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday MaundyThursday(int year, CountryCode countryCode)
         {
-            return this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CE", "ES-ML", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC", "ES-AS", "ES-PV", "ES-CB");
+            return this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC", "ES-AS", "ES-PV", "ES-CB");
         }
 
         private PublicHoliday ChristmasDay(int year, CountryCode countryCode)
@@ -147,7 +142,7 @@ namespace Nager.Date.PublicHolidays
             if (year == 2022)
             {
                 var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-                return new PublicHoliday(christmasDay, "Navidad", "Christmas Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CN", "ES-CB", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-ML", "ES-MC", "ES-NC" });
+                return new PublicHoliday(christmasDay, "Navidad", "Christmas Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CN", "ES-CB", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC" });
             }
 
             return new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode);
@@ -205,13 +200,13 @@ namespace Nager.Date.PublicHolidays
                 case 2012:
                 case 2013:
                 case 2014:
-                    counties = new string[] { "ES-AR", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-MD", "ES-ML", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-AR", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-MD", "ES-PV", "ES-VC" };
                     break;
                 case 2015:
-                    counties = new string[] { "ES-CM", "ES-MD", "ES-ML", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-CM", "ES-MD", "ES-PV", "ES-VC" };
                     break;
                 case 2016:
-                    counties = new string[] { "ES-ML", "ES-PV", "ES-VC" };
+                    counties = new string[] { "ES-PV", "ES-VC" };
                     break;
                 case 2017:
                     counties = new string[] { "ES-EX", "ES-MD" };
@@ -307,86 +302,9 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(year, 9, 8, "Día de Asturias", "Day of Asturias", countryCode, null, new string[] { "ES-AS" });
         }
 
-        private PublicHoliday CeutaDay(int year, CountryCode countryCode)
-        {
-            return new PublicHoliday(year, 9, 2, "Día de Ceuta", "Ceuta Day", countryCode, null, new string[] { "ES-CE" });
-        }
-
         private PublicHoliday DayOfTheCantabrianInstitutions(int year, CountryCode countryCode)
         {
             return new PublicHoliday(year, 7, 28, "Día de las Instituciones de Cantabria", "Day of the Cantabrian Institutions", countryCode, null, new string[] { "ES-CB" });
-        }
-
-        private PublicHoliday EidulAdha(int year, CountryCode countryCode)
-        {
-            var localName = "Fiesta del Sacrificio Eid al-Adha";
-            var englishName = "Eid ul-Adha";
-            var counties = new string[] { "ES-CE", "ES-ML" };
-
-            switch (year)
-            {
-                case 2017:
-                    return new PublicHoliday(year, 9, 2, localName, englishName, countryCode, null, counties);
-                case 2018:
-                    return new PublicHoliday(year, 8, 22, localName, englishName, countryCode, null, counties);
-                case 2019:
-                    return new PublicHoliday(year, 8, 12, localName, englishName, countryCode, null, counties);
-                case 2020:
-                    return new PublicHoliday(year, 7, 31, localName, englishName, countryCode, null, counties);
-                case 2021:
-                    return new PublicHoliday(year, 7, 21, localName, englishName, countryCode, null, counties);
-                case 2022:
-                    return new PublicHoliday(year, 7, 10, localName, englishName, countryCode, null, counties);
-                case 2023:
-                    return new PublicHoliday(year, 6, 29, localName, englishName, countryCode, null, counties);
-                case 2024:
-                    return new PublicHoliday(year, 6, 17, localName, englishName, countryCode, null, counties);
-                case 2025:
-                    return new PublicHoliday(year, 6, 7, localName, englishName, countryCode, null, counties);
-                case 2026:
-                    return new PublicHoliday(year, 5, 27, localName, englishName, countryCode, null, counties);
-                case 2027:
-                    return new PublicHoliday(year, 5, 17, localName, englishName, countryCode, null, counties);
-                case 2028:
-                    return new PublicHoliday(year, 5, 5, localName, englishName, countryCode, null, counties);
-            }
-
-            return null;
-        }
-
-        private PublicHoliday EidAlFitr(int year, CountryCode countryCode)
-        {
-            var localName = "Eid al-Fitr";
-            var englishName = "Eid al-Fitr";
-            var counties = new string[] { "ES-CE", "ES-ML" };
-
-            switch (year)
-            {
-                case 2018:
-                    return new PublicHoliday(year, 6, 15, localName, englishName, countryCode, null, counties);
-                case 2019:
-                    return new PublicHoliday(year, 6, 5, localName, englishName, countryCode, null, counties);
-                case 2020:
-                    return new PublicHoliday(year, 5, 24, localName, englishName, countryCode, null, counties);
-                case 2021:
-                    return new PublicHoliday(year, 5, 13, localName, englishName, countryCode, null, counties);
-                case 2022:
-                    return new PublicHoliday(year, 5, 3, localName, englishName, countryCode, null, counties);
-                case 2023:
-                    return new PublicHoliday(year, 4, 22, localName, englishName, countryCode, null, counties);
-                case 2024:
-                    return new PublicHoliday(year, 4, 10, localName, englishName, countryCode, null, counties);
-                case 2025:
-                    return new PublicHoliday(year, 3, 31, localName, englishName, countryCode, null, counties);
-                case 2026:
-                    return new PublicHoliday(year, 3, 20, localName, englishName, countryCode, null, counties);
-                case 2027:
-                    return new PublicHoliday(year, 3, 10, localName, englishName, countryCode, null, counties);
-                case 2028:
-                    return new PublicHoliday(year, 2, 27, localName, englishName, countryCode, null, counties);
-            }
-
-            return null;
         }
 
         private PublicHoliday StJohnsDay(int year, CountryCode countryCode)
@@ -444,11 +362,6 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday DayOfTheCanaryIslands(int year, CountryCode countryCode)
         {
             return new PublicHoliday(year, 5, 30, "Día de Canarias", "Day of the Canary Islands", countryCode, null, new string[] { "ES-CN" });
-        }
-
-        private PublicHoliday DayOfOurLadyOfAfrica(int year, CountryCode countryCode)
-        {
-            return new PublicHoliday(year, 8, 5, "Nuestra Señora de África", "Day of Our Lady of Africa", countryCode, null, new string[] { "ES-CE" });
         }
 
         private PublicHoliday CarnivalTuesday(int year, CountryCode countryCode)
