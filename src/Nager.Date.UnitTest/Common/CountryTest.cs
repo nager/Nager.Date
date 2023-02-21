@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Nager.Date.UnitTest.Common
@@ -31,34 +32,41 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckCounties()
         {
+            var failures = new List<string>();
+
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
                 var provider = DateSystem.GetPublicHolidayProvider(countryCode);
-                if (provider is ICountyProvider countyProvider)
+                var counties = provider is ICountyProvider countyProvider
+                    ? countyProvider.GetCounties()
+                    : new Dictionary<string, string>();
+
+                var startYear = DateTime.Today.Year - 100;
+                var endYear = DateTime.Today.Year + 100;
+
+                for (var year = startYear; year <= endYear; year++)
                 {
-                    var counties = countyProvider.GetCounties();
-
-                    var startYear = DateTime.Today.Year - 100;
-                    var endYear = DateTime.Today.Year + 100;
-
-                    for (var year = startYear; year <= endYear; year++)
+                    var publicHolidays = DateSystem.GetPublicHolidays(year, countryCode);
+                    foreach (var publicHoliday in publicHolidays)
                     {
-                        var publicHolidays = DateSystem.GetPublicHolidays(year, countryCode);
-                        foreach (var publicHoliday in publicHolidays)
+                        if (publicHoliday.Counties == null)
                         {
-                            if (publicHoliday.Counties == null)
-                            {
-                                continue;
-                            }
+                            continue;
+                        }
 
-                            if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Length)
-                            {
-                                var diff = publicHoliday.Counties.Except(counties.Keys);
-                                Assert.Fail($"Unknown county in {provider} {string.Join(",", diff)}");
-                            }
+                        if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Length)
+                        {
+                            var diff = publicHoliday.Counties.Except(counties.Keys);
+                            failures.Add($"Unknown county in {provider} \"{publicHoliday.Name}\" {string.Join(',', diff)}");
                         }
                     }
                 }
+
+            }
+
+            if (failures.Count > 0)
+            {
+                Assert.Fail(Environment.NewLine + string.Join(Environment.NewLine, failures));
             }
         }
 

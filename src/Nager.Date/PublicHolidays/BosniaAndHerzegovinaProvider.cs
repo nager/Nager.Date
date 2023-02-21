@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Bosnia and Herzegovina
     /// </summary>
-    internal class BosniaAndHerzegovinaProvider : IPublicHolidayProvider
+    internal class BosniaAndHerzegovinaProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
 

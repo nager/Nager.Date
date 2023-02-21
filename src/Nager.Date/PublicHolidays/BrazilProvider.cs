@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// Brazil
     /// </summary>
-    internal class BrazilProvider : IPublicHolidayProvider
+    internal class BrazilProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -19,6 +19,40 @@ namespace Nager.Date.PublicHolidays
         public BrazilProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
+        }
+
+        ///<inheritdoc/>
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "BR-AC", "Acre" },
+                { "BR-AL", "Alagoas" },
+                { "BR-AP", "Amapá" },
+                { "BR-AM", "Amazonas" },
+                { "BR-BA", "Bahia" },
+                { "BR-CE", "Ceará" },
+                { "BR-ES", "Espírito Santo" },
+                { "BR-GO", "Goiás" },
+                { "BR-MA", "Maranhão" },
+                { "BR-MT", "Mato Grosso" },
+                { "BR-MS", "Mato Grosso do Sul" },
+                { "BR-MG", "Minas Gerais" },
+                { "BR-PA", "Pará" },
+                { "BR-PB", "Paraíba" },
+                { "BR-PR", "Paraná" },
+                { "BR-PE", "Pernambuco" },
+                { "BR-PI", "Piauí" },
+                { "BR-RJ", "Rio de Janeiro" },
+                { "BR-RN", "Rio Grande do Norte" },
+                { "BR-RS", "Rio Grande do Sul" },
+                { "BR-RO", "Rondônia" },
+                { "BR-RR", "Roraima" },
+                { "BR-SC", "Santa Catarina" },
+                { "BR-SP", "São Paulo" },
+                { "BR-SE", "Sergipe" },
+                { "BR-TO", "Tocantins" },
+            };
         }
 
         ///<inheritdoc/>
