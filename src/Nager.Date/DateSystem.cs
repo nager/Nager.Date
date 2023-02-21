@@ -435,6 +435,11 @@ namespace Nager.Date
         /// <exception cref="System.ArgumentException">Thrown when given county code is not recognized valid</exception>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, string countyCode)
         {
+            if (countyCode == null)
+            {
+                throw new ArgumentException($"countyCode is null");
+            }
+
             var provider = GetPublicHolidayProvider(countryCode);
             if (provider is ICountyProvider countryProvider && !countryProvider.GetCounties().ContainsKey(countyCode))
             {

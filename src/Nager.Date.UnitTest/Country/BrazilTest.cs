@@ -16,7 +16,6 @@ namespace Nager.Date.UnitTest.Country
         }
 
         [DataTestMethod]
-        [DataRow(null, false)]
         [DataRow("BR-SP", true)]
         public void TestBrazilSPRevolutionOf1932(string countyCode, bool expected)
         {
