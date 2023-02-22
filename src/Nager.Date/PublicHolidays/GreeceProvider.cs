@@ -37,7 +37,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._orthodoxProvider.EasterSunday("Κυριακή του Πάσχα", year, countryCode));
             items.Add(this._orthodoxProvider.EasterMonday("Δευτέρα του Πάσχα", year, countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Εργατική Πρωτομαγιά", "Labour Day", countryCode));
-            items.Add(this._orthodoxProvider.Pentecost("Πεντηκοστή'", year, countryCode));
+            items.Add(this._orthodoxProvider.Pentecost("Πεντηκοστή", year, countryCode));
             items.Add(this._orthodoxProvider.WhitMonday("Δευτέρα Πεντηκοστής", year, countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Κοίμηση της Θεοτόκου", "Assumption Day", countryCode));
             items.Add(new PublicHoliday(year, 10, 28, "Το Όχι", "Ochi Day", countryCode));
