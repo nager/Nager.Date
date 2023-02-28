@@ -54,7 +54,8 @@ namespace Nager.Date.PublicHolidays
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
             var firstMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
 
-            var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+            var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
+            var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             var australiaDay = new DateTime(year, 1, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
 
             var items = new List<PublicHoliday>();
@@ -77,7 +78,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(secondMondayInJune, "Queen's Birthday", "Queen's Birthday", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-SA", "AU-TAS", "AU-VIC" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Picnic Day", "Picnic Day", countryCode, null, new string[] { "AU-NT" }));
             items.Add(new PublicHoliday(firstMondayInOctober, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-SA" }));
-            items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
+            items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(boxingDay, "Boxing Day", "St. Stephen's Day", countryCode));
 
             var mourningForQueenElizabeth = this.MourningForQueenElizabeth(year, countryCode);
