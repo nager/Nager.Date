@@ -3,6 +3,7 @@ using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Nager.Date.Extensions;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -54,7 +55,6 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 1, 6, "Heilige Drei Könige", "Epiphany", countryCode, 1967, new string[] { "DE-BW", "DE-BY", "DE-ST" }));
-            items.Add(new PublicHoliday(year, 3, 8, "Internationaler Frauentag", "International Women's Day", countryCode, 2019, new string[] { "DE-BE" }));
             items.Add(this._catholicProvider.GoodFriday("Karfreitag", year, countryCode));
             items.Add(this._catholicProvider.EasterSunday("Ostersonntag", year, countryCode).SetCounties("DE-BB", "DE-HE"));
             items.Add(this._catholicProvider.EasterMonday("Ostermontag", year, countryCode).SetLaunchYear(1642));
@@ -70,24 +70,33 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Erster Weihnachtstag", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Zweiter Weihnachtstag", "St. Stephen's Day", countryCode));
 
-            var prayerDay = this.GetPrayerDay(year, countryCode);
-            if (prayerDay != null)
-            {
-                items.Add(prayerDay);
-            }
-
-            var liberationDay = this.GetLiberationDay(year, countryCode);
-            if (liberationDay != null)
-            {
-                items.Add(liberationDay);
-            }
-
-            items.Add(this.GetReformationDay(year, CountryCode.DE));
+            items.AddIfNotNull(this.InternationalWomensDay(year, CountryCode.DE));
+            items.AddIfNotNull(this.PrayerDay(year, CountryCode.DE));
+            items.AddIfNotNull(this.LiberationDay(year, CountryCode.DE));
+            items.AddIfNotNull(this.ReformationDay(year, CountryCode.DE));
 
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday GetReformationDay(int year, CountryCode countryCode)
+        private PublicHoliday InternationalWomensDay(int year, CountryCode countryCode)
+        {
+            var localName = "Internationaler Frauentag";
+            var englishName = "International Women's Day";
+
+            if (year >= 2019 && year <= 2022)
+            {
+                return new PublicHoliday(year, 3, 8, localName, englishName, countryCode, 2019, new string[] { "DE-BE" });
+            }
+
+            if (year >= 2023)
+            {
+                return new PublicHoliday(year, 3, 8, localName, englishName, countryCode, 2019, new string[] { "DE-BE", "DE-MV" });
+            }
+
+            return null;
+        }
+
+        private PublicHoliday ReformationDay(int year, CountryCode countryCode)
         {
             var localName = "Reformationstag";
             var englishName = "Reformation Day";
@@ -108,7 +117,7 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(year, 10, 31, localName, englishName, countryCode, null, counties.ToArray());
         }
 
-        private PublicHoliday GetPrayerDay(int year, CountryCode countryCode)
+        private PublicHoliday PrayerDay(int year, CountryCode countryCode)
         {
             var dayOfPrayer = this._catholicProvider.AdventSunday(year).AddDays(-11);
             var localName = "Buß- und Bettag";
@@ -142,7 +151,7 @@ namespace Nager.Date.PublicHolidays
             return null;
         }
 
-        private PublicHoliday GetLiberationDay(int year, CountryCode countryCode)
+        private PublicHoliday LiberationDay(int year, CountryCode countryCode)
         {
             if (year == 2020)
             {
