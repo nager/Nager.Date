@@ -1,4 +1,5 @@
 using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,30 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Crăciunul", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Crăciunul", "St. Stephen's Day", countryCode));
 
+            items.AddIfNotNull(this.Epiphany(year, countryCode));
+            items.AddIfNotNull(this.SaintJohnTheBaptist(year, countryCode));
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday Epiphany(int year, CountryCode countryCode)
+        {
+            if (year >= 2024)
+            {
+                return new PublicHoliday(year, 1, 6, "Bobotează", "Epiphany", countryCode);
+            }
+
+            return null;
+        }
+
+        private PublicHoliday SaintJohnTheBaptist(int year, CountryCode countryCode)
+        {
+            if (year >= 2024)
+            {
+                return new PublicHoliday(year, 1, 7, "Sfântul Ion", "Saint John the Baptist", countryCode);
+            }
+
+            return null;
         }
 
         ///<inheritdoc/>
