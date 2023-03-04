@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Greece - Fix Pentecost
 - Australia - Fix Christmas and Boxing Day Weekend Shift
+- Germany - Fix International Womens Day
 
 
 ## [1.39.0] - 2023-02-11
