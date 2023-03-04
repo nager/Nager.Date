@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+
+## [Unreleased 1.40.0] - 2023-03-04
+ 
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+- Greece - Fix Pentecost
+- Australia - Fix Christmas and Boxing Day Weekend Shift
+
+
 ## [1.39.0] - 2023-02-11
  
 ### Added
