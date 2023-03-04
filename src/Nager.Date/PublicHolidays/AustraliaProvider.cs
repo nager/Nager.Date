@@ -79,12 +79,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(boxingDay, "Boxing Day", "St. Stephen's Day", countryCode));
 
             items.AddRangeIfNotNull(this.LabourDay(year, countryCode));
-
-            var mourningForQueenElizabeth = this.MourningForQueenElizabeth(year, countryCode);
-            if (mourningForQueenElizabeth != null)
-            {
-                items.Add(mourningForQueenElizabeth);
-            }
+            items.AddIfNotNull(this.MourningForQueenElizabeth(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }

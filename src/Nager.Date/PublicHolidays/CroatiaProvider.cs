@@ -1,4 +1,5 @@
 using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,29 +41,10 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Božić", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Prvi dan po Božiću, Sveti Stjepan, Štefanje, Stipanje", "St.Stephen's Day", countryCode));
 
-            var independenceDay = this.GetIndependenceDay(year, countryCode);
-            if (independenceDay != null)
-            {
-                items.Add(independenceDay);
-            }
-
-            var remembranceDay = this.GetRemembranceDay(year, countryCode);
-            if (remembranceDay != null)
-            {
-                items.Add(remembranceDay);
-            }
-
-            var statehoodDay = this.GetStatehoodDay(year, countryCode);
-            if (statehoodDay != null)
-            {
-                items.Add(statehoodDay);
-            }
-
-            var nationalDay = this.GetNationalDay(year, countryCode);
-            if (nationalDay != null)
-            {
-                items.Add(nationalDay);
-            }
+            items.AddIfNotNull(this.GetIndependenceDay(year, countryCode));
+            items.AddIfNotNull(this.GetRemembranceDay(year, countryCode));
+            items.AddIfNotNull(this.GetStatehoodDay(year, countryCode));
+            items.AddIfNotNull(this.GetNationalDay(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }

@@ -1,4 +1,5 @@
 using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -44,11 +45,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Lá Nollag", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Lá Fhéile Stiofáin", "St. Stephen's Day", countryCode));
 
-            var saintBrigidsDay = this.SaintBrigidsDay(year, countryCode);
-            if (saintBrigidsDay != null)
-            {
-                items.Add(saintBrigidsDay);
-            }
+            items.AddIfNotNull(this.SaintBrigidsDay(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }

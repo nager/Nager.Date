@@ -1,4 +1,5 @@
 using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Globalization;
@@ -42,29 +43,10 @@ namespace Nager.Date.PublicHolidays
                 items.Add(new PublicHoliday(chineseNewYear.AddDays(1), "Chinese New Year", "Chinese New Year", countryCode));
             }
 
-            var hariRayaPuasa = this.HariRayaPuasa(year, countryCode);
-            if (hariRayaPuasa != null)
-            {
-                items.Add(hariRayaPuasa);
-            }
-
-            var vesakDay = this.VesakDay(year, countryCode);
-            if (vesakDay != null)
-            {
-                items.Add(vesakDay);
-            }
-
-            var hariRayaHaji = this.HariRayaHaji(year, countryCode);
-            if (hariRayaHaji != null)
-            {
-                items.Add(hariRayaHaji);
-            }
-
-            var deepavali = this.Deepavali(year, countryCode);
-            if (deepavali != null)
-            {
-                items.Add(deepavali);
-            }
+            items.AddIfNotNull(this.HariRayaPuasa(year, countryCode));
+            items.AddIfNotNull(this.VesakDay(year, countryCode));
+            items.AddIfNotNull(this.HariRayaHaji(year, countryCode));
+            items.AddIfNotNull(this.Deepavali(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }

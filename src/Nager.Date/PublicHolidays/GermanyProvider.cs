@@ -3,6 +3,7 @@ using Nager.Date.Model;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Nager.Date.Extensions;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -70,19 +71,9 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "Erster Weihnachtstag", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Zweiter Weihnachtstag", "St. Stephen's Day", countryCode));
 
-            var prayerDay = this.GetPrayerDay(year, countryCode);
-            if (prayerDay != null)
-            {
-                items.Add(prayerDay);
-            }
-
-            var liberationDay = this.GetLiberationDay(year, countryCode);
-            if (liberationDay != null)
-            {
-                items.Add(liberationDay);
-            }
-
-            items.Add(this.GetReformationDay(year, CountryCode.DE));
+            items.AddIfNotNull(this.GetPrayerDay(year, countryCode));
+            items.AddIfNotNull(this.GetLiberationDay(year, countryCode));
+            items.AddIfNotNull(this.GetReformationDay(year, CountryCode.DE));
 
             return items.OrderBy(o => o.Date);
         }

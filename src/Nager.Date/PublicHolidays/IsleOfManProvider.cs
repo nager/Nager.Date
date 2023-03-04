@@ -28,6 +28,11 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.IM;
 
+            var lastMondayInAugust = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
+            var tynwaldDay = new DateTime(year, 7, 5).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+            var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
+            var stStephensDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
+
             var items = new List<PublicHoliday>();
 
             #region New Year's Day with fallback
@@ -37,61 +42,25 @@ namespace Nager.Date.PublicHolidays
 
             #endregion
 
-            var earlyMayBankHoliday = this.GetEarlyMayBankHoliday(year, countryCode);
-            if (earlyMayBankHoliday != null)
-            {
-                items.Add(earlyMayBankHoliday);
-            }
-
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
 
-            var springBankHoliday = this.GetSpringBankHoliday(year, countryCode);
-            if (springBankHoliday != null)
-            {
-                items.Add(springBankHoliday);
-            }
-
-            var queensPlatinumJubilee = this.QueensPlatinumJubilee(year, countryCode);
-            if (queensPlatinumJubilee != null)
-            {
-                items.Add(queensPlatinumJubilee);
-            }
-
-            var queensStateFuneral = this.QueensStateFuneral(year, countryCode);
-            if (queensStateFuneral != null)
-            {
-                items.Add(queensStateFuneral);
-            }
-
-            var coronationBankHoliday = this.CoronationBankHoliday(year, countryCode);
-            if (coronationBankHoliday != null)
-            {
-                items.Add(coronationBankHoliday);
-            }
-
-            var ttRaceDay = this.GetTTRaceDay(year, countryCode);
-            if (ttRaceDay != null)
-            {
-                items.Add(ttRaceDay);
-            }
-
-            var tynwaldDay = new DateTime(year, 7, 5).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             items.Add(new PublicHoliday(tynwaldDay, "Tynwald Day", "Tynwald Day", countryCode));
-
-            var lastMondayInAugust = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
             items.Add(new PublicHoliday(lastMondayInAugust, "Late Summer Bank Holiday", "Late Summer Bank Holiday", countryCode));
-
-            var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
-
-            var stStephensDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             items.Add(new PublicHoliday(stStephensDay, "Boxing Day", "St. Stephen's Day", countryCode));
+
+            items.AddIfNotNull(this.EarlyMayBankHoliday(year, countryCode));
+            items.AddIfNotNull(this.SpringBankHoliday(year, countryCode));
+            items.AddIfNotNull(this.QueensPlatinumJubilee(year, countryCode));
+            items.AddIfNotNull(this.QueensStateFuneral(year, countryCode));
+            items.AddIfNotNull(this.CoronationBankHoliday(year, countryCode));
+            items.AddIfNotNull(this.SeniorRaceDay(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday GetTTRaceDay(int year, CountryCode countryCode)
+        private PublicHoliday SeniorRaceDay(int year, CountryCode countryCode)
         {
             var holidayName = "Senior Race Day";
 
@@ -106,7 +75,7 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(ttRaceDay, holidayName, holidayName, countryCode, 1978);
         }
 
-        private PublicHoliday GetEarlyMayBankHoliday(int year, CountryCode countryCode)
+        private PublicHoliday EarlyMayBankHoliday(int year, CountryCode countryCode)
         {
             var holidayName = "Early May Bank Holiday";
 
@@ -121,7 +90,7 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(firstMondayInMay, holidayName, holidayName, countryCode, 1978);
         }
 
-        private PublicHoliday GetSpringBankHoliday(int year, CountryCode countryCode)
+        private PublicHoliday SpringBankHoliday(int year, CountryCode countryCode)
         {
             var name = "Spring Bank Holiday";
 
