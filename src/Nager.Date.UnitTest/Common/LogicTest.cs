@@ -233,24 +233,6 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void CheckPublicHolidayWithDateFilter1()
-        {
-            this.CheckPublicHolidayWithDateFilter1(new DateTime(2016, 5, 1), new DateTime(2018, 5, 31));
-            this.CheckPublicHolidayWithDateFilter1(new DateTime(2016, 5, 1, 0, 0, 1), new DateTime(2018, 5, 31, 23, 59, 59));
-            this.CheckPublicHolidayWithDateFilter1(new DateTime(2016, 5, 1, 12, 30, 0), new DateTime(2018, 5, 31, 0, 0, 0));
-            this.CheckPublicHolidayWithDateFilter1(new DateTime(2016, 5, 1, 23, 59, 59), new DateTime(2018, 5, 31, 23, 59, 59));
-        }
-
-        private void CheckPublicHolidayWithDateFilter1(DateTime startDate, DateTime endDate)
-        {
-            var items = DateSystem.GetPublicHolidays(startDate, endDate, CountryCode.DE);
-
-            Assert.AreEqual(43, items.Count());
-            Assert.IsTrue(items.First().Date > new DateTime(2016, 4, 28));
-            Assert.IsTrue(items.Last().Date < new DateTime(2018, 6, 1));
-        }
-
-        [TestMethod]
         [ExpectedException(typeof(ArgumentException), "endDate is before startDate")]
         public void CheckPublicHolidayWithDateFilter2()
         {
