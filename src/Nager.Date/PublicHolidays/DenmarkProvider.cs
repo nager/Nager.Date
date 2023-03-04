@@ -51,7 +51,7 @@ namespace Nager.Date.PublicHolidays
 
         private PublicHoliday GeneralPrayerDay(int year, CountryCode countryCode)
         {
-            if (year <= 2024)
+            if (year < 2024)
             {
                 var easterSunday = this._catholicProvider.EasterSunday(year);
                 return new PublicHoliday(easterSunday.AddDays(26), "Store bededag", "General Prayer Day", countryCode);
