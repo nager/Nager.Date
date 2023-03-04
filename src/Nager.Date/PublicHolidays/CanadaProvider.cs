@@ -1,4 +1,5 @@
 using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
@@ -87,12 +88,7 @@ namespace Nager.Date.PublicHolidays
 
             items.AddRange(this.CanadaDay(year, countryCode));
             items.AddRange(this.FamilyDay(year, countryCode));
-
-            var queensStateFuneral = this.FuneralForQueenElizabeth(year, countryCode);
-            if (queensStateFuneral != null)
-            {
-                items.Add(queensStateFuneral);
-            }
+            items.AddIfNotNull(this.FuneralForQueenElizabeth(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }

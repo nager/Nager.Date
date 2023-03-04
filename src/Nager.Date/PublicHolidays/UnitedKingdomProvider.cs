@@ -79,35 +79,12 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(firstMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-SCT" }));
             items.Add(new PublicHoliday(lastMondayInAugust, "Summer Bank Holiday", "Summer Bank Holiday", countryCode, 1971, new string[] { "GB-ENG", "GB-WLS", "GB-NIR" }));
 
-            var earlyMayBankHoliday = this.EarlyMayBankHoliday(year, countryCode);
-            if (earlyMayBankHoliday != null)
-            {
-                items.Add(earlyMayBankHoliday);
-            }
 
-            var springBankHoliday = this.SpringBankHoliday(year, countryCode);
-            if (springBankHoliday != null)
-            {
-                items.Add(springBankHoliday);
-            }
-
-            var queensPlatinumJubilee = this.QueensPlatinumJubilee(year, countryCode);
-            if (queensPlatinumJubilee != null)
-            {
-                items.Add(queensPlatinumJubilee);
-            }
-
-            var queensStateFuneral = this.QueensStateFuneral(year, countryCode);
-            if (queensStateFuneral != null)
-            {
-                items.Add(queensStateFuneral);
-            }
-
-            var coronationBankHoliday = this.CoronationBankHoliday(year, countryCode);
-            if (coronationBankHoliday != null)
-            {
-                items.Add(coronationBankHoliday);
-            }
+            items.AddIfNotNull(this.EarlyMayBankHoliday(year, countryCode));
+            items.AddIfNotNull(this.SpringBankHoliday(year, countryCode));
+            items.AddIfNotNull(this.QueensPlatinumJubilee(year, countryCode));
+            items.AddIfNotNull(this.QueensStateFuneral(year, countryCode));
+            items.AddIfNotNull(this.CoronationBankHoliday(year, countryCode));
 
             #region Christmas Day with fallback
 

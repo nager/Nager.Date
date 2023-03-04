@@ -74,29 +74,10 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Navidad / Natividad del Señor", "Christmas Day", countryCode));
 
-            var saintPeterAndSaintPaul = this.SaintPeterAndSaintPaul(year, countryCode);
-            if (saintPeterAndSaintPaul != null)
-            {
-                items.Add(saintPeterAndSaintPaul);
-            }
-
-            var columbusDay = this.ColumbusDay(year, countryCode);
-            if (columbusDay != null)
-            {
-                items.Add(columbusDay);
-            }
-
-            var reformationDay = this.ReformationDay(year, countryCode);
-            if (reformationDay != null)
-            {
-                items.Add(reformationDay);
-            }
-
-            var nationalPlebiscite = this.NationalPlebiscite(year, countryCode);
-            if (nationalPlebiscite != null)
-            {
-                items.Add(nationalPlebiscite);
-            }
+            items.AddIfNotNull(this.SaintPeterAndSaintPaul(year, countryCode));
+            items.AddIfNotNull(this.ColumbusDay(year, countryCode));
+            items.AddIfNotNull(this.ReformationDay(year, countryCode));
+            items.AddIfNotNull(this.NationalPlebiscite(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }

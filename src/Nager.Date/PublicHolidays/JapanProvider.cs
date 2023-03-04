@@ -55,23 +55,9 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thanksgivingDay, "勤労感謝の日", "Labour Thanksgiving Day", countryCode));
 
             //Will change to the date of the new emperor on the death of the current one
-            var emperorsBirthday = this.GetEmperorsBirthday(year, countryCode);
-            if (emperorsBirthday != null)
-            {
-                items.Add(emperorsBirthday);
-            }
-
-            var vernalEquinoxDay = this.GetVernalEquinox(year, countryCode);
-            if (vernalEquinoxDay != null)
-            {
-                items.Add(vernalEquinoxDay);
-            }
-
-            var autumnalEquinoxDay = this.GetAutumnalEquinox(year, countryCode);
-            if (autumnalEquinoxDay != null)
-            {
-                items.Add(autumnalEquinoxDay);
-            }
+            items.AddIfNotNull(this.GetEmperorsBirthday(year, countryCode));
+            items.AddIfNotNull(this.GetVernalEquinox(year, countryCode));
+            items.AddIfNotNull(this.GetAutumnalEquinox(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }

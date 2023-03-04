@@ -171,11 +171,7 @@ namespace Nager.Date.PublicHolidays
 
             #endregion
 
-            var memorialDayForQueenElizabeth = this.MemorialDayForQueenElizabeth(year, countryCode);
-            if (memorialDayForQueenElizabeth != null)
-            {
-                items.Add(memorialDayForQueenElizabeth);
-            }
+            items.AddIfNotNull(this.MemorialDayForQueenElizabeth(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }
