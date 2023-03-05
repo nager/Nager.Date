@@ -62,7 +62,7 @@ namespace Nager.Date.PublicHolidays
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
-            // official holidays (fixed dates)
+
             items.Add(new PublicHoliday(year, 1, 1, "Confraternização Universal", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 4, 21, "Dia de Tiradentes", "Tiradentes", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Dia do Trabalhador", "Labour Day", countryCode));
@@ -72,16 +72,13 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 11, 15, "Proclamação da República", "Republic Proclamation Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Natal", "Christmas Day", countryCode));
 
-            // non fixed days (Easter, Carnival, Good Friday and Corpus Christi)
             items.Add(this._catholicProvider.EasterSunday("Domingo de Páscoa", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Sexta-feira Santa", year, countryCode));
             items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode));
-            // TODO non-official holidays
 
-            //State holidays
+            items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode, null, null, PublicHolidayType.Bank | PublicHolidayType.Optional));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-48), "Carnaval", "Carnival", countryCode, null, null, PublicHolidayType.Bank | PublicHolidayType.Optional));
 
-            //SP
             items.Add(new PublicHoliday(year, 7, 9, "Revolução Constitucionalista de 1932", "Constitutionalist Revolution of 1932", countryCode).SetCounties("BR-SP"));
 
             return items.OrderBy(o => o.Date);
