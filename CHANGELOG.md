@@ -5,16 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## [Unreleased 1.40.0] - 2023-03-04
+## [1.40.0] - 2023-03-04
  
 ### Added
-### Changed
-### Deprecated
-### Removed
+- Romania - Epiphany and Saint John the Baptist
 ### Fixed
 - Greece - Fix Pentecost
 - Australia - Fix Christmas and Boxing Day Weekend Shift
 - Germany - Fix International Womens Day
+- Denmark - Fix General Prayer Day 2024
+- Brazil - Fix Carnival
 
 
 ## [1.39.0] - 2023-02-11
