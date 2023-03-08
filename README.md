@@ -16,7 +16,7 @@ Easily create a client in your preferred programming language by utilizing our [
 
 <details>
   <summary>.NET/C# (click to expand)</summary>
-	
+
 ```cs
 using System;
 using System.Net.Http;
@@ -45,14 +45,14 @@ class PublicHoliday
     public string[] Types { get; set; }
 }
 ```
-	
-</details>	
+
+</details>
 
 <details>
   <summary>PHP (click to expand)</summary>
 
 This example use the [guzzle](https://github.com/guzzle/guzzle) project
-	
+
 ```php
 <?php
 require_once 'vendor/autoload.php';
@@ -64,14 +64,14 @@ if ($response->getStatusCode() == 200) {
 }
 ?>
 ```
-	
+
 </details>
-	
+
 <details>
   <summary>Java (click to expand)</summary>
 
 This example use the springframework. Code tested with [onecompiler.com](https://onecompiler.com)
-	
+
 `Main.java`
 ```java
 import java.util.*;
@@ -91,7 +91,7 @@ public class Main {
     }
 }
 ```
-	
+
 `build.gradle`
 ```java
 apply plugin:'application'
@@ -109,9 +109,9 @@ dependencies {
     compile("com.google.code.gson:gson:2.9");
 }
 ```
-	
+
 </details>
-	
+
 ## Offline Solution
 
 Don't let internet connectivity issues disrupt your workflow. Our offline solutions enable you to use our services on your own infrastructure without an internet connection. With a sponsorship you get the license key to use the variants locally without a dependency to our REST API.
@@ -125,7 +125,7 @@ PM> install-package Nager.Date
 
 <details>
   <summary>Code Examples (click to expand)</summary>
-  
+
 ## Examples for .NET (NuGet package)
 
 ### Set the license key
@@ -206,11 +206,11 @@ There are several business fields in which it is important to know the holidays 
 
 ## Alternative projects
 
-| Project | Technology | Supported Countries (January 2019) |
+| Project | Technology | Supported Countries (March 2023) |
 | ------------- | ------------- | ------------- |
-| [yasumi](https://github.com/azuyalabs/yasumi)| PHP | 34 |
-| [date-holidays](https://github.com/commenthol/date-holidays) | JavaScript | 142 |
-| [jollyday](https://github.com/svendiedrichsen/jollyday) | Java | 64 |
-| [Holiday](https://github.com/martinjw/Holiday) | .NET | 21 |
-| [python-holidays](https://github.com/ryanss/python-holidays) | Python | 34 |
-| [workalendar](https://github.com/peopledoc/workalendar) | Python | 59 |
+| [yasumi](https://github.com/azuyalabs/yasumi)| PHP | 40 |
+| [date-holidays](https://github.com/commenthol/date-holidays) | JavaScript | 196 |
+| [jollyday](https://github.com/svendiedrichsen/jollyday) | Java | 70 |
+| [Holiday](https://github.com/martinjw/Holiday) | .NET | 37 |
+| [python-holidays](https://github.com/dr-prodigy/python-holidays) | Python | 119 |
+| [workalendar](https://github.com/workalendar/workalendar) | Python | 65 |
