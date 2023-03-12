@@ -25,7 +25,7 @@ using System.Text.Json;
 var jsonSerializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
 using var httpClient = new HttpClient();
-var response = await httpClient.GetAsync("https://date.nager.at/api/v3/publicholidays/2022/US");
+using var response = await httpClient.GetAsync("https://date.nager.at/api/v3/publicholidays/2022/US");
 if (response.IsSuccessStatusCode)
 {
     using var jsonStream = await response.Content.ReadAsStreamAsync();
