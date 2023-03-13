@@ -111,6 +111,23 @@ dependencies {
 ```
 	
 </details>
+
+<details>
+  <summary>Python (click to expand)</summary>
+
+`main.py`
+```py
+import json
+import requests
+
+response = requests.get('https://date.nager.at/api/v3/publicholidays/2022/US')
+public_holidays = json.loads(response.content)
+
+for public_holiday in public_holidays:
+  print(public_holiday['date'])
+
+```	
+</details>
 	
 ## Offline Solution
 
