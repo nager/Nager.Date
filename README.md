@@ -16,7 +16,15 @@ Easily create a client in your preferred programming language by utilizing our [
 
 <details>
   <summary>.NET/C# (click to expand)</summary>
-	
+  
+There are two ways to use our service
+
+**NuGet**
+```
+PM> install-package Nager.Holiday
+```
+
+**Copy Code**
 ```cs
 using System;
 using System.Net.Http;
