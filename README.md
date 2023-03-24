@@ -21,7 +21,7 @@ There are two ways to use our service
 
 **NuGet**
 ```
-PM> install-package Nager.Holiday
+PM> install-package [Nager.Holiday](https://www.nuget.org/packages/Nager.Holiday)
 ```
 
 **Copy Code**
