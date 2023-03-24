@@ -19,9 +19,9 @@ Easily create a client in your preferred programming language by utilizing our [
   
 There are two ways to use our service
 
-**NuGet**
+**[NuGet - Nager.Holiday](https://www.nuget.org/packages/Nager.Holiday)**
 ```
-PM> install-package [Nager.Holiday](https://www.nuget.org/packages/Nager.Holiday)
+PM> install-package Nager.Holiday
 ```
 
 **Copy Code**
