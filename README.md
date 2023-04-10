@@ -87,21 +87,23 @@ import org.springframework.web.client.RestTemplate;
 import com.google.gson.*;
 
 public class Main {
-    public static void main(String[] args) {
-      String json = new RestTemplate().getForObject("https://date.nager.at/api/v3/publicholidays/2022/US", String.class);
-      
-      Gson gson = new Gson();
-      PublicHoliday[] userArray = gson.fromJson(json, PublicHoliday[].class);  
+  public static void main(String[] args) {
+    System.out.println("get holidays");
+    String json = new RestTemplate().getForObject("https://date.nager.at/api/v3/publicholidays/2022/CH", String.class);
+    
+    Gson gson = new Gson();
+    PublicHoliday[] userArray = gson.fromJson(json, PublicHoliday[].class);  
 
-      for(PublicHoliday publicHoliday : userArray) {
-        System.out.print(publicHoliday.date);
-        System.out.print(" ");
-        System.out.print(publicHoliday.name);
-        System.out.print(" ");
-      	System.out.println(publicHoliday.localName);
-      }
-
+    for(PublicHoliday publicHoliday : userArray) {
+      System.out.print(publicHoliday.date);
+      System.out.print(" ");
+      System.out.print(publicHoliday.name);
+      System.out.print(" ");
+      System.out.print(String.join(",", publicHoliday.counties ?? new String[0]));
+      System.out.print(" ");
+      System.out.println(publicHoliday.localName);
     }
+  }
 }
 ```
 
@@ -111,6 +113,11 @@ public class PublicHoliday {
   public String date;
   public String localName;
   public String name;
+  public String countryCode ;
+  public Boolean fixed;
+  public Boolean global;
+  public String[] counties;
+  public String[] types;
 }
 ```
 	
@@ -123,12 +130,12 @@ run { standardInput = System.in }
 sourceSets { main { java { srcDir './' } } }
 
 repositories {
-    jcenter()
+  jcenter()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.7';
-    implementation 'com.google.code.gson:gson:2.10.1';
+  implementation 'org.springframework.boot:spring-boot-starter-web:2.6.7';
+  implementation 'com.google.code.gson:gson:2.10.1';
 }
 ```
 	
