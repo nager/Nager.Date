@@ -29,6 +29,7 @@ namespace Nager.Date.PublicHolidays
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Новы год", "New Year's Day", countryCode));
+            items.Add(new PublicHoliday(year, 1, 2, "Новы год", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 1, 7, "Каляды праваслаўныя", "Orthodox Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 3, 8, "Мiжнародны жаночы дзень", "International Women's Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Дзень працы", "Labour Day", countryCode));
