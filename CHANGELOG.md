@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased 1.40.1] - 2023-mm-dd
+ 
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+- Belarus - Fix missing second new year day
+
 
 ## [1.40.0] - 2023-03-04
  
