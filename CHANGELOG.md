@@ -6,12 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased 1.40.1] - 2023-mm-dd
  
-### Added
-### Changed
-### Deprecated
-### Removed
 ### Fixed
 - Belarus - Fix missing second new year day
+- Bulgaria - Fix weekend shift logic
+- Australia - Fix Monarch birthday name
+- Australia - Fix EasterSunday missing AU-WA
 
 
 ## [1.40.0] - 2023-03-04

@@ -66,7 +66,6 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Easter Eve", "Holy Saturday", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-VIC" }));
-            items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode).SetCounties("AU-ACT", "AU-NSW", "AU-VIC"));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
             items.Add(new PublicHoliday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode));
             items.Add(new PublicHoliday(firstMondayInMay, "May Day", "May Day", countryCode, null, new string[] { "AU-NT" }));
@@ -80,8 +79,20 @@ namespace Nager.Date.PublicHolidays
             items.AddRangeIfNotNull(this.LabourDay(year, countryCode));
             items.AddIfNotNull(this.MourningForQueenElizabeth(year, countryCode));
             items.AddIfNotNull(this.MonarchBirthday(year, countryCode));
+            items.AddIfNotNull(this.EasterSunday(year, countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday EasterSunday(int year, CountryCode countryCode)
+        {
+            var counties = new [] { "AU-ACT", "AU-NSW", "AU-VIC" };
+            if (year >= 2022)
+            {
+                counties = new[] { "AU-ACT", "AU-NSW", "AU-VIC", "AU-WA" };
+            }
+
+            return this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode).SetCounties(counties);
         }
 
         private PublicHoliday[] LabourDay(int year, CountryCode countryCode)
