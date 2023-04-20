@@ -36,6 +36,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(this._catholicProvider.EasterMonday("Ostermontag", year, countryCode).SetLaunchYear(1642));
             items.Add(new PublicHoliday(year, 5, 1, "Tag der Arbeit", "Labour Day", countryCode));
             items.Add(new PublicHoliday(year, 5, 29, "Auffahrt", "Ascension", countryCode));
+            items.Add(this._catholicProvider.Pentecost("Pfingstsonntag", year, countryCode));
             items.Add(this._catholicProvider.WhitMonday("Pfingstmontag", year, countryCode));
             items.Add(this._catholicProvider.CorpusChristi("Fronleichnam", year, countryCode));
             items.Add(new PublicHoliday(year, 8, 15, "Staatsfeiertag", "National Holiday", countryCode));
