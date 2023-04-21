@@ -19,5 +19,5 @@ var publicHolidays = DateSystem.GetPublicHolidays(year, countryCode);
 foreach (var publicHoliday in publicHolidays)
 {
     var counties = publicHoliday.Counties != null ? string.Join(',', publicHoliday.Counties) : "";
-    Console.WriteLine($"{publicHoliday.Date:d} {publicHoliday.Name} ({publicHoliday.LocalName}) {counties}");
+    Console.WriteLine($"{publicHoliday.Date:d} {publicHoliday.Name} ({publicHoliday.LocalName}) {counties} {publicHoliday.Type}");
 }
