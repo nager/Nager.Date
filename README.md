@@ -232,6 +232,18 @@ To run a local instance of the Docker image run the following command<br>
 `docker run -p 80:80 nager/nager-date`
 
 
+## Holiday types
+What variants of holidays are supported by `Nager.Date`
+
+| Type        | Description                                 |
+| ----------- | ------------------------------------------- |
+| Public      | Public holiday                              |
+| Bank        | Bank holiday, banks and offices are closed  |
+| School      | School holiday, schools are closed          |
+| Authorities | Authorities are closed                      |
+| Optional    | Majority of people take a day off           |
+| Observance  | Optional festivity, no paid day off         |
+
 ## Areas of Application
 
 There are several business fields in which it is important to know the holidays in different countries.
