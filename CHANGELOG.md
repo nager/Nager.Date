@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.42.1] - 2023-05-XX
+ 
+### Fixed
+- Netherlands - Fix Whit Monday translation
+
 ## [1.42.0] - 2023-04-24
  
 ### Fixed
