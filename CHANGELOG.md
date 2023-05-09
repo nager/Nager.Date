@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
  
 ### Fixed
 - Netherlands - Fix Whit Monday translation
+- Germany - Fix World Childrens Day show before 2019
 
 ## [1.42.0] - 2023-04-24
  
