@@ -46,7 +46,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 4, kingsDay, "Koningsdag", "King's Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Hemelvaartsdag", year, countryCode));
             items.Add(this._catholicProvider.Pentecost("Eerste Pinksterdag", year, countryCode));
-            items.Add(this._catholicProvider.WhitMonday("Pinksteren", year, countryCode));
+            items.Add(this._catholicProvider.WhitMonday("Tweede Pinksterdag", year, countryCode));
             items.Add(new PublicHoliday(year, 12, 25, "Eerste Kerstdag", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "Tweede Kerstdag", "St. Stephen's Day", countryCode));
 
