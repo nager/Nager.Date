@@ -5,18 +5,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.42.1] - 2023-05-XX
- 
+
+### Added
+- Belgium - Add Bank holidays
+
 ### Fixed
 - Netherlands - Fix Whit Monday translation
 - Germany - Fix World Childrens Day show before 2019
 
 ## [1.42.0] - 2023-04-24
- 
+
 ### Fixed
 - Liechtenstein - Fix Ascension Day, fix missing Pentecost, fix Bank Holidays
 
 ## [1.41.0] - 2023-04-18
- 
+
 ### Fixed
 - Belarus - Fix missing second new year day
 - Bulgaria - Fix weekend shift logic
@@ -25,7 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [1.40.0] - 2023-03-04
- 
+
 ### Added
 - Romania - Epiphany and Saint John the Baptist
 ### Fixed
@@ -37,7 +40,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [1.39.0] - 2023-02-11
- 
+
 ### Added
 - United States - Add counties
 ### Removed
@@ -48,7 +51,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - South Africa - Fix missing holiday shift
 
 ## [1.38.0] - 2023-01-11
- 
+
 ### Added
 - Isle of Man - Add Missing Royal Holidays
 - Canada - Add Saskatchewan Day
@@ -61,7 +64,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Turkey - Check Hijri year is supported
 
 ## [1.37.0] - 2022-11-09
- 
+
 ### Added
 - Singapore - Add Hari Raya Puasa, Vesak Day, Hari Raya Haji, Deepavali
 - United Kingdom - Add Coronation Bank Holiday
@@ -72,19 +75,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Singapore - Fix missing sunday shift
 
 ## [1.36.4] - 2022-10-04
- 
+
 ### Fixed
 - DateSystem - NoHolidaysProvider Access Modifier public
 
 ## [1.36.3] - 2022-09-30
- 
+
 ### Changed
 - Chile - Apply changes from Wikipedia
 - DateSystem - Change holiday provider access level
 - DateSystem - Rename get method in providers
 
 ## [1.36.2] - 2022-09-19
- 
+
 ### Added
 - Albania - Add catholic easter
 - Andorra - Add missing holidays
@@ -114,7 +117,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Spain - Fix San Jose Day
 
 ## [1.35.0] - 2022-06-01
- 
+
 ### Added
 - New Zealand - Add Matariki
 ### Fixed
@@ -123,12 +126,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Faroe Islands - Fix General Prayer Day
 
 ## [1.34.1] - 2022-05-02
- 
+
 ### Fixed
 - Fix readme.txt
 
 ## [1.34.0] - 2022-05-02
- 
+
 ### Added
 - Add LicenseKey for NuGet Package and Docker Container
 - Greenland - Add local Translations
@@ -146,7 +149,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fixing missing changes from Japan Pull Request
 
 ## [1.33.0] - 2022-03-16
- 
+
 ### Added
 - Bulgaria - Add Holy Saturday
 ### Fixed
@@ -155,7 +158,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Isle of Man - Fix Bank Holidays
 
 ## [1.32.0] - 2022-01-21
- 
+
 ### Changed
 - New Zealand - Optimize
 - Finland - Optimize translation
@@ -168,12 +171,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - United States - Fix spelling issue
 
 ## [1.31.0] - 2022-01-02
- 
+
 ### Changed
 - Change Access Modifier of NoHolidaysProvider to check the country is supported
 
 ## [1.30.0] - 2021-09-30
- 
+
 ### Added
 - Bosnia and Herzegovina
 - Singapore
@@ -183,7 +186,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Switzerland -Fix Federal Day of Thanksgiving
 
 ## [1.29.2] - 2021-06-21
- 
+
 ### Added
 - Cyprus - Add Whit Monday
 - UnitedStates - Add Juneteenth
@@ -191,7 +194,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Netherlands - Fix Local translation Good Friday
 
 ## [1.29.1] - 2021-06-16
- 
+
 ### Added
 - UnitedStates - Add GoodFriday
 ### Changed
@@ -200,7 +203,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Costa Rica - Fix Law 9803
 
 ## [1.29.0] - 2021-05-18
- 
+
 ### Added
 - Nigeria
 ### Changed
@@ -215,14 +218,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fix DateSystem.IsPublicHoliday(DateTime date, CountryCode countryCode)
 
 ## [1.28.2] - 2021-03-08
- 
+
 ### Added
 - Montenegro
 ### Fixed
 - Canada - Fix Victoria day
 
 ## [1.28.1] - 2021-02-17
- 
+
 ### Added
 - Add CHANGELOG file
 - Add Region Statistic
@@ -307,12 +310,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Australia - Fix Reconciliation Day
 
 ## [1.25.0] - 2019-06-10
- 
+
 ### Fixed
 - Added UK May Bank Holiday Change VE Day 2020
 
 ## [1.23.0] - 2019-01-05
- 
+
 ### Added
 - Mongolia
 - Vietnam
@@ -321,7 +324,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Some small fixes, cleanup code
 
 ## [1.22.0] - 2018-09-08
- 
+
 ### Added
 - Lesotho
 ### Removed
@@ -330,7 +333,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - United Kingdom - Fix St Andrews Day for Scotland
 
 ## [1.21.0] - 2018-08-15
- 
+
 ### Added
 - Moldova
 - Tunisia
@@ -346,26 +349,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Jan Mayen
 
 ## [1.20.0] - 2018-08-01
- 
+
 ### Added
 - Morocco
 - Gabon
 - Macedonia
 
 ## [1.19.0] - 2018-01-22
- 
+
 ### Added
 - Nicaragua
 - Mexico
 - Belize
 
 ## [1.18.0] - 2017-11-27
- 
+
 ### Added
 - Åland
 
 ## [1.17.0] - 2017-11-26
- 
+
 ### Added
 - Chile
 - Haiti
@@ -376,7 +379,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Germany - Optimize Provider
 
 ## [1.16.0] - 2017-11-05
- 
+
 ### Added
 - Dominican Republic
 - Jamaica
@@ -384,7 +387,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Cuba
 
 ## [1.15.0] - 2017-10-09
- 
+
 ### Added
 - Colombia
 - Andorra
@@ -393,34 +396,34 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Isle of Man
 
 ## [1.14.0] - 2017-10-04
- 
+
 ### Added
 - Costa Rica
 - Puerto Rico
 
 ## [1.13.0] - 2017-09-30
- 
+
 ### Added
 - Venezuela
 ### Changed
 - Change to .netstandard 2.0
 
 ## [1.12.0] - 2017-09-17
- 
+
 ### Added
 - Panama
 ### Changed
 - Change to .netstandard 2.0
 
 ## [1.11.0] - 2017-09-11
- 
+
 ### Added
 - Argentina
 ### Changed
 - Change to .netstandard 2.0
 
 ## [1.10.0] - 2017-08-28
- 
+
 ### Added
 - Uruguay
 ### Changed
@@ -429,14 +432,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Somes fixes
 
 ## [1.9.0] - 2017-05-18
- 
+
 ### Added
 - Bahamas
 ### Fixed
 - Somes fixes
 
 ## [1.8.0] - 2017-05-18
- 
+
 ### Added
 - Australia
 - Guatemala
@@ -444,12 +447,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Somes fixes
 
 ## [1.7.0] - 2017-05-04
- 
+
 ### Added
 - Add .net standard and .net 4.5 target
 
 ## [1.6.0] - 2017-03-26
- 
+
 ### Added
 - Botswana
 - Namibia
@@ -458,12 +461,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Honduras
 
 ## [1.5.1] - 2017-03-19
- 
+
 ### Added
 - Bolivia
 
 ## [1.4.1] - 2017-03-12
- 
+
 ### Added
 - Madagascar
 - South Africa
@@ -474,14 +477,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Some bugfixes
 
 ## [1.2.0] - 2017-02-28
- 
+
 ### Added
 - Belarus
 - Greenland
 - Russia
 
 ## [1.1.0] - 2017-02-25
- 
+
 ### Added
 - Add Worldmap
 ### Fixed
@@ -491,7 +494,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 ## [Unreleased 1.X.X] - yyyy-mm-dd
- 
+
 ### Added
 ### Changed
 ### Deprecated
