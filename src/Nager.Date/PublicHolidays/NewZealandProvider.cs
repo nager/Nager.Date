@@ -55,7 +55,7 @@ namespace Nager.Date.PublicHolidays
         {
             var countryCode = CountryCode.NZ;
 
-            var queensBirthday = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
+
             var labourDay = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Fourth);
             var easterMonday = this._catholicProvider.EasterMonday("Easter Monday", year, countryCode);
 
@@ -71,33 +71,8 @@ namespace Nager.Date.PublicHolidays
 
             #endregion
 
-            #region Anzac Day with fallback
-
-            if (year >= 2015)
-            {
-                var anzacDay = new DateTime(year, 4, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-                items.Add(new PublicHoliday(anzacDay, "Anzac Day", "Anzac Day", countryCode));
-            }
-            else
-            {
-                items.Add(new PublicHoliday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode));
-            }
-
-            #endregion
-
-            #region Waitangi Day with fallback
-
-            if (year >= 2016)
-            {
-                var waitangiDay = new DateTime(year, 2, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-                items.Add(new PublicHoliday(waitangiDay, "Waitangi Day", "Waitangi Day", countryCode));
-            }
-            else
-            {
-                items.Add(new PublicHoliday(year, 2, 6, "Waitangi Day", "Waitangi Day", countryCode));
-            }
-
-            #endregion
+            items.AddIfNotNull(this.AnzacDay(year, countryCode));
+            items.AddIfNotNull(this.WaitangiDay(year, countryCode));
 
             #region Christmas Day with fallback
 
@@ -159,21 +134,57 @@ namespace Nager.Date.PublicHolidays
 
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(easterMonday);
-            items.Add(new PublicHoliday(queensBirthday, "Queen's Birthday", "Queen's Birthday", countryCode));
             items.Add(new PublicHoliday(labourDay, "Labour Day", "Labour Day", countryCode));
 
-            #region Matariki
-
-            if (this._matariki.TryGetValue(year, out var matariki))
-            {
-                items.Add(new PublicHoliday(matariki, "Matariki", "Matariki", countryCode));
-            }
-
-            #endregion
-
+            items.AddIfNotNull(this.Matariki(year, countryCode));
+            items.AddIfNotNull(this.MonarchBirthday(year, countryCode));
             items.AddIfNotNull(this.MemorialDayForQueenElizabeth(year, countryCode));
 
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday Matariki(int year, CountryCode countryCode)
+        {
+            if (this._matariki.TryGetValue(year, out var matariki))
+            {
+                return new PublicHoliday(matariki, "Matariki", "Matariki", countryCode);
+            }
+
+            return null;
+        }
+
+        private PublicHoliday WaitangiDay(int year, CountryCode countryCode)
+        {
+            if (year >= 2016)
+            {
+                var waitangiDay = new DateTime(year, 2, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+                return new PublicHoliday(waitangiDay, "Waitangi Day", "Waitangi Day", countryCode);
+            }
+
+            return new PublicHoliday(year, 2, 6, "Waitangi Day", "Waitangi Day", countryCode);
+        }
+
+        private PublicHoliday AnzacDay(int year, CountryCode countryCode)
+        {
+            if (year >= 2015)
+            {
+                var anzacDay = new DateTime(year, 4, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
+                return new PublicHoliday(anzacDay, "Anzac Day", "Anzac Day", countryCode);
+            }
+
+            return new PublicHoliday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode);
+        }
+
+        private PublicHoliday MonarchBirthday(int year, CountryCode countryCode)
+        {
+            var name = "Queen's Birthday";
+            if (year >= 2023)
+            {
+                name = "King's Birthday";
+            }
+
+            var monarchBirthday = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
+            return new PublicHoliday(monarchBirthday, name, name, countryCode);
         }
 
         private PublicHoliday MemorialDayForQueenElizabeth(int year, CountryCode countryCode)
