@@ -55,8 +55,6 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(epiphanyDate, "Día de los Reyes Magos", "Epiphany", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-48), "Carnival", "Carnival", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Carnival", "Carnival", countryCode));
             items.Add(new PublicHoliday(saintJosephsDayDate, "Día de San José", "Saint Joseph's Day", countryCode));
             items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
@@ -66,7 +64,7 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(easterSunday.AddDays(68).AddDays(3), "Sagrado Corazón", "Sacred Heart", countryCode));
             items.Add(new PublicHoliday(saintPeterAndSaintPaulDate, "San Pedro y San Pablo", "Saint Peter and Saint Paul", countryCode));
             items.Add(new PublicHoliday(year, 7, 20, "Declaracion de la Independencia de Colombia", "Declaration of Independence", countryCode));
-            items.Add(new PublicHoliday(year, 8, 7, "Battle of Boyacá", "Battle of Boyacá", countryCode));
+            items.Add(new PublicHoliday(year, 8, 7, "Batalla de Boyacá", "Battle of Boyacá", countryCode));
             items.Add(new PublicHoliday(assumptionOfMaryDate, "La Asunción", "Assumption of Mary", countryCode));
             items.Add(new PublicHoliday(columbusDayDate, "Día de la Raza", "Columbus Day", countryCode));
             items.Add(new PublicHoliday(allSaintsDayDate, "Dia de los Santos", "All Saints’ Day", countryCode));
