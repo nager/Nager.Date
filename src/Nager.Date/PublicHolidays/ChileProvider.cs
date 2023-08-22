@@ -78,6 +78,7 @@ namespace Nager.Date.PublicHolidays
             items.AddIfNotNull(this.ColumbusDay(year, countryCode));
             items.AddIfNotNull(this.ReformationDay(year, countryCode));
             items.AddIfNotNull(this.NationalPlebiscite(year, countryCode));
+            items.AddIfNotNull(this.NationalDayOfIndigenousPeoples(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }
@@ -163,6 +164,47 @@ namespace Nager.Date.PublicHolidays
             }
 
             return new PublicHoliday(year, 9, 4, "Plebiscito nacional", "National plebiscite", countryCode);
+        }
+
+        private DateTime? GetWinterSolstice(int year)
+        {
+            switch (year)
+            {
+                case 2021:
+                    return new DateTime(year, 06, 21);
+                case 2022:
+                    return new DateTime(year, 06, 21);
+                case 2023:
+                    return new DateTime(year, 06, 21);
+                case 2024:
+                    return new DateTime(year, 06, 20);
+                case 2025:
+                    return new DateTime(year, 06, 21);
+                case 2026:
+                    return new DateTime(year, 06, 21);
+                case 2027:
+                    return new DateTime(year, 06, 21);
+                case 2028:
+                    return new DateTime(year, 06, 21);
+                default:
+                    return null;
+            }
+        }
+
+        private PublicHoliday NationalDayOfIndigenousPeoples(int year, CountryCode countryCode)
+        {
+            var winterSolstice = this.GetWinterSolstice(year);
+            if (winterSolstice == null)
+            {
+                return null;
+            }
+
+            /*
+             * N° Ley: 21.357
+             * Fecha de promulgación: 2021-06-17
+            */
+
+            return new PublicHoliday(winterSolstice.Value, "Día Nacional de los Pueblos Indígenas", "National Day of Indigenous Peoples", countryCode);
         }
 
         ///<inheritdoc/>
