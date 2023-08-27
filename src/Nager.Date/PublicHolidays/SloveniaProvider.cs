@@ -1,5 +1,7 @@
 using Nager.Date.Contract;
+using Nager.Date.Extensions;
 using Nager.Date.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -44,7 +46,19 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(year, 12, 25, "božič", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(year, 12, 26, "dan samostojnosti in enotnosti", "Independence and Unity Day", countryCode));
 
+            items.AddIfNotNull(this.SolidarityDay(year, countryCode));
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday SolidarityDay(int year, CountryCode countryCode)
+        {
+            if (year == 2023)
+            {
+                return new PublicHoliday(new DateTime(year, 8, 14), "dan solidarnosti", "Solidarity Day", countryCode);
+            }
+
+            return null;
         }
 
         ///<inheritdoc/>
