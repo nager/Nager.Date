@@ -1,9 +1,11 @@
 using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -47,6 +49,7 @@ namespace Nager.Date.PublicHolidays
             items.AddIfNotNull(this.VesakDay(year, countryCode));
             items.AddIfNotNull(this.HariRayaHaji(year, countryCode));
             items.AddIfNotNull(this.Deepavali(year, countryCode));
+            items.AddIfNotNull(this.PollingDay(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }
@@ -178,6 +181,15 @@ namespace Nager.Date.PublicHolidays
                     return new PublicHoliday(year, 10, 29, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
                 default:
                     break;
+            }
+            return null;
+        }
+
+        private PublicHoliday PollingDay(int year, CountryCode countryCode)
+        {
+            if (year == 2023)
+            {
+                return new PublicHoliday(year, 9, 1, "Polling Day", "Polling Day", countryCode);
             }
 
             return null;
