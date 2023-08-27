@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.45.0] - 2023-08-27
+
+### Added
+- Singapore - Add Polling Day
+- Slovenia - Solidarity day
+
+### Fixed
+- Chile - Fix National Day of Indigenous Peoples 
+
 ## [1.44.0] - 2023-08-22
 
 ### Fixed
