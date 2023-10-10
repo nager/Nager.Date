@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Japan - Fix Health and Sports Day
 - Australia - Fix King's Birthday Queensland
 - Australia - Fix New Year's Day weekend shift
+- Serbia - Fix Weekendshift non-religious holidays
 
 ## [1.45.0] - 2023-08-27
 
