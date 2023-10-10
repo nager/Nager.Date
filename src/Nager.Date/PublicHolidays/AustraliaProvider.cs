@@ -78,7 +78,7 @@ namespace Nager.Date.PublicHolidays
 
             items.AddRangeIfNotNull(this.LabourDay(year, countryCode));
             items.AddIfNotNull(this.MourningForQueenElizabeth(year, countryCode));
-            items.AddIfNotNull(this.MonarchBirthday(year, countryCode));
+            items.AddRangeIfNotNull(this.MonarchBirthday(year, countryCode));
             items.AddIfNotNull(this.EasterSunday(year, countryCode));
 
             return items.OrderBy(o => o.Date);
@@ -111,7 +111,7 @@ namespace Nager.Date.PublicHolidays
             };
         }
 
-        private PublicHoliday MonarchBirthday(int year, CountryCode countryCode)
+        private PublicHoliday[] MonarchBirthday(int year, CountryCode countryCode)
         {
             var name = "Queen's Birthday";
             if (year >= 2023)
@@ -120,7 +120,13 @@ namespace Nager.Date.PublicHolidays
             }
 
             var secondMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
-            return new PublicHoliday(secondMondayInJune, name, name, countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-SA", "AU-TAS", "AU-VIC" });
+            var firstMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
+
+            return new PublicHoliday[]
+            {
+                new PublicHoliday(secondMondayInJune, name, name, countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-SA", "AU-TAS", "AU-VIC" }),
+                new PublicHoliday(firstMondayInOctober, name, name, countryCode, null, new string[] { "AU-QLD" })
+            };
         }
 
         private PublicHoliday MourningForQueenElizabeth(int year, CountryCode countryCode)

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Japan - Fix Health and Sports Day
+- Australia - Fix King's Birthday Queensland
 
 ## [1.45.0] - 2023-08-27
 
