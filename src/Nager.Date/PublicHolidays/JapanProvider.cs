@@ -4,7 +4,6 @@ using Nager.Date.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-//using AASharp;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -50,23 +49,25 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(thirdMondayInJuly, "海の日", "Marine Day", countryCode));
             items.Add(new PublicHoliday(mountainDay, "山の日", "Mountain Day", countryCode));
             items.Add(new PublicHoliday(thirdMondayInSeptember, "敬老の日", "Respect for the Aged Day", countryCode));
-            items.Add(new PublicHoliday(secondMondayInOctober, "体育の日", "Health and Sports Day", countryCode));
             items.Add(new PublicHoliday(cultureDay, "文化の日", "Culture Day", countryCode));
             items.Add(new PublicHoliday(thanksgivingDay, "勤労感謝の日", "Labour Thanksgiving Day", countryCode));
 
             //Will change to the date of the new emperor on the death of the current one
-            items.AddIfNotNull(this.GetEmperorsBirthday(year, countryCode));
-            items.AddIfNotNull(this.GetVernalEquinox(year, countryCode));
-            items.AddIfNotNull(this.GetAutumnalEquinox(year, countryCode));
+            items.AddIfNotNull(this.EmperorsBirthday(year, countryCode));
+            items.AddIfNotNull(this.VernalEquinox(year, countryCode));
+            items.AddIfNotNull(this.AutumnalEquinox(year, countryCode));
+
+            items.AddIfNotNull(this.SportsDay(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }
 
         /// <summary>
-        /// https://en.wikipedia.org/wiki/Golden_Week_(Japan)
         /// Get the Golden Week for a given year
         /// </summary>
+        /// <see href="https://en.wikipedia.org/wiki/Golden_Week_(Japan)" />
         /// <param name="year"></param>
+        [Obsolete("Not a holiday logic")]
         public DateTime GetGoldenWeekStartDate(int year)
         {
             var showaDay = new DateTime(year, 4, 29).Shift(saturday => saturday, sunday => sunday.AddDays(1));
@@ -81,7 +82,7 @@ namespace Nager.Date.PublicHolidays
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Emperors Birthday object or null</returns>
-        private PublicHoliday GetEmperorsBirthday(int year, CountryCode countryCode)
+        private PublicHoliday EmperorsBirthday(int year, CountryCode countryCode)
         {
             if (year < 1868)
             {
@@ -131,7 +132,39 @@ namespace Nager.Date.PublicHolidays
                 countryCode);
         }
 
-        private PublicHoliday GetVernalEquinox(int year, CountryCode countryCode)
+        private PublicHoliday SportsDay(int year, CountryCode countryCode)
+        {
+            if (year <= 1965)
+            {
+                return null;
+            }
+            else if (year > 1965 && year < 2000)
+            {
+                return new PublicHoliday(new DateTime(year, 10, 10), "体育の日", "Health and Sports Day", countryCode);
+            }
+            else if (year >= 2000 && year < 2020)
+            {
+                var secondMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
+                return new PublicHoliday(secondMondayInOctober, "体育の日", "Health and Sports Day", countryCode);
+            }
+            else if (year == 2020)
+            {
+                return new PublicHoliday(new DateTime(year, 07, 24), "スポーツの日", "Sports Day", countryCode);
+            }
+            else if (year ==  2021)
+            {
+                return new PublicHoliday(new DateTime(year, 07, 23), "スポーツの日", "Sports Day", countryCode);
+            }
+            else if (year >= 2022)
+            {
+                var secondMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
+                return new PublicHoliday(secondMondayInOctober, "スポーツの日", "Sports Day", countryCode);
+            }
+
+            return null;
+        }
+
+        private PublicHoliday VernalEquinox(int year, CountryCode countryCode)
         {
             if (year < 1850 || year > 2151)
             {
@@ -160,7 +193,7 @@ namespace Nager.Date.PublicHolidays
             return new PublicHoliday(new DateTime(year, 3, (int)equinoxDay), "春分の日", "Vernal Equinox Day", countryCode);
         }
 
-        private PublicHoliday GetAutumnalEquinox(int year, CountryCode countryCode)
+        private PublicHoliday AutumnalEquinox(int year, CountryCode countryCode)
         {
             if (year < 1850 || year > 2151)
             {
