@@ -244,6 +244,14 @@ What variants of holidays are supported by `Nager.Date`
 | Optional    | Majority of people take a day off           |
 | Observance  | Optional festivity, no paid day off         |
 
+## Data precision
+
+| Precision                          | Supported |
+| ---------------------------------- | --------- |
+| Country Public Holiday             | Yes       |
+| Subdivisions Holiday (ISO 3166-2)  | Yes       |
+| City Holiday                       | No        |
+
 ## Areas of Application
 
 There are several business fields in which it is important to know the holidays in different countries.
