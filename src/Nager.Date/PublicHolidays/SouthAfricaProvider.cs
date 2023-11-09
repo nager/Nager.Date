@@ -54,7 +54,19 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode, 1910));
             items.Add(new PublicHoliday(sanktStephensDay, "Day of Goodwill", "St. Stephen's Day", countryCode, 1910));
 
+            items.AddIfNotNull(this.SpringboksVictory(year, countryCode));
+
             return items.OrderBy(o => o.Date);
+        }
+
+        private PublicHoliday SpringboksVictory(int year, CountryCode countryCode)
+        {
+            if (year == 2023)
+            {
+                return new PublicHoliday(year, 12, 15, "Springboks Victory", "Springboks Victory", countryCode);
+            }
+
+            return null;
         }
 
         ///<inheritdoc/>
