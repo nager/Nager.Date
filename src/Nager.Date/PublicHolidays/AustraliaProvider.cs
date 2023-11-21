@@ -52,6 +52,7 @@ namespace Nager.Date.PublicHolidays
             
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
             var firstMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
+            var firstTuesdayInNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Tuesday, Occurrence.First);
 
             var newYearsDay = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
@@ -74,6 +75,9 @@ namespace Nager.Date.PublicHolidays
             items.Add(new PublicHoliday(firstMondayAfterOr27May, "Reconciliation Day", "Reconciliation Day", countryCode, 2018, new string[] { "AU-ACT" }));
             items.Add(new PublicHoliday(firstMondayInJune, "Western Australia Day", "Western Australia Day", countryCode, null, new string[] { "AU-WA" }));
             items.Add(new PublicHoliday(firstMondayInAugust, "Picnic Day", "Picnic Day", countryCode, null, new string[] { "AU-NT" }));
+
+            items.Add(new PublicHoliday(firstTuesdayInNovember, "Melbourne Cup", "Melbourne Cup", countryCode, null, new string[] { "AU-VIC" }));
+
             items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new PublicHoliday(boxingDay, "Boxing Day", "St. Stephen's Day", countryCode));
 
