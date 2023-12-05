@@ -172,7 +172,7 @@ namespace Nager.Date.PublicHolidays
                 case 2023:
                     return new PublicHoliday(year, 11, 13, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
                 case 2024:
-                    return new PublicHoliday(year, 11, 1, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+                    return new PublicHoliday(year, 10, 31, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
                 case 2025:
                     return new PublicHoliday(year, 10, 21, name, name, countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1));
                 case 2026:
