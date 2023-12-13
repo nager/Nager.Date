@@ -1,11 +1,9 @@
 using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Model;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using static System.Collections.Specialized.BitVector32;
 
 namespace Nager.Date.PublicHolidays
 {
@@ -41,8 +39,8 @@ namespace Nager.Date.PublicHolidays
             if (year > chineseCalendar.MinSupportedDateTime.Year && year < chineseCalendar.MaxSupportedDateTime.Year)
             {
                 var chineseNewYear = chineseCalendar.ToDateTime(year, 1, 1, 0, 0, 0, 0);
-                items.Add(new PublicHoliday(chineseNewYear, "Chinese New Year", "Chinese New Year", countryCode));
-                items.Add(new PublicHoliday(chineseNewYear.AddDays(1), "Chinese New Year", "Chinese New Year", countryCode));
+                items.Add(new PublicHoliday(chineseNewYear, "Chinese New Year", "Chinese New Year", countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1)));
+                items.Add(new PublicHoliday(chineseNewYear.AddDays(1), "Chinese New Year", "Chinese New Year", countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1)));
             }
 
             items.AddIfNotNull(this.HariRayaPuasa(year, countryCode));
