@@ -63,19 +63,6 @@ namespace Nager.Date.PublicHolidays
         }
 
         /// <summary>
-        /// Get the Golden Week for a given year
-        /// </summary>
-        /// <see href="https://en.wikipedia.org/wiki/Golden_Week_(Japan)" />
-        /// <param name="year"></param>
-        [Obsolete("Not a holiday logic")]
-        public DateTime GetGoldenWeekStartDate(int year)
-        {
-            var showaDay = new DateTime(year, 4, 29).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-
-            return showaDay;
-        }
-
-        /// <summary>
         /// Adds the emperor's birthday based on the era/emperor of the current year.
         /// </summary>
         /// <see href="https://en.wikipedia.org/wiki/The_Emperor%27s_Birthday#Emperor_birthday_list" />
