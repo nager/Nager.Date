@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.47.1] - 2023-12-13
+
+### Fixed
+- Singapore - Fix Chinese New Year sunday shift
+- Canada - Fix British Columbia Day
+
 ## [1.47.0] - 2023-11-21
 
 ### Added
