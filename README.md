@@ -10,7 +10,7 @@ Need offline access to our functionality? No problem! We also provide solutions 
 
 > [!CAUTION]
 > The WebApi V1 will be shut down in June 2024<br>
-> The WebApi V2 will be shut down in December 2024
+> The WebApi V2 will be shut down in December 2024<br>
 > Please only use the latest WebApi V3
 
 ## How can I use it?
