@@ -229,7 +229,7 @@ if (DateSystem.IsWeekend(date, CountryCode.DE))
 
 The Docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date)<br>
 To run a local instance of the Docker image run the following command<br>
-`docker run -p 80:80 nager/nager-date`
+`docker run -p 80:8080 nager/nager-date`
 
 
 ## Holiday types
