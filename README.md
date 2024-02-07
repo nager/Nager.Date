@@ -251,11 +251,26 @@ What variants of holidays are supported by `Nager.Date`
 
 ## Data precision
 
-| Precision                          | Supported |
-| ---------------------------------- | --------- |
-| Country Public Holiday             | Yes       |
-| Subdivisions Holiday (ISO 3166-2)  | Yes       |
-| City Holiday                       | No        |
+There is no generally valid designation for the next administrative level of countries.
+"Nager.Date" supports the initial subdivision of a country, but we will not support a detailed level because the effort required is too high.
+
+To keep it generally valid, we will treat this subdivision as `SubdivisionCodes`, this will replace the current designation `Counties`.
+
+- **United States of America** use `States`
+- **Germany** use `States`
+- **Austria** use `States`
+- **Switzerland** use `Cantons`
+- **Brazil** use `States`
+- **Australia** use `States` or `Territories`
+- **Russia** use `Federal districts`
+- **Canada** use `Province` or `Territories`
+
+| Precision                                                                    | Supported |
+| ---------------------------------------------------------------------------- | --------- |
+| Public Holidays for specific Country                                         | Yes       |
+| Holidays for Subdivisions based on ISO 3166-2 (first level)                  | Yes       |
+| Holidays for Cities                                                          | No        |
+| Holidays for Regions                                                         | No        |
 
 ## Areas of Application
 
