@@ -23,7 +23,7 @@ namespace Nager.Date.PublicHolidays
         }
 
         /// <summary>
-        /// Convert Hijri Date To Geregorian Date
+        /// Convert Hijri Date To Gregorian Date
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
