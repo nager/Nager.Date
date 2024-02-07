@@ -34,15 +34,12 @@ namespace Nager.Date.PublicHolidays
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
             items.Add(new PublicHoliday(year, 6, 1, "Trettondagen", "Epiphany", countryCode));
-            items.Add(new PublicHoliday(year, 3, 30, "Ålands demilitariseringsdag", "Demilitarization Day", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Långfredag", year, countryCode));
             items.Add(this._catholicProvider.EasterSunday("Påskdagen", year, countryCode).SetLaunchYear(1642));
             items.Add(this._catholicProvider.EasterMonday("Annandag påsk", year, countryCode).SetLaunchYear(1642));
-            items.Add(new PublicHoliday(year, 4, 30, "Valborgsmässoafton", "Walpurgis Night", countryCode));
             items.Add(new PublicHoliday(year, 5, 1, "Första maj", "May Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Kristi himmelsfärdsdagn", year, countryCode));
             items.Add(this._catholicProvider.Pentecost("Pingstdagen", year, countryCode));
-            items.Add(this._catholicProvider.WhitMonday("Annandag Pingst", year, countryCode));
             items.Add(new PublicHoliday(year, 6, 9, "Självstyrelsedagen", "Autonomy Day", countryCode));
             items.Add(new PublicHoliday(thirdFridayInJune, "Midsommarafton", "Midsummer Eve", countryCode));
             items.Add(new PublicHoliday(thirdSaturdayInJune, "Midsommardagen", "Midsummer Day", countryCode));
