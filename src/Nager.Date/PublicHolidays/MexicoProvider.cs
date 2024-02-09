@@ -49,6 +49,7 @@ namespace Nager.Date.PublicHolidays
         private PublicHoliday InaugurationDay(int year, CountryCode countryCode)
         {
             // The president in Mexico is usually elected every 6 years
+            // A reform was introduced in 2014 that changes the date from 2024
 
             switch (year)
             {
@@ -69,6 +70,15 @@ namespace Nager.Date.PublicHolidays
                 case 2018:
                     return new PublicHoliday(year, 12, 1, "Transmisión del Poder Ejecutivo Federal", "Inauguration Day", countryCode);
                 case 2024:
+                case 2030:
+                case 2036:
+                case 2042:
+                case 2048:
+                case 2054:
+                case 2060:
+                case 2066:
+                case 2072:
+                case 2078:
                     return new PublicHoliday(year, 10, 1, "Transmisión del Poder Ejecutivo Federal", "Inauguration Day", countryCode);
             }
 
