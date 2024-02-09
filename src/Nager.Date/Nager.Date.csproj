@@ -19,7 +19,7 @@
     
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
     
-    <TargetFrameworks>net472;netstandard2.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0;net6.0;net8.0</TargetFrameworks>
 
     <Version>1.47.1</Version>
   </PropertyGroup>
