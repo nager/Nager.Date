@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.48.0] - 2024-02-12
+
+### Added
+- Add .NET 8 Support
+### Removed
+- Japan - Remove obsolete code
+- Åland - Remove some wrong holidays
+### Fixed
+- Mexico - Fix Inauguration Day 2024
+- Singapore - Fix Deepavali Day
+
 ## [1.47.1] - 2023-12-13
 
 ### Fixed
