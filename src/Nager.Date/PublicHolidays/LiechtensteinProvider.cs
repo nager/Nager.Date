@@ -25,12 +25,14 @@ namespace Nager.Date.PublicHolidays
         public IEnumerable<PublicHoliday> GetHolidays(int year)
         {
             var countryCode = CountryCode.LI;
+            var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var items = new List<PublicHoliday>();
             items.Add(new PublicHoliday(year, 1, 1, "Neujahr", "New Year's Day", countryCode, 1967));
             items.Add(new PublicHoliday(year, 1, 2, "Berchtoldstag", "St. Berchtold's Day", countryCode, type: PublicHolidayType.Bank));
             items.Add(new PublicHoliday(year, 1, 6, "Heilige Drei Könige", "Epiphany", countryCode));
             items.Add(new PublicHoliday(year, 2, 2, "Mariä Lichtmess", "Candlemas", countryCode));
+            items.Add(new PublicHoliday(easterSunday.AddDays(-47), "Fasnachtsdienstag", "Shrove Tuesday", countryCode, type: PublicHolidayType.Bank));
             items.Add(new PublicHoliday(year, 3, 19, "Josefstag", "Saint Joseph's Day", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Karfreitag", year, countryCode).SetType(PublicHolidayType.Bank));
             items.Add(this._catholicProvider.EasterMonday("Ostermontag", year, countryCode).SetLaunchYear(1642));
