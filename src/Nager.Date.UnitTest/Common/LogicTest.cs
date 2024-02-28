@@ -21,7 +21,7 @@ namespace Nager.Date.UnitTest.Common
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
                 var publicHolidayProvider = DateSystem.GetPublicHolidayProvider(countryCode);
-                if (publicHolidayProvider is NoHolidaysProvider)
+                if (publicHolidayProvider is NoHolidaysHolidayProvider)
                 {
                     continue;
                 }

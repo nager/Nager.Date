@@ -1,0 +1,57 @@
+using Nager.Date.Models;
+using Nager.Date.ReligiousProviders;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Nager.Date.HolidayProviders
+{
+    /// <summary>
+    /// Nigeria HolidayProvider
+    /// </summary>
+    internal class NigeriaHolidayProvider : IHolidayProvider
+    {
+        private readonly ICatholicProvider _catholicProvider;
+
+        /// <summary>
+        /// Niger HolidayProvider
+        /// </summary>
+        /// <param name="catholicProvider"></param>
+        public NigeriaHolidayProvider(
+            ICatholicProvider catholicProvider)
+        {
+            this._catholicProvider = catholicProvider;
+        }
+
+        /// <inheritdoc/>
+        public IEnumerable<Holiday> GetHolidays(int year)
+        {
+            var countryCode = CountryCode.NG;
+
+            //TODO: Add islamic public holidays
+
+            var items = new List<Holiday>();
+            items.Add(new Holiday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
+            items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
+            items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
+            items.Add(new Holiday(year, 5, 1, "Workers' Day", "Workers' Day", countryCode).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1)));
+            items.Add(new Holiday(year, 5, 27, "Children's Day", "Children's Day", countryCode));
+            items.Add(new Holiday(year, 6, 12, "Democracy Day", "Democracy Day", countryCode));
+            items.Add(new Holiday(year, 10, 1, "National Day", "National Day", countryCode));
+            items.Add(new Holiday(year, 11, 1, "National Youth Day", "National Youth Day", countryCode, 2020));
+            items.Add(new Holiday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1)));
+            items.Add(new Holiday(year, 12, 26, "Boxing Day", "Boxing Day", countryCode).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2)));
+
+            return items.OrderBy(o => o.Date);
+        }
+
+        /// <inheritdoc/>
+        public IEnumerable<string> GetSources()
+        {
+            return new string[]
+            {
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Nigeria",
+                "https://www.officeholidays.com/countries/nigeria/"
+            };
+        }
+    }
+}

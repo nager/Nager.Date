@@ -34,25 +34,25 @@ namespace Nager.Date.Weekends
             }
         }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public IEnumerable<DayOfWeek> WeekendDays { get; }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public bool IsWeekend(DateTime date) =>
             this.IsWeekend(date.DayOfWeek);
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public bool IsWeekend(Holiday publicHoliday) =>
             this.IsWeekend(publicHoliday.Date);
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public bool IsWeekend(DayOfWeek dayOfWeek) =>
             this.WeekendDays.Contains(dayOfWeek);
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public DayOfWeek FirstWeekendDay { get; }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public DayOfWeek LastWeekendDay { get; }
 
         /// <summary>

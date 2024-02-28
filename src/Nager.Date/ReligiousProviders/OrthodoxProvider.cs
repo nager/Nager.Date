@@ -11,7 +11,7 @@ namespace Nager.Date.ReligiousProviders
     {
         private static readonly ConcurrentDictionary<int, DateTime> _cache = new ConcurrentDictionary<int, DateTime>();
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public DateTime EasterSunday(int year)
         {
             return _cache.GetOrAdd(year, y =>
@@ -39,35 +39,35 @@ namespace Nager.Date.ReligiousProviders
             return new Holiday(easterSunday.AddDays(-2), localName, "Good Friday", countryCode);
         }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public Holiday HolySaturday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
             return new Holiday(easterSunday.AddDays(-1), localName, "Holy Saturday", countryCode);
         }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public Holiday EasterSunday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
             return new Holiday(easterSunday, localName, "Easter Sunday", countryCode);
         }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public Holiday EasterMonday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
             return new Holiday(easterSunday.AddDays(1), localName, "Easter Monday", countryCode);
         }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public Holiday Pentecost(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
             return new Holiday(easterSunday.AddDays(49), localName, "Pentecost", countryCode);
         }
 
-        ///<inheritdoc/>
+        /// <inheritdoc/>
         public Holiday WhitMonday(string localName, int year, CountryCode countryCode, string[] counties = null)
         {
             var easterSunday = this.EasterSunday(year);
