@@ -4,7 +4,7 @@ using System;
 namespace Nager.Date.Models
 {
     /// <summary>
-    /// Public Holiday
+    /// Holiday
     /// </summary>
     public class Holiday
     {
@@ -12,6 +12,11 @@ namespace Nager.Date.Models
         /// The date
         /// </summary>
         public DateTime Date { get; private set; }
+
+        /// <summary>
+        /// The observed date
+        /// </summary>
+        public DateTime? ObservedDate { get; private set; }
 
         /// <summary>
         /// Local name
