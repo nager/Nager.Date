@@ -22,20 +22,20 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.NE;
  
             //TODO: Add islamic public holidays
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(year, 4, 24, "Concord Day", "Concord Day", countryCode));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
+            items.Add(new Holiday(year, 4, 24, "Concord Day", "Concord Day", countryCode));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
-            items.Add(new PublicHoliday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 3, "Nigerien Independence Day", "Nigerien Independence Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 18, "Nigerien Republic Day", "Nigerien Republic Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
+            items.Add(new Holiday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
+            items.Add(new Holiday(year, 8, 3, "Nigerien Independence Day", "Nigerien Independence Day", countryCode));
+            items.Add(new Holiday(year, 12, 18, "Nigerien Republic Day", "Nigerien Republic Day", countryCode));
+            items.Add(new Holiday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

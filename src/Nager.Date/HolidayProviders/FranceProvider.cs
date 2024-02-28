@@ -43,22 +43,22 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.FR;
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 1, "Jour de l'an", "New Year's Day", countryCode, 1967));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(year, 1, 1, "Jour de l'an", "New Year's Day", countryCode, 1967));
             items.Add(this._catholicProvider.EasterMonday("Lundi de Pâques", year, countryCode).SetLaunchYear(1642));
-            items.Add(new PublicHoliday(year, 5, 1, "Fête du Travail", "Labour Day", countryCode));
+            items.Add(new Holiday(year, 5, 1, "Fête du Travail", "Labour Day", countryCode));
             items.Add(this._catholicProvider.AscensionDay("Ascension", year, countryCode));
-            items.Add(new PublicHoliday(year, 5, 8, "Victoire 1945", "Victory in Europe Day", countryCode));
+            items.Add(new Holiday(year, 5, 8, "Victoire 1945", "Victory in Europe Day", countryCode));
             items.Add(this._catholicProvider.WhitMonday("Lundi de Pentecôte", year, countryCode));
-            items.Add(new PublicHoliday(year, 7, 14, "Fête nationale", "Bastille Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 15, "Assomption", "Assumption Day", countryCode));
-            items.Add(new PublicHoliday(year, 11, 1, "Toussaint", "All Saints' Day", countryCode));
-            items.Add(new PublicHoliday(year, 11, 11, "Armistice 1918", "Armistice Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Noël", "Christmas Day", countryCode));
+            items.Add(new Holiday(year, 7, 14, "Fête nationale", "Bastille Day", countryCode));
+            items.Add(new Holiday(year, 8, 15, "Assomption", "Assumption Day", countryCode));
+            items.Add(new Holiday(year, 11, 1, "Toussaint", "All Saints' Day", countryCode));
+            items.Add(new Holiday(year, 11, 11, "Armistice 1918", "Armistice Day", countryCode));
+            items.Add(new Holiday(year, 12, 25, "Noël", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

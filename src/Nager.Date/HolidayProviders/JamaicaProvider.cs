@@ -24,29 +24,29 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.JM;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-46), "Ash Wednesday", "Ash Wednesday", countryCode));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
+            items.Add(new Holiday(easterSunday.AddDays(-46), "Ash Wednesday", "Ash Wednesday", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
-            items.Add(new PublicHoliday(year, 5, 23, "Labour Day", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 1, "Emancipation Day", "Emancipation Day", countryCode));
+            items.Add(new Holiday(year, 5, 23, "Labour Day", "Labour Day", countryCode));
+            items.Add(new Holiday(year, 8, 1, "Emancipation Day", "Emancipation Day", countryCode));
 
             #region Independence Day
 
             var independenceDay = new DateTime(year, 8, 6).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            items.Add(new PublicHoliday(independenceDay, "Independence Day", "Independence Day", countryCode));
+            items.Add(new Holiday(independenceDay, "Independence Day", "Independence Day", countryCode));
 
             #endregion
 
-            items.Add(new PublicHoliday(year, 10, 16, "National Heroes Day", "National Heroes Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 26, "Boxing Day", "St. Stephen's Day", countryCode));            
+            items.Add(new Holiday(year, 10, 16, "National Heroes Day", "National Heroes Day", countryCode));
+            items.Add(new Holiday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
+            items.Add(new Holiday(year, 12, 26, "Boxing Day", "St. Stephen's Day", countryCode));            
 
             return items.OrderBy(o => o.Date);
         }

@@ -42,7 +42,7 @@ namespace Nager.Date.Weekends
             this.IsWeekend(date.DayOfWeek);
 
         ///<inheritdoc/>
-        public bool IsWeekend(PublicHoliday publicHoliday) =>
+        public bool IsWeekend(Holiday publicHoliday) =>
             this.IsWeekend(publicHoliday.Date);
 
         ///<inheritdoc/>

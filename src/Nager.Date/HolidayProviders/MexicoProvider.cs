@@ -19,7 +19,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             //Only Statutory holidays
             var countryCode = CountryCode.MX;
@@ -32,20 +32,20 @@ namespace Nager.Date.HolidayProviders
             var laborDay = new DateTime(year, 5, 1).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
             var independenceDay = new DateTime(year, 9, 16).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(firstMondayOfFebruary, "Día de la Constitución", "Constitution Day", countryCode));
-            items.Add(new PublicHoliday(thirdMondayOfMarch, "Natalicio de Benito Juárez", "Benito Juárez's birthday", countryCode));
-            items.Add(new PublicHoliday(laborDay, "Día del Trabajo", "Labor Day", countryCode));
-            items.Add(new PublicHoliday(independenceDay, "Día de la Independencia", "Independence Day", countryCode));
-            items.Add(new PublicHoliday(thirdMondayOfNovember, "Día de la Revolución", "Revolution Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
+            items.Add(new Holiday(firstMondayOfFebruary, "Día de la Constitución", "Constitution Day", countryCode));
+            items.Add(new Holiday(thirdMondayOfMarch, "Natalicio de Benito Juárez", "Benito Juárez's birthday", countryCode));
+            items.Add(new Holiday(laborDay, "Día del Trabajo", "Labor Day", countryCode));
+            items.Add(new Holiday(independenceDay, "Día de la Independencia", "Independence Day", countryCode));
+            items.Add(new Holiday(thirdMondayOfNovember, "Día de la Revolución", "Revolution Day", countryCode));
+            items.Add(new Holiday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
             items.AddIfNotNull(this.InaugurationDay(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday InaugurationDay(int year, CountryCode countryCode)
+        private Holiday InaugurationDay(int year, CountryCode countryCode)
         {
             // The president in Mexico is usually elected every 6 years
             // A reform was introduced in 2014 that changes the date from 2024
@@ -67,7 +67,7 @@ namespace Nager.Date.HolidayProviders
                 case 2006:
                 case 2012:
                 case 2018:
-                    return new PublicHoliday(year, 12, 1, "Transmisión del Poder Ejecutivo Federal", "Inauguration Day", countryCode);
+                    return new Holiday(year, 12, 1, "Transmisión del Poder Ejecutivo Federal", "Inauguration Day", countryCode);
                 case 2024:
                 case 2030:
                 case 2036:
@@ -78,7 +78,7 @@ namespace Nager.Date.HolidayProviders
                 case 2066:
                 case 2072:
                 case 2078:
-                    return new PublicHoliday(year, 10, 1, "Transmisión del Poder Ejecutivo Federal", "Inauguration Day", countryCode);
+                    return new Holiday(year, 10, 1, "Transmisión del Poder Ejecutivo Federal", "Inauguration Day", countryCode);
             }
 
             return null;

@@ -46,59 +46,59 @@ namespace Nager.Date.ReligiousProviders
         }
 
         ///<inheritdoc/>
-        public PublicHoliday MaundyThursday(string localName, int year, CountryCode countryCode)
+        public Holiday MaundyThursday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday.AddDays(-3), localName, "Maundy Thursday", countryCode);
+            return new Holiday(easterSunday.AddDays(-3), localName, "Maundy Thursday", countryCode);
         }
 
         ///<inheritdoc/>
-        public PublicHoliday GoodFriday(string localName, int year, CountryCode countryCode)
+        public Holiday GoodFriday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday.AddDays(-2), localName, "Good Friday", countryCode);
+            return new Holiday(easterSunday.AddDays(-2), localName, "Good Friday", countryCode);
         }
 
         ///<inheritdoc/>
-        public PublicHoliday EasterSunday(string localName, int year, CountryCode countryCode)
+        public Holiday EasterSunday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday, localName, "Easter Sunday", countryCode);
+            return new Holiday(easterSunday, localName, "Easter Sunday", countryCode);
         }
 
         ///<inheritdoc/>
-        public PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode)
+        public Holiday EasterMonday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday.AddDays(1), localName, "Easter Monday", countryCode);
+            return new Holiday(easterSunday.AddDays(1), localName, "Easter Monday", countryCode);
         }
 
         ///<inheritdoc/>
-        public PublicHoliday AscensionDay(string localName, int year, CountryCode countryCode)
+        public Holiday AscensionDay(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday.AddDays(39), localName, "Ascension Day", countryCode);
+            return new Holiday(easterSunday.AddDays(39), localName, "Ascension Day", countryCode);
         }
 
         ///<inheritdoc/>
-        public PublicHoliday Pentecost(string localName, int year, CountryCode countryCode)
+        public Holiday Pentecost(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday.AddDays(49), localName, "Pentecost", countryCode);
+            return new Holiday(easterSunday.AddDays(49), localName, "Pentecost", countryCode);
         }
 
         ///<inheritdoc/>
-        public PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode)
+        public Holiday WhitMonday(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday.AddDays(50), localName, "Whit Monday", countryCode);
+            return new Holiday(easterSunday.AddDays(50), localName, "Whit Monday", countryCode);
         }
 
         ///<inheritdoc/>
-        public PublicHoliday CorpusChristi(string localName, int year, CountryCode countryCode)
+        public Holiday CorpusChristi(string localName, int year, CountryCode countryCode)
         {
             var easterSunday = this.EasterSunday(year);
-            return new PublicHoliday(easterSunday.AddDays(60), localName, "Corpus Christi", countryCode);
+            return new Holiday(easterSunday.AddDays(60), localName, "Corpus Christi", countryCode);
         }
     }
 }

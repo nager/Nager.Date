@@ -54,18 +54,18 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.ES;
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            items.Add(new PublicHoliday(year, 5, 1, "Fiesta del trabajo", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(year, 10, 12, "Fiesta Nacional de España", "Fiesta Nacional de España", countryCode));
-            items.Add(new PublicHoliday(year, 11, 1, "Día de todos los Santos", "All Saints Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 6, "Día de la Constitución", "Constitution Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
+            items.Add(new Holiday(year, 5, 1, "Fiesta del trabajo", "Labour Day", countryCode));
+            items.Add(new Holiday(year, 10, 12, "Fiesta Nacional de España", "Fiesta Nacional de España", countryCode));
+            items.Add(new Holiday(year, 11, 1, "Día de todos los Santos", "All Saints Day", countryCode));
+            items.Add(new Holiday(year, 12, 6, "Día de la Constitución", "Constitution Day", countryCode));
+            items.Add(new Holiday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
 
             items.AddIfNotNull(this.ChristmasDay(year, countryCode));
             items.AddIfNotNull(this.CorpusChristi(year, countryCode));
@@ -100,55 +100,55 @@ namespace Nager.Date.HolidayProviders
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday[] NewYearsDay(int year, CountryCode countryCode)
+        private Holiday[] NewYearsDay(int year, CountryCode countryCode)
         {
-            var newYearsDay = new PublicHoliday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode, 1967);
+            var newYearsDay = new Holiday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode, 1967);
 
             switch (year)
             {
                 case 2023:
-                    var newYearsDay2 = new PublicHoliday(year, 1, 2, "Año Nuevo", "New Year's Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CL", "ES-MC" });
+                    var newYearsDay2 = new Holiday(year, 1, 2, "Año Nuevo", "New Year's Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CL", "ES-MC" });
 
-                    return new PublicHoliday[]
+                    return new Holiday[]
                     {
                         newYearsDay,
                         newYearsDay2
                     };
             }
 
-            return new PublicHoliday[]
+            return new Holiday[]
             {
                 newYearsDay
             };
         }
 
-        private PublicHoliday EasterMonday(int year, CountryCode countryCode)
+        private Holiday EasterMonday(int year, CountryCode countryCode)
         {
             return this._catholicProvider.EasterMonday("Lunes de Pascua", year, countryCode).SetLaunchYear(1642).SetCounties("ES-CT", "ES-IB", "ES-RI", "ES-NC", "ES-PV", "ES-VC");
         }
 
-        private PublicHoliday CorpusChristi(int year, CountryCode countryCode)
+        private Holiday CorpusChristi(int year, CountryCode countryCode)
         {
             return this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode).SetCounties("ES-CM");
         }
 
-        private PublicHoliday MaundyThursday(int year, CountryCode countryCode)
+        private Holiday MaundyThursday(int year, CountryCode countryCode)
         {
             return this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode).SetCounties("ES-AN", "ES-AR", "ES-CL", "ES-CM", "ES-CN", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC", "ES-AS", "ES-PV", "ES-CB");
         }
 
-        private PublicHoliday ChristmasDay(int year, CountryCode countryCode)
+        private Holiday ChristmasDay(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
                 var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-                return new PublicHoliday(christmasDay, "Navidad", "Christmas Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CN", "ES-CB", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC" });
+                return new Holiday(christmasDay, "Navidad", "Christmas Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CN", "ES-CB", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC" });
             }
 
-            return new PublicHoliday(year, 12, 25, "Navidad", "Christmas Day", countryCode);
+            return new Holiday(year, 12, 25, "Navidad", "Christmas Day", countryCode);
         }
 
-        private PublicHoliday WhitMonday(int year, CountryCode countryCode)
+        private Holiday WhitMonday(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
@@ -160,21 +160,21 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private PublicHoliday Assumption(int year, CountryCode countryCode)
+        private Holiday Assumption(int year, CountryCode countryCode)
         {
             var date = new DateTime(year, 8, 15).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
-            return new PublicHoliday(date, "Asunción", "Assumption", countryCode);
+            return new Holiday(date, "Asunción", "Assumption", countryCode);
         }
 
-        private PublicHoliday DayOfMadrid(int year, CountryCode countryCode)
+        private Holiday DayOfMadrid(int year, CountryCode countryCode)
         {
             var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
-            return new PublicHoliday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-MD" });
+            return new Holiday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-MD" });
         }
 
-        private PublicHoliday StJosephsDay(int year, CountryCode countryCode)
+        private Holiday StJosephsDay(int year, CountryCode countryCode)
         {
             if (year < 2000)
             {
@@ -231,11 +231,11 @@ namespace Nager.Date.HolidayProviders
                     return null;
             }
 
-            return new PublicHoliday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, counties)
+            return new Holiday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, counties)
                 .Shift(saturday => saturday, sunday => sunday.AddDays(1)); ;
         }
 
-        private PublicHoliday SantiagoApostol(int year, CountryCode countryCode)
+        private Holiday SantiagoApostol(int year, CountryCode countryCode)
         {
             string[] counties;
 
@@ -269,65 +269,65 @@ namespace Nager.Date.HolidayProviders
                     return null;
             }
 
-            return new PublicHoliday(year, 7, 25, "Santiago Apóstol", "Santiago Apóstol", countryCode, null, counties);
+            return new Holiday(year, 7, 25, "Santiago Apóstol", "Santiago Apóstol", countryCode, null, counties);
         }
 
-        private PublicHoliday StStephensDay(int year, CountryCode countryCode)
+        private Holiday StStephensDay(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" });
+            return new Holiday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" });
         }
 
-        private PublicHoliday DayOfTheValencianCommunity(int year, CountryCode countryCode)
+        private Holiday DayOfTheValencianCommunity(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 10, 9, "Dia de la Comunitat Valenciana", "Day of the Valencian Community", countryCode, null, new string[] { "ES-VC" });
+            return new Holiday(year, 10, 9, "Dia de la Comunitat Valenciana", "Day of the Valencian Community", countryCode, null, new string[] { "ES-VC" });
         }
 
-        private PublicHoliday LaBienAparecida(int year, CountryCode countryCode)
+        private Holiday LaBienAparecida(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 9, 15, "La Bien Aparecida", "Regional Holiday", countryCode, null, new string[] { "ES-CB" });
+            return new Holiday(year, 9, 15, "La Bien Aparecida", "Regional Holiday", countryCode, null, new string[] { "ES-CB" });
         }
 
-        private PublicHoliday NationalDayOfCatalonia(int year, CountryCode countryCode)
+        private Holiday NationalDayOfCatalonia(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 9, 11, "Diada Nacional de Catalunya", "National Day of Catalonia", countryCode, null, new string[] { "ES-CT" });
+            return new Holiday(year, 9, 11, "Diada Nacional de Catalunya", "National Day of Catalonia", countryCode, null, new string[] { "ES-CT" });
         }
 
-        private PublicHoliday DayOfExtremadura(int year, CountryCode countryCode)
+        private Holiday DayOfExtremadura(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 9, 8, "Día de Extremadura", "Day of Extremadura", countryCode, null, new string[] { "ES-EX" });
+            return new Holiday(year, 9, 8, "Día de Extremadura", "Day of Extremadura", countryCode, null, new string[] { "ES-EX" });
         }
 
-        private PublicHoliday DayOfAsturias(int year, CountryCode countryCode)
+        private Holiday DayOfAsturias(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 9, 8, "Día de Asturias", "Day of Asturias", countryCode, null, new string[] { "ES-AS" });
+            return new Holiday(year, 9, 8, "Día de Asturias", "Day of Asturias", countryCode, null, new string[] { "ES-AS" });
         }
 
-        private PublicHoliday DayOfTheCantabrianInstitutions(int year, CountryCode countryCode)
+        private Holiday DayOfTheCantabrianInstitutions(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 7, 28, "Día de las Instituciones de Cantabria", "Day of the Cantabrian Institutions", countryCode, null, new string[] { "ES-CB" });
+            return new Holiday(year, 7, 28, "Día de las Instituciones de Cantabria", "Day of the Cantabrian Institutions", countryCode, null, new string[] { "ES-CB" });
         }
 
-        private PublicHoliday StJohnsDay(int year, CountryCode countryCode)
+        private Holiday StJohnsDay(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 6, 24, "Sant Joan", "St. John's Day", countryCode, null, new string[] { "ES-CT", "ES-VC" });
+            return new Holiday(year, 6, 24, "Sant Joan", "St. John's Day", countryCode, null, new string[] { "ES-CT", "ES-VC" });
         }
 
-        private PublicHoliday DayOfLaRioja(int year, CountryCode countryCode)
+        private Holiday DayOfLaRioja(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 6, 9, "Día de La Rioja", "Day of La Rioja", countryCode, null, new string[] { "ES-RI" });
+            return new Holiday(year, 6, 9, "Día de La Rioja", "Day of La Rioja", countryCode, null, new string[] { "ES-RI" });
         }
 
-        private PublicHoliday DayOfMurcia(int year, CountryCode countryCode)
+        private Holiday DayOfMurcia(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 6, 9, "Día de la Región de Murcia", "Day of Murcia", countryCode, null, new string[] { "ES-MC" });
+            return new Holiday(year, 6, 9, "Día de la Región de Murcia", "Day of Murcia", countryCode, null, new string[] { "ES-MC" });
         }
 
-        private PublicHoliday DayOfCastillaLaMancha(int year, CountryCode countryCode)
+        private Holiday DayOfCastillaLaMancha(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Day of Castilla-La Mancha", countryCode, null, new string[] { "ES-CM" });
+            return new Holiday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Day of Castilla-La Mancha", countryCode, null, new string[] { "ES-CM" });
         }
 
-        private PublicHoliday CastileAndLeonDay(int year, CountryCode countryCode)
+        private Holiday CastileAndLeonDay(int year, CountryCode countryCode)
         {
             switch (year)
             {
@@ -335,41 +335,41 @@ namespace Nager.Date.HolidayProviders
                     return null;
             }
 
-            return new PublicHoliday(year, 4, 23, "Día de Castilla y León", "Castile and León Day", countryCode, null, new string[] { "ES-CL" });
+            return new Holiday(year, 4, 23, "Día de Castilla y León", "Castile and León Day", countryCode, null, new string[] { "ES-CL" });
         }
 
-        private PublicHoliday GalicianLiteratureDay(int year, CountryCode countryCode)
+        private Holiday GalicianLiteratureDay(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 5, 17, "Día das Letras Galegas", "Galician Literature Day", countryCode, null, new string[] { "ES-GA" });
+            return new Holiday(year, 5, 17, "Día das Letras Galegas", "Galician Literature Day", countryCode, null, new string[] { "ES-GA" });
         }
 
-        private PublicHoliday DayOfAragon(int year, CountryCode countryCode)
+        private Holiday DayOfAragon(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 4, 23, "San Jorge (Día de Aragón)", "Day of Aragón", countryCode, null, new string[] { "ES-AR" })
+            return new Holiday(year, 4, 23, "San Jorge (Día de Aragón)", "Day of Aragón", countryCode, null, new string[] { "ES-AR" })
                 .Shift(saturday => saturday, sunday => sunday.AddDays(1)); ;
         }
 
-        private PublicHoliday DayOfTheBalearicIslands(int year, CountryCode countryCode)
+        private Holiday DayOfTheBalearicIslands(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 3, 1, "Dia de les Illes Balears", "Day of the Balearic Islands", countryCode, null, new string[] { "ES-IB" });
+            return new Holiday(year, 3, 1, "Dia de les Illes Balears", "Day of the Balearic Islands", countryCode, null, new string[] { "ES-IB" });
         }
 
-        private PublicHoliday DayOfAndalucia(int year, CountryCode countryCode)
+        private Holiday DayOfAndalucia(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 2, 28, "Día de Andalucía", "Day of Andalucía", countryCode, null, new string[] { "ES-AN" });
+            return new Holiday(year, 2, 28, "Día de Andalucía", "Day of Andalucía", countryCode, null, new string[] { "ES-AN" });
         }
 
-        private PublicHoliday DayOfTheCanaryIslands(int year, CountryCode countryCode)
+        private Holiday DayOfTheCanaryIslands(int year, CountryCode countryCode)
         {
-            return new PublicHoliday(year, 5, 30, "Día de Canarias", "Day of the Canary Islands", countryCode, null, new string[] { "ES-CN" });
+            return new Holiday(year, 5, 30, "Día de Canarias", "Day of the Canary Islands", countryCode, null, new string[] { "ES-CN" });
         }
 
-        private PublicHoliday CarnivalTuesday(int year, CountryCode countryCode)
+        private Holiday CarnivalTuesday(int year, CountryCode countryCode)
         {
             switch (year)
             {
                 case 2023:
-                    return new PublicHoliday(year, 2, 21, "Martes de Carnaval", "Carnival Tuesday", countryCode, null, new string[] { "ES-EX" });
+                    return new Holiday(year, 2, 21, "Martes de Carnaval", "Carnival Tuesday", countryCode, null, new string[] { "ES-EX" });
             }
 
             return null;

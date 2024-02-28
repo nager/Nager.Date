@@ -20,7 +20,7 @@ namespace Nager.Date.UnitTest
             return this._catholicProvider.EasterSunday(year);
         }
 
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             throw new NotImplementedException();
         }

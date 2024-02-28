@@ -262,11 +262,11 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckGlobalSwtichWork()
         {
-            var publicHoliday = new PublicHoliday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, null, PublicHolidayType.Public);
+            var publicHoliday = new Holiday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, null, HolidayTypes.Public);
 
             Assert.IsTrue(publicHoliday.NationalHoliday);
 
-            publicHoliday = new PublicHoliday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, ["AT-1"], PublicHolidayType.Public);
+            publicHoliday = new Holiday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, ["AT-1"], HolidayTypes.Public);
 
             Assert.IsFalse(publicHoliday.NationalHoliday);
         }

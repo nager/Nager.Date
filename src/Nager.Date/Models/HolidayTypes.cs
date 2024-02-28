@@ -3,10 +3,10 @@ using System;
 namespace Nager.Date.Models
 {
     /// <summary>
-    /// The type of a public holiday
+    /// The type of a holiday
     /// </summary>
     [Flags]
-    public enum PublicHolidayType
+    public enum HolidayTypes
     {
         /// <summary>
         /// Public holiday

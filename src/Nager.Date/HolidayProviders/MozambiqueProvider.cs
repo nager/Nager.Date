@@ -38,20 +38,20 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.MZ;
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 1, "Dia de Ano Novo", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(year, 2, 3, "Dia do Heroi Nacional", "Heroes's Day", countryCode));
-            items.Add(new PublicHoliday(year, 4, 7, "Dia da Mulher", "Women's Day", countryCode));
-            items.Add(new PublicHoliday(year, 5, 1, "Dia do Trabalhador", "worker's Day", countryCode));
-            items.Add(new PublicHoliday(year, 6, 25, "Dia da Independência", "Independence Day", countryCode));
-            items.Add(new PublicHoliday(year, 9, 7, "Dia da Victória", "Victory Day", countryCode));
-            items.Add(new PublicHoliday(year, 9, 25, "Dia da Revolução", "Revolution Day", countryCode));
-            items.Add(new PublicHoliday(year, 10, 4, "Dia da Paz e da Reconcialição", "Day of Peace and Reconciliation", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Natal", "Christmas Day", countryCode));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(year, 1, 1, "Dia de Ano Novo", "New Year's Day", countryCode));
+            items.Add(new Holiday(year, 2, 3, "Dia do Heroi Nacional", "Heroes's Day", countryCode));
+            items.Add(new Holiday(year, 4, 7, "Dia da Mulher", "Women's Day", countryCode));
+            items.Add(new Holiday(year, 5, 1, "Dia do Trabalhador", "worker's Day", countryCode));
+            items.Add(new Holiday(year, 6, 25, "Dia da Independência", "Independence Day", countryCode));
+            items.Add(new Holiday(year, 9, 7, "Dia da Victória", "Victory Day", countryCode));
+            items.Add(new Holiday(year, 9, 25, "Dia da Revolução", "Revolution Day", countryCode));
+            items.Add(new Holiday(year, 10, 4, "Dia da Paz e da Reconcialição", "Day of Peace and Reconciliation", countryCode));
+            items.Add(new Holiday(year, 12, 25, "Natal", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

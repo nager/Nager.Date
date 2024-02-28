@@ -51,7 +51,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.NZ;
 
@@ -59,15 +59,15 @@ namespace Nager.Date.HolidayProviders
             var labourDay = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Fourth);
             var easterMonday = this._catholicProvider.EasterMonday("Easter Monday", year, countryCode);
 
-            var items = new List<PublicHoliday>();
+            var items = new List<Holiday>();
 
             #region New Year's Day with fallback
 
             var newYearDay1 = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            items.Add(new PublicHoliday(newYearDay1, "New Year's Day", "New Year's Day", countryCode));
+            items.Add(new Holiday(newYearDay1, "New Year's Day", "New Year's Day", countryCode));
 
             var newYearDay2 = new DateTime(year, 1, 2).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
-            items.Add(new PublicHoliday(newYearDay2, "Day after New Year's Day", "Day after New Year's Day", countryCode));
+            items.Add(new Holiday(newYearDay2, "Day after New Year's Day", "Day after New Year's Day", countryCode));
 
             #endregion
 
@@ -77,64 +77,64 @@ namespace Nager.Date.HolidayProviders
             #region Christmas Day with fallback
 
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
+            items.Add(new Holiday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
 
             #endregion
 
             #region Boxing Day with fallback
 
             var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
-            items.Add(new PublicHoliday(boxingDay, "Boxing Day", "Boxing Day", countryCode));
+            items.Add(new Holiday(boxingDay, "Boxing Day", "Boxing Day", countryCode));
 
             #endregion
 
             #region Regional Anniversary Days
             // https://www.employment.govt.nz/leave-and-holidays/public-holidays/public-holidays-and-anniversary-dates/
             var aucklandDay = new DateTime(year, 1, 29).ShiftToClosest(DayOfWeek.Monday);
-            items.Add(new PublicHoliday(aucklandDay, "Auckland/Northland Anniversary Day", "Auckland Anniversary Day", countryCode, counties: new[] { "NZ-AUK", "NZ-NTL", "NZ-MWT", "NZ-WKO", "NZ-GIS", "NZ-BOP", "NZ-HKB" }));
+            items.Add(new Holiday(aucklandDay, "Auckland/Northland Anniversary Day", "Auckland Anniversary Day", countryCode, counties: new[] { "NZ-AUK", "NZ-NTL", "NZ-MWT", "NZ-WKO", "NZ-GIS", "NZ-BOP", "NZ-HKB" }));
 
             var wellingtonDay = new DateTime(year, 1, 22).ShiftToClosest(DayOfWeek.Monday);
-            items.Add(new PublicHoliday(wellingtonDay, "Wellington Anniversary Day", "Wellington Anniversary Day", countryCode, counties: new[] { "NZ-WGN", "NZ-MWT" }));
+            items.Add(new Holiday(wellingtonDay, "Wellington Anniversary Day", "Wellington Anniversary Day", countryCode, counties: new[] { "NZ-WGN", "NZ-MWT" }));
 
             var canterburySouthDay = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
-            items.Add(new PublicHoliday(canterburySouthDay, "Dominion Day", "Canterbury (South) Anniversary Day", countryCode, counties: new[] { "NZ-CAN" }));
+            items.Add(new Holiday(canterburySouthDay, "Dominion Day", "Canterbury (South) Anniversary Day", countryCode, counties: new[] { "NZ-CAN" }));
 
             var chathamDay = new DateTime(year, 11, 30).ShiftToClosest(DayOfWeek.Monday);
-            items.Add(new PublicHoliday(chathamDay, "Chatham Islands Anniversary Day", "Chatham Islands Anniversary Day", countryCode, counties: new[] { "NZ-CIT" }));
+            items.Add(new Holiday(chathamDay, "Chatham Islands Anniversary Day", "Chatham Islands Anniversary Day", countryCode, counties: new[] { "NZ-CIT" }));
 
             var nelsonDay = new DateTime(year, 2, 1).ShiftToClosest(DayOfWeek.Monday);
-            items.Add(new PublicHoliday(nelsonDay, "Nelson Anniversary Day", "Nelson Anniversary Day", countryCode, counties: new[] { "NZ-NSN" }));
+            items.Add(new Holiday(nelsonDay, "Nelson Anniversary Day", "Nelson Anniversary Day", countryCode, counties: new[] { "NZ-NSN" }));
 
             var otagoDay = new DateTime(year, 3, 23).ShiftToClosest(DayOfWeek.Monday);
-            items.Add(new PublicHoliday(otagoDay, "Otago Anniversary Day", "Otago Anniversary Day", countryCode, counties: new[] { "NZ-OTA" }));
+            items.Add(new Holiday(otagoDay, "Otago Anniversary Day", "Otago Anniversary Day", countryCode, counties: new[] { "NZ-OTA" }));
 
             var taranakiDay = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
-            items.Add(new PublicHoliday(taranakiDay, "Taranaki Anniversary Day", "Taranaki Anniversary Day", countryCode, counties: new[] { "NZ-TKI" }));
+            items.Add(new Holiday(taranakiDay, "Taranaki Anniversary Day", "Taranaki Anniversary Day", countryCode, counties: new[] { "NZ-TKI" }));
 
             // Fri before labour day, and labour day always a Mon
             var hawkesBayDay = labourDay.AddDays(-3);
-            items.Add(new PublicHoliday(hawkesBayDay, "Hawke's Bay Anniversary Day", "Hawke's Bay Anniversary Day", countryCode, counties: new[] { "NZ-HKB" }));
+            items.Add(new Holiday(hawkesBayDay, "Hawke's Bay Anniversary Day", "Hawke's Bay Anniversary Day", countryCode, counties: new[] { "NZ-HKB" }));
 
             // Mon following labour day (which is always Mon itself)
             var marlboroughDay = labourDay.AddDays(7);
-            items.Add(new PublicHoliday(marlboroughDay, "Marlborough Anniversary Day", "Marlborough Anniversary Day", countryCode, counties: new[] { "NZ-MBH" }));
+            items.Add(new Holiday(marlboroughDay, "Marlborough Anniversary Day", "Marlborough Anniversary Day", countryCode, counties: new[] { "NZ-MBH" }));
 
             // Easter Tues
             var southlandDay = easterMonday.Date.AddDays(1);
-            items.Add(new PublicHoliday(southlandDay, "Southland Anniversary Day", "Southland Anniversary Day", countryCode, counties: new[] { "NZ-STL" }));
+            items.Add(new Holiday(southlandDay, "Southland Anniversary Day", "Southland Anniversary Day", countryCode, counties: new[] { "NZ-STL" }));
 
             var westlandDay = new DateTime(year, 12, 1).ShiftToClosest(DayOfWeek.Monday);
-            items.Add(new PublicHoliday(westlandDay, "Westland Anniversary Day", "Westland Anniversary Day", countryCode, counties: new[] { "NZ-WTC" }));
+            items.Add(new Holiday(westlandDay, "Westland Anniversary Day", "Westland Anniversary Day", countryCode, counties: new[] { "NZ-WTC" }));
 
             // 2nd Fri following 1st Tues of Nov!
             var canterburyDay = DateSystem.FindDay(year, Month.November, DayOfWeek.Tuesday, Occurrence.First).AddDays(10);
-            items.Add(new PublicHoliday(canterburyDay, "Canterbury (North & Central) Anniversary Day", "Canterbury Anniversary Day", countryCode, counties: new[] { "NZ-CAN" }));
+            items.Add(new Holiday(canterburyDay, "Canterbury (North & Central) Anniversary Day", "Canterbury Anniversary Day", countryCode, counties: new[] { "NZ-CAN" }));
 
             #endregion
 
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(easterMonday);
-            items.Add(new PublicHoliday(labourDay, "Labour Day", "Labour Day", countryCode));
+            items.Add(new Holiday(labourDay, "Labour Day", "Labour Day", countryCode));
 
             items.AddIfNotNull(this.Matariki(year, countryCode));
             items.AddIfNotNull(this.MonarchBirthday(year, countryCode));
@@ -143,39 +143,39 @@ namespace Nager.Date.HolidayProviders
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday Matariki(int year, CountryCode countryCode)
+        private Holiday Matariki(int year, CountryCode countryCode)
         {
             if (this._matariki.TryGetValue(year, out var matariki))
             {
-                return new PublicHoliday(matariki, "Matariki", "Matariki", countryCode);
+                return new Holiday(matariki, "Matariki", "Matariki", countryCode);
             }
 
             return null;
         }
 
-        private PublicHoliday WaitangiDay(int year, CountryCode countryCode)
+        private Holiday WaitangiDay(int year, CountryCode countryCode)
         {
             if (year >= 2016)
             {
                 var waitangiDay = new DateTime(year, 2, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-                return new PublicHoliday(waitangiDay, "Waitangi Day", "Waitangi Day", countryCode);
+                return new Holiday(waitangiDay, "Waitangi Day", "Waitangi Day", countryCode);
             }
 
-            return new PublicHoliday(year, 2, 6, "Waitangi Day", "Waitangi Day", countryCode);
+            return new Holiday(year, 2, 6, "Waitangi Day", "Waitangi Day", countryCode);
         }
 
-        private PublicHoliday AnzacDay(int year, CountryCode countryCode)
+        private Holiday AnzacDay(int year, CountryCode countryCode)
         {
             if (year >= 2015)
             {
                 var anzacDay = new DateTime(year, 4, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-                return new PublicHoliday(anzacDay, "Anzac Day", "Anzac Day", countryCode);
+                return new Holiday(anzacDay, "Anzac Day", "Anzac Day", countryCode);
             }
 
-            return new PublicHoliday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode);
+            return new Holiday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode);
         }
 
-        private PublicHoliday MonarchBirthday(int year, CountryCode countryCode)
+        private Holiday MonarchBirthday(int year, CountryCode countryCode)
         {
             var name = "Queen's Birthday";
             if (year >= 2023)
@@ -184,16 +184,16 @@ namespace Nager.Date.HolidayProviders
             }
 
             var monarchBirthday = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
-            return new PublicHoliday(monarchBirthday, name, name, countryCode);
+            return new Holiday(monarchBirthday, name, name, countryCode);
         }
 
-        private PublicHoliday MemorialDayForQueenElizabeth(int year, CountryCode countryCode)
+        private Holiday MemorialDayForQueenElizabeth(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
                 //Public Holiday on 26 September to mark passing of Queen Elizabeth II
                 //https://www.beehive.govt.nz/release/public-holiday-26-september-mark-passing-queen-elizabeth-ii
-                return new PublicHoliday(year, 9, 26, "Queen Elizabeth II Memorial Day", "Queen Elizabeth II Memorial Day", countryCode);
+                return new Holiday(year, 9, 26, "Queen Elizabeth II Memorial Day", "Queen Elizabeth II Memorial Day", countryCode);
             }
 
             return null;

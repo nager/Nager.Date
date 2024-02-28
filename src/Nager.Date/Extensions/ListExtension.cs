@@ -6,8 +6,8 @@ namespace Nager.Date.Extensions
     internal static class ListExtension
     {
         internal static void AddIfNotNull(
-            this List<PublicHoliday> holidays,
-            PublicHoliday publicHoliday)
+            this List<Holiday> holidays,
+            Holiday publicHoliday)
         {
             if (publicHoliday == null)
             {
@@ -18,8 +18,8 @@ namespace Nager.Date.Extensions
         }
 
         internal static void AddRangeIfNotNull(
-            this List<PublicHoliday> holidays,
-            PublicHoliday[] publicHolidays)
+            this List<Holiday> holidays,
+            Holiday[] publicHolidays)
         {
             if (publicHolidays == null)
             {

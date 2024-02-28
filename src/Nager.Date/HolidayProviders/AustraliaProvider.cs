@@ -40,7 +40,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.AU;
             var easterSunday = this._catholicProvider.EasterSunday(year);
@@ -59,27 +59,27 @@ namespace Nager.Date.HolidayProviders
             var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             var australiaDay = new DateTime(year, 1, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(newYearsDay, "New Year's Day", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(australiaDay, "Australia Day", "Australia Day", countryCode));
-            items.Add(new PublicHoliday(secondMondayInMarch, "Canberra Day", "Canberra Day", countryCode, null, new string[] { "AU-ACT" }));
-            items.Add(new PublicHoliday(secondMondayInMarch, "March Public Holiday", "March Public Holiday", countryCode, null, new string[] { "AU-SA" }));
-            items.Add(new PublicHoliday(secondMondayInMarch, "Eight Hours Day", "Eight Hours Day", countryCode, null, new string[] { "AU-TAS" }));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(newYearsDay, "New Year's Day", "New Year's Day", countryCode));
+            items.Add(new Holiday(australiaDay, "Australia Day", "Australia Day", countryCode));
+            items.Add(new Holiday(secondMondayInMarch, "Canberra Day", "Canberra Day", countryCode, null, new string[] { "AU-ACT" }));
+            items.Add(new Holiday(secondMondayInMarch, "March Public Holiday", "March Public Holiday", countryCode, null, new string[] { "AU-SA" }));
+            items.Add(new Holiday(secondMondayInMarch, "Eight Hours Day", "Eight Hours Day", countryCode, null, new string[] { "AU-TAS" }));
 
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Easter Eve", "Holy Saturday", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-VIC" }));
+            items.Add(new Holiday(easterSunday.AddDays(-1), "Easter Eve", "Holy Saturday", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-VIC" }));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
-            items.Add(new PublicHoliday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode));
-            items.Add(new PublicHoliday(firstMondayInMay, "May Day", "May Day", countryCode, null, new string[] { "AU-NT" }));
+            items.Add(new Holiday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode));
+            items.Add(new Holiday(firstMondayInMay, "May Day", "May Day", countryCode, null, new string[] { "AU-NT" }));
 
-            items.Add(new PublicHoliday(firstMondayAfterOr27May, "Reconciliation Day", "Reconciliation Day", countryCode, 2018, new string[] { "AU-ACT" }));
-            items.Add(new PublicHoliday(firstMondayInJune, "Western Australia Day", "Western Australia Day", countryCode, null, new string[] { "AU-WA" }));
-            items.Add(new PublicHoliday(firstMondayInAugust, "Picnic Day", "Picnic Day", countryCode, null, new string[] { "AU-NT" }));
+            items.Add(new Holiday(firstMondayAfterOr27May, "Reconciliation Day", "Reconciliation Day", countryCode, 2018, new string[] { "AU-ACT" }));
+            items.Add(new Holiday(firstMondayInJune, "Western Australia Day", "Western Australia Day", countryCode, null, new string[] { "AU-WA" }));
+            items.Add(new Holiday(firstMondayInAugust, "Picnic Day", "Picnic Day", countryCode, null, new string[] { "AU-NT" }));
 
-            items.Add(new PublicHoliday(firstTuesdayInNovember, "Melbourne Cup", "Melbourne Cup", countryCode, null, new string[] { "AU-VIC" }));
+            items.Add(new Holiday(firstTuesdayInNovember, "Melbourne Cup", "Melbourne Cup", countryCode, null, new string[] { "AU-VIC" }));
 
-            items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
-            items.Add(new PublicHoliday(boxingDay, "Boxing Day", "St. Stephen's Day", countryCode));
+            items.Add(new Holiday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
+            items.Add(new Holiday(boxingDay, "Boxing Day", "St. Stephen's Day", countryCode));
 
             items.AddRangeIfNotNull(this.LabourDay(year, countryCode));
             items.AddIfNotNull(this.MourningForQueenElizabeth(year, countryCode));
@@ -89,7 +89,7 @@ namespace Nager.Date.HolidayProviders
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday EasterSunday(int year, CountryCode countryCode)
+        private Holiday EasterSunday(int year, CountryCode countryCode)
         {
             var counties = new [] { "AU-ACT", "AU-NSW", "AU-VIC" };
             if (year >= 2022)
@@ -100,23 +100,23 @@ namespace Nager.Date.HolidayProviders
             return this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode).SetCounties(counties);
         }
 
-        private PublicHoliday[] LabourDay(int year, CountryCode countryCode)
+        private Holiday[] LabourDay(int year, CountryCode countryCode)
         {
             var firstMondayInMarch = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.First);
             var secondMondayInMarch = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
             var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
             var firstMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
 
-            return new PublicHoliday[]
+            return new Holiday[]
             {
-                new PublicHoliday(firstMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-WA" }),
-                new PublicHoliday(secondMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-VIC" }),
-                new PublicHoliday(firstMondayInMay, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-QLD" }),
-                new PublicHoliday(firstMondayInOctober, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-SA" })
+                new Holiday(firstMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-WA" }),
+                new Holiday(secondMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-VIC" }),
+                new Holiday(firstMondayInMay, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-QLD" }),
+                new Holiday(firstMondayInOctober, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-SA" })
             };
         }
 
-        private PublicHoliday[] MonarchBirthday(int year, CountryCode countryCode)
+        private Holiday[] MonarchBirthday(int year, CountryCode countryCode)
         {
             var name = "Queen's Birthday";
             if (year >= 2023)
@@ -127,20 +127,20 @@ namespace Nager.Date.HolidayProviders
             var secondMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
             var firstMondayInOctober = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
 
-            return new PublicHoliday[]
+            return new Holiday[]
             {
-                new PublicHoliday(secondMondayInJune, name, name, countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-SA", "AU-TAS", "AU-VIC" }),
-                new PublicHoliday(firstMondayInOctober, name, name, countryCode, null, new string[] { "AU-QLD" })
+                new Holiday(secondMondayInJune, name, name, countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-SA", "AU-TAS", "AU-VIC" }),
+                new Holiday(firstMondayInOctober, name, name, countryCode, null, new string[] { "AU-QLD" })
             };
         }
 
-        private PublicHoliday MourningForQueenElizabeth(int year, CountryCode countryCode)
+        private Holiday MourningForQueenElizabeth(int year, CountryCode countryCode)
         {
             if (year == 2022)
             {
                 //Australia's national day of mourning for Queen Elizabeth II to be public holiday
                 //https://www.abc.net.au/news/2022-09-11/national-day-of-mourning-queen-death-to-be-public-holiday/101427050
-                return new PublicHoliday(year, 9, 22, "National Day of Mourning", "National Day of Mourning", countryCode);
+                return new Holiday(year, 9, 22, "National Day of Mourning", "National Day of Mourning", countryCode);
             }
 
             return null;

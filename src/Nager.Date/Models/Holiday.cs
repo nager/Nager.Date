@@ -6,7 +6,7 @@ namespace Nager.Date.Models
     /// <summary>
     /// Public Holiday
     /// </summary>
-    public class PublicHoliday
+    public class Holiday
     {
         /// <summary>
         /// The date
@@ -47,7 +47,7 @@ namespace Nager.Date.Models
         /// <summary>
         /// A list of valid public holiday types
         /// </summary>
-        public PublicHolidayType HolidayTypes { get; private set; }
+        public HolidayTypes HolidayTypes { get; private set; }
 
         /// <summary>
         /// The launch year of the public holiday
@@ -66,7 +66,7 @@ namespace Nager.Date.Models
         /// <param name="launchYear"></param>
         /// <param name="counties">ISO-3166-2</param>
         /// <param name="type">The type of the public holiday</param>
-        public PublicHoliday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, PublicHolidayType type = PublicHolidayType.Public)
+        public Holiday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, HolidayTypes type = HolidayTypes.Public)
         {
             this.Date = new DateTime(year, month, day);
             this.LocalName = localName;
@@ -91,7 +91,7 @@ namespace Nager.Date.Models
         /// <param name="launchYear"></param>
         /// <param name="counties">ISO-3166-2</param>
         /// /// <param name="type">The type of the public holiday</param>
-        public PublicHoliday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, PublicHolidayType type = PublicHolidayType.Public)
+        public Holiday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, HolidayTypes type = HolidayTypes.Public)
         {
             this.Date = date;
             this.LocalName = localName;
@@ -115,35 +115,35 @@ namespace Nager.Date.Models
             return $"{this.Date:yyyy-MM-dd} {this.Name}";
         }
 
-        internal PublicHoliday SetCounties(params string[] counties)
+        internal Holiday SetCounties(params string[] counties)
         {
             this.SubdivisionCodes = counties;
 
             return this;
         }
 
-        internal PublicHoliday SetType(PublicHolidayType publicHolidayType)
+        internal Holiday SetType(HolidayTypes publicHolidayType)
         {
             this.HolidayTypes = publicHolidayType;
 
             return this;
         }
 
-        internal PublicHoliday SetLaunchYear(int launchYear)
+        internal Holiday SetLaunchYear(int launchYear)
         {
             this.LaunchYear = launchYear;
 
             return this;
         }
 
-        internal PublicHoliday Shift(Func<DateTime, DateTime> shiftSaturday, Func<DateTime, DateTime> shiftSunday)
+        internal Holiday Shift(Func<DateTime, DateTime> shiftSaturday, Func<DateTime, DateTime> shiftSunday)
         {
             this.Date = this.Date.Shift(shiftSaturday, shiftSunday);
 
             return this;
         }
 
-        internal PublicHoliday ShiftWeekdays(Func<DateTime, DateTime> monday = null, Func<DateTime, DateTime> tuesday = null, Func<DateTime, DateTime> wednesday = null, Func<DateTime, DateTime> thursday = null, Func<DateTime, DateTime> friday = null)
+        internal Holiday ShiftWeekdays(Func<DateTime, DateTime> monday = null, Func<DateTime, DateTime> tuesday = null, Func<DateTime, DateTime> wednesday = null, Func<DateTime, DateTime> thursday = null, Func<DateTime, DateTime> friday = null)
         {
             this.Date = this.Date.ShiftWeekdays(monday, tuesday, wednesday, thursday, friday);
 

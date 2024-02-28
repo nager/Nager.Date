@@ -17,7 +17,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             //TODO: Add Lunar Calendar support
             //Add Tết (Tết Nguyên Đán)
@@ -25,11 +25,11 @@ namespace Nager.Date.HolidayProviders
 
             var countryCode = CountryCode.VN;
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 1, "Tết dương lịch", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(year, 4, 30, "Ngày Giải phóng miền Nam, thống nhất đất nước", "Reunification Day", countryCode));
-            items.Add(new PublicHoliday(year, 5, 1, "Ngày Quốc tế lao động", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(year, 9, 2, "Quốc khánh", "National Day", countryCode));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(year, 1, 1, "Tết dương lịch", "New Year's Day", countryCode));
+            items.Add(new Holiday(year, 4, 30, "Ngày Giải phóng miền Nam, thống nhất đất nước", "Reunification Day", countryCode));
+            items.Add(new Holiday(year, 5, 1, "Ngày Quốc tế lao động", "Labour Day", countryCode));
+            items.Add(new Holiday(year, 9, 2, "Quốc khánh", "National Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

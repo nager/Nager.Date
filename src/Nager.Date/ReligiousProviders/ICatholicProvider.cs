@@ -29,7 +29,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Catholic Maundy Thursday for given year and country</returns>
-        PublicHoliday MaundyThursday(string localName, int year, CountryCode countryCode);
+        Holiday MaundyThursday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Good Friday
@@ -38,7 +38,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Catholic Good Friday for given year and country</returns>
-        PublicHoliday GoodFriday(string localName, int year, CountryCode countryCode);
+        Holiday GoodFriday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Easter Sunday
@@ -47,7 +47,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Catholic Easter Sunday for given year and country</returns>
-        PublicHoliday EasterSunday(string localName, int year, CountryCode countryCode);
+        Holiday EasterSunday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Easter Monday
@@ -56,7 +56,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Catholic Easter Monday for given year and country</returns>
-        PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode);
+        Holiday EasterMonday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Ascension Day
@@ -65,7 +65,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Ascension Day for given year and country</returns>
-        PublicHoliday AscensionDay(string localName, int year, CountryCode countryCode);
+        Holiday AscensionDay(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Pentecost
@@ -74,7 +74,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Pentecost for given year and country</returns>
-        PublicHoliday Pentecost(string localName, int year, CountryCode countryCode);
+        Holiday Pentecost(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Whit Monday
@@ -83,7 +83,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Whit Monday for given year and country</returns>
-        PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode);
+        Holiday WhitMonday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Corpus Christi
@@ -92,6 +92,6 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Corpus Christi for given year and country</returns>
-        PublicHoliday CorpusChristi(string localName, int year, CountryCode countryCode);
+        Holiday CorpusChristi(string localName, int year, CountryCode countryCode);
     }
 }

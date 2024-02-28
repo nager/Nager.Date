@@ -47,32 +47,32 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.CL;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var items = new List<PublicHoliday>();
+            var items = new List<Holiday>();
 
             var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
-            items.Add(new PublicHoliday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
+            items.Add(new Holiday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Sábado Santo", "Holy Saturday", countryCode));
-            items.Add(new PublicHoliday(year, 5, 1, "Día del Trabajo", "Labour Day", countryCode));
-            items.Add(new PublicHoliday(year, 5, 21, "Día de las Glorias Navales", "Navy Day", countryCode));
-            items.Add(new PublicHoliday(year, 6, 7, "Asalto y Toma del Morro de Arica", "Battle of Arica", countryCode, null, new string[] { "CL-AP" }));
+            items.Add(new Holiday(easterSunday.AddDays(-1), "Sábado Santo", "Holy Saturday", countryCode));
+            items.Add(new Holiday(year, 5, 1, "Día del Trabajo", "Labour Day", countryCode));
+            items.Add(new Holiday(year, 5, 21, "Día de las Glorias Navales", "Navy Day", countryCode));
+            items.Add(new Holiday(year, 6, 7, "Asalto y Toma del Morro de Arica", "Battle of Arica", countryCode, null, new string[] { "CL-AP" }));
 
             //TODO:National Day of Aboriginal Peoples (This holiday is to be observed on each Winter Solstice.)
             //The winter solstice, also called the hibernal solstice, occurs when either of Earth's poles reaches its maximum tilt away from the Sun
 
-            items.Add(new PublicHoliday(year, 7, 16, "Virgen del Carmen", "Our Lady of Mount Carmel", countryCode, launchYear: 2007));
-            items.Add(new PublicHoliday(year, 8, 15, "Asunción de la Virgen", "Assumption of Mary", countryCode));
-            items.Add(new PublicHoliday(year, 9, 18, "Fiestas Patrias", "National holiday", countryCode));
-            items.Add(new PublicHoliday(year, 9, 19, "Día de las Glorias del Ejército", "Army Day", countryCode));
-            items.Add(new PublicHoliday(year, 11, 1, "Día de Todos los Santos", "All Saints", countryCode));
-            items.Add(new PublicHoliday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "Navidad / Natividad del Señor", "Christmas Day", countryCode));
+            items.Add(new Holiday(year, 7, 16, "Virgen del Carmen", "Our Lady of Mount Carmel", countryCode, launchYear: 2007));
+            items.Add(new Holiday(year, 8, 15, "Asunción de la Virgen", "Assumption of Mary", countryCode));
+            items.Add(new Holiday(year, 9, 18, "Fiestas Patrias", "National holiday", countryCode));
+            items.Add(new Holiday(year, 9, 19, "Día de las Glorias del Ejército", "Army Day", countryCode));
+            items.Add(new Holiday(year, 11, 1, "Día de Todos los Santos", "All Saints", countryCode));
+            items.Add(new Holiday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
+            items.Add(new Holiday(year, 12, 25, "Navidad / Natividad del Señor", "Christmas Day", countryCode));
 
             items.AddIfNotNull(this.SaintPeterAndSaintPaul(year, countryCode));
             items.AddIfNotNull(this.ColumbusDay(year, countryCode));
@@ -83,7 +83,7 @@ namespace Nager.Date.HolidayProviders
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday SaintPeterAndSaintPaul(int year, CountryCode countryCode)
+        private Holiday SaintPeterAndSaintPaul(int year, CountryCode countryCode)
         {
             var date = new DateTime(year, 6, 27);
 
@@ -107,10 +107,10 @@ namespace Nager.Date.HolidayProviders
                     break;
             }
 
-            return new PublicHoliday(date, "San Pedro y San Pablo", "Saint Peter and Saint Paul", countryCode);
+            return new Holiday(date, "San Pedro y San Pablo", "Saint Peter and Saint Paul", countryCode);
         }
 
-        private PublicHoliday ColumbusDay(int year, CountryCode countryCode)
+        private Holiday ColumbusDay(int year, CountryCode countryCode)
         {
             var date = new DateTime(year, 10, 12);
 
@@ -134,10 +134,10 @@ namespace Nager.Date.HolidayProviders
                     break;
             }
 
-            return new PublicHoliday(date, "Día del Descubrimiento de Dos Mundos", "Columbus Day", countryCode);
+            return new Holiday(date, "Día del Descubrimiento de Dos Mundos", "Columbus Day", countryCode);
         }
 
-        private PublicHoliday ReformationDay(int year, CountryCode countryCode)
+        private Holiday ReformationDay(int year, CountryCode countryCode)
         {
             var date = new DateTime(year, 10, 31);
 
@@ -153,17 +153,17 @@ namespace Nager.Date.HolidayProviders
                     break;
             }
 
-            return new PublicHoliday(date, "Día Nacional de las Iglesias Evangélicas y Protestantes", "Reformation Day", countryCode);
+            return new Holiday(date, "Día Nacional de las Iglesias Evangélicas y Protestantes", "Reformation Day", countryCode);
         }
 
-        private PublicHoliday NationalPlebiscite(int year, CountryCode countryCode)
+        private Holiday NationalPlebiscite(int year, CountryCode countryCode)
         {
             if (year != 2022)
             {
                 return null;
             }
 
-            return new PublicHoliday(year, 9, 4, "Plebiscito nacional", "National plebiscite", countryCode);
+            return new Holiday(year, 9, 4, "Plebiscito nacional", "National plebiscite", countryCode);
         }
 
         private DateTime? GetWinterSolstice(int year)
@@ -191,7 +191,7 @@ namespace Nager.Date.HolidayProviders
             }
         }
 
-        private PublicHoliday NationalDayOfIndigenousPeoples(int year, CountryCode countryCode)
+        private Holiday NationalDayOfIndigenousPeoples(int year, CountryCode countryCode)
         {
             var winterSolstice = this.GetWinterSolstice(year);
             if (winterSolstice == null)
@@ -204,7 +204,7 @@ namespace Nager.Date.HolidayProviders
              * Fecha de promulgación: 2021-06-17
             */
 
-            return new PublicHoliday(winterSolstice.Value, "Día Nacional de los Pueblos Indígenas", "National Day of Indigenous Peoples", countryCode);
+            return new Holiday(winterSolstice.Value, "Día Nacional de los Pueblos Indígenas", "National Day of Indigenous Peoples", countryCode);
         }
 
         ///<inheritdoc/>

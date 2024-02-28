@@ -22,7 +22,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Orthodox Good Friday for given year and country</returns>
-        PublicHoliday GoodFriday(string localName, int year, CountryCode countryCode);
+        Holiday GoodFriday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Holy Saturday
@@ -31,7 +31,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Orthodox Holy Saturday for given year and country</returns>
-        PublicHoliday HolySaturday(string localName, int year, CountryCode countryCode);
+        Holiday HolySaturday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Easter Sunday
@@ -40,7 +40,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Orthodox Easter Sunday for given year and country</returns>
-        PublicHoliday EasterSunday(string localName, int year, CountryCode countryCode);
+        Holiday EasterSunday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Easter Monday
@@ -49,7 +49,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Orthodox Easter Monday for given year and country</returns>
-        PublicHoliday EasterMonday(string localName, int year, CountryCode countryCode);
+        Holiday EasterMonday(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Pentecost
@@ -58,7 +58,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="year"></param>
         /// <param name="countryCode"></param>
         /// <returns>Public holiday info for Orthodox Pentecost for given year and country</returns>
-        PublicHoliday Pentecost(string localName, int year, CountryCode countryCode);
+        Holiday Pentecost(string localName, int year, CountryCode countryCode);
 
         /// <summary>
         /// Get Whit Monday / Pentecost Monday
@@ -68,6 +68,6 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="countryCode"></param>
         /// <param name="counties"></param>
         /// <returns>Public holiday info for Orthodox Whit Monday / Pentecost Monday for given year, country and counties</returns>
-        PublicHoliday WhitMonday(string localName, int year, CountryCode countryCode, string[] counties = null);
+        Holiday WhitMonday(string localName, int year, CountryCode countryCode, string[] counties = null);
     }
 }

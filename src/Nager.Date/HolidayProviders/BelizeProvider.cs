@@ -24,17 +24,17 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.BZ;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var items = new List<PublicHoliday>();
+            var items = new List<Holiday>();
 
             #region New Year's Day
 
             var newYearsDay = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday);
-            items.Add(new PublicHoliday(newYearsDay, "New Year's Day", "New Year's Day", countryCode));
+            items.Add(new Holiday(newYearsDay, "New Year's Day", "New Year's Day", countryCode));
 
             #endregion
 
@@ -45,19 +45,19 @@ namespace Nager.Date.HolidayProviders
                 wednesday: wednesday => wednesday.AddDays(-2),
                 thursday: thursday => thursday.AddDays(-3)
                 );
-            items.Add(new PublicHoliday(baronBlissDay, "Baron Bliss Day", "Baron Bliss Day", countryCode));
+            items.Add(new Holiday(baronBlissDay, "Baron Bliss Day", "Baron Bliss Day", countryCode));
 
             #endregion
 
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            items.Add(new PublicHoliday(easterSunday.AddDays(-1), "Holy Saturday", "Holy Saturday", countryCode));
+            items.Add(new Holiday(easterSunday.AddDays(-1), "Holy Saturday", "Holy Saturday", countryCode));
             items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode));
             items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
 
             #region Labour Day
 
             var labourDay = new DateTime(year, 5, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday);
-            items.Add(new PublicHoliday(labourDay, "Labour Day", "Labour Day", countryCode));
+            items.Add(new Holiday(labourDay, "Labour Day", "Labour Day", countryCode));
 
             #endregion
 
@@ -68,21 +68,21 @@ namespace Nager.Date.HolidayProviders
                 wednesday: wednesday => wednesday.AddDays(-2),
                 thursday: thursday => thursday.AddDays(-3)
                 );
-            items.Add(new PublicHoliday(commonwealthDay, "Commonwealth Day", "Commonwealth Day", countryCode));
+            items.Add(new Holiday(commonwealthDay, "Commonwealth Day", "Commonwealth Day", countryCode));
 
             #endregion
 
             #region Saint George's Caye Day
 
             var saintGeorgesCayeDay = new DateTime(year, 9, 10).Shift(saturday => saturday.AddDays(2), sunday => sunday);
-            items.Add(new PublicHoliday(saintGeorgesCayeDay, "Saint George's Caye Day", "Saint George's Caye Day", countryCode));
+            items.Add(new Holiday(saintGeorgesCayeDay, "Saint George's Caye Day", "Saint George's Caye Day", countryCode));
 
             #endregion
 
             #region Independence Day
 
             var independenceDay = new DateTime(year, 9, 21).Shift(saturday => saturday.AddDays(2), sunday => sunday);
-            items.Add(new PublicHoliday(independenceDay, "Independence Day", "Independence Day", countryCode));
+            items.Add(new Holiday(independenceDay, "Independence Day", "Independence Day", countryCode));
 
             #endregion
 
@@ -93,28 +93,28 @@ namespace Nager.Date.HolidayProviders
                 wednesday: wednesday => wednesday.AddDays(-2),
                 thursday: thursday => thursday.AddDays(-3)
                 );
-            items.Add(new PublicHoliday(dayOfTheAmericas, "Day of the Americas", "Day of the Americas", countryCode));
+            items.Add(new Holiday(dayOfTheAmericas, "Day of the Americas", "Day of the Americas", countryCode));
 
             #endregion
 
             #region Garifuna Settlement Day
 
             var garifunaSettlementDay = new DateTime(year, 11, 19).Shift(saturday => saturday.AddDays(2), sunday => sunday);
-            items.Add(new PublicHoliday(garifunaSettlementDay, "Garifuna Settlement Day", "Garifuna Settlement Day", countryCode));
+            items.Add(new Holiday(garifunaSettlementDay, "Garifuna Settlement Day", "Garifuna Settlement Day", countryCode));
 
             #endregion
 
             #region Christmas Day
 
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday);
-            items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
+            items.Add(new Holiday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
 
             #endregion
 
             #region Boxing Day
 
             var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday);
-            items.Add(new PublicHoliday(boxingDay, "Boxing Day", "Boxing Day", countryCode));
+            items.Add(new Holiday(boxingDay, "Boxing Day", "Boxing Day", countryCode));
 
             #endregion
 

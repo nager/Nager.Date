@@ -13,10 +13,10 @@ namespace Nager.Date.HolidayProviders
     internal class SouthKoreaProvider : IHolidayProvider
     {
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.KR;
-            var items = new List<PublicHoliday>();
+            var items = new List<Holiday>();
 
             var koreanCalendar = new KoreanLunisolarCalendar();
             if (year >= koreanCalendar.MinSupportedDateTime.Year && year < koreanCalendar.MaxSupportedDateTime.Year)
@@ -36,26 +36,26 @@ namespace Nager.Date.HolidayProviders
                 var chuseok2 = chuseok1.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
                 var chuseok3 = chuseok2.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
-                items.Add(new PublicHoliday(lunarNewYear1, "설날", "Lunar New Year", countryCode));
-                items.Add(new PublicHoliday(lunarNewYear2, "설날", "Lunar New Year", countryCode));
-                items.Add(new PublicHoliday(lunarNewYear3, "설날", "Lunar New Year", countryCode));
-                items.Add(new PublicHoliday(buddhaBday, "부처님 오신 날", "Buddha's Birthday", countryCode));
-                items.Add(new PublicHoliday(chuseok1, "추석", "Chuseok", countryCode));
-                items.Add(new PublicHoliday(chuseok2, "추석", "Chuseok", countryCode));
-                items.Add(new PublicHoliday(chuseok3, "추석", "Chuseok", countryCode));
+                items.Add(new Holiday(lunarNewYear1, "설날", "Lunar New Year", countryCode));
+                items.Add(new Holiday(lunarNewYear2, "설날", "Lunar New Year", countryCode));
+                items.Add(new Holiday(lunarNewYear3, "설날", "Lunar New Year", countryCode));
+                items.Add(new Holiday(buddhaBday, "부처님 오신 날", "Buddha's Birthday", countryCode));
+                items.Add(new Holiday(chuseok1, "추석", "Chuseok", countryCode));
+                items.Add(new Holiday(chuseok2, "추석", "Chuseok", countryCode));
+                items.Add(new Holiday(chuseok3, "추석", "Chuseok", countryCode));
             }
 
-            items.Add(new PublicHoliday(year, 1, 1, "새해", "New Year's Day", countryCode));
-            items.Add(new PublicHoliday(year, 3, 1, "3·1절", "Independence Movement Day", countryCode));
+            items.Add(new Holiday(year, 1, 1, "새해", "New Year's Day", countryCode));
+            items.Add(new Holiday(year, 3, 1, "3·1절", "Independence Movement Day", countryCode));
 
             var childrenDay = new DateTime(year, 5, 5).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1)); //Substitute holiday
-            items.Add(new PublicHoliday(childrenDay, "어린이날", "Children's Day", countryCode)); //Has substitute holiday
+            items.Add(new Holiday(childrenDay, "어린이날", "Children's Day", countryCode)); //Has substitute holiday
 
-            items.Add(new PublicHoliday(year, 6, 6, "현충일", "Memorial Day", countryCode));
-            items.Add(new PublicHoliday(year, 8, 15, "광복절", "Liberation Day", countryCode));
-            items.Add(new PublicHoliday(year, 10, 3, "개천절", "National Foundation Day", countryCode));
-            items.Add(new PublicHoliday(year, 10, 9, "한글날", "Hangul Day", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "크리스마스", "Christmas Day", countryCode));
+            items.Add(new Holiday(year, 6, 6, "현충일", "Memorial Day", countryCode));
+            items.Add(new Holiday(year, 8, 15, "광복절", "Liberation Day", countryCode));
+            items.Add(new Holiday(year, 10, 3, "개천절", "National Foundation Day", countryCode));
+            items.Add(new Holiday(year, 10, 9, "한글날", "Hangul Day", countryCode));
+            items.Add(new Holiday(year, 12, 25, "크리스마스", "Christmas Day", countryCode));
 
             return items.OrderBy(o => o.Date);
         }

@@ -24,7 +24,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var countryCode = CountryCode.ZA;
             var easterSunday = this._catholicProvider.EasterSunday(year);
@@ -40,30 +40,30 @@ namespace Nager.Date.HolidayProviders
             var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(2));
             var sanktStephensDay = new DateTime(year, 12, 26).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(newYearsDay, "New Year's Day", "New Year's Day", countryCode, 1910));
-            items.Add(new PublicHoliday(humanRightsDay, "Human Rights Day", "Human Rights Day", countryCode, 1990));
+            var items = new List<Holiday>();
+            items.Add(new Holiday(newYearsDay, "New Year's Day", "New Year's Day", countryCode, 1910));
+            items.Add(new Holiday(humanRightsDay, "Human Rights Day", "Human Rights Day", countryCode, 1990));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode).SetLaunchYear(1910));
-            items.Add(new PublicHoliday(easterSunday.AddDays(1), "Family Day", "Family Day", countryCode, 1910));
-            items.Add(new PublicHoliday(freedomDay, "Freedom Day", "Freedom Day", countryCode, 1994));
-            items.Add(new PublicHoliday(workersDay, "Workers' Day", "Workers' Day", countryCode, 1910));
-            items.Add(new PublicHoliday(youthDay, "Youth Day", "Youth Day", countryCode, 1995));
-            items.Add(new PublicHoliday(nationalWomensDay, "National Women's Day", "National Women's Day", countryCode, 1995));
-            items.Add(new PublicHoliday(heritageDay, "Heritage Day", "Heritage Day", countryCode, 1995));
-            items.Add(new PublicHoliday(dayOfReconciliation, "Day of Reconciliation", "Day of Reconciliation", countryCode, 1995));
-            items.Add(new PublicHoliday(christmasDay, "Christmas Day", "Christmas Day", countryCode, 1910));
-            items.Add(new PublicHoliday(sanktStephensDay, "Day of Goodwill", "St. Stephen's Day", countryCode, 1910));
+            items.Add(new Holiday(easterSunday.AddDays(1), "Family Day", "Family Day", countryCode, 1910));
+            items.Add(new Holiday(freedomDay, "Freedom Day", "Freedom Day", countryCode, 1994));
+            items.Add(new Holiday(workersDay, "Workers' Day", "Workers' Day", countryCode, 1910));
+            items.Add(new Holiday(youthDay, "Youth Day", "Youth Day", countryCode, 1995));
+            items.Add(new Holiday(nationalWomensDay, "National Women's Day", "National Women's Day", countryCode, 1995));
+            items.Add(new Holiday(heritageDay, "Heritage Day", "Heritage Day", countryCode, 1995));
+            items.Add(new Holiday(dayOfReconciliation, "Day of Reconciliation", "Day of Reconciliation", countryCode, 1995));
+            items.Add(new Holiday(christmasDay, "Christmas Day", "Christmas Day", countryCode, 1910));
+            items.Add(new Holiday(sanktStephensDay, "Day of Goodwill", "St. Stephen's Day", countryCode, 1910));
 
             items.AddIfNotNull(this.SpringboksVictory(year, countryCode));
 
             return items.OrderBy(o => o.Date);
         }
 
-        private PublicHoliday SpringboksVictory(int year, CountryCode countryCode)
+        private Holiday SpringboksVictory(int year, CountryCode countryCode)
         {
             if (year == 2023)
             {
-                return new PublicHoliday(year, 12, 15, "Springboks Victory", "Springboks Victory", countryCode);
+                return new Holiday(year, 12, 15, "Springboks Victory", "Springboks Victory", countryCode);
             }
 
             return null;

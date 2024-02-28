@@ -24,9 +24,9 @@ namespace Nager.Date.HolidayProviders
         private NoHolidaysProvider() { }
 
         ///<inheritdoc/>
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
-            return Enumerable.Empty<PublicHoliday>();
+            return Enumerable.Empty<Holiday>();
         }
 
         ///<inheritdoc/>
