@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Turkey
     /// </summary>
-    internal class TurkeyProvider : IPublicHolidayProvider
+    internal class TurkeyProvider : IHolidayProvider
     {
         private readonly UmAlQuraCalendar _umAlQuraCalendar;
 

@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -10,7 +9,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Switzerland
     /// </summary>
-    internal class SwitzerlandProvider : IPublicHolidayProvider, ICountyProvider
+    internal class SwitzerlandProvider : IHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -24,7 +23,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IDictionary<string, string> GetCounties()
+        public IDictionary<string, string> GetSubdivisionCodes()
         {
             return new Dictionary<string, string>
             {

@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Svalbard and Jan Mayen
     /// </summary>
-    internal class SvalbardAndJanMayenProvider : IPublicHolidayProvider
+    internal class SvalbardAndJanMayenProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

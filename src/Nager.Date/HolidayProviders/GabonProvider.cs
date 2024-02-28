@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Gabon
     /// </summary>
-    internal class GabonProvider : IPublicHolidayProvider
+    internal class GabonProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

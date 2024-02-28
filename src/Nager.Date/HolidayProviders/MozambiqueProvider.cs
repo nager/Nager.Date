@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Mozambique
     /// </summary>
-    internal class MozambiqueProvider : IPublicHolidayProvider, ICountyProvider
+    internal class MozambiqueProvider : IHolidayProvider, ISubdivisionCodesProvider
     {
         /// <summary>
         /// MozambiqueProvider
@@ -18,7 +17,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IDictionary<string, string> GetCounties()
+        public IDictionary<string, string> GetSubdivisionCodes()
         {
             //List of Provinces https://en.wikipedia.org/wiki/Provinces_of_Mozambique
 

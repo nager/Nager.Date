@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nager.Date.Contract;
+using Nager.Date.HolidayProviders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +37,8 @@ namespace Nager.Date.UnitTest.Common
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
                 var provider = DateSystem.GetPublicHolidayProvider(countryCode);
-                var counties = provider is ICountyProvider countyProvider
-                    ? countyProvider.GetCounties()
+                var subdivisionCodes = provider is ISubdivisionCodesProvider subdivisionCodesProvider
+                    ? subdivisionCodesProvider.GetSubdivisionCodes()
                     : new Dictionary<string, string>();
 
                 var startYear = DateTime.Today.Year - 100;
@@ -54,10 +54,10 @@ namespace Nager.Date.UnitTest.Common
                             continue;
                         }
 
-                        if (publicHoliday.SubdivisionCodes.Count(o => counties.Keys.Contains(o)) != publicHoliday.SubdivisionCodes.Length)
+                        if (publicHoliday.SubdivisionCodes.Count(o => subdivisionCodes.Keys.Contains(o)) != publicHoliday.SubdivisionCodes.Length)
                         {
-                            var diff = publicHoliday.SubdivisionCodes.Except(counties.Keys);
-                            failures.Add($"Unknown county in {provider} \"{publicHoliday.Name}\" {string.Join(',', diff)}");
+                            var diff = publicHoliday.SubdivisionCodes.Except(subdivisionCodes.Keys);
+                            failures.Add($"Unknown subdivisionCode in {provider} \"{publicHoliday.Name}\" {string.Join(',', diff)}");
                         }
                     }
                 }

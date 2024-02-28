@@ -1,4 +1,4 @@
-﻿using Nager.Date.Contract;
+using Nager.Date.HolidayProviders;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Nager.Date.UnitTest
 {
-    public class MockPublicHolidayProvider : IPublicHolidayProvider
+    public class MockPublicHolidayProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -11,7 +10,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Puerto Rico
     /// </summary>
-    internal class PuertoRicoProvider : IPublicHolidayProvider
+    internal class PuertoRicoProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

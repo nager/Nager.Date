@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Bosnia and Herzegovina
     /// </summary>
-    internal class BosniaAndHerzegovinaProvider : IPublicHolidayProvider, ICountyProvider
+    internal class BosniaAndHerzegovinaProvider : IHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
 
@@ -23,7 +22,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         ///<inheritdoc/>
-        public IDictionary<string, string> GetCounties()
+        public IDictionary<string, string> GetSubdivisionCodes()
         {
             return new Dictionary<string, string>
             {

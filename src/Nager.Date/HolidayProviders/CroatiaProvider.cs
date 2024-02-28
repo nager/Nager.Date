@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -10,7 +9,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Croatia
     /// </summary>
-    internal class CroatiaProvider : IPublicHolidayProvider
+    internal class CroatiaProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Russia
     /// </summary>
-    internal class RussiaProvider : IPublicHolidayProvider
+    internal class RussiaProvider : IHolidayProvider
     {
         /// <summary>
         /// RussiaProvider

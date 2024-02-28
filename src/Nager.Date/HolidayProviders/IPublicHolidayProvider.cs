@@ -1,12 +1,12 @@
 using Nager.Date.Models;
 using System.Collections.Generic;
 
-namespace Nager.Date.Contract
+namespace Nager.Date.HolidayProviders
 {
     /// <summary>
-    /// Public Holiday Provider Interface
+    /// Holiday Provider Interface
     /// </summary>
-    public interface IPublicHolidayProvider
+    public interface IHolidayProvider
     {
         /// <summary>
         /// Get Holidays of the given year
@@ -16,7 +16,7 @@ namespace Nager.Date.Contract
         IEnumerable<PublicHoliday> GetHolidays(int year);
 
         /// <summary>
-        ///Get the Holiday Sources
+        /// Get the Holiday Sources
         /// </summary>
         /// <returns>Set of public holiday sources (links)</returns>
         IEnumerable<string> GetSources();

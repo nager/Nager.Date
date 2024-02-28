@@ -1,4 +1,3 @@
-using Nager.Date.Contract;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
@@ -9,15 +8,15 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// NoHolidaysProvider
     /// </summary>
-    public class NoHolidaysProvider : IPublicHolidayProvider
+    public class NoHolidaysProvider : IHolidayProvider
     {
-        private static readonly Lazy<IPublicHolidayProvider> _instance =
-            new Lazy<IPublicHolidayProvider>(() => new NoHolidaysProvider());
+        private static readonly Lazy<IHolidayProvider> _instance =
+            new Lazy<IHolidayProvider>(() => new NoHolidaysProvider());
 
         /// <summary>
         /// Gets the singleton instance of <see cref="NoHolidaysProvider"/>.
         /// </summary>
-        public static IPublicHolidayProvider Instance
+        public static IHolidayProvider Instance
         {
             get { return _instance.Value; }
         }
