@@ -1,5 +1,8 @@
 namespace Nager.Date.Models
 {
+    /// <summary>
+    /// Date Search Direction
+    /// </summary>
     internal enum DateSearchDirection
     {
         /// <summary>
