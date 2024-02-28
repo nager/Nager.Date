@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nager.Date.Contract;
-using Nager.Date.Model;
-using Nager.Date.PublicHolidays;
+using Nager.Date.HolidayProviders;
+using Nager.Date.Models;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -264,11 +264,11 @@ namespace Nager.Date.UnitTest.Common
         {
             var publicHoliday = new PublicHoliday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, null, PublicHolidayType.Public);
 
-            Assert.IsTrue(publicHoliday.Global);
+            Assert.IsTrue(publicHoliday.NationalHoliday);
 
-            publicHoliday = new PublicHoliday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, new[] { "AT-1" }, PublicHolidayType.Public);
+            publicHoliday = new PublicHoliday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, ["AT-1"], PublicHolidayType.Public);
 
-            Assert.IsFalse(publicHoliday.Global);
+            Assert.IsFalse(publicHoliday.NationalHoliday);
         }
     }
 }

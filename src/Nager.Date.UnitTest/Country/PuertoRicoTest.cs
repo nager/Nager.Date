@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nager.Date.Contract;
 using Nager.Date.Extensions;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Linq;
 

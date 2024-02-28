@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nager.Date.Contract;
 using Nager.Date.Extensions;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Linq;
 
@@ -57,9 +57,9 @@ namespace Nager.Date.UnitTest.Country
             Assert.AreEqual(1, liberationDays.Count);
             Assert.IsNotNull(liberationDay);
             Assert.AreEqual(new DateTime(2020, 5, 8), liberationDay.Date);
-            Assert.IsNotNull(liberationDay.Counties);
-            Assert.AreEqual(1, liberationDay.Counties.Length);
-            Assert.AreEqual("DE-BE", liberationDay.Counties[0]);
+            Assert.IsNotNull(liberationDay.SubdivisionCodes);
+            Assert.AreEqual(1, liberationDay.SubdivisionCodes.Length);
+            Assert.AreEqual("DE-BE", liberationDay.SubdivisionCodes[0]);
         }
 
         [TestMethod]

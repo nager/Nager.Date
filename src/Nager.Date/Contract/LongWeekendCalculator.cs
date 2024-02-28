@@ -1,4 +1,5 @@
-using Nager.Date.Model;
+using Nager.Date.Models;
+using Nager.Date.WeekendProviders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace Nager.Date.Contract
             IEnumerable<PublicHoliday> publicHolidays,
             int availableBridgeDays = 1)
         {
-            var filteredPublicHolidays = publicHolidays.Where(o => o.Global && o.Type == PublicHolidayType.Public);
+            var filteredPublicHolidays = publicHolidays.Where(o => o.NationalHoliday && o.HolidayTypes == PublicHolidayType.Public);
 
             var items = new List<LongWeekend>();
 

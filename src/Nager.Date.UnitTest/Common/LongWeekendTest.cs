@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Contract;
-using Nager.Date.Model;
+using Nager.Date.Models;
 using Nager.Date.Weekends;
 using System.Linq;
 

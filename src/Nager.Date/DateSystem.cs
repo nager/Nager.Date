@@ -1,6 +1,8 @@
 using Nager.Date.Contract;
-using Nager.Date.Model;
-using Nager.Date.PublicHolidays;
+using Nager.Date.HolidayProviders;
+using Nager.Date.Models;
+using Nager.Date.ReligiousProviders;
+using Nager.Date.WeekendProviders;
 using Nager.Date.Weekends;
 using System;
 using System.Collections.Generic;
@@ -374,9 +376,9 @@ namespace Nager.Date
         private static Func<PublicHoliday, bool> GetPublicHolidayFilter(DateTime date, string countyCode = null)
         {
             return o => o.Date == date.Date
-                        && (o.Counties == null || countyCode != null && o.Counties.Contains(countyCode))
+                        && (o.SubdivisionCodes == null || countyCode != null && o.SubdivisionCodes.Contains(countyCode))
                         && (o.LaunchYear == null || date.Year >= o.LaunchYear)
-                        && o.Type.HasFlag(PublicHolidayType.Public);
+                        && o.HolidayTypes.HasFlag(PublicHolidayType.Public);
         }
 
         /// <summary>

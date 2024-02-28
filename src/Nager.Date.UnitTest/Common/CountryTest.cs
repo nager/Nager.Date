@@ -49,14 +49,14 @@ namespace Nager.Date.UnitTest.Common
                     var publicHolidays = DateSystem.GetPublicHolidays(year, countryCode);
                     foreach (var publicHoliday in publicHolidays)
                     {
-                        if (publicHoliday.Counties == null)
+                        if (publicHoliday.SubdivisionCodes == null)
                         {
                             continue;
                         }
 
-                        if (publicHoliday.Counties.Count(o => counties.Keys.Contains(o)) != publicHoliday.Counties.Length)
+                        if (publicHoliday.SubdivisionCodes.Count(o => counties.Keys.Contains(o)) != publicHoliday.SubdivisionCodes.Length)
                         {
-                            var diff = publicHoliday.Counties.Except(counties.Keys);
+                            var diff = publicHoliday.SubdivisionCodes.Except(counties.Keys);
                             failures.Add($"Unknown county in {provider} \"{publicHoliday.Name}\" {string.Join(',', diff)}");
                         }
                     }

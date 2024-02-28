@@ -1,4 +1,4 @@
-using Nager.Date.Model;
+using Nager.Date.Models;
 using System.Collections.Generic;
 
 namespace Nager.Date.Contract

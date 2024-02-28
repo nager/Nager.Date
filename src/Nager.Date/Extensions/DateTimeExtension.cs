@@ -13,7 +13,9 @@ namespace Nager.Date.Extensions
         /// <param name="dateTime">The date</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns>True if given date is in the weekend in given country, false otherwise</returns>
-        public static bool IsWeekend(this DateTime dateTime, CountryCode countryCode)
+        public static bool IsWeekend(
+            this DateTime dateTime,
+            CountryCode countryCode)
         {
             var provider = DateSystem.GetWeekendProvider(countryCode);
             return provider.IsWeekend(dateTime);
@@ -27,7 +29,11 @@ namespace Nager.Date.Extensions
         /// <param name="sunday">shift for Sunday</param>
         /// <param name="monday">shift for Monday</param>
         /// <returns>Shifted date</returns>
-        public static DateTime Shift(this DateTime value, Func<DateTime, DateTime> saturday, Func<DateTime, DateTime> sunday, Func<DateTime, DateTime> monday = null)
+        public static DateTime Shift(
+            this DateTime value,
+            Func<DateTime, DateTime> saturday,
+            Func<DateTime, DateTime> sunday,
+            Func<DateTime, DateTime> monday = null)
         {
             switch (value.DayOfWeek)
             {
@@ -58,7 +64,10 @@ namespace Nager.Date.Extensions
         /// <param name="dayOfWeek">Weekday</param>
         /// <param name="shift"></param>
         /// <returns>Shifted date</returns>
-        public static DateTime Shift(this DateTime value, DayOfWeek dayOfWeek, Func<DateTime, DateTime> shift)
+        public static DateTime Shift(
+            this DateTime value,
+            DayOfWeek dayOfWeek,
+            Func<DateTime, DateTime> shift)
         {
             if (shift != null && value.DayOfWeek == dayOfWeek)
             {
@@ -78,7 +87,13 @@ namespace Nager.Date.Extensions
         /// <param name="thursday"></param>
         /// <param name="friday"></param>
         /// <returns>Shifted date</returns>
-        public static DateTime ShiftWeekdays(this DateTime value, Func<DateTime, DateTime> monday = null, Func<DateTime, DateTime> tuesday = null, Func<DateTime, DateTime> wednesday = null, Func<DateTime, DateTime> thursday = null, Func<DateTime, DateTime> friday = null)
+        public static DateTime ShiftWeekdays(
+            this DateTime value,
+            Func<DateTime, DateTime> monday = null,
+            Func<DateTime, DateTime> tuesday = null,
+            Func<DateTime, DateTime> wednesday = null,
+            Func<DateTime, DateTime> thursday = null,
+            Func<DateTime, DateTime> friday = null)
         {
             switch (value.DayOfWeek)
             {
@@ -123,13 +138,16 @@ namespace Nager.Date.Extensions
 
             return value;
         }
+
         /// <summary>
         /// Find the closest matching day of the week (before or after a given date)
         /// </summary>
         /// <param name="value">The starting date</param>
         /// <param name="targetDayOfWeek">The day of the week the date is shifted to</param>
         /// <returns>A Date which will be a maximum of 3 days before or after the starting date, having the specified day of the week</returns>
-        public static DateTime ShiftToClosest(this DateTime value, DayOfWeek targetDayOfWeek)
+        public static DateTime ShiftToClosest(
+            this DateTime value,
+            DayOfWeek targetDayOfWeek)
         {
             var daysDifference = targetDayOfWeek - value.DayOfWeek;
             if (daysDifference < -3) { daysDifference += 7; }
