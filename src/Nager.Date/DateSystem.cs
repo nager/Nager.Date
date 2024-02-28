@@ -710,21 +710,5 @@ namespace Nager.Date
         }
 
         #endregion
-
-        #region Long Weekends
-
-        /// <summary>
-        /// Get long weekends of a country and a given year
-        /// </summary>
-        /// <param name="year">The year</param>
-        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns>Set of long weekends for given country in a given year</returns>
-        public static IEnumerable<LongWeekend> GetLongWeekend(int year, CountryCode countryCode)
-        {
-            var calculator = new LongWeekendCalculator(GetWeekendProvider(countryCode));
-            return calculator.Calculate(GetPublicHolidays(year, countryCode));
-        }
-
-        #endregion
     }
 }
