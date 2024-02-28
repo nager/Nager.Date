@@ -122,16 +122,16 @@ namespace Nager.Date.HolidayProviders
                 case DayOfWeek.Monday:
                     break;
                 case DayOfWeek.Tuesday:
-                    date = date.AddDays(-1);
+                    date = date.AddDays(-1); //Move to Monday
                     break;
                 case DayOfWeek.Wednesday:
-                    date = date.AddDays(-2);
+                    date = date.AddDays(-2); //Move to Monday
                     break;
                 case DayOfWeek.Thursday:
-                    date = date.AddDays(-3);
+                    date = date.AddDays(-3); //Move to Monday
                     break;
                 case DayOfWeek.Friday:
-                    date = date.AddDays(1);
+                    date = date.AddDays(1); //Move to Saturday
                     break;
             }
 
