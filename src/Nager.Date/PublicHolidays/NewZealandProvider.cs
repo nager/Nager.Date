@@ -91,7 +91,7 @@ namespace Nager.Date.PublicHolidays
             #region Regional Anniversary Days
             // https://www.employment.govt.nz/leave-and-holidays/public-holidays/public-holidays-and-anniversary-dates/
             var aucklandDay = new DateTime(year, 1, 29).ShiftToClosest(DayOfWeek.Monday);
-            items.Add(new PublicHoliday(aucklandDay, "Auckland/Northland Anniversary Day", "Auckland Anniversary Day", countryCode, counties: new[] { "NZ-AUK", "NZ-NTL", "NZ-MWT", "NZ-WKO", "NZ-GIS", "NZ-BOP", "NZ-HKB" }));
+            items.Add(new PublicHoliday(aucklandDay, "Auckland/Northland Anniversary Day", "Auckland Anniversary Day", countryCode, counties: new[] { "NZ-AUK", "NZ-NTL", "NZ-WKO", "NZ-GIS", "NZ-BOP" }));
 
             var wellingtonDay = new DateTime(year, 1, 22).ShiftToClosest(DayOfWeek.Monday);
             items.Add(new PublicHoliday(wellingtonDay, "Wellington Anniversary Day", "Wellington Anniversary Day", countryCode, counties: new[] { "NZ-WGN", "NZ-MWT" }));
