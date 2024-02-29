@@ -20,54 +20,73 @@ namespace Nager.Date.ReligiousProviders
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
-        /// <param name="countryCode"></param>
+        /// <param name="observedRuleSet"></param>
         /// <returns>Public holiday info for Orthodox Good Friday for given year and country</returns>
-        Holiday GoodFriday(string localName, int year, CountryCode countryCode);
+        HolidaySpecification GoodFriday(
+            string localName,
+            int year,
+            ObservedRuleSet observedRuleSet = null);
 
         /// <summary>
         /// Get Holy Saturday
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
-        /// <param name="countryCode"></param>
+        /// <param name="observedRuleSet"></param>
         /// <returns>Public holiday info for Orthodox Holy Saturday for given year and country</returns>
-        Holiday HolySaturday(string localName, int year, CountryCode countryCode);
+        HolidaySpecification HolySaturday(
+            string localName,
+            int year,
+            ObservedRuleSet observedRuleSet = null);
 
         /// <summary>
         /// Get Easter Sunday
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
-        /// <param name="countryCode"></param>
+        /// <param name="observedRuleSet"></param>
         /// <returns>Public holiday info for Orthodox Easter Sunday for given year and country</returns>
-        Holiday EasterSunday(string localName, int year, CountryCode countryCode);
+        HolidaySpecification EasterSunday(
+            string localName,
+            int year,
+            ObservedRuleSet observedRuleSet = null);
 
         /// <summary>
         /// Get Easter Monday
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
-        /// <param name="countryCode"></param>
+        /// <param name="observedRuleSet"></param>
         /// <returns>Public holiday info for Orthodox Easter Monday for given year and country</returns>
-        Holiday EasterMonday(string localName, int year, CountryCode countryCode);
+        HolidaySpecification EasterMonday(
+            string localName,
+            int year,
+            ObservedRuleSet observedRuleSet = null);
 
         /// <summary>
         /// Get Pentecost
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
-        /// <param name="countryCode"></param>
+        /// <param name="observedRuleSet"></param>
         /// <returns>Public holiday info for Orthodox Pentecost for given year and country</returns>
-        Holiday Pentecost(string localName, int year, CountryCode countryCode);
+        HolidaySpecification Pentecost(
+            string localName,
+            int year,
+            ObservedRuleSet observedRuleSet = null);
 
         /// <summary>
         /// Get Whit Monday / Pentecost Monday
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
-        /// <param name="countryCode"></param>
+        /// <param name="observedRuleSet"></param>
         /// <param name="counties"></param>
         /// <returns>Public holiday info for Orthodox Whit Monday / Pentecost Monday for given year, country and counties</returns>
-        Holiday WhitMonday(string localName, int year, CountryCode countryCode, string[] counties = null);
+        HolidaySpecification WhitMonday(
+            string localName,
+            int year,
+            ObservedRuleSet observedRuleSet = null,
+            string[] counties = null);
     }
 }
