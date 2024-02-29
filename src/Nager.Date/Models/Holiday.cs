@@ -11,32 +11,32 @@ namespace Nager.Date.Models
         /// <summary>
         /// The date
         /// </summary>
-        public DateTime Date { get; private set; }
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// The observed date
         /// </summary>
-        public DateTime? ObservedDate { get; private set; }
+        public DateTime ObservedDate { get; set; }
 
         /// <summary>
         /// Local name
         /// </summary>
-        public string LocalName { get; private set; }
+        public string LocalName { get; set; }
 
         /// <summary>
         /// English name
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// ISO 3166-1 alpha-2
         /// </summary>
-        public CountryCode CountryCode { get; private set; }
+        public CountryCode CountryCode { get; set; }
 
         /// <summary>
-        /// Is this public holiday every year on the same date
+        /// Is the holiday every year on the same date
         /// </summary>
-        public bool Fixed { get; private set; }
+        public bool Fixed { get; set; }
 
         /// <summary>
         /// Is a national holiday
@@ -47,20 +47,24 @@ namespace Nager.Date.Models
         /// Initial subdivision of a country (ISO 3166-2)
         /// </summary>
         /// <remarks>States, Province, Territories, Federal districts, Cantons</remarks>
-        public string[] SubdivisionCodes { get; private set; }
+        public string[] SubdivisionCodes { get; set; }
 
         /// <summary>
-        /// A list of valid public holiday types
+        /// A list of valid holiday types
         /// </summary>
-        public HolidayTypes HolidayTypes { get; private set; }
+        public HolidayTypes HolidayTypes { get; set; }
 
         /// <summary>
         /// The launch year of the public holiday
         /// </summary>
-        public int? LaunchYear { get; private set; }
+        public int? LaunchYear { get; set; }
+
+        public Holiday()
+        {
+        }
 
         /// <summary>
-        /// Add Public Holiday (fixed is true)
+        /// Add Holiday (fixed is true)
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
@@ -87,7 +91,7 @@ namespace Nager.Date.Models
         }
 
         /// <summary>
-        /// Add Public Holiday (fixed is false)
+        /// Add Holiday (fixed is false)
         /// </summary>
         /// <param name="date"></param>
         /// <param name="localName"></param>

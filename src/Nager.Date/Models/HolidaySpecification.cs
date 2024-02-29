@@ -26,21 +26,32 @@ namespace Nager.Date.Models
         /// Initial subdivision of a country (ISO 3166-2)
         /// </summary>
         /// <remarks>States, Province, Territories, Federal districts, Cantons</remarks>
-        public string[] SubdivisionCodes { get; private set; }
+        public string[] SubdivisionCodes { get; set; }
 
         /// <summary>
-        /// A list of types the public holiday it is valid
+        /// A list of types the holiday it is valid
         /// </summary>
         public HolidayTypes HolidayTypes { get; set; }
 
         /// <summary>
-        /// The launch year of the public holiday
+        /// The launch year of the holiday
         /// </summary>
         public int? LaunchYear { get; set; }
 
-        ///// <summary>
-        ///// An Observed Holiday is when a public holiday is celebrated on a date that is not the actual event's anniversary date.
-        ///// </summary>
-        //public ObservedRuleSet ObservedRuleSet { get; set; }
+        /// <summary>
+        /// The ruleset to calculate the observed date for the holiday
+        /// </summary>
+        public ObservedRuleSet ObservedRuleSet { get; set; }
+
+
+
+        public object AdditionalTranslations { get; set; }
+
+        //Holiday source
+        //Religious Christian holidays
+        //Religious orthodox holidays
+        //Historical holidays
+        //Cultural holidays
+        public string Source { get; set; }
     }
 }
