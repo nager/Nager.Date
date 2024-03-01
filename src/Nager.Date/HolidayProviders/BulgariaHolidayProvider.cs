@@ -33,9 +33,9 @@ namespace Nager.Date.HolidayProviders
             //var liberationDay = new DateTime(year, 3, 3).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             //var saintGeorgesDay = new DateTime(year, 5, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             //var independenceDay = new DateTime(year, 9, 22).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            var christmasEve = new DateTime(year, 12, 24).Shift(saturday => saturday, sunday => sunday.AddDays(3));
-            var christmasDay1 = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(2));
-            var christmasDay2 = new DateTime(year, 12, 26).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            //var christmasEve = new DateTime(year, 12, 24).Shift(saturday => saturday, sunday => sunday.AddDays(3));
+            //var christmasDay1 = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(2));
+            //var christmasDay2 = new DateTime(year, 12, 26).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             var observedRuleSet = new ObservedRuleSet
             {
