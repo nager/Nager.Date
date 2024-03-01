@@ -1,5 +1,6 @@
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,11 +28,39 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.CU;
 
-            var items = new List<Holiday>();
-            items.Add(new Holiday(year, 1, 1, "Triunfo de la Revolución", "Triumph of the Revolution", countryCode));
-            items.Add(new Holiday(year, 1, 2, "Día de Victoria de las Fuerzas Armadas", "Victory of Fidel Castro", countryCode));
+            var holidaySpecifications = new List<HolidaySpecification>
+            {
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 1, 1),
+                    EnglishName = "Triumph of the Revolution",
+                    LocalName = "Triunfo de la Revolución",
+                    HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 1, 2),
+                    EnglishName = "Victory of Fidel Castro",
+                    LocalName = "Día de Victoria de las Fuerzas Armadas",
+                    HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 1),
+                    EnglishName = "Labour Day",
+                    LocalName = "Día de los trabajadores",
+                    HolidayTypes = HolidayTypes.Public
+                },
+            };
+
+            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
+            return holidays.OrderBy(o => o.Date);
+
+            //var items = new List<Holiday>();
+            //items.Add(new Holiday(year, 1, 1, "Triunfo de la Revolución", "Triumph of the Revolution", countryCode));
+            //items.Add(new Holiday(year, 1, 2, "Día de Victoria de las Fuerzas Armadas", "Victory of Fidel Castro", countryCode));
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            items.Add(new Holiday(year, 5, 1, "Día de los trabajadores", "Labour Day", countryCode));
+            //items.Add(new Holiday(year, 5, 1, "Día de los trabajadores", "Labour Day", countryCode));
             items.Add(new Holiday(year, 7, 25, "Conmemoración del asalto a Moncada", "Day before the Commemoration of the Assault of the Moncada garrison", countryCode));
             items.Add(new Holiday(year, 7, 26, "Día de la Rebeldía Nacional", "Commemoration of the Assault of the Moncada garrison", countryCode));
             items.Add(new Holiday(year, 7, 27, "Conmemoración del asalto a Moncada", "Day after the Commemoration of the Assault of the Moncada garrison", countryCode));
