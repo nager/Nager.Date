@@ -108,7 +108,6 @@ namespace Nager.Date.HolidayProviders
             var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
             return holidays.OrderBy(o => o.Date);
 
-
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Nýársdagur", "New Year's Day", countryCode));
             //items.Add(this._catholicProvider.MaundyThursday("Skírdagur", year, countryCode));
