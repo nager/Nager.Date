@@ -61,5 +61,12 @@ namespace Nager.Date.Models
 
             return this;
         }
+
+        internal HolidaySpecification SetHolidayType(HolidayTypes holidayType)
+        {
+            this.HolidayTypes = holidayType;
+
+            return this;
+        }
     }
 }
