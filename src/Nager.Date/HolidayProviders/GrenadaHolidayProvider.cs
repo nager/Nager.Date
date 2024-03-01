@@ -30,7 +30,6 @@ namespace Nager.Date.HolidayProviders
 
             var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
 
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
