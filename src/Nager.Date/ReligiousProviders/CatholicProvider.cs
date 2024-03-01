@@ -80,6 +80,23 @@ namespace Nager.Date.ReligiousProviders
         }
 
         /// <inheritdoc/>
+        public HolidaySpecification EasterSaturday(
+            string localName,
+            int year,
+            ObservedRuleSet observedRuleSet = null)
+        {
+            var easterSunday = this.EasterSunday(year);
+
+            return new HolidaySpecification
+            {
+                Date = easterSunday.AddDays(-1),
+                EnglishName = "Holy Saturday",
+                LocalName = localName,
+                ObservedRuleSet = observedRuleSet
+            };
+        }
+
+        /// <inheritdoc/>
         public HolidaySpecification EasterSunday(
             string localName,
             int year,

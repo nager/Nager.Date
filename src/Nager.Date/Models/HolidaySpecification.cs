@@ -53,5 +53,13 @@ namespace Nager.Date.Models
         //Historical holidays
         //Cultural holidays
         public string Source { get; set; }
+
+
+        internal HolidaySpecification SetSubdivisionCodes(params string[] subdivisionCodes)
+        {
+            this.SubdivisionCodes = subdivisionCodes;
+
+            return this;
+        }
     }
 }

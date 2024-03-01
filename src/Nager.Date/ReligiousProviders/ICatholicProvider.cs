@@ -28,7 +28,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <returns>Public holiday info for Catholic Maundy Thursday for given year and country</returns>
+        /// <returns>Holiday info for Catholic Maundy Thursday for given year</returns>
         HolidaySpecification MaundyThursday(
             string localName,
             int year,
@@ -40,8 +40,20 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <returns>Public holiday info for Catholic Good Friday for given year and country</returns>
+        /// <returns>Holiday info for Catholic Good Friday for given year</returns>
         HolidaySpecification GoodFriday(
+            string localName,
+            int year,
+            ObservedRuleSet observedRuleSet = null);
+
+        /// <summary>
+        /// Get Easter Saturday
+        /// </summary>
+        /// <param name="localName">The local name of the holiday</param>
+        /// <param name="year"></param>
+        /// <param name="observedRuleSet"></param>
+        /// <returns>PHoliday info for Catholic Easter Saturday for given year</returns>
+        HolidaySpecification EasterSaturday(
             string localName,
             int year,
             ObservedRuleSet observedRuleSet = null);
@@ -52,7 +64,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <returns>Public holiday info for Catholic Easter Sunday for given year and country</returns>
+        /// <returns>Holiday info for Catholic Easter Sunday for given year</returns>
         HolidaySpecification EasterSunday(
             string localName,
             int year,
@@ -64,7 +76,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <returns>Public holiday info for Catholic Easter Monday for given year and country</returns>
+        /// <returns>Holiday info for Catholic Easter Monday for given year</returns>
         HolidaySpecification EasterMonday(
             string localName,
             int year,
@@ -76,7 +88,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <returns>Public holiday info for Ascension Day for given year and country</returns>
+        /// <returns>Holiday info for Ascension Day for given year</returns>
         HolidaySpecification AscensionDay(
             string localName,
             int year,
@@ -88,7 +100,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <returns>Public holiday info for Pentecost for given year and country</returns>
+        /// <returns>Holiday info for Pentecost for given year</returns>
         HolidaySpecification Pentecost(
             string localName,
             int year,
@@ -100,7 +112,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <returns>Public holiday info for Whit Monday for given year and country</returns>
+        /// <returns>Holiday info for Whit Monday for given year</returns>
         HolidaySpecification WhitMonday(
             string localName,
             int year,
@@ -112,7 +124,7 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <returns>Public holiday info for Corpus Christi for given year and country</returns>
+        /// <returns>Holiday info for Corpus Christi for given year</returns>
         HolidaySpecification CorpusChristi(
             string localName,
             int year,
