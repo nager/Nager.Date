@@ -106,7 +106,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Heiliger Abend",
-                    HolidayTypes = HolidayTypes.ba
+                    HolidayTypes = HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
