@@ -8,6 +8,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
+    <LangVersion>12.0</LangVersion>
     <IncludeSymbols>true</IncludeSymbols>
 
     <PackageIcon>calendar.png</PackageIcon>
@@ -19,7 +20,7 @@
     
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
     
-    <TargetFrameworks>net472;netstandard2.0;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0;net8.0</TargetFrameworks>
 
     <Version>2.0.0-alpha</Version>
   </PropertyGroup>
