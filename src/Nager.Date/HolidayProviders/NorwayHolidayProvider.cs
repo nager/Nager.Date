@@ -1,8 +1,8 @@
 using Nager.Date.Models;
-using System.Collections.Generic;
-using System.Linq;
 using Nager.Date.ReligiousProviders;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
