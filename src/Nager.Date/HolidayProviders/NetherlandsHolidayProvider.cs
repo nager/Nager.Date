@@ -121,7 +121,7 @@ namespace Nager.Date.HolidayProviders
             if (year >= 1990)
             {
                 //in 1990, the day was declared to be a national holiday
-                return liberationDay.SetHolidayType(HolidayTypes.Authorities | HolidayTypes.School)
+                return liberationDay.SetHolidayType(HolidayTypes.Authorities | HolidayTypes.School);
 
                 //items.Add(liberationDay.SetType(HolidayTypes.Authorities | HolidayTypes.School));
             }
