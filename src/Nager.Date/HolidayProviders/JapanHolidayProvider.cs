@@ -148,7 +148,7 @@ namespace Nager.Date.HolidayProviders
             var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
             return holidays.OrderBy(o => o.Date);
 
-            var items = new List<Holiday>();
+            //var items = new List<Holiday>();
             //items.Add(new Holiday(newYearsDay, "元日", "New Year's Day", countryCode));
             //items.Add(new Holiday(secondMondayInJanuary, "成人の日", "Coming of Age Day", countryCode));
             //items.Add(new Holiday(foundationDay, "建国記念の日", "Foundation Day", countryCode));
