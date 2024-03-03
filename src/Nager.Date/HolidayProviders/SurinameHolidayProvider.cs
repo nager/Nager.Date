@@ -27,6 +27,9 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<Holiday> GetHolidays(int year)
         {
+            //TODO:Largest festival of Hindus
+            //TODO:Holi
+
             var countryCode = CountryCode.SR;
 
             var thirdSundayInJanuary = DateSystem.FindDay(year, Month.January, DayOfWeek.Sunday, Occurrence.Third);
@@ -36,7 +39,6 @@ namespace Nager.Date.HolidayProviders
             items.Add(new Holiday(year, 1, 6, "Three Kings Day", "Three Kings Day", countryCode));
             items.Add(new Holiday(thirdSundayInJanuary, "World Religion Day", "World Religion Day", countryCode));
             items.Add(new Holiday(year, 2, 25, "Day of the Revolution", "Day of the Revolution", countryCode));
-            //TODO:Holi
             items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
             items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode));
             items.Add(new Holiday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
@@ -47,7 +49,6 @@ namespace Nager.Date.HolidayProviders
             items.Add(new Holiday(year, 8, 9, "Indigenous People's Day", "Indigenous People's Day", countryCode));
             items.Add(new Holiday(year, 10, 10, "Day of the Maroons", "Day of the Maroons", countryCode));
             items.Add(new Holiday(year, 10, 20, "Chinese Arrival day", "Chinese Arrival day", countryCode));
-            //TODO:Largest festival of Hindus
             items.Add(new Holiday(year, 11, 25, "Independence Day", "Independence Day", countryCode));
             items.Add(new Holiday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
             items.Add(new Holiday(year, 12, 26, "Boxing Day", "Boxing Day", countryCode));
