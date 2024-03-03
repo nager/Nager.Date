@@ -29,11 +29,6 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.MC;
 
-            //var newYearsDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var allSaintsDay = new DateTime(year, 11, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var nationalDay = new DateTime(year, 11, 19).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-
             var observedRuleSet = new ObservedRuleSet
             {
                 Sunday = date => date.AddDays(1)
@@ -109,6 +104,11 @@ namespace Nager.Date.HolidayProviders
 
             var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
             return holidays.OrderBy(o => o.Date);
+
+            //var newYearsDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            //var allSaintsDay = new DateTime(year, 11, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            //var nationalDay = new DateTime(year, 11, 19).Shift(saturday => saturday, sunday => sunday.AddDays(1));
+            //var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(newYearsDay, "Le jour de l’An", "New Year's Day", countryCode));
