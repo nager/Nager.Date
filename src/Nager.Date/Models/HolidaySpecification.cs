@@ -34,15 +34,9 @@ namespace Nager.Date.Models
         public HolidayTypes HolidayTypes { get; set; }
 
         /// <summary>
-        /// The launch year of the holiday
-        /// </summary>
-        public int? LaunchYear { get; set; }
-
-        /// <summary>
         /// The ruleset to calculate the observed date for the holiday
         /// </summary>
         public ObservedRuleSet ObservedRuleSet { get; set; }
-
 
         /// <summary>
         /// Additional holiday translations

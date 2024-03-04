@@ -1,4 +1,3 @@
-using Nager.Date.Extensions;
 using System;
 
 namespace Nager.Date.Models
@@ -55,11 +54,6 @@ namespace Nager.Date.Models
         public HolidayTypes HolidayTypes { get; set; }
 
         /// <summary>
-        /// The launch year of the public holiday
-        /// </summary>
-        public int? LaunchYear { get; set; }
-
-        /// <summary>
         /// Add Holiday
         /// </summary>
         public Holiday()
@@ -86,7 +80,6 @@ namespace Nager.Date.Models
             this.CountryCode = countryCode;
             this.Fixed = true;
             this.HolidayTypes = type;
-            this.LaunchYear = launchYear;
             if (counties?.Length > 0)
             {
                 this.SubdivisionCodes = counties;
@@ -111,7 +104,6 @@ namespace Nager.Date.Models
             this.CountryCode = countryCode;
             this.Fixed = false;
             this.HolidayTypes = type;
-            this.LaunchYear = launchYear;
             if (counties?.Length > 0)
             {
                 this.SubdivisionCodes = counties;
@@ -125,41 +117,6 @@ namespace Nager.Date.Models
         public override string ToString()
         {
             return $"{this.Date:yyyy-MM-dd} {this.Name}";
-        }
-
-        internal Holiday SetCounties(params string[] counties)
-        {
-            this.SubdivisionCodes = counties;
-
-            return this;
-        }
-
-        internal Holiday SetType(HolidayTypes publicHolidayType)
-        {
-            this.HolidayTypes = publicHolidayType;
-
-            return this;
-        }
-
-        internal Holiday SetLaunchYear(int launchYear)
-        {
-            this.LaunchYear = launchYear;
-
-            return this;
-        }
-
-        internal Holiday Shift(Func<DateTime, DateTime> shiftSaturday, Func<DateTime, DateTime> shiftSunday)
-        {
-            this.Date = this.Date.Shift(shiftSaturday, shiftSunday);
-
-            return this;
-        }
-
-        internal Holiday ShiftWeekdays(Func<DateTime, DateTime> monday = null, Func<DateTime, DateTime> tuesday = null, Func<DateTime, DateTime> wednesday = null, Func<DateTime, DateTime> thursday = null, Func<DateTime, DateTime> friday = null)
-        {
-            this.Date = this.Date.ShiftWeekdays(monday, tuesday, wednesday, thursday, friday);
-
-            return this;
         }
     }
 }

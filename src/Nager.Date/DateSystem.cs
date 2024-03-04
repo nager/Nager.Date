@@ -376,7 +376,6 @@ namespace Nager.Date
         {
             return o => o.ObservedDate == date.Date
                         && (o.SubdivisionCodes == null || subdivisionCodes != null && o.SubdivisionCodes.Contains(subdivisionCodes))
-                        && (o.LaunchYear == null || date.Year >= o.LaunchYear)
                         && o.HolidayTypes.HasFlag(HolidayTypes.Public);
         }
 
