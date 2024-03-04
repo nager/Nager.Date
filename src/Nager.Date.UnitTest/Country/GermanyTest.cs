@@ -15,7 +15,7 @@ namespace Nager.Date.UnitTest.Country
             var yearToTest = 2017;
 
             var catholicProvider = new MockPublicHolidayProvider(new CatholicProvider());
-            var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
+            var publicHolidays = DateSystem.GetHolidays(yearToTest, CountryCode.DE);
             var easterSunday = catholicProvider.EasterSunday(yearToTest);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
             Assert.AreEqual(easterSunday.AddDays(60), corpusChristi);
@@ -26,7 +26,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var yearToTest = 2017;
 
-            var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
+            var publicHolidays = DateSystem.GetHolidays(yearToTest, CountryCode.DE);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
             var expectedDate = new DateTime(yearToTest, 6, 15);
             Assert.AreEqual(expectedDate, corpusChristi);
@@ -37,7 +37,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var yearToTest = 2026;
 
-            var publicHolidays = DateSystem.GetPublicHolidays(yearToTest, CountryCode.DE);
+            var publicHolidays = DateSystem.GetHolidays(yearToTest, CountryCode.DE);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
             var expectedDate = new DateTime(yearToTest, 6, 4);
             Assert.AreEqual(expectedDate, corpusChristi);
@@ -46,7 +46,7 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestGermanyLiberationDay2020()
         {
-            var publicHolidays = DateSystem.GetPublicHolidays(
+            var publicHolidays = DateSystem.GetHolidays(
                 new DateTime(2019, 5, 8),
                 new DateTime(2021, 5, 8),
                 CountryCode.DE);

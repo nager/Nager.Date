@@ -12,7 +12,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestRomania2017()
         {
             var year = 2017;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.RO).ToArray();
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.RO).ToArray();
 
             Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].EnglishName} is wrong");
             Assert.AreEqual(new DateTime(year, 1, 2), publicHolidays[1].Date, $"{publicHolidays[1].EnglishName} is wrong");
@@ -35,7 +35,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestRomania2018()
         {
             var year = 2018;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.RO).ToArray();
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.RO).ToArray();
 
             Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].EnglishName} is wrong");
             Assert.AreEqual(new DateTime(year, 1, 2), publicHolidays[1].Date, $"{publicHolidays[1].EnglishName} is wrong");
@@ -58,7 +58,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestRomania2019()
         {
             var year = 2019;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.RO).ToArray();
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.RO).ToArray();
 
             Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].EnglishName} is wrong");
             Assert.AreEqual(new DateTime(year, 1, 2), publicHolidays[1].Date, $"{publicHolidays[1].EnglishName} is wrong");
@@ -81,7 +81,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestRomania2020()
         {
             var year = 2020;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.RO).ToArray();
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.RO).ToArray();
 
             Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].EnglishName} is wrong");
             Assert.AreEqual(new DateTime(year, 1, 2), publicHolidays[1].Date, $"{publicHolidays[1].EnglishName} is wrong");
@@ -104,7 +104,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestRomania2021()
         {
             var year = 2021;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.RO).ToArray();
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.RO).ToArray();
 
             Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].EnglishName} is wrong");
             Assert.AreEqual(new DateTime(year, 1, 2), publicHolidays[1].Date, $"{publicHolidays[1].EnglishName} is wrong");

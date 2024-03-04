@@ -26,7 +26,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestHolidays2022(int month, int day)
         {
             var year = 2022;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.TR);
 
             var holiday = new DateTime(year, month, day);
             var isHolidayFound = publicHolidays.Any(x => x.Date == holiday);
@@ -51,7 +51,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestHolidays2020(int month, int day)
         {
             var year = 2020;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.TR);
 
             var holiday = new DateTime(year, month, day);
             var isHolidayFound = publicHolidays.Any(x => x.Date == holiday);
@@ -76,7 +76,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestHolidays2017(int month, int day)
         {
             var year = 2017;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.TR);
 
             var holiday = new DateTime(year, month, day);
             var isHolidayFound = publicHolidays.Any(x => x.Date == holiday);
@@ -101,7 +101,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestHolidays2014(int month, int day)
         {
             var year = 2014;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.TR);
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.TR);
 
             var holiday = new DateTime(year, month, day);
             var isHolidayFound = publicHolidays.Any(x => x.Date == holiday);

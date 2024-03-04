@@ -18,14 +18,14 @@ namespace Nager.Date.Models
         public DateTime ObservedDate { get; set; }
 
         /// <summary>
-        /// Local name
-        /// </summary>
-        public string LocalName { get; set; }
-
-        /// <summary>
         /// English name
         /// </summary>
         public string EnglishName { get; set; }
+
+        /// <summary>
+        /// Local name
+        /// </summary>
+        public string LocalName { get; set; }
 
         /// <summary>
         /// ISO 3166-1 alpha-2

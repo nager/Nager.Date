@@ -23,7 +23,7 @@ namespace Nager.Date.UnitTest.Country
 
         public void TestColumbusDay(int year, int month, int expectedDay)
         {
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.CL).ToArray();
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.CL).ToArray();
 
             var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.EnglishName == "Columbus Day");
             Assert.IsNotNull(publicHoliday);
@@ -45,7 +45,7 @@ namespace Nager.Date.UnitTest.Country
 
         public void TestReformationDay(int year, int month, int expectedDay)
         {
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.CL).ToArray();
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.CL).ToArray();
 
             var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.EnglishName == "Reformation Day");
             Assert.IsNotNull(publicHoliday);

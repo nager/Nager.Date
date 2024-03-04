@@ -20,7 +20,7 @@ namespace Nager.Date.UnitTest.Common
 
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
-                var publicHolidayProvider = DateSystem.GetPublicHolidayProvider(countryCode);
+                var publicHolidayProvider = DateSystem.GetHolidayProvider(countryCode);
                 if (publicHolidayProvider is NoHolidaysHolidayProvider)
                 {
                     continue;
@@ -56,7 +56,7 @@ namespace Nager.Date.UnitTest.Common
                 {
                     try
                     {
-                        var items = DateSystem.GetPublicHolidays(calculationYear, countryCode);
+                        var items = DateSystem.GetHolidays(calculationYear, countryCode);
                         if (items.Any(o => !o.Date.Year.Equals(calculationYear)))
                         {
                             corruptPublicHolidaysFound = true;
@@ -236,7 +236,7 @@ namespace Nager.Date.UnitTest.Common
         [ExpectedException(typeof(ArgumentException), "endDate is before startDate")]
         public void CheckPublicHolidayWithDateFilter2()
         {
-            DateSystem.GetPublicHolidays(new DateTime(2016, 1, 2), new DateTime(2016, 1, 1), CountryCode.DE).First();
+            DateSystem.GetHolidays(new DateTime(2016, 1, 2), new DateTime(2016, 1, 1), CountryCode.DE).First();
         }
 
         [TestMethod]

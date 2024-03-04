@@ -13,14 +13,14 @@ namespace Nager.Date.Models
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// Local name
-        /// </summary>
-        public string LocalName { get; set; }
-
-        /// <summary>
         /// English name
         /// </summary>
         public string EnglishName { get; set; }
+
+        /// <summary>
+        /// Local name
+        /// </summary>
+        public string LocalName { get; set; }
 
         /// <summary>
         /// Initial subdivision of a country (ISO 3166-2)

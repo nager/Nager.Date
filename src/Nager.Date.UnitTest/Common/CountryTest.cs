@@ -14,7 +14,7 @@ namespace Nager.Date.UnitTest.Common
         {
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
-                var provider = DateSystem.GetPublicHolidayProvider(countryCode);
+                var provider = DateSystem.GetHolidayProvider(countryCode);
 
                 var publicHolidays = provider.GetHolidays(2018);
                 if (!publicHolidays.Any())
@@ -36,7 +36,7 @@ namespace Nager.Date.UnitTest.Common
 
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
-                var provider = DateSystem.GetPublicHolidayProvider(countryCode);
+                var provider = DateSystem.GetHolidayProvider(countryCode);
                 var subdivisionCodes = provider is ISubdivisionCodesProvider subdivisionCodesProvider
                     ? subdivisionCodesProvider.GetSubdivisionCodes()
                     : new Dictionary<string, string>();
@@ -46,7 +46,7 @@ namespace Nager.Date.UnitTest.Common
 
                 for (var year = startYear; year <= endYear; year++)
                 {
-                    var publicHolidays = DateSystem.GetPublicHolidays(year, countryCode);
+                    var publicHolidays = DateSystem.GetHolidays(year, countryCode);
                     foreach (var publicHoliday in publicHolidays)
                     {
                         if (publicHoliday.SubdivisionCodes == null)
@@ -77,7 +77,7 @@ namespace Nager.Date.UnitTest.Common
         [DataRow("DE")]
         public void CheckCaseInsensitive(string countryCode)
         {
-            var result = DateSystem.GetPublicHolidays(2018, countryCode);
+            var result = DateSystem.GetHolidays(2018, countryCode);
 
             Assert.IsNotNull(result);
         }
@@ -85,7 +85,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void ThrowOnUndefinedEnum()
         {
-            Assert.ThrowsException<ArgumentException>(() => DateSystem.GetPublicHolidays(2018, "1000"));
+            Assert.ThrowsException<ArgumentException>(() => DateSystem.GetHolidays(2018, "1000"));
         }
     }
 }

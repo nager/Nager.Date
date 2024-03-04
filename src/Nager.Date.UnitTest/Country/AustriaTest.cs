@@ -12,7 +12,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestAustria2017()
         {
             var year = 2017;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.AT).ToArray();
+            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.AT).ToArray();
 
             Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].EnglishName} is wrong");
             Assert.AreEqual(new DateTime(year, 1, 6), publicHolidays[1].Date, $"{publicHolidays[1].EnglishName} is wrong");
