@@ -32,7 +32,6 @@ namespace Nager.Date.HolidayProviders
             var thirdSaturdayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Third);
             var firstSaturdayInNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Saturday, Occurrence.First);
 
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
