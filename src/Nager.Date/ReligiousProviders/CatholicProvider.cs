@@ -58,6 +58,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(-3),
                 EnglishName = "Maundy Thursday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -75,6 +76,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(-2),
                 EnglishName = "Good Friday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -92,6 +94,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(-1),
                 EnglishName = "Holy Saturday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -109,6 +112,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday,
                 EnglishName = "Easter Sunday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -126,6 +130,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(1),
                 EnglishName = "Easter Monday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -143,6 +148,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(39),
                 EnglishName = "Ascension Day",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -160,6 +166,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(49),
                 EnglishName = "Pentecost",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -177,6 +184,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(50),
                 EnglishName = "Whit Monday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -194,6 +202,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(60),
                 EnglishName = "Corpus Christi",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }

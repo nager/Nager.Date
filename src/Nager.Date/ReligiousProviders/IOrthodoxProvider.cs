@@ -81,12 +81,10 @@ namespace Nager.Date.ReligiousProviders
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
         /// <param name="observedRuleSet"></param>
-        /// <param name="counties"></param>
         /// <returns>Public holiday info for Orthodox Whit Monday / Pentecost Monday for given year, country and counties</returns>
         HolidaySpecification WhitMonday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null,
-            string[] counties = null);
+            ObservedRuleSet observedRuleSet = null);
     }
 }

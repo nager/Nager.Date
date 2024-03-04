@@ -45,6 +45,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(-2),
                 EnglishName = "Good Friday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -62,6 +63,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(-1),
                 EnglishName = "Holy Saturday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -79,6 +81,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday,
                 EnglishName = "Easter Sunday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -96,6 +99,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(1),
                 EnglishName = "Easter Monday",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -113,6 +117,7 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(49),
                 EnglishName = "Pentecost",
                 LocalName = localName,
+                HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
         }
@@ -121,8 +126,7 @@ namespace Nager.Date.ReligiousProviders
         public HolidaySpecification WhitMonday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null,
-            string[] counties = null)
+            ObservedRuleSet observedRuleSet = null)
         {
             var easterSunday = this.EasterSunday(year);
 
@@ -131,8 +135,8 @@ namespace Nager.Date.ReligiousProviders
                 Date = easterSunday.AddDays(50),
                 EnglishName = "Whit Monday",
                 LocalName = localName,
-                ObservedRuleSet = observedRuleSet,
-                SubdivisionCodes = counties
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = observedRuleSet
             };
         }
     }
