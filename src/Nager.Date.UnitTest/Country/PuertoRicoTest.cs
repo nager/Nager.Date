@@ -18,7 +18,7 @@ namespace Nager.Date.UnitTest.Country
             var catholic = new MockPublicHolidayProvider(new CatholicProvider());
             var expectedGoodFriday = catholic.EasterSunday(2017).AddDays(-2);
 
-            var goodFriday = holidays.First(holiday => holiday.Name == "Good Friday");
+            var goodFriday = holidays.First(holiday => holiday.EnglishName == "Good Friday");
             Assert.IsNotNull(goodFriday);
             Assert.AreEqual(expectedGoodFriday.Day, goodFriday.Date.Day);
         }

@@ -15,7 +15,7 @@ namespace Nager.Date.UnitTest.Country
             var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.CA).ToArray();
 
             //New Year's Day
-            Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].Name} is wrong");
+            Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].EnglishName} is wrong");
         }
 
         [DataTestMethod]

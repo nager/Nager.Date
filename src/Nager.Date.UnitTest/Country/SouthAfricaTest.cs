@@ -15,7 +15,7 @@ namespace Nager.Date.UnitTest.Country
             var expectedDate = new DateTime(year, 12, day);
 
             var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.ZA);
-            var publicHoliday = publicHolidays.Where(publicHoliday => publicHoliday.Name == "Christmas Day").FirstOrDefault();
+            var publicHoliday = publicHolidays.Where(publicHoliday => publicHoliday.EnglishName == "Christmas Day").FirstOrDefault();
 
             Assert.AreEqual(expectedDate, publicHoliday.ObservedDate);
         }

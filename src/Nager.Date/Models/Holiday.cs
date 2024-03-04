@@ -25,17 +25,12 @@ namespace Nager.Date.Models
         /// <summary>
         /// English name
         /// </summary>
-        public string Name { get; set; }
+        public string EnglishName { get; set; }
 
         /// <summary>
         /// ISO 3166-1 alpha-2
         /// </summary>
         public CountryCode CountryCode { get; set; }
-
-        /// <summary>
-        /// Is the holiday every year on the same date
-        /// </summary>
-        public bool Fixed { get; set; }
 
         /// <summary>
         /// Is a national holiday
@@ -59,7 +54,7 @@ namespace Nager.Date.Models
         /// <returns>Public holiday info formated</returns>
         public override string ToString()
         {
-            return $"{this.Date:yyyy-MM-dd} {this.Name}";
+            return $"{this.Date:yyyy-MM-dd} {this.EnglishName}";
         }
     }
 }

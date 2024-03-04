@@ -265,7 +265,7 @@ namespace Nager.Date.UnitTest.Common
             var publicHoliday = new Holiday
             {
                 Date = new DateTime(2020, 01, 30),
-                Name = "Test",
+                EnglishName = "Test",
                 LocalName = "Test",
                 CountryCode = CountryCode.AT,
                 HolidayTypes = HolidayTypes.Public
@@ -275,7 +275,7 @@ namespace Nager.Date.UnitTest.Common
             var publicHoliday1 = new Holiday
             {
                 Date = new DateTime(2020, 01, 30),
-                Name = "Test",
+                EnglishName = "Test",
                 LocalName = "Test",
                 CountryCode = CountryCode.AT,
                 HolidayTypes = HolidayTypes.Public,

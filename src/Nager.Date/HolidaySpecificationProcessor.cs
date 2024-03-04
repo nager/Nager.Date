@@ -25,7 +25,7 @@ namespace Nager.Date
                 yield return new Holiday
                 {
                     Date = holidayDate,
-                    Name = holidaySpecification.EnglishName,
+                    EnglishName = holidaySpecification.EnglishName,
                     LocalName = holidaySpecification.LocalName,
                     HolidayTypes = holidaySpecification.HolidayTypes,
                     SubdivisionCodes = holidaySpecification.SubdivisionCodes,

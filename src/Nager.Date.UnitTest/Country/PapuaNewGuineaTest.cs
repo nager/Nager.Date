@@ -12,7 +12,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var publicHolidays = DateSystem.GetPublicHolidays(2018, CountryCode.PG).ToArray();
 
-            var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.Name.Equals("Queen's Birthday"));
+            var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.EnglishName.Equals("Queen's Birthday"));
             Assert.AreEqual(new DateTime(2018, 6, 11), publicHoliday.Date);
         }
 
@@ -21,7 +21,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var publicHolidays = DateSystem.GetPublicHolidays(2021, CountryCode.PG).ToArray();
 
-            var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.Name.Equals("Queen's Birthday"));
+            var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.EnglishName.Equals("Queen's Birthday"));
             Assert.AreEqual(new DateTime(2021, 6, 14), publicHoliday.Date);
         }
     }

@@ -57,7 +57,7 @@ namespace Nager.Date.UnitTest.Common
                         if (publicHoliday.SubdivisionCodes.Count(o => subdivisionCodes.Keys.Contains(o)) != publicHoliday.SubdivisionCodes.Length)
                         {
                             var diff = publicHoliday.SubdivisionCodes.Except(subdivisionCodes.Keys);
-                            failures.Add($"Unknown subdivisionCode in {provider} \"{publicHoliday.Name}\" {string.Join(',', diff)}");
+                            failures.Add($"Unknown subdivisionCode in {provider} \"{publicHoliday.EnglishName}\" {string.Join(',', diff)}");
                         }
                     }
                 }
