@@ -56,7 +56,7 @@ namespace Nager.Date.HolidayProviders
                 Monday = date => date.AddDays(1),
             };
 
-            var observedRuleSet2 = new ObservedRuleSet
+            var observedRuleSet = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
                 Sunday = date => date.AddDays(2),
@@ -145,7 +145,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet2
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -153,7 +153,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet2
+                    ObservedRuleSet = observedRuleSet
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year).SetSubdivisionCodes("GB-ENG", "GB-WLS", "GB-NIR")

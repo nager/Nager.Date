@@ -14,16 +14,16 @@ namespace Nager.Date.UnitTest.Country
             var publicHolidays = DateSystem.GetPublicHolidays(2022, CountryCode.CO).ToArray();
 
             var saintJosephsDay = publicHolidays.SingleOrDefault(o => o.Name == "Saint Joseph's Day");
-            Assert.AreEqual(new DateTime(2022, 03, 21), saintJosephsDay.Date);
+            Assert.AreEqual(new DateTime(2022, 03, 21), saintJosephsDay.ObservedDate);
 
             var ascensionDay = publicHolidays.SingleOrDefault(o => o.Name == "Ascension Day");
-            Assert.AreEqual(new DateTime(2022, 05, 30), ascensionDay.Date);
+            Assert.AreEqual(new DateTime(2022, 05, 30), ascensionDay.ObservedDate);
 
             var assumptionOfMaryDay = publicHolidays.SingleOrDefault(o => o.Name == "Assumption of Mary");
-            Assert.AreEqual(new DateTime(2022, 08, 15), assumptionOfMaryDay.Date);
+            Assert.AreEqual(new DateTime(2022, 08, 15), assumptionOfMaryDay.ObservedDate);
 
             var independenceOfCartagenaDay = publicHolidays.SingleOrDefault(o => o.Name == "Independence of Cartagena");
-            Assert.AreEqual(new DateTime(2022, 11, 14), independenceOfCartagenaDay.Date);
+            Assert.AreEqual(new DateTime(2022, 11, 14), independenceOfCartagenaDay.ObservedDate);
         }
     }
 }

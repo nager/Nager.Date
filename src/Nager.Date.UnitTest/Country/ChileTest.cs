@@ -27,7 +27,7 @@ namespace Nager.Date.UnitTest.Country
 
             var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.Name == "Columbus Day");
             Assert.IsNotNull(publicHoliday);
-            Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.Date);
+            Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.ObservedDate);
         }
 
         [DataTestMethod]
@@ -49,7 +49,7 @@ namespace Nager.Date.UnitTest.Country
 
             var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.Name == "Reformation Day");
             Assert.IsNotNull(publicHoliday);
-            Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.Date);
+            Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.ObservedDate);
         }
     }
 }

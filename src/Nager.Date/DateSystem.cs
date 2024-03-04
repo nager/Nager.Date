@@ -372,10 +372,10 @@ namespace Nager.Date
 
         #region Check if a date is a Public Holiday
 
-        private static Func<Holiday, bool> GetPublicHolidayFilter(DateTime date, string countyCode = null)
+        private static Func<Holiday, bool> GetPublicHolidayFilter(DateTime date, string subdivisionCodes = null)
         {
-            return o => o.Date == date.Date
-                        && (o.SubdivisionCodes == null || countyCode != null && o.SubdivisionCodes.Contains(countyCode))
+            return o => o.ObservedDate == date.Date
+                        && (o.SubdivisionCodes == null || subdivisionCodes != null && o.SubdivisionCodes.Contains(subdivisionCodes))
                         && (o.LaunchYear == null || date.Year >= o.LaunchYear)
                         && o.HolidayTypes.HasFlag(HolidayTypes.Public);
         }
@@ -431,24 +431,24 @@ namespace Nager.Date
         /// </summary>
         /// <param name="date">The date to check</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <param name="countyCode">Federal state</param>
+        /// <param name="subdivisionCode">Federal state</param>
         /// <returns>True if given date is public holiday in given country and county, false otherwise</returns>
         /// <exception cref="System.ArgumentException">Thrown when given county code is not recognized valid</exception>
-        public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, string countyCode)
+        public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, string subdivisionCode)
         {
-            if (countyCode == null)
+            if (subdivisionCode == null)
             {
                 throw new ArgumentException($"countyCode is null");
             }
 
             var provider = GetPublicHolidayProvider(countryCode);
-            if (provider is ISubdivisionCodesProvider countryProvider && !countryProvider.GetSubdivisionCodes().ContainsKey(countyCode))
+            if (provider is ISubdivisionCodesProvider countryProvider && !countryProvider.GetSubdivisionCodes().ContainsKey(subdivisionCode))
             {
-                throw new ArgumentException($"Invalid countyCode {countyCode}");
+                throw new ArgumentException($"Invalid countyCode {subdivisionCode}");
             }
 
             var items = GetPublicHolidays(date.Year, countryCode);
-            return items.Any(GetPublicHolidayFilter(date, countyCode));
+            return items.Any(GetPublicHolidayFilter(date, subdivisionCode));
         }
 
         #endregion
