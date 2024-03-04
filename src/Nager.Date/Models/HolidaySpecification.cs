@@ -44,9 +44,14 @@ namespace Nager.Date.Models
         public ObservedRuleSet ObservedRuleSet { get; set; }
 
 
-
+        /// <summary>
+        /// Additional holiday translations
+        /// </summary>
         public object AdditionalTranslations { get; set; }
 
+        /// <summary>
+        /// Holiday Source
+        /// </summary>
         //Holiday source
         //Religious Christian holidays
         //Religious orthodox holidays

@@ -59,6 +59,9 @@ namespace Nager.Date.Models
         /// </summary>
         public int? LaunchYear { get; set; }
 
+        /// <summary>
+        /// Add Holiday
+        /// </summary>
         public Holiday()
         {
         }
