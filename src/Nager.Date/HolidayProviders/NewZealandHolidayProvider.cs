@@ -70,13 +70,13 @@ namespace Nager.Date.HolidayProviders
             var observedRuleSet1 = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
-                Sunday = date => date.AddDays(1),
+                Sunday = date => date.AddDays(1)
             };
 
             var observedRuleSet2 = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
-                Sunday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(2)
             };
 
             var closestMondayObservedRuleSet = new ObservedRuleSet
@@ -86,7 +86,7 @@ namespace Nager.Date.HolidayProviders
                 Thursday = date => date.AddDays(-3),
                 Friday = date => date.AddDays(3),
                 Saturday = date => date.AddDays(2),
-                Sunday = date => date.AddDays(1),
+                Sunday = date => date.AddDays(1)
             };
 
             var holidaySpecifications = new List<HolidaySpecification>
