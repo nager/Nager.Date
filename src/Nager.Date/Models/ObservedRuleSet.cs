@@ -8,45 +8,45 @@ namespace Nager.Date.Models
     public class ObservedRuleSet
     {
         /// <summary>
-        /// Observed Date Rule Monday
+        /// Rule for observing a holiday when it falls on a Monday
         /// </summary>
         public Func<DateTime, DateTime> Monday { get; set; }
 
         /// <summary>
-        /// Observed Date Rule Tuesday
+        /// Rule for observing a holiday when it falls on a Tuesday
         /// </summary>
         public Func<DateTime, DateTime> Tuesday { get; set; }
 
         /// <summary>
-        /// Observed Date Rule Wednesday
+        /// Rule for observing a holiday when it falls on a Wednesday
         /// </summary>
         public Func<DateTime, DateTime> Wednesday { get; set; }
 
         /// <summary>
-        /// Observed Date Rule Thursday
+        /// Rule for observing a holiday when it falls on a Thursday
         /// </summary>
         public Func<DateTime, DateTime> Thursday { get; set; }
 
         /// <summary>
-        /// Observed Date Rule Friday
+        ///  Rule for observing a holiday when it falls on a Friday
         /// </summary>
         public Func<DateTime, DateTime> Friday { get; set; }
 
         /// <summary>
-        /// Observed Date Rule Saturday
+        /// Rule for observing a holiday when it falls on a Saturday
         /// </summary>
         public Func<DateTime, DateTime> Saturday { get; set; }
 
         /// <summary>
-        /// Observed Date Rule Sunday
+        /// Rule for observing a holiday when it falls on a Sunday
         /// </summary>
         public Func<DateTime, DateTime> Sunday { get; set; }
 
         /// <summary>
-        /// Get observed date
+        /// Gets the observed date for a given date, according to the rules
         /// </summary>
-        /// <param name="givenDate"></param>
-        /// <returns></returns>
+        /// <param name="givenDate">The original date of the holiday</param>
+        /// <returns>The observed date based on the rules</returns>
         public DateTime? GetObservedDate(DateTime givenDate)
         {
             switch (givenDate.DayOfWeek)
@@ -70,10 +70,9 @@ namespace Nager.Date.Models
                     return this.Saturday?.Invoke(givenDate);
 
                 case DayOfWeek.Sunday:
+                default:
                     return this.Sunday?.Invoke(givenDate);
             }
-
-            return null;
         }
     }
 }

@@ -13,45 +13,43 @@ namespace Nager.Date.Models
         public DateTime Date { get; set; }
 
         /// <summary>
-        /// The observed date
+        /// The date on which the holiday is observed
         /// </summary>
         public DateTime ObservedDate { get; set; }
 
         /// <summary>
-        /// English name
+        /// The name of the holiday in English
         /// </summary>
         public string EnglishName { get; set; }
 
         /// <summary>
-        /// Local name
+        /// The name of the holiday in the local language
         /// </summary>
         public string LocalName { get; set; }
 
         /// <summary>
-        /// ISO 3166-1 alpha-2
+        /// Represents the country where the holiday is observed
         /// </summary>
+        /// <remarks>ISO 3166-1 alpha-2</remarks>
         public CountryCode CountryCode { get; set; }
 
         /// <summary>
-        /// Is a national holiday
+        /// Indicates whether the holiday is a national holiday
         /// </summary>
         public bool NationalHoliday { get { return this.SubdivisionCodes?.Length > 0 ? false : true; } }
 
         /// <summary>
-        /// Initial subdivision of a country (ISO 3166-2)
+        /// The initial subdivision of the country (ISO 3166-2) where the holiday is observed
         /// </summary>
         /// <remarks>States, Province, Territories, Federal districts, Cantons</remarks>
         public string[] SubdivisionCodes { get; set; }
 
         /// <summary>
-        /// A list of valid holiday types
+        /// The types of the holiday
         /// </summary>
         public HolidayTypes HolidayTypes { get; set; }
 
-        /// <summary>
-        /// Date and Name of the PublicHoliday
-        /// </summary>
-        /// <returns>Public holiday info formated</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
             return $"{this.Date:yyyy-MM-dd} {this.EnglishName}";

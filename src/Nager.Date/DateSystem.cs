@@ -301,13 +301,13 @@ namespace Nager.Date
         #region Holidays for a date range
 
         /// <summary>
-        /// Get holidays of a given date range
+        /// Get holidays of a given date range for the specified country
         /// </summary>
-        /// <param name="startDate">The start date</param>
-        /// <param name="endDate">The end date</param>
-        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns>Set of holidays for given country and date range</returns>
-        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
+        /// <param name="startDate">The start date of the range</param>
+        /// <param name="endDate">The end date of the range</param>
+        /// <param name="countryCode">The country code (ISO 3166-1 ALPHA-2) to retrieve holidays for</param>
+        /// <returns>A set of holidays for the specified country and date range</returns>
+        /// <exception cref="System.ArgumentException">Thrown when the provided country code is not recognized as valid</exception>
         public static IEnumerable<Holiday> GetHolidays(DateTime startDate, DateTime endDate, string countryCode)
         {
             if (!ParseCountryCode(countryCode, out var parsedCountryCode))
@@ -319,12 +319,12 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Get holidays of a given date range
+        /// Get holidays of a given date range for the specified country
         /// </summary>
-        /// <param name="startDate">The start date</param>
-        /// <param name="endDate">The end date</param>
-        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns>Set of holidays for given country and date range</returns>
+        /// <param name="startDate">The start date of the range</param>
+        /// <param name="endDate">The end date of the range</param>
+        /// <param name="countryCode">The country code (ISO 3166-1 ALPHA-2) to retrieve holidays for</param>
+        /// <returns>A set of holidays for the specified country and date range</returns>
         /// <exception cref="System.ArgumentException">Thrown when given end date is before given start date</exception>
         public static IEnumerable<Holiday> GetHolidays(DateTime startDate, DateTime endDate, CountryCode countryCode)
         {
@@ -455,12 +455,12 @@ namespace Nager.Date
         #region Check a date is a Weekend
 
         /// <summary>
-        /// Check is a give date in the Weekend
+        /// Checks if a given date falls on a weekend in the specified country
         /// </summary>
         /// <param name="date">The date to check</param>
-        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns>True if given date is weekend in given country, false otherwise</returns>
-        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
+        /// <param name="countryCode">The country code (ISO 3166-1 ALPHA-2) to determine weekend rules</param>
+        /// <returns>True if the given date is a weekend in the specified country, false otherwise</returns>
+        /// <exception cref="System.ArgumentException">Thrown when the provided country code is not recognized as valid</exception>
         public static bool IsWeekend(DateTime date, string countryCode)
         {
             if (!ParseCountryCode(countryCode, out var parsedCountryCode))
@@ -472,11 +472,11 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Check is a give date in the Weekend
+        /// Checks if a given date falls on a weekend in the specified country
         /// </summary>
         /// <param name="date">The date to check</param>
-        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <returns>True if given date is weekend in given country, false otherwise</returns>
+        /// <param name="countryCode">The country code (ISO 3166-1 ALPHA-2) to determine weekend rules</param>
+        /// <returns>True if the given date is a weekend in the specified country, false otherwise</returns>
         public static bool IsWeekend(DateTime date, CountryCode countryCode)
         {
             var provider = GetWeekendProvider(countryCode);
@@ -523,7 +523,7 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
-        /// <param name="dayOfWeek">The name of the day</param>
+        /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
         public static DateTime FindDay(int year, Month month, int day, DayOfWeek dayOfWeek)
         {
@@ -536,7 +536,7 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
-        /// <param name="dayOfWeek">The name of the day</param>
+        /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
         public static DateTime FindDay(int year, int month, int day, DayOfWeek dayOfWeek)
         {
@@ -547,7 +547,7 @@ namespace Nager.Date
         /// Find the next weekday for example monday from a specific date
         /// </summary>
         /// <param name="date">The search date</param>
-        /// <param name="dayOfWeek">The name of the day</param>
+        /// <param name="dayOfWeek">TThe day of the week</param>
         /// <returns>Date of day found</returns>
         public static DateTime FindDay(DateTime date, DayOfWeek dayOfWeek)
         {
@@ -570,7 +570,7 @@ namespace Nager.Date
         /// <param name="yearEnd">The end year</param>
         /// <param name="monthEnd">The end month</param>
         /// <param name="dayEnd">The end day</param>
-        /// <param name="dayOfWeek">The name of the day</param>
+        /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
         public static DateTime? FindDayBetween(int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd, DayOfWeek dayOfWeek)
         {
@@ -601,7 +601,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="startDate">The start date</param>
         /// <param name="endDate">The end date</param>
-        /// <param name="dayOfWeek">The name of the day</param>
+        /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
         public static DateTime? FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
         {
@@ -614,7 +614,7 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
-        /// <param name="dayOfWeek">The name of the day</param>
+        /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
         public static DateTime FindDayBefore(int year, Month month, int day, DayOfWeek dayOfWeek)
         {
@@ -627,7 +627,7 @@ namespace Nager.Date
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
         /// <param name="day">The day</param>
-        /// <param name="dayOfWeek">The name of the day</param>
+        /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
         public static DateTime FindDayBefore(int year, int month, int day, DayOfWeek dayOfWeek)
         {
@@ -649,7 +649,7 @@ namespace Nager.Date
         /// Find the next weekday for example monday before a specific date
         /// </summary>
         /// <param name="date">The date where the search starts</param>
-        /// <param name="dayOfWeek">The name of the day</param>
+        /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
         public static DateTime FindDayBefore(DateTime date, DayOfWeek dayOfWeek)
         {
@@ -657,11 +657,11 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Find for example the 3rd monday in a month
+        /// Finds the date of a specific occurrence of a day within a month, for example, the 3rd Monday
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
-        /// <param name="day">The day</param>
+        /// <param name="day">The day of the week</param>
         /// <param name="occurrence"></param>
         /// <returns>Date of day found</returns>
         /// <exception cref="System.ArgumentException">Thrown when given occurrence number is either too low or too high</exception>
@@ -695,13 +695,13 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Find for example the 3rd monday in a month
+        /// Finds the date of a specific occurrence of a day within a month, for example, the 3rd Monday
         /// </summary>
         /// <param name="year">The year</param>
         /// <param name="month">The month</param>
-        /// <param name="day">The day</param>
-        /// <param name="occurrence">The occurrence e.g. First</param>
-        /// <returns>Date of day found</returns>
+        /// <param name="day">The day of the week</param>
+        /// <param name="occurrence">The occurrence of the day within the month, e.g., First, Second, Third, Fourth</param>
+        /// <returns>The date of the found day</returns>
         public static DateTime FindDay(int year, Month month, DayOfWeek day, Occurrence occurrence)
         {
             return FindDay(year, (int)month, day, (int)occurrence);
