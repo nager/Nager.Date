@@ -179,19 +179,19 @@ namespace Nager.Date
         /// License Key
         /// </summary>
         /// <remarks>
-        /// As a GitHub sponsor of this project you will receive a license key, https://github.com/sponsors/nager
+        /// As a GitHub sponsor of <see href="https://github.com/nager">nager</see>, you will receive a <see href="https://github.com/sponsors/nager">license key</see>
         /// </remarks>
         public static string LicenseKey = null;
 
         /// <summary>
-        /// Get HolidayProvider
+        /// Get the holiday provider for the specified country
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns>Holiday provider for given country</returns>
         /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static IHolidayProvider GetHolidayProvider(string countryCode)
         {
-            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            if (!TryParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
@@ -200,7 +200,7 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Get HolidayProvider
+        /// Get the holiday provider for the specified country
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns>Holiday provider for given country</returns>
@@ -221,14 +221,14 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Get WeekendProvider
+        /// Get the weekend provider for the specified country
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns>Specialized weekend provider for country if exists, universal weekend provider otherwise</returns>
         /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static IWeekendProvider GetWeekendProvider(string countryCode)
         {
-            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            if (!TryParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
@@ -237,7 +237,7 @@ namespace Nager.Date
         }
 
         /// <summary>
-        /// Get WeekendProvider
+        /// Get the weekend provider for the specified country
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns>Specialized weekend provider for country if exists, universal weekend provider otherwise</returns>
@@ -260,7 +260,7 @@ namespace Nager.Date
         /// True for existing country code, false for non existent.
         /// Parsed country code is returned in out parameter.
         /// </returns>
-        public static bool ParseCountryCode(string countryCode, out CountryCode parsedCountryCode)
+        public static bool TryParseCountryCode(string countryCode, out CountryCode parsedCountryCode)
         {
             return Enum.TryParse(countryCode, true, out parsedCountryCode) && Enum.IsDefined(typeof(CountryCode), parsedCountryCode);
         }
@@ -276,7 +276,7 @@ namespace Nager.Date
         /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static IEnumerable<Holiday> GetHolidays(int year, string countryCode)
         {
-            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            if (!TryParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
@@ -310,7 +310,7 @@ namespace Nager.Date
         /// <exception cref="System.ArgumentException">Thrown when the provided country code is not recognized as valid</exception>
         public static IEnumerable<Holiday> GetHolidays(DateTime startDate, DateTime endDate, string countryCode)
         {
-            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            if (!TryParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
@@ -388,7 +388,7 @@ namespace Nager.Date
         /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static bool IsPublicHoliday(DateTime date, string countryCode)
         {
-            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            if (!TryParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
@@ -463,7 +463,7 @@ namespace Nager.Date
         /// <exception cref="System.ArgumentException">Thrown when the provided country code is not recognized as valid</exception>
         public static bool IsWeekend(DateTime date, string countryCode)
         {
-            if (!ParseCountryCode(countryCode, out var parsedCountryCode))
+            if (!TryParseCountryCode(countryCode, out var parsedCountryCode))
             {
                 throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
