@@ -54,63 +54,6 @@ namespace Nager.Date.Models
         public HolidayTypes HolidayTypes { get; set; }
 
         /// <summary>
-        /// Add Holiday
-        /// </summary>
-        public Holiday()
-        {
-        }
-
-        /// <summary>
-        /// Add Holiday (fixed is true)
-        /// </summary>
-        /// <param name="year"></param>
-        /// <param name="month"></param>
-        /// <param name="day"></param>
-        /// <param name="localName"></param>
-        /// <param name="englishName"></param>
-        /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
-        /// <param name="launchYear"></param>
-        /// <param name="counties">ISO-3166-2</param>
-        /// <param name="type">The type of the public holiday</param>
-        public Holiday(int year, int month, int day, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, HolidayTypes type = HolidayTypes.Public)
-        {
-            this.Date = new DateTime(year, month, day);
-            this.LocalName = localName;
-            this.Name = englishName;
-            this.CountryCode = countryCode;
-            this.Fixed = true;
-            this.HolidayTypes = type;
-            if (counties?.Length > 0)
-            {
-                this.SubdivisionCodes = counties;
-            }
-        }
-
-        /// <summary>
-        /// Add Holiday (fixed is false)
-        /// </summary>
-        /// <param name="date"></param>
-        /// <param name="localName"></param>
-        /// <param name="englishName"></param>
-        /// <param name="countryCode">ISO 3166-1 ALPHA-2</param>
-        /// <param name="launchYear"></param>
-        /// <param name="counties">ISO-3166-2</param>
-        /// /// <param name="type">The type of the public holiday</param>
-        public Holiday(DateTime date, string localName, string englishName, CountryCode countryCode, int? launchYear = null, string[] counties = null, HolidayTypes type = HolidayTypes.Public)
-        {
-            this.Date = date;
-            this.LocalName = localName;
-            this.Name = englishName;
-            this.CountryCode = countryCode;
-            this.Fixed = false;
-            this.HolidayTypes = type;
-            if (counties?.Length > 0)
-            {
-                this.SubdivisionCodes = counties;
-            }
-        }
-
-        /// <summary>
         /// Date and Name of the PublicHoliday
         /// </summary>
         /// <returns>Public holiday info formated</returns>
