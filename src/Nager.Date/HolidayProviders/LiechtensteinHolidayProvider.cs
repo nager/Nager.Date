@@ -136,7 +136,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Fasnachtsdienstag",
                     HolidayTypes = HolidayTypes.Bank
                 },
-                this._catholicProvider.GoodFriday("Karfreitag", year).SetHolidayType(HolidayTypes.Bank),
+                this._catholicProvider.GoodFriday("Karfreitag", year).SetHolidayTypes(HolidayTypes.Bank),
                 this._catholicProvider.EasterMonday("Ostermontag", year),
                 this._catholicProvider.Pentecost("Pfingstsonntag", year),
                 this._catholicProvider.AscensionDay("Auffahrt", year),

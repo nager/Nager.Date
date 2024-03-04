@@ -92,7 +92,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Lá Fhéile Stiofáin",
                     HolidayTypes = HolidayTypes.Public
                 },
-                this._catholicProvider.GoodFriday("Aoine an Chéasta", year).SetHolidayType(HolidayTypes.Bank | HolidayTypes.School),
+                this._catholicProvider.GoodFriday("Aoine an Chéasta", year).SetHolidayTypes(HolidayTypes.Bank | HolidayTypes.School),
                 this._catholicProvider.EasterMonday("Luan Cásca", year)
             };
 

@@ -87,7 +87,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public
                 },
                 this._catholicProvider.EasterMonday("Ouschterméindeg", year),
-                this._catholicProvider.GoodFriday("Karfreideg", year).SetHolidayType(HolidayTypes.Bank),
+                this._catholicProvider.GoodFriday("Karfreideg", year).SetHolidayTypes(HolidayTypes.Bank),
                 this._catholicProvider.AscensionDay("Christi Himmelfaart", year),
                 this._catholicProvider.WhitMonday("Péngschtméindeg", year)
             };

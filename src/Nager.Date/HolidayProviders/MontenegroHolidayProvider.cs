@@ -123,9 +123,9 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Božić",
                     HolidayTypes = HolidayTypes.Optional
                 },
-                this._catholicProvider.GoodFriday("Veliki petak", year).SetHolidayType(HolidayTypes.Optional),
-                this._catholicProvider.EasterSunday("Uskrs", year).SetHolidayType(HolidayTypes.Optional),
-                this._catholicProvider.EasterMonday("Uskrs", year).SetHolidayType(HolidayTypes.Optional),
+                this._catholicProvider.GoodFriday("Veliki petak", year).SetHolidayTypes(HolidayTypes.Optional),
+                this._catholicProvider.EasterSunday("Uskrs", year).SetHolidayTypes(HolidayTypes.Optional),
+                this._catholicProvider.EasterMonday("Uskrs", year).SetHolidayTypes(HolidayTypes.Optional),
 
                 new HolidaySpecification
                 {
@@ -148,8 +148,8 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Božić",
                     HolidayTypes = HolidayTypes.Optional
                 },
-                this._orthodoxProvider.GoodFriday("Vaskrs", year).SetHolidayType(HolidayTypes.Optional),
-                this._orthodoxProvider.EasterMonday("Vaskrs", year).SetHolidayType(HolidayTypes.Optional),
+                this._orthodoxProvider.GoodFriday("Vaskrs", year).SetHolidayTypes(HolidayTypes.Optional),
+                this._orthodoxProvider.EasterMonday("Vaskrs", year).SetHolidayTypes(HolidayTypes.Optional),
             };
 
 
