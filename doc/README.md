@@ -9,7 +9,7 @@ The list of supported countries can be found [here](https://date.nager.at/Countr
 
 ### Get all publicHolidays of a country and year
 ```cs
-var holidays = DateSystem.GetHolidays(2021, "DE");
+var holidays = DateSystem.GetHolidays(2024, "DE");
 foreach (var holiday in holidays)
 {
     //holiday...
@@ -25,7 +25,7 @@ foreach (var holiday in holidays)
 ### Get all holidays for a date range
 ```cs
 var startDate = new DateTime(2016, 5, 1);
-var endDate = new DateTime(2021, 5, 31);
+var endDate = new DateTime(2024, 5, 31);
 var holidays = DateSystem.GetHolidays(startDate, endDate, CountryCode.DE);
 foreach (var holiday in holidays)
 {
@@ -35,7 +35,7 @@ foreach (var holiday in holidays)
 
 ### Check if a date is a public holiday
 ```cs
-var date = new DateTime(2021, 1, 1);
+var date = new DateTime(2024, 1, 1);
 if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 {
     Console.WriteLine("Is a public holiday");
@@ -44,7 +44,7 @@ if (DateSystem.IsPublicHoliday(date, CountryCode.DE))
 
 ### Checks if the given date falls on a weekend day
 ```cs
-var date = new DateTime(2021, 1, 1);
+var date = new DateTime(2024, 1, 1);
 if (DateSystem.IsWeekend(date, CountryCode.DE))
 {
     Console.WriteLine("The date is in the weekend");
