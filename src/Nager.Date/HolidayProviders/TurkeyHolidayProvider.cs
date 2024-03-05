@@ -10,7 +10,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Turkey HolidayProvider
     /// </summary>
-    internal class TurkeyHolidayProvider : IHolidayProvider
+    internal sealed class TurkeyHolidayProvider : IHolidayProvider
     {
         private readonly UmAlQuraCalendar _umAlQuraCalendar;
 

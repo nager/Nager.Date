@@ -10,7 +10,7 @@ namespace Nager.Date.HolidayProviders
     /// Faroe Islands HolidayProvider
     /// </summary>
     /// <remarks>Adaptation of DenmarkProvider</remarks>
-    internal class FaroeIslandsHolidayProvider : IHolidayProvider
+    internal sealed class FaroeIslandsHolidayProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

@@ -8,7 +8,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// NoHolidays HolidayProvider
     /// </summary>
-    public class NoHolidaysHolidayProvider : IHolidayProvider
+    internal sealed class NoHolidaysHolidayProvider : IHolidayProvider
     {
         private static readonly Lazy<IHolidayProvider> _instance =
             new Lazy<IHolidayProvider>(() => new NoHolidaysHolidayProvider());

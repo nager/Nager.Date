@@ -8,7 +8,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Tunisia HolidayProvider
     /// </summary>
-    internal class TunisiaHolidayProvider : IHolidayProvider
+    internal sealed class TunisiaHolidayProvider : IHolidayProvider
     {
         /// <summary>
         /// Tunisia HolidayProvider

@@ -10,7 +10,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// South Korea HolidayProvider
     /// </summary>
-    internal class SouthKoreaHolidayProvider : IHolidayProvider
+    internal sealed class SouthKoreaHolidayProvider : IHolidayProvider
     {
         /// <inheritdoc/>
         public IEnumerable<Holiday> GetHolidays(int year)

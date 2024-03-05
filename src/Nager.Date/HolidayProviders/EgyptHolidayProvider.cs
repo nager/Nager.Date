@@ -8,7 +8,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Egypt HolidayProvider
     /// </summary>
-    internal class EgyptHolidayProvider : IHolidayProvider
+    internal sealed class EgyptHolidayProvider : IHolidayProvider
     {
         /// <inheritdoc/>
         public IEnumerable<Holiday> GetHolidays(int year)
