@@ -94,8 +94,8 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 1, 2),
-                    EnglishName = "New Year's Day",
-                    LocalName = "New Year's Day",
+                    EnglishName = "2 January",
+                    LocalName = "2 January",
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["GB-SCT"],
                     ObservedRuleSet = monday1ObservedRuleSet
