@@ -19,7 +19,7 @@ namespace Nager.Date
         private static readonly ICatholicProvider _catholicProvider = new CatholicProvider();
         private static readonly IOrthodoxProvider _orthodoxProvider = new OrthodoxProvider();
 
-        private static readonly Dictionary<CountryCode, Lazy<IHolidayProvider>> _publicHolidaysProviders =
+        private static readonly Dictionary<CountryCode, Lazy<IHolidayProvider>> _holidaysProviders =
             new Dictionary<CountryCode, Lazy<IHolidayProvider>>
             {
                 { CountryCode.AD, new Lazy<IHolidayProvider>(() => new AndorraHolidayProvider(_catholicProvider))},
@@ -212,7 +212,7 @@ namespace Nager.Date
                 throw new NoLicenseKeyException();
             }
 
-            if (_publicHolidaysProviders.TryGetValue(countryCode, out var provider))
+            if (_holidaysProviders.TryGetValue(countryCode, out var provider))
             {
                 return provider.Value;
             }
@@ -360,7 +360,7 @@ namespace Nager.Date
         {
             var items = new List<Holiday>();
 
-            foreach (var publicHolidayProvider in _publicHolidaysProviders.Keys)
+            foreach (var publicHolidayProvider in _holidaysProviders.Keys)
             {
                 items.AddRange(GetHolidays(startDate, endDate, publicHolidayProvider));
             }
