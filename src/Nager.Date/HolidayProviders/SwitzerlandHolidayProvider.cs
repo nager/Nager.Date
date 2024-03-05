@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -62,8 +63,8 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.CH;
 
-            var firstSundayOfSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.First);
-            var thirdSundayOfSeptember = DateSystem.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.Third);
+            var firstSundayOfSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.First);
+            var thirdSundayOfSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.Third);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

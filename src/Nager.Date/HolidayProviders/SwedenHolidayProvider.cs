@@ -1,4 +1,5 @@
 using Nager.Date.Extensions;
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -29,9 +30,9 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.SE;
 
-            var midsummerDay = DateSystem.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
+            var midsummerDay = DateHelper.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
             var midsummerEve = midsummerDay.AddDays(-1);
-            var allSaintsDay = DateSystem.FindDay(year, Month.October, 31, DayOfWeek.Saturday);
+            var allSaintsDay = DateHelper.FindDay(year, Month.October, 31, DayOfWeek.Saturday);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

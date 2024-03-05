@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -28,9 +29,9 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.AX;
 
-            var thirdFridayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Friday, Occurrence.Third);
-            var thirdSaturdayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Third);
-            var firstSaturdayInNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Saturday, Occurrence.First);
+            var thirdFridayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Friday, Occurrence.Third);
+            var thirdSaturdayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Third);
+            var firstSaturdayInNovember = DateHelper.FindDay(year, Month.November, DayOfWeek.Saturday, Occurrence.First);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

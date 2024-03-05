@@ -1,4 +1,5 @@
 using Nager.Date.Extensions;
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -41,8 +42,8 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.GB;
 
-            var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
-            var lastMondayInAugust = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
+            var firstMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
+            var lastMondayInAugust = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var mondayObservedRuleSet = new ObservedRuleSet
             {
@@ -176,8 +177,8 @@ namespace Nager.Date.HolidayProviders
             //var newYearDay = new DateTime(year, 1, 1);
             //if (newYearDay.IsWeekend(countryCode))
             //{
-            //    var newYearDayMonday = DateSystem.FindDay(year, Month.January, 1, DayOfWeek.Monday);
-            //    var newYearDayTuesday = DateSystem.FindDay(year, Month.January, 1, DayOfWeek.Tuesday);
+            //    var newYearDayMonday = DateHelper.FindDay(year, Month.January, 1, DayOfWeek.Monday);
+            //    var newYearDayTuesday = DateHelper.FindDay(year, Month.January, 1, DayOfWeek.Tuesday);
 
             //    items.Add(new Holiday(newYearDay, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-NIR" }));
             //    items.Add(new Holiday(newYearDayMonday, "New Year's Day", "New Year's Day", countryCode, null, new string[] { "GB-ENG", "GB-WLS" }));
@@ -239,7 +240,7 @@ namespace Nager.Date.HolidayProviders
                 //return new Holiday(year, 6, 2, name, name, countryCode);
             }
 
-            var lastMondayInMay = DateSystem.FindLastDay(year, Month.May, DayOfWeek.Monday);
+            var lastMondayInMay = DateHelper.FindLastDay(year, Month.May, DayOfWeek.Monday);
 
             return new HolidaySpecification
             {
@@ -324,7 +325,7 @@ namespace Nager.Date.HolidayProviders
             if (year == 2020)
             {
                 //https://www.bbc.co.uk/news/uk-48565417
-                var secondFridayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Friday, Occurrence.Second);
+                var secondFridayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Friday, Occurrence.Second);
 
                 return new HolidaySpecification
                 {
@@ -337,7 +338,7 @@ namespace Nager.Date.HolidayProviders
                 //return new Holiday(secondFridayInMay, holidayName, holidayName, countryCode, 1978);
             }
 
-            var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
 
             return new HolidaySpecification
             {

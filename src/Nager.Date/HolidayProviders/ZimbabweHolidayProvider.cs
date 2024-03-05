@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -29,7 +30,7 @@ namespace Nager.Date.HolidayProviders
             var countryCode = CountryCode.ZW;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var secondMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.Second);
+            var secondMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.Second);
             var tuesdayAfterSecondMondayInAugust = secondMondayInAugust.AddDays(1);
 
             var holidaySpecifications = new List<HolidaySpecification>

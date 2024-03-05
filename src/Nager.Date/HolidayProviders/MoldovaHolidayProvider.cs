@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -28,7 +29,7 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.MD;
 
-            var lastMondayInMay = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
+            var lastMondayInMay = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

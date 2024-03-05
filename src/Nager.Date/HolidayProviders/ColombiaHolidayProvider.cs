@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -29,13 +30,13 @@ namespace Nager.Date.HolidayProviders
             var countryCode = CountryCode.CO;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var epiphanyDate = DateSystem.FindDay(year, Month.January, 6, DayOfWeek.Monday);
-            var saintJosephsDayDate = DateSystem.FindDay(year, Month.March, 19, DayOfWeek.Monday);
-            var saintPeterAndSaintPaulDate = DateSystem.FindDay(year, Month.June, 29, DayOfWeek.Monday);
-            var assumptionOfMaryDate = DateSystem.FindDay(year, Month.August, 15, DayOfWeek.Monday);
-            var columbusDayDate = DateSystem.FindDay(year, Month.October, 12, DayOfWeek.Monday);
-            var allSaintsDayDate = DateSystem.FindDay(year, Month.November, 1, DayOfWeek.Monday);
-            var independenceOfCartagenaDate = DateSystem.FindDay(year, Month.November, 11, DayOfWeek.Monday);
+            var epiphanyDate = DateHelper.FindDay(year, Month.January, 6, DayOfWeek.Monday);
+            var saintJosephsDayDate = DateHelper.FindDay(year, Month.March, 19, DayOfWeek.Monday);
+            var saintPeterAndSaintPaulDate = DateHelper.FindDay(year, Month.June, 29, DayOfWeek.Monday);
+            var assumptionOfMaryDate = DateHelper.FindDay(year, Month.August, 15, DayOfWeek.Monday);
+            var columbusDayDate = DateHelper.FindDay(year, Month.October, 12, DayOfWeek.Monday);
+            var allSaintsDayDate = DateHelper.FindDay(year, Month.November, 1, DayOfWeek.Monday);
+            var independenceOfCartagenaDate = DateHelper.FindDay(year, Month.November, 11, DayOfWeek.Monday);
 
             var mondayObservedRuleSet = new ObservedRuleSet
             {
@@ -159,7 +160,7 @@ namespace Nager.Date.HolidayProviders
             //#region Ascension Day
 
             //var ascensionDayPublicHoliday = this._catholicProvider.AscensionDay("Ascensión del señor", year, countryCode);
-            //var ascensionDay = DateSystem.FindDay(ascensionDayPublicHoliday.Date, DayOfWeek.Monday);
+            //var ascensionDay = DateHelper.FindDay(ascensionDayPublicHoliday.Date, DayOfWeek.Monday);
             //var shiftedAscensionDayPublicHoliday = new Holiday(ascensionDay, ascensionDayPublicHoliday.LocalName, ascensionDayPublicHoliday.Name, countryCode);
 
             //#endregion
@@ -167,7 +168,7 @@ namespace Nager.Date.HolidayProviders
             //#region Corpus Christi
 
             //var corpusChristiPublicHoliday = this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode);
-            //var corpusChristiDay = DateSystem.FindDay(corpusChristiPublicHoliday.Date, DayOfWeek.Monday);
+            //var corpusChristiDay = DateHelper.FindDay(corpusChristiPublicHoliday.Date, DayOfWeek.Monday);
             //var shiftedCorpusChristiPublicHoliday = new Holiday(corpusChristiDay, corpusChristiPublicHoliday.LocalName, corpusChristiPublicHoliday.Name, countryCode);
 
             //#endregion

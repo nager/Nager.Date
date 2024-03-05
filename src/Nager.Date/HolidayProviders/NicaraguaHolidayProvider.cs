@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -28,7 +29,7 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.NI;
 
-            var firstThursdayInApril = DateSystem.FindDay(year, Month.April, DayOfWeek.Thursday, Occurrence.First);
+            var firstThursdayInApril = DateHelper.FindDay(year, Month.April, DayOfWeek.Thursday, Occurrence.First);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

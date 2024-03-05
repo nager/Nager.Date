@@ -1,4 +1,5 @@
 using Nager.Date.Extensions;
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -41,7 +42,7 @@ namespace Nager.Date.HolidayProviders
                 Sunday = date => date.AddDays(2),
             };
 
-            var lastMondayInAugust = DateSystem.FindLastDay(year, Month.August, DayOfWeek.Monday);
+            var lastMondayInAugust = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
             //var tynwaldDay = new DateTime(year, 7, 5).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             //var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
             //var stStephensDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
@@ -138,7 +139,7 @@ namespace Nager.Date.HolidayProviders
             }
 
             //The friday after the first saturday of June
-            var ttRaceDay = DateSystem.FindDay(DateSystem.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.First), DayOfWeek.Friday);
+            var ttRaceDay = DateHelper.FindDay(DateHelper.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.First), DayOfWeek.Friday);
             return new HolidaySpecification
             {
                 Date = ttRaceDay,
@@ -156,7 +157,7 @@ namespace Nager.Date.HolidayProviders
             if (year == 2020)
             {
                 //https://www.gov.uk/government/news/extra-bank-holiday-to-mark-the-queens-platinum-jubilee-in-2022
-                var secondFridayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Friday, Occurrence.Second);
+                var secondFridayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Friday, Occurrence.Second);
                 return new HolidaySpecification
                 {
                     Date = secondFridayInMay,
@@ -167,7 +168,7 @@ namespace Nager.Date.HolidayProviders
                 //return new Holiday(secondFridayInMay, holidayName, holidayName, countryCode, 1978);
             }
 
-            var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
             return new HolidaySpecification
             {
                 Date = firstMondayInMay,
@@ -195,7 +196,7 @@ namespace Nager.Date.HolidayProviders
                 //return new Holiday(year, 6, 2, holidayName, holidayName, countryCode);
             }
 
-            var lastMondayInMay = DateSystem.FindLastDay(year, Month.May, DayOfWeek.Monday);
+            var lastMondayInMay = DateHelper.FindLastDay(year, Month.May, DayOfWeek.Monday);
             return new HolidaySpecification
             {
                 Date = lastMondayInMay,

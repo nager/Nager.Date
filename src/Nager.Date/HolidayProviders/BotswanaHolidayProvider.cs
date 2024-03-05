@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -28,7 +29,7 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.BW;
 
-            var thirdMondayInJuly = DateSystem.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.Third);
+            var thirdMondayInJuly = DateHelper.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.Third);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

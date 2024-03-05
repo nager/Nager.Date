@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -28,9 +29,9 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.FI;
 
-            var midsummerEve = DateSystem.FindDay(year, Month.June, 19, DayOfWeek.Friday);
-            var midsummerDay = DateSystem.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
-            var allSaintsDay = DateSystem.FindDayBetween(year, 10, 31, year, 11, 6, DayOfWeek.Saturday);
+            var midsummerEve = DateHelper.FindDay(year, Month.June, 19, DayOfWeek.Friday);
+            var midsummerDay = DateHelper.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
+            var allSaintsDay = DateHelper.FindDayBetween(year, 10, 31, year, 11, 6, DayOfWeek.Saturday);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

@@ -1,4 +1,5 @@
 using Nager.Date.Extensions;
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -62,10 +63,10 @@ namespace Nager.Date.HolidayProviders
             //var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
 
             var easterSunday = this._catholicProvider.EasterSunday(year);
-            var labourDay = DateSystem.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Fourth);
-            var canterburySouthDay = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
-            var taranakiDay = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
-            var canterburyDay = DateSystem.FindDay(year, Month.November, DayOfWeek.Tuesday, Occurrence.First).AddDays(10);
+            var labourDay = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Fourth);
+            var canterburySouthDay = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
+            var taranakiDay = DateHelper.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
+            var canterburyDay = DateHelper.FindDay(year, Month.November, DayOfWeek.Tuesday, Occurrence.First).AddDays(10);
 
             var observedRuleSet1 = new ObservedRuleSet
             {
@@ -261,7 +262,7 @@ namespace Nager.Date.HolidayProviders
             //var wellingtonDay = new DateTime(year, 1, 22).ShiftToClosest(DayOfWeek.Monday);
             //items.Add(new Holiday(wellingtonDay, "Wellington Anniversary Day", "Wellington Anniversary Day", countryCode, counties: new[] { "NZ-WGN", "NZ-MWT" }));
 
-            //var canterburySouthDay = DateSystem.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
+            //var canterburySouthDay = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
             //items.Add(new Holiday(canterburySouthDay, "Dominion Day", "Canterbury (South) Anniversary Day", countryCode, counties: new[] { "NZ-CAN" }));
 
             //var chathamDay = new DateTime(year, 11, 30).ShiftToClosest(DayOfWeek.Monday);
@@ -390,7 +391,7 @@ namespace Nager.Date.HolidayProviders
                 name = "King's Birthday";
             }
 
-            var monarchBirthday = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
+            var monarchBirthday = DateHelper.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
 
             return new HolidaySpecification
             {

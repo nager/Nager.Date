@@ -1,4 +1,5 @@
 using Nager.Date.Extensions;
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -33,7 +34,7 @@ namespace Nager.Date.HolidayProviders
 
             var countryCode = CountryCode.SR;
 
-            var thirdSundayInJanuary = DateSystem.FindDay(year, Month.January, DayOfWeek.Sunday, Occurrence.Third);
+            var thirdSundayInJanuary = DateHelper.FindDay(year, Month.January, DayOfWeek.Sunday, Occurrence.Third);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

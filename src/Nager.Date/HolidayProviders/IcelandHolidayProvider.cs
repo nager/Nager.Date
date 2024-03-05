@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -28,8 +29,8 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.IS;
 
-            var firstDayOfSummer = DateSystem.FindDay(year, Month.April, 19, DayOfWeek.Thursday);
-            var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
+            var firstDayOfSummer = DateHelper.FindDay(year, Month.April, 19, DayOfWeek.Thursday);
+            var firstMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

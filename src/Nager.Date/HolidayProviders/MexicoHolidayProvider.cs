@@ -1,4 +1,5 @@
 using Nager.Date.Extensions;
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,9 @@ namespace Nager.Date.HolidayProviders
             //Only Statutory holidays
             var countryCode = CountryCode.MX;
 
-            var firstMondayOfFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.First);
-            var thirdMondayOfMarch = DateSystem.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Third);
-            var thirdMondayOfNovember = DateSystem.FindDay(year, Month.November, DayOfWeek.Monday, Occurrence.Third);
+            var firstMondayOfFebruary = DateHelper.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.First);
+            var thirdMondayOfMarch = DateHelper.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Third);
+            var thirdMondayOfNovember = DateHelper.FindDay(year, Month.November, DayOfWeek.Monday, Occurrence.Third);
 
             //var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
             //var laborDay = new DateTime(year, 5, 1).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));

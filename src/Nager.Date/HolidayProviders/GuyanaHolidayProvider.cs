@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -28,7 +29,7 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.GY;
 
-            var firstMondayInJuly = DateSystem.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInJuly = DateHelper.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.First);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {

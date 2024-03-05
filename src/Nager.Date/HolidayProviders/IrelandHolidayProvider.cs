@@ -1,4 +1,5 @@
 using Nager.Date.Extensions;
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -29,10 +30,10 @@ namespace Nager.Date.HolidayProviders
         {
             var countryCode = CountryCode.IE;
 
-            var firstMondayInMay = DateSystem.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
-            var firstMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
-            var firstMondayInAugust = DateSystem.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
-            var lastMondayInOctober = DateSystem.FindLastDay(year, Month.October, DayOfWeek.Monday);
+            var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
+            var lastMondayInOctober = DateHelper.FindLastDay(year, Month.October, DayOfWeek.Monday);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -142,7 +143,7 @@ namespace Nager.Date.HolidayProviders
                 //return new Holiday(firstFebruary, localName, englishName, countryCode, launchYear: 2023);
             }
 
-            var firstMondayInFebruary = DateSystem.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.First);
+            var firstMondayInFebruary = DateHelper.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.First);
 
             return new HolidaySpecification
             {

@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -29,7 +30,7 @@ namespace Nager.Date.HolidayProviders
             var countryCode = CountryCode.PG;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var secondMondayInJune = DateSystem.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
+            var secondMondayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
