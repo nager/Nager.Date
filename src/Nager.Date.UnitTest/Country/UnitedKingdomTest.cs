@@ -11,7 +11,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestUnitedKingdom()
         {
             var testDate = new DateTime(2017, 08, 28);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(testDate, CountryCode.GB, "GB-ENG");
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(testDate, CountryCode.GB, "GB-ENG");
             Assert.IsTrue(isPublicHoliday);
         }
 
@@ -19,7 +19,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestUnitedKingdomStPatricksDay()
         {
             var testDate = new DateTime(2017, 03, 17);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(testDate, CountryCode.GB, "GB-NIR");
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(testDate, CountryCode.GB, "GB-NIR");
             Assert.IsTrue(isPublicHoliday);
         }
 
@@ -45,7 +45,7 @@ namespace Nager.Date.UnitTest.Country
         public void CheckMayDay(int year, int month, int day, bool expectedIsPublicHoliday)
         {
             var date = new DateTime(year, month, day);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.GB);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(date, CountryCode.GB);
             Assert.AreEqual(expectedIsPublicHoliday, isPublicHoliday);
         }
 
@@ -59,8 +59,8 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2021, 12, 27, 28)]
         public void CheckChristmasDayAndBoxingDay(int year, int month, int expectedChristmasDay, int expectedBoxingDay)
         {
-            Assert.IsTrue(DateSystem.IsPublicHoliday(new DateTime(year, month, expectedChristmasDay), CountryCode.GB));
-            Assert.IsTrue(DateSystem.IsPublicHoliday(new DateTime(year, month, expectedBoxingDay), CountryCode.GB));
+            Assert.IsTrue(HolidaySystem.IsPublicHoliday(new DateTime(year, month, expectedChristmasDay), CountryCode.GB));
+            Assert.IsTrue(HolidaySystem.IsPublicHoliday(new DateTime(year, month, expectedBoxingDay), CountryCode.GB));
         }
 
         [DataTestMethod]
@@ -69,7 +69,7 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2023, 9, 19, false)]
         public void CheckQueensStateFuneral(int year, int month, int day, bool isBankHoliday)
         {
-            Assert.AreEqual(DateSystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB), isBankHoliday);
+            Assert.AreEqual(HolidaySystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB), isBankHoliday);
         }
 
         [DataTestMethod]
@@ -79,7 +79,7 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2024, 5, 8, false)]
         public void CheckKingCharlesCoronation(int year, int month, int day, bool isBankHoliday)
         {
-            Assert.AreEqual(DateSystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB), isBankHoliday);
+            Assert.AreEqual(HolidaySystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB), isBankHoliday);
         }
     }
 }

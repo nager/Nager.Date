@@ -17,7 +17,7 @@ namespace Nager.Date.Extensions
             this DateTime dateTime,
             CountryCode countryCode)
         {
-            var provider = DateSystem.GetWeekendProvider(countryCode);
+            var provider = WeekendSystem.GetWeekendProvider(countryCode);
             return provider.IsWeekend(dateTime);
         }
 

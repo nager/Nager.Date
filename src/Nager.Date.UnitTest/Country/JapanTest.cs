@@ -18,7 +18,7 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2022, 2022, 03, 21)]
         public void Check_VernalEquinoxDay(int year, int expectedYear, int expectedMonth, int expectedDay)
         {
-            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.JP).ToArray();
+            var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.JP).ToArray();
             var publicHoliday = publicHolidays.Where(o => o.EnglishName == "Vernal Equinox Day").SingleOrDefault();
 
             Assert.AreEqual(new DateTime(expectedYear, expectedMonth, expectedDay), publicHoliday.Date);
@@ -37,7 +37,7 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2022, 2022, 09, 23)]
         public void Check_AutumnalEquinoxDay(int year, int expectedYear, int expectedMonth, int expectedDay)
         {
-            var publicHolidays = DateSystem.GetHolidays(year, CountryCode.JP).ToArray();
+            var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.JP).ToArray();
             var publicHoliday = publicHolidays.Where(o => o.EnglishName == "Autumnal Equinox Day").SingleOrDefault();
 
             Assert.AreEqual(new DateTime(expectedYear, expectedMonth, expectedDay), publicHoliday.Date);

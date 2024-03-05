@@ -14,7 +14,7 @@ namespace Nager.Date.UnitTest.Country
             var yearToTest = 2021;
             var expectedDate = new DateTime(yearToTest, 5, 3);
 
-            var publicHolidays = DateSystem.GetHolidays(yearToTest, CountryCode.ES);
+            var publicHolidays = HolidaySystem.GetHolidays(yearToTest, CountryCode.ES);
             var publicHoliday = publicHolidays.Where(publicHoliday => publicHoliday.EnglishName == "Day of Madrid").FirstOrDefault();
             Assert.AreEqual(expectedDate, publicHoliday.ObservedDate);
         }

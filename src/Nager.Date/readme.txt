@@ -23,13 +23,13 @@ Here are some examples of how to use it:
 Set the License Key
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
 
-    DateSystem.LicenseKey = "TheLicenseKey"
+    HolidaySystem.LicenseKey = "TheLicenseKey"
 
 
 Get all holidays of a specific year and country
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
 
-    var holidays = DateSystem.GetHolidays(2024, "DE");
+    var holidays = HolidaySystem.GetHolidays(2024, "DE");
     foreach (var holiday in holidays)
     {
         //holiday...
@@ -47,7 +47,7 @@ Get all holidays for a date range
 
     var startDate = new DateTime(2016, 5, 1);
     var endDate = new DateTime(2022, 5, 31);
-    var holidays = DateSystem.GetHolidays(startDate, endDate, CountryCode.DE);
+    var holidays = HolidaySystem.GetHolidays(startDate, endDate, CountryCode.DE);
     foreach (var holiday in holidays)
     {
         //holiday...

@@ -11,7 +11,7 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestColombia_2022()
         {
-            var publicHolidays = DateSystem.GetHolidays(2022, CountryCode.CO).ToArray();
+            var publicHolidays = HolidaySystem.GetHolidays(2022, CountryCode.CO).ToArray();
 
             var saintJosephsDay = publicHolidays.SingleOrDefault(o => o.EnglishName == "Saint Joseph's Day");
             Assert.AreEqual(new DateTime(2022, 03, 21), saintJosephsDay.ObservedDate);

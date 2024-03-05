@@ -14,7 +14,7 @@ namespace Nager.Date.UnitTest.Country
         public void CheckThatNationalDayIsAddedAsPublicHolidayYear2005AndOnwards(int year, bool expectedIsPublicHoliday)
         {
             var date = new DateTime(year, 6, 6);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.SE);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(date, CountryCode.SE);
             Assert.AreEqual(expectedIsPublicHoliday, isPublicHoliday, date.ToString());
         }
 
@@ -26,7 +26,7 @@ namespace Nager.Date.UnitTest.Country
         public void CheckThatPentecostMondayIsRemovedAsPublicHolidayAfterYear2004(int year, int month, int day, bool expectedIsPublicHoliday)
         {
             var date = new DateTime(year, month, day);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.SE);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(date, CountryCode.SE);
             Assert.AreEqual(expectedIsPublicHoliday, isPublicHoliday);
         }
     }

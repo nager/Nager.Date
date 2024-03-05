@@ -14,7 +14,7 @@ namespace Nager.Date.UnitTest.Country
         {
             for (var year = DateTime.Now.Year; year < 3000; year++)
             {
-                var publicHolidays = DateSystem.GetHolidays(year, CountryCode.CH);
+                var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.CH);
                 Assert.AreEqual(16, publicHolidays.Count());
             }
         }

@@ -13,7 +13,7 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void PuertoRicoHasGoodFridayHoliday()
         {
-            var holidays = DateSystem.GetHolidays(2017, CountryCode.PR);
+            var holidays = HolidaySystem.GetHolidays(2017, CountryCode.PR);
 
             var catholic = new MockPublicHolidayProvider(new CatholicProvider());
             var expectedGoodFriday = catholic.EasterSunday(2017).AddDays(-2);

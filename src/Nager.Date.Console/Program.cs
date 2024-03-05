@@ -1,6 +1,6 @@
 using Nager.Date;
 
-DateSystem.LicenseKey = "Thank you for supporting open source projects";
+HolidaySystem.LicenseKey = "Thank you for supporting open source projects";
 
 Console.WriteLine("Nager.Date");
 
@@ -22,7 +22,7 @@ Console.WriteLine($"Calculate holidays for {countryCode.ToUpper()} {year}");
 Console.WriteLine("--------------------------------------------------------------------------------------------------");
 Console.WriteLine("Date         Observed                       English Name                       Local Name   Type");
 
-var publicHolidays = DateSystem.GetHolidays(year, countryCode);
+var publicHolidays = HolidaySystem.GetHolidays(year, countryCode);
 foreach (var publicHoliday in publicHolidays)
 {
     var counties = publicHoliday.SubdivisionCodes != null ? string.Join(',', publicHoliday.SubdivisionCodes) : "";

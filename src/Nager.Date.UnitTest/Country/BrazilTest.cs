@@ -11,7 +11,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestBrazil()
         {
             var testDate = new DateTime(2022, 10, 12);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(testDate, CountryCode.BR);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(testDate, CountryCode.BR);
             Assert.AreEqual(true, isPublicHoliday);
         }
 
@@ -20,7 +20,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestBrazilSPRevolutionOf1932(string countyCode, bool expected)
         {
             var testDate = new DateTime(2022, 07, 09);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(testDate, CountryCode.BR, countyCode);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(testDate, CountryCode.BR, countyCode);
             Assert.AreEqual(expected, isPublicHoliday);
         }
 
