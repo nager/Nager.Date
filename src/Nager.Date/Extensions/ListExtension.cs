@@ -1,33 +1,37 @@
-using Nager.Date.Model;
+using Nager.Date.Models;
 using System.Collections.Generic;
 
 namespace Nager.Date.Extensions
 {
     internal static class ListExtension
     {
-        internal static void AddIfNotNull(this List<PublicHoliday> holidays, PublicHoliday publicHoliday)
+        internal static void AddIfNotNull(
+            this List<HolidaySpecification> holidaySpecificationList,
+            HolidaySpecification holidaySpecification)
         {
-            if (publicHoliday == null)
+            if (holidaySpecification == null)
             {
                 return;
             }
 
-            holidays.Add(publicHoliday);
+            holidaySpecificationList.Add(holidaySpecification);
         }
 
-        internal static void AddRangeIfNotNull(this List<PublicHoliday> holidays, PublicHoliday[] publicHolidays)
+        internal static void AddRangeIfNotNull(
+            this List<HolidaySpecification> holidaySpecificationList,
+            HolidaySpecification[] holidaySpecifications)
         {
-            if (publicHolidays == null)
+            if (holidaySpecifications == null)
             {
                 return;
             }
 
-            if (publicHolidays.Length == 0)
+            if (holidaySpecifications.Length == 0)
             {
                 return;
             }
 
-            holidays.AddRange(publicHolidays);
+            holidaySpecificationList.AddRange(holidaySpecifications);
         }
     }
 }

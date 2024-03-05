@@ -8,7 +8,7 @@ namespace Nager.Date.UnitTest
         [AssemblyInitialize]
         public static void MyTestInitialize(TestContext testContext)
         {
-            DateSystem.LicenseKey = "Thank you for supporting open source projects";
+            HolidaySystem.LicenseKey = "Thank you for supporting open source projects";
         }
     }
 }

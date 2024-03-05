@@ -12,7 +12,7 @@ namespace Nager.Date.UnitTest.Country
         public void ChecksIsPublicHoliday(int year, int month, int day, bool expectedIsPublicHoliday)
         {
             var date = new DateTime(year, month, day);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.DK);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(date, CountryCode.DK);
             Assert.AreEqual(expectedIsPublicHoliday, isPublicHoliday);
         }
     }

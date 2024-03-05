@@ -26,7 +26,7 @@ jobs:
       if: github.event_name != 'pull_request' && github.actor != 'dependabot[bot]'
       working-directory: ./src
       run: |
-        sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date/DateSystem.cs
+        sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date/HolidaySystem.cs
         sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date.UnitTest/AssemblyInitialize.cs
     - name: Restore dependencies
       working-directory: ./src

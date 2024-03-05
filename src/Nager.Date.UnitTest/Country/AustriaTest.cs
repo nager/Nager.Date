@@ -12,21 +12,21 @@ namespace Nager.Date.UnitTest.Country
         public void TestAustria2017()
         {
             var year = 2017;
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.AT).ToArray();
+            var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.AT).ToArray();
 
-            Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 1, 6), publicHolidays[1].Date, $"{publicHolidays[1].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 4, 17), publicHolidays[2].Date, $"{publicHolidays[2].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 5, 1), publicHolidays[3].Date, $"{publicHolidays[3].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 5, 25), publicHolidays[4].Date, $"{publicHolidays[4].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 6, 5), publicHolidays[5].Date, $"{publicHolidays[5].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 6, 15), publicHolidays[6].Date, $"{publicHolidays[6].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 8, 15), publicHolidays[7].Date, $"{publicHolidays[7].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 10, 26), publicHolidays[8].Date, $"{publicHolidays[8].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 11, 1), publicHolidays[9].Date, $"{publicHolidays[9].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 12, 8), publicHolidays[10].Date, $"{publicHolidays[10].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 12, 25), publicHolidays[11].Date, $"{publicHolidays[11].Name} is wrong");
-            Assert.AreEqual(new DateTime(year, 12, 26), publicHolidays[12].Date, $"{publicHolidays[12].Name} is wrong");
+            Assert.AreEqual(new DateTime(year, 1, 1), publicHolidays[0].Date, $"{publicHolidays[0].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 1, 6), publicHolidays[1].Date, $"{publicHolidays[1].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 4, 17), publicHolidays[2].Date, $"{publicHolidays[2].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 5, 1), publicHolidays[3].Date, $"{publicHolidays[3].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 5, 25), publicHolidays[4].Date, $"{publicHolidays[4].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 6, 5), publicHolidays[5].Date, $"{publicHolidays[5].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 6, 15), publicHolidays[6].Date, $"{publicHolidays[6].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 8, 15), publicHolidays[7].Date, $"{publicHolidays[7].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 10, 26), publicHolidays[8].Date, $"{publicHolidays[8].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 11, 1), publicHolidays[9].Date, $"{publicHolidays[9].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 12, 8), publicHolidays[10].Date, $"{publicHolidays[10].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 12, 25), publicHolidays[11].Date, $"{publicHolidays[11].EnglishName} is wrong");
+            Assert.AreEqual(new DateTime(year, 12, 26), publicHolidays[12].Date, $"{publicHolidays[12].EnglishName} is wrong");
         }
 
         [DataTestMethod]

@@ -6,57 +6,55 @@
    ██    ██   ██ ██   ██ ██   ████ ██   ██        ██     ██████   ██████
 
 
-Thank you for downloading this package.
-Information about this project can be found here https://github.com/nager/Nager.Date
+Thank you for choosing this package.
+More information about this project can be found here: https://github.com/nager/Nager.Date
 
 
-This package requires a license key that you receive as a GitHub sponsor.
+This package requires a license key, which is provided to GitHub sponsors.
 https://github.com/sponsors/nager
 
-Our public WebApi is still available without limitation.
+Alternatively, you can also utilize our Web API to access up-to-date holiday information.
 https://date.nager.at/Api
 
 
 
-Examples of use:
+Here are some examples of how to use it:
 
 Set the License Key
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
 
-    DateSystem.LicenseKey = "TheLicenseKey"
+    HolidaySystem.LicenseKey = "TheLicenseKey"
 
 
-Get all publicHolidays of a given year and country
+Get all holidays of a specific year and country
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
 
-    var publicHolidays = DateSystem.GetPublicHoliday(2022, "DE");
-    foreach (var publicHoliday in publicHolidays)
+    var holidays = HolidaySystem.GetHolidays(2024, "DE");
+    foreach (var holiday in holidays)
     {
-        //publicHoliday...
-        //publicHoliday.Date -> The date
-        //publicHoliday.LocalName -> The local name
-        //publicHoliday.Name -> The english name
-        //publicHoliday.Fixed -> Is this public holiday every year on the same date
-        //publicHoliday.Global -> Is this public holiday in every county (federal state)
-        //publicHoliday.Counties -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
-        //publicHoliday.Type -> Public, Bank, School, Authorities, Optional, Observance
+        //holiday...
+        //holiday.Date -> The date
+        //holiday.LocalName -> The local name
+        //holiday.EnglishName -> The english name
+        //holiday.NationalHoliday -> Is this public holiday in every county (federal state)
+        //holiday.SubdivisionCodes -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
+        //holiday.HolidayTypes -> Public, Bank, School, Authorities, Optional, Observance
     }
 
 
-Get all publicHolidays for a date range
+Get all holidays for a date range
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
 
     var startDate = new DateTime(2016, 5, 1);
     var endDate = new DateTime(2022, 5, 31);
-    var publicHolidays = DateSystem.GetPublicHoliday(startDate, endDate, CountryCode.DE);
-    foreach (var publicHoliday in publicHolidays)
+    var holidays = HolidaySystem.GetHolidays(startDate, endDate, CountryCode.DE);
+    foreach (var holiday in holidays)
     {
-        //publicHoliday...
-        //publicHoliday.Date -> The date
-        //publicHoliday.LocalName -> The local name
-        //publicHoliday.Name -> The english name
-        //publicHoliday.Fixed -> Is this public holiday every year on the same date
-        //publicHoliday.Global -> Is this public holiday in every county (federal state)
-        //publicHoliday.Counties -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
-        //publicHoliday.Type -> Public, Bank, School, Authorities, Optional, Observance
+        //holiday...
+        //holiday.Date -> The date
+        //holiday.LocalName -> The local name
+        //holiday.EnglishName -> The english name
+        //holiday.NationalHoliday -> Is this public holiday in every county (federal state)
+        //holiday.SubdivisionCodes -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
+        //holiday.HolidayTypes -> Public, Bank, School, Authorities, Optional, Observance
     }

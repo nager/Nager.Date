@@ -1,11 +1,12 @@
-﻿using Nager.Date.Contract;
-using Nager.Date.Model;
+using Nager.Date.HolidayProviders;
+using Nager.Date.Models;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
 
 namespace Nager.Date.UnitTest
 {
-    public class MockPublicHolidayProvider : IPublicHolidayProvider
+    public class MockPublicHolidayProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -19,7 +20,7 @@ namespace Nager.Date.UnitTest
             return this._catholicProvider.EasterSunday(year);
         }
 
-        public IEnumerable<PublicHoliday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             throw new NotImplementedException();
         }

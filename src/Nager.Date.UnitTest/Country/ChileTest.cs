@@ -23,11 +23,11 @@ namespace Nager.Date.UnitTest.Country
 
         public void TestColumbusDay(int year, int month, int expectedDay)
         {
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.CL).ToArray();
+            var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.CL).ToArray();
 
-            var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.Name == "Columbus Day");
+            var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.EnglishName == "Columbus Day");
             Assert.IsNotNull(publicHoliday);
-            Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.Date);
+            Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.ObservedDate);
         }
 
         [DataTestMethod]
@@ -45,11 +45,11 @@ namespace Nager.Date.UnitTest.Country
 
         public void TestReformationDay(int year, int month, int expectedDay)
         {
-            var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.CL).ToArray();
+            var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.CL).ToArray();
 
-            var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.Name == "Reformation Day");
+            var publicHoliday = publicHolidays.FirstOrDefault(holiday => holiday.EnglishName == "Reformation Day");
             Assert.IsNotNull(publicHoliday);
-            Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.Date);
+            Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.ObservedDate);
         }
     }
 }

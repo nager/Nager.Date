@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.0.0-alpha] - 2024-03-05
+
+### Added
+- Add a second date for holiday observed
+### Changed
+- Move Day finding logic to DateHelper
+- Change project structure
+### Removed
+- Remove bridge day logic part
+
 ## [1.48.0] - 2024-02-12
 
 ### Added

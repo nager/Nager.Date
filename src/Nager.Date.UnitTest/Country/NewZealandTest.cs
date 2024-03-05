@@ -41,7 +41,7 @@ public class NewZealandTest
     public void ChecksIsMatarikiPublicHoliday(int year, int month, int day)
     {
         var date = new DateTime(year, month, day);
-        var isPublicHoliday = DateSystem.IsPublicHoliday(date, CountryCode.NZ);
+        var isPublicHoliday = HolidaySystem.IsPublicHoliday(date, CountryCode.NZ);
 
         Assert.IsTrue(isPublicHoliday);
         Assert.AreEqual(DayOfWeek.Friday, date.DayOfWeek);

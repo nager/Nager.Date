@@ -1,7 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nager.Date.Contract;
-using Nager.Date.Model;
-using Nager.Date.PublicHolidays;
+using Nager.Date.Helpers;
+using Nager.Date.HolidayProviders;
+using Nager.Date.Models;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -20,8 +21,8 @@ namespace Nager.Date.UnitTest.Common
 
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
-                var publicHolidayProvider = DateSystem.GetPublicHolidayProvider(countryCode);
-                if (publicHolidayProvider is NoHolidaysProvider)
+                var publicHolidayProvider = HolidaySystem.GetHolidayProvider(countryCode);
+                if (publicHolidayProvider is NoHolidaysHolidayProvider)
                 {
                     continue;
                 }
@@ -56,7 +57,7 @@ namespace Nager.Date.UnitTest.Common
                 {
                     try
                     {
-                        var items = DateSystem.GetPublicHolidays(calculationYear, countryCode);
+                        var items = HolidaySystem.GetHolidays(calculationYear, countryCode);
                         if (items.Any(o => !o.Date.Year.Equals(calculationYear)))
                         {
                             corruptPublicHolidaysFound = true;
@@ -94,107 +95,107 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckIsPublicHoliday()
         {
-            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 5, 1), CountryCode.AT);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2016, 5, 1), CountryCode.AT);
             Assert.AreEqual(true, isPublicHoliday);
 
-            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), CountryCode.AT);
+            isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2016, 1, 6), CountryCode.AT);
             Assert.AreEqual(true, isPublicHoliday);
 
-            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
+            isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
             Assert.AreEqual(true, isPublicHoliday);
 
-            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
+            isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2016, 1, 6), "AT");
             Assert.AreEqual(true, isPublicHoliday);
         }
 
         [TestMethod]
         public void CheckIsWeekend()
         {
-            var isPublicHoliday = DateSystem.IsWeekend(new DateTime(2021, 10, 20), CountryCode.AT);
+            var isPublicHoliday = WeekendSystem.IsWeekend(new DateTime(2021, 10, 20), CountryCode.AT);
             Assert.IsFalse(isPublicHoliday);
 
-            isPublicHoliday = DateSystem.IsWeekend(new DateTime(2021, 10, 20), "AT");
+            isPublicHoliday = WeekendSystem.IsWeekend(new DateTime(2021, 10, 20), "AT");
             Assert.IsFalse(isPublicHoliday);
 
-            isPublicHoliday = DateSystem.IsWeekend(new DateTime(2021, 10, 24), CountryCode.AT);
+            isPublicHoliday = WeekendSystem.IsWeekend(new DateTime(2021, 10, 24), CountryCode.AT);
             Assert.IsTrue(isPublicHoliday);
 
-            isPublicHoliday = DateSystem.IsWeekend(new DateTime(2021, 10, 24), "AT");
+            isPublicHoliday = WeekendSystem.IsWeekend(new DateTime(2021, 10, 24), "AT");
             Assert.IsTrue(isPublicHoliday);
         }
 
         [TestMethod]
         public void CheckFindDay()
         {
-            var result = DateSystem.FindDay(2017, 1, 1, DayOfWeek.Friday);
+            var result = DateHelper.FindDay(2017, 1, 1, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 6), result);
 
-            result = DateSystem.FindDay(2017, 1, 2, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 2, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 6), result);
 
-            result = DateSystem.FindDay(2017, 1, 3, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 3, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 6), result);
 
-            result = DateSystem.FindDay(2017, 1, 4, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 4, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 6), result);
 
-            result = DateSystem.FindDay(2017, 1, 5, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 5, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 6), result);
 
-            result = DateSystem.FindDay(2017, 1, 6, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 6, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 6), result);
 
-            result = DateSystem.FindDay(2017, 1, 7, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 7, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 13), result);
 
-            result = DateSystem.FindDay(2017, 1, 8, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 8, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 13), result);
 
-            result = DateSystem.FindDay(2017, 1, 9, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 9, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 13), result);
 
-            result = DateSystem.FindDay(2017, 1, 10, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 10, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 13), result);
 
-            result = DateSystem.FindDay(2017, 1, 11, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 11, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 13), result);
 
-            result = DateSystem.FindDay(2017, 1, 12, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 12, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 13), result);
 
-            result = DateSystem.FindDay(2017, 1, 13, DayOfWeek.Friday);
+            result = DateHelper.FindDay(2017, 1, 13, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2017, 1, 13), result);
 
-            result = DateSystem.FindDay(2017, 1, 14, DayOfWeek.Wednesday);
+            result = DateHelper.FindDay(2017, 1, 14, DayOfWeek.Wednesday);
             Assert.AreEqual(new DateTime(2017, 1, 18), result);
 
-            result = DateSystem.FindDay(2022, 1, 1, DayOfWeek.Monday);
+            result = DateHelper.FindDay(2022, 1, 1, DayOfWeek.Monday);
             Assert.AreEqual(new DateTime(2022, 1, 3), result);
 
-            result = DateSystem.FindDay(2022, 1, 1, DayOfWeek.Tuesday);
+            result = DateHelper.FindDay(2022, 1, 1, DayOfWeek.Tuesday);
             Assert.AreEqual(new DateTime(2022, 1, 4), result);
         }
 
         [TestMethod]
         public void CheckFindDayBefore()
         {
-            var result = DateSystem.FindDayBefore(2018, 5, 25, DayOfWeek.Monday);
+            var result = DateHelper.FindDayBefore(2018, 5, 25, DayOfWeek.Monday);
             Assert.AreEqual(new DateTime(2018, 5, 21), result);
 
-            result = DateSystem.FindDayBefore(2018, 1, 9, DayOfWeek.Monday);
+            result = DateHelper.FindDayBefore(2018, 1, 9, DayOfWeek.Monday);
             Assert.AreEqual(new DateTime(2018, 1, 8), result);
 
-            result = DateSystem.FindDayBefore(2018, 1, 8, DayOfWeek.Monday);
+            result = DateHelper.FindDayBefore(2018, 1, 8, DayOfWeek.Monday);
             Assert.AreEqual(new DateTime(2018, 1, 1), result);
 
-            result = DateSystem.FindDayBefore(2018, 1, 12, DayOfWeek.Friday);
+            result = DateHelper.FindDayBefore(2018, 1, 12, DayOfWeek.Friday);
             Assert.AreEqual(new DateTime(2018, 1, 5), result);
         }
 
         [TestMethod]
         public void CheckFindDayBetween1()
         {
-            var result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Tuesday);
+            var result = DateHelper.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Tuesday);
             Assert.IsNotNull(result);
             Assert.AreEqual(new DateTime(2019, 7, 2), result.Value);
         }
@@ -203,7 +204,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckFindDayBetween2()
         {
-            var result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Wednesday);
+            var result = DateHelper.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Wednesday);
             Assert.IsNotNull(result);
             Assert.AreEqual(new DateTime(2019, 7, 3), result.Value);
         }
@@ -212,7 +213,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckFindDayBetween3()
         {
-            var result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Friday);
+            var result = DateHelper.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Friday);
             Assert.IsNotNull(result);
             Assert.AreEqual(new DateTime(2019, 7, 5), result.Value);
         }
@@ -220,7 +221,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckFindDayBetween4()
         {
-            var result = DateSystem.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Saturday);
+            var result = DateHelper.FindDayBetween(2019, 7, 1, 2019, 7, 7, DayOfWeek.Saturday);
             Assert.IsNotNull(result);
             Assert.AreEqual(new DateTime(2019, 7, 6), result.Value);
         }
@@ -228,7 +229,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckFindDayBetween5()
         {
-            var result = DateSystem.FindDayBetween(2022, 08, 25, 2022, 08, 28, DayOfWeek.Tuesday);
+            var result = DateHelper.FindDayBetween(2022, 08, 25, 2022, 08, 28, DayOfWeek.Tuesday);
             Assert.IsNull(result);
         }
 
@@ -236,17 +237,17 @@ namespace Nager.Date.UnitTest.Common
         [ExpectedException(typeof(ArgumentException), "endDate is before startDate")]
         public void CheckPublicHolidayWithDateFilter2()
         {
-            DateSystem.GetPublicHolidays(new DateTime(2016, 1, 2), new DateTime(2016, 1, 1), CountryCode.DE).First();
+            HolidaySystem.GetHolidays(new DateTime(2016, 1, 2), new DateTime(2016, 1, 1), CountryCode.DE).First();
         }
 
         [TestMethod]
         public void CheckIsOfficialPublicHolidayByCounty1()
         {
-            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU);
             Assert.IsFalse(isPublicHoliday);
-            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AU-NT");
+            isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AU-NT");
             Assert.IsTrue(isPublicHoliday);
-            isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AU-WA");
+            isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AU-WA");
             Assert.IsFalse(isPublicHoliday);
         }
 
@@ -254,7 +255,7 @@ namespace Nager.Date.UnitTest.Common
         [ExpectedException(typeof(ArgumentException), "Invalid countyCode AUS-NT")]
         public void CheckIsOfficialPublicHolidayByCounty2()
         {
-            var isPublicHoliday = DateSystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-NT");
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-NT");
             Assert.IsTrue(isPublicHoliday);
         }
 
@@ -262,13 +263,26 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void CheckGlobalSwtichWork()
         {
-            var publicHoliday = new PublicHoliday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, null, PublicHolidayType.Public);
+            var publicHoliday = new Holiday
+            {
+                Date = new DateTime(2020, 01, 30),
+                EnglishName = "Test",
+                LocalName = "Test",
+                CountryCode = CountryCode.AT,
+                HolidayTypes = HolidayTypes.Public
+            };
+            Assert.IsTrue(publicHoliday.NationalHoliday);
 
-            Assert.IsTrue(publicHoliday.Global);
-
-            publicHoliday = new PublicHoliday(2020, 01, 30, "Test", "Test", CountryCode.AT, null, new[] { "AT-1" }, PublicHolidayType.Public);
-
-            Assert.IsFalse(publicHoliday.Global);
+            var publicHoliday1 = new Holiday
+            {
+                Date = new DateTime(2020, 01, 30),
+                EnglishName = "Test",
+                LocalName = "Test",
+                CountryCode = CountryCode.AT,
+                HolidayTypes = HolidayTypes.Public,
+                SubdivisionCodes = ["AT-1"]
+            };
+            Assert.IsFalse(publicHoliday1.NationalHoliday);
         }
     }
 }

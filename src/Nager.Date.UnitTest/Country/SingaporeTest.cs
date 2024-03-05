@@ -9,9 +9,9 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void TestSingapore()
         {
-            var publicHolidays = DateSystem.GetPublicHolidays(2022, CountryCode.SG).ToArray();
+            var publicHolidays = HolidaySystem.GetHolidays(2022, CountryCode.SG).ToArray();
 
-            Assert.AreEqual("New Year’s Day", publicHolidays[0].Name);
+            Assert.AreEqual("New Year's Day", publicHolidays[0].EnglishName);
         }
 
         [TestMethod]
@@ -19,7 +19,7 @@ namespace Nager.Date.UnitTest.Country
         {
             for (var year = 2018; year <= 2022; year++)
             {
-                var publicHolidays = DateSystem.GetPublicHolidays(year, CountryCode.SG).ToArray();
+                var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.SG).ToArray();
                 Assert.AreEqual(11, publicHolidays.Length);
             }
         }

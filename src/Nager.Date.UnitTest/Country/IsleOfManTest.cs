@@ -10,7 +10,7 @@ namespace Nager.Date.UnitTest.Country
         public void TestIsleOfMan()
         {
             var testDate = new DateTime(2017, 08, 28);
-            var isPublicHoliday = DateSystem.IsPublicHoliday(testDate, CountryCode.IM);
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(testDate, CountryCode.IM);
             Assert.AreEqual(true, isPublicHoliday);
         }
 
@@ -29,7 +29,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var date = new DateTime(year, month, day);
 
-            var result = DateSystem.IsPublicHoliday(date, CountryCode.IM);
+            var result = HolidaySystem.IsPublicHoliday(date, CountryCode.IM);
 
             Assert.AreEqual(expected, result);
         }
@@ -47,7 +47,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var date = new DateTime(year, month, day);
 
-            var result = DateSystem.IsPublicHoliday(date, CountryCode.IM);
+            var result = HolidaySystem.IsPublicHoliday(date, CountryCode.IM);
 
             Assert.AreEqual(expected, result);
         }
@@ -66,7 +66,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var date = new DateTime(year, month, day);
 
-            var result = DateSystem.IsPublicHoliday(date, CountryCode.IM);
+            var result = HolidaySystem.IsPublicHoliday(date, CountryCode.IM);
 
             Assert.AreEqual(expected, result);
         }
@@ -84,7 +84,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var date = new DateTime(year, month, day);
 
-            var result = DateSystem.IsPublicHoliday(date, CountryCode.IM);
+            var result = HolidaySystem.IsPublicHoliday(date, CountryCode.IM);
 
             Assert.AreEqual(expected, result);
         }
@@ -102,7 +102,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var date = new DateTime(year, month, day);
 
-            var result = DateSystem.IsPublicHoliday(date, CountryCode.IM);
+            var result = HolidaySystem.IsPublicHoliday(date, CountryCode.IM);
 
             Assert.AreEqual(expected, result);
         }
@@ -118,8 +118,8 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2022, 12, 27, 26)]
         public void CheckChristmasDayAndBoxingDay(int year, int month, int expectedChristmasDay, int expectedBoxingDay)
         {
-            Assert.IsTrue(DateSystem.IsPublicHoliday(new DateTime(year, month, expectedChristmasDay), CountryCode.IM));
-            Assert.IsTrue(DateSystem.IsPublicHoliday(new DateTime(year, month, expectedBoxingDay), CountryCode.IM));
+            Assert.IsTrue(HolidaySystem.IsPublicHoliday(new DateTime(year, month, expectedChristmasDay), CountryCode.IM));
+            Assert.IsTrue(HolidaySystem.IsPublicHoliday(new DateTime(year, month, expectedBoxingDay), CountryCode.IM));
         }
 
         [DataTestMethod]
@@ -133,7 +133,7 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2022, 1, 3)]
         public void CheckNewYearsDay(int year, int month, int expectedNewYearsDay)
         {
-            Assert.IsTrue(DateSystem.IsPublicHoliday(new DateTime(year, month, expectedNewYearsDay), CountryCode.IM));
+            Assert.IsTrue(HolidaySystem.IsPublicHoliday(new DateTime(year, month, expectedNewYearsDay), CountryCode.IM));
         }
 
 
@@ -143,7 +143,7 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2023, 9, 19, false)]
         public void CheckQueensStateFuneral(int year, int month, int day, bool isBankHoliday)
         {
-            Assert.AreEqual(DateSystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.IM), isBankHoliday);
+            Assert.AreEqual(HolidaySystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.IM), isBankHoliday);
         }
 
         [DataTestMethod]
@@ -153,7 +153,7 @@ namespace Nager.Date.UnitTest.Country
         [DataRow(2024, 5, 8, false)]
         public void CheckKingCharlesCoronation(int year, int month, int day, bool isBankHoliday)
         {
-            Assert.AreEqual(DateSystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.IM), isBankHoliday);
+            Assert.AreEqual(HolidaySystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.IM), isBankHoliday);
         }
     }
 }

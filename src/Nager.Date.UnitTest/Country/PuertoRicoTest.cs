@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nager.Date.Contract;
 using Nager.Date.Extensions;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Linq;
 
@@ -13,12 +13,12 @@ namespace Nager.Date.UnitTest.Country
         [TestMethod]
         public void PuertoRicoHasGoodFridayHoliday()
         {
-            var holidays = DateSystem.GetPublicHolidays(2017, CountryCode.PR);
+            var holidays = HolidaySystem.GetHolidays(2017, CountryCode.PR);
 
             var catholic = new MockPublicHolidayProvider(new CatholicProvider());
             var expectedGoodFriday = catholic.EasterSunday(2017).AddDays(-2);
 
-            var goodFriday = holidays.First(holiday => holiday.Name == "Good Friday");
+            var goodFriday = holidays.First(holiday => holiday.EnglishName == "Good Friday");
             Assert.IsNotNull(goodFriday);
             Assert.AreEqual(expectedGoodFriday.Day, goodFriday.Date.Day);
         }
