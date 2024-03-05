@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Nager.Date.Models
 {
@@ -41,17 +42,12 @@ namespace Nager.Date.Models
         /// <summary>
         /// Additional holiday translations
         /// </summary>
-        public object AdditionalTranslations { get; set; }
+        public Dictionary<string, string> AdditionalTranslations { get; set; }
 
         /// <summary>
         /// Holiday Source
         /// </summary>
-        //Holiday source
-        //Religious Christian holidays
-        //Religious orthodox holidays
-        //Historical holidays
-        //Cultural holidays
-        public string Source { get; set; }
+        public HolidaySources HolidaySources { get; set; }
 
 
         internal HolidaySpecification SetSubdivisionCodes(params string[] subdivisionCodes)

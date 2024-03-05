@@ -6,7 +6,7 @@ namespace Nager.Date
     /// <summary>
     /// Holiday Specification Processor
     /// </summary>
-    public static class HolidaySpecificationProcessor
+    internal static class HolidaySpecificationProcessor
     {
         /// <summary>
         /// Process holiday specification to holiday
@@ -14,7 +14,7 @@ namespace Nager.Date
         /// <param name="holidaySpecifications"></param>
         /// <param name="countryCode"></param>
         /// <returns></returns>
-        public static IEnumerable<Holiday> Process(
+        internal static IEnumerable<Holiday> Process(
             IEnumerable<HolidaySpecification> holidaySpecifications,
             CountryCode countryCode)
         {
