@@ -265,7 +265,7 @@ namespace Nager.Date
             return Enum.TryParse(countryCode, true, out parsedCountryCode) && Enum.IsDefined(typeof(CountryCode), parsedCountryCode);
         }
 
-        #region Public Holidays for a given year
+        #region Holidays for a given year
 
         /// <summary>
         /// Get holidays of a given year
@@ -430,20 +430,20 @@ namespace Nager.Date
         /// </summary>
         /// <param name="date">The date to check</param>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
-        /// <param name="subdivisionCode">Federal state</param>
+        /// <param name="subdivisionCode">Subdivision code of a country</param>
         /// <returns>True if given date is public holiday in given country and county, false otherwise</returns>
         /// <exception cref="System.ArgumentException">Thrown when given county code is not recognized valid</exception>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, string subdivisionCode)
         {
             if (subdivisionCode == null)
             {
-                throw new ArgumentException($"countyCode is null");
+                throw new ArgumentException($"{nameof(subdivisionCode)} is null");
             }
 
             var provider = GetHolidayProvider(countryCode);
             if (provider is ISubdivisionCodesProvider countryProvider && !countryProvider.GetSubdivisionCodes().ContainsKey(subdivisionCode))
             {
-                throw new ArgumentException($"Invalid countyCode {subdivisionCode}");
+                throw new ArgumentException($"Invalid {nameof(subdivisionCode)} {subdivisionCode}");
             }
 
             var items = GetHolidays(date.Year, countryCode);
