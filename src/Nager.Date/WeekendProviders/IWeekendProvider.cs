@@ -22,10 +22,10 @@ namespace Nager.Date.WeekendProviders
         bool IsWeekend(DateTime date);
 
         /// <summary>
-        /// Is given public holiday in the weekend
+        /// Is given holiday in the weekend
         /// </summary>
         /// <param name="publicHoliday"></param>
-        /// <returns>True if given public holiday is in the weekend, false otherwise</returns>
+        /// <returns>True if given holiday is in the weekend, false otherwise</returns>
         bool IsWeekend(Holiday publicHoliday);
 
         /// <summary>

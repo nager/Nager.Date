@@ -7,7 +7,7 @@ The list of supported countries can be found [here](https://date.nager.at/Countr
 
 ## Examples
 
-### Get all publicHolidays of a country and year
+### Get all holidays of a country and year
 ```cs
 var holidays = HolidaySystem.GetHolidays(2024, "DE");
 foreach (var holiday in holidays)
@@ -17,7 +17,7 @@ foreach (var holiday in holidays)
     //holiday.LocalName -> The local name
     //holiday.EnglishName -> The english name
     //holiday.NationalHoliday -> Is this holiday in every county (federal state)
-    //holiday.SubdivisionCodes -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
+    //holiday.SubdivisionCodes -> Is the holiday only valid for a special county ISO-3166-2 - Federal states
     //holiday.HolidayTypes -> Public, Bank, School, Authorities, Optional, Observance
 }
 ```

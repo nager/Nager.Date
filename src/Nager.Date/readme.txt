@@ -36,8 +36,8 @@ Get all holidays of a specific year and country
         //holiday.Date -> The date
         //holiday.LocalName -> The local name
         //holiday.EnglishName -> The english name
-        //holiday.NationalHoliday -> Is this public holiday in every county (federal state)
-        //holiday.SubdivisionCodes -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
+        //holiday.NationalHoliday -> Is this holiday in every county (federal state)
+        //holiday.SubdivisionCodes -> Is the holiday only valid for a special county ISO-3166-2 - Federal states
         //holiday.HolidayTypes -> Public, Bank, School, Authorities, Optional, Observance
     }
 
@@ -54,7 +54,7 @@ Get all holidays for a date range
         //holiday.Date -> The date
         //holiday.LocalName -> The local name
         //holiday.EnglishName -> The english name
-        //holiday.NationalHoliday -> Is this public holiday in every county (federal state)
-        //holiday.SubdivisionCodes -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
+        //holiday.NationalHoliday -> Is this holiday in every county (federal state)
+        //holiday.SubdivisionCodes -> Is the holiday only valid for a special county ISO-3166-2 - Federal states
         //holiday.HolidayTypes -> Public, Bank, School, Authorities, Optional, Observance
     }
