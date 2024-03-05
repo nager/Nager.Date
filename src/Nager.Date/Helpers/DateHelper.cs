@@ -15,7 +15,10 @@ namespace Nager.Date.Helpers
         /// <param name="month">The month</param>
         /// <param name="day">The name of the day</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindLastDay(int year, Month month, DayOfWeek day)
+        public static DateTime FindLastDay(
+            int year,
+            Month month,
+            DayOfWeek day)
         {
             return FindLastDay(year, (int)month, day);
         }
@@ -27,7 +30,10 @@ namespace Nager.Date.Helpers
         /// <param name="month">The month</param>
         /// <param name="day">The name of the day</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindLastDay(int year, int month, DayOfWeek day)
+        public static DateTime FindLastDay(
+            int year,
+            int month,
+            DayOfWeek day)
         {
             var resultedDay = FindDay(year, month, day, 5);
             if (resultedDay == DateTime.MinValue)
@@ -46,7 +52,11 @@ namespace Nager.Date.Helpers
         /// <param name="day">The day</param>
         /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindDay(int year, Month month, int day, DayOfWeek dayOfWeek)
+        public static DateTime FindDay(
+            int year,
+            Month month,
+            int day,
+            DayOfWeek dayOfWeek)
         {
             return FindDay(year, (int)month, day, dayOfWeek);
         }
@@ -59,7 +69,11 @@ namespace Nager.Date.Helpers
         /// <param name="day">The day</param>
         /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindDay(int year, int month, int day, DayOfWeek dayOfWeek)
+        public static DateTime FindDay(
+            int year,
+            int month,
+            int day,
+            DayOfWeek dayOfWeek)
         {
             return FindDay(new DateTime(year, month, day), dayOfWeek);
         }
@@ -70,7 +84,9 @@ namespace Nager.Date.Helpers
         /// <param name="date">The search date</param>
         /// <param name="dayOfWeek">TThe day of the week</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindDay(DateTime date, DayOfWeek dayOfWeek)
+        public static DateTime FindDay(
+            DateTime date,
+            DayOfWeek dayOfWeek)
         {
             var daysNeeded = (int)dayOfWeek - (int)date.DayOfWeek;
 
@@ -93,7 +109,14 @@ namespace Nager.Date.Helpers
         /// <param name="dayEnd">The end day</param>
         /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
-        public static DateTime? FindDayBetween(int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd, DayOfWeek dayOfWeek)
+        public static DateTime? FindDayBetween(
+            int yearStart,
+            int monthStart,
+            int dayStart,
+            int yearEnd,
+            int monthEnd,
+            int dayEnd,
+            DayOfWeek dayOfWeek)
         {
             var startDay = new DateTime(yearStart, monthStart, dayStart);
             var endDay = new DateTime(yearEnd, monthEnd, dayEnd);
@@ -124,7 +147,10 @@ namespace Nager.Date.Helpers
         /// <param name="endDate">The end date</param>
         /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
-        public static DateTime? FindDayBetween(DateTime startDate, DateTime endDate, DayOfWeek dayOfWeek)
+        public static DateTime? FindDayBetween(
+            DateTime startDate,
+            DateTime endDate,
+            DayOfWeek dayOfWeek)
         {
             return FindDayBetween(startDate.Year, startDate.Month, startDate.Day, endDate.Year, endDate.Month, endDate.Day, dayOfWeek);
         }
@@ -137,7 +163,11 @@ namespace Nager.Date.Helpers
         /// <param name="day">The day</param>
         /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindDayBefore(int year, Month month, int day, DayOfWeek dayOfWeek)
+        public static DateTime FindDayBefore(
+            int year,
+            Month month,
+            int day,
+            DayOfWeek dayOfWeek)
         {
             return FindDayBefore(year, (int)month, day, dayOfWeek);
         }
@@ -150,7 +180,11 @@ namespace Nager.Date.Helpers
         /// <param name="day">The day</param>
         /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindDayBefore(int year, int month, int day, DayOfWeek dayOfWeek)
+        public static DateTime FindDayBefore(
+            int year,
+            int month,
+            int day,
+            DayOfWeek dayOfWeek)
         {
             var calculationDay = new DateTime(year, month, day);
 
@@ -172,7 +206,9 @@ namespace Nager.Date.Helpers
         /// <param name="date">The date where the search starts</param>
         /// <param name="dayOfWeek">The day of the week</param>
         /// <returns>Date of day found</returns>
-        public static DateTime FindDayBefore(DateTime date, DayOfWeek dayOfWeek)
+        public static DateTime FindDayBefore(
+            DateTime date,
+            DayOfWeek dayOfWeek)
         {
             return FindDayBefore(date.Year, date.Month, date.Day, dayOfWeek);
         }
@@ -186,7 +222,11 @@ namespace Nager.Date.Helpers
         /// <param name="occurrence"></param>
         /// <returns>Date of day found</returns>
         /// <exception cref="System.ArgumentException">Thrown when given occurrence number is either too low or too high</exception>
-        public static DateTime FindDay(int year, int month, DayOfWeek day, int occurrence)
+        public static DateTime FindDay(
+            int year,
+            int month,
+            DayOfWeek day,
+            int occurrence)
         {
             if (occurrence == 0 || occurrence > 5)
             {
@@ -223,7 +263,11 @@ namespace Nager.Date.Helpers
         /// <param name="day">The day of the week</param>
         /// <param name="occurrence">The occurrence of the day within the month, e.g., First, Second, Third, Fourth</param>
         /// <returns>The date of the found day</returns>
-        public static DateTime FindDay(int year, Month month, DayOfWeek day, Occurrence occurrence)
+        public static DateTime FindDay(
+            int year,
+            Month month,
+            DayOfWeek day,
+            Occurrence occurrence)
         {
             return FindDay(year, (int)month, day, (int)occurrence);
         }
