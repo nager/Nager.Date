@@ -10,7 +10,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Montserrat HolidayProvider
     /// </summary>
-    internal class MontserratHolidayProvider : IHolidayProvider
+    internal sealed class MontserratHolidayProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

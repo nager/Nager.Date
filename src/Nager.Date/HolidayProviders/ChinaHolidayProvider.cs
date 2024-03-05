@@ -9,7 +9,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// China HolidayProvider
     /// </summary>
-    internal class ChinaHolidayProvider : IHolidayProvider
+    internal sealed class ChinaHolidayProvider : IHolidayProvider
     {
         /// <summary>
         /// China HolidayProvider

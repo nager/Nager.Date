@@ -17,9 +17,9 @@
     <PackageReleaseNotes>A changelog is available at https://github.com/nager/Nager.Date/blob/master/CHANGELOG.md</PackageReleaseNotes>
     <PackageProjectUrl>https://date.nager.at</PackageProjectUrl>
     <PackageTags>Holiday Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday NationalHoliday</PackageTags>
-    
+
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
-    
+
     <TargetFrameworks>net472;netstandard2.0;net6.0;net8.0</TargetFrameworks>
 
     <Version>2.0.0-alpha</Version>
@@ -34,5 +34,11 @@
     <None Include="..\..\doc\README.md" Pack="true" PackagePath="\" />
     <None Include="..\..\doc\Icons\calendar.png" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
-  
+
+  <ItemGroup>
+    <!-- This makes it possible for the architecture tests themselves to be performed internally.  -->
+    <InternalsVisibleTo Include="Nager.Date.ArchitectureTest"/>
+    <InternalsVisibleTo Include="Nager.Date.UnitTest"/>
+  </ItemGroup>
+
 </Project>
