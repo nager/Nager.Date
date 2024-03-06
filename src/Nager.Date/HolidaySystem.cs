@@ -135,6 +135,8 @@ namespace Nager.Date
                 { CountryCode.ZW, new Lazy<IHolidayProvider>(() => new ZimbabweHolidayProvider(_catholicProvider))}
             };
 
+        private static bool _licenseValid = false;
+
         /// <summary>
         /// License Key
         /// </summary>
@@ -142,6 +144,33 @@ namespace Nager.Date
         /// As a GitHub sponsor of <see href="https://github.com/nager">nager</see>, you will receive a <see href="https://github.com/sponsors/nager">license key</see>
         /// </remarks>
         public static string LicenseKey = null;
+
+        private static void CheckLicense(string licenseKey)
+        {
+            if (string.IsNullOrEmpty(licenseKey))
+            {
+                throw new NoLicenseKeyException();
+            }
+
+            var licenseKeyConfiguration = new LicenseSystem.LicenseKeyConfiguration
+            {
+                Part1 = "99FFD01352B56E4AAFE51D73D793EF7FDDFB67F03BD8E60600F77C401B19C645",
+                Part2 = "FCDEB16976C7CC3D4AD3296F6408F89A48BF76B49E0B7D0857BDF242DA97C4BE"
+            };
+
+            var licenseKeyValidator = new LicenseSystem.LicenseKeyValidator(licenseKeyConfiguration);
+            if (!licenseKeyValidator.Validate(licenseKey, out var licenseInfo))
+            {
+                throw new NoLicenseKeyException();
+            }
+
+            if (licenseInfo.ValidUntil < DateTime.Today)
+            {
+                throw new NoLicenseKeyException();
+            }
+
+            _licenseValid = true;
+        }
 
         /// <summary>
         /// Get the holiday provider for the specified country
@@ -166,11 +195,16 @@ namespace Nager.Date
         /// <returns>Holiday provider for given country</returns>
         public static IHolidayProvider GetHolidayProvider(CountryCode countryCode)
         {
-            if (string.IsNullOrEmpty(LicenseKey) ||
-                !LicenseKey.Equals("Thank you for supporting open source projects"))
+            if (!_licenseValid)
             {
-                throw new NoLicenseKeyException();
+                CheckLicense(LicenseKey);
             }
+
+            //if (string.IsNullOrEmpty(LicenseKey) ||
+            //    !LicenseKey.Equals("Thank you for supporting open source projects"))
+            //{
+            //    throw new NoLicenseKeyException();
+            //}
 
             if (_holidaysProviders.TryGetValue(countryCode, out var provider))
             {
