@@ -200,12 +200,6 @@ namespace Nager.Date
                 CheckLicense(LicenseKey);
             }
 
-            //if (string.IsNullOrEmpty(LicenseKey) ||
-            //    !LicenseKey.Equals("Thank you for supporting open source projects"))
-            //{
-            //    throw new NoLicenseKeyException();
-            //}
-
             if (_holidaysProviders.TryGetValue(countryCode, out var provider))
             {
                 return provider.Value;
