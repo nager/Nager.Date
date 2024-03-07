@@ -135,7 +135,7 @@ namespace Nager.Date
                 { CountryCode.ZW, new Lazy<IHolidayProvider>(() => new ZimbabweHolidayProvider(_catholicProvider))}
             };
 
-        private static bool _licenseValid = false;
+        private static bool? _licenseValid = false;
 
         /// <summary>
         /// License Key
@@ -149,7 +149,8 @@ namespace Nager.Date
         {
             if (string.IsNullOrEmpty(licenseKey))
             {
-                throw new NoLicenseKeyException();
+                _licenseValid = false;
+                throw new LicenseKeyException("No LicenseKey");
             }
 
             var licenseKeyConfiguration = new LicenseSystem.LicenseKeyConfiguration
@@ -161,12 +162,14 @@ namespace Nager.Date
             var licenseKeyValidator = new LicenseSystem.LicenseKeyValidator(licenseKeyConfiguration);
             if (!licenseKeyValidator.Validate(licenseKey, out var licenseInfo))
             {
-                throw new NoLicenseKeyException();
+                _licenseValid = false;
+                throw new LicenseKeyException("Invalid LicenseKey");
             }
 
             if (licenseInfo.ValidUntil < DateTime.Today)
             {
-                throw new NoLicenseKeyException();
+                _licenseValid = false;
+                throw new LicenseKeyException("Expried LicenseKey");
             }
 
             _licenseValid = true;
@@ -195,9 +198,14 @@ namespace Nager.Date
         /// <returns>Holiday provider for given country</returns>
         public static IHolidayProvider GetHolidayProvider(CountryCode countryCode)
         {
-            if (!_licenseValid)
+            if (_licenseValid is null)
             {
                 CheckLicense(LicenseKey);
+            }
+
+            if (!_licenseValid.Value)
+            {
+                return NoHolidaysHolidayProvider.Instance;
             }
 
             if (_holidaysProviders.TryGetValue(countryCode, out var provider))
@@ -318,7 +326,7 @@ namespace Nager.Date
         private static Func<Holiday, bool> GetHolidayFilter(DateTime date, string subdivisionCodes = null)
         {
             return o => o.ObservedDate == date.Date
-                        && (o.SubdivisionCodes == null || subdivisionCodes != null && o.SubdivisionCodes.Contains(subdivisionCodes))
+                        && (o.SubdivisionCodes is null || subdivisionCodes != null && o.SubdivisionCodes.Contains(subdivisionCodes))
                         && o.HolidayTypes.HasFlag(HolidayTypes.Public);
         }
 
@@ -378,7 +386,7 @@ namespace Nager.Date
         /// <exception cref="System.ArgumentException">Thrown when given county code is not recognized valid</exception>
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, string subdivisionCode)
         {
-            if (subdivisionCode == null)
+            if (subdivisionCode is null)
             {
                 throw new ArgumentException($"{nameof(subdivisionCode)} is null");
             }
