@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Authors>Tino Hager</Authors>
@@ -37,8 +37,12 @@
 
   <ItemGroup>
     <!-- This makes it possible for the architecture tests themselves to be performed internally.  -->
-    <InternalsVisibleTo Include="Nager.Date.ArchitectureTest"/>
-    <InternalsVisibleTo Include="Nager.Date.UnitTest"/>
+    <InternalsVisibleTo Include="Nager.Date.ArchitectureTest" />
+    <InternalsVisibleTo Include="Nager.Date.UnitTest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nager.LicenseSystem" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

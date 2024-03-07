@@ -293,7 +293,7 @@ namespace Nager.Date.HolidayProviders
         private HolidaySpecification NationalDayOfIndigenousPeoples(int year)
         {
             var winterSolstice = this.GetWinterSolstice(year);
-            if (winterSolstice == null)
+            if (winterSolstice is null)
             {
                 return null;
             }

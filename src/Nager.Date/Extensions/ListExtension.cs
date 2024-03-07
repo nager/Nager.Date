@@ -9,7 +9,7 @@ namespace Nager.Date.Extensions
             this List<HolidaySpecification> holidaySpecificationList,
             HolidaySpecification holidaySpecification)
         {
-            if (holidaySpecification == null)
+            if (holidaySpecification is null)
             {
                 return;
             }
@@ -21,7 +21,7 @@ namespace Nager.Date.Extensions
             this List<HolidaySpecification> holidaySpecificationList,
             HolidaySpecification[] holidaySpecifications)
         {
-            if (holidaySpecifications == null)
+            if (holidaySpecifications is null)
             {
                 return;
             }
