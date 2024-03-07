@@ -2,6 +2,7 @@ using Nager.Date.Helpers;
 using Nager.Date.HolidayProviders;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
+using Nager.LicenseSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -153,10 +154,10 @@ namespace Nager.Date
                 throw new LicenseKeyException("No LicenseKey");
             }
 
-            var licenseKeyConfiguration = new LicenseSystem.LicenseKeyConfiguration
+            var licenseKeyConfiguration = new LicenseKeyConfiguration
             {
-                Part1 = "99FFD01352B56E4AAFE51D73D793EF7FDDFB67F03BD8E60600F77C401B19C645",
-                Part2 = "FCDEB16976C7CC3D4AD3296F6408F89A48BF76B49E0B7D0857BDF242DA97C4BE"
+                Part1 = "DCDCB65FD3009576BC11E23C883220F6292709DEB93174D0913D2E89DB3D5D88",
+                Part2 = "17F32AEC71CCB3D20166DCC7F49B32C1153464105344608692E005B16284A41D"
             };
 
             var licenseKeyValidator = new LicenseSystem.LicenseKeyValidator(licenseKeyConfiguration);
