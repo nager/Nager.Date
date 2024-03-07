@@ -135,7 +135,7 @@ namespace Nager.Date
                 { CountryCode.ZW, new Lazy<IHolidayProvider>(() => new ZimbabweHolidayProvider(_catholicProvider))}
             };
 
-        private static bool? _licenseValid = false;
+        private static bool? _licenseValid;
 
         /// <summary>
         /// License Key
