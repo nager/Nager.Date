@@ -7,11 +7,17 @@ The list of supported countries can be found [here](https://date.nager.at/Countr
 
 ## Examples
 
+### Set License Key
+```cs
+    HolidaySystem.LicenseKey = "TheLicenseKey";
+```
+
 ### Get all holidays of a country and year
 ```cs
 var holidays = HolidaySystem.GetHolidays(2024, "DE");
 foreach (var holiday in holidays)
 {
+    Console.WriteLine($"{holiday.Date:yyyy-MM-dd} - {holiday.EnglishName}");
     //holiday...
     //holiday.Date -> The date
     //holiday.LocalName -> The local name

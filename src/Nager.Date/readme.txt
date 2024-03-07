@@ -23,7 +23,7 @@ Here are some examples of how to use it:
 Set the License Key
 ══════════════════════════════════════════════════════════════════════════════════════════════════════
 
-    HolidaySystem.LicenseKey = "TheLicenseKey"
+    HolidaySystem.LicenseKey = "TheLicenseKey";
 
 
 Get all holidays of a specific year and country
@@ -32,6 +32,7 @@ Get all holidays of a specific year and country
     var holidays = HolidaySystem.GetHolidays(2024, "DE");
     foreach (var holiday in holidays)
     {
+        Console.WriteLine($"{holiday.Date:yyyy-MM-dd} - {holiday.EnglishName}");
         //holiday...
         //holiday.Date -> The date
         //holiday.LocalName -> The local name
