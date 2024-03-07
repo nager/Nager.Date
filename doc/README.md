@@ -9,7 +9,7 @@ The list of supported countries can be found [here](https://date.nager.at/Countr
 
 ### Set License Key
 ```cs
-    HolidaySystem.LicenseKey = "TheLicenseKey";
+HolidaySystem.LicenseKey = "TheLicenseKey";
 ```
 
 ### Get all holidays of a country and year
