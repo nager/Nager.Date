@@ -1,4 +1,4 @@
-name: Build, Test & Publish
+name: Build & Test
 
 on:
   push:
@@ -22,12 +22,6 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Change LicenseKey
-      if: github.event_name != 'pull_request' && github.actor != 'dependabot[bot]'
-      working-directory: ./src
-      run: |
-        sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date/HolidaySystem.cs
-        sed -i 's/Thank you for supporting open source projects/${{secrets.LICENSE_KEY}}/g' Nager.Date.UnitTest/AssemblyInitialize.cs
     - name: Restore dependencies
       working-directory: ./src
       run: dotnet restore
@@ -38,11 +32,3 @@ jobs:
       working-directory: ./src
       run: |
         dotnet test --configuration Release --no-restore --no-build --verbosity normal
-    - name: Build project and generate NuGet package
-      run: |
-        dotnet pack --configuration Release --output $GITHUB_WORKSPACE/out src/Nager.Date/Nager.Date.csproj
-    - name: Push NuGet package
-      if: github.event_name != 'pull_request'
-      run: |
-        cd $GITHUB_WORKSPACE/out
-        dotnet nuget push *.nupkg --source https://www.nuget.org/api/v2/package --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate --no-symbols
