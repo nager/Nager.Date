@@ -184,7 +184,8 @@ namespace Nager.Date
                 throw new ArgumentException(string.Format(CountryCodeParsingError, countryCode));
             }
 
-            return GetHolidayProvider(parsedCountryCode);
+            TryGetHolidayProvider(parsedCountryCode, out var holidayProvider);
+            return holidayProvider;
         }
 
         /// <summary>
@@ -194,6 +195,18 @@ namespace Nager.Date
         /// <returns>Holiday provider for given country</returns>
         public static IHolidayProvider GetHolidayProvider(CountryCode countryCode)
         {
+            TryGetHolidayProvider(countryCode, out var holidayProvider);
+            return holidayProvider;
+        }
+
+        /// <summary>
+        /// Try get the holiday provider for the specified country
+        /// </summary>
+        /// <param name="countryCode"></param>
+        /// <param name="holidayProvider"></param>
+        /// <returns></returns>
+        public static bool TryGetHolidayProvider(CountryCode countryCode, out IHolidayProvider holidayProvider)
+        {
             if (_licenseValid is null)
             {
                 CheckLicense(LicenseKey);
@@ -201,15 +214,18 @@ namespace Nager.Date
 
             if (!_licenseValid.Value)
             {
-                return NoHolidaysHolidayProvider.Instance;
+                holidayProvider = NoHolidaysHolidayProvider.Instance;
+                return false;
             }
 
             if (_holidaysProviders.TryGetValue(countryCode, out var provider))
             {
-                return provider.Value;
+                holidayProvider = provider.Value;
+                return true;
             }
 
-            return NoHolidaysHolidayProvider.Instance;
+            holidayProvider = NoHolidaysHolidayProvider.Instance;
+            return false;
         }
 
         #region Holidays for a given year
