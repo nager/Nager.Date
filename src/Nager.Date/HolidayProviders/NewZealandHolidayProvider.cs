@@ -163,7 +163,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Auckland/Northland Anniversary Day",
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["NZ-AUK", "NZ-NTL", "NZ-MWT", "NZ-WKO", "NZ-GIS", "NZ-BOP", "NZ-HKB"],
-                    SubdivisionCodes = ["NZ-AUK", "NZ-NTL", "NZ-WKO", "NZ-GIS", "NZ-BOP"],
                     ObservedRuleSet = closestMondayObservedRuleSet
                 },
                 new HolidaySpecification
