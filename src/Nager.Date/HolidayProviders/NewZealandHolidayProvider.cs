@@ -73,7 +73,7 @@ namespace Nager.Date.HolidayProviders
             // ├────┼────┼────┼────┼────┼────┼────┤
             // │    │ +2 │ +1 │    │    │    │    │
             // └────┴────┴────┴────┴────┴────┴────┘
-            //        └─-───+2───┘
+            //        └─────+2───┘
             //             └─+1──┘
             //     
             var observedRuleSet1 = new ObservedRuleSet
