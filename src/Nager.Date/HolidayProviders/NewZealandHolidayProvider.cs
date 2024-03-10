@@ -68,18 +68,43 @@ namespace Nager.Date.HolidayProviders
             var taranakiDay = DateHelper.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
             var canterburyDay = DateHelper.FindDay(year, Month.November, DayOfWeek.Tuesday, Occurrence.First).AddDays(10);
 
+            // ┌────┬────┬────┬────┬────┬────┬────┐
+            // │ FR │ SA │ SU │ MO │ TU │ WE │ TH │
+            // ├────┼────┼────┼────┼────┼────┼────┤
+            // │    │ +2 │ +1 │    │    │    │    │
+            // └────┴────┴────┴────┴────┴────┴────┘
+            //        └─-───+2───┘
+            //             └─+1──┘
+            //     
             var observedRuleSet1 = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
                 Sunday = date => date.AddDays(1)
             };
 
+            // ┌────┬────┬────┬────┬────┬────┬────┐
+            // │ FR │ SA │ SU │ MO │ TU │ WE │ TH │
+            // ├────┼────┼────┼────┼────┼────┼────┤
+            // │    │ +2 │ +2 │    │    │    │    │
+            // └────┴────┴────┴────┴────┴────┴────┘
+            //        └────+2───┘
+            //             └────+2───┘
+            //     
             var observedRuleSet2 = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
                 Sunday = date => date.AddDays(2)
             };
 
+            // ┌────┬────┬────┬────┬────┬────┬────┐
+            // │ FR │ SA │ SU │ MO │ TU │ WE │ TH │
+            // ├────┼────┼────┼────┼────┼────┼────┤
+            // │ +3 │ +2 │ +1 │    │ -1 │ -2 │ -3 │
+            // └────┴────┴────┴────┴────┴────┴────┘
+            //   └────+3────────┘ └────-3───────┘
+            //        └────+2───┘ └────-2──┘
+            //             └─+1─┘ └-1─┘
+            //  
             var closestMondayObservedRuleSet = new ObservedRuleSet
             {
                 Tuesday = date => date.AddDays(-1),
@@ -138,6 +163,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Auckland/Northland Anniversary Day",
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["NZ-AUK", "NZ-NTL", "NZ-MWT", "NZ-WKO", "NZ-GIS", "NZ-BOP", "NZ-HKB"],
+                    SubdivisionCodes = ["NZ-AUK", "NZ-NTL", "NZ-WKO", "NZ-GIS", "NZ-BOP"],
                     ObservedRuleSet = closestMondayObservedRuleSet
                 },
                 new HolidaySpecification
