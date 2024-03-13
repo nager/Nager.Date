@@ -8,14 +8,14 @@ using System.Linq;
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
-    /// HongKong HolidayProvider
+    /// Hong Kong HolidayProvider
     /// </summary>
     internal sealed class HongKongHolidayProvider : IHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
-        /// HongKong HolidayProvider
+        /// Hong Kong HolidayProvider
         /// </summary>
         /// <param name="catholicProvider"></param>
         public HongKongHolidayProvider(
@@ -27,10 +27,13 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<Holiday> GetHolidays(int year)
         {
-            //TODO: Sunday move logic
-            //https://github.com/nager/Nager.Date/pull/262
-
             var countryCode = CountryCode.HK;
+
+            var observedRuleSet = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(1)
+            };
+
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -40,42 +43,48 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "元旦新年",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "勞動節",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 7, 1),
                     EnglishName = "Hong Kong Special Administrative Region Establishment Day",
                     LocalName = "香港特別行政區成立紀念日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 10, 1),
                     EnglishName = "National Day",
                     LocalName = "中華人民共和國國慶日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "聖誕節",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Boxing Day",
                     LocalName = "聖誕節翌日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 },
                 this._catholicProvider.GoodFriday("耶穌受難節", year),
                 this._catholicProvider.EasterSaturday("耶穌受難節翌日", year),
@@ -108,56 +117,64 @@ namespace Nager.Date.HolidayProviders
                     Date = lunarNewYearDay,
                     EnglishName = "Lunar New Year",
                     LocalName = "農曆年初一",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
                     Date = secondLunarNewYearDay,
                     EnglishName = "Second day of Lunar New Year",
                     LocalName = "農曆年初二",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
                     Date = thirdLunarNewYearDay,
                     EnglishName = "Third day of Lunar New Year",
                     LocalName = "農曆年初三",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
                     Date = buddhasBirthdayDay,
                     EnglishName = "Buddha's Birthday",
                     LocalName = "佛誕",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
                     Date = dragonBoatFestivalDay,
                     EnglishName = "Dragon Boat Festival",
                     LocalName = "端午節",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
                     Date = followingTheMidAutumnFestivalDay,
                     EnglishName = "Day following the Mid-Autumn Festival",
                     LocalName = "中秋節翌日",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
                     Date = chungYeungFestivalDay,
                     EnglishName = "Chung Yeung Festival",
                     LocalName = "重陽節",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
                     Date = chingMingFestivalDate,
                     EnglishName = "Ching Ming Festival",
                     LocalName = "清明節",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 });
             }
 
