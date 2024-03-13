@@ -94,7 +94,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Day after Ascension Day",
                     HolidayTypes = HolidayTypes.Bank,
                 },
-                this._catholicProvider.GoodFriday("Goede Vrijdag", year),
+                this._catholicProvider.GoodFriday("Goede Vrijdag", year).SetHolidayTypes(HolidayTypes.Bank),
                 this._catholicProvider.EasterSunday("Pasen", year),
                 this._catholicProvider.EasterMonday("Paasmaandag", year),
                 this._catholicProvider.AscensionDay("Onze Lieve Heer hemel", year),
