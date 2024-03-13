@@ -94,6 +94,19 @@ namespace Nager.Date.HolidayProviders
             var chineseCalendar = new ChineseLunisolarCalendar();
             if (year > chineseCalendar.MinSupportedDateTime.Year && year < chineseCalendar.MaxSupportedDateTime.Year)
             {
+                var observedRuleSet2 = new ObservedRuleSet
+                {
+                    Sunday = date => date.AddDays(1),
+                    Monday = date => date.AddDays(1)
+                };
+
+                var observedRuleSet3 = new ObservedRuleSet
+                {
+                    Sunday = date => date.AddDays(1),
+                    Monday = date => date.AddDays(1),
+                    Tuesday = date => date.AddDays(1)
+                };
+
                 //LunisolarCalendar .net implementation only valid are between 1901 and 2100, inclusive.
                 //https://github.com/dotnet/coreclr/blob/master/src/mscorlib/shared/System/Globalization/ChineseLunisolarCalendar.cs
 
@@ -126,7 +139,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Second day of Lunar New Year",
                     LocalName = "農曆年初二",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet2
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -134,7 +147,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Third day of Lunar New Year",
                     LocalName = "農曆年初三",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet3
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
