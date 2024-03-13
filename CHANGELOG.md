@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## :loudspeaker: From version 2 - you will find the change log here
+https://github.com/nager/Nager.Date/releases
+
+
 ## [2.0.0-alpha] - 2024-03-05
 
 ### Added
