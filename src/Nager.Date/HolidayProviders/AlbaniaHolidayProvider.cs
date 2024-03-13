@@ -40,7 +40,7 @@ namespace Nager.Date.HolidayProviders
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
-                new HolidaySpecification
+                new()
                 {
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
@@ -48,7 +48,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
@@ -56,15 +56,15 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
-                    Date = new DateTime(year, 3, 12),
+                    Date = new DateTime(year, 3, 14),
                     EnglishName = "Summer Day",
                     LocalName = "Dita e Verës",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
                     Date = new DateTime(year, 3, 22),
                     EnglishName = "Nowruz",
@@ -72,7 +72,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "May Day",
@@ -80,15 +80,15 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
-                    Date = new DateTime(year, 10, 19),
+                    Date = new DateTime(year, 9, 05),
                     EnglishName = "Mother Teresa Day",
                     LocalName = "Dita e Nënë Terezës",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
                     Date = new DateTime(year, 11, 28),
                     EnglishName = "Independence Day",
@@ -96,7 +96,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
                     Date = new DateTime(year, 11, 29),
                     EnglishName = "Liberation Day",
@@ -104,7 +104,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Youth Day",
@@ -112,7 +112,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new HolidaySpecification
+                new()
                 {
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
@@ -121,9 +121,9 @@ namespace Nager.Date.HolidayProviders
                     ObservedRuleSet = observedRuleSet
                 },
                 this._catholicProvider.EasterSunday("Pashkët Katolike", year),
-                this._catholicProvider.EasterMonday("Hënen e Pashkët Katolike", year),
+                this._catholicProvider.EasterMonday("E hëna e Pashkëve Katolike", year),
                 this._orthodoxProvider.EasterSunday("Pashkët Ortodokse", year),
-                this._orthodoxProvider.EasterMonday("Hënen e Pashkët Ortodokse", year)
+                this._orthodoxProvider.EasterMonday("E hëna e Pashkëve Ortodokse", year)
             };
 
             var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
@@ -133,41 +133,16 @@ namespace Nager.Date.HolidayProviders
             //TODO: Eid ul-Adha is not implemented
 
 
-            //var items = new List<Holiday>();
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 1, 1, "Viti i Ri", "New Year's Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 1, 2, "Viti i Ri", "New Year's Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 3, 14, "Dita e Verës", "Summer Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 3, 22, "Dita e Sulltan Nevruzit", "Nowruz", countryCode)));
-            //Catholic Easter and monday
-            //items.Add(this._catholicProvider.EasterSunday("Pashkët Katolike", year, countryCode));
-            //items.Add(this._catholicProvider.EasterMonday("Hënen e Pashkët Katolike", year, countryCode));
-            ////Orthodox easter and monday            
-            //items.Add(this._orthodoxProvider.EasterSunday("Pashkët Ortodokse", year, countryCode));
-            //items.Add(this._orthodoxProvider.EasterMonday("Hënen e Pashkët Ortodokse", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Dita Ndërkombëtare e Punonjësve", "May Day", countryCode));
-
-
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 10, 19, "Dita e Nënë Terezës", "Mother Teresa Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 11, 28, "Dita e Pavarësisë", "Independence Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 11, 29, "Dita e Çlirimit", "Liberation Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 12, 08, "Dita Kombëtare e Rinisë", "Youth Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 12, 25, "Krishtlindjet", "Christmas Day", countryCode)));
-
-            //return items.OrderBy(o => o.Date);
         }
 
-        //private Holiday ApplyShiftingRules(Holiday holiday)
-        //{
-        //    return holiday
-        //        .Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-        //}
 
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
+            return new[]
             {
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Albania"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Albania",
+                "https://www.bankofalbania.org/Shtypi/Kalendari_i_festave_zyrtare_2024"
             };
         }
     }
