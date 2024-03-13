@@ -20,11 +20,11 @@ if (string.IsNullOrEmpty(countryCode))
 
 Console.WriteLine($"Calculate holidays for {countryCode.ToUpper()} {year}");
 Console.WriteLine("--------------------------------------------------------------------------------------------------");
-Console.WriteLine("Date         Observed                       English Name                       Local Name   Type");
+Console.WriteLine("Date            Observed                          English Name                       Local Name   Type");
 
 var publicHolidays = HolidaySystem.GetHolidays(year, countryCode);
 foreach (var publicHoliday in publicHolidays)
 {
     var counties = publicHoliday.SubdivisionCodes != null ? string.Join(',', publicHoliday.SubdivisionCodes) : "";
-    Console.WriteLine($"{publicHoliday.Date:d}{"",3}{publicHoliday.ObservedDate:d}{"",3}{publicHoliday.EnglishName,30}{"",3}{publicHoliday.LocalName,30}{"",3}{publicHoliday.HolidayTypes}{"",3}{counties}");
+    Console.WriteLine($"{publicHoliday.Date:ddd}{"",1}{publicHoliday.Date:d}{"",3}{publicHoliday.ObservedDate:ddd}{"",1}{publicHoliday.ObservedDate:d}{"",3}{publicHoliday.EnglishName,30}{"",3}{publicHoliday.LocalName,30}{"",3}{publicHoliday.HolidayTypes}{"",3}{counties}");
 }
