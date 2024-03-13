@@ -90,7 +90,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 12, 26),
-                    EnglishName = "St.Stephen's Day",
+                    EnglishName = "St. Stephen's Day",
                     LocalName = "Prvi dan po Božiću, Sveti Stjepan, Štefanje, Stipanje",
                     HolidayTypes = HolidayTypes.Public
                 },
