@@ -40,7 +40,7 @@ namespace Nager.Date.HolidayProviders
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
@@ -48,7 +48,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
@@ -56,7 +56,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 3, 14),
                     EnglishName = "Summer Day",
@@ -64,7 +64,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 3, 22),
                     EnglishName = "Nowruz",
@@ -72,7 +72,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "May Day",
@@ -80,7 +80,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 9, 05),
                     EnglishName = "Mother Teresa Day",
@@ -88,7 +88,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 11, 28),
                     EnglishName = "Independence Day",
@@ -96,7 +96,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 11, 29),
                     EnglishName = "Liberation Day",
@@ -104,7 +104,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Youth Day",
@@ -112,7 +112,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                new()
+                new HolidaySpecification()
                 {
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
