@@ -14,43 +14,45 @@ namespace Nager.Date.UnitTest.Country
         {
             var publicHolidays = HolidaySystem.GetHolidays(Year, CountryCode.AL).ToArray();
 
-            var actual = publicHolidays.Select(x => new
+            var actual = publicHolidays.Select(publicHoliday => new
             {
-                x.Date,
-                x.EnglishName,
-                x.LocalName
-            }).OrderBy(x => x.Date).ToList();
+                publicHoliday.Date,
+                publicHoliday.EnglishName,
+                publicHoliday.LocalName
+            }).ToArray();
 
-            CollectionAssert.AreEqual(_albaniaBankHolidays, actual);
+            CollectionAssert.AreEqual(_albaniaBankHolidays2024, actual);
         }
 
         /// <summary>
-        ///     List of public holidays in Albania for 2024.
-        ///     Source: https://www.bankofalbania.org/Press/2024_Official_Bank_Holiday_Schedule/
+        /// List of public holidays in Albania for 2024.
         /// </summary>
-        private static readonly dynamic[] _albaniaBankHolidays =
+        /// <remarks>Source: https://www.bankofalbania.org/Press/2024_Official_Bank_Holiday_Schedule/</remarks>
+        private static readonly dynamic[] _albaniaBankHolidays2024 =
         {
-            new {
+            new
+            {
                 Date = new DateTime(Year, 1, 1),
                 EnglishName = "New Year's Day",
-                LocalName = "Viti i Ri", },
+                LocalName = "Viti i Ri"
+            },
             new
             {
                 Date = new DateTime(Year, 1, 2),
                 EnglishName = "New Year's Day",
-                LocalName = "Viti i Ri",
+                LocalName = "Viti i Ri"
             },
             new
             {
                 Date = new DateTime(Year, 3, 14),
                 EnglishName = "Summer Day",
-                LocalName = "Dita e Verës",
+                LocalName = "Dita e Verës"
             },
             new
             {
                 Date = new DateTime(Year, 3, 22),
                 EnglishName = "Nowruz",
-                LocalName = "Dita e Sulltan Nevruzit",
+                LocalName = "Dita e Sulltan Nevruzit"
             },
             new
             {
@@ -68,7 +70,7 @@ namespace Nager.Date.UnitTest.Country
             {
                 Date = new DateTime(Year, 5, 1),
                 EnglishName = "May Day",
-                LocalName = "Dita Ndërkombëtare e Punonjësve",
+                LocalName = "Dita Ndërkombëtare e Punonjësve"
             },
             new
             {
@@ -86,25 +88,25 @@ namespace Nager.Date.UnitTest.Country
             {
                 Date = new DateTime(Year, 9, 05),
                 EnglishName = "Mother Teresa Day",
-                LocalName = "Dita e Nënë Terezës",
+                LocalName = "Dita e Nënë Terezës"
             },
             new
             {
                 Date = new DateTime(Year, 11, 28),
                 EnglishName = "Independence Day",
-                LocalName = "Dita e Pavarësisë",
+                LocalName = "Dita e Pavarësisë"
             },
             new
             {
                 Date = new DateTime(Year, 11, 29),
                 EnglishName = "Liberation Day",
-                LocalName = "Dita e Çlirimit",
+                LocalName = "Dita e Çlirimit"
             },
             new
             {
                 Date = new DateTime(Year, 12, 8),
                 EnglishName = "Youth Day",
-                LocalName = "Dita Kombëtare e Rinisë",
+                LocalName = "Dita Kombëtare e Rinisë"
             },
             new
             {
