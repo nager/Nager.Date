@@ -132,6 +132,7 @@ namespace Nager.Date.HolidayProviders
             //TODO: Eid ul-Fitr is not implemented
             //TODO: Eid ul-Adha is not implemented
 
+
             //var items = new List<Holiday>();
             //items.Add(this.ApplyShiftingRules(new Holiday(year, 1, 1, "Viti i Ri", "New Year's Day", countryCode)));
             //items.Add(this.ApplyShiftingRules(new Holiday(year, 1, 2, "Viti i Ri", "New Year's Day", countryCode)));
@@ -161,11 +162,10 @@ namespace Nager.Date.HolidayProviders
         //        .Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
         //}
 
-
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new[]
+            return new string[]
             {
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Albania",
                 "https://www.bankofalbania.org/Press/2024_Official_Bank_Holiday_Schedule"
