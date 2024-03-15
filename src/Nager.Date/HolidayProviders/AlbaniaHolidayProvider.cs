@@ -58,7 +58,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 3, 12),
+                    Date = new DateTime(year, 3, 14),
                     EnglishName = "Summer Day",
                     LocalName = "Dita e Verës",
                     HolidayTypes = HolidayTypes.Public,
@@ -82,7 +82,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 10, 19),
+                    Date = new DateTime(year, 9, 05),
                     EnglishName = "Mother Teresa Day",
                     LocalName = "Dita e Nënë Terezës",
                     HolidayTypes = HolidayTypes.Public,
@@ -121,9 +121,9 @@ namespace Nager.Date.HolidayProviders
                     ObservedRuleSet = observedRuleSet
                 },
                 this._catholicProvider.EasterSunday("Pashkët Katolike", year),
-                this._catholicProvider.EasterMonday("Hënen e Pashkët Katolike", year),
+                this._catholicProvider.EasterMonday("E hëna e Pashkëve Katolike", year),
                 this._orthodoxProvider.EasterSunday("Pashkët Ortodokse", year),
-                this._orthodoxProvider.EasterMonday("Hënen e Pashkët Ortodokse", year)
+                this._orthodoxProvider.EasterMonday("E hëna e Pashkëve Ortodokse", year)
             };
 
             var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
@@ -167,7 +167,8 @@ namespace Nager.Date.HolidayProviders
         {
             return new string[]
             {
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Albania"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Albania",
+                "https://www.bankofalbania.org/Press/2024_Official_Bank_Holiday_Schedule"
             };
         }
     }
