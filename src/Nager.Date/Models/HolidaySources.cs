@@ -9,6 +9,11 @@ namespace Nager.Date.Models
     public enum HolidaySources
     {
         /// <summary>
+        /// Undefined Holidays
+        /// </summary>
+        UndefinedHoliday,
+
+        /// <summary>
         /// Historical Holidays
         /// </summary>
         HistoricalHolidays,
@@ -19,13 +24,8 @@ namespace Nager.Date.Models
         CulturalHolidays,
 
         /// <summary>
-        /// Religious Orthodox Holidays
+        /// Religious Holidays
         /// </summary>
-        ReligiousOrthodoxHolidays,
-
-        /// <summary>
-        /// Religious Christian Holidays
-        /// </summary>
-        ReligiousChristianHolidays,
+        ReligiousHolidays,
     }
 }
