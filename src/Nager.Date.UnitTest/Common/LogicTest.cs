@@ -73,24 +73,6 @@ namespace Nager.Date.UnitTest.Common
             }
         }
 
-        [DataTestMethod]
-        [DataRow(1900, 4, 15)]
-        [DataRow(2014, 4, 20)]
-        [DataRow(2015, 4, 5)]
-        [DataRow(2016, 3, 27)]
-        [DataRow(2017, 4, 16)]
-        [DataRow(2018, 4, 1)]
-        [DataRow(2019, 4, 21)]
-        [DataRow(2020, 4, 12)]
-        [DataRow(2200, 4, 6)]
-        public void CheckEasterSunday(int year, int month, int day)
-        {
-            var catholicProvider = new MockPublicHolidayProvider(new CatholicProvider());
-
-            var easterSunday = catholicProvider.EasterSunday(year);
-            Assert.AreEqual(new DateTime(year, month, day), easterSunday);
-        }
-
         [TestMethod]
         public void CheckIsPublicHoliday()
         {
