@@ -10,13 +10,13 @@ namespace Nager.Date.UnitTest.Common
     public class CountryTest
     {
         [TestMethod]
-        public void CheckCountries()
+        public void HolidayProvider_ReturnCorrectCountryCode()
         {
             foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
             {
                 var provider = HolidaySystem.GetHolidayProvider(countryCode);
 
-                var publicHolidays = provider.GetHolidays(2018);
+                var publicHolidays = provider.GetHolidays(DateTime.Today.Year);
                 if (!publicHolidays.Any())
                 {
                     continue;
@@ -61,7 +61,6 @@ namespace Nager.Date.UnitTest.Common
                         }
                     }
                 }
-
             }
 
             if (failures.Count > 0)
@@ -83,9 +82,10 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void ThrowOnUndefinedEnum()
+        [ExpectedException(typeof(ArgumentException))]
+        public void HolidaySystem_CheckInvalidCountry_ThrowException()
         {
-            Assert.ThrowsException<ArgumentException>(() => HolidaySystem.GetHolidays(2018, "1000"));
+            HolidaySystem.GetHolidays(2018, "1000");
         }
     }
 }

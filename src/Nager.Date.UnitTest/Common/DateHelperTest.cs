@@ -83,7 +83,6 @@ namespace Nager.Date.UnitTest.Common
             Assert.AreEqual(new DateTime(2019, 7, 2), result.Value);
         }
 
-
         [TestMethod]
         public void CheckFindDayBetween2()
         {
@@ -91,7 +90,6 @@ namespace Nager.Date.UnitTest.Common
             Assert.IsNotNull(result);
             Assert.AreEqual(new DateTime(2019, 7, 3), result.Value);
         }
-
 
         [TestMethod]
         public void CheckFindDayBetween3()
