@@ -1,22 +1,25 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Extensions;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Linq;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
-    public class SpainTest
+    public class PuertoRicoTest
     {
         [TestMethod]
-        public void CheckDayOfMadridIsThirdMayIn2021()
+        public void PuertoRicoHasGoodFridayHoliday()
         {
-            var yearToTest = 2021;
-            var expectedDate = new DateTime(yearToTest, 5, 3);
+            var holidays = HolidaySystem.GetHolidays(2017, CountryCode.PR);
 
-            var publicHolidays = HolidaySystem.GetHolidays(yearToTest, CountryCode.ES);
-            var publicHoliday = publicHolidays.Where(publicHoliday => publicHoliday.EnglishName == "Day of Madrid").FirstOrDefault();
-            Assert.AreEqual(expectedDate, publicHoliday.ObservedDate);
+            var catholicProvider = new CatholicProvider();
+            var expectedGoodFriday = catholicProvider.EasterSunday(2017).AddDays(-2);
+
+            var goodFriday = holidays.First(holiday => holiday.EnglishName == "Good Friday");
+            Assert.IsNotNull(goodFriday);
+            Assert.AreEqual(expectedGoodFriday.Day, goodFriday.Date.Day);
         }
 
         [DataTestMethod]
@@ -30,7 +33,7 @@ namespace Nager.Date.UnitTest.Country
         public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expectedIsWeekend)
         {
             var date = new DateTime(year, month, day);
-            var isWeekend = date.IsWeekend(CountryCode.ES);
+            var isWeekend = date.IsWeekend(CountryCode.PR);
             Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
     }

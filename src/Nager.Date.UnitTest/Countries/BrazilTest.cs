@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Extensions;
 using System;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
     public class BrazilTest

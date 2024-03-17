@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
     public class NewZealandTest

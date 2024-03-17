@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
     public class PapuaNewGuineaTest

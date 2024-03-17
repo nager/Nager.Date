@@ -3,20 +3,20 @@ using Nager.Date.Extensions;
 using System;
 using System.Linq;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
-    public class SwitzerlandTest
+    public class SpainTest
     {
-        [Ignore]
         [TestMethod]
-        public void TestSwitzerland()
+        public void CheckDayOfMadridIsThirdMayIn2021()
         {
-            for (var year = DateTime.Now.Year; year < 3000; year++)
-            {
-                var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.CH);
-                Assert.AreEqual(16, publicHolidays.Count());
-            }
+            var yearToTest = 2021;
+            var expectedDate = new DateTime(yearToTest, 5, 3);
+
+            var publicHolidays = HolidaySystem.GetHolidays(yearToTest, CountryCode.ES);
+            var publicHoliday = publicHolidays.Where(publicHoliday => publicHoliday.EnglishName == "Day of Madrid").FirstOrDefault();
+            Assert.AreEqual(expectedDate, publicHoliday.ObservedDate);
         }
 
         [DataTestMethod]
@@ -30,7 +30,7 @@ namespace Nager.Date.UnitTest.Country
         public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expectedIsWeekend)
         {
             var date = new DateTime(year, month, day);
-            var isWeekend = date.IsWeekend(CountryCode.CH);
+            var isWeekend = date.IsWeekend(CountryCode.ES);
             Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
     }

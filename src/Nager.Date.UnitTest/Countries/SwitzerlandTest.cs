@@ -1,26 +1,22 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Extensions;
-using Nager.Date.ReligiousProviders;
 using System;
 using System.Linq;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
-    public class PuertoRicoTest
+    public class SwitzerlandTest
     {
-
+        [Ignore]
         [TestMethod]
-        public void PuertoRicoHasGoodFridayHoliday()
+        public void TestSwitzerland()
         {
-            var holidays = HolidaySystem.GetHolidays(2017, CountryCode.PR);
-
-            var catholic = new MockPublicHolidayProvider(new CatholicProvider());
-            var expectedGoodFriday = catholic.EasterSunday(2017).AddDays(-2);
-
-            var goodFriday = holidays.First(holiday => holiday.EnglishName == "Good Friday");
-            Assert.IsNotNull(goodFriday);
-            Assert.AreEqual(expectedGoodFriday.Day, goodFriday.Date.Day);
+            for (var year = DateTime.Now.Year; year < 3000; year++)
+            {
+                var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.CH);
+                Assert.AreEqual(16, publicHolidays.Count());
+            }
         }
 
         [DataTestMethod]
@@ -34,7 +30,7 @@ namespace Nager.Date.UnitTest.Country
         public void ChecksThatUniversalWeekendIsUsed(int year, int month, int day, bool expectedIsWeekend)
         {
             var date = new DateTime(year, month, day);
-            var isWeekend = date.IsWeekend(CountryCode.PR);
+            var isWeekend = date.IsWeekend(CountryCode.CH);
             Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
     }

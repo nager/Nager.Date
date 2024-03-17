@@ -3,7 +3,7 @@ using Nager.Date.Extensions;
 using System;
 using System.Linq;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
     public class TurkeyTest

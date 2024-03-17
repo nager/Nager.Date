@@ -4,7 +4,7 @@ using Nager.Date.ReligiousProviders;
 using System;
 using System.Linq;
 
-namespace Nager.Date.UnitTest.Country
+namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
     public class GermanyTest
@@ -14,7 +14,7 @@ namespace Nager.Date.UnitTest.Country
         {
             var yearToTest = 2017;
 
-            var catholicProvider = new MockPublicHolidayProvider(new CatholicProvider());
+            var catholicProvider = new CatholicProvider();
             var publicHolidays = HolidaySystem.GetHolidays(yearToTest, CountryCode.DE);
             var easterSunday = catholicProvider.EasterSunday(yearToTest);
             var corpusChristi = publicHolidays.First(x => x.LocalName == "Fronleichnam").Date;
