@@ -57,7 +57,7 @@ namespace Nager.Date
         /// </summary>
         /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
         /// <returns>Specialized weekend provider for country if exists, universal weekend provider otherwise</returns>
-        /// <exception cref="System.ArgumentException">Thrown when given country code is not recognized valid</exception>
+        /// <exception cref="ArgumentException">Thrown when given country code is not recognized valid</exception>
         public static IWeekendProvider GetWeekendProvider(string countryCode)
         {
             if (!CountryCodeHelper.TryParseCountryCode(countryCode, out var parsedCountryCode))
@@ -89,7 +89,7 @@ namespace Nager.Date
         /// <param name="date">The date to check</param>
         /// <param name="countryCode">The country code (ISO 3166-1 ALPHA-2) to determine weekend rules</param>
         /// <returns>True if the given date is a weekend in the specified country, false otherwise</returns>
-        /// <exception cref="System.ArgumentException">Thrown when the provided country code is not recognized as valid</exception>
+        /// <exception cref="ArgumentException">Thrown when the provided country code is not recognized as valid</exception>
         public static bool IsWeekend(DateTime date, string countryCode)
         {
             if (!CountryCodeHelper.TryParseCountryCode(countryCode, out var parsedCountryCode))

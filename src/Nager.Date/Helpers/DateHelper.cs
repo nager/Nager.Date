@@ -221,7 +221,7 @@ namespace Nager.Date.Helpers
         /// <param name="day">The day of the week</param>
         /// <param name="occurrence"></param>
         /// <returns>Date of day found</returns>
-        /// <exception cref="System.ArgumentException">Thrown when given occurrence number is either too low or too high</exception>
+        /// <exception cref="ArgumentException">Thrown when given occurrence number is either too low or too high</exception>
         public static DateTime FindDay(
             int year,
             int month,
