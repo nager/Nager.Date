@@ -19,6 +19,5 @@ namespace Nager.Date.UnitTest.Country
 
             Assert.AreEqual(expectedDate, publicHoliday.ObservedDate);
         }
-
     }
 }
