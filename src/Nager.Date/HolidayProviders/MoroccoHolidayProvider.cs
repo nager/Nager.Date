@@ -95,6 +95,17 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
+            if (year >= 2024)
+            {
+                holidaySpecifications.Add(new HolidaySpecification
+                {
+                    Date = new DateTime(year, 1, 14),
+                    EnglishName = "Amazigh New Year",
+                    LocalName = "Id Yennayer",
+                    HolidayTypes = HolidayTypes.Public
+                });
+            }
+
             var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
             return holidays.OrderBy(o => o.Date);
 
