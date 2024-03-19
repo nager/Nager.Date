@@ -168,10 +168,10 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/San_Marino#Public_holidays_and_festivals"
-            };
+            ];
         }
     }
 }

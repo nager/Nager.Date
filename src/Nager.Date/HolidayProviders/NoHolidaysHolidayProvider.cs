@@ -1,7 +1,6 @@
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
@@ -26,13 +25,13 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<Holiday> GetHolidays(int year)
         {
-            return Enumerable.Empty<Holiday>();
+            return [];
         }
 
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return Enumerable.Empty<string>();
+            return [];
         }
     }
 }

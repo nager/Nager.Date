@@ -207,7 +207,6 @@ namespace Nager.Date.HolidayProviders
             //return new Holiday(lastMondayInMay, holidayName, holidayName, countryCode);
         }
 
-
         #region Royal family
 
         private HolidaySpecification QueensPlatinumJubilee(int year)
@@ -275,15 +274,14 @@ namespace Nager.Date.HolidayProviders
 
         #endregion
 
-
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_the_Isle_of_Man",
                 "https://www.gov.im/categories/home-and-neighbourhood/bank-holidays/"
-            };
+            ];
         }
     }
 }

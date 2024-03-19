@@ -392,8 +392,8 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Japan",
                 "https://en.wikipedia.org/wiki/Golden_Week_(Japan)",
                 "https://www.boj.or.jp/en/about/outline/holi.htm/",
@@ -401,7 +401,7 @@ namespace Nager.Date.HolidayProviders
                 "https://zariganitosh.hatenablog.jp/entry/20140929/japanese_holiday_memo",
                 "https://rkapl123.github.io/QLAnnotatedSource/da/db4/japan_8cpp_source.html",
                 "http://addinbox.sakura.ne.jp/holiday_logic_English.htm"
-            };
+            ];
         }
     }
 }

@@ -213,12 +213,12 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://de.wikipedia.org/wiki/Feiertage_in_der_Schweiz",
                 "https://en.wikipedia.org/wiki/Federal_Day_of_Thanksgiving,_Repentance_and_Prayer",
                 "https://en.wikipedia.org/wiki/Je%C3%BBne_genevois"
-            };
+            ];
         }
     }
 }

@@ -192,11 +192,11 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Portugal",
                 "https://de.wikipedia.org/wiki/ISO_3166-2:PT"
-            };
+            ];
         }
     }
 }

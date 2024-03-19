@@ -104,15 +104,6 @@ namespace Nager.Date.HolidayProviders
             //return items.OrderBy(o => o.Date);
         }
 
-        /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
-        {
-            return new string[]
-            {
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Costa_Rica",
-            };
-        }
-
         private HolidaySpecification GetJuanSantamariaDay(int year)
         {
             ObservedRuleSet observedRuleSet = null;
@@ -252,6 +243,15 @@ namespace Nager.Date.HolidayProviders
             //    thursday: thursday => thursday.AddDays(4)
             //    );
             //return date;
+        }
+
+        /// <inheritdoc/>
+        public IEnumerable<string> GetSources()
+        {
+            return
+            [
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Costa_Rica",
+            ];
         }
     }
 }
