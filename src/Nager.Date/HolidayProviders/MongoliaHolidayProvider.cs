@@ -1,26 +1,24 @@
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Mongoli HolidayProvider
     /// </summary>
-    internal sealed class MongoliaHolidayProvider : IHolidayProvider
+    internal sealed class MongoliaHolidayProvider : AbstractHolidayProvider
     {
         /// <summary>
         /// Mongolia HolidayProvider
         /// </summary>
-        public MongoliaHolidayProvider()
+        public MongoliaHolidayProvider() : base(CountryCode.MN)
         {
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.MN;
 
             //TODO:Add lunar calendar support
             //TODO:Add Mongolian calendar support
@@ -102,8 +100,7 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Шинэ жил (Shine jil)", "New Year's Day", countryCode));
@@ -120,7 +117,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

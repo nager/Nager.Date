@@ -3,14 +3,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Jersey HolidayProvider
     /// </summary>
-    internal sealed class JerseyHolidayProvider : IHolidayProvider
+    internal sealed class JerseyHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -19,15 +18,14 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public JerseyHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.JE)
         {
             this._catholicProvider = catholicProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.JE;
 
             var firstMondayInMay = DateHelper.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.First);
             var lastMondayInMay = DateHelper.FindLastDay(year, Month.May, DayOfWeek.Monday);
@@ -88,8 +86,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Easter Monday", year)
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
@@ -106,7 +103,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

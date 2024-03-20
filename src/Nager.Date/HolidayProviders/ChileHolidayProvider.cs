@@ -3,14 +3,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Chile HolidayProvider
     /// </summary>
-    internal sealed class ChileHolidayProvider : IHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class ChileHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -19,7 +18,7 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public ChileHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.CL)
         {
             this._catholicProvider = catholicProvider;
         }
@@ -48,9 +47,8 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.CL;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var observedRuleSet = new ObservedRuleSet
@@ -149,8 +147,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.NationalPlebiscite(year));
             holidaySpecifications.AddIfNotNull(this.NationalDayOfIndigenousPeoples(year));
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
 
@@ -315,7 +312,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

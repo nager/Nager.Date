@@ -2,14 +2,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Indonesia HolidayProvider
     /// </summary>
-    internal sealed class IndonesiaHolidayProvider : IHolidayProvider
+    internal sealed class IndonesiaHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -18,13 +17,13 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public IndonesiaHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.ID)
         {
             this._catholicProvider = catholicProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
             //TODO: Add chinise calendar
             //TODO: Add Balinese Saka calendar support
@@ -39,7 +38,6 @@ namespace Nager.Date.HolidayProviders
             //Add Islamic New Year (Tahun Baru Islam 1440 Hijriah)
             //Add Birth of the Prophet (Maulid Nabi Muhammad)
 
-            var countryCode = CountryCode.ID;
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -83,8 +81,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.AscensionDay("Kenaikan Isa Almasih", year)
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Tahun Baru Masehi", "New Year's Day", countryCode));
@@ -100,7 +97,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

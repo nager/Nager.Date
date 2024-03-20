@@ -1,26 +1,24 @@
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Russia HolidayProvider
     /// </summary>
-    internal sealed class RussiaHolidayProvider : IHolidayProvider
+    internal sealed class RussiaHolidayProvider : AbstractHolidayProvider
     {
         /// <summary>
         /// Russia HolidayProvider
         /// </summary>
-        public RussiaHolidayProvider()
+        public RussiaHolidayProvider() : base(CountryCode.RU)
         {
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.RU;
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -117,8 +115,7 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Новый год", "New Year's Day", countryCode));
@@ -138,7 +135,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

@@ -4,14 +4,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Canada HolidayProvider
     /// </summary>
-    internal sealed class CanadaHolidayProvider : IHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class CanadaHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -20,7 +19,7 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public CanadaHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.CA)
         {
             this._catholicProvider = catholicProvider;
         }
@@ -47,9 +46,8 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.CA;
 
             var thirdMondayInFebruary = DateHelper.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
             var mondayOnOrBeforeMay24 = DateHelper.FindDayBefore(year, Month.May, 25, DayOfWeek.Monday);
@@ -278,8 +276,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddRangeIfNotNull(this.FamilyDay(year));
             holidaySpecifications.AddIfNotNull(this.FuneralForQueenElizabeth(year));
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
@@ -435,7 +432,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

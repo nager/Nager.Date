@@ -4,14 +4,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Australia HolidayProvider
     /// </summary>
-    internal sealed class AustraliaHolidayProvider : IHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class AustraliaHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -20,7 +19,7 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public AustraliaHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.AU)
         {
             this._catholicProvider = catholicProvider;
         }
@@ -42,9 +41,8 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.AU;
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var secondMondayInMarch = DateHelper.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Second);
@@ -63,14 +61,12 @@ namespace Nager.Date.HolidayProviders
 
             var weekendObservedRuleSet = new ObservedRuleSet
             {
-                Saturday = date => date.AddDays(2),
-                Sunday = date => date.AddDays(1),
+                Saturday = date => date.AddDays(2), Sunday = date => date.AddDays(1),
             };
 
             var weekendSequenceObservedRuleSet = new ObservedRuleSet
             {
-                Saturday = date => date.AddDays(2),
-                Sunday = date => date.AddDays(2),
+                Saturday = date => date.AddDays(2), Sunday = date => date.AddDays(2),
             };
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -195,8 +191,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddRangeIfNotNull(this.MonarchBirthday(year));
             holidaySpecifications.AddIfNotNull(this.MourningForQueenElizabeth(year));
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(newYearsDay, "New Year's Day", "New Year's Day", countryCode));
@@ -356,7 +351,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

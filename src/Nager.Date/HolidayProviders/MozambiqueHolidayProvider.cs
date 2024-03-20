@@ -1,19 +1,18 @@
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Mozambique HolidayProvider
     /// </summary>
-    internal sealed class MozambiqueHolidayProvider : IHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class MozambiqueHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         /// <summary>
         /// Mozambique HolidayProvider
         /// </summary>
-        public MozambiqueHolidayProvider()
+        public MozambiqueHolidayProvider() : base(CountryCode.MZ)
         {
         }
 
@@ -39,9 +38,8 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.MZ;
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -110,8 +108,7 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Dia de Ano Novo", "New Year's Day", countryCode));
@@ -127,7 +124,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

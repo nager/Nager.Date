@@ -2,14 +2,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Albania HolidayProvider
     /// </summary>
-    internal sealed class AlbaniaHolidayProvider : IHolidayProvider
+    internal sealed class AlbaniaHolidayProvider : AbstractHolidayProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
         private readonly ICatholicProvider _catholicProvider;
@@ -21,17 +20,15 @@ namespace Nager.Date.HolidayProviders
         /// <param name="orthodoxProvider"></param>
         public AlbaniaHolidayProvider(
             ICatholicProvider catholicProvider,
-            IOrthodoxProvider orthodoxProvider)
+            IOrthodoxProvider orthodoxProvider) : base(CountryCode.AL)
         {
             this._catholicProvider = catholicProvider;
             this._orthodoxProvider = orthodoxProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.AL;
-
             var observedRuleSet = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
@@ -126,8 +123,7 @@ namespace Nager.Date.HolidayProviders
                 this._orthodoxProvider.EasterMonday("E hëna e Pashkëve Ortodokse", year)
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //TODO: Eid ul-Fitr is not implemented
             //TODO: Eid ul-Adha is not implemented
@@ -163,7 +159,7 @@ namespace Nager.Date.HolidayProviders
         //}
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

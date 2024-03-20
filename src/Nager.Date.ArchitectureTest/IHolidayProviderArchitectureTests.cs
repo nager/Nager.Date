@@ -12,6 +12,8 @@ namespace Nager.Date.ArchitectureTest
     {
         private static readonly IObjectProvider<Class> _holidayProviders = Classes()
             .That()
+            .AreNotAbstract()
+            .And()
             .AreAssignableTo(typeof(IHolidayProvider))
             .As("Nager.Date HolidayProvider");
 

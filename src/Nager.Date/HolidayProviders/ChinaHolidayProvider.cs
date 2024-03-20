@@ -2,29 +2,27 @@ using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// China HolidayProvider
     /// </summary>
-    internal sealed class ChinaHolidayProvider : IHolidayProvider
+    internal sealed class ChinaHolidayProvider : AbstractHolidayProvider
     {
         /// <summary>
         /// China HolidayProvider
         /// </summary>
-        public ChinaHolidayProvider()
+        public ChinaHolidayProvider() : base(CountryCode.CN)
         {
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
             //TODO: Provider incomplete
             //Tomb-Sweeping-Day is invalid (5th solar term)
 
-            var countryCode = CountryCode.CN;
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -96,8 +94,7 @@ namespace Nager.Date.HolidayProviders
                 //items.Add(new Holiday(midAutumnFestival, "中秋节", "Mid-Autumn Festival", countryCode));
             }
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
 
 
@@ -144,7 +141,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

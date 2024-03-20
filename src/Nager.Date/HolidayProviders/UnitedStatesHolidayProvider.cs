@@ -4,14 +4,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// United States of America HolidayProvider
     /// </summary>
-    internal sealed class UnitedStatesHolidayProvider : IHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class UnitedStatesHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -19,7 +18,7 @@ namespace Nager.Date.HolidayProviders
         /// United States of America HolidayProvider
         /// </summary>
         public UnitedStatesHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.US)
         {
             this._catholicProvider = catholicProvider;
         }
@@ -83,9 +82,8 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.US;
 
             var thirdMondayInJanuary = DateHelper.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Third);
             var thirdMondayInFebruary = DateHelper.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
@@ -196,8 +194,7 @@ namespace Nager.Date.HolidayProviders
                 //items.Add(new Holiday(juneteenth, "Juneteenth", "Juneteenth", countryCode, 2021));
             }
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
 
             //var items = new List<Holiday>();
@@ -254,7 +251,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [
