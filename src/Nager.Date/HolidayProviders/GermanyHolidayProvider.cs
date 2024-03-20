@@ -113,7 +113,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public
                 },
                 this._catholicProvider.GoodFriday("Karfreitag", year),
-                this._catholicProvider.EasterSunday("Ostersonntag", year).SetSubdivisionCodes("DE-BB", "DE-HE"),
+                this._catholicProvider.EasterSunday("Ostersonntag", year).SetSubdivisionCodes("DE-BB"),
                 this._catholicProvider.EasterMonday("Ostermontag", year),
                 this._catholicProvider.AscensionDay("Christi Himmelfahrt", year),
                 this._catholicProvider.Pentecost("Pfingstsonntag", year).SetSubdivisionCodes("DE-BB", "DE-HE"),
