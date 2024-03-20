@@ -12,7 +12,7 @@ namespace Nager.Date.HolidayProviders
         /// <summary>
         /// Vietnam HolidayProvider
         /// </summary>
-        public VietnamHolidayProvider(): base(CountryCode.VN)
+        public VietnamHolidayProvider() : base(CountryCode.VN)
         {
         }
 

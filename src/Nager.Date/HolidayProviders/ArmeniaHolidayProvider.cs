@@ -17,7 +17,7 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public ArmeniaHolidayProvider(
-            ICatholicProvider catholicProvider) :base(CountryCode.AM)
+            ICatholicProvider catholicProvider) : base(CountryCode.AM)
         {
             this._catholicProvider = catholicProvider;
         }

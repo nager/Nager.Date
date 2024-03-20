@@ -11,7 +11,7 @@ namespace Nager.Date.HolidayProviders
     {
        private readonly CountryCode _countryCode ;
 
-       /// <summary>
+        /// <summary>
         /// Abstract HolidayProvider
         /// </summary>
         /// <param name="countryCode"></param>
@@ -21,7 +21,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-       public IEnumerable<Holiday> GetHolidays(int year)
+        public IEnumerable<Holiday> GetHolidays(int year)
         {
             var holidaySpecifications = this.GetHolidaySpecifications(year);
             var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, this._countryCode);
@@ -30,11 +30,11 @@ namespace Nager.Date.HolidayProviders
 
         /// <inheritdoc/>
         public abstract IEnumerable<string> GetSources();
+
         /// <summary>
         /// Get Holiday specifications for a given year
         /// </summary>
         /// <param name="year"></param>
         protected abstract IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year);
-
     }
 }
