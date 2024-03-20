@@ -256,11 +256,11 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States",
                 "https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/06/17/remarks-by-president-biden-at-signing-of-the-juneteenth-national-independence-day-act/"
-            };
+            ];
         }
     }
 }

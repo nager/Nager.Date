@@ -134,12 +134,12 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_France",
                 "https://en.wikipedia.org/wiki/ISO_3166-2:FR",
                 "https://ec.europa.eu/taxation_customs/dds2/rd/publicholidays_consultation.jsp?Screen=0&Expand=true&Country=FR"
-            };
+            ];
         }
     }
 }

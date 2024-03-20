@@ -205,10 +205,10 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Suriname#National_holidays"
-            };
+            ];
         }
     }
 }

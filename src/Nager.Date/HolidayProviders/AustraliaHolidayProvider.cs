@@ -232,13 +232,18 @@ namespace Nager.Date.HolidayProviders
         {
             var holidaySpecification = this._catholicProvider.EasterSunday("Easter Sunday", year);
 
-            var counties = new [] { "AU-ACT", "AU-NSW", "AU-VIC" };
-            if (year >= 2022)
+            string[] subdivisionCodes = year switch
             {
-                counties = ["AU-ACT", "AU-NSW", "AU-VIC", "AU-WA"];
-            }
+                < 2010 => [],
+                >= 2010 and <= 2015 => ["AU-NSW"],
+                2016 => ["AU-ACT", "AU-NSW", "AU-VIC"],
+                >= 2017 and <= 2021 => ["AU-ACT", "AU-NSW", "AU-QLD", "AU-VIC"],
+                2022 => ["AU-ACT", "AU-NSW", "AU-QLD", "AU-VIC", "AU-WA"],
+                2023 => ["AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-VIC", "AU-WA"],
+                >= 2024 => ["AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-VIC", "AU-WA"]
+            };
 
-            holidaySpecification.SubdivisionCodes = counties;
+            holidaySpecification.SubdivisionCodes = subdivisionCodes;
             return holidaySpecification;
         }
 
@@ -353,10 +358,10 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Australia"
-            };
+            ];
         }
     }
 }

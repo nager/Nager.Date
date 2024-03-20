@@ -165,11 +165,11 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Albania",
                 "https://www.bankofalbania.org/Press/2024_Official_Bank_Holiday_Schedule"
-            };
+            ];
         }
     }
 }

@@ -339,11 +339,14 @@ namespace Nager.Date
 
         #region Check if a date is a Public Holiday
 
-        private static Func<Holiday, bool> GetHolidayFilter(DateTime date, string subdivisionCodes = null)
+        private static Func<Holiday, bool> GetHolidayFilter(
+            DateTime date,
+            HolidayTypes holidayTypes,
+            string subdivisionCodes = null)
         {
             return o => o.ObservedDate == date.Date
                         && (o.SubdivisionCodes is null || subdivisionCodes is not null && o.SubdivisionCodes.Contains(subdivisionCodes))
-                        && o.HolidayTypes.HasFlag(HolidayTypes.Public);
+                        && o.HolidayTypes.HasFlag(holidayTypes);
         }
 
         /// <summary>
@@ -372,7 +375,7 @@ namespace Nager.Date
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode)
         {
             var items = GetHolidays(date.Year, countryCode);
-            return items.Any(GetHolidayFilter(date));
+            return items.Any(GetHolidayFilter(date, HolidayTypes.Public));
         }
 
         /// <summary>
@@ -388,7 +391,7 @@ namespace Nager.Date
         public static bool IsPublicHoliday(DateTime date, CountryCode countryCode, out Holiday[] publicHolidays)
         {
             var items = GetHolidays(date.Year, countryCode);
-            publicHolidays = items.Where(GetHolidayFilter(date)).ToArray();
+            publicHolidays = items.Where(GetHolidayFilter(date, HolidayTypes.Public)).ToArray();
             return publicHolidays.Any();
         }
 
@@ -414,7 +417,33 @@ namespace Nager.Date
             }
 
             var items = GetHolidays(date.Year, countryCode);
-            return items.Any(GetHolidayFilter(date, subdivisionCode));
+            return items.Any(GetHolidayFilter(date, HolidayTypes.Public, subdivisionCode));
+        }
+
+        #endregion
+
+        #region Check if a date is a Holiday
+
+        /// <summary>
+        /// Check is a given date a Holiday
+        /// </summary>
+        /// <param name="date">The date</param>
+        /// <param name="countryCode">Country Code (ISO 3166-1 ALPHA-2)</param>
+        /// <param name="holidayTypes">The holiday type</param>
+        /// <param name="publicHolidays">if available the public holidays on this date</param>
+        /// <returns>
+        /// True if given date is holiday in given country, false otherwise.
+        /// Set of holidays for given day is returned in out parameter.
+        /// </returns>
+        public static bool IsHoliday(
+            DateTime date,
+            CountryCode countryCode,
+            HolidayTypes holidayTypes,
+            out Holiday[] publicHolidays)
+        {
+            var items = GetHolidays(date.Year, countryCode);
+            publicHolidays = items.Where(GetHolidayFilter(date, holidayTypes)).ToArray();
+            return publicHolidays.Any();
         }
 
         #endregion

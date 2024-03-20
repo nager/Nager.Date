@@ -704,12 +704,12 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Spain",
                 "https://www.boe.es/boe/dias/2020/11/02/pdfs/BOE-A-2020-13343.pdf",
                 "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2021-17113"
-            };
+            ];
         }
     }
 }

@@ -126,12 +126,12 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Belgium",
                 "https://www.nbb.be/en/about-national-bank/national-bank-belgium/public-holidays",
                 "https://www.bnpparibasfortis.be/public/nl/public/particulieren/sluitingsdagen"
-            };
+            ];
         }
     }
 }

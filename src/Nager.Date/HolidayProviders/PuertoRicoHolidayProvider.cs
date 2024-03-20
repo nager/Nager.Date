@@ -228,13 +228,13 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Puerto_Rico",
                 "https://www.timeanddate.com/holidays/puerto-rico/2017#!hol=9",
                 "http://www.puertorico.com/official-holidays/",
                 "http://www.topuertorico.org/reference/holi.shtml"
-            };
+            ];
         }
     }
 }

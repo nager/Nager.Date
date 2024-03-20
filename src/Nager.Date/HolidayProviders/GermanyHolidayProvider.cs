@@ -351,10 +351,10 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland",
-            };
+            ];
         }
     }
 }

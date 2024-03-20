@@ -146,11 +146,11 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         public IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_the_Faroe_Islands",
                 "https://en.wikipedia.org/wiki/Store_Bededag"
-            };
+            ];
         }
     }
 }
