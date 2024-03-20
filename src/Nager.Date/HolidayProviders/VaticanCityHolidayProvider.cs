@@ -2,14 +2,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Vatican City HolidayProvider
     /// </summary>
-    internal sealed class VaticanCityHolidayProvider : IHolidayProvider
+    internal sealed class VaticanCityHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -18,15 +17,14 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public VaticanCityHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.VA)
         {
             this._catholicProvider = catholicProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.VA;
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -131,8 +129,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Lunedì dell'Angelo", year)
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Maria Santissima Madre di Dio", "Solemnity of Mary, Mother of God", countryCode));
@@ -154,7 +151,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

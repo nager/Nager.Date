@@ -3,25 +3,23 @@ using Nager.Date.Helpers;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Japan HolidayProvider
     /// </summary>
-    internal sealed class JapanHolidayProvider : IHolidayProvider
+    internal sealed class JapanHolidayProvider : AbstractHolidayProvider
     {
         /// <summary>
         /// Japan HolidayProvider
         /// </summary>
-        public JapanHolidayProvider()
+        public JapanHolidayProvider() : base(CountryCode.JP)
         { }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.JP;
 
             var secondMondayInJanuary = DateHelper.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Second);
             var thirdMondayInJuly = DateHelper.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.Third);
@@ -146,8 +144,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.AutumnalEquinox(year));
             holidaySpecifications.AddIfNotNull(this.SportsDay(year));
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(newYearsDay, "元日", "New Year's Day", countryCode));
@@ -390,7 +387,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

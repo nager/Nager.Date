@@ -2,14 +2,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Niger HolidayProvider
     /// </summary>
-    internal sealed class NigerHolidayProvider : IHolidayProvider
+    internal sealed class NigerHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -18,15 +17,14 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public NigerHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.NE)
         {
             this._catholicProvider = catholicProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.NE;
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -75,8 +73,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Easter Monday", year)
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //TODO: Add islamic public holidays
 
@@ -92,7 +89,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

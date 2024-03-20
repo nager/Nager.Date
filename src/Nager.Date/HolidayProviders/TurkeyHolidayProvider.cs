@@ -3,21 +3,20 @@ using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Turkey HolidayProvider
     /// </summary>
-    internal sealed class TurkeyHolidayProvider : IHolidayProvider
+    internal sealed class TurkeyHolidayProvider : AbstractHolidayProvider
     {
         private readonly UmAlQuraCalendar _umAlQuraCalendar;
 
         /// <summary>
         /// Turkey HolidayProvider
         /// </summary>
-        public TurkeyHolidayProvider()
+        public TurkeyHolidayProvider() : base(CountryCode.TR)
         {
             this._umAlQuraCalendar = new UmAlQuraCalendar();
         }
@@ -45,9 +44,8 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="year"></param>
         /// <returns></returns>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.TR;
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -99,8 +97,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddRange(this.GetEidAlFitr(year));
             holidaySpecifications.AddRange(this.GetEidAlAdha(year));
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Yılbaşı", "New Year's Day", countryCode));
@@ -244,7 +241,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

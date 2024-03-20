@@ -11,7 +11,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// New Zealand HolidayProvider
     /// </summary>
-    internal sealed class NewZealandHolidayProvider : IHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class NewZealandHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
         private IDictionary<int, DateTime> _matariki;
@@ -21,7 +21,7 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public NewZealandHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.NZ)
         {
             this._catholicProvider = catholicProvider;
             this.InitMatariki();
@@ -53,9 +53,8 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.NZ;
 
             //var newYearDay1 = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             //var newYearDay2 = new DateTime(year, 1, 2).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
@@ -268,8 +267,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.MonarchBirthday(year));
             holidaySpecifications.AddIfNotNull(this.MemorialDayForQueenElizabeth(year));
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
 
             //var items = new List<Holiday>();        
@@ -496,7 +494,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

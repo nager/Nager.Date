@@ -4,14 +4,13 @@ using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Singapore HolidayProvider
     /// </summary>
-    internal sealed class SingaporeHolidayProvider : IHolidayProvider
+    internal sealed class SingaporeHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -20,15 +19,14 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public SingaporeHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.SG)
         {
             this._catholicProvider = catholicProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.SG;
 
             var observedRuleSet = new ObservedRuleSet
             {
@@ -105,8 +103,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.Deepavali(year));
             holidaySpecifications.AddIfNotNull(this.PollingDay(year));
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "New Year’s Day", "New Year’s Day", countryCode).Shift(saturday => saturday, sunday => sunday.AddDays(1)));
@@ -435,7 +432,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

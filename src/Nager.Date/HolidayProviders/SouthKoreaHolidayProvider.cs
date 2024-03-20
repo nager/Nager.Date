@@ -3,19 +3,20 @@ using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// South Korea HolidayProvider
     /// </summary>
-    internal sealed class SouthKoreaHolidayProvider : IHolidayProvider
+    internal sealed class SouthKoreaHolidayProvider : AbstractHolidayProvider
     {
-        /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        public SouthKoreaHolidayProvider() : base(CountryCode.KR)
         {
-            var countryCode = CountryCode.KR;
+        }
+        /// <inheritdoc/>
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
+        {
 
             var childrenDay = new DateTime(year, 5, 5).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1)); //Substitute holiday
 
@@ -148,8 +149,7 @@ namespace Nager.Date.HolidayProviders
                 });
             }
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
 
             //var items = new List<Holiday>();
@@ -209,7 +209,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

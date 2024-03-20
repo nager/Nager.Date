@@ -2,14 +2,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Kazakhstan HolidayProvider
     /// </summary>
-    internal sealed class KazakhstanHolidayProvider : IHolidayProvider
+    internal sealed class KazakhstanHolidayProvider : AbstractHolidayProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
 
@@ -18,15 +17,14 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="orthodoxProvider"></param>
         public KazakhstanHolidayProvider(
-            IOrthodoxProvider orthodoxProvider)
+            IOrthodoxProvider orthodoxProvider) : base(CountryCode.KZ)
         {
             this._orthodoxProvider = orthodoxProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.KZ;
 
             //TODO: Last day of Hajj -> Islamic calendar
 
@@ -125,12 +123,11 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

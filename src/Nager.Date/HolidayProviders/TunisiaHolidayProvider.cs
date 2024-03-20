@@ -1,28 +1,25 @@
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Tunisia HolidayProvider
     /// </summary>
-    internal sealed class TunisiaHolidayProvider : IHolidayProvider
+    internal sealed class TunisiaHolidayProvider : AbstractHolidayProvider
     {
         /// <summary>
         /// Tunisia HolidayProvider
         /// </summary>
-        public TunisiaHolidayProvider()
+        public TunisiaHolidayProvider() : base(CountryCode.TN)
         {
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
             //TODO:Add moon calendar logic
-
-            var countryCode = CountryCode.TN;
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -91,8 +88,7 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //items.Add(new PublicHoliday(year, 9, 24, "Eid al-Idha", "Eid al-Idha", countryCode)); //depending on the moon calender
             //items.Add(new PublicHoliday(year, 10, 15, "Hegire (Islamic New Year)", "Hegire (Islamic New Year) (2015)", countryCode)); //depending on the moon calender
@@ -113,7 +109,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

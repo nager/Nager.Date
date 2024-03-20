@@ -3,14 +3,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Finland HolidayProvider
     /// </summary>
-    internal sealed class FinlandHolidayProvider : IHolidayProvider
+    internal sealed class FinlandHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -19,15 +18,14 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public FinlandHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.FI)
         {
             this._catholicProvider = catholicProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.FI;
 
             var midsummerEve = DateHelper.FindDay(year, Month.June, 19, DayOfWeek.Friday);
             var midsummerDay = DateHelper.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
@@ -112,8 +110,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.Pentecost("Helluntaipäivä", year)
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Uudenvuodenpäivä", "New Year's Day", countryCode));
@@ -136,7 +133,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

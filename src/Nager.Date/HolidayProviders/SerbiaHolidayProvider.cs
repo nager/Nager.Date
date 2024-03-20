@@ -2,14 +2,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Serbia HolidayProvider
     /// </summary>
-    internal sealed class SerbiaHolidayProvider : IHolidayProvider
+    internal sealed class SerbiaHolidayProvider : AbstractHolidayProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
 
@@ -18,15 +17,14 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="orthodoxProvider"></param>
         public SerbiaHolidayProvider(
-            IOrthodoxProvider orthodoxProvider)
+            IOrthodoxProvider orthodoxProvider) : base(CountryCode.RS)
         {
             this._orthodoxProvider = orthodoxProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.RS;
 
             //var newYearsDay1 = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
             //var newYearsDay2 = new DateTime(year, 1, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1), monday => monday.AddDays(1));
@@ -118,8 +116,7 @@ namespace Nager.Date.HolidayProviders
                 this._orthodoxProvider.EasterMonday("Vaskrsni (Uskrsni) ponedeljak", year)
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(newYearsDay1, "Nova Godina", "New Year's Day", countryCode));
@@ -137,7 +134,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

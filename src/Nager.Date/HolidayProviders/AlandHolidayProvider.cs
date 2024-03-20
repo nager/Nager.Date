@@ -3,14 +3,13 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Åland HolidayProvider
     /// </summary>
-    internal sealed class AlandHolidayProvider : IHolidayProvider
+    internal sealed class AlandHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -19,16 +18,14 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public AlandHolidayProvider(
-            ICatholicProvider catholicProvider)
+            ICatholicProvider catholicProvider) : base(CountryCode.AX)
         {
             this._catholicProvider = catholicProvider;
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.AX;
-
             var thirdFridayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Friday, Occurrence.Third);
             var thirdSaturdayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Third);
             var firstSaturdayInNovember = DateHelper.FindDay(year, Month.November, DayOfWeek.Saturday, Occurrence.First);
@@ -119,8 +116,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.Pentecost("Pingstdagen", year)
             };
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
@@ -144,7 +140,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

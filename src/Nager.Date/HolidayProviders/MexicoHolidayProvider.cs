@@ -3,27 +3,25 @@ using Nager.Date.Helpers;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Mexico HolidayProvider
     /// </summary>
-    internal sealed class MexicoHolidayProvider : IHolidayProvider
+    internal sealed class MexicoHolidayProvider : AbstractHolidayProvider
     {
         /// <summary>
         /// Mexico HolidayProvider
         /// </summary>
-        public MexicoHolidayProvider()
+        public MexicoHolidayProvider() : base(CountryCode.MX)
         {
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
             //Only Statutory holidays
-            var countryCode = CountryCode.MX;
 
             var firstMondayOfFebruary = DateHelper.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.First);
             var thirdMondayOfMarch = DateHelper.FindDay(year, Month.March, DayOfWeek.Monday, Occurrence.Third);
@@ -96,8 +94,7 @@ namespace Nager.Date.HolidayProviders
 
             holidaySpecifications.AddIfNotNull(this.InaugurationDay(year));
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
@@ -167,7 +164,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [

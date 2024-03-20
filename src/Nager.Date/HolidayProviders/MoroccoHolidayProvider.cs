@@ -1,26 +1,24 @@
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Morocco HolidayProvider
     /// </summary>
-    internal sealed class MoroccoHolidayProvider : IHolidayProvider
+    internal sealed class MoroccoHolidayProvider : AbstractHolidayProvider
     {
         /// <summary>
         /// Morocco HolidayProvider
         /// </summary>
-        public MoroccoHolidayProvider()
+        public MoroccoHolidayProvider() : base(CountryCode.MA)
         {
         }
 
         /// <inheritdoc/>
-        public IEnumerable<Holiday> GetHolidays(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.MA;
 
             //TODO:Islamic calendar
             //Muslim New Year (Fatih Muharram)
@@ -106,8 +104,7 @@ namespace Nager.Date.HolidayProviders
                 });
             }
 
-            var holidays = HolidaySpecificationProcessor.Process(holidaySpecifications, countryCode);
-            return holidays.OrderBy(o => o.Date);
+            return holidaySpecifications;
 
             //var items = new List<Holiday>();
             //items.Add(new Holiday(year, 1, 1, "Ras l' âm", "New Year's Day", countryCode));
@@ -123,7 +120,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         /// <inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
             return
             [
