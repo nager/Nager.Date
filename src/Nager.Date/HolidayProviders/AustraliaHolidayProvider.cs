@@ -225,7 +225,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification EasterSunday(int year)
         {
-            var holidaySpecification = this._catholicProvider.EasterSunday("Easter Sunday", year);
+            var easterSunday = this._catholicProvider.EasterSunday("Easter Sunday", year);
 
             string[] subdivisionCodes = year switch
             {
@@ -238,8 +238,8 @@ namespace Nager.Date.HolidayProviders
                 >= 2024 => ["AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-VIC", "AU-WA"]
             };
 
-            holidaySpecification.SubdivisionCodes = subdivisionCodes;
-            return holidaySpecification;
+            easterSunday.SubdivisionCodes = subdivisionCodes;
+            return easterSunday;
         }
 
         private HolidaySpecification[] LabourDay(int year)
