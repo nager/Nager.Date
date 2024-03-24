@@ -84,7 +84,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var thirdMondayInJanuary = DateHelper.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Third);
             var thirdMondayInFebruary = DateHelper.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.Third);
             var lastMondayInMay = DateHelper.FindLastDay(year, Month.May, DayOfWeek.Monday);
@@ -179,23 +178,10 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.GoodFriday("Good Friday", year).SetSubdivisionCodes("US-TX").SetHolidayTypes(HolidayTypes.Optional)
             };
 
-            if (year >= 2021)
-            {
-                holidaySpecifications.AddIfNotNull(new HolidaySpecification
-                {
-                    Date = new DateTime(year, 6, 19),
-                    EnglishName = "Juneteenth",
-                    LocalName = "Juneteenth",
-                    HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
-                });
-
-                //var juneteenth = new DateTime(year, 6, 19).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
-                //items.Add(new Holiday(juneteenth, "Juneteenth", "Juneteenth", countryCode, 2021));
-            }
+            holidaySpecifications.AddIfNotNull(this.JuneteenthNationalIndependenceDay(year, observedRuleSet));
+            holidaySpecifications.AddIfNotNull(this.IndigenousPeoplesDay(year));
 
             return holidaySpecifications;
-
 
             //var items = new List<Holiday>();
 
@@ -250,13 +236,68 @@ namespace Nager.Date.HolidayProviders
             //return items.OrderBy(o => o.Date);
         }
 
+        private HolidaySpecification JuneteenthNationalIndependenceDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            if (year >= 2021)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 6, 19),
+                    EnglishName = "Juneteenth National Independence Day",
+                    LocalName = "Juneteenth National Independence Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
+                };
+            }
+
+            return null;
+        }
+
+        private HolidaySpecification IndigenousPeoplesDay(int year)
+        {
+            if (year < 1988)
+            {
+                return null;
+            }
+
+            var secondMondayInOctober = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
+
+            var indigenousPeoplesDay = new HolidaySpecification
+            {
+                Date = secondMondayInOctober,
+                EnglishName = "Indigenous Peoples' Day",
+                LocalName = "Indigenous Peoples' Day",
+                HolidayTypes = HolidayTypes.Public
+            };
+
+            string[] subdivisionCodes = year switch
+            {
+                1988 => ["US-HI"],
+                >= 1989 and < 2015 => ["US-HI", "US-SD"],
+                2015 => ["US-AK", "US-HI", "US-SD"],
+                >= 2016 and < 2018 => ["US-AK", "US-HI", "US-MN", "US-SD", "US-VT"],
+                2018 => ["US-AK", "US-HI", "US-IA", "US-MN", "US-NC", "US-SD", "US-VT"],
+                2019 => ["US-AK", "US-AL", "US-CA", "US-HI", "US-IA", "US-LA", "US-ME", "US-MI", "US-MN", "US-NC", "US-NM", "US-OK", "US-SD", "US-VT", "US-WI"],
+                2020 => ["US-AK", "US-AL", "US-CA", "US-HI", "US-IA", "US-LA", "US-ME", "US-MI", "US-MN", "US-NC", "US-NE", "US-NM", "US-OK", "US-SD", "US-VA", "US-VT", "US-WI"],
+                >= 2021 => ["US-AK", "US-AL", "US-CA", "US-HI", "US-IA", "US-LA", "US-ME", "US-MI", "US-MN", "US-NC", "US-NE", "US-NM", "US-OK", "US-OR", "US-SD", "US-TX", "US-VA", "US-VT", "US-WI"],
+                _ => [],
+            };
+
+            indigenousPeoplesDay.SubdivisionCodes = subdivisionCodes;
+            return indigenousPeoplesDay;
+
+        }
+
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
         {
             return
             [
                 "https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States",
-                "https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/06/17/remarks-by-president-biden-at-signing-of-the-juneteenth-national-independence-day-act/"
+                "https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/06/17/remarks-by-president-biden-at-signing-of-the-juneteenth-national-independence-day-act/",
+                "https://en.wikipedia.org/wiki/Indigenous_Peoples%27_Day_(United_States)#Indigenous_Peoples_Day_observers"
             ];
         }
     }
