@@ -25,7 +25,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             //var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             //var liberationDay = new DateTime(year, 3, 3).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
             //var saintGeorgesDay = new DateTime(year, 5, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));

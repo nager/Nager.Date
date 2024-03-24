@@ -60,7 +60,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var firstSundayOfSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.First);
             var thirdSundayOfSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.Third);
 

@@ -23,7 +23,6 @@ namespace Nager.Date.HolidayProviders
             //TODO: Provider incomplete
             //Tomb-Sweeping-Day is invalid (5th solar term)
 
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification

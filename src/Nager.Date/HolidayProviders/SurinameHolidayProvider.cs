@@ -31,7 +31,6 @@ namespace Nager.Date.HolidayProviders
             //TODO:Largest festival of Hindus
             //TODO:Holi
 
-
             var thirdSundayInJanuary = DateHelper.FindDay(year, Month.January, DayOfWeek.Sunday, Occurrence.Third);
 
             var holidaySpecifications = new List<HolidaySpecification>

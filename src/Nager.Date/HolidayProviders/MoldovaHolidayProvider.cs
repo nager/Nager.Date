@@ -26,7 +26,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var lastMondayInMay = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var holidaySpecifications = new List<HolidaySpecification>

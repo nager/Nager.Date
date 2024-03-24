@@ -26,7 +26,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var midsummerEve = DateHelper.FindDay(year, Month.June, 19, DayOfWeek.Friday);
             var midsummerDay = DateHelper.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
             var allSaintsDay = DateHelper.FindDayBetween(year, 10, 31, year, 11, 6, DayOfWeek.Saturday);

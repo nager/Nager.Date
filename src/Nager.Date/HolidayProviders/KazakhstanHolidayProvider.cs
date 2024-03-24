@@ -25,7 +25,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             //TODO: Last day of Hajj -> Islamic calendar
 
             var holidaySpecifications = new List<HolidaySpecification>

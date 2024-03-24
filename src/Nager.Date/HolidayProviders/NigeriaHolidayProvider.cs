@@ -25,7 +25,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var observedRuleSet = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),

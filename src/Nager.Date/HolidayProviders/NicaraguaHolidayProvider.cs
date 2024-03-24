@@ -26,7 +26,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var firstThursdayInApril = DateHelper.FindDay(year, Month.April, DayOfWeek.Thursday, Occurrence.First);
 
             var holidaySpecifications = new List<HolidaySpecification>

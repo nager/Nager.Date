@@ -23,7 +23,6 @@ namespace Nager.Date.HolidayProviders
             //Add Tết (Tết Nguyên Đán)
             //Add Hung Kings Commemorations (Giỗ tổ Hùng Vương)
 
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification

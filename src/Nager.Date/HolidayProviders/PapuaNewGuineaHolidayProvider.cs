@@ -26,8 +26,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var easterSunday = this._catholicProvider.EasterSunday(year);
-
             var secondMondayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
 
             var holidaySpecifications = new List<HolidaySpecification>

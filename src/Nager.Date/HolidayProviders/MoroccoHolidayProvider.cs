@@ -19,7 +19,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             //TODO:Islamic calendar
             //Muslim New Year (Fatih Muharram)
             //Birth of the Prophet Muhammad (Eid Al Mawled)

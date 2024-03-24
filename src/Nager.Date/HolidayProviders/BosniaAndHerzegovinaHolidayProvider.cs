@@ -35,7 +35,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification

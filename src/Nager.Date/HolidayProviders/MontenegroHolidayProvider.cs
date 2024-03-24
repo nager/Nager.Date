@@ -33,7 +33,6 @@ namespace Nager.Date.HolidayProviders
             //Muslim holidays
             //Jewish holidays
 
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification

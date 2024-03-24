@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
-    /// Mongoli HolidayProvider
+    /// Mongolia HolidayProvider
     /// </summary>
     internal sealed class MongoliaHolidayProvider : AbstractHolidayProvider
     {
@@ -19,7 +19,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             //TODO:Add lunar calendar support
             //TODO:Add Mongolian calendar support
 

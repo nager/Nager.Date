@@ -25,7 +25,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             //TODO: Add islamic public holidays
 
             var holidaySpecifications = new List<HolidaySpecification>

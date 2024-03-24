@@ -26,7 +26,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
             var holidaySpecifications = new List<HolidaySpecification>
