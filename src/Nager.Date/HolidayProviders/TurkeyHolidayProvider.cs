@@ -93,8 +93,10 @@ namespace Nager.Date.HolidayProviders
             };
 
             holidaySpecifications.AddIfNotNull(this.DemocracyAndNationalUnityDay(year));
-            holidaySpecifications.AddRange(this.GetEidAlFitr(year));
-            holidaySpecifications.AddRange(this.GetEidAlAdha(year));
+
+            //INFO: Cannot be calculated with certainty in advance, the exact date is determined by the lunar observations
+            //holidaySpecifications.AddRange(this.GetEidAlFitr(year));
+            //holidaySpecifications.AddRange(this.GetEidAlAdha(year));
 
             return holidaySpecifications;
 
