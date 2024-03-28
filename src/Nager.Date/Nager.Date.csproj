@@ -14,7 +14,7 @@
     <PackageIcon>calendar.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>A changelog is available at https://github.com/nager/Nager.Date/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageReleaseNotes>A changelog is available at https://github.com/nager/Nager.Date/releases</PackageReleaseNotes>
     <PackageProjectUrl>https://date.nager.at</PackageProjectUrl>
     <PackageTags>Holiday Public-Holiday PublicHoliday Bank-Holiday BankHoliday FederalHoliday NationalHoliday</PackageTags>
 
