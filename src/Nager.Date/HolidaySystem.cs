@@ -100,7 +100,7 @@ namespace Nager.Date
                 { CountryCode.MN, new Lazy<IHolidayProvider>(() => new MongoliaHolidayProvider())},
                 { CountryCode.MS, new Lazy<IHolidayProvider>(() => new MontserratHolidayProvider(_catholicProvider))},
                 { CountryCode.MT, new Lazy<IHolidayProvider>(() => new MaltaHolidayProvider(_catholicProvider))},
-                { CountryCode.MX, new Lazy<IHolidayProvider>(() => new MexicoHolidayProvider())},
+                { CountryCode.MX, new Lazy<IHolidayProvider>(() => new MexicoHolidayProvider(_catholicProvider))},
                 { CountryCode.MZ, new Lazy<IHolidayProvider>(() => new MozambiqueHolidayProvider())},
                 { CountryCode.NA, new Lazy<IHolidayProvider>(() => new NamibiaHolidayProvider(_catholicProvider))},
                 { CountryCode.NE, new Lazy<IHolidayProvider>(() => new NigerHolidayProvider(_catholicProvider))},
