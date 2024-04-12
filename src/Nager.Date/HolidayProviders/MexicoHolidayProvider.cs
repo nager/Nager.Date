@@ -1,6 +1,7 @@
 using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
 
@@ -11,11 +12,16 @@ namespace Nager.Date.HolidayProviders
     /// </summary>
     internal sealed class MexicoHolidayProvider : AbstractHolidayProvider
     {
+        private readonly ICatholicProvider _catholicProvider;
+
         /// <summary>
         /// Mexico HolidayProvider
         /// </summary>
-        public MexicoHolidayProvider() : base(CountryCode.MX)
+        /// <param name="catholicProvider"></param>
+        public MexicoHolidayProvider(
+            ICatholicProvider catholicProvider) : base(CountryCode.MX)
         {
+            this._catholicProvider = catholicProvider;
         }
 
         /// <inheritdoc/>
@@ -89,7 +95,9 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Navidad",
                     HolidayTypes = HolidayTypes.Public
-                }
+                },
+                this._catholicProvider.MaundyThursday("Jueves Santo", year).SetHolidayTypes(HolidayTypes.Authorities | HolidayTypes.Bank | HolidayTypes.School),
+                this._catholicProvider.GoodFriday("Viernes Santo", year).SetHolidayTypes(HolidayTypes.Authorities | HolidayTypes.Bank | HolidayTypes.School)
             };
 
             holidaySpecifications.AddIfNotNull(this.InaugurationDay(year));
