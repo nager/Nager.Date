@@ -148,36 +148,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.NationalDayOfIndigenousPeoples(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-
-            //var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-
-            //items.Add(new Holiday(newYearDay, "Año Nuevo", "New Year's Day", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            //items.Add(new Holiday(easterSunday.AddDays(-1), "Sábado Santo", "Holy Saturday", countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Día del Trabajo", "Labour Day", countryCode));
-            //items.Add(new Holiday(year, 5, 21, "Día de las Glorias Navales", "Navy Day", countryCode));
-            //items.Add(new Holiday(year, 6, 7, "Asalto y Toma del Morro de Arica", "Battle of Arica", countryCode, null, new string[] { "CL-AP" }));
-
-            //TODO:National Day of Aboriginal Peoples (This holiday is to be observed on each Winter Solstice.)
-            //The winter solstice, also called the hibernal solstice, occurs when either of Earth's poles reaches its maximum tilt away from the Sun
-
-            //items.Add(new Holiday(year, 7, 16, "Virgen del Carmen", "Our Lady of Mount Carmel", countryCode, launchYear: 2007));
-            //items.Add(new Holiday(year, 8, 15, "Asunción de la Virgen", "Assumption of Mary", countryCode));
-            //items.Add(new Holiday(year, 9, 18, "Fiestas Patrias", "National holiday", countryCode));
-            //items.Add(new Holiday(year, 9, 19, "Día de las Glorias del Ejército", "Army Day", countryCode));
-            //items.Add(new Holiday(year, 11, 1, "Día de Todos los Santos", "All Saints", countryCode));
-            //items.Add(new Holiday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Navidad / Natividad del Señor", "Christmas Day", countryCode));
-
-            //items.AddIfNotNull(this.SaintPeterAndSaintPaul(year, countryCode));
-            //items.AddIfNotNull(this.ColumbusDay(year, countryCode));
-            //items.AddIfNotNull(this.ReformationDay(year, countryCode));
-            //items.AddIfNotNull(this.NationalPlebiscite(year, countryCode));
-            //items.AddIfNotNull(this.NationalDayOfIndigenousPeoples(year, countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification SaintPeterAndSaintPaul(int year)
@@ -198,8 +168,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(date, "San Pedro y San Pablo", "Saint Peter and Saint Paul", countryCode);
         }
 
         private HolidaySpecification ColumbusDay(int year)
@@ -220,8 +188,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(date, "Día del Descubrimiento de Dos Mundos", "Columbus Day", countryCode);
         }
 
         private HolidaySpecification ReformationDay(int year)
@@ -240,8 +206,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(date, "Día Nacional de las Iglesias Evangélicas y Protestantes", "Reformation Day", countryCode);
         }
 
         private HolidaySpecification NationalPlebiscite(int year)
@@ -258,8 +222,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = "Plebiscito nacional",
                 HolidayTypes = HolidayTypes.Public
             };
-
-            //return new Holiday(year, 9, 4, "Plebiscito nacional", "National plebiscite", countryCode);
         }
 
         private DateTime? GetWinterSolstice(int year)
@@ -307,8 +269,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = "Día Nacional de los Pueblos Indígenas",
                 HolidayTypes = HolidayTypes.Public
             };
-
-            //return new Holiday(winterSolstice.Value, "Día Nacional de los Pueblos Indígenas", "National Day of Indigenous Peoples", countryCode);
         }
 
         /// <inheritdoc/>

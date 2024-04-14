@@ -97,22 +97,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.SaintBrigidsDay(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Lá Caille", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 3, 17, "Lá Fhéile Pádraig", "Saint Patrick's Day", countryCode, 1903));
-            //items.Add(this._catholicProvider.GoodFriday("Aoine an Chéasta", year, countryCode).SetType(HolidayTypes.Bank | HolidayTypes.School));
-            //items.Add(this._catholicProvider.EasterMonday("Luan Cásca", year, countryCode));
-            //items.Add(new Holiday(firstMondayInMay, "Lá Bealtaine", "May Day", countryCode, 1994));
-            //items.Add(new Holiday(firstMondayInJune, "Lá Saoire i mí an Mheithimh", "June Holiday", countryCode, 1973));
-            //items.Add(new Holiday(firstMondayInAugust, "Lá Saoire i mí Lúnasa", "August Holiday", countryCode));
-            //items.Add(new Holiday(lastMondayInOctober, "Lá Saoire i mí Dheireadh Fómhair", "October Holiday", countryCode, 1977));
-            //items.Add(new Holiday(year, 12, 25, "Lá Nollag", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 26, "Lá Fhéile Stiofáin", "St. Stephen's Day", countryCode));
-
-            //items.AddIfNotNull(this.SaintBrigidsDay(year, countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification SaintBrigidsDay(int year)

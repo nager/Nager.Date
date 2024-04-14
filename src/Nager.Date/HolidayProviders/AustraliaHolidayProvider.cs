@@ -192,35 +192,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.MourningForQueenElizabeth(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(newYearsDay, "New Year's Day", "New Year's Day", countryCode));
-            //items.Add(new Holiday(australiaDay, "Australia Day", "Australia Day", countryCode));
-            //items.Add(new Holiday(secondMondayInMarch, "Canberra Day", "Canberra Day", countryCode, null, new string[] { "AU-ACT" }));
-            //items.Add(new Holiday(secondMondayInMarch, "March Public Holiday", "March Public Holiday", countryCode, null, new string[] { "AU-SA" }));
-            //items.Add(new Holiday(secondMondayInMarch, "Eight Hours Day", "Eight Hours Day", countryCode, null, new string[] { "AU-TAS" }));
-
-            //items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            //items.Add(new Holiday(easterSunday.AddDays(-1), "Easter Eve", "Holy Saturday", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-VIC" }));
-            //items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
-            //items.Add(new Holiday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode));
-            //items.Add(new Holiday(firstMondayInMay, "May Day", "May Day", countryCode, null, new string[] { "AU-NT" }));
-
-            //items.Add(new Holiday(firstMondayAfterOr27May, "Reconciliation Day", "Reconciliation Day", countryCode, 2018, new string[] { "AU-ACT" }));
-            //items.Add(new Holiday(firstMondayInJune, "Western Australia Day", "Western Australia Day", countryCode, null, new string[] { "AU-WA" }));
-            //items.Add(new Holiday(firstMondayInAugust, "Picnic Day", "Picnic Day", countryCode, null, new string[] { "AU-NT" }));
-
-            //items.Add(new Holiday(firstTuesdayInNovember, "Melbourne Cup", "Melbourne Cup", countryCode, null, new string[] { "AU-VIC" }));
-
-            //items.Add(new Holiday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
-            //items.Add(new Holiday(boxingDay, "Boxing Day", "St. Stephen's Day", countryCode));
-
-            //items.AddRangeIfNotNull(this.LabourDay(year, countryCode));
-            //items.AddIfNotNull(this.MourningForQueenElizabeth(year, countryCode));
-            //items.AddRangeIfNotNull(this.MonarchBirthday(year, countryCode));
-            //items.AddIfNotNull(this.EasterSunday(year, countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification EasterSunday(int year)
@@ -284,11 +255,6 @@ namespace Nager.Date.HolidayProviders
                     SubdivisionCodes = ["AU-ACT", "AU-NSW", "AU-SA"]
                 }
             ];
-
-            //new Holiday(firstMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-WA" }),
-            //new Holiday(secondMondayInMarch, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-VIC" }),
-            //new Holiday(firstMondayInMay, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-QLD" }),
-            //new Holiday(firstMondayInOctober, "Labour Day", "Labour Day", countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-SA" })
         }
 
         private HolidaySpecification[] MonarchBirthday(int year)
@@ -321,12 +287,6 @@ namespace Nager.Date.HolidayProviders
                     SubdivisionCodes = ["AU-QLD"]
                 }
             ];
-
-            //return new Holiday[]
-            //{
-            //    new Holiday(secondMondayInJune, name, name, countryCode, null, new string[] { "AU-ACT", "AU-NSW", "AU-NT", "AU-SA", "AU-TAS", "AU-VIC" }),
-            //    new Holiday(firstMondayInOctober, name, name, countryCode, null, new string[] { "AU-QLD" })
-            //};
         }
 
         private HolidaySpecification MourningForQueenElizabeth(int year)
@@ -343,8 +303,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "National Day of Mourning",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(year, 9, 22, "National Day of Mourning", "National Day of Mourning", countryCode);
             }
 
             return null;

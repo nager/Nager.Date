@@ -87,19 +87,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Triunfo de la Revolución", "Triumph of the Revolution", countryCode));
-            //items.Add(new Holiday(year, 1, 2, "Día de Victoria de las Fuerzas Armadas", "Victory of Fidel Castro", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Día de los trabajadores", "Labour Day", countryCode));
-            //items.Add(new Holiday(year, 7, 25, "Conmemoración del asalto a Moncada", "Day before the Commemoration of the Assault of the Moncada garrison", countryCode));
-            //items.Add(new Holiday(year, 7, 26, "Día de la Rebeldía Nacional", "Commemoration of the Assault of the Moncada garrison", countryCode));
-            //items.Add(new Holiday(year, 7, 27, "Conmemoración del asalto a Moncada", "Day after the Commemoration of the Assault of the Moncada garrison", countryCode));
-            //items.Add(new Holiday(year, 10, 10, "Día de la Independencia", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Navidad", "Christmas Day", countryCode));       
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

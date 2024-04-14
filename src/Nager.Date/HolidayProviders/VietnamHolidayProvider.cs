@@ -56,13 +56,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Tết dương lịch", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 4, 30, "Ngày Giải phóng miền Nam, thống nhất đất nước", "Reunification Day", countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Ngày Quốc tế lao động", "Labour Day", countryCode));
-            //items.Add(new Holiday(year, 9, 2, "Quốc khánh", "National Day", countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

@@ -147,29 +147,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-
-            //var items = new List<Holiday>();
-
-            //items.Add(new Holiday(year, 1, 1, "Confraternização Universal", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 4, 21, "Dia de Tiradentes", "Tiradentes", countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Dia do Trabalhador", "Labour Day", countryCode));
-            //items.Add(new Holiday(year, 9, 7, "Dia da Independência", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 10, 12, "Nossa Senhora Aparecida", "Our Lady of Aparecida", countryCode));
-            //items.Add(new Holiday(year, 11, 2, "Dia de Finados", "All Souls' Day", countryCode));
-            //items.Add(new Holiday(year, 11, 15, "Proclamação da República", "Republic Proclamation Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Natal", "Christmas Day", countryCode));
-
-            //items.Add(this._catholicProvider.EasterSunday("Domingo de Páscoa", year, countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Sexta-feira Santa", year, countryCode));
-            //items.Add(this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode));
-
-            //items.Add(new Holiday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode, null, null, HolidayTypes.Bank | HolidayTypes.Optional));
-            //items.Add(new Holiday(easterSunday.AddDays(-48), "Carnaval", "Carnival", countryCode, null, null, HolidayTypes.Bank | HolidayTypes.Optional));
-
-            //items.Add(new Holiday(year, 7, 9, "Revolução Constitucionalista de 1932", "Constitutionalist Revolution of 1932", countryCode).SetCounties("BR-SP"));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

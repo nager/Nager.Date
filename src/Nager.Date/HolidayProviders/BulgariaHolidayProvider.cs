@@ -25,14 +25,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            //var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            //var liberationDay = new DateTime(year, 3, 3).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            //var saintGeorgesDay = new DateTime(year, 5, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            //var independenceDay = new DateTime(year, 9, 22).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            //var christmasEve = new DateTime(year, 12, 24).Shift(saturday => saturday, sunday => sunday.AddDays(3));
-            //var christmasDay1 = new DateTime(year, 12, 25).Shift(saturday => saturday, sunday => sunday.AddDays(2));
-            //var christmasDay2 = new DateTime(year, 12, 26).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-
             var observedRuleSet = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
@@ -135,24 +127,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(newYearDay, "Нова година", "New Year's Day", countryCode, 1967));
-            //items.Add(new Holiday(liberationDay, "Ден на oсвобождението на България от Oсманско робство", "Liberation Day", countryCode));
-            //items.Add(this._orthodoxProvider.GoodFriday("Разпети петък", year, countryCode));
-            //items.Add(this._orthodoxProvider.HolySaturday("Велика събота", year, countryCode));
-            //items.Add(this._orthodoxProvider.EasterSunday("Великден", year, countryCode));
-            //items.Add(this._orthodoxProvider.EasterMonday("Велики понеделник", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Ден на труда и на международната работническа солидарност", "International Workers' Day", countryCode));
-            //items.Add(new Holiday(saintGeorgesDay, "Гергьовден, ден на храбростта и Българската армия", "Saint George's Day", countryCode));
-            //items.Add(new Holiday(year, 5, 24, "Ден на Българската просвета и култура и на славянската писменост", "Saints Cyril and Methodius Day", countryCode));
-            //items.Add(new Holiday(year, 9, 6, "Ден на съединението", "Unification Day", countryCode));
-            //items.Add(new Holiday(independenceDay, "Ден на независимостта на България", "Independence Day", countryCode));
-            //items.Add(new Holiday(christmasEve, "Бъдни вечер", "Christmas Eve", countryCode));
-            //items.Add(new Holiday(christmasDay1, "Рождество Христово", "Christmas Day", countryCode));
-            //items.Add(new Holiday(christmasDay2, "Рождество Христово", "Second day of Christmas", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

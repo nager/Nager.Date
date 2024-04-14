@@ -133,46 +133,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.WhitMonday(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 6, "Día de Reyes / Epifanía del Señor", "Epiphany", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Fiesta del trabajo", "Labour Day", countryCode));
-            //items.Add(new Holiday(year, 10, 12, "Fiesta Nacional de España", "Fiesta Nacional de España", countryCode));
-            //items.Add(new Holiday(year, 11, 1, "Día de todos los Santos", "All Saints Day", countryCode));
-            //items.Add(new Holiday(year, 12, 6, "Día de la Constitución", "Constitution Day", countryCode));
-            //items.Add(new Holiday(year, 12, 8, "Inmaculada Concepción", "Immaculate Conception", countryCode));
-
-            //items.AddIfNotNull(this.ChristmasDay(year, countryCode));
-            //items.AddIfNotNull(this.CorpusChristi(year, countryCode));
-            //items.AddIfNotNull(this.EasterMonday(year, countryCode));
-            //items.AddIfNotNull(this.MaundyThursday(year, countryCode));
-
-            //items.AddIfNotNull(this.Assumption(year, countryCode));
-            //items.AddIfNotNull(this.CarnivalTuesday(year, countryCode));
-            //items.AddIfNotNull(this.CastileAndLeonDay(year, countryCode));
-            //items.AddIfNotNull(this.DayOfAndalucia(year, countryCode));
-            //items.AddIfNotNull(this.DayOfAragon(year, countryCode));
-            //items.AddIfNotNull(this.DayOfAsturias(year, countryCode));
-            //items.AddIfNotNull(this.DayOfCastillaLaMancha(year, countryCode));
-            //items.AddIfNotNull(this.DayOfExtremadura(year, countryCode));
-            //items.AddIfNotNull(this.DayOfLaRioja(year, countryCode));
-            //items.AddIfNotNull(this.DayOfMadrid(year, countryCode));
-            //items.AddIfNotNull(this.DayOfMurcia(year, countryCode));
-            //items.AddIfNotNull(this.DayOfTheBalearicIslands(year, countryCode));
-            //items.AddIfNotNull(this.DayOfTheCanaryIslands(year, countryCode));
-            //items.AddIfNotNull(this.DayOfTheCantabrianInstitutions(year, countryCode));
-            //items.AddIfNotNull(this.DayOfTheValencianCommunity(year, countryCode));
-            //items.AddIfNotNull(this.GalicianLiteratureDay(year, countryCode));
-            //items.AddIfNotNull(this.LaBienAparecida(year, countryCode));
-            //items.AddIfNotNull(this.NationalDayOfCatalonia(year, countryCode));
-            //items.AddRangeIfNotNull(this.NewYearsDay(year, countryCode));
-            //items.AddIfNotNull(this.SantiagoApostol(year, countryCode));
-            //items.AddIfNotNull(this.StJohnsDay(year, countryCode));
-            //items.AddIfNotNull(this.StJosephsDay(year, countryCode));
-            //items.AddIfNotNull(this.StStephensDay(year, countryCode));
-            //items.AddIfNotNull(this.WhitMonday(year, countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification[] NewYearsDay(int year)
@@ -185,8 +145,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public
             };
 
-            //var newYearsDay = new Holiday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode, 1967);
-
             switch (year)
             {
                 case 2023:
@@ -198,13 +156,14 @@ namespace Nager.Date.HolidayProviders
                         HolidayTypes = HolidayTypes.Public,
                         SubdivisionCodes = ["ES-AN", "ES-AR", "ES-AS", "ES-CL", "ES-MC"]
                     };
-                    //var newYearsDay2 = new Holiday(year, 1, 2, "Año Nuevo", "New Year's Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CL", "ES-MC" });
 
                     return
                     [
                         newYearsDay1,
                         newYearsDay2
                     ];
+                default:
+                    break;
             }
 
             return
@@ -240,8 +199,6 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["ES-AN", "ES-AR", "ES-AS", "ES-CN", "ES-CB", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC"]
                 };
-
-                //return new Holiday(year, 12, 26, "Navidad", "Christmas Day", countryCode, null, new string[] { "ES-AN", "ES-AR", "ES-AS", "ES-CN", "ES-CB", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-IB", "ES-RI", "ES-MD", "ES-MC", "ES-NC" });
             }
 
             return new HolidaySpecification
@@ -251,7 +208,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = "Navidad",
                 HolidayTypes = HolidayTypes.Public
             };
-            //return new Holiday(year, 12, 25, "Navidad", "Christmas Day", countryCode);
         }
 
         private HolidaySpecification WhitMonday(int year)
@@ -279,9 +235,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //var date = new DateTime(year, 8, 15).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //return new Holiday(date, "Asunción", "Assumption", countryCode);
         }
 
         private HolidaySpecification DayOfMadrid(int year)
@@ -300,9 +253,6 @@ namespace Nager.Date.HolidayProviders
                 SubdivisionCodes = ["ES-MD"],
                 ObservedRuleSet = observedRuleSet
             };
-
-            //var date = new DateTime(year, 5, 2).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //return new Holiday(date, "Fiesta de la Comunidad de Madrid", "Day of Madrid", countryCode, null, new string[] { "ES-MD" });
         }
 
         private HolidaySpecification StJosephsDay(int year)
@@ -331,32 +281,32 @@ namespace Nager.Date.HolidayProviders
                 case 2012:
                 case 2013:
                 case 2014:
-                    subdivisionCodes = new string[] { "ES-AR", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-MD", "ES-PV", "ES-VC" };
+                    subdivisionCodes = ["ES-AR", "ES-CL", "ES-CM", "ES-EX", "ES-GA", "ES-MD", "ES-PV", "ES-VC"];
                     break;
                 case 2015:
-                    subdivisionCodes = new string[] { "ES-CM", "ES-MD", "ES-PV", "ES-VC" };
+                    subdivisionCodes = ["ES-CM", "ES-MD", "ES-PV", "ES-VC"];
                     break;
                 case 2016:
-                    subdivisionCodes = new string[] { "ES-PV", "ES-VC" };
+                    subdivisionCodes = ["ES-PV", "ES-VC"];
                     break;
                 case 2017:
-                    subdivisionCodes = new string[] { "ES-EX", "ES-MD" };
+                    subdivisionCodes = ["ES-EX", "ES-MD"];
                     break;
                 case 2018:
                 case 2019:
-                    subdivisionCodes = new string[] { "ES-GA", "ES-PV", "ES-VC" };
+                    subdivisionCodes = ["ES-GA", "ES-PV", "ES-VC"];
                     break;
                 case 2020:
-                    subdivisionCodes = new string[] { "ES-CM", "ES-GA", "ES-PV", "ES-VC" };
+                    subdivisionCodes = ["ES-CM", "ES-GA", "ES-PV", "ES-VC"];
                     break;
                 case 2021:
-                    subdivisionCodes = new string[] { "ES-EX", "ES-GA", "ES-MD", "ES-PV", "ES-VC" };
+                    subdivisionCodes = ["ES-EX", "ES-GA", "ES-MD", "ES-PV", "ES-VC"];
                     break;
                 case 2022:
-                    subdivisionCodes = new string[] { "ES-VC" };
+                    subdivisionCodes = ["ES-VC"];
                     break;
                 case 2023:
-                    subdivisionCodes = new string[] { "ES-MD" };
+                    subdivisionCodes = ["ES-MD"];
                     break;
                 default:
                     return null;
@@ -376,9 +326,6 @@ namespace Nager.Date.HolidayProviders
                 SubdivisionCodes = subdivisionCodes,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(year, 3, 19, "San José", "St. Joseph's Day", countryCode, null, counties)
-            //    .Shift(saturday => saturday, sunday => sunday.AddDays(1)); ;
         }
 
         private HolidaySpecification SantiagoApostol(int year)
@@ -388,28 +335,28 @@ namespace Nager.Date.HolidayProviders
             switch (year)
             {
                 case 2017:
-                    subdivisionCodes = new string[] { "ES-CL", "ES-CN", "ES-GA", "ES-MD", "ES-PV" };
+                    subdivisionCodes = ["ES-CL", "ES-CN", "ES-GA", "ES-MD", "ES-PV"];
                     break;
                 case 2018:
-                    subdivisionCodes = new string[] { "ES-GA" };
+                    subdivisionCodes = ["ES-GA"];
                     break;
                 case 2019:
-                    subdivisionCodes = new string[] { "ES-GA", "ES-PV" };
+                    subdivisionCodes = ["ES-GA", "ES-PV"];
                     break;
                 case 2020:
-                    subdivisionCodes = new string[] { "ES-GA", "ES-PV" };
+                    subdivisionCodes = ["ES-GA", "ES-PV"];
                     break;
                 case 2022:
-                    subdivisionCodes = new string[] { "ES-GA", "ES-MD", "ES-PV" };
+                    subdivisionCodes = ["ES-GA", "ES-MD", "ES-PV"];
                     break;
                 case 2023:
-                    subdivisionCodes = new string[] { "ES-CL", "ES-GA", "ES-NC", "ES-PV" };
+                    subdivisionCodes = ["ES-CL", "ES-GA", "ES-NC", "ES-PV"];
                     break;
                 case 2024:
                 case 2025:
                 case 2026:
                 case 2027:
-                    subdivisionCodes = new string[] { "ES-GA", "ES-PV" };
+                    subdivisionCodes = ["ES-GA", "ES-PV"];
                     break;
                 default:
                     return null;
@@ -423,8 +370,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = subdivisionCodes
             };
-
-            //return new Holiday(year, 7, 25, "Santiago Apóstol", "Santiago Apóstol", countryCode, null, subdivisionCodes);
         }
 
         private HolidaySpecification StStephensDay(int year)
@@ -437,8 +382,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CT"]
             };
-
-            //return new Holiday(year, 12, 26, "Sant Esteve", "St. Stephen's Day", countryCode, null, new string[] { "ES-CT" });
         }
 
         private HolidaySpecification DayOfTheValencianCommunity(int year)
@@ -451,8 +394,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-VC"]
             };
-
-            //return new Holiday(year, 10, 9, "Dia de la Comunitat Valenciana", "Day of the Valencian Community", countryCode, null, new string[] { "ES-VC" });
         }
 
         private HolidaySpecification LaBienAparecida(int year)
@@ -465,8 +406,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CB"]
             };
-
-            //return new Holiday(year, 9, 15, "La Bien Aparecida", "Regional Holiday", countryCode, null, new string[] { "ES-CB" });
         }
 
         private HolidaySpecification NationalDayOfCatalonia(int year)
@@ -479,8 +418,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CT"]
             };
-
-            //return new Holiday(year, 9, 11, "Diada Nacional de Catalunya", "National Day of Catalonia", countryCode, null, new string[] { "ES-CT" });
         }
 
         private HolidaySpecification DayOfExtremadura(int year)
@@ -493,8 +430,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-EX"]
             };
-
-            //return new Holiday(year, 9, 8, "Día de Extremadura", "Day of Extremadura", countryCode, null, new string[] { "ES-EX" });
         }
 
         private HolidaySpecification DayOfAsturias(int year)
@@ -507,8 +442,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-AS"]
             };
-
-            //return new Holiday(year, 9, 8, "Día de Asturias", "Day of Asturias", countryCode, null, new string[] { "ES-AS" });
         }
 
         private HolidaySpecification DayOfTheCantabrianInstitutions(int year)
@@ -521,8 +454,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CB"]
             };
-
-            //return new Holiday(year, 7, 28, "Día de las Instituciones de Cantabria", "Day of the Cantabrian Institutions", countryCode, null, new string[] { "ES-CB" });
         }
 
         private HolidaySpecification StJohnsDay(int year)
@@ -535,8 +466,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CT", "ES-VC"]
             };
-
-            //return new Holiday(year, 6, 24, "Sant Joan", "St. John's Day", countryCode, null, new string[] { "ES-CT", "ES-VC" });
         }
 
         private HolidaySpecification DayOfLaRioja(int year)
@@ -549,8 +478,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-RI"]
             };
-
-            //return new Holiday(year, 6, 9, "Día de La Rioja", "Day of La Rioja", countryCode, null, new string[] { "ES-RI" });
         }
 
         private HolidaySpecification DayOfMurcia(int year)
@@ -563,8 +490,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-MC"]
             };
-
-            //return new Holiday(year, 6, 9, "Día de la Región de Murcia", "Day of Murcia", countryCode, null, new string[] { "ES-MC" });
         }
 
         private HolidaySpecification DayOfCastillaLaMancha(int year)
@@ -577,8 +502,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CM"]
             };
-
-            //return new Holiday(year, 5, 31, "Día de la Región Castilla-La Mancha", "Day of Castilla-La Mancha", countryCode, null, new string[] { "ES-CM" });
         }
 
         private HolidaySpecification CastileAndLeonDay(int year)
@@ -587,6 +510,8 @@ namespace Nager.Date.HolidayProviders
             {
                 case 2023:
                     return null;
+                default:
+                    break;
             }
 
             return new HolidaySpecification
@@ -597,8 +522,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CL"]
             };
-
-            //return new Holiday(year, 4, 23, "Día de Castilla y León", "Castile and León Day", countryCode, null, new string[] { "ES-CL" });
         }
 
         private HolidaySpecification GalicianLiteratureDay(int year)
@@ -611,8 +534,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-GA"]
             };
-
-            //return new Holiday(year, 5, 17, "Día das Letras Galegas", "Galician Literature Day", countryCode, null, new string[] { "ES-GA" });
         }
 
         private HolidaySpecification DayOfAragon(int year)
@@ -631,9 +552,6 @@ namespace Nager.Date.HolidayProviders
                 SubdivisionCodes = ["ES-AR"],
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(year, 4, 23, "San Jorge (Día de Aragón)", "Day of Aragón", countryCode, null, new string[] { "ES-AR" })
-            //    .Shift(saturday => saturday, sunday => sunday.AddDays(1));
         }
 
         private HolidaySpecification DayOfTheBalearicIslands(int year)
@@ -646,8 +564,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-IB"]
             };
-
-            //return new Holiday(year, 3, 1, "Dia de les Illes Balears", "Day of the Balearic Islands", countryCode, null, new string[] { "ES-IB" });
         }
 
         private HolidaySpecification DayOfAndalucia(int year)
@@ -660,8 +576,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-AN"]
             };
-
-            //return new Holiday(year, 2, 28, "Día de Andalucía", "Day of Andalucía", countryCode, null, new string[] { "ES-AN" });
         }
 
         private HolidaySpecification DayOfTheCanaryIslands(int year)
@@ -674,8 +588,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CN"]
             };
-
-            //return new Holiday(year, 5, 30, "Día de Canarias", "Day of the Canary Islands", countryCode, null, new string[] { "ES-CN" });
         }
 
         private HolidaySpecification CarnivalTuesday(int year)
@@ -691,7 +603,8 @@ namespace Nager.Date.HolidayProviders
                         HolidayTypes = HolidayTypes.Public,
                         SubdivisionCodes = ["ES-EX"]
                     };
-                    //return new Holiday(year, 2, 21, "Martes de Carnaval", "Carnival Tuesday", countryCode, null, new string[] { "ES-EX" });
+                default:
+                    break;
             }
 
             return null;

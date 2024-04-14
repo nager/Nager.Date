@@ -182,58 +182,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.IndigenousPeoplesDay(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-
-            //#region New Years Day with fallback
-            //var newYearsDay = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
-            //items.Add(new Holiday(newYearsDay, "New Year's Day", "New Year's Day", countryCode));
-            //#endregion
-
-            //items.Add(new Holiday(thirdMondayInJanuary, "Martin Luther King, Jr. Day", "Martin Luther King, Jr. Day", countryCode));
-            //items.Add(new Holiday(thirdMondayInFebruary, "Presidents Day", "Washington's Birthday", countryCode));
-            //items.Add(new Holiday(lastMondayInMay, "Memorial Day", "Memorial Day", countryCode));
-
-            //items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode).SetCounties("US-CT", "US-DE", "US-HI", "US-IN", "US-KY", "US-LA", "US-NC", "US-ND", "US-NJ", "US-TN"));
-            //items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode).SetType(HolidayTypes.Optional).SetCounties("US-TX"));
-
-            //#region Juneteenth
-
-            //if (year >= 2021)
-            //{
-            //    var juneteenth = new DateTime(year, 6, 19).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
-            //    items.Add(new Holiday(juneteenth, "Juneteenth", "Juneteenth", countryCode, 2021));
-            //}
-
-            //#endregion
-
-            //#region Independence Day with fallback
-
-            //var independenceDay = new DateTime(year, 7, 4).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
-            //items.Add(new Holiday(independenceDay, "Independence Day", "Independence Day", countryCode));
-
-            //#endregion
-
-            //items.Add(new Holiday(firstMondayInSeptember, "Labor Day", "Labour Day", countryCode));
-            //items.Add(new Holiday(secondMondayInOctober, "Columbus Day", "Columbus Day", countryCode, null, new string[] { "US-AL", "US-AZ", "US-CO", "US-CT", "US-GA", "US-ID", "US-IL", "US-IN", "US-IA", "US-KS", "US-KY", "US-LA", "US-ME", "US-MD", "US-MA", "US-MS", "US-MO", "US-MT", "US-NE", "US-NH", "US-NJ", "US-NM", "US-NY", "US-NC", "US-OH", "US-OK", "US-PA", "US-RI", "US-SC", "US-TN", "US-UT", "US-VA", "US-WV" }));
-
-            //#region Veterans Day with fallback//
-
-            //var veteransDay = new DateTime(year, 11, 11).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
-            //items.Add(new Holiday(veteransDay, "Veterans Day", "Veterans Day", countryCode));
-
-            //#endregion
-
-            //items.Add(new Holiday(fourthThursdayInNovember, "Thanksgiving Day", "Thanksgiving Day", countryCode, 1863));
-
-            //#region Christmas Day with fallback
-
-            //var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(-1), sunday => sunday.AddDays(1));
-            //items.Add(new Holiday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
-
-            //#endregion
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification JuneteenthNationalIndependenceDay(

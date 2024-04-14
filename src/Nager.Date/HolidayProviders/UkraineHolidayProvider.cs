@@ -95,20 +95,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Новий Рік", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 1, 7, "Різдво", "(Julian) Christmas", countryCode));
-            //items.Add(new Holiday(year, 3, 8, "Міжнародний жіночий день", "International Women's Day", countryCode));
-            //items.Add(this._orthodoxProvider.EasterSunday("Великдень", year, countryCode));
-            //items.Add(this._orthodoxProvider.Pentecost("Трійця", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "День праці", "International Workers' Day", countryCode));
-            //items.Add(new Holiday(year, 5, 9, "День перемоги над нацизмом у Другій світовій війні", "Victory day over Nazism in World War II", countryCode));
-            //items.Add(new Holiday(year, 6, 28, "День Конституції", "Constitution Day", countryCode));
-            //items.Add(new Holiday(year, 8, 24, "День Незалежності", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 10, 14, "День захисника України", "Defender of Ukraine Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Різдво", "(Gregorian and Revised Julian) Christmas", countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

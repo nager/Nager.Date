@@ -142,26 +142,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode));
-            //items.Add(new Holiday(easterSunday.AddDays(-48), "Carnaval", "Carnival", countryCode));
-            //items.Add(new Holiday(easterSunday.AddDays(-47), "Carnaval", "Carnival", countryCode));
-            //items.Add(new Holiday(year, 3, 24, "Día Nacional de la Memoria por la Verdad y la Justicia", "Day of Remembrance for Truth and Justice", countryCode));
-            //items.Add(new Holiday(year, 4, 2, "Día del Veterano y de los Caídos en la Guerra de Malvinas", "Day of the Veterans and Fallen of the Malvinas War", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Día del Trabajador", "Labour Day", countryCode));
-            //items.Add(new Holiday(year, 5, 25, "Día de la Revolución de Mayo", "May Revolution", countryCode));
-            //items.Add(new Holiday(year, 6, 17, "Paso a la Inmortalidad del General Martín Miguel de Güemes", "Anniversary of the Passing of General Martín Miguel de Güemes", countryCode, 2016));
-            //items.Add(new Holiday(year, 6, 20, "Paso a la Inmortalidad del General Manuel Belgrano", "General Manuel Belgrano Memorial Day", countryCode));
-            //items.Add(new Holiday(year, 7, 9, "Día de la Independencia", "Independence Day", countryCode));
-            //items.Add(new Holiday(thirdMondayInAugust, "Paso a la Inmortalidad del General José de San Martín", "General José de San Martín Memorial Day", countryCode));
-            //items.Add(new Holiday(secondMondayInOctober, "Día del Respeto a la Diversidad Cultural", "Day of Respect for Cultural Diversity", countryCode));
-            //items.Add(new Holiday(year, 11, 20, "Día de la Soberanía Nacional", "National Sovereignty Day", countryCode));
-            //items.Add(new Holiday(year, 12, 8, "Día de la Inmaculada Concepción de María", "Immaculate Conception Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

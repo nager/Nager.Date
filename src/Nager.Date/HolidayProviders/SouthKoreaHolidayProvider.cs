@@ -149,47 +149,6 @@ namespace Nager.Date.HolidayProviders
             }
 
             return holidaySpecifications;
-
-
-            //var items = new List<Holiday>();
-
-            //var koreanCalendar = new KoreanLunisolarCalendar();
-            //if (year >= koreanCalendar.MinSupportedDateTime.Year && year < koreanCalendar.MaxSupportedDateTime.Year)
-            //{
-            //    var leapMonth = koreanCalendar.GetLeapMonth(year);
-
-            //    var lunarNewYear1 = koreanCalendar.ToDateTime(year, this.MoveMonth(1, leapMonth), 1, 0, 0, 0, 0); //Has substitute holiday
-            //    lunarNewYear1 = lunarNewYear1.Shift(saturday => saturday, sunday => sunday.AddDays(1));
-
-            //    var lunarNewYear2 = lunarNewYear1.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //    var lunarNewYear3 = lunarNewYear1.AddDays(-1).Shift(saturday => saturday, sunday => sunday.AddDays(-1));
-
-            //    var buddhaBday = koreanCalendar.ToDateTime(year, this.MoveMonth(4, leapMonth), 8, 0, 0, 0, 0);
-
-            //    var chuseok1 = koreanCalendar.ToDateTime(year, this.MoveMonth(8, leapMonth), 14, 0, 0, 0, 0); //Has substitute holiday
-            //    chuseok1 = chuseok1.Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //    var chuseok2 = chuseok1.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //    var chuseok3 = chuseok2.AddDays(+1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-
-            //    items.Add(new Holiday(lunarNewYear1, "설날", "Lunar New Year", countryCode));
-            //    items.Add(new Holiday(lunarNewYear2, "설날", "Lunar New Year", countryCode));
-            //    items.Add(new Holiday(lunarNewYear3, "설날", "Lunar New Year", countryCode));
-            //    items.Add(new Holiday(buddhaBday, "부처님 오신 날", "Buddha's Birthday", countryCode));
-            //    items.Add(new Holiday(chuseok1, "추석", "Chuseok", countryCode));
-            //    items.Add(new Holiday(chuseok2, "추석", "Chuseok", countryCode));
-            //    items.Add(new Holiday(chuseok3, "추석", "Chuseok", countryCode));
-            //}
-
-            //items.Add(new Holiday(year, 1, 1, "새해", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 3, 1, "3·1절", "Independence Movement Day", countryCode));
-            //items.Add(new Holiday(childrenDay, "어린이날", "Children's Day", countryCode)); //Has substitute holiday
-            //items.Add(new Holiday(year, 6, 6, "현충일", "Memorial Day", countryCode));
-            //items.Add(new Holiday(year, 8, 15, "광복절", "Liberation Day", countryCode));
-            //items.Add(new Holiday(year, 10, 3, "개천절", "National Foundation Day", countryCode));
-            //items.Add(new Holiday(year, 10, 9, "한글날", "Hangul Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "크리스마스", "Christmas Day", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private int MoveMonth(int month, int leapMonth)

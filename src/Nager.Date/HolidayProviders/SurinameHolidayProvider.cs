@@ -141,37 +141,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.ChineseNewYear(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 1, 6, "Three Kings Day", "Three Kings Day", countryCode));
-            //items.Add(new Holiday(thirdSundayInJanuary, "World Religion Day", "World Religion Day", countryCode));
-            //items.Add(new Holiday(year, 2, 25, "Day of the Revolution", "Day of the Revolution", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            //items.Add(this._catholicProvider.EasterSunday("Easter Sunday", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
-            //items.Add(this._catholicProvider.AscensionDay("Ascension Day", year, countryCode));
-            //items.Add(new Holiday(year, 6, 5, "Indian Arrival Day", "Indian Arrival Day", countryCode));
-            //items.Add(new Holiday(year, 7, 1, "Keti Koti", "Keti Koti", countryCode));
-            //items.Add(new Holiday(year, 8, 8, "Javanese Arrival Day", "Javanese Arrival Day", countryCode));
-            //items.Add(new Holiday(year, 8, 9, "Indigenous People's Day", "Indigenous People's Day", countryCode));
-            //items.Add(new Holiday(year, 10, 10, "Day of the Maroons", "Day of the Maroons", countryCode));
-            //items.Add(new Holiday(year, 10, 20, "Chinese Arrival day", "Chinese Arrival day", countryCode));
-            //items.Add(new Holiday(year, 11, 25, "Independence Day", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 26, "Boxing Day", "Boxing Day", countryCode));
-
-            //if (year > 1901 && year < 2100)
-            //{
-            //    //LunisolarCalendar .net implementation only valid are between 1901 and 2100, inclusive.
-            //    //https://github.com/dotnet/coreclr/blob/master/src/mscorlib/shared/System/Globalization/ChineseLunisolarCalendar.cs
-            //    //https://stackoverflow.com/questions/30719176/algorithm-to-find-the-gregorian-date-of-the-chinese-new-year-of-a-certain-gregor
-            //    var chineseCalendar = new ChineseLunisolarCalendar();
-            //    var chineseNewYear = chineseCalendar.ToDateTime(year, 1, 1, 0, 0, 0, 0);
-            //    items.Add(new Holiday(chineseNewYear, "Chinese New Year", "Chinese New Year", countryCode));
-            //}
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification ChineseNewYear(int year)
@@ -191,8 +160,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Chinese New Year",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //items.Add(new Holiday(chineseNewYear, "Chinese New Year", "Chinese New Year", countryCode));
             }
 
             return null;

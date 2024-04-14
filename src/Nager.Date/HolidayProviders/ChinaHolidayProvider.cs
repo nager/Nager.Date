@@ -87,41 +87,9 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "中秋节",
                     HolidayTypes = HolidayTypes.Public
                 });
-
-                //items.Add(new Holiday(springFestival, "春节", "Chinese New Year (Spring Festival)", countryCode));
-                //items.Add(new Holiday(dragonBoatFestival, "端午节", "Dragon Boat Festival", countryCode));
-                //items.Add(new Holiday(midAutumnFestival, "中秋节", "Mid-Autumn Festival", countryCode));
             }
 
             return holidaySpecifications;
-
-
-
-
-            //var items = new List<Holiday>();
-
-            //var chineseCalendar = new ChineseLunisolarCalendar();
-            //if (year > chineseCalendar.MinSupportedDateTime.Year && year < chineseCalendar.MaxSupportedDateTime.Year)
-            //{
-            //    //LunisolarCalendar .net implementation only valid are between 1901 and 2100, inclusive.
-            //    //https://github.com/dotnet/coreclr/blob/master/src/mscorlib/shared/System/Globalization/ChineseLunisolarCalendar.cs
-
-            //    var leapMonth = chineseCalendar.GetLeapMonth(year);
-            //    var springFestival = chineseCalendar.ToDateTime(year, this.MoveMonth(1, leapMonth), 1, 0, 0, 0, 0);
-            //    var dragonBoatFestival = chineseCalendar.ToDateTime(year, this.MoveMonth(5, leapMonth), 5, 0, 0, 0, 0);
-            //    var midAutumnFestival = chineseCalendar.ToDateTime(year, this.MoveMonth(8, leapMonth), 15, 0, 0, 0, 0);
-
-            //    items.Add(new Holiday(springFestival, "春节", "Chinese New Year (Spring Festival)", countryCode));
-            //    items.Add(new Holiday(dragonBoatFestival, "端午节", "Dragon Boat Festival", countryCode));
-            //    items.Add(new Holiday(midAutumnFestival, "中秋节", "Mid-Autumn Festival", countryCode));
-            //}
-
-            //items.Add(new Holiday(year, 1, 1, "元旦", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 4, 5, "清明节", "Qingming Festival (Tomb-Sweeping Day)", countryCode)); //TODO: Date is not fixed, calculate from 5th solar term
-            //items.Add(new Holiday(year, 5, 1, "劳动节", "Labour Day", countryCode));
-            //items.Add(new Holiday(year, 10, 1, "国庆节", "National Day", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private int MoveMonth(int month, int leapMonth)

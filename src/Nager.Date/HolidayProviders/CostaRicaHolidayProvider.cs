@@ -74,30 +74,6 @@ namespace Nager.Date.HolidayProviders
             }
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode));
-            //items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            //items.Add(new Holiday(year, 8, 2, "Fiesta de Nuestra Señora de los Ángeles", "Feast of Our Lady of the Angels", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
-            //items.Add(this.GetJuanSantamariaDay(year, countryCode));
-            //items.Add(this.GetLabourDay(year, countryCode));
-            //items.Add(this.GetAnnexationDay(year, countryCode));            
-            //items.Add(this.GetMothersDay(year, countryCode));
-            //items.Add(this.GetIndenpendenceDay(year, countryCode));            
-
-            //Law 9803
-            //if (year >= 2020)
-            //{
-            //    items.Add(this.GetArmyAbolitionDay(year, countryCode));
-            //}
-            //else
-            //{
-            //    items.Add(new Holiday(year, 10, 12, "Día de las Culturas", "Cultures Day", countryCode));
-            //}
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification GetJuanSantamariaDay(int year)
@@ -116,8 +92,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(juanSantamariaDay, "Día de Juan Santamaría", "Juan Santamaría Day", countryCode);
         }
 
         private HolidaySpecification GetLabourDay(int year)
@@ -136,8 +110,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(labourDay, "Día Internacional del Trabajo", "Labour Day", countryCode);
         }
 
         private HolidaySpecification GetAnnexationDay(int year)
@@ -156,8 +128,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(annexationDay, "Anexión del Partido de Nicoya a Costa Rica", "Annexation of the Party of Nicoya to Costa Rica", countryCode);
         }
 
         private HolidaySpecification GetMothersDay(int year)
@@ -176,8 +146,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(mothersDay, "Día de la Madre", "Mother's Day", countryCode);
         }
 
         private HolidaySpecification GetIndenpendenceDay(int year)
@@ -196,8 +164,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(indenpendenceDay, "Día de la Independencia", "Independence Day", countryCode);
         }
 
         private HolidaySpecification GetArmyAbolitionDay(int year)
@@ -216,8 +182,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(armyAbolitionDay, "Día de la Abolición del Ejército", "Army Abolition Day", countryCode);
         }
 
         private ObservedRuleSet Law9875RuleSet()
@@ -230,15 +194,6 @@ namespace Nager.Date.HolidayProviders
                 Saturday = date => date.AddDays(2),
                 Sunday = date => date.AddDays(1)
             };
-
-
-            //date = date.Shift(saturday: saturday => saturday.AddDays(2), sunday: sunday => sunday.AddDays(1));
-            //date = date.ShiftWeekdays(
-            //    tuesday: tuesday => tuesday.AddDays(-1),
-            //    wednesday: wednesday => wednesday.AddDays(-2),
-            //    thursday: thursday => thursday.AddDays(4)
-            //    );
-            //return date;
         }
 
         /// <inheritdoc/>

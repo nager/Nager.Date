@@ -55,11 +55,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            //var newYearDay1 = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            //var newYearDay2 = new DateTime(year, 1, 2).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
-            //var boxingDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
-            //var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-
             var easterSunday = this._catholicProvider.EasterSunday(year);
             var labourDay = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Fourth);
             var canterburySouthDay = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
@@ -267,68 +262,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.MemorialDayForQueenElizabeth(year));
 
             return holidaySpecifications;
-
-
-            //var items = new List<Holiday>();        
-            //items.Add(new Holiday(newYearDay1, "New Year's Day", "New Year's Day", countryCode));
-            //items.Add(new Holiday(newYearDay2, "Day after New Year's Day", "Day after New Year's Day", countryCode));
-            //items.Add(new Holiday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
-            //items.Add(new Holiday(boxingDay, "Boxing Day", "Boxing Day", countryCode));
-
-
-            //#region Regional Anniversary Days
-            // https://www.employment.govt.nz/leave-and-holidays/public-holidays/public-holidays-and-anniversary-dates/
-            //var aucklandDay = new DateTime(year, 1, 29).ShiftToClosest(DayOfWeek.Monday);
-            //items.Add(new Holiday(aucklandDay, "Auckland/Northland Anniversary Day", "Auckland Anniversary Day", countryCode, counties: new[] { "NZ-AUK", "NZ-NTL", "NZ-MWT", "NZ-WKO", "NZ-GIS", "NZ-BOP", "NZ-HKB" }));
-
-            //var wellingtonDay = new DateTime(year, 1, 22).ShiftToClosest(DayOfWeek.Monday);
-            //items.Add(new Holiday(wellingtonDay, "Wellington Anniversary Day", "Wellington Anniversary Day", countryCode, counties: new[] { "NZ-WGN", "NZ-MWT" }));
-
-            //var canterburySouthDay = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
-            //items.Add(new Holiday(canterburySouthDay, "Dominion Day", "Canterbury (South) Anniversary Day", countryCode, counties: new[] { "NZ-CAN" }));
-
-            //var chathamDay = new DateTime(year, 11, 30).ShiftToClosest(DayOfWeek.Monday);
-            //items.Add(new Holiday(chathamDay, "Chatham Islands Anniversary Day", "Chatham Islands Anniversary Day", countryCode, counties: new[] { "NZ-CIT" }));
-
-            //var nelsonDay = new DateTime(year, 2, 1).ShiftToClosest(DayOfWeek.Monday);
-            //items.Add(new Holiday(nelsonDay, "Nelson Anniversary Day", "Nelson Anniversary Day", countryCode, counties: new[] { "NZ-NSN" }));
-
-            //var otagoDay = new DateTime(year, 3, 23).ShiftToClosest(DayOfWeek.Monday);
-            //items.Add(new Holiday(otagoDay, "Otago Anniversary Day", "Otago Anniversary Day", countryCode, counties: new[] { "NZ-OTA" }));
-
-            //items.Add(new Holiday(taranakiDay, "Taranaki Anniversary Day", "Taranaki Anniversary Day", countryCode, counties: new[] { "NZ-TKI" }));
-
-            // Fri before labour day, and labour day always a Mon
-            //var hawkesBayDay = labourDay.AddDays(-3);
-            //items.Add(new Holiday(hawkesBayDay, "Hawke's Bay Anniversary Day", "Hawke's Bay Anniversary Day", countryCode, counties: new[] { "NZ-HKB" }));
-
-            // Mon following labour day (which is always Mon itself)
-            //var marlboroughDay = labourDay.AddDays(7);
-            //items.Add(new Holiday(marlboroughDay, "Marlborough Anniversary Day", "Marlborough Anniversary Day", countryCode, counties: new[] { "NZ-MBH" }));
-
-            // Easter Tues
-            //var southlandDay = easterMonday.Date.AddDays(1);
-            //items.Add(new Holiday(southlandDay, "Southland Anniversary Day", "Southland Anniversary Day", countryCode, counties: new[] { "NZ-STL" }));
-
-            //var westlandDay = new DateTime(year, 12, 1).ShiftToClosest(DayOfWeek.Monday);
-            //items.Add(new Holiday(westlandDay, "Westland Anniversary Day", "Westland Anniversary Day", countryCode, counties: new[] { "NZ-WTC" }));
-
-            // 2nd Fri following 1st Tues of Nov!
-            //items.Add(new Holiday(canterburyDay, "Canterbury (North & Central) Anniversary Day", "Canterbury Anniversary Day", countryCode, counties: new[] { "NZ-CAN" }));
-
-            //#endregion
-
-            //items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            //items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
-            //items.Add(new Holiday(labourDay, "Labour Day", "Labour Day", countryCode));
-
-            //items.AddIfNotNull(this.AnzacDay(year, countryCode));
-            //items.AddIfNotNull(this.WaitangiDay(year, countryCode));
-            //items.AddIfNotNull(this.Matariki(year, countryCode));
-            //items.AddIfNotNull(this.MonarchBirthday(year, countryCode));
-            //items.AddIfNotNull(this.MemorialDayForQueenElizabeth(year, countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification Matariki(int year)
@@ -342,8 +275,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Matariki",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(matariki, "Matariki", "Matariki", countryCode);
             }
 
             return null;
@@ -360,9 +291,6 @@ namespace Nager.Date.HolidayProviders
                     Saturday = date => date.AddDays(2),
                     Sunday = date => date.AddDays(1),
                 };
-
-                //var waitangiDay = new DateTime(year, 2, 6).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-                //return new Holiday(waitangiDay, "Waitangi Day", "Waitangi Day", countryCode);
             }
 
             return new HolidaySpecification
@@ -373,8 +301,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(year, 2, 6, "Waitangi Day", "Waitangi Day", countryCode);
         }
 
         private HolidaySpecification AnzacDay(int year)
@@ -388,9 +314,6 @@ namespace Nager.Date.HolidayProviders
                     Saturday = date => date.AddDays(2),
                     Sunday = date => date.AddDays(1),
                 };
-
-                //var anzacDay = new DateTime(year, 4, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-                //return new Holiday(anzacDay, "Anzac Day", "Anzac Day", countryCode);
             }
 
             return new HolidaySpecification
@@ -401,8 +324,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            //return new Holiday(year, 4, 25, "Anzac Day", "Anzac Day", countryCode);
         }
 
         private HolidaySpecification MonarchBirthday(int year)
@@ -422,8 +343,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = name,
                 HolidayTypes = HolidayTypes.Public
             };
-
-            //return new Holiday(monarchBirthday, name, name, countryCode);
         }
 
         private HolidaySpecification MemorialDayForQueenElizabeth(int year)
@@ -440,8 +359,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Queen Elizabeth II Memorial Day",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(year, 9, 26, "Queen Elizabeth II Memorial Day", "Queen Elizabeth II Memorial Day", countryCode);
             }
 
             return null;

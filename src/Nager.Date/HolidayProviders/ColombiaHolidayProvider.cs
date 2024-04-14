@@ -153,44 +153,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //#region Ascension Day
-
-            //var ascensionDayPublicHoliday = this._catholicProvider.AscensionDay("Ascensión del señor", year, countryCode);
-            //var ascensionDay = DateHelper.FindDay(ascensionDayPublicHoliday.Date, DayOfWeek.Monday);
-            //var shiftedAscensionDayPublicHoliday = new Holiday(ascensionDay, ascensionDayPublicHoliday.LocalName, ascensionDayPublicHoliday.Name, countryCode);
-
-            //#endregion
-
-            //#region Corpus Christi
-
-            //var corpusChristiPublicHoliday = this._catholicProvider.CorpusChristi("Corpus Christi", year, countryCode);
-            //var corpusChristiDay = DateHelper.FindDay(corpusChristiPublicHoliday.Date, DayOfWeek.Monday);
-            //var shiftedCorpusChristiPublicHoliday = new Holiday(corpusChristiDay, corpusChristiPublicHoliday.LocalName, corpusChristiPublicHoliday.Name, countryCode);
-
-            //#endregion
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Año Nuevo", "New Year's Day", countryCode));
-            //items.Add(new Holiday(epiphanyDate, "Día de los Reyes Magos", "Epiphany", countryCode));
-            //items.Add(new Holiday(saintJosephsDayDate, "Día de San José", "Saint Joseph's Day", countryCode));
-            //items.Add(this._catholicProvider.MaundyThursday("Jueves Santo", year, countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Viernes Santo", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Primero de Mayo", "Labour Day", countryCode));
-            //items.Add(shiftedAscensionDayPublicHoliday);
-            //items.Add(shiftedCorpusChristiPublicHoliday);
-            //items.Add(new Holiday(easterSunday.AddDays(68).AddDays(3), "Sagrado Corazón", "Sacred Heart", countryCode));
-            //items.Add(new Holiday(saintPeterAndSaintPaulDate, "San Pedro y San Pablo", "Saint Peter and Saint Paul", countryCode));
-            //items.Add(new Holiday(year, 7, 20, "Declaracion de la Independencia de Colombia", "Declaration of Independence", countryCode));
-            //items.Add(new Holiday(year, 8, 7, "Batalla de Boyacá", "Battle of Boyacá", countryCode));
-            //items.Add(new Holiday(assumptionOfMaryDate, "La Asunción", "Assumption of Mary", countryCode));
-            //items.Add(new Holiday(columbusDayDate, "Día de la Raza", "Columbus Day", countryCode));
-            //items.Add(new Holiday(allSaintsDayDate, "Dia de los Santos", "All Saints’ Day", countryCode));
-            //items.Add(new Holiday(independenceOfCartagenaDate, "Independencia de Cartagena", "Independence of Cartagena", countryCode));
-            //items.Add(new Holiday(year, 12, 8, "La Inmaculada Concepción", "Immaculate Conception", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Navidad", "Christmas Day", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

@@ -214,35 +214,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 5, 1, "Día del trabajo", "Labor Day", countryCode));
-            //items.Add(new Holiday(year, 5, 3, "Día de la Cru", "The Day of the Cross", countryCode));
-            //items.Add(new Holiday(year, 5, 7, "Día del Soldado", "Soldiers' Day", countryCode));
-            //items.Add(new Holiday(year, 5, 10, "Día de las Madres", "Mother's Day", countryCode));
-            //items.Add(new Holiday(year, 5, 10, "Día del Padre", "Father's Day", countryCode));
-            //items.Add(new Holiday(year, 8, 1, "Fiestas de agosto", "August Festivals", countryCode));
-            //items.Add(new Holiday(year, 8, 2, "Fiestas de agosto", "August Festivals", countryCode));
-            //items.Add(new Holiday(year, 8, 3, "Fiestas de agosto", "August Festivals", countryCode));
-            //items.Add(new Holiday(year, 8, 4, "Fiestas de agosto", "August Festivals", countryCode));
-            //items.Add(new Holiday(year, 8, 5, "Fiestas de agosto", "August Festivals", countryCode));
-            //items.Add(new Holiday(year, 8, 6, "Fiestas de agosto", "August Festivals", countryCode));
-            //items.Add(new Holiday(year, 8, 7, "Fiestas de agosto", "August Festivals", countryCode));
-            //items.Add(new Holiday(year, 9, 15, "Día de la Independencia", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 10, 1, "Día del niño", "Children's Day", countryCode));
-            //items.Add(new Holiday(year, 10, 12, "Día de la raza", "Ethnic Pride Day", countryCode));
-            //items.Add(new Holiday(year, 11, 2, "El día de los difuntos", "Day of the Dead", countryCode));
-            //items.Add(new Holiday(year, 11, 7, "Festival Nacional De La Pupusa", "National Pupusa Festival", countryCode));
-            //items.Add(new Holiday(year, 11, 8, "Festival Nacional De La Pupusa", "National Pupusa Festival", countryCode));
-            //items.Add(new Holiday(year, 11, 9, "Festival Nacional De La Pupusa", "National Pupusa Festival", countryCode));
-            //items.Add(new Holiday(year, 11, 10, "Festival Nacional De La Pupusa", "National Pupusa Festival", countryCode));
-            //items.Add(new Holiday(year, 11, 11, "Festival Nacional De La Pupusa", "National Pupusa Festival", countryCode));
-            //items.Add(new Holiday(year, 11, 12, "Festival Nacional De La Pupusa", "National Pupusa Festival", countryCode));
-            //items.Add(new Holiday(year, 11, 13, "Festival Nacional De La Pupusa", "National Pupusa Festival", countryCode));
-            //items.Add(new Holiday(year, 11, 21, "Dia de la Reina de la Paz", "Day of the Queen of Peace", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Noche Buena", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 31, "Fin de año", "New Year's Eve", countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

@@ -117,23 +117,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 1, 9, "Martyr's Day", "Martyr's Day", countryCode));
-            //items.Add(new Holiday(easterSunday.AddDays(-48), "Carnival", "Carnival", countryCode));
-            //items.Add(new Holiday(easterSunday.AddDays(-47), "Carnival", "Carnival", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Labour Day", "Labour Day", countryCode));
-            //presidential inauguration (not enough informations)
-            //items.Add(new Holiday(year, 11, 3, "Separation Day", "Separation Day", countryCode));
-            //items.Add(new Holiday(year, 11, 4, "Flag Day", "Flag Day", countryCode));
-            //items.Add(new Holiday(year, 11, 5, "Colón Day", "Colon Day", countryCode));
-            //items.Add(new Holiday(year, 11, 10, "Shout in Villa de los Santos", "Shout in Villa de los Santos", countryCode));
-            //items.Add(new Holiday(year, 11, 28, "Independence Day", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 12, 8, "Mothers' Day", "Mothers' Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

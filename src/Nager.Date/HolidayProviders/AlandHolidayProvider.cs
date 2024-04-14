@@ -117,26 +117,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 1, 6, "Trettondagen", "Epiphany", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Långfredag", year, countryCode));
-            //items.Add(this._catholicProvider.EasterSunday("Påskdagen", year, countryCode).SetLaunchYear(1642));
-            //items.Add(this._catholicProvider.EasterMonday("Annandag påsk", year, countryCode).SetLaunchYear(1642));
-            //items.Add(new Holiday(year, 5, 1, "Första maj", "May Day", countryCode));
-            //items.Add(this._catholicProvider.AscensionDay("Kristi himmelsfärdsdagn", year, countryCode));
-            //items.Add(this._catholicProvider.Pentecost("Pingstdagen", year, countryCode));
-            //items.Add(new Holiday(year, 6, 9, "Självstyrelsedagen", "Autonomy Day", countryCode));
-            //items.Add(new Holiday(thirdFridayInJune, "Midsommarafton", "Midsummer Eve", countryCode));
-            //items.Add(new Holiday(thirdSaturdayInJune, "Midsommardagen", "Midsummer Day", countryCode));
-            //items.Add(new Holiday(firstSaturdayInNovember, "Alla helgons dag", "All Saints Day", countryCode));
-            //items.Add(new Holiday(year, 12, 6, "Självständighetsdagen", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 12, 24, "Julafton", "Christmas Eve", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Juldagen", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 26, "Annandag jul", "St. Stephen's Day", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

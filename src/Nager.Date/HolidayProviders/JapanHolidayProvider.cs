@@ -23,17 +23,6 @@ namespace Nager.Date.HolidayProviders
             var secondMondayInJanuary = DateHelper.FindDay(year, Month.January, DayOfWeek.Monday, Occurrence.Second);
             var thirdMondayInJuly = DateHelper.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.Third);
             var thirdMondayInSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Third);
-            //var secondMondayInOctober = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
-
-            //var newYearsDay = new DateTime(year, 1, 1).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var foundationDay = new DateTime(year, 2, 11).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var showaDay = new DateTime(year, 4, 29).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var memorialDay = new DateTime(year, 5, 3).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var greeneryDay = new DateTime(year, 5, 4).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var childrensDay = new DateTime(year, 5, 5).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var mountainDay = new DateTime(year, 8, 11).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var cultureDay = new DateTime(year, 11, 3).Shift(saturday => saturday, sunday => sunday.AddDays(1));
-            //var thanksgivingDay = new DateTime(year, 11, 23).Shift(saturday => saturday, sunday => sunday.AddDays(1));
 
             var observedRuleSet = new ObservedRuleSet
             {
@@ -144,29 +133,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.SportsDay(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(newYearsDay, "元日", "New Year's Day", countryCode));
-            //items.Add(new Holiday(secondMondayInJanuary, "成人の日", "Coming of Age Day", countryCode));
-            //items.Add(new Holiday(foundationDay, "建国記念の日", "Foundation Day", countryCode));
-            //items.Add(new Holiday(showaDay, "昭和の日", "Shōwa Day", countryCode));
-            //items.Add(new Holiday(memorialDay, "憲法記念日", "Constitution Memorial Day", countryCode));
-            //items.Add(new Holiday(greeneryDay, "みどりの日", "Greenery Day", countryCode));
-            //items.Add(new Holiday(childrensDay, "こどもの日", "Children's Day", countryCode));
-            //items.Add(new Holiday(thirdMondayInJuly, "海の日", "Marine Day", countryCode));
-            //items.Add(new Holiday(mountainDay, "山の日", "Mountain Day", countryCode));
-            //items.Add(new Holiday(thirdMondayInSeptember, "敬老の日", "Respect for the Aged Day", countryCode));
-            //items.Add(new Holiday(cultureDay, "文化の日", "Culture Day", countryCode));
-            //items.Add(new Holiday(thanksgivingDay, "勤労感謝の日", "Labour Thanksgiving Day", countryCode));
-
-            //Will change to the date of the new emperor on the death of the current one
-            //items.AddIfNotNull(this.EmperorsBirthday(year, countryCode));
-            //items.AddIfNotNull(this.VernalEquinox(year, countryCode));
-            //items.AddIfNotNull(this.AutumnalEquinox(year, countryCode));
-
-            //items.AddIfNotNull(this.SportsDay(year, countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <summary>
@@ -229,12 +195,6 @@ namespace Nager.Date.HolidayProviders
                     Sunday = date => date.AddDays(1)
                 }
             };
-
-            //return new Holiday(
-            //    result.Shift(saturday => saturday, sunday => sunday.AddDays(1)),
-            //    year < 1948 ? "天長節" : "天皇誕生日",
-            //    "The Emperor's Birthday",
-            //    countryCode);
         }
 
         private HolidaySpecification SportsDay(int year)
@@ -252,8 +212,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "体育の日",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(new DateTime(year, 10, 10), "体育の日", "Health and Sports Day", countryCode);
             }
             else if (year >= 2000 && year < 2020)
             {
@@ -266,8 +224,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "体育の日",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(secondMondayInOctober, "体育の日", "Health and Sports Day", countryCode);
             }
             else if (year == 2020)
             {
@@ -278,8 +234,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "スポーツの日",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(new DateTime(year, 07, 24), "スポーツの日", "Sports Day", countryCode);
             }
             else if (year ==  2021)
             {
@@ -290,8 +244,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "スポーツの日",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(new DateTime(year, 07, 23), "スポーツの日", "Sports Day", countryCode);
             }
             else if (year >= 2022)
             {
@@ -304,8 +256,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "スポーツの日",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(secondMondayInOctober, "スポーツの日", "Sports Day", countryCode);
             }
 
             return null;
@@ -344,8 +294,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = "春分の日",
                 HolidayTypes = HolidayTypes.Public
             };
-
-            //return new Holiday(new DateTime(year, 3, (int)equinoxDay), "春分の日", "Vernal Equinox Day", countryCode);
         }
 
         private HolidaySpecification AutumnalEquinox(int year)
@@ -381,8 +329,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = "秋分の日",
                 HolidayTypes = HolidayTypes.Public
             };
-
-            //return new Holiday(new DateTime(year, 9, (int)equinoxDay), "秋分の日", "Autumnal Equinox Day", countryCode);
         }
 
         /// <inheritdoc/>

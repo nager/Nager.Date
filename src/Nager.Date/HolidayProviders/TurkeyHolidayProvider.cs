@@ -99,18 +99,6 @@ namespace Nager.Date.HolidayProviders
             //holidaySpecifications.AddRange(this.GetEidAlAdha(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Yılbaşı", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 4, 23, "Ulusal Egemenlik ve Çocuk Bayramı", "National Independence & Children's Day", countryCode));
-            //items.Add(new Holiday(year, 5, 1, "İşçi Bayramı", "Labour Day", countryCode));
-            //items.Add(new Holiday(year, 5, 19, "Atatürk'ü Anma, Gençlik ve Spor Bayramı", "Atatürk Commemoration & Youth Day", countryCode));
-            //items.Add(new Holiday(year, 8, 30, "Zafer Bayramı", "Victory Day", countryCode));
-            //items.Add(new Holiday(year, 10, 29, "Cumhuriyet Bayramı", "Republic Day", countryCode));
-            //items.AddRange(this.GetEidAlFitr(year, countryCode));
-            //items.AddRange(this.GetEidAlAdha(year, countryCode));
-            //items.Add(this.DemocracyAndNationalUnityDay(year, countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification DemocracyAndNationalUnityDay(int year)
@@ -124,8 +112,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Demokrasi ve Millî Birlik Günü",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //items.Add(new Holiday(year, 7, 15, "Demokrasi ve Millî Birlik Günü", "Democracy and National Unity Day", countryCode));
             }
 
             return null;
@@ -169,13 +155,6 @@ namespace Nager.Date.HolidayProviders
                         HolidayTypes = HolidayTypes.Public
                     }
                 ];
-
-                //return new Holiday[]
-                //{
-                //    new Holiday(year, calculateDate1.Month, calculateDate1.Day, "Ramazan Bayramı 1. Gün", "Eid al-Fitr First Day", countryCode),
-                //    new Holiday(year, calculateDate2.Month, calculateDate2.Day, "Ramazan Bayramı 2. Gün", "Eid al-Fitr Second Day", countryCode),
-                //    new Holiday(year, calculateDate3.Month, calculateDate3.Day, "Ramazan Bayramı 3. Gün", "Eid al-Fitr Third Day", countryCode)
-                //};
             }
 
             return [];
@@ -196,8 +175,8 @@ namespace Nager.Date.HolidayProviders
                 var calculateDate3 = this.ConvertHijriToGregorian(hijriYear, 12, 12);
                 var calculateDate4 = this.ConvertHijriToGregorian(hijriYear, 12, 13);
 
-                return new []
-                {
+                return
+                [
                     new HolidaySpecification
                     {
                         Date = new DateTime(year, calculateDate1.Month, calculateDate1.Day),
@@ -226,16 +205,7 @@ namespace Nager.Date.HolidayProviders
                         LocalName = "Kurban Bayramı 4. Gün",
                         HolidayTypes = HolidayTypes.Public
                     }
-
-                };
-
-                //return new HolidaySpecification[]
-                //{
-                //    new Holiday(year, calculateDate1.Month, calculateDate1.Day, "Kurban Bayramı 1. Gün", "Eid al-Adha First Day", countryCode),
-                //    new Holiday(year, calculateDate2.Month, calculateDate2.Day, "Kurban Bayramı 2. Gün", "Eid al-Adha Second Day", countryCode),
-                //    new Holiday(year, calculateDate3.Month, calculateDate3.Day, "Kurban Bayramı 3. Gün", "Eid al-Adha Third Day", countryCode),
-                //    new Holiday(year, calculateDate4.Month, calculateDate4.Day, "Kurban Bayramı 4. Gün", "Eid al-Adha Fourth Day", countryCode)
-                //};
+                ];
             }
 
             return [];

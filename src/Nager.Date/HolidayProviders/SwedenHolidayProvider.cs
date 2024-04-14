@@ -118,29 +118,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.NationalDayOfSweden(year));
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Nyårsdagen", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 1, 6, "Trettondedag jul", "Epiphany", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Långfredagen", year, countryCode));
-            //items.Add(this._catholicProvider.EasterSunday("Påskdagen", year, countryCode));
-            //items.Add(this._catholicProvider.EasterMonday("Annandag påsk", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Första maj", "International Workers' Day", countryCode));
-            //items.Add(this._catholicProvider.AscensionDay("Kristi himmelsfärdsdag", year, countryCode));           
-            //items.Add(this._catholicProvider.Pentecost("Pingstdagen", year, countryCode));
-            //items.Add(new Holiday(midsummerDay.AddDays(-1), "Midsommarafton", "Midsummer Eve", countryCode));
-            //items.Add(new Holiday(midsummerDay, "Midsommardagen", "Midsummer Day", countryCode));
-            //items.Add(new Holiday(allSaintsDay, "Alla helgons dag", "All Saints' Day", countryCode));
-            //items.Add(new Holiday(year, 12, 24, "Julafton", "Christmas Eve", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Juldagen", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 26, "Annandag jul", "St. Stephen's Day", countryCode));
-            //items.Add(new Holiday(year, 12, 31, "Nyårsafton", "New Year's Eve", countryCode));
-            //if (year < 2005)
-            //{
-            //    items.Add(this._catholicProvider.WhitMonday("Annandag Pingst", year, countryCode));
-            //}
-            //items.AddIfNotNull(this.NationalDayOfSweden(year, countryCode);
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification NationalDayOfSweden(int year)
@@ -154,8 +131,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Sveriges nationaldag",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(year, 6, 6, "Sveriges nationaldag", "National Day of Sweden", countryCode);
             }
 
             return null;

@@ -104,26 +104,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Nýársdagur", "New Year's Day", countryCode));
-            //items.Add(this._catholicProvider.MaundyThursday("Skírdagur", year, countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Föstudagurinn langi", year, countryCode));
-            //items.Add(this._catholicProvider.EasterSunday("Páskadagur", year, countryCode));
-            //items.Add(this._catholicProvider.EasterMonday("Annar í páskum", year, countryCode));
-            //items.Add(new Holiday(firstDayOfSummer, "Sumardagurinn fyrsti", "First Day of Summer", countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Verkalýðsdagurinn", "May Day", countryCode));
-            //items.Add(this._catholicProvider.AscensionDay("Uppstigningardagur", year, countryCode));
-            //items.Add(this._catholicProvider.Pentecost("Hvítasunnudagur", year, countryCode));
-            //items.Add(this._catholicProvider.WhitMonday("Annar í hvítasunnu", year, countryCode));
-            //items.Add(new Holiday(year, 6, 17, "Þjóðhátíðardagurinn", "Icelandic National Day", countryCode));
-            //items.Add(new Holiday(firstMondayInAugust, "Frídagur verslunarmanna", "Commerce Day", countryCode));
-            //items.Add(new Holiday(year, 12, 24, "Aðfangadagur", "Christmas Eve", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Jóladagur", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 26, "Annar í jólum", "St. Stephen's Day", countryCode));
-            //items.Add(new Holiday(year, 12, 31, "Gamlársdagur", "New Year's Eve", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

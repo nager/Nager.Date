@@ -96,27 +96,6 @@ namespace Nager.Date.HolidayProviders
             }
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Újév", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 3, 15, "Nemzeti ünnep", "1848 Revolution Memorial Day", countryCode));
-            //items.Add(this._catholicProvider.EasterSunday("Húsvétvasárnap", year, countryCode));
-            //items.Add(this._catholicProvider.EasterMonday("Húsvéthétfő", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "A munka ünnepe", "Labour day", countryCode));
-            //items.Add(this._catholicProvider.Pentecost("Pünkösdvasárnap", year, countryCode));
-            //items.Add(this._catholicProvider.WhitMonday("Pünkösdhétfő", year, countryCode));
-            //items.Add(new Holiday(year, 8, 20, "Az államalapítás ünnepe", "State Foundation Day", countryCode));
-            //items.Add(new Holiday(year, 10, 23, "Nemzeti ünnep", "1956 Revolution Memorial Day", countryCode));
-            //items.Add(new Holiday(year, 11, 1, "Mindenszentek", "All Saints Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Karácsony", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 26, "Karácsony másnapja", "St. Stephen's Day", countryCode));
-
-            //if (year >= 2017)
-            //{
-            //    items.Add(this._catholicProvider.GoodFriday("Nagypéntek", year, countryCode));
-            //}
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

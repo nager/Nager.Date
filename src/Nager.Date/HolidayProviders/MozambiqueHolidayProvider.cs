@@ -108,18 +108,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Dia de Ano Novo", "New Year's Day", countryCode));
-            //items.Add(new Holiday(year, 2, 3, "Dia do Heroi Nacional", "Heroes's Day", countryCode));
-            //items.Add(new Holiday(year, 4, 7, "Dia da Mulher", "Women's Day", countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Dia do Trabalhador", "worker's Day", countryCode));
-            //items.Add(new Holiday(year, 6, 25, "Dia da Independência", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 9, 7, "Dia da Victória", "Victory Day", countryCode));
-            //items.Add(new Holiday(year, 9, 25, "Dia da Revolução", "Revolution Day", countryCode));
-            //items.Add(new Holiday(year, 10, 4, "Dia da Paz e da Reconcialição", "Day of Peace and Reconciliation", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Natal", "Christmas Day", countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

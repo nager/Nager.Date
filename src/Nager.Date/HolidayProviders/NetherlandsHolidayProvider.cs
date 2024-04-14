@@ -73,33 +73,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.LiberationDay(year));
 
             return holidaySpecifications;
-
-
-
-
-            //#region King's Day is Sunday fallback
-
-            //var kingsDay = 27;
-            //var kingsDate = new DateTime(year, 4, kingsDay);
-            //if (kingsDate.DayOfWeek == DayOfWeek.Sunday)
-            //{
-            //    kingsDay = 26;
-            //}
-
-            //#endregion
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Nieuwjaarsdag", "New Year's Day", countryCode, 1967));
-            //items.Add(this._catholicProvider.GoodFriday("Goede Vrijdag", year, countryCode));
-            //items.Add(this._catholicProvider.EasterSunday("Eerste Paasdag", year, countryCode));
-            //items.Add(this._catholicProvider.EasterMonday("Tweede Paasdag", year, countryCode).SetLaunchYear(1642));
-            //items.Add(new Holiday(year, 4, kingsDay, "Koningsdag", "King's Day", countryCode));
-            //items.Add(this._catholicProvider.AscensionDay("Hemelvaartsdag", year, countryCode));
-            //items.Add(this._catholicProvider.Pentecost("Eerste Pinksterdag", year, countryCode));
-            //items.Add(this._catholicProvider.WhitMonday("Tweede Pinksterdag", year, countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Eerste Kerstdag", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 26, "Tweede Kerstdag", "St. Stephen's Day", countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification LiberationDay(int year)
@@ -112,21 +85,16 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public
             };
 
-            //var liberationDay = new Holiday(year, 5, 5, "Bevrijdingsdag", "Liberation Day", countryCode, 1945);
-
             if (year >= 1990)
             {
                 //in 1990, the day was declared to be a national holiday
                 return liberationDay.SetHolidayTypes(HolidayTypes.Authorities | HolidayTypes.School);
-
-                //items.Add(liberationDay.SetType(HolidayTypes.Authorities | HolidayTypes.School));
             }
             else if (year >= 1945)
             {
                 if (year % 5 == 0)
                 {
                     return liberationDay;
-                    //items.Add(liberationDay);
                 }
             }
 

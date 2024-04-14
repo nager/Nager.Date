@@ -82,18 +82,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(new Holiday(year, 1, 1, "Tahun Baru Masehi", "New Year's Day", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Wafat Isa Almasih", year, countryCode));
-            //items.Add(this._catholicProvider.EasterSunday("Paskah", year, countryCode));
-            //items.Add(new Holiday(year, 5, 1, "Hari Buruh Internasional", "Labour Day", countryCode));
-            //items.Add(this._catholicProvider.AscensionDay("Kenaikan Isa Almasih", year, countryCode));
-            //items.Add(new Holiday(year, 6, 1, "Hari Lahir Pancasila", "Pancasila Day", countryCode, launchYear: 2017));
-            //items.Add(new Holiday(year, 8, 17, "Hari Ulang Tahun Kemerdekaan Republik Indonesia", "Independence Day", countryCode));
-            //items.Add(new Holiday(year, 12, 25, "Hari Raya Natal", "Christmas Day", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
 
         /// <inheritdoc/>

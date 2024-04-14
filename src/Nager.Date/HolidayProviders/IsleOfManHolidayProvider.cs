@@ -40,10 +40,6 @@ namespace Nager.Date.HolidayProviders
             };
 
             var lastMondayInAugust = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
-            //var tynwaldDay = new DateTime(year, 7, 5).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
-            //var christmasDay = new DateTime(year, 12, 25).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
-            //var stStephensDay = new DateTime(year, 12, 26).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(2));
-            //var newYearDay = new DateTime(year, 1, 1).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1));
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -98,22 +94,6 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.SeniorRaceDay(year));
 
             return holidaySpecifications;
-
-//            //var items = new List<Holiday>();
-            //items.Add(new Holiday(newYearDay, "New Year's Day", "New Year's Day", countryCode));
-            //items.Add(new Holiday(tynwaldDay, "Tynwald Day", "Tynwald Day", countryCode));
-            //items.Add(new Holiday(lastMondayInAugust, "Late Summer Bank Holiday", "Late Summer Bank Holiday", countryCode));
-            //items.Add(new Holiday(christmasDay, "Christmas Day", "Christmas Day", countryCode));
-            //items.Add(new Holiday(stStephensDay, "Boxing Day", "St. Stephen's Day", countryCode));
-            //items.Add(this._catholicProvider.GoodFriday("Good Friday", year, countryCode));
-            //items.Add(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode));
-            //items.AddIfNotNull(this.EarlyMayBankHoliday(year, countryCode));
-            //items.AddIfNotNull(this.SpringBankHoliday(year, countryCode));
-            //items.AddIfNotNull(this.QueensPlatinumJubilee(year, countryCode));
-            //items.AddIfNotNull(this.QueensStateFuneral(year, countryCode));
-            //items.AddIfNotNull(this.CoronationBankHoliday(year, countryCode));
-            //items.AddIfNotNull(this.SeniorRaceDay(year, countryCode));
-            //return items.OrderBy(o => o.Date);
         }
 
         private HolidaySpecification SeniorRaceDay(int year)
@@ -129,9 +109,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = holidayName,
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //var replacementTTDay = new DateTime(year, 8, 28);
-                //return new Holiday(replacementTTDay, holidayName, holidayName, countryCode, 1978);
             }
 
             //The friday after the first saturday of June
@@ -143,7 +120,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = holidayName,
                 HolidayTypes = HolidayTypes.Public
             };
-            //return new Holiday(ttRaceDay, holidayName, holidayName, countryCode, 1978);
         }
 
         private HolidaySpecification EarlyMayBankHoliday(int year)
@@ -161,7 +137,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = holidayName,
                     HolidayTypes = HolidayTypes.Public
                 };
-                //return new Holiday(secondFridayInMay, holidayName, holidayName, countryCode, 1978);
             }
 
             var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
@@ -172,7 +147,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = holidayName,
                 HolidayTypes = HolidayTypes.Public
             };
-            //return new Holiday(firstMondayInMay, holidayName, holidayName, countryCode, 1978);
         }
 
         private HolidaySpecification SpringBankHoliday(int year)
@@ -189,7 +163,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = holidayName,
                     HolidayTypes = HolidayTypes.Public
                 };
-                //return new Holiday(year, 6, 2, holidayName, holidayName, countryCode);
             }
 
             var lastMondayInMay = DateHelper.FindLastDay(year, Month.May, DayOfWeek.Monday);
@@ -200,7 +173,6 @@ namespace Nager.Date.HolidayProviders
                 LocalName = holidayName,
                 HolidayTypes = HolidayTypes.Public
             };
-            //return new Holiday(lastMondayInMay, holidayName, holidayName, countryCode);
         }
 
         #region Royal family
@@ -219,7 +191,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = holidayName,
                     HolidayTypes = HolidayTypes.Public
                 };
-                //return new Holiday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
             }
 
             return null;
@@ -239,7 +210,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = holidayName,
                     HolidayTypes = HolidayTypes.Public
                 };
-                //return new Holiday(year, 9, 19, "Queen’s State Funeral", "Queen’s State Funeral", countryCode);
             }
 
             return null;
@@ -262,7 +232,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = holidayName,
                     HolidayTypes = HolidayTypes.Public
                 };
-                //return new Holiday(year, 5, 8, "Coronation Bank Holiday", "Coronation Bank Holiday", countryCode);
             }
 
             return null;

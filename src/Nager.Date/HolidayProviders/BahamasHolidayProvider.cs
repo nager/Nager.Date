@@ -103,39 +103,7 @@ namespace Nager.Date.HolidayProviders
             };
 
             return holidaySpecifications;
-
-            //var items = new List<Holiday>();
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 1, 1, "New Year's Day", "New Year's Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 1, 10, "Majority Rule Day", "Majority Rule Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(this._catholicProvider.GoodFriday("Good Friday", year, countryCode)));
-            //items.Add(this.ApplyShiftingRules(this._catholicProvider.EasterMonday("Easter Monday", year, countryCode)));
-            //items.Add(this.ApplyShiftingRules(this._catholicProvider.WhitMonday("Whit Monday", year, countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 4, 1, "Perry Christie Day", "Perry Christie Day", countryCode)));
-            //items.Add(new Holiday(year, 7, 10, "Independence Day", "Independence Day", countryCode));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 8, 5, "Emancipation Day", "Emancipation Day", countryCode)));
-            //items.Add(this.ApplyShiftingRules(new Holiday(year, 10, 12, "National Heroes' Day", "National Heroes' Day", countryCode)));
-            //items.Add(new Holiday(year, 12, 25, "Christmas Day", "Christmas Day", countryCode));
-            //items.Add(new Holiday(year, 12, 26, "Boxing Day", "St. Stephen's Day", countryCode));
-
-            //return items.OrderBy(o => o.Date);
         }
-
-        //private Holiday ApplyShiftingRules(Holiday holiday)
-        //{
-
-        //    var t = new ObservedRuleSet
-        //    {
-        //        Tuesday = date => date.AddDays(-1),
-        //        Wednesday = date => date.AddDays(2),
-        //        Thursday = date => date.AddDays(1),
-        //        Saturday = date => date.AddDays(2),
-        //        Sunday = date => date.AddDays(1),
-        //    };
-
-        //    return holiday
-        //        .Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1))
-        //        .ShiftWeekdays(tuesday: tuesday => tuesday.AddDays(-1), wednesday: wednesday => wednesday.AddDays(2), thursday: thursday => thursday.AddDays(1));
-        //}
 
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
