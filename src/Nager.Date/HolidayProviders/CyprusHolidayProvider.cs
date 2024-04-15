@@ -118,7 +118,7 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(2),
                     EnglishName = "Easter Tuesday",
                     LocalName = "Τρίτη της Διακαινησίμου",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Bank
                 },
                 this._orthodoxProvider.GoodFriday("Μεγάλη Παρασκευή", year),
                 this._orthodoxProvider.EasterMonday("Δευτέρα της Διακαινησίμου", year),
