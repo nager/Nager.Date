@@ -48,7 +48,7 @@ namespace Nager.Date.HolidayProviders
                 Sunday = date => date.AddDays(1),
             };
 
-            var monday1ObservedRuleSet = new ObservedRuleSet
+            var tuesdayObservedRuleSet = new ObservedRuleSet
             {
                 Sunday = date => date.AddDays(2),
                 Monday = date => date.AddDays(1),
@@ -95,7 +95,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "2 January",
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["GB-SCT"],
-                    ObservedRuleSet = monday1ObservedRuleSet
+                    ObservedRuleSet = tuesdayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -103,7 +103,8 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Saint Patrick's Day",
                     LocalName = "Saint Patrick's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["GB-NIR"]
+                    SubdivisionCodes = ["GB-NIR"],
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -111,7 +112,8 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Saint Andrew's Day",
                     LocalName = "Saint Andrew's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["GB-SCT"]
+                    SubdivisionCodes = ["GB-SCT"],
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -119,7 +121,8 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Battle of the Boyne",
                     LocalName = "Battle of the Boyne",
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["GB-NIR"]
+                    SubdivisionCodes = ["GB-NIR"],
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -209,8 +212,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Queen’s Platinum Jubilee",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(year, 6, 3, "Queen’s Platinum Jubilee", "Queen’s Platinum Jubilee", countryCode);
             }
 
             return null;
@@ -229,8 +230,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Queen’s State Funeral",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(year, 9, 19, "Queen’s State Funeral", "Queen’s State Funeral", countryCode);
             }
 
             return null;
@@ -250,8 +249,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Coronation Bank Holiday",
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(year, 5, 8, "Coronation Bank Holiday", "Coronation Bank Holiday", countryCode);
             }
 
             return null;
