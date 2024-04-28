@@ -131,6 +131,7 @@ namespace Nager.Date.HolidayProviders
             };
 
             holidaySpecifications.AddIfNotNull(this.SpringboksVictory(year));
+            holidaySpecifications.AddIfNotNull(this.ElectionDay(year));
 
             return holidaySpecifications;
         }
@@ -144,6 +145,22 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 15),
                     EnglishName = "Springboks Victory",
                     LocalName = "Springboks Victory",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
+        }
+
+        private HolidaySpecification ElectionDay(int year)
+        {
+            if (year == 2024)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 29),
+                    EnglishName = "Election Day",
+                    LocalName = "Election Day",
                     HolidayTypes = HolidayTypes.Public
                 };
             }
