@@ -9,7 +9,6 @@ You can find an overview of the supported countries [here](https://date.nager.at
 Need offline access to our functionality? No problem! We also provide solutions that allow you to use our services on your own infrastructure without an internet connection. Easily integrate our service into your system with the [Docker](https://hub.docker.com/r/nager/nager-date) container or the [NuGet](https://www.nuget.org/packages/Nager.Date) package. Both options require a license key. As a [sponsor of nager](https://github.com/sponsors/nager), you get a license key.
 
 > [!CAUTION]
-> The WebApi V1 will be shut down in June 2024<br>
 > The WebApi V2 will be shut down in December 2024<br>
 > Please only use the latest WebApi V3
 
