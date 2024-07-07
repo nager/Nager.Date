@@ -72,7 +72,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 10, 10),
-                    EnglishName = "Day after the Commemoration of the Assault of the Moncada garrison",
+                    EnglishName = "Independence Day",
                     LocalName = "Día de la Independencia",
                     HolidayTypes = HolidayTypes.Public
                 },
