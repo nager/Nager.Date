@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.Extensions;
 using System;
-using System.Linq;
 
 namespace Nager.Date.UnitTest.Countries
 {
