@@ -90,6 +90,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Date = new DateTime(year, 3, 1),
+                    EnglishName = "Republic Day",
+                    LocalName = "Jahrestag der Ausrufung der Republik",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-NE"]
+                },
+                new HolidaySpecification
+                {
                     Date = new DateTime(year, 3, 19),
                     EnglishName = "Saint Joseph's Day",
                     LocalName = "Josefstag",
