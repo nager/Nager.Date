@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -94,7 +95,38 @@ namespace Nager.Date.HolidayProviders
                 this._orthodoxProvider.Pentecost("Трійця", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.StatehoodDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? StatehoodDay(int year)
+        {
+            var englishName = "Statehood Day";
+            var localName = "Statehood Day";
+
+            if (year == 2022 || year == 2023)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 7, 28),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            else if (year >= 2024)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 7, 15),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
