@@ -114,6 +114,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Date = new DateTime(year, 6, 29),
+                    EnglishName = "Saints Peter and Paul",
+                    LocalName = "Peter und Paul",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-TI"]
+                },
+                new HolidaySpecification
+                {
                     Date = new DateTime(year, 8, 1),
                     EnglishName = "Swiss National Day",
                     LocalName = "Bundesfeier",
