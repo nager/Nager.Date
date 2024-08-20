@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -146,7 +147,25 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Corpus Christi", year),
             };
 
+            holidaySpecifications.AddIfNotNull(this.BlackAwarenessDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? BlackAwarenessDay(int year)
+        {
+            if (year >= 2024)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 11, 20),
+                    EnglishName = "Black Awareness Day",
+                    LocalName = "Dia da Consciência Negra",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
