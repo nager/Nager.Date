@@ -260,9 +260,21 @@ namespace Nager.Date.HolidayProviders
         {
             var holidayName = "Early May Bank Holiday";
 
-            if (year == 2020)
+            if (year == 1995)
             {
-                //https://www.bbc.co.uk/news/uk-48565417
+                // Shifted to mark the 50th anniversary of VE Day
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 8),
+                    EnglishName = holidayName,
+                    LocalName = holidayName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            else if (year == 2020)
+            {
+                // Shifted to mark the 75th anniversary of VE Day
+                // https://www.bbc.co.uk/news/uk-48565417
                 var secondFridayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Friday, Occurrence.Second);
 
                 return new HolidaySpecification
