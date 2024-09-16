@@ -70,13 +70,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "День Незалежності",
                     HolidayTypes = HolidayTypes.Public
                 },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 12, 25),
-                    EnglishName = "(Gregorian and Revised Julian) Christmas",
-                    LocalName = "Різдво",
-                    HolidayTypes = HolidayTypes.Public
-                },
                 this._orthodoxProvider.EasterSunday("Великдень", year),
                 this._orthodoxProvider.Pentecost("Трійця", year)
             };
@@ -84,6 +77,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.JulianChristmasDay(year));
             holidaySpecifications.AddIfNotNull(this.StatehoodDay(year));
             holidaySpecifications.AddIfNotNull(this.DefenderDay(year));
+            holidaySpecifications.AddIfNotNull(this.GregorianChristmasDay(year));
 
             return holidaySpecifications;
             
@@ -156,6 +150,22 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 1),
                     EnglishName = englishName,
                     LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            
+            return null;
+        }
+
+        private HolidaySpecification? GregorianChristmasDay(int year)
+        {
+            if (year >= 2017)
+            {
+                return new new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 25),
+                    EnglishName = "(Gregorian and Revised Julian) Christmas",
+                    LocalName = "Різдво",
                     HolidayTypes = HolidayTypes.Public
                 };
             }
