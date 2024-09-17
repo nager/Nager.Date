@@ -27,7 +27,7 @@ namespace Nager.Date.Models
         /// Initial subdivision of a country (ISO 3166-2)
         /// </summary>
         /// <remarks>States, Province, Territories, Federal districts, Cantons</remarks>
-        public string[] SubdivisionCodes { get; set; } = [];
+        public string[]? SubdivisionCodes { get; set; }
 
         /// <summary>
         /// A list of types the holiday it is valid
