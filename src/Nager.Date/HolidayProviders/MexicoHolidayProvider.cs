@@ -101,7 +101,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification InaugurationDay(int year)
+        private HolidaySpecification? InaugurationDay(int year)
         {
             // The president in Mexico is usually elected every 6 years
             // A reform was introduced in 2014 that changes the date from 2024

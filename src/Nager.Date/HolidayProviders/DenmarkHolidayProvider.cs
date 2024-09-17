@@ -93,7 +93,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification GeneralPrayerDay(int year)
+        private HolidaySpecification? GeneralPrayerDay(int year)
         {
             if (year < 2024)
             {

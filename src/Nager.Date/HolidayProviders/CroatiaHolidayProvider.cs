@@ -104,7 +104,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification GetIndependenceDay(int year)
+        private HolidaySpecification? GetIndependenceDay(int year)
         {
             if (year >= 2002 && year < 2020)
             {
@@ -120,7 +120,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification GetRemembranceDay(int year)
+        private HolidaySpecification? GetRemembranceDay(int year)
         {
             if (year >= 2020)
             {
@@ -136,7 +136,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification GetStatehoodDay(int year)
+        private HolidaySpecification? GetStatehoodDay(int year)
         {
             if (year >= 2002 && year < 2020)
             {
@@ -152,7 +152,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification GetNationalDay(int year)
+        private HolidaySpecification? GetNationalDay(int year)
         {
             if (year >= 2020)
             {

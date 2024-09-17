@@ -12,8 +12,13 @@ namespace Nager.Date.Helpers
         /// </summary>
         /// <param name="licenseKey"></param>
         /// <returns></returns>
-        public static LicenseInfo CheckLicenseKey(string licenseKey)
+        public static LicenseInfo? CheckLicenseKey(string? licenseKey)
         {
+            if (licenseKey == null)
+            {
+                return null;
+            }
+
             var licenseKeyConfiguration = new LicenseKeyConfiguration
             {
                 Part1 = "DCDCB65FD3009576BC11E23C883220F6292709DEB93174D0913D2E89DB3D5D88",

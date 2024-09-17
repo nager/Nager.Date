@@ -120,7 +120,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification NationalDayOfSweden(int year)
+        private HolidaySpecification? NationalDayOfSweden(int year)
         {
             if (year >= 2005)
             {

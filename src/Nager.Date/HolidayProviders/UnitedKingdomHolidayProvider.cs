@@ -199,7 +199,7 @@ namespace Nager.Date.HolidayProviders
 
         #region Royal family
 
-        private HolidaySpecification QueensPlatinumJubilee(int year)
+        private HolidaySpecification? QueensPlatinumJubilee(int year)
         {
             if (year == 2022)
             {
@@ -217,7 +217,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification QueensStateFuneral(int year)
+        private HolidaySpecification? QueensStateFuneral(int year)
         {
             if (year == 2022)
             {
@@ -235,7 +235,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification CoronationBankHoliday(int year)
+        private HolidaySpecification? CoronationBankHoliday(int year)
         {
             if (year == 2023)
             {

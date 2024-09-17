@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -69,13 +70,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = allSaintsDay.Value,
-                    EnglishName = "All Saints' Day",
-                    LocalName = "Pyhäinpäivä",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 12, 6),
                     EnglishName = "Independence Day",
                     LocalName = "Itsenäisyyspäivä",
@@ -108,6 +102,17 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.AscensionDay("Helatorstai", year),
                 this._catholicProvider.Pentecost("Helluntaipäivä", year)
             };
+
+            if (allSaintsDay.HasValue)
+            {
+                holidaySpecifications.AddIfNotNull(new HolidaySpecification
+                {
+                    Date = allSaintsDay.Value,
+                    EnglishName = "All Saints' Day",
+                    LocalName = "Pyhäinpäivä",
+                    HolidayTypes = HolidayTypes.Public
+                });
+            }
 
             return holidaySpecifications;
         }

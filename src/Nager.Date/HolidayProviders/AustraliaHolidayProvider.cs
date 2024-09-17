@@ -289,7 +289,7 @@ namespace Nager.Date.HolidayProviders
             ];
         }
 
-        private HolidaySpecification MourningForQueenElizabeth(int year)
+        private HolidaySpecification? MourningForQueenElizabeth(int year)
         {
             if (year == 2022)
             {

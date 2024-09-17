@@ -111,7 +111,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification Epiphany(int year)
+        private HolidaySpecification? Epiphany(int year)
         {
             if (year >= 2024)
             {
@@ -127,7 +127,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification SaintJohnTheBaptist(int year)
+        private HolidaySpecification? SaintJohnTheBaptist(int year)
         {
             if (year >= 2024)
             {

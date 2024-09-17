@@ -141,7 +141,7 @@ namespace Nager.Date.HolidayProviders
         /// <see href="https://en.wikipedia.org/wiki/The_Emperor%27s_Birthday#Emperor_birthday_list" />
         /// <param name="year"></param>
         /// <returns>Emperors Birthday object or null</returns>
-        private HolidaySpecification EmperorsBirthday(int year)
+        private HolidaySpecification? EmperorsBirthday(int year)
         {
             if (year < 1868)
             {
@@ -197,7 +197,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification SportsDay(int year)
+        private HolidaySpecification? SportsDay(int year)
         {
             if (year <= 1965)
             {
@@ -261,7 +261,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification VernalEquinox(int year)
+        private HolidaySpecification? VernalEquinox(int year)
         {
             if (year < 1850 || year > 2151)
             {
@@ -296,7 +296,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification AutumnalEquinox(int year)
+        private HolidaySpecification? AutumnalEquinox(int year)
         {
             if (year < 1850 || year > 2151)
             {

@@ -122,7 +122,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification SolidarityDay(int year)
+        private HolidaySpecification? SolidarityDay(int year)
         {
             if (year == 2023)
             {

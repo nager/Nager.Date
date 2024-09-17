@@ -102,7 +102,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification IndependenceDay(int year)
+        private HolidaySpecification? IndependenceDay(int year)
         {
             if (year == 2018)
             {

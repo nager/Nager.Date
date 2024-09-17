@@ -71,7 +71,7 @@ namespace Nager.Date.ReligiousProviders
         public HolidaySpecification HolySaturday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null)
+            ObservedRuleSet? observedRuleSet = null)
         {
             var easterSunday = this.EasterSunday(year);
 
@@ -89,7 +89,7 @@ namespace Nager.Date.ReligiousProviders
         public HolidaySpecification EasterSunday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null)
+            ObservedRuleSet? observedRuleSet = null)
         {
             var easterSunday = this.EasterSunday(year);
 
@@ -107,7 +107,7 @@ namespace Nager.Date.ReligiousProviders
         public HolidaySpecification EasterMonday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null)
+            ObservedRuleSet? observedRuleSet = null)
         {
             var easterSunday = this.EasterSunday(year);
 
@@ -125,7 +125,7 @@ namespace Nager.Date.ReligiousProviders
         public HolidaySpecification Pentecost(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null)
+            ObservedRuleSet? observedRuleSet = null)
         {
             var easterSunday = this.EasterSunday(year);
 
@@ -143,7 +143,7 @@ namespace Nager.Date.ReligiousProviders
         public HolidaySpecification WhitMonday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null)
+            ObservedRuleSet? observedRuleSet = null)
         {
             var easterSunday = this.EasterSunday(year);
 

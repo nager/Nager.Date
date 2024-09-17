@@ -37,7 +37,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification HolySaturday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Easter Sunday
@@ -49,7 +49,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification EasterSunday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Easter Monday
@@ -61,7 +61,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification EasterMonday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Pentecost
@@ -73,7 +73,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification Pentecost(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Whit Monday / Pentecost Monday
@@ -85,6 +85,6 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification WhitMonday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
     }
 }

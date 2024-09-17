@@ -278,7 +278,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification FuneralForQueenElizabeth(int year)
+        private HolidaySpecification? FuneralForQueenElizabeth(int year)
         {
             if (year == 2022)
             {

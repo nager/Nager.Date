@@ -208,7 +208,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification NationalPlebiscite(int year)
+        private HolidaySpecification? NationalPlebiscite(int year)
         {
             if (year != 2022)
             {
@@ -249,7 +249,7 @@ namespace Nager.Date.HolidayProviders
             }
         }
 
-        private HolidaySpecification NationalDayOfIndigenousPeoples(int year)
+        private HolidaySpecification? NationalDayOfIndigenousPeoples(int year)
         {
             var winterSolstice = this.GetWinterSolstice(year);
             if (winterSolstice is null)

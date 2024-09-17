@@ -10,37 +10,37 @@ namespace Nager.Date.Models
         /// <summary>
         /// Rule for observing a holiday when it falls on a Monday
         /// </summary>
-        public Func<DateTime, DateTime> Monday { get; set; }
+        public Func<DateTime, DateTime>? Monday { get; set; }
 
         /// <summary>
         /// Rule for observing a holiday when it falls on a Tuesday
         /// </summary>
-        public Func<DateTime, DateTime> Tuesday { get; set; }
+        public Func<DateTime, DateTime>? Tuesday { get; set; }
 
         /// <summary>
         /// Rule for observing a holiday when it falls on a Wednesday
         /// </summary>
-        public Func<DateTime, DateTime> Wednesday { get; set; }
+        public Func<DateTime, DateTime>? Wednesday { get; set; }
 
         /// <summary>
         /// Rule for observing a holiday when it falls on a Thursday
         /// </summary>
-        public Func<DateTime, DateTime> Thursday { get; set; }
+        public Func<DateTime, DateTime>? Thursday { get; set; }
 
         /// <summary>
         ///  Rule for observing a holiday when it falls on a Friday
         /// </summary>
-        public Func<DateTime, DateTime> Friday { get; set; }
+        public Func<DateTime, DateTime>? Friday { get; set; }
 
         /// <summary>
         /// Rule for observing a holiday when it falls on a Saturday
         /// </summary>
-        public Func<DateTime, DateTime> Saturday { get; set; }
+        public Func<DateTime, DateTime>? Saturday { get; set; }
 
         /// <summary>
         /// Rule for observing a holiday when it falls on a Sunday
         /// </summary>
-        public Func<DateTime, DateTime> Sunday { get; set; }
+        public Func<DateTime, DateTime>? Sunday { get; set; }
 
         /// <summary>
         /// Gets the observed date for a given date, according to the rules

@@ -20,12 +20,12 @@ namespace Nager.Date.Models
         /// <summary>
         /// The name of the holiday in English
         /// </summary>
-        public string EnglishName { get; set; }
+        public string EnglishName { get; set; } = string.Empty;
 
         /// <summary>
         /// The name of the holiday in the local language
         /// </summary>
-        public string LocalName { get; set; }
+        public string LocalName { get; set; } = string.Empty;
 
         /// <summary>
         /// Represents the country where the holiday is observed
@@ -42,7 +42,7 @@ namespace Nager.Date.Models
         /// The initial subdivision of the country (ISO 3166-2) where the holiday is observed
         /// </summary>
         /// <remarks>States, Province, Territories, Federal districts, Cantons</remarks>
-        public string[] SubdivisionCodes { get; set; }
+        public string[] SubdivisionCodes { get; set; } = [];
 
         /// <summary>
         /// The types of the holiday

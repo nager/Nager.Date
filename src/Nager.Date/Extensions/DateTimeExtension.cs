@@ -33,7 +33,7 @@ namespace Nager.Date.Extensions
             this DateTime value,
             Func<DateTime, DateTime> saturday,
             Func<DateTime, DateTime> sunday,
-            Func<DateTime, DateTime> monday = null)
+            Func<DateTime, DateTime>? monday = null)
         {
             switch (value.DayOfWeek)
             {

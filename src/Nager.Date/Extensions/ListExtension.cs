@@ -7,7 +7,7 @@ namespace Nager.Date.Extensions
     {
         internal static void AddIfNotNull(
             this List<HolidaySpecification> holidaySpecificationList,
-            HolidaySpecification holidaySpecification)
+            HolidaySpecification? holidaySpecification)
         {
             if (holidaySpecification is null)
             {

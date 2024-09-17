@@ -149,9 +149,9 @@ namespace Nager.Date
         /// <remarks>
         /// As a GitHub sponsor of <see href="https://github.com/nager">nager</see>, you will receive a <see href="https://github.com/sponsors/nager">license key</see>
         /// </remarks>
-        public static string LicenseKey = null;
+        public static string? LicenseKey = null;
 
-        private static void CheckLicense(string licenseKey)
+        private static void CheckLicense(string? licenseKey)
         {
             if (string.IsNullOrEmpty(licenseKey))
             {
@@ -216,7 +216,7 @@ namespace Nager.Date
                 CheckLicense(LicenseKey);
             }
 
-            if (!_licenseValid.Value)
+            if (_licenseValid is not null && !_licenseValid.Value)
             {
                 holidayProvider = NoHolidaysHolidayProvider.Instance;
                 return false;
@@ -342,7 +342,7 @@ namespace Nager.Date
         private static Func<Holiday, bool> GetHolidayFilter(
             DateTime date,
             HolidayTypes holidayTypes,
-            string subdivisionCodes = null)
+            string? subdivisionCodes = null)
         {
             return o => o.ObservedDate == date.Date
                         && (o.SubdivisionCodes is null || subdivisionCodes is not null && o.SubdivisionCodes.Contains(subdivisionCodes))

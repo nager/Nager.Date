@@ -75,7 +75,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification LiberationDay(int year)
+        private HolidaySpecification? LiberationDay(int year)
         {
             var liberationDay = new HolidaySpecification
             {

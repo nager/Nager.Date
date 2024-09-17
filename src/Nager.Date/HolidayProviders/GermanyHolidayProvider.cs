@@ -129,7 +129,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification WorldChildrensDay(int year)
+        private HolidaySpecification? WorldChildrensDay(int year)
         {
             if (year >= 2019)
             {
@@ -146,7 +146,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification InternationalWomensDay(int year)
+        private HolidaySpecification? InternationalWomensDay(int year)
         {
             var localName = "Internationaler Frauentag";
             var englishName = "International Women's Day";
@@ -213,7 +213,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification PrayerDay(int year)
+        private HolidaySpecification? PrayerDay(int year)
         {
             var dayOfPrayer = this._catholicProvider.AdventSunday(year).AddDays(-11);
             var localName = "Buß- und Bettag";
@@ -280,7 +280,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification LiberationDay(int year)
+        private HolidaySpecification? LiberationDay(int year)
         {
             if (year == 2020)
             {

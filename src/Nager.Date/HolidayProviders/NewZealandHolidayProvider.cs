@@ -14,7 +14,7 @@ namespace Nager.Date.HolidayProviders
     internal sealed class NewZealandHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
-        private IDictionary<int, DateTime> _matariki;
+        private readonly Dictionary<int, DateTime> _matariki;
 
         /// <summary>
         /// New Zealand HolidayProvider
@@ -24,7 +24,7 @@ namespace Nager.Date.HolidayProviders
             ICatholicProvider catholicProvider) : base(CountryCode.NZ)
         {
             this._catholicProvider = catholicProvider;
-            this.InitMatariki();
+            this._matariki = this.InitMatariki();
         }
 
         /// <inheritdoc/>
@@ -264,7 +264,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification Matariki(int year)
+        private HolidaySpecification? Matariki(int year)
         {
             if (this._matariki.TryGetValue(year, out var matariki))
             {
@@ -282,7 +282,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification WaitangiDay(int year)
         {
-            ObservedRuleSet observedRuleSet = null;
+            ObservedRuleSet? observedRuleSet = null;
 
             if (year >= 2016)
             {
@@ -305,7 +305,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification AnzacDay(int year)
         {
-            ObservedRuleSet observedRuleSet = null;
+            ObservedRuleSet? observedRuleSet = null;
 
             if (year >= 2015)
             {
@@ -345,7 +345,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification MemorialDayForQueenElizabeth(int year)
+        private HolidaySpecification? MemorialDayForQueenElizabeth(int year)
         {
             if (year == 2022)
             {
@@ -370,9 +370,9 @@ namespace Nager.Date.HolidayProviders
         /// The dates have been chosen to account for adjustments between the Maori lunar calendar and
         /// the Gregorian calendar, while ensuring the public holiday falls on a Friday.
         /// </summary>
-        private void InitMatariki()
+        private Dictionary<int, DateTime> InitMatariki()
         {
-            this._matariki = new DateTime[]
+            return new DateTime[]
             {
                 new DateTime(2022, 6, 24),
                 new DateTime(2023, 7, 14),

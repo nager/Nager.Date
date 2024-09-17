@@ -11,6 +11,8 @@
     <LangVersion>12.0</LangVersion>
     <IncludeSymbols>true</IncludeSymbols>
 
+    <Nullable>enable</Nullable>
+
     <PackageIcon>calendar.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>

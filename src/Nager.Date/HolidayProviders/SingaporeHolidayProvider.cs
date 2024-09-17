@@ -102,7 +102,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification HariRayaPuasa(int year)
+        private HolidaySpecification? HariRayaPuasa(int year)
         {
             DateTime? date = null;
 
@@ -166,7 +166,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification VesakDay(int year)
+        private HolidaySpecification? VesakDay(int year)
         {
             DateTime? date = null;
 
@@ -224,7 +224,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification HariRayaHaji(int year)
+        private HolidaySpecification? HariRayaHaji(int year)
         {
             DateTime? date = null;
 
@@ -282,7 +282,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification Deepavali(int year)
+        private HolidaySpecification? Deepavali(int year)
         {
             DateTime? date = null;
 
@@ -346,7 +346,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification PollingDay(int year)
+        private HolidaySpecification? PollingDay(int year)
         {
             if (year == 2023)
             {

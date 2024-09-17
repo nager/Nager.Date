@@ -101,7 +101,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification DemocracyAndNationalUnityDay(int year)
+        private HolidaySpecification? DemocracyAndNationalUnityDay(int year)
         {
             if (year >= 2017)
             {

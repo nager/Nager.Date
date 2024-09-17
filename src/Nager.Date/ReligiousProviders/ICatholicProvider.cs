@@ -32,7 +32,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification MaundyThursday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Good Friday
@@ -44,7 +44,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification GoodFriday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Easter Saturday
@@ -56,7 +56,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification EasterSaturday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Easter Sunday
@@ -68,7 +68,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification EasterSunday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Easter Monday
@@ -80,7 +80,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification EasterMonday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Ascension Day
@@ -92,7 +92,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification AscensionDay(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Pentecost
@@ -104,7 +104,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification Pentecost(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Whit Monday
@@ -116,7 +116,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification WhitMonday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Corpus Christi
@@ -128,6 +128,6 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification CorpusChristi(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
     }
 }

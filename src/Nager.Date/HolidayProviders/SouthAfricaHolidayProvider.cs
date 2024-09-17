@@ -136,7 +136,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification SpringboksVictory(int year)
+        private HolidaySpecification? SpringboksVictory(int year)
         {
             if (year == 2023)
             {
@@ -152,7 +152,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification ElectionDay(int year)
+        private HolidaySpecification? ElectionDay(int year)
         {
             if (year == 2024)
             {

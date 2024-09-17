@@ -210,7 +210,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification WhitMonday(int year)
+        private HolidaySpecification? WhitMonday(int year)
         {
             if (year == 2022)
             {
@@ -255,7 +255,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification StJosephsDay(int year)
+        private HolidaySpecification? StJosephsDay(int year)
         {
             if (year < 2000)
             {
@@ -328,7 +328,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification SantiagoApostol(int year)
+        private HolidaySpecification? SantiagoApostol(int year)
         {
             string[] subdivisionCodes;
 
@@ -504,7 +504,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification CastileAndLeonDay(int year)
+        private HolidaySpecification? CastileAndLeonDay(int year)
         {
             switch (year)
             {
@@ -590,7 +590,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification CarnivalTuesday(int year)
+        private HolidaySpecification? CarnivalTuesday(int year)
         {
             switch (year)
             {

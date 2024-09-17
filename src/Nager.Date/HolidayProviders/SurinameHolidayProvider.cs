@@ -143,7 +143,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification ChineseNewYear(int year)
+        private HolidaySpecification? ChineseNewYear(int year)
         {
             //LunisolarCalendar .net implementation only valid are between 1901 and 2100, inclusive.
             //https://github.com/dotnet/coreclr/blob/master/src/mscorlib/shared/System/Globalization/ChineseLunisolarCalendar.cs

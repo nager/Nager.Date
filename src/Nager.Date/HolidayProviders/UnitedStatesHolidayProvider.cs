@@ -184,7 +184,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification JuneteenthNationalIndependenceDay(
+        private HolidaySpecification? JuneteenthNationalIndependenceDay(
             int year,
             ObservedRuleSet observedRuleSet)
         {
@@ -203,7 +203,7 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification IndigenousPeoplesDay(int year)
+        private HolidaySpecification? IndigenousPeoplesDay(int year)
         {
             if (year < 1988)
             {

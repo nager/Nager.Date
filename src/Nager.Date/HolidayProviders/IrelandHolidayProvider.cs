@@ -99,7 +99,7 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-        private HolidaySpecification SaintBrigidsDay(int year)
+        private HolidaySpecification? SaintBrigidsDay(int year)
         {
             if (year < 2023)
             {

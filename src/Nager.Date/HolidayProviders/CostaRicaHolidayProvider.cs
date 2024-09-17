@@ -78,7 +78,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification GetJuanSantamariaDay(int year)
         {
-            ObservedRuleSet observedRuleSet = null;
+            ObservedRuleSet? observedRuleSet = null;
             if (year == 2020 || year == 2021 || year == 2022)
             {
                 observedRuleSet = this.Law9875RuleSet();
@@ -96,7 +96,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification GetLabourDay(int year)
         {
-            ObservedRuleSet observedRuleSet = null;
+            ObservedRuleSet? observedRuleSet = null;
             if (year == 2020 || year == 2021 || year == 2022)
             {
                 observedRuleSet = this.Law9875RuleSet();
@@ -114,7 +114,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification GetAnnexationDay(int year)
         {
-            ObservedRuleSet observedRuleSet = null;
+            ObservedRuleSet? observedRuleSet = null;
             if (year == 2020 || year == 2021 || year == 2022)
             {
                 observedRuleSet = this.Law9875RuleSet();
@@ -132,7 +132,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification GetMothersDay(int year)
         {
-            ObservedRuleSet observedRuleSet = null;
+            ObservedRuleSet? observedRuleSet = null;
             if (year == 2020 || year == 2021 || year == 2022)
             {
                 observedRuleSet = this.Law9875RuleSet();
@@ -150,7 +150,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification GetIndenpendenceDay(int year)
         {
-            ObservedRuleSet observedRuleSet = null;
+            ObservedRuleSet? observedRuleSet = null;
             if (year == 2020 || year == 2021 || year == 2022)
             {
                 observedRuleSet = this.Law9875RuleSet();
@@ -168,7 +168,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification GetArmyAbolitionDay(int year)
         {
-            ObservedRuleSet observedRuleSet = null;
+            ObservedRuleSet? observedRuleSet = null;
             if (year == 2020 || year == 2021 || year == 2022)
             {
                 observedRuleSet = this.Law9875RuleSet();
