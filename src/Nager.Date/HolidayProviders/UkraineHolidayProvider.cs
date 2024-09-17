@@ -51,13 +51,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 5, year < 2024 ? 9 : 8),
-                    EnglishName = "Victory day over Nazism in World War II",
-                    LocalName = "День перемоги над нацизмом у Другій світовій війні",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 6, 28),
                     EnglishName = "Constitution Day",
                     LocalName = "День Конституції",
@@ -78,9 +71,34 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.StatehoodDay(year));
             holidaySpecifications.AddIfNotNull(this.DefenderDay(year));
             holidaySpecifications.AddIfNotNull(this.GregorianChristmasDay(year));
+            holidaySpecifications.AddIfNotNull(this.VictoryDay(year));
 
             return holidaySpecifications;
-            
+        }
+
+        private HolidaySpecification VictoryDay(int year)
+        {
+            var englishName = "Victory day over Nazism in World War II";
+            var localName = "День перемоги над нацизмом у Другій світовій війні";
+
+            if (year < 2024)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 9),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 5, 8),
+                EnglishName = englishName,
+                LocalName = localName,
+                HolidayTypes = HolidayTypes.Public
+            };
         }
 
         private HolidaySpecification? JulianChristmasDay(int year)
@@ -161,7 +179,7 @@ namespace Nager.Date.HolidayProviders
         {
             if (year >= 2017)
             {
-                return new new HolidaySpecification
+                return new HolidaySpecification
                 {
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "(Gregorian and Revised Julian) Christmas",
