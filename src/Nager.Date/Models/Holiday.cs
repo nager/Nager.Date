@@ -42,7 +42,7 @@ namespace Nager.Date.Models
         /// The initial subdivision of the country (ISO 3166-2) where the holiday is observed
         /// </summary>
         /// <remarks>States, Province, Territories, Federal districts, Cantons</remarks>
-        public string[] SubdivisionCodes { get; set; } = [];
+        public string[]? SubdivisionCodes { get; set; }
 
         /// <summary>
         /// The types of the holiday

@@ -28,7 +28,7 @@ namespace Nager.Date
                     EnglishName = holidaySpecification.EnglishName,
                     LocalName = holidaySpecification.LocalName,
                     HolidayTypes = holidaySpecification.HolidayTypes,
-                    SubdivisionCodes = holidaySpecification.SubdivisionCodes ?? [],
+                    SubdivisionCodes = holidaySpecification.SubdivisionCodes,
                     ObservedDate = holidaySpecification.ObservedRuleSet?.GetObservedDate(holidayDate) ?? holidayDate,
                     CountryCode = countryCode
                 };
