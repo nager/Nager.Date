@@ -53,7 +53,7 @@ namespace Nager.Date.ReligiousProviders
         public HolidaySpecification GoodFriday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null)
+            ObservedRuleSet? observedRuleSet = null)
         {
             var easterSunday = this.EasterSunday(year);
 

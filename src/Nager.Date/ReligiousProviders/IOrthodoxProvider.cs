@@ -25,7 +25,7 @@ namespace Nager.Date.ReligiousProviders
         HolidaySpecification GoodFriday(
             string localName,
             int year,
-            ObservedRuleSet observedRuleSet = null);
+            ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
         /// Get Holy Saturday
