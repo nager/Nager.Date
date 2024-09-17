@@ -37,13 +37,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 1, 7),
-                    EnglishName = "(Julian) Christmas",
-                    LocalName = "Різдво",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "International Women's Day",
                     LocalName = "Міжнародний жіночий день",
@@ -54,13 +47,6 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "День праці",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 5, 9),
-                    EnglishName = "Victory day over Nazism in World War II",
-                    LocalName = "День перемоги над нацизмом у Другій світовій війні",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -77,33 +63,64 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "День Незалежності",
                     HolidayTypes = HolidayTypes.Public
                 },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 10, 14),
-                    EnglishName = "Defender of Ukraine Day",
-                    LocalName = "День захисника України",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 12, 25),
-                    EnglishName = "(Gregorian and Revised Julian) Christmas",
-                    LocalName = "Різдво",
-                    HolidayTypes = HolidayTypes.Public
-                },
                 this._orthodoxProvider.EasterSunday("Великдень", year),
                 this._orthodoxProvider.Pentecost("Трійця", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.JulianChristmasDay(year));
             holidaySpecifications.AddIfNotNull(this.StatehoodDay(year));
+            holidaySpecifications.AddIfNotNull(this.DefenderDay(year));
+            holidaySpecifications.AddIfNotNull(this.GregorianChristmasDay(year));
+            holidaySpecifications.AddIfNotNull(this.VictoryDay(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification VictoryDay(int year)
+        {
+            var englishName = "Victory day over Nazism in World War II";
+            var localName = "День перемоги над нацизмом у Другій світовій війні";
+
+            if (year < 2024)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 9),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 5, 8),
+                EnglishName = englishName,
+                LocalName = localName,
+                HolidayTypes = HolidayTypes.Public
+            };
+        }
+
+        private HolidaySpecification? JulianChristmasDay(int year)
+        {
+            if (year < 2024)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 1, 7),
+                    EnglishName = "(Julian) Christmas",
+                    LocalName = "Різдво",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            
+            return null;
         }
 
         private HolidaySpecification? StatehoodDay(int year)
         {
             var englishName = "Statehood Day";
-            var localName = "Statehood Day";
+            var localName = "День Української Державності";
 
             if (year == 2022 || year == 2023)
             {
@@ -126,6 +143,51 @@ namespace Nager.Date.HolidayProviders
                 };
             }
 
+            return null;
+        }
+
+        private HolidaySpecification? DefenderDay(int year)
+        {
+            var englishName = "Defender of Ukraine Day";
+            var localName = "День захисників і захисниць України";
+
+            if (year >= 2015 && year < 2023)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 10, 14),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            else if (year >= 2023)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 10, 1),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            
+            return null;
+        }
+
+        private HolidaySpecification? GregorianChristmasDay(int year)
+        {
+            if (year >= 2017)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 25),
+                    EnglishName = "(Gregorian and Revised Julian) Christmas",
+                    LocalName = "Різдво",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            
             return null;
         }
 
