@@ -1,7 +1,7 @@
 ---
 name: Missing public holiday
 description: Report a missing public holiday
-title: "**short summary**"
+title: "Missing public holiday"
 labels: ["bug"]
 body:
 
