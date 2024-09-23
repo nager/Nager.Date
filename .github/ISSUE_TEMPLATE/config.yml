@@ -1,4 +1,4 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
   - name: Country Coverage
     url: https://date.nager.at/Country/Coverage
