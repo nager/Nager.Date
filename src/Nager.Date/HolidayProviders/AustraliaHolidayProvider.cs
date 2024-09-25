@@ -266,7 +266,9 @@ namespace Nager.Date.HolidayProviders
             }
 
             var secondMondayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
+            var fourthMondayInSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
             var firstMondayInOctober = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
+            
 
             return
             [
@@ -280,6 +282,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Date = fourthMondayInSeptember,
+                    EnglishName = name,
+                    LocalName = name,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["AU-WA"]
+                },
+                new HolidaySpecification
+                {
                     Date = firstMondayInOctober,
                     EnglishName = name,
                     LocalName = name,
@@ -287,43 +297,6 @@ namespace Nager.Date.HolidayProviders
                     SubdivisionCodes = ["AU-QLD"]
                 }
             ];
-        }
-
-        private HolidaySpecification? MonarchBirthdayWesternAustralia(int year)
-        {
-            var name = "Queen's Birthday";
-            if (year >= 2023)
-            {
-                name = "King's Birthday";
-            }
-
-            var subdivisionCodes = new string[] { "AU-WA" };
-
-            var yearDates = new Dictionary<int, DateTime>
-            {
-                { 2016, new DateTime(2016, 09, 26) },
-                { 2017, new DateTime(2017, 09, 25) },
-                { 2018, new DateTime(2018, 09, 24) },
-                { 2019, new DateTime(2019, 09, 30) },
-                { 2020, new DateTime(2020, 09, 28) },
-                { 2021, new DateTime(2021, 09, 27) },
-                { 2022, new DateTime(2022, 09, 26) },
-                { 2023, new DateTime(2023, 09, 25) }
-            };
-
-            if (!yearDates.TryGetValue(year, out var date))
-            {
-                return null;
-            }
-
-            return new HolidaySpecification
-            {
-                Date = date,
-                EnglishName = name,
-                LocalName = name,
-                HolidayTypes = HolidayTypes.Public,
-                SubdivisionCodes = subdivisionCodes
-            };
         }
 
         private HolidaySpecification? MourningForQueenElizabeth(int year)
