@@ -267,7 +267,9 @@ namespace Nager.Date.HolidayProviders
             }
 
             var secondMondayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
+            var fourthMondayInSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
             var firstMondayInOctober = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
+            
 
             return
             [
@@ -278,6 +280,14 @@ namespace Nager.Date.HolidayProviders
                     LocalName = name,
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["AU-ACT", "AU-NSW", "AU-NT", "AU-SA", "AU-TAS", "AU-VIC"]
+                },
+                new HolidaySpecification
+                {
+                    Date = fourthMondayInSeptember,
+                    EnglishName = name,
+                    LocalName = name,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["AU-WA"]
                 },
                 new HolidaySpecification
                 {
