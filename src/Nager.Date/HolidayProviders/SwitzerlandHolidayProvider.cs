@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -71,14 +72,6 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "Neujahr",
                     HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 1, 2),
-                    EnglishName = "St. Berchtold's Day",
-                    LocalName = "Berchtoldstag",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-ZH", "CH-BE", "CH-LU", "CH-OW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-SH", "CH-TG", "CH-VD", "CH-NE", "CH-GE", "CH-JU"]
                 },
                 new HolidaySpecification
                 {
@@ -197,7 +190,29 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-AI", "CH-TI", "CH-VS", "CH-JU")
             };
 
+            holidaySpecifications.AddIfNotNull(this.BerchtoldsDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification BerchtoldsDay(int year)
+        {
+            var subdivisionCodes = new List<string>(["CH-BE", "CH-FR", "CH-SH", "CH-AG", "CH-TG", "CH-VD"]);
+
+            if (new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday ||
+                new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday)
+            {
+                subdivisionCodes.Add("CH-NE");
+            }
+
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 1, 2),
+                EnglishName = "St. Berchtold's Day",
+                LocalName = "Berchtoldstag",
+                HolidayTypes = HolidayTypes.Public,
+                SubdivisionCodes = [.. subdivisionCodes]
+            };
         }
 
         /// <inheritdoc/>
