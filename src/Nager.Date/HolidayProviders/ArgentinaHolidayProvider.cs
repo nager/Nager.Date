@@ -33,9 +33,7 @@ namespace Nager.Date.HolidayProviders
                 Tuesday = date => date.AddDays(-1),
                 Wednesday = date => date.AddDays(-2),
                 Thursday = date => date.AddDays(4),
-                Friday = date => date.AddDays(3),
-                Saturday = date => date.AddDays(2),
-                Sunday = date => date.AddDays(1),
+                Friday = date => date.AddDays(3)
             };
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -162,7 +160,10 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Argentina"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Argentina",
+                "https://www.argentina.gob.ar/normativa/nacional/ley-27399-281835/texto",
+                "https://www.argentina.gob.ar/normativa/nacional/decreto-52-2017-271094/texto",
+                "https://www.argentina.gob.ar/normativa/nacional/decreto-1584-2010-174389/actualizacion"
             ];
         }
     }
