@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -160,14 +161,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 12, 26),
-                    EnglishName = "St. Stephen's Day",
-                    LocalName = "Stephanstag",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-AG", "CH-AI", "CH-AR", "CH-BL", "CH-BS", "CH-BE", "CH-FR", "CH-GL", "CH-GR", "CH-LU", "CH-NW", "CH-OW", "CH-SG", "CH-SH", "CH-SZ", "CH-SO", "CH-TG", "CH-TI", "CH-UR", "CH-ZG", "CH-ZH"]
-                },
-                new HolidaySpecification
-                {
                     Date = firstSundayOfSeptember.AddDays(4),
                     EnglishName = "Geneva Prayday",
                     LocalName = "Jeûne genevois",
@@ -197,7 +190,42 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-AI", "CH-TI", "CH-VS", "CH-JU")
             };
 
+            holidaySpecifications.AddRangeIfNotNull(this.StephensDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification[] StephensDay(int year)
+        {
+            var englishName = "St. Stephen's Day";
+            var localName = "Stephanstag";
+
+            //TODO: CH-AR logik
+            //Appenzell AR: “The second day of Christmas is not celebrated if the first day of Christmas falls on a Monday or Friday.” -> 26.12. is not a public holiday if it is a Tuesday or Saturday -- as in Appenzell IR
+            //TODO: CH-AI logik
+            //Appenzell IR: Appenzell IR: “St. Stephen's Day, unless its celebration results in three consecutive days of rest” -> 26.12. is not a public holiday if it is a Tuesday or Saturday -- as in Appenzell AR
+            //TODO: CH-NE logik
+            //Neuchâtel: public holiday if 1.1. or 25.12. is a Sunday
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 26),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-ZH", "CH-BE", "CH-LU", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-NE" ]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 26),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-UR", "CH-SZ", "CH-OW" ]
+                }
+            ];
         }
 
         /// <inheritdoc/>
