@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -98,14 +99,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 3, 19),
-                    EnglishName = "Saint Joseph's Day",
-                    LocalName = "Josefstag",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-NW", "CH-ZG", "CH-GR", "CH-TI", "CH-VS"]
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Tag der Arbeit",
@@ -197,7 +190,35 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-AI", "CH-TI", "CH-VS", "CH-JU")
             };
 
+            holidaySpecifications.AddRangeIfNotNull(this.SaintJosephsDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification[] SaintJosephsDay(int year)
+        {
+            var englishName = "Saint Joseph's Day";
+            var localName = "Josefstag";
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 3, 19),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-SZ", "CH-VS"]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 3, 19),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-NW", "CH-TI"]
+                }
+            ];
         }
 
         /// <inheritdoc/>
