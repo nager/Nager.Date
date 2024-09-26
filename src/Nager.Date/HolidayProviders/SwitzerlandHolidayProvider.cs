@@ -179,8 +179,8 @@ namespace Nager.Date.HolidayProviders
                     Date = thirdSundayOfSeptember,
                     EnglishName = "Federal Day of Thanksgiving",
                     LocalName = "Eidgenössischer Dank-, Buss- und Bettag",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-VD", "CH-VS", "CH-NE", "CH-JU"]
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-ZH", "CH-BE", "CH-LU", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-SG", "CH-GR"]
                 },
                 new HolidaySpecification
                 {
