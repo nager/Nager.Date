@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -194,10 +195,25 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Ostermontag", year).SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-VD", "CH-NE", "CH-GE", "CH-JU"),
                 this._catholicProvider.AscensionDay("Auffahrt", year),
                 this._catholicProvider.WhitMonday("Pfingstmontag", year).SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-TG", "CH-TI", "CH-VD", "CH-NE", "CH-GE", "CH-JU"),
-                this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-AI", "CH-TI", "CH-VS", "CH-JU")
             };
 
+            holidaySpecifications.AddRangeIfNotNull(this.CorpusChristi(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification[] CorpusChristi(int year)
+        {
+            var localName = "Fronleichnam";
+
+            var specificationPublic = this._catholicProvider.CorpusChristi(localName, year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-AG", "CH-VS", "CH-JU");
+            var specificationObservance = this._catholicProvider.CorpusChristi(localName, year).SetSubdivisionCodes("CH-TI").SetHolidayTypes(HolidayTypes.Observance);
+
+            return
+            [
+                specificationPublic,
+                specificationObservance
+            ];
         }
 
         /// <inheritdoc/>
