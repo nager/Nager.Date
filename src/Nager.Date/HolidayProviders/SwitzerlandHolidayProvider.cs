@@ -177,7 +177,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 this._catholicProvider.GoodFriday("Karfreitag", year).SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-VD", "CH-NE", "CH-GE", "CH-JU"),
                 this._catholicProvider.AscensionDay("Auffahrt", year),
-                this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-AI", "CH-TI", "CH-VS", "CH-JU")
             };
 
             holidaySpecifications.AddRangeIfNotNull(this.WhitMonday(year));
@@ -185,6 +184,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddRangeIfNotNull(this.Epiphany(year));
             holidaySpecifications.AddIfNotNull(this.BerchtoldsDay(year));
             holidaySpecifications.AddRangeIfNotNull(this.SaintJosephsDay(year));
+            holidaySpecifications.AddRangeIfNotNull(this.CorpusChristi(year));
 
             return holidaySpecifications;
         }
@@ -281,6 +281,20 @@ namespace Nager.Date.HolidayProviders
 
             var specificationPublic = this._catholicProvider.WhitMonday(localName, year).SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-VD", "CH-GE", "CH-JU");
             var specificationObservance = this._catholicProvider.WhitMonday(localName, year).SetSubdivisionCodes("CH-UR", "CH-SZ", "CH-OW", "CH-TI").SetHolidayTypes(HolidayTypes.Observance);
+
+            return
+            [
+                specificationPublic,
+                specificationObservance
+            ];
+        }
+
+        private HolidaySpecification[] CorpusChristi(int year)
+        {
+            var localName = "Fronleichnam";
+
+            var specificationPublic = this._catholicProvider.CorpusChristi(localName, year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-AG", "CH-VS", "CH-JU");
+            var specificationObservance = this._catholicProvider.CorpusChristi(localName, year).SetSubdivisionCodes("CH-TI").SetHolidayTypes(HolidayTypes.Observance);
 
             return
             [
