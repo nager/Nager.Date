@@ -75,14 +75,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 1, 2),
-                    EnglishName = "St. Berchtold's Day",
-                    LocalName = "Berchtoldstag",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-ZH", "CH-BE", "CH-LU", "CH-OW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-SH", "CH-TG", "CH-VD", "CH-NE", "CH-GE", "CH-JU"]
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Heilige Drei Könige",
@@ -172,8 +164,8 @@ namespace Nager.Date.HolidayProviders
                     Date = thirdSundayOfSeptember,
                     EnglishName = "Federal Day of Thanksgiving",
                     LocalName = "Eidgenössischer Dank-, Buss- und Bettag",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-VD", "CH-VS", "CH-NE", "CH-JU"]
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-ZH", "CH-BE", "CH-LU", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-SG", "CH-GR"]
                 },
                 new HolidaySpecification
                 {
@@ -191,6 +183,8 @@ namespace Nager.Date.HolidayProviders
             };
 
             holidaySpecifications.AddRangeIfNotNull(this.SaintJosephsDay(year));
+            holidaySpecifications.AddRangeIfNotNull(this.Epiphany(year));
+            holidaySpecifications.AddIfNotNull(this.BerchtoldsDay(year));
 
             return holidaySpecifications;
         }
@@ -219,6 +213,52 @@ namespace Nager.Date.HolidayProviders
                     SubdivisionCodes = ["CH-LU", "CH-UR", "CH-NW", "CH-TI"]
                 }
             ];
+        }
+
+        private HolidaySpecification[] Epiphany(int year)
+        {
+            var englishName = "Epiphany";
+            var localName = "Heilige Drei Könige";
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 1, 6),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-TI"]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 1, 6),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-UR", "CH-SZ"]
+                }
+            ];
+        }
+
+        private HolidaySpecification BerchtoldsDay(int year)
+        {
+            var subdivisionCodes = new List<string>(["CH-BE", "CH-FR", "CH-SH", "CH-AG", "CH-TG", "CH-VD"]);
+
+            if (new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday ||
+                new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday)
+            {
+                subdivisionCodes.Add("CH-NE");
+            }
+
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 1, 2),
+                EnglishName = "St. Berchtold's Day",
+                LocalName = "Berchtoldstag",
+                HolidayTypes = HolidayTypes.Public,
+                SubdivisionCodes = [.. subdivisionCodes]
+            };
         }
 
         /// <inheritdoc/>
