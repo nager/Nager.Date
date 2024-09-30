@@ -28,8 +28,13 @@ namespace Nager.Date.HolidayProviders
         {
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var thirdMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.Third);
-            var secondMondayInOctober = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
+            var mondayObservedRuleSet = new ObservedRuleSet
+            {
+                Tuesday = date => date.AddDays(-1),
+                Wednesday = date => date.AddDays(-2),
+                Thursday = date => date.AddDays(4),
+                Friday = date => date.AddDays(3)
+            };
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -45,14 +50,16 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -87,7 +94,8 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 17),
                     EnglishName = "Anniversary of the Passing of General Martín Miguel de Güemes",
                     LocalName = "Paso a la Inmortalidad del General Martín Miguel de Güemes",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -105,24 +113,27 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = thirdMondayInAugust,
+                    Date = new DateTime(year, 8, 17),
                     EnglishName = "General José de San Martín Memorial Day",
                     LocalName = "Paso a la Inmortalidad del General José de San Martín",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
-                    Date = secondMondayInOctober,
+                    Date = new DateTime(year, 10, 12),
                     EnglishName = "Day of Respect for Cultural Diversity",
                     LocalName = "Día del Respeto a la Diversidad Cultural",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 11, 20),
                     EnglishName = "National Sovereignty Day",
                     LocalName = "Día de la Soberanía Nacional",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -138,7 +149,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Navidad",
                     HolidayTypes = HolidayTypes.Public
                 },
-                this._catholicProvider.GoodFriday("Viernes Santo", year)
+                this._catholicProvider.GoodFriday("Viernes Santo", year, mondayObservedRuleSet)
             };
 
             return holidaySpecifications;
@@ -149,7 +160,10 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Argentina"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Argentina",
+                "https://www.argentina.gob.ar/normativa/nacional/ley-27399-281835/texto",
+                "https://www.argentina.gob.ar/normativa/nacional/decreto-52-2017-271094/texto",
+                "https://www.argentina.gob.ar/normativa/nacional/decreto-1584-2010-174389/actualizacion"
             ];
         }
     }
