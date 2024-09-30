@@ -182,37 +182,11 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-AI", "CH-TI", "CH-VS", "CH-JU")
             };
 
-            holidaySpecifications.AddRangeIfNotNull(this.SaintJosephsDay(year));
             holidaySpecifications.AddRangeIfNotNull(this.Epiphany(year));
             holidaySpecifications.AddIfNotNull(this.BerchtoldsDay(year));
+            holidaySpecifications.AddRangeIfNotNull(this.SaintJosephsDay(year));
 
             return holidaySpecifications;
-        }
-
-        private HolidaySpecification[] SaintJosephsDay(int year)
-        {
-            var englishName = "Saint Joseph's Day";
-            var localName = "Josefstag";
-
-            return
-            [
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 3, 19),
-                    EnglishName = englishName,
-                    LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-SZ", "CH-VS"]
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 3, 19),
-                    EnglishName = englishName,
-                    LocalName = localName,
-                    HolidayTypes = HolidayTypes.Observance,
-                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-NW", "CH-TI"]
-                }
-            ];
         }
 
         private HolidaySpecification[] Epiphany(int year)
@@ -259,6 +233,32 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = [.. subdivisionCodes]
             };
+        }
+
+        private HolidaySpecification[] SaintJosephsDay(int year)
+        {
+            var englishName = "Saint Joseph's Day";
+            var localName = "Josefstag";
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 3, 19),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-SZ", "CH-VS"]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 3, 19),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-NW", "CH-TI"]
+                }
+            ];
         }
 
         /// <inheritdoc/>
