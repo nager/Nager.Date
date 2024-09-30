@@ -190,9 +190,36 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-AI", "CH-TI", "CH-VS", "CH-JU")
             };
 
+            holidaySpecifications.AddRangeIfNotNull(this.Epiphany(year));
             holidaySpecifications.AddIfNotNull(this.BerchtoldsDay(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification[] Epiphany(int year)
+        {
+            var englishName = "Epiphany";
+            var localName = "Heilige Drei Könige";
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 1, 6),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-TI"]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 1, 6),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-UR", "CH-SZ"]
+                }
+            ];
         }
 
         private HolidaySpecification BerchtoldsDay(int year)
