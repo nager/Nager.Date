@@ -4,7 +4,6 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
