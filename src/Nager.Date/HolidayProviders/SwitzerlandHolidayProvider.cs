@@ -130,14 +130,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 12, 8),
-                    EnglishName = "Immaculate Conception",
-                    LocalName = "Mariä Empfängnis",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-GR", "CH-AG", "CH-TI", "CH-VS"]
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Weihnachten",
@@ -179,6 +171,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.AscensionDay("Auffahrt", year),
             };
 
+            holidaySpecifications.AddRangeIfNotNull(this.ImmaculateConception(year));
             holidaySpecifications.AddRangeIfNotNull(this.WhitMonday(year));
             holidaySpecifications.AddRangeIfNotNull(this.EasterMonday(year));
             holidaySpecifications.AddRangeIfNotNull(this.Epiphany(year));
@@ -300,6 +293,32 @@ namespace Nager.Date.HolidayProviders
             [
                 specificationPublic,
                 specificationObservance
+            ];
+        }
+
+        private HolidaySpecification[] ImmaculateConception(int year)
+        {
+            var englishName = "Immaculate Conception";
+            var localName = "Mariä Empfängnis";
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 8),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AG", "CH-TI", "CH-VS"]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 8),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-AI", "CH-JU"]
+                }
             ];
         }
 
