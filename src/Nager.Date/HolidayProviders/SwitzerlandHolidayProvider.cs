@@ -75,19 +75,19 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 1, 6),
-                    EnglishName = "Epiphany",
-                    LocalName = "Heilige Drei Könige",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-UR", "CH-SZ", "CH-GR", "CH-TI"]
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 3, 1),
                     EnglishName = "Republic Day",
                     LocalName = "Jahrestag der Ausrufung der Republik",
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["CH-NE"]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 4, 4),
+                    EnglishName = "Näfels procession",
+                    LocalName = "Näfelser Fahrt",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-GL"]
                 },
                 new HolidaySpecification
                 {
