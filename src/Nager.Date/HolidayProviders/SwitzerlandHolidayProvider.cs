@@ -129,14 +129,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 12, 26),
-                    EnglishName = "St. Stephen's Day",
-                    LocalName = "Stephanstag",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-AG", "CH-AI", "CH-AR", "CH-BL", "CH-BS", "CH-BE", "CH-FR", "CH-GL", "CH-GR", "CH-LU", "CH-NW", "CH-OW", "CH-SG", "CH-SH", "CH-SZ", "CH-SO", "CH-TG", "CH-TI", "CH-UR", "CH-ZG", "CH-ZH"]
-                },
-                new HolidaySpecification
-                {
                     Date = firstSundayOfSeptember.AddDays(4),
                     EnglishName = "Geneva Prayday",
                     LocalName = "Jeûne genevois",
@@ -163,6 +155,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.AscensionDay("Auffahrt", year),
             };
 
+            holidaySpecifications.AddRangeIfNotNull(this.StephensDay(year));
             holidaySpecifications.AddRangeIfNotNull(this.LabourDay(year));
             holidaySpecifications.AddRangeIfNotNull(this.ImmaculateConception(year));
             holidaySpecifications.AddRangeIfNotNull(this.WhitMonday(year));
@@ -205,8 +198,8 @@ namespace Nager.Date.HolidayProviders
         {
             var subdivisionCodes = new List<string>(["CH-BE", "CH-FR", "CH-SH", "CH-AG", "CH-TG", "CH-VD"]);
 
-            if (new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday ||
-                new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday)
+            if (new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday ||
+                new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday)
             {
                 subdivisionCodes.Add("CH-NE");
             }
@@ -337,6 +330,46 @@ namespace Nager.Date.HolidayProviders
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Observance,
                     SubdivisionCodes = ["CH-TG", "CH-TI"]
+                }
+            ];
+        }
+
+        private HolidaySpecification[] StephensDay(int year)
+        {
+            var englishName = "St. Stephen's Day";
+            var localName = "Stephanstag";
+
+            var subdivisionCodes = new List<string>(["CH-ZH", "CH-BE", "CH-LU", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI"]);
+
+            if (new DateTime(year, 12, 26).DayOfWeek != DayOfWeek.Tuesday &&
+                new DateTime(year, 12, 26).DayOfWeek != DayOfWeek.Saturday)
+            {
+                subdivisionCodes.AddRange(["CH-AR", "CH-AI"]);
+            }
+
+            if (new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday ||
+                new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday)
+            {
+                subdivisionCodes.Add("CH-NE");
+            }
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 26),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = [.. subdivisionCodes]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 26),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-UR", "CH-SZ", "CH-OW" ]
                 }
             ];
         }

@@ -30,7 +30,7 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        public void CheckCounties()
+        public void CheckSubdivisonCodes()
         {
             var failures = new List<string>();
 
@@ -52,6 +52,12 @@ namespace Nager.Date.UnitTest.Common
                         if (publicHoliday.SubdivisionCodes == null)
                         {
                             continue;
+                        }
+
+                        var groupedSubdivisonCodes = publicHoliday.SubdivisionCodes.GroupBy(subdivisionCode => subdivisionCode).Select(subdivisionCodes => new { subdivisionCodes.Key, Count = subdivisionCodes.Count() });
+                        if (groupedSubdivisonCodes.Where(o => o.Count > 1).Any())
+                        {
+                            failures.Add($"{countryCode} - Duplicate SubdivisonCode by {publicHoliday}");
                         }
 
                         if (publicHoliday.SubdivisionCodes.Count(o => subdivisionCodes.Keys.Contains(o)) != publicHoliday.SubdivisionCodes.Length)
