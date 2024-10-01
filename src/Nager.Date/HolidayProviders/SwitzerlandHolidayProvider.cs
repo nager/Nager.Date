@@ -198,8 +198,8 @@ namespace Nager.Date.HolidayProviders
         {
             var subdivisionCodes = new List<string>(["CH-BE", "CH-FR", "CH-SH", "CH-AG", "CH-TG", "CH-VD"]);
 
-            if (new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday ||
-                new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday)
+            if (new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday ||
+                new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday)
             {
                 subdivisionCodes.Add("CH-NE");
             }
@@ -339,12 +339,19 @@ namespace Nager.Date.HolidayProviders
             var englishName = "St. Stephen's Day";
             var localName = "Stephanstag";
 
-            //TODO: CH-AR logik
-            //Appenzell AR: “The second day of Christmas is not celebrated if the first day of Christmas falls on a Monday or Friday.” -> 26.12. is not a public holiday if it is a Tuesday or Saturday -- as in Appenzell IR
-            //TODO: CH-AI logik
-            //Appenzell IR: Appenzell IR: “St. Stephen's Day, unless its celebration results in three consecutive days of rest” -> 26.12. is not a public holiday if it is a Tuesday or Saturday -- as in Appenzell AR
-            //TODO: CH-NE logik
-            //Neuchâtel: public holiday if 1.1. or 25.12. is a Sunday
+            var subdivisionCodes = new List<string>(["CH-ZH", "CH-BE", "CH-LU", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI"]);
+
+            if (new DateTime(year, 12, 26).DayOfWeek != DayOfWeek.Tuesday &&
+                new DateTime(year, 12, 26).DayOfWeek != DayOfWeek.Saturday)
+            {
+                subdivisionCodes.AddRange(["CH-AR", "CH-AI"]);
+            }
+
+            if (new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday ||
+                new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday)
+            {
+                subdivisionCodes.Add("CH-NE");
+            }
 
             return
             [
@@ -354,7 +361,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-ZH", "CH-BE", "CH-LU", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-NE" ]
+                    SubdivisionCodes = [.. subdivisionCodes]
                 },
                 new HolidaySpecification
                 {
