@@ -49,35 +49,28 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Día de Reyes",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 1, 14),
                     EnglishName = "Feast of the Divina Pastora",
                     LocalName = "Día de la Divina Pastora",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 1, 15),
                     EnglishName = "Teacher's Day",
                     LocalName = "Día del Maestro",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 2, 12),
                     EnglishName = "Youth Day",
                     LocalName = "Día de la Juventud",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 2, 20),
-                    EnglishName = "Federation Day",
-                    LocalName = "Dia de la Federacion",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
@@ -98,35 +91,35 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "International Women's Day",
                     LocalName = "Dia Internacional de la Mujer",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 3, 19),
                     EnglishName = "St Joseph's Day",
                     LocalName = "Día de San José",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 3, 21),
                     EnglishName = "Slavery Abolition Anniversary",
                     LocalName = "Día del abolición de la esclavitud",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 3, 31),
                     EnglishName = "Foundation anniversary Day of San Cristóbal, Táchira",
                     LocalName = "Aniversario del fundacion del San Cristóbal",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 4, 19),
                     EnglishName = "Beginning of the Independence Movement",
                     LocalName = "Diez y nueve de abril",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
@@ -140,35 +133,35 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 3),
                     EnglishName = "Fiesta de las Cruces",
                     LocalName = "Día del Cruz del Mayo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = secondSundayInMay,
                     EnglishName = "Mother's Day",
                     LocalName = "Día de las Madres",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = thirdSundayInJune,
                     EnglishName = "Father's Day",
                     LocalName = "Día de los Padres",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 6, 24),
-                    EnglishName = "Army Day",
+                    EnglishName = "Feast of Saint John the Baptist and the Anniversary of the Battle of Carabobo",
                     LocalName = "Día de San Juan Bautista y aniversario de la Batalla de Carabobo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 6, 27),
                     EnglishName = "Journalists' Day",
                     LocalName = "Día del Periodista y aniversario de la instauración del Decreto de Instrucción pública gratuita y obligatoria",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
@@ -182,42 +175,42 @@ namespace Nager.Date.HolidayProviders
                     Date = thirdSundayInJuly,
                     EnglishName = "Children's Day",
                     LocalName = "Dia del niño",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 7, 24),
-                    EnglishName = "Navy Day",
+                    EnglishName = "Birth of the Liberator",
                     LocalName = "Natalicio del Libertador, Dia de la Armada Nacional",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 7, 25),
                     EnglishName = "Caracas City Foundation Day",
                     LocalName = "Aniversario del fundacion del Caracas",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 8, 3),
                     EnglishName = "Flag Day",
                     LocalName = "Día de la Bandera",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 9, 8),
-                    EnglishName = "Birth of the Blessed Virgin Mary and feasts of the Virgen del Valle and Our Lady of Coromoto",
-                    LocalName = "Día del Virgen del Valle, aparicion del Virgen del Coromoto",
-                    HolidayTypes = HolidayTypes.Public
+                    EnglishName = "Birth of the Blessed Virgin Mary",
+                    LocalName = "Día del Virgen del Valle",
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 9, 24),
                     EnglishName = "Feast of the Our Lady of Mercy",
                     LocalName = "Día del Virgen de las Mercedes",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
@@ -231,56 +224,21 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "Día de Todos los Santos",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 11, 2),
                     EnglishName = "All Souls' Day",
                     LocalName = "Día de los fieles difuntos",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 11, 17),
-                    EnglishName = "Feria of La Chinita",
-                    LocalName = "Feria de la Chinita",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 11, 18),
-                    EnglishName = "Feria of La Chinita",
-                    LocalName = "Feria de la Chinita",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 11, 19),
-                    EnglishName = "Feria of La Chinita",
-                    LocalName = "Feria de la Chinita",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 11, 21),
-                    EnglishName = "University Students Day",
-                    LocalName = "Día del estudiante universitario",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 12, 8),
-                    EnglishName = "Immaculate Conception, Loyalty Day",
-                    LocalName = "Inmaculada Concepción, Dia de la Lealtad",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 12, 17),
-                    EnglishName = "Simon Bolivar Memorial Day",
-                    LocalName = "Aniversario de la muerte de Libertador Simon Bolivar",
-                    HolidayTypes = HolidayTypes.Public
+                    EnglishName = "Immaculate Conception Day",
+                    LocalName = "La Inmaculada Concepción",
+                    HolidayTypes = HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
@@ -302,7 +260,9 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Eve",
                     LocalName = "Nochevieja",
                     HolidayTypes = HolidayTypes.Public
-                }
+                },
+                this._catholicProvider.AscensionDay("Día de la Ascención", year).SetHolidayTypes(HolidayTypes.Bank),
+                this._catholicProvider.CorpusChristi("Corpus Christi", year).SetHolidayTypes(HolidayTypes.Bank)
             };
 
             return holidaySpecifications;
