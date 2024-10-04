@@ -34,7 +34,7 @@ namespace Nager.Date.Models
         Optional = 16,
 
         /// <summary>
-        /// An optional celebration observed by some people but doesn't entail a paid day off
+        /// An optional celebration that is celebrated by some people but does not involve a paid day off
         /// </summary>
         Observance = 32,
     }
