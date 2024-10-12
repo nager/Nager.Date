@@ -118,8 +118,8 @@ namespace Nager.Date.HolidayProviders
                 {
                     Date = new DateTime(year, 4, 19),
                     EnglishName = "Beginning of the Independence Movement",
-                    LocalName = "Diez y nueve de abril",
-                    HolidayTypes = HolidayTypes.Observance
+                    LocalName = "Proclamación de la Independencia",
+                    HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
@@ -152,9 +152,9 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 6, 24),
-                    EnglishName = "Feast of Saint John the Baptist and the Anniversary of the Battle of Carabobo",
-                    LocalName = "Día de San Juan Bautista y aniversario de la Batalla de Carabobo",
-                    HolidayTypes = HolidayTypes.Observance
+                    EnglishName = "Anniversary of the Battle of Carabobo",
+                    LocalName = "Aniversario de la Batalla de Carabobo",
+                    HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
@@ -180,9 +180,9 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 7, 24),
-                    EnglishName = "Birth of the Liberator",
-                    LocalName = "Natalicio del Libertador, Dia de la Armada Nacional",
-                    HolidayTypes = HolidayTypes.Observance
+                    EnglishName = "Simón Bolívar's Birthday",
+                    LocalName = "Natalicio del Libertador Simón Bolívar",
+                    HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
