@@ -68,6 +68,7 @@ namespace Nager.Date
                 { CountryCode.GL, new Lazy<IHolidayProvider>(() => new GreenlandHolidayProvider(_catholicProvider))},
                 { CountryCode.GM, new Lazy<IHolidayProvider>(() => new GambiaHolidayProvider(_catholicProvider))},
                 { CountryCode.GR, new Lazy<IHolidayProvider>(() => new GreeceHolidayProvider(_orthodoxProvider))},
+                { CountryCode.GS, new Lazy<IHolidayProvider>(() => new SouthGeorgiaHolidayProvider())},
                 { CountryCode.GT, new Lazy<IHolidayProvider>(() => new GuatemalaHolidayProvider(_catholicProvider))},
                 { CountryCode.GG, new Lazy<IHolidayProvider>(() => new GuernseyHolidayProvider(_catholicProvider))},
                 { CountryCode.GY, new Lazy<IHolidayProvider>(() => new GuyanaHolidayProvider(_catholicProvider))},
