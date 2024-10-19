@@ -68,24 +68,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["GB-NIR"]
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 1, 1),
-                    EnglishName = "New Year's Day",
-                    LocalName = "New Year's Day",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["GB-ENG", "GB-WLS"],
-                    ObservedRuleSet = mondayObservedRuleSet
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 1, 1),
-                    EnglishName = "New Year's Day",
-                    LocalName = "New Year's Day",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["GB-SCT"],
+                    SubdivisionCodes = ["GB-ENG", "GB-NIR", "GB-SCT", "GB-WLS"],
                     ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
