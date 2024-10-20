@@ -228,7 +228,7 @@ namespace Nager.Date
                 case LicenseCheckStatus.Invalid:
                     throw new LicenseKeyException("Invalid LicenseKey");
                 case LicenseCheckStatus.Expired:
-                    throw new LicenseKeyException("Expried LicenseKey");
+                    throw new LicenseKeyException("Expired LicenseKey");
                 default:
                     throw new LicenseKeyException("Unknown LicenseKey Check Status");
             }
