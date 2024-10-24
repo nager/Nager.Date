@@ -247,6 +247,18 @@ What variants of holidays are supported by `Nager.Date`
 | Optional    | Majority of people take a day off           |
 | Observance  | Optional festivity, no paid day off         |
 
+## Release and Support Lifecycle
+
+Here you can see how long the product will be supported and when the End of Life (EOL) is planned.
+
+| Product                          | Release Date                              | Supported | End of life |
+| -------------------------------- | ----------------------------------------- | --------- | ----------- |
+| WebApi v3                        | 2021-05-18                                | Yes       | -           |
+| WebApi v2                        | 2019-02-10                                | No        | 2024-12-01  |
+| WebApi v1                        | 2017-02-06                                | No        | 2024-06-24  |
+| Nuget Package v2                 | 2024-03-07                                | Yes       | -           |
+| Nuget Package v1                 | 2014-08-15                                | No        | 2024-03-07  |
+
 ## Data precision
 
 There is no generally valid designation for the next administrative level of countries.
