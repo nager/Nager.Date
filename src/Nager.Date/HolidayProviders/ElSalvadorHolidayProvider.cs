@@ -33,7 +33,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labor Day",
-                    LocalName = "Día del trabajo",
+                    LocalName = "Día del Trabajo",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
