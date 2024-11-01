@@ -62,6 +62,25 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual("DE-BE", liberationDay.SubdivisionCodes[0]);
         }
 
+                [TestMethod]
+        public void TestGermanyLiberationDay2025()
+        {
+            var publicHolidays = HolidaySystem.GetHolidays(
+                new DateTime(2026, 5, 8),
+                new DateTime(2024, 5, 8),
+                CountryCode.DE);
+
+            var liberationDays = publicHolidays.Where(x => x.LocalName == "Tag der Befreiung").ToList();
+            var liberationDay = liberationDays.FirstOrDefault();
+
+            Assert.AreEqual(1, liberationDays.Count);
+            Assert.IsNotNull(liberationDay);
+            Assert.AreEqual(new DateTime(2025, 5, 8), liberationDay.Date);
+            Assert.IsNotNull(liberationDay.SubdivisionCodes);
+            Assert.AreEqual(1, liberationDay.SubdivisionCodes.Length);
+            Assert.AreEqual("DE-BE", liberationDay.SubdivisionCodes[0]);
+        }
+
         [TestMethod]
         public void TestGermanyIsOfficialPublicHolidayByCountyWithCountySpecificEpiphany2017()
         {
