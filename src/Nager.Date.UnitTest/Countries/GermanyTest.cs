@@ -43,12 +43,14 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(expectedDate, corpusChristi);
         }
 
-        [TestMethod]
-        public void TestGermanyLiberationDay2020()
+        [DataTestMethod]
+        [DataRow(2019, 2021, 2020)]
+        [DataRow(2024, 2026, 2025)]
+        public void TestGermanyLiberationDay(int startYear, int endYear, int expectedYear)
         {
             var publicHolidays = HolidaySystem.GetHolidays(
-                new DateTime(2019, 5, 8),
-                new DateTime(2021, 5, 8),
+                new DateTime(startYear, 5, 8),
+                new DateTime(endYear, 5, 8),
                 CountryCode.DE);
 
             var liberationDays = publicHolidays.Where(x => x.LocalName == "Tag der Befreiung").ToList();
@@ -56,26 +58,7 @@ namespace Nager.Date.UnitTest.Countries
 
             Assert.AreEqual(1, liberationDays.Count);
             Assert.IsNotNull(liberationDay);
-            Assert.AreEqual(new DateTime(2020, 5, 8), liberationDay.Date);
-            Assert.IsNotNull(liberationDay.SubdivisionCodes);
-            Assert.AreEqual(1, liberationDay.SubdivisionCodes.Length);
-            Assert.AreEqual("DE-BE", liberationDay.SubdivisionCodes[0]);
-        }
-
-                [TestMethod]
-        public void TestGermanyLiberationDay2025()
-        {
-            var publicHolidays = HolidaySystem.GetHolidays(
-                new DateTime(2026, 5, 8),
-                new DateTime(2024, 5, 8),
-                CountryCode.DE);
-
-            var liberationDays = publicHolidays.Where(x => x.LocalName == "Tag der Befreiung").ToList();
-            var liberationDay = liberationDays.FirstOrDefault();
-
-            Assert.AreEqual(1, liberationDays.Count);
-            Assert.IsNotNull(liberationDay);
-            Assert.AreEqual(new DateTime(2025, 5, 8), liberationDay.Date);
+            Assert.AreEqual(new DateTime(expectedYear, 5, 8), liberationDay.Date);
             Assert.IsNotNull(liberationDay.SubdivisionCodes);
             Assert.AreEqual(1, liberationDay.SubdivisionCodes.Length);
             Assert.AreEqual("DE-BE", liberationDay.SubdivisionCodes[0]);
