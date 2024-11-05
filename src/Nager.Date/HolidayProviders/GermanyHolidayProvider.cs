@@ -282,7 +282,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? LiberationDay(int year)
         {
-            if (year == 2020)
+            if (year == 2020 || year == 2025)
             {
                 return new HolidaySpecification
                 {
