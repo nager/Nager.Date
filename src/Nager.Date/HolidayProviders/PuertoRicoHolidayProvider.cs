@@ -148,14 +148,14 @@ namespace Nager.Date.HolidayProviders
                 {
                     Date = secondMondayInOctober,
                     EnglishName = "Columbus Day",
-                    LocalName = "Día de la Raza Descubrimiento de América",
+                    LocalName = "Día de la Raza / Descubrimiento de América",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "Veterans Day",
-                    LocalName = "Día del Veterano Día del Armisticio",
+                    LocalName = "Día del Veterano / Día del Armisticio",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
