@@ -327,6 +327,7 @@ namespace Nager.Date.HolidayProviders
                 case 2019:
                 case 2021:
                 case 2023:
+                case 2024:
                     {
                         var lastFridayInSeptember = DateHelper.FindLastDay(year, Month.September, DayOfWeek.Friday);
 
