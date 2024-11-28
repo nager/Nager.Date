@@ -297,12 +297,30 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
+        private HolidaySpecification? UprisingOfJune171953(int year)
+        {
+            if (year == 2028)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 8),
+                    EnglishName = "75th anniversary of the uprising of June 17, 1953",
+                    LocalName = "75. Jahrestag des Aufstandes vom 17. Juni 1953",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["DE-BE"]
+                };
+            }
+
+            return null;
+        }
+
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
         {
             return
             [
                 "https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland",
+                "https://pardok.parlament-berlin.de/starweb/adis/citat/VT/19/gvbl/g24280460.pdf"
             ];
         }
     }
