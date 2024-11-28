@@ -94,7 +94,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 29),
                     EnglishName = "Saints Peter and Paul",
                     LocalName = "Peter und Paul",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.Observance,
                     SubdivisionCodes = ["CH-TI"]
                 },
                 new HolidaySpecification
@@ -103,22 +103,6 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Swiss National Day",
                     LocalName = "Bundesfeier",
                     HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 8, 15),
-                    EnglishName = "Assumption of the Virgin Mary",
-                    LocalName = "Maria Himmelfahrt",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-BL", "CH-AI", "CH-GR", "CH-AG", "CH-TI", "CH-VS", "CH-JU"]
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 11, 1),
-                    EnglishName = "All Saints' Day",
-                    LocalName = "Allerheiligen",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TI", "CH-VS", "CH-JU"]
                 },
                 new HolidaySpecification
                 {
@@ -151,6 +135,14 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["CH-VD"]
                 },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 31),
+                    EnglishName = "Restoration Day",
+                    LocalName = "Restauration de la République",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-GE"]
+                },
                 this._catholicProvider.GoodFriday("Karfreitag", year).SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-VD", "CH-NE", "CH-GE", "CH-JU"),
                 this._catholicProvider.AscensionDay("Auffahrt", year),
             };
@@ -161,6 +153,8 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddRangeIfNotNull(this.WhitMonday(year));
             holidaySpecifications.AddRangeIfNotNull(this.EasterMonday(year));
             holidaySpecifications.AddRangeIfNotNull(this.Epiphany(year));
+            holidaySpecifications.AddRange(this.AssumptionOfTheVirginMary(year));
+            holidaySpecifications.AddRange(this.AllSaintsDay(year));
             holidaySpecifications.AddIfNotNull(this.BerchtoldsDay(year));
             holidaySpecifications.AddRangeIfNotNull(this.SaintJosephsDay(year));
             holidaySpecifications.AddRangeIfNotNull(this.CorpusChristi(year));
@@ -194,12 +188,37 @@ namespace Nager.Date.HolidayProviders
             ];
         }
 
+        private HolidaySpecification[] AssumptionOfTheVirginMary(int year)
+        {
+            var englishName = "Assumption of the Virgin Mary";
+            var localName = "Maria Himmelfahrt";
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 8, 15),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AG", "CH-TI", "CH-VS"]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 8, 15),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-AI", "CH-JU"]
+                }
+            ];
+        }
+
         private HolidaySpecification BerchtoldsDay(int year)
         {
             var subdivisionCodes = new List<string>(["CH-BE", "CH-FR", "CH-SH", "CH-AG", "CH-TG", "CH-VD"]);
 
-            if (new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday ||
-                new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday)
+            if (new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday)
             {
                 subdivisionCodes.Add("CH-NE");
             }
@@ -236,6 +255,32 @@ namespace Nager.Date.HolidayProviders
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Observance,
                     SubdivisionCodes = ["CH-LU", "CH-UR", "CH-NW", "CH-TI"]
+                }
+            ];
+        }
+
+        private HolidaySpecification[] AllSaintsDay(int year)
+        {
+            var englishName = "All Saints' Day";
+            var localName = "Allerheiligen";
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 11, 1),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-SG", "CH-GR", "CH-AG", "CH-TI", "CH-VS"]
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 11, 1),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance,
+                    SubdivisionCodes = ["CH-AI", "CH-JU"]
                 }
             ];
         }
@@ -295,7 +340,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AG", "CH-TI", "CH-VS"]
+                    SubdivisionCodes = ["CH-UR", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-AG", "CH-VS"]
                 },
                 new HolidaySpecification
                 {
@@ -303,7 +348,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Observance,
-                    SubdivisionCodes = ["CH-AI", "CH-JU"]
+                    SubdivisionCodes = ["CH-AI", "CH-JU", "CH-LU", "CH-SZ", "CH-TI"]
                 }
             ];
         }
@@ -321,7 +366,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-ZH", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-AG", "CH-NE", "CH-JU"]
+                    SubdivisionCodes = ["CH-ZH", "CH-SO", "CH-BS", "CH-BL", "CH-SH", "CH-NE", "CH-JU"]
                 },
                 new HolidaySpecification
                 {
@@ -347,8 +392,7 @@ namespace Nager.Date.HolidayProviders
                 subdivisionCodes.AddRange(["CH-AR", "CH-AI"]);
             }
 
-            if (new DateTime(year, 1, 1).DayOfWeek == DayOfWeek.Sunday ||
-                new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday)
+            if (new DateTime(year, 12, 25).DayOfWeek == DayOfWeek.Sunday)
             {
                 subdivisionCodes.Add("CH-NE");
             }
