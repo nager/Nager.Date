@@ -24,6 +24,7 @@ namespace Nager.Date
 
                 yield return new Holiday
                 {
+                    Id = $"{countryCode}-{holidaySpecification.Id}".ToUpperInvariant(),
                     Date = holidayDate,
                     EnglishName = holidaySpecification.EnglishName,
                     LocalName = holidaySpecification.LocalName,
