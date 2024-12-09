@@ -43,7 +43,7 @@ jobs:
 
     steps:
       - name: Dependabot Auto Merge
-        uses: dailydevops/dependamerge-action@v1.2.19
+        uses: dailydevops/dependamerge-action@v1.2.30
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           command: squash
