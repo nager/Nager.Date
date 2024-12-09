@@ -45,7 +45,7 @@ jobs:
       - name: Dependabot Auto Merge
         uses: dailydevops/dependamerge-action@v1.2.19
         with:
-          token: ${{ secrets.DEPENDABOT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           command: squash
           handle-submodule: true
           target: minor
