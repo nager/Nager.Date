@@ -272,7 +272,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-SG", "CH-GR", "CH-AG", "CH-TI", "CH-VS"]
+                    SubdivisionCodes = ["CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-GL", "CH-ZG", "CH-FR", "CH-SO", "CH-SG", "CH-AG", "CH-TI", "CH-VS"]
                 },
                 new HolidaySpecification
                 {
