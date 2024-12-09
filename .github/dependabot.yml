@@ -24,7 +24,7 @@ updates:
     schedule:
       interval: "daily"
     reviewers:
-      - "tinohager
+      - "tinohager"
       - "samtrion"
     commit-message:
       prefix: chore
