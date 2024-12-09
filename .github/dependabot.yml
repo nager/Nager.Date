@@ -18,3 +18,18 @@ updates:
       - "enhancement"
     # Allow up to 5 open pull requests for nuget dependencies
     open-pull-requests-limit: 5
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "tinohager
+      - "samtrion"
+    commit-message:
+      prefix: chore
+    labels:
+      - "dependencies"
+      - "enhancement"
+    # Allow up to 5 open pull requests for nuget dependencies
+    open-pull-requests-limit: 5

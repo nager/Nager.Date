@@ -9,6 +9,7 @@ on:
   pull_request:
     paths:
     - 'src/**'
+    - '.github/workflows/**'
     branches: [ main ]
 
 jobs:
@@ -32,3 +33,19 @@ jobs:
       working-directory: ./src
       run: |
         dotnet test --configuration Release --no-restore --no-build --verbosity normal
+
+  dependabot:
+    name: Dependabot Auto Merge
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    if: ${{ github.event_name == 'pull_request' && github.actor == 'dependabot[bot]' }}
+
+    steps:
+      - name: Dependabot Auto Merge
+        uses: dailydevops/dependamerge-action@v1.2.19
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          command: squash
+          handle-submodule: true
+          target: minor
