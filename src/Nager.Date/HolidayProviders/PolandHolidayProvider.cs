@@ -98,8 +98,25 @@ namespace Nager.Date.HolidayProviders
             };
 
             holidaySpecifications.AddIfNotNull(this.IndependenceDay(year));
+            holidaySpecifications.AddIfNotNull(this.ChristmasEve(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? ChristmasEve(int year)
+        {
+            if (year >= 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 24),
+                    EnglishName = "Christmas Eve",
+                    LocalName = "Wolna Wigilia",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
 
         private HolidaySpecification? IndependenceDay(int year)
