@@ -59,14 +59,14 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 5, 1),
-                    EnglishName = "May Day Holiday",
+                    EnglishName = "Labour Day",
                     LocalName = "praznik dela",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 5, 2),
-                    EnglishName = "May Day Holiday",
+                    EnglishName = "Labour Day",
                     LocalName = "praznik dela",
                     HolidayTypes = HolidayTypes.Public
                 },
@@ -86,6 +86,34 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Date = new DateTime(year, 8, 15),
+                    EnglishName = "Unification of Prekmurje Slovenes with the Mother Nation",
+                    LocalName = "združitev prekmurskih Slovencev z matičnim narodom",
+                    HolidayTypes = HolidayTypes.Observance
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 9, 15),
+                    EnglishName = "Integration of Primorska into the Homeland",
+                    LocalName = "priključitev Primorske k matični domovini",
+                    HolidayTypes = HolidayTypes.Observance
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 9, 23),
+                    EnglishName = "Slovenian Sports Day",
+                    LocalName = "dan slovenskega športa",
+                    HolidayTypes = HolidayTypes.Observance
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 9, 25),
+                    EnglishName = "Sovereignty Day",
+                    LocalName = "dan slovenskega športa",
+                    HolidayTypes = HolidayTypes.Observance
+                },
+                new HolidaySpecification
+                {
                     Date = new DateTime(year, 10, 31),
                     EnglishName = "Reformation Day",
                     LocalName = "dan reformacije",
@@ -97,6 +125,13 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day of the Dead",
                     LocalName = "dan spomina na mrtve",
                     HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 11, 23),
+                    EnglishName = "Rudolf Maister Day",
+                    LocalName = "dan Rudolfa Maistra",
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
@@ -114,7 +149,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 this._catholicProvider.EasterSunday("velikonočna nedelja in ponedeljek", year),
                 this._catholicProvider.EasterMonday("velikonočna nedelja in ponedeljek", year),
-                this._catholicProvider.Pentecost("binkoštna nedelja, binkošti", year)
+                this._catholicProvider.Pentecost("binkoštna nedelja", year) //Whit Sunday
             };
 
             holidaySpecifications.AddIfNotNull(this.SolidarityDay(year));
@@ -143,7 +178,9 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Slovenia"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Slovenia",
+                "https://www.gov.si/en/topics/national-holidays/",
+                "https://www.gov.si/teme/drzavni-prazniki-in-dela-prosti-dnevi/"
             ];
         }
     }
