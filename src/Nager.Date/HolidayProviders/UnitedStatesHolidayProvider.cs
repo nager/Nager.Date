@@ -138,6 +138,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Date = new DateTime(year, 5, 8),
+                    EnglishName = "Truman Day",
+                    LocalName = "Truman Day",
+                    HolidayTypes = HolidayTypes.Authorities | HolidayTypes.School,
+                    SubdivisionCodes = ["US-MO"]
+                },
+                new HolidaySpecification
+                {
                     Date = firstMondayInSeptember,
                     EnglishName = "Labor Day",
                     LocalName = "Labour Day",
@@ -180,8 +188,21 @@ namespace Nager.Date.HolidayProviders
 
             holidaySpecifications.AddIfNotNull(this.JuneteenthNationalIndependenceDay(year, observedRuleSet));
             holidaySpecifications.AddIfNotNull(this.IndigenousPeoplesDay(year));
+            holidaySpecifications.AddIfNotNull(this.LincolnsBirthday(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? LincolnsBirthday(int year)
+        {
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 2, 12),
+                EnglishName = "Lincoln's Birthday",
+                LocalName = "Lincoln's Birthday",
+                HolidayTypes = HolidayTypes.Observance,
+                SubdivisionCodes = ["US-CA", "US-CT", "US-IL", "US-IN", "US-KY", "US-MI", "US-NY", "US-MO", "US-OH"],
+            };
         }
 
         private HolidaySpecification? JuneteenthNationalIndependenceDay(
