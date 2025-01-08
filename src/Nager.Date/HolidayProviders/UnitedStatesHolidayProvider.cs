@@ -184,6 +184,21 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
+        private HolidaySpecification? LincolnsBirthday(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 2, 12),
+                EnglishName = "Lincoln's Birthday",
+                LocalName = "Lincoln's Birthday",
+                HolidayTypes = HolidayTypes.Public,
+                SubdivisionCodes = ["US-MI", "US-IN", "US-IL", "US-MO"],
+                ObservedRuleSet = observedRuleSet
+            };
+        }
+
         private HolidaySpecification? JuneteenthNationalIndependenceDay(
             int year,
             ObservedRuleSet observedRuleSet)
