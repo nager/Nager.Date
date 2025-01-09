@@ -37,12 +37,13 @@ jobs:
       working-directory: ./src
       run: |
         dotnet test --configuration Release --no-restore --no-build --verbosity normal
-    - name: Change LicenseKey
+    - name: License System Adjustments
       working-directory: ./src
       run: |
         sed -i 's/DCDCB65FD3009576BC11E23C883220F6292709DEB93174D0913D2E89DB3D5D88/${{secrets.PUBLIC_KEY1}}/g' Nager.Date/Helpers/LicenseHelper.cs
         sed -i 's/17F32AEC71CCB3D20166DCC7F49B32C1153464105344608692E005B16284A41D/${{secrets.PUBLIC_KEY2}}/g' Nager.Date/Helpers/LicenseHelper.cs
-    - name: Second Build after change LicenseKey
+        sed -i 's/_licenseCheckStatus/_${{ github.sha }}/g' Nager.Date/HolidaySystem.cs
+    - name: Second build after License System Adjustments
       working-directory: ./src
       run: dotnet build --configuration Release --no-restore
     - name: Build project and generate NuGet package
