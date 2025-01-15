@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Nager.Date.UnitTest
 {
     [TestClass]
-    internal class AssemblyInitialize
+    public class AssemblyInitialize
     {
         [AssemblyInitialize]
         public static void MyTestInitialize(TestContext testContext)
