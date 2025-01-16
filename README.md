@@ -186,6 +186,7 @@ foreach (var holiday in holidays)
 {
     //holiday...
     //holiday.Date -> The date
+    //holiday.ObservedDate -> The date on which the holiday is observed
     //holiday.LocalName -> The local name
     //holiday.EnglishName -> The english name
     //holiday.NationalHoliday -> Is this public holiday in every county (federal state)
