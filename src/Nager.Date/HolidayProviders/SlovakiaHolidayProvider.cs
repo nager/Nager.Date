@@ -74,7 +74,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 1),
                     EnglishName = "Day of the Constitution of the Slovak Republic",
                     LocalName = "Deň Ústavy Slovenskej republiky",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
@@ -130,7 +130,8 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Slovakia"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Slovakia",
+                "https://mzv.sk/en/web/en/slovakia/public-holidays"
             ];
         }
     }
