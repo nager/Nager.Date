@@ -18,7 +18,7 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public PhilippinesHolidayProvider(
-            ICatholicProvider catholicProvider) : base(CountryCode.ZW)
+            ICatholicProvider catholicProvider) : base(CountryCode.PH)
         {
             this._catholicProvider = catholicProvider;
         }
