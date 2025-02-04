@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -71,13 +72,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 9, 1),
-                    EnglishName = "Day of the Constitution of the Slovak Republic",
-                    LocalName = "Deň Ústavy Slovenskej republiky",
-                    HolidayTypes = HolidayTypes.Observance
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 9, 15),
                     EnglishName = "Day of Our Lady of the Seven Sorrows",
                     LocalName = "Sedembolestná Panna Mária",
@@ -122,7 +116,35 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Veľkonočný pondelok", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.DayOfTheConstitution(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification DayOfTheConstitution(int year)
+        {
+            var englishName = "Day of the Constitution of the Slovak Republic";
+            var localName = "Deň Ústavy Slovenskej republiky";
+            var holidayDate = new DateTime(year, 9, 1);
+
+            if (year > 2024)
+            {
+                return new HolidaySpecification
+                {
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Date = holidayDate,
+                EnglishName = englishName,
+                LocalName = localName,
+                HolidayTypes = HolidayTypes.Public
+            };
         }
 
         /// <inheritdoc/>
