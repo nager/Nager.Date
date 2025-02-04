@@ -28,7 +28,7 @@ namespace Nager.Date.HolidayProviders
         {
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var thirdMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.Third);
+            var lastMondayInAugust = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -69,7 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = thirdMondayInAugust,
+                    Date = lastMondayInAugust,
                     EnglishName = "National Heroes Day",
                     LocalName = "Araw ng mga Bayani",
                     HolidayTypes = HolidayTypes.Public
