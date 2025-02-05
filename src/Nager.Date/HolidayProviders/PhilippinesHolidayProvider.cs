@@ -101,7 +101,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Date = new DateTime(year, 8, 21),
                     EnglishName = "Ninoy Aquino Day",
-                    LocalName = "Araw ng Kamatayan ni Senador Benigno Simeon "Ninoy" Aquino Jr.",
+                    LocalName = "Araw ng Kamatayan ni Senador Benigno Simeon \"Ninoy\" Aquino Jr.",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
