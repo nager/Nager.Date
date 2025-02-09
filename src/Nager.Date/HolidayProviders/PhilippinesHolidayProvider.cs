@@ -53,13 +53,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Huwebes Santo",
                     HolidayTypes = HolidayTypes.Public
                 },
-                 new HolidaySpecification
-                {
-                    Date = new DateTime(year, 4, 17),
-                    EnglishName = "Black Saturday",
-                    LocalName = "Sabado de Gloria",
-                    HolidayTypes = HolidayTypes.Public
-                },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 5, 1),
@@ -155,6 +148,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 
                 this._catholicProvider.GoodFriday("Biyernes Santo", year),
+                this._catholicProvider.EasterSaturday("Sabado de Gloria", year),
             };
 
             return holidaySpecifications;
