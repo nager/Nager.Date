@@ -147,7 +147,8 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public
                 },
                 
-                this._catholicProvider.GoodFriday("Good Friday", year),
+                this._catholicProvider.GoodFriday("Biyernes Santo", year),
+                this._catholicProvider.EasterSaturday("Sabado de Gloria", year),
             };
 
             return holidaySpecifications;
