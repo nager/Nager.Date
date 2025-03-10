@@ -31,7 +31,6 @@ namespace Nager.Date.HolidayProviders
                 { "FR-BFC", "Bourgogne-Franche-Comte" },
                 { "FR-BRE", "Bretagne" },
                 { "FR-CVL", "Centre-Val de Loire" },
-                { "FR-20R", "Corse" },
                 { "FR-GES", "Grand-Est" },
                 { "FR-HDF", "Hauts-de-France" },
                 { "FR-IDF", "Ile-de-France" },
