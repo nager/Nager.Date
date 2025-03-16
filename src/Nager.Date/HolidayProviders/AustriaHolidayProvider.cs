@@ -107,8 +107,10 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Stefanitag",
                     HolidayTypes = HolidayTypes.Public
                 },
+                this._catholicProvider.EasterSunday("Ostersonntag", year),
                 this._catholicProvider.EasterMonday("Ostermontag", year),
                 this._catholicProvider.AscensionDay("Christi Himmelfahrt", year),
+                this._catholicProvider.Pentecost("Pfingstsonntag", year),
                 this._catholicProvider.WhitMonday("Pfingstmontag", year),
                 this._catholicProvider.CorpusChristi("Fronleichnam", year)
             };
