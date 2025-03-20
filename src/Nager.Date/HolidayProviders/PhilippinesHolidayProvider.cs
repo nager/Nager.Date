@@ -36,7 +36,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
-                    LocalName = "New Year's Day",
+                    LocalName = "Bagong Taon",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -144,6 +144,15 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 31),
                     EnglishName = "All Saints' Day Eve",
                     LocalName = "All Saints' Day Eve",
+                    HolidayTypes = HolidayTypes.Public
+                },
+
+                // proclamation no. 839
+                new HolidaySpecification
+                {
+                    Date = new DateTime(year, 4, 1),
+                    EnglishName = "Feast of Ramadhan",
+                    LocalName = "Eid’l Fitr",
                     HolidayTypes = HolidayTypes.Public
                 },
                 
