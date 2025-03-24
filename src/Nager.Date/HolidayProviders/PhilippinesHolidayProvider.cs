@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -36,7 +37,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
-                    LocalName = "New Year's Day",
+                    LocalName = "Bagong Taon",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -151,7 +152,25 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterSaturday("Sabado de Gloria", year),
             };
 
+            holidaySpecifications.AddIfNotNull(this.Ramadhan(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? Ramadhan(int year)
+        {
+            if (year == 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 4, 1),
+                    EnglishName = "Feast of Ramadhan",
+                    LocalName = "Eid’l Fitr",
+                    HolidayTypes = HolidayTypes.Public,
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
@@ -160,7 +179,9 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 //pursuant to proclamation 727
-                "https://www.officialgazette.gov.ph/downloads/2024/10oct/20241030-PROC-727-FRM.pdf"
+                "https://www.officialgazette.gov.ph/downloads/2024/10oct/20241030-PROC-727-FRM.pdf",
+                //proclamation no. 839
+                "https://pco.gov.ph/news_releases/proclamation-no-839-declaring-tuesday-01-april-2025-a-regular-holiday-throughout-the-country-in-observance-of-eidl-fitr-feast-of-ramadhan/"
             ];
         }
     }
