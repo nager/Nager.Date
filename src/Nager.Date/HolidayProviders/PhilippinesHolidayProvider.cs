@@ -148,13 +148,21 @@ namespace Nager.Date.HolidayProviders
                 },
 
                 // proclamation no. 839
-                new HolidaySpecification
+                  private HolidaySpecification? Ramadhan(int year)
+        {
+            if (year == 2025)
+            {
+                return new HolidaySpecification
                 {
                     Date = new DateTime(year, 4, 1),
                     EnglishName = "Feast of Ramadhan",
                     LocalName = "Eid’l Fitr",
-                    HolidayTypes = HolidayTypes.Public
-                },
+                    HolidayTypes = HolidayTypes.Public,
+                };
+            }
+
+            return null;
+        }
                 
                 this._catholicProvider.GoodFriday("Biyernes Santo", year),
                 this._catholicProvider.EasterSaturday("Sabado de Gloria", year),
