@@ -146,9 +146,16 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "All Saints' Day Eve",
                     HolidayTypes = HolidayTypes.Public
                 },
+                
+                this._catholicProvider.GoodFriday("Biyernes Santo", year),
+                this._catholicProvider.EasterSaturday("Sabado de Gloria", year),
+            };
+
+            return holidaySpecifications;
+        }
 
                 // proclamation no. 839
-                  private HolidaySpecification? Ramadhan(int year)
+            private HolidaySpecification? Ramadhan(int year)
         {
             if (year == 2025)
             {
@@ -162,13 +169,6 @@ namespace Nager.Date.HolidayProviders
             }
 
             return null;
-        }
-                
-                this._catholicProvider.GoodFriday("Biyernes Santo", year),
-                this._catholicProvider.EasterSaturday("Sabado de Gloria", year),
-            };
-
-            return holidaySpecifications;
         }
 
         /// <inheritdoc/>
