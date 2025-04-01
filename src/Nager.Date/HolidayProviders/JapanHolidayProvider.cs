@@ -24,9 +24,14 @@ namespace Nager.Date.HolidayProviders
             var thirdMondayInJuly = DateHelper.FindDay(year, Month.July, DayOfWeek.Monday, Occurrence.Third);
             var thirdMondayInSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Third);
 
-            var observedRuleSet = new ObservedRuleSet
+            var observedRuleSet1 = new ObservedRuleSet
             {
                 Sunday = date => date.AddDays(1)
+            };
+
+            var observedRuleSet2 = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(2)
             };
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -37,7 +42,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "元日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -52,7 +57,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Foundation Day",
                     LocalName = "建国記念の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -60,7 +65,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Shōwa Day",
                     LocalName = "昭和の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -68,7 +73,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Constitution Memorial Day",
                     LocalName = "憲法記念日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -76,7 +81,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Greenery Day",
                     LocalName = "みどりの日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet2
                 },
                 new HolidaySpecification
                 {
@@ -84,7 +89,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Children's Day",
                     LocalName = "こどもの日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -99,7 +104,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Mountain Day",
                     LocalName = "山の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -114,7 +119,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Culture Day",
                     LocalName = "文化の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -122,7 +127,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Labour Thanksgiving Day",
                     LocalName = "勤労感謝の日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 }
             };
 
