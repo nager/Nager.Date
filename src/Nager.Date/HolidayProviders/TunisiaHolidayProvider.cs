@@ -1,6 +1,7 @@
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
+using Nager.Date.Extensions;
 
 namespace Nager.Date.HolidayProviders
 {
@@ -19,7 +20,7 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            //TODO:Add moon calendar logic
+            //TODO: Add moon calendar logic
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -71,18 +72,36 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Evacuation Day",
                     LocalName = "عيد الجلاء",
                     HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
+                }
+            };
+
+            holidaySpecifications.AddIfNotNull(this.RevolutionDay(year));
+
+            return holidaySpecifications;
+        }
+
+        private HolidaySpecification RevolutionDay(int year)
+        {
+            if (year >= 2021)
+            {
+                return new HolidaySpecification
                 {
                     Date = new DateTime(year, 12, 17),
                     EnglishName = "Revolution Day",
                     LocalName = "عيد الثورة",
                     HolidayTypes = HolidayTypes.Public
-                }
-            };
+                };
+            }
 
-            return holidaySpecifications;
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 1, 14),
+                EnglishName = "Revolution and Youth Day",
+                LocalName = "عيد الشباب و الثورة",
+                HolidayTypes = HolidayTypes.Public
+            };
         }
+        
 
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
