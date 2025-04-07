@@ -70,6 +70,13 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "praznik dela",
                     HolidayTypes = HolidayTypes.Public
                 },
+                    new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 2),
+                    EnglishName = "Primož Trubar day",
+                    LocalName = "dan Primoža Trubarja",
+                    HolidayTypes = HolidayTypes.Observance‎
+                },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 6, 25),
@@ -105,11 +112,11 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "dan slovenskega športa",
                     HolidayTypes = HolidayTypes.Observance
                 },
-                new HolidaySpecification
+                  new HolidaySpecification
                 {
-                    Date = new DateTime(year, 9, 25),
-                    EnglishName = "Sovereignty Day",
-                    LocalName = "dan slovenskega športa",
+                    Date = new DateTime(year, 10, 25),
+                    EnglishName = "sovereignty day",
+                    LocalName = "dan suverenosti",
                     HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
