@@ -1,7 +1,7 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
-using Nager.Date.Extensions;
 
 namespace Nager.Date.HolidayProviders
 {
