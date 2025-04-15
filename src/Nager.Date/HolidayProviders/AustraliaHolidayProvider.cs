@@ -262,7 +262,7 @@ namespace Nager.Date.HolidayProviders
             }
 
             var secondMondayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Monday, Occurrence.Second);
-            var fourthMondayInSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Monday, Occurrence.Fourth);
+            var lastMondayInSeptember = DateHelper.FindLastDay(year, Month.September, DayOfWeek.Monday);
             var firstMondayInOctober = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.First);
             
 
@@ -278,7 +278,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = fourthMondayInSeptember,
+                    Date = lastMondayInSeptember,
                     EnglishName = name,
                     LocalName = name,
                     HolidayTypes = HolidayTypes.Public,
