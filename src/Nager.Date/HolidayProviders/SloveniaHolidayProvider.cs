@@ -72,6 +72,13 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Date = new DateTime(year, 5, 2),
+                    EnglishName = "Primož Trubar Day",
+                    LocalName = "dan Primoža Trubarja",
+                    HolidayTypes = HolidayTypes.Observance
+                },
+                new HolidaySpecification
+                {
                     Date = new DateTime(year, 6, 25),
                     EnglishName = "Statehood Day",
                     LocalName = "dan državnosti",
@@ -102,13 +109,6 @@ namespace Nager.Date.HolidayProviders
                 {
                     Date = new DateTime(year, 9, 23),
                     EnglishName = "Slovenian Sports Day",
-                    LocalName = "dan slovenskega športa",
-                    HolidayTypes = HolidayTypes.Observance
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 9, 25),
-                    EnglishName = "Sovereignty Day",
                     LocalName = "dan slovenskega športa",
                     HolidayTypes = HolidayTypes.Observance
                 },
@@ -153,6 +153,7 @@ namespace Nager.Date.HolidayProviders
             };
 
             holidaySpecifications.AddIfNotNull(this.SolidarityDay(year));
+            holidaySpecifications.AddIfNotNull(this.SovereigntyDay(year));
 
             return holidaySpecifications;
         }
@@ -173,11 +174,28 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
+        private HolidaySpecification? SovereigntyDay(int year)
+        {
+            if (year >= 2015)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 8, 14),
+                    EnglishName = "Sovereignty Day",
+                    LocalName = "dan suverenosti",
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
+            return null;
+        }
+
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
         {
             return
             [
+                "https://www.gov.si/en/topics/national-holidays/",
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Slovenia",
                 "https://www.gov.si/en/topics/national-holidays/",
                 "https://www.gov.si/teme/drzavni-prazniki-in-dela-prosti-dnevi/"
