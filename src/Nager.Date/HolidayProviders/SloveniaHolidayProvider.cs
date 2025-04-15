@@ -73,7 +73,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 5, 2),
-                    EnglishName = "Primož Trubar day",
+                    EnglishName = "Primož Trubar Day",
                     LocalName = "dan Primoža Trubarja",
                     HolidayTypes = HolidayTypes.Observance
                 },
