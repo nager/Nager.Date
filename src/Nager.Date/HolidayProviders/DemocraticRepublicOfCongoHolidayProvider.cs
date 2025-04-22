@@ -15,7 +15,7 @@ namespace Nager.Date.HolidayProviders
         /// <summary>
         /// DemocraticRepublicOfCongoHolidayProvider
         /// </summary>
-        public DemocraticRepublicOfCongoHolidayProvider() : base(CountryCode.CG)
+        public DemocraticRepublicOfCongoHolidayProvider() : base(CountryCode.CD)
         {
         
         }
