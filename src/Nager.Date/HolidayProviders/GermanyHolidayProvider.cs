@@ -115,7 +115,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterSunday("Ostersonntag", year).SetSubdivisionCodes("DE-BB"),
                 this._catholicProvider.EasterMonday("Ostermontag", year),
                 this._catholicProvider.AscensionDay("Christi Himmelfahrt", year),
-                this._catholicProvider.Pentecost("Pfingstsonntag", year).SetSubdivisionCodes("DE-BB", "DE-HE"),
+                this._catholicProvider.Pentecost("Pfingstsonntag", year).SetSubdivisionCodes("DE-BB"),
                 this._catholicProvider.WhitMonday("Pfingstmontag", year),
                 this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL")
             };
