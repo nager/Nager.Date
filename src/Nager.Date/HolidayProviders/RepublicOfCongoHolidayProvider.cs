@@ -6,14 +6,14 @@ using System.Collections.Generic;
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
-    /// Republic Of Congo HolidayProvider
+    /// Republic of Congo HolidayProvider
     /// </summary>
     internal sealed class RepublicOfCongoHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
-        /// RepublicOfCongoProvider
+        /// Republic of Congo HolidayProvider
         /// </summary>
         /// <param name="catholicProvider"></param>
         public RepublicOfCongoHolidayProvider(
@@ -77,10 +77,10 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Noël",
                     HolidayTypes = HolidayTypes.Public,
                 },
-                this._catholicProvider.AscensionDay("Ascension Day", year),
-                this._catholicProvider.EasterSunday("Easter Sunday", year),
-                this._catholicProvider.EasterMonday("Easter Monday", year)
-                this._catholicProvider.WhitMonday("Whit Monday", year)
+                this._catholicProvider.AscensionDay("Ascension", year),
+                this._catholicProvider.EasterSunday("Dimanche de Pâques", year),
+                this._catholicProvider.EasterMonday("Lundi de Pâques", year),
+                this._catholicProvider.WhitMonday("Lundi de Pentecôte", year)
             };
 
             return holidaySpecifications;
