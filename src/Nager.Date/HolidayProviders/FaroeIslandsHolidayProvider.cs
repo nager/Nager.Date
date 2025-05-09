@@ -100,13 +100,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Nýggjársaftan",
                     HolidayTypes = HolidayTypes.Public
                 },
-                new HolidaySpecification
-                {
-                    Date = easterSunday.AddDays(26),
-                    EnglishName = "General Prayer Day",
-                    LocalName = "Dýri biðidagur",
-                    HolidayTypes = HolidayTypes.Public
-                },
                 this._catholicProvider.MaundyThursday("Skírhósdagur", year),
                 this._catholicProvider.GoodFriday("Langifríggjadagur", year),
                 this._catholicProvider.EasterSunday("Páskadagur", year),
