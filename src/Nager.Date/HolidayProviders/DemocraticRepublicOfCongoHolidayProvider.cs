@@ -1,5 +1,4 @@
 using Nager.Date.Models;
-using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
 
@@ -10,20 +9,16 @@ namespace Nager.Date.HolidayProviders
     /// </summary>
     internal sealed class DemocraticRepublicOfCongoHolidayProvider : AbstractHolidayProvider
     {
-        private readonly ICatholicProvider _catholicProvider;
-
         /// <summary>
-        /// DemocraticRepublicOfCongoHolidayProvider
+        /// Democratic Republic of the Congo HolidayProvider
         /// </summary>
         public DemocraticRepublicOfCongoHolidayProvider() : base(CountryCode.CD)
         {
-        
         }
 
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
@@ -103,7 +98,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
                 }
-    
             };
 
             return holidaySpecifications;
