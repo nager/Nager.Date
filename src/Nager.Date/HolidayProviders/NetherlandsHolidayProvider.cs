@@ -62,7 +62,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Tweede Kerstdag",
                     HolidayTypes = HolidayTypes.Public
                 },
-                this._catholicProvider.GoodFriday("Goede Vrijdag", year),
+                this._catholicProvider.GoodFriday("Goede Vrijdag", year).SetHolidayTypes(HolidayTypes.Authorities | HolidayTypes.School | HolidayTypes.Observance),
                 this._catholicProvider.EasterSunday("Eerste Paasdag", year),
                 this._catholicProvider.EasterMonday("Tweede Paasdag", year),
                 this._catholicProvider.AscensionDay("Hemelvaartsdag", year),

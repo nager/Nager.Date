@@ -147,7 +147,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Navidad",
                     HolidayTypes = HolidayTypes.Public
                 },
-                this._catholicProvider.GoodFriday("Viernes Santo", year, mondayObservedRuleSet)
+                this._catholicProvider.GoodFriday("Viernes Santo", year)
             };
 
             return holidaySpecifications;

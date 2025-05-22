@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            //TODO:Add moon calendar logic
+            //TODO: Add moon calendar logic
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -27,69 +28,80 @@ namespace Nager.Date.HolidayProviders
                 {
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
-                    LocalName = "New Year's Day",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 1, 14),
-                    EnglishName = "Revolution and Youth Day",
-                    LocalName = "Revolution and Youth Day",
+                    LocalName = "رأس السنة الميلادية",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 3, 20),
                     EnglishName = "Independence Day",
-                    LocalName = "Independence Day",
+                    LocalName = "عيد الاستقلال",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 4, 9),
                     EnglishName = "Martyrs' Day",
-                    LocalName = "Martyrs' Day",
+                    LocalName = "عيد الشهداء",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
-                    LocalName = "Labour Day",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 6, 1),
-                    EnglishName = "Victory Day",
-                    LocalName = "Victory Day",
+                    LocalName = "عيد الشغل",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 7, 25),
                     EnglishName = "Republic Day",
-                    LocalName = "Republic Day",
+                    LocalName = "عيد الجمهورية",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 8, 13),
                     EnglishName = "Women's Day",
-                    LocalName = "Women's Day",
+                    LocalName = "عيد المرأة",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Date = new DateTime(year, 10, 15),
-                    EnglishName = "Eid El Jala'",
-                    LocalName = "Eid El Jala'",
+                    EnglishName = "Evacuation Day",
+                    LocalName = "عيد الجلاء",
                     HolidayTypes = HolidayTypes.Public
                 }
             };
 
+            holidaySpecifications.AddIfNotNull(this.RevolutionDay(year));
+
             return holidaySpecifications;
         }
+
+        private HolidaySpecification RevolutionDay(int year)
+        {
+            if (year >= 2021)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 12, 17),
+                    EnglishName = "Revolution Day",
+                    LocalName = "عيد الثورة",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 1, 14),
+                EnglishName = "Revolution and Youth Day",
+                LocalName = "عيد الشباب و الثورة",
+                HolidayTypes = HolidayTypes.Public
+            };
+        }
+        
 
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
