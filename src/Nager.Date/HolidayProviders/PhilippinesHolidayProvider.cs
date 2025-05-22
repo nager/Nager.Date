@@ -215,10 +215,10 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 //pursuant to proclamation 727
-                "https://www.officialgazette.gov.ph/downloads/2024/10oct/20241030-PROC-727-FRM.pdf"
+                "https://www.officialgazette.gov.ph/downloads/2024/10oct/20241030-PROC-727-FRM.pdf",
 
                 //pursuant to proclamation 878
-                "https://www.officialgazette.gov.ph/downloads/2025/05may/20250506-PROC-878-FRM.pdf"
+                "https://www.officialgazette.gov.ph/downloads/2025/05may/20250506-PROC-878-FRM.pdf",
 
                 //pursuant to proclamation 911
                 "https://www.officialgazette.gov.ph/downloads/2025/05may/20250521-PROC-911-FRM.pdf"
