@@ -158,8 +158,8 @@ namespace Nager.Date.HolidayProviders
             return holidaySpecifications;
         }
 
-                // proclamation no. 839
-            private HolidaySpecification? Ramadhan(int year)
+        // proclamation no. 839
+        private HolidaySpecification? Ramadhan(int year)
         {
             if (year == 2025)
             {
@@ -176,7 +176,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         // proclamation no. 878
-            private HolidaySpecification? Election2025(int year)
+        private HolidaySpecification? Election2025(int year)
         {
             if (year == 2025)
             {
@@ -193,7 +193,7 @@ namespace Nager.Date.HolidayProviders
         }
 
         // proclamation no. 911
-            private HolidaySpecification? EidlAdha(int year)
+        private HolidaySpecification? EidlAdha(int year)
         {
             if (year == 2025)
             {
