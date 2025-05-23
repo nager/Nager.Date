@@ -153,10 +153,12 @@ namespace Nager.Date.HolidayProviders
             };
 
             holidaySpecifications.AddIfNotNull(this.Ramadhan(year));
-
+            holidaySpecifications.AddIfNotNull(this.Election2025(year));
+            holidaySpecifications.AddIfNotNull(this.EidlAdha(year));
             return holidaySpecifications;
         }
 
+        // proclamation no. 839
         private HolidaySpecification? Ramadhan(int year)
         {
             if (year == 2025)
@@ -173,6 +175,40 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
+        // proclamation no. 878
+        private HolidaySpecification? Election2025(int year)
+        {
+            if (year == 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 12),
+                    EnglishName = "Midterm Elections",
+                    LocalName = "Halalan 2025",
+                    HolidayTypes = HolidayTypes.Public,
+                };
+            }
+
+            return null;
+        }
+
+        // proclamation no. 911
+        private HolidaySpecification? EidlAdha(int year)
+        {
+            if (year == 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 6, 6),
+                    EnglishName = "Feast of Sacrifice",
+                    LocalName = "Eid'l Adha",
+                    HolidayTypes = HolidayTypes.Public,
+                };
+            }
+
+            return null;
+        }
+
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
         {
@@ -180,8 +216,12 @@ namespace Nager.Date.HolidayProviders
             [
                 //pursuant to proclamation 727
                 "https://www.officialgazette.gov.ph/downloads/2024/10oct/20241030-PROC-727-FRM.pdf",
-                //proclamation no. 839
-                "https://pco.gov.ph/news_releases/proclamation-no-839-declaring-tuesday-01-april-2025-a-regular-holiday-throughout-the-country-in-observance-of-eidl-fitr-feast-of-ramadhan/"
+
+                //pursuant to proclamation 878
+                "https://www.officialgazette.gov.ph/downloads/2025/05may/20250506-PROC-878-FRM.pdf",
+
+                //pursuant to proclamation 911
+                "https://www.officialgazette.gov.ph/downloads/2025/05may/20250521-PROC-911-FRM.pdf"
             ];
         }
     }
