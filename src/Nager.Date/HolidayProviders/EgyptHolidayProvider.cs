@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
@@ -37,13 +38,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 4, 25),
-                    EnglishName = "Sinai Liberation Day",
-                    LocalName = "عيد تحرير سيناء",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "عيد العمال",
@@ -65,7 +59,99 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
+            holidaySpecifications.AddIfNotNull(this.SinaiLiberationDay(year));
+            holidaySpecifications.AddIfNotNull(this.June30Revolution(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? June30Revolution(int year)
+        {
+            var localName = "ثورة 30 يونيو";
+            var englishName = "June 30 Revolution";
+
+            if (year >= 2015 && year <= 2017)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 6, 30),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            else if (year == 2018)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 7, 1),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            else if (year >= 2019 && year <= 2020)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 6, 30),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+            else if (year >= 2021)
+            {
+                var observedRuleSet = new ObservedRuleSet
+                {
+                    Monday = date => date.AddDays(3),
+                    Tuesday = date => date.AddDays(2),
+                    Wednesday = date => date.AddDays(1),
+                    Friday = date => date.AddDays(2),
+                };
+
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 6, 30),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
+                };
+            }
+
+            return null;
+        }
+
+        private HolidaySpecification SinaiLiberationDay(int year)
+        {
+            var localName = "عيد تحرير سيناء";
+            var englishName = "Sinai Liberation Day";
+
+            if (year == 2025)
+            {
+                var observedRuleSet = new ObservedRuleSet
+                {
+                    Friday = date => date.AddDays(-1),
+                };
+
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 4, 25),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Date = new DateTime(year, 4, 25),
+                EnglishName = englishName,
+                LocalName = localName,
+                HolidayTypes = HolidayTypes.Public
+            };
         }
 
         /// <inheritdoc/>
@@ -74,6 +160,8 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Egypt",
+                "https://www.sis.gov.eg/Story/207089/Egypt-sets-April-21%2C-April-24%2C-May-1-as-public-holidays?lang=en-us",
+                "https://www.sis.gov.eg/Story/207089/Egypt-sets-April-21%2C-April-24%2C-May-1-as-public-holidays?lang=en-us&utm_source=chatgpt.com"
             ];
         }
     }
