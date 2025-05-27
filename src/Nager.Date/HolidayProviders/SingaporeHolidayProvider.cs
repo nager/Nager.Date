@@ -227,6 +227,7 @@ namespace Nager.Date.HolidayProviders
         private HolidaySpecification? HariRayaHaji(int year)
         {
             DateTime? date = null;
+            var tentativeDate = false;
 
             switch (year)
             {
@@ -255,7 +256,15 @@ namespace Nager.Date.HolidayProviders
                     date = new DateTime(year, 6, 17);
                     break;
                 case 2025:
-                    date = new DateTime(year, 6, 6);
+                    date = new DateTime(year, 6, 7);
+                    break;
+                case 2026:
+                    date = new DateTime(year, 5, 27);
+                    tentativeDate = true;
+                    break;
+                case 2027:
+                    date = new DateTime(year, 5, 17);
+                    tentativeDate = true;
                     break;
                 default:
                     break;
@@ -268,7 +277,8 @@ namespace Nager.Date.HolidayProviders
                     Sunday = date => date.AddDays(1)
                 };
 
-                var name = "Hari Raya Haji";
+                var name = tentativeDate ? "Hari Raya Haji (Tentative Date)" : "Hari Raya Haji";
+
                 return new HolidaySpecification
                 {
                     Date = date.Value,
