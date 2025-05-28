@@ -90,7 +90,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? EuropeDay(int year)
         {
-            if (year >= EuropeDayIntroductionYear)
+            if (year >= 2019)
             {
                 return new HolidaySpecification
                 {
