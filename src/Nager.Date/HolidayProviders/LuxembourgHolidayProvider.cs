@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -43,13 +44,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Date = new DateTime(year, 5, 9),
-                    EnglishName = "Europe Day",
-                    LocalName = "Europadag",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Date = new DateTime(year, 6, 23),
                     EnglishName = "Sovereign's birthday",
                     LocalName = "Groussherzogsgebuertsdag",
@@ -89,7 +83,25 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.WhitMonday("Péngschtméindeg", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.EuropeDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? EuropeDay(int year)
+        {
+            if (year >= 2019)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 9),
+                    EnglishName = "Europe Day",
+                    LocalName = "Europadag",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
@@ -97,7 +109,8 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Luxembourg"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Luxembourg",
+                "https://luxembourg.public.lu/en/society-and-culture/festivals-and-traditions/europe-day.html"
             ];
         }
     }
