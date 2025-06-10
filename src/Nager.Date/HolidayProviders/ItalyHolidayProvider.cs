@@ -126,8 +126,7 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public
                 },
                 this._catholicProvider.EasterSunday("Pasqua", year),
-                this._catholicProvider.EasterMonday("Lunedì dell'Angelo", year),
-                this._catholicProvider.WhitMonday("Pfingstmontag", year).SetSubdivisionCodes("IT-32"),
+                this._catholicProvider.EasterMonday("Lunedì dell'Angelo", year)
             };
 
             return holidaySpecifications;
