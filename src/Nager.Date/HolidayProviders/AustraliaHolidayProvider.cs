@@ -93,8 +93,8 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Date = secondMondayInMarch,
-                    EnglishName = "March Public Holiday",
-                    LocalName = "March Public Holiday",
+                    EnglishName = "Adelaide Cup Day",
+                    LocalName = "Adelaide Cup Day",
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["AU-SA"]
                 },
