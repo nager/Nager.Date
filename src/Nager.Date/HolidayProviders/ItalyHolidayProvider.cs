@@ -8,7 +8,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Italy HolidayProvider
     /// </summary>
-    internal sealed class ItalyHolidayProvider : AbstractHolidayProvider
+    internal sealed class ItalyHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -20,6 +20,34 @@ namespace Nager.Date.HolidayProviders
             ICatholicProvider catholicProvider) : base(CountryCode.IT)
         {
             this._catholicProvider = catholicProvider;
+        }
+
+        /// <inheritdoc/>
+        public IDictionary<string, string> GetSubdivisionCodes()
+        {
+            return new Dictionary<string, string>
+            {
+                { "IT-65", "Abruzzo" },
+                { "IT-77", "Basilicata" },
+                { "IT-78", "Calabria" },
+                { "IT-72", "Campania" },
+                { "IT-45", "Emilia-Romagna" },
+                { "IT-36", "Friuli-Venezia Giulia" },
+                { "IT-62", "Lazio" },
+                { "IT-42", "Liguria" },
+                { "IT-25", "Lombardia" },
+                { "IT-57", "Marche" },
+                { "IT-67", "Molise" },
+                { "IT-21", "Piemonte" },
+                { "IT-75", "Puglia" },
+                { "IT-88", "Sardegna" },
+                { "IT-82", "Sicilia" },
+                { "IT-52", "Toscana" },
+                { "IT-32", "Trentino-Alto Adige/Südtirol" },
+                { "IT-55", "Umbria" },
+                { "IT-23", "Valle d’Aosta/Vallée d’Aoste" },
+                { "IT-34", "Veneto" }
+            };
         }
 
         /// <inheritdoc/>
