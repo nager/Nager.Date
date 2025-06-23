@@ -1,6 +1,6 @@
 # Nager.Date
 
-Nager.Date is a popular project for querying holidays, we currently support for over 100 countries.
+Nager.Date is a popular project for querying holidays, we currently support for over 110 countries.
 
 ## Country Support
 The list of supported countries can be found [here](https://date.nager.at/Country/Coverage)
@@ -10,6 +10,23 @@ The list of supported countries can be found [here](https://date.nager.at/Countr
 ### Set License Key
 ```cs
 HolidaySystem.LicenseKey = "TheLicenseKey";
+```
+
+### Check the license
+```cs
+var licenseKey = "TheLicenseKey";
+var licenseInfo = Nager.Date.Helpers.LicenseHelper.CheckLicenseKey(licenseKey);
+if (licenseInfo is null)
+{
+    //license key invalid
+    return;
+}
+
+if (licenseInfo.ValidUntil < DateTime.Today)
+{
+    //license key expired
+    return;
+}
 ```
 
 ### Get all holidays of a country and year
