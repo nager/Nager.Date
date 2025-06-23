@@ -179,6 +179,23 @@ PM> install-package Nager.Date
 HolidaySystem.LicenseKey = "LicenseKey1234";
 ```
 
+### Check the license
+```cs
+var licenseKey = "LicenseKey1234";
+var licenseInfo = Nager.Date.Helpers.LicenseHelper.CheckLicenseKey(licenseKey);
+if (licenseInfo is null)
+{
+    //license key invalid
+    return;
+}
+
+if (licenseInfo.ValidUntil < DateTime.Today)
+{
+    //license key expired
+    return;
+}
+```
+
 ### Get all holidays of a country and year
 ```cs
 var holidays = HolidaySystem.GetHolidays(2024, "DE");
