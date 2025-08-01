@@ -296,6 +296,9 @@ To keep it generally valid, we will treat this subdivision as `SubdivisionCodes`
 | Holidays for Cities                                                          | No        |
 | Holidays for Regions                                                         | No        |
 
+## Limitation Regarding Islamic Holidays
+Some Islamic holidays (e.g., Eid al-Fitr, Eid al-Adha) are based on the Islamic lunar calendar and are often determined by local moon sightings. As this depends on weather conditions and geographic location, these dates cannot be reliably calculated in advance. Therefore, such holidays are not included in this project.
+
 ## Areas of Application
 
 There are several business fields in which it is important to know the holidays in different countries.
