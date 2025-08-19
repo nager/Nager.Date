@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -94,7 +95,25 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.AscensionDay("Ascension Day", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.GenocideRemembranceDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? GenocideRemembranceDay(int year)
+        {
+            if (year >= 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Date = new DateTime(year, 5, 28),
+                    EnglishName = "Genocide Remembrance Day",
+                    LocalName = "Genocide Remembrance Day",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
@@ -102,7 +121,8 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Namibia"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Namibia",
+                "https://www.gov.na/documents/146489/243786/Genocide+Remembrance+Day+2025.pdf/943da8fe-f23f-ccf3-0765-522d4797a547"
             ];
         }
     }
