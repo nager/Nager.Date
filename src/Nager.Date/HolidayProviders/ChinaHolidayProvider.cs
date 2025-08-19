@@ -22,6 +22,13 @@ namespace Nager.Date.HolidayProviders
         {
             //TODO: Provider incomplete
             //Tomb-Sweeping-Day is invalid (5th solar term)
+            //new HolidaySpecification
+            //{
+            //    Date = new DateTime(year, 4, 5),
+            //    EnglishName = "Qingming Festival (Tomb-Sweeping Day)",
+            //    LocalName = "清明节",
+            //    HolidayTypes = HolidayTypes.Public
+            //},
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -30,13 +37,6 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "元旦",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Date = new DateTime(year, 4, 5),
-                    EnglishName = "Qingming Festival (Tomb-Sweeping Day)",
-                    LocalName = "清明节",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
