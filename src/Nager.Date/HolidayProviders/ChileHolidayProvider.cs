@@ -224,47 +224,31 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private DateTime? GetWinterSolstice(int year)
-        {
-            switch (year)
-            {
-                case 2021:
-                    return new DateTime(year, 06, 21);
-                case 2022:
-                    return new DateTime(year, 06, 21);
-                case 2023:
-                    return new DateTime(year, 06, 21);
-                case 2024:
-                    return new DateTime(year, 06, 20);
-                case 2025:
-                    return new DateTime(year, 06, 21);
-                case 2026:
-                    return new DateTime(year, 06, 21);
-                case 2027:
-                    return new DateTime(year, 06, 21);
-                case 2028:
-                    return new DateTime(year, 06, 21);
-                default:
-                    return null;
-            }
-        }
-
         private HolidaySpecification? NationalDayOfIndigenousPeoples(int year)
         {
-            var winterSolstice = this.GetWinterSolstice(year);
-            if (winterSolstice is null)
+            DateTime? holidayDate = year switch
+            {
+                2021 => new DateTime(year, 06, 21),
+                2022 => new DateTime(year, 06, 21),
+                2023 => new DateTime(year, 06, 21),
+                2024 => new DateTime(year, 06, 20),
+                2025 => new DateTime(year, 06, 20),
+                2026 => new DateTime(year, 06, 21),
+                2027 => new DateTime(year, 06, 21),
+                2028 => new DateTime(year, 06, 20),
+                2029 => new DateTime(year, 06, 20),
+                2030 => new DateTime(year, 06, 21),
+                _ => null,
+            };
+
+            if (holidayDate is null)
             {
                 return null;
             }
 
-            /*
-             * N° Ley: 21.357
-             * Fecha de promulgación: 2021-06-17
-            */
-
             return new HolidaySpecification
             {
-                Date = winterSolstice.Value,
+                Date = holidayDate.Value,
                 EnglishName = "National Day of Indigenous Peoples",
                 LocalName = "Día Nacional de los Pueblos Indígenas",
                 HolidayTypes = HolidayTypes.Public
