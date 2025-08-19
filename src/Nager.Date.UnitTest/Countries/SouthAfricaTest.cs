@@ -7,7 +7,7 @@ namespace Nager.Date.UnitTest.Countries
     [TestClass]
     public class SouthAfricaTest
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2021, 25)]
         [DataRow(2022, 27)]
         public void CheckChristmasDayShiftIn2022(int year, int day)

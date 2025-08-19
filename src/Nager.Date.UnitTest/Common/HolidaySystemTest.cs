@@ -111,10 +111,10 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "endDate is before startDate")]
         public void CheckPublicHolidayWithDateFilter2()
         {
-            HolidaySystem.GetHolidays(new DateTime(2016, 1, 2), new DateTime(2016, 1, 1), CountryCode.DE).First();
+            var exception = Assert.ThrowsExactly<ArgumentException>(() => HolidaySystem.GetHolidays(new DateTime(2016, 1, 2), new DateTime(2016, 1, 1), CountryCode.DE).First());
+            Assert.AreEqual("endDate is before startDate (Parameter 'endDate')", exception.Message);
         }
 
         [TestMethod]
@@ -131,11 +131,10 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException), "Invalid countyCode AUS-NT")]
         public void CheckIsOfficialPublicHolidayByCounty2()
         {
-            var isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-NT");
-            Assert.IsTrue(isPublicHoliday);
+            var exception = Assert.ThrowsExactly<ArgumentException>(() => HolidaySystem.IsPublicHoliday(new DateTime(2019, 8, 5), CountryCode.AU, "AUS-NT"));
+            Assert.AreEqual("Invalid subdivisionCode AUS-NT", exception.Message);
         }
 
         [TestMethod]
@@ -143,7 +142,7 @@ namespace Nager.Date.UnitTest.Common
         {
             var isPublicHoliday = HolidaySystem.IsHoliday(new DateTime(2019, 6, 5), CountryCode.DK, HolidayTypes.Bank, out var publicHolidays);
             Assert.IsTrue(isPublicHoliday);
-            Assert.IsTrue(publicHolidays.Length > 0);
+            Assert.IsGreaterThan(0, publicHolidays.Length);
         }
 
         [TestMethod]
@@ -151,7 +150,7 @@ namespace Nager.Date.UnitTest.Common
         {
             var isPublicHoliday = HolidaySystem.IsHoliday(new DateTime(2019, 6, 5), CountryCode.DK, HolidayTypes.Bank | HolidayTypes.School, out var publicHolidays);
             Assert.IsTrue(isPublicHoliday);
-            Assert.IsTrue(publicHolidays.Length > 0);
+            Assert.IsGreaterThan(0, publicHolidays.Length);
         }
     }
 }

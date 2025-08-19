@@ -6,7 +6,7 @@ namespace Nager.Date.UnitTest.Countries
     [TestClass]
     public class DenmarkTest
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2021, 5, 13, true)]
         [DataRow(2021, 5, 14, false)]
         public void ChecksIsPublicHoliday(int year, int month, int day, bool expectedIsPublicHoliday)
