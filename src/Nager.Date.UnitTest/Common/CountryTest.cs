@@ -24,7 +24,7 @@ namespace Nager.Date.UnitTest.Common
 
                 var countries = publicHolidays.GroupBy(o => o.CountryCode).Select(o => o.Key).ToList();
 
-                Assert.AreEqual(1, countries.Count, $"{countryCode} has a failure");
+                Assert.HasCount(1, countries, $"{countryCode} has a failure");
                 Assert.AreEqual(countryCode, countries.FirstOrDefault());
             }
         }
@@ -60,7 +60,7 @@ namespace Nager.Date.UnitTest.Common
                             failures.Add($"{countryCode} - Duplicate SubdivisonCode by {publicHoliday}");
                         }
 
-                        if (publicHoliday.SubdivisionCodes.Count(o => subdivisionCodes.Keys.Contains(o)) != publicHoliday.SubdivisionCodes.Length)
+                        if (publicHoliday.SubdivisionCodes.Count(o => subdivisionCodes.ContainsKey(o)) != publicHoliday.SubdivisionCodes.Length)
                         {
                             var diff = publicHoliday.SubdivisionCodes.Except(subdivisionCodes.Keys);
                             failures.Add($"Unknown subdivisionCode in {provider} \"{publicHoliday.EnglishName}\" {string.Join(',', diff)}");
@@ -88,10 +88,9 @@ namespace Nager.Date.UnitTest.Common
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void HolidaySystem_CheckInvalidCountry_ThrowException()
         {
-            HolidaySystem.GetHolidays(2018, "1000");
+            Assert.ThrowsExactly<ArgumentException>(() => HolidaySystem.GetHolidays(2018, "1000"));
         }
     }
 }
