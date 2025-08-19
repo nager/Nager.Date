@@ -43,7 +43,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(expectedDate, corpusChristi);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2019, 2021, 2020)]
         [DataRow(2024, 2026, 2025)]
         public void TestGermanyLiberationDay(int startYear, int endYear, int expectedYear)
@@ -56,7 +56,7 @@ namespace Nager.Date.UnitTest.Countries
             var liberationDays = publicHolidays.Where(x => x.LocalName == "Tag der Befreiung").ToList();
             var liberationDay = liberationDays.FirstOrDefault();
 
-            Assert.AreEqual(1, liberationDays.Count);
+            Assert.HasCount(1, liberationDays);
             Assert.IsNotNull(liberationDay);
             Assert.AreEqual(new DateTime(expectedYear, 5, 8), liberationDay.Date);
             Assert.IsNotNull(liberationDay.SubdivisionCodes);
@@ -108,7 +108,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsFalse(isPublicHolidayInBerlin2021);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

@@ -7,7 +7,7 @@ namespace Nager.Date.UnitTest.Countries
     [TestClass]
     public class SwitzerlandTest
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

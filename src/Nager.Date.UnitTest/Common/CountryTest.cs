@@ -75,7 +75,7 @@ namespace Nager.Date.UnitTest.Common
             }
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("de")]
         [DataRow("De")]
         [DataRow("dE")]

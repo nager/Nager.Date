@@ -8,7 +8,7 @@ namespace Nager.Date.UnitTest.Common
     [TestClass]
     public class OrthodoxProviderTest
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1800, 4, 20)]
         [DataRow(1810, 4, 29)]
         [DataRow(1820, 4, 9)]

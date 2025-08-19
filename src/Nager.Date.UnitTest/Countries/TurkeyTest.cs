@@ -8,7 +8,7 @@ namespace Nager.Date.UnitTest.Countries
     [TestClass]
     public class TurkeyTest
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1, 1)]
         [DataRow(4, 23)]
         [DataRow(5, 1)]
@@ -33,7 +33,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1, 1)]
         [DataRow(4, 23)]
         [DataRow(5, 1)]
@@ -58,7 +58,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1, 1)]
         [DataRow(4, 23)]
         [DataRow(5, 1)]
@@ -83,7 +83,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1, 1)]
         [DataRow(4, 23)]
         [DataRow(5, 1)]
@@ -107,7 +107,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

@@ -7,7 +7,7 @@ namespace Nager.Date.UnitTest.Weekends
     [TestClass]
     public class SundayOnlyProviderTest
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

@@ -22,7 +22,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(expectedGoodFriday.Day, goodFriday.Date.Day);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]

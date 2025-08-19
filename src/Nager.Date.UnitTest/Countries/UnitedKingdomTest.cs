@@ -23,7 +23,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsTrue(isPublicHoliday);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
         [DataRow(2018, 10, 10, false)]
@@ -38,7 +38,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2019, 5, 6, true)]
         [DataRow(2020, 5, 1, false)]
         [DataRow(2020, 5, 8, true)]
@@ -49,7 +49,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(expectedIsPublicHoliday, isPublicHoliday);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2015, 12, 25, 28)]
         [DataRow(2016, 12, 27, 26)]
         [DataRow(2017, 12, 25, 26)]
@@ -63,7 +63,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsTrue(HolidaySystem.IsPublicHoliday(new DateTime(year, month, expectedBoxingDay), CountryCode.GB));
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2021, 9, 19, false)]
         [DataRow(2022, 9, 19, true)]
         [DataRow(2023, 9, 19, false)]
@@ -72,7 +72,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(HolidaySystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB), isBankHoliday);
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2021, 5, 8, false)]
         [DataRow(2022, 5, 8, false)]
         [DataRow(2023, 5, 8, true)]
