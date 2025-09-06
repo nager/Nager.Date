@@ -104,7 +104,7 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(26),
                     EnglishName = "General Prayer Day",
                     LocalName = "Store bededag",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Optional
                 };
             }
 
