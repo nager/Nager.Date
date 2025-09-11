@@ -82,11 +82,13 @@ namespace Nager.Date.HolidayProviders
             // └────┴────┴────┴────┴────┴────┴────┘
             //        └────+2───┘
             //             └────+2───┘
+            //                  └─+1─┘
             //     
             var observedRuleSet2 = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
-                Sunday = date => date.AddDays(2)
+                Sunday = date => date.AddDays(2),
+                Monday = date => date.AddDays(1)
             };
 
             // ┌────┬────┬────┬────┬────┬────┬────┐
