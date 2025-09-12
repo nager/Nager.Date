@@ -78,15 +78,17 @@ namespace Nager.Date.HolidayProviders
             // ┌────┬────┬────┬────┬────┬────┬────┐
             // │ FR │ SA │ SU │ MO │ TU │ WE │ TH │
             // ├────┼────┼────┼────┼────┼────┼────┤
-            // │    │ +2 │ +2 │    │    │    │    │
+            // │    │ +2 │ +2 │ +1 │    │    │    │
             // └────┴────┴────┴────┴────┴────┴────┘
             //        └────+2───┘
             //             └────+2───┘
+            //                  └─+1─┘
             //     
             var observedRuleSet2 = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
-                Sunday = date => date.AddDays(2)
+                Sunday = date => date.AddDays(2),
+                Monday = date => date.AddDays(1)
             };
 
             // ┌────┬────┬────┬────┬────┬────┬────┐
