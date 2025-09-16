@@ -24,10 +24,12 @@ namespace Nager.Date.UnitTest.Common
                     var holidaysWithId = publicHolidays
                         .Where(holiday => !string.IsNullOrEmpty(holiday.Id));
 
-                    var distinctCount = holidaysWithId
-                        .Select(holiday => holiday.Id).Distinct().Count();
+                    var distinctHolidayIds = holidaysWithId
+                        .Select(holiday => holiday.Id).Distinct();
 
-                    Assert.AreEqual(holidaysWithId.Count(), distinctCount, $"{countryCode}");
+                    var duplicateIds = holidaysWithId.GroupBy(o => o.Id).Where(o => o.Count() > 1).Select(o => o.Key);
+
+                    Assert.AreEqual(holidaysWithId.Count(), distinctHolidayIds.Count(), $"{countryCode} {duplicateIds.Count()} {string.Join(',', duplicateIds)}");
                 }
             }
         }
@@ -53,7 +55,7 @@ namespace Nager.Date.UnitTest.Common
                             continue;
                         }
 
-                        var upper = holiday.Id.ToUpper();
+                        var upper = holiday.Id.Replace(" ", "").ToUpper();
                         Assert.AreEqual(upper, holiday.Id, StringComparer.Ordinal);
 
                         var splitChar = holiday.Id[holiday.Id.Length - 3];

@@ -67,6 +67,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LOUISRIELDAY-01",
                     Date = thirdMondayInFebruary,
                     EnglishName = "Louis Riel Day",
                     LocalName = "Louis Riel Day",
@@ -75,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ISLANDERDAY-01",
                     Date = thirdMondayInFebruary,
                     EnglishName = "Islander Day",
                     LocalName = "Islander Day",
@@ -83,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HERITAGEDAY-02",
                     Date = thirdMondayInFebruary,
                     EnglishName = "Heritage Day",
                     LocalName = "Heritage Day",
@@ -91,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTPATRICKSDAY-01",
                     Date = new DateTime(year, 3, 17),
                     EnglishName = "Saint Patrick's Day",
                     LocalName = "Saint Patrick's Day",
@@ -108,6 +112,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALPATRIOTSDAY-01",
                     Date = mondayOnOrBeforeMay24,
                     EnglishName = "National Patriots' Day",
                     LocalName = "National Patriots' Day",
@@ -116,6 +121,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORIADAY-01",
                     Date = mondayOnOrBeforeMay24,
                     EnglishName = "Victoria Day",
                     LocalName = "Victoria Day",
@@ -123,6 +129,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALABORIGINALDAY-01",
                     Date = new DateTime(year, 6, 21),
                     EnglishName = "National Aboriginal Day",
                     LocalName = "National Aboriginal Day",
@@ -140,6 +147,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALHOLIDAY-01",
                     Date = new DateTime(year, 6, 24),
                     EnglishName = "National Holiday",
                     LocalName = "Fête nationale du Québec",
@@ -148,6 +156,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ORANGEMENSDAY-01",
                     Date = new DateTime(year, 7, 12),
                     EnglishName = "Orangemen's Day",
                     LocalName = "Orangemen's Day",
@@ -156,6 +165,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CIVICHOLIDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Civic Holiday",
                     LocalName = "Civic Holiday",
@@ -164,6 +174,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BRITISHCOLUMBIADAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "British Columbia Day",
                     LocalName = "British Columbia Day",
@@ -172,6 +183,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HERITAGEDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Heritage Day",
                     LocalName = "Heritage Day",
@@ -180,6 +192,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWBRUNSWICKDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "New Brunswick Day",
                     LocalName = "New Brunswick Day",
@@ -188,6 +201,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATALDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Natal Day",
                     LocalName = "Natal Day",
@@ -196,6 +210,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SASKATCHEWANDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Saskatchewan Day",
                     LocalName = "Saskatchewan Day",
@@ -204,6 +219,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GOLDCUPPARADEDAY-01",
                     Date = thirdMondayInAugust,
                     EnglishName = "Gold Cup Parade Day",
                     LocalName = "Gold Cup Parade Day",
@@ -229,6 +245,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAYTRUTHANDRECONCILIATION-01",
                     Date = new DateTime(year, 9, 30),
                     EnglishName = "National Day for Truth and Reconciliation",
                     LocalName = "National Day for Truth and Reconciliation",
@@ -236,6 +253,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "THANKSGIVING-01",
                     Date = secondMondayInOctober,
                     EnglishName = "Thanksgiving",
                     LocalName = "Thanksgiving",
@@ -243,6 +261,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMISTICEDAY-01",
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "Armistice Day",
                     LocalName = "Armistice Day",
@@ -251,6 +270,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REMEMBRANCEDAY-01",
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "Remembrance Day",
                     LocalName = "Remembrance Day",
@@ -294,6 +314,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "STATEFUNERALQUEENELIZABETH-01",
                     Date = new DateTime(year, 9, 19),
                     EnglishName = "State Funeral of Queen Elizabeth II",
                     LocalName = "State Funeral of Queen Elizabeth II",
