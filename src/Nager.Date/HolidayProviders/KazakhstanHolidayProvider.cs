@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Жаңа жыл",
@@ -38,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
                     LocalName = "Жаңа жыл",
@@ -45,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWOMENSDAY-01",
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "International Women's Day",
                     LocalName = "Халықаралық әйелдер күні",
@@ -101,6 +104,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONDAY-01",
                     Date = new DateTime(year, 8, 30),
                     EnglishName = "Constitution Day",
                     LocalName = "Конституция күні",
@@ -108,6 +112,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 10, 25),
                     EnglishName = "Republic Day",
                     LocalName = "Республика күні",
@@ -115,6 +120,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 12, 16),
                     EnglishName = "Independence Day",
                     LocalName = "Тәуелсіздік күні",

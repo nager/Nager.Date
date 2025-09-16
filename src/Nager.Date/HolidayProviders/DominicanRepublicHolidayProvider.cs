@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Día de Año Nuevo",
@@ -57,6 +58,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 2, 27),
                     EnglishName = "Independence Day",
                     LocalName = "Día de la Independencia de la República Dominicana",
@@ -64,6 +66,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Día del Trabajador",
@@ -71,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MOTHERSDAY-01",
                     Date = new DateTime(year, 5, 28),
                     EnglishName = "Mother's Day",
                     LocalName = "Día de las Madres",
@@ -92,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONDAY-01",
                     Date = new DateTime(year, 11, 6),
                     EnglishName = "Constitution Day",
                     LocalName = "Día de la Constitución",
@@ -99,6 +104,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Navidad",

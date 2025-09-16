@@ -8,6 +8,11 @@ namespace Nager.Date.Models
     public class Holiday
     {
         /// <summary>
+        /// Unique Id for the Holiday
+        /// </summary>
+        public string Id { get; set; } = string.Empty;
+
+        /// <summary>
         /// The date
         /// </summary>
         public DateTime Date { get; set; }

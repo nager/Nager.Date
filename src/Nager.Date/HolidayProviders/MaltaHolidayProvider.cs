@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "L-Ewwel tas-Sena",
@@ -50,6 +51,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FREEDOMDAY-01",
                     Date = new DateTime(year, 3, 31),
                     EnglishName = "Freedom Day",
                     LocalName = "Jum il-Ħelsien",
@@ -57,6 +59,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Worker's Day",
                     LocalName = "Jum il-Ħaddiem",
@@ -78,6 +81,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONDAY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Santa Marija",
@@ -92,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 9, 21),
                     EnglishName = "Independence Day",
                     LocalName = "L-Indipendenza",
@@ -106,6 +111,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 12, 13),
                     EnglishName = "Republic Day",
                     LocalName = "Jum ir-Repubblika",
@@ -113,6 +119,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "​CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "​Christmas Day",
                     LocalName = "Il-Milied​",

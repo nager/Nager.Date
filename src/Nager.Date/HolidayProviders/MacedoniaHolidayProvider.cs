@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Нова Година, Nova Godina",
@@ -36,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 7),
                     EnglishName = "Christmas Day",
                     LocalName = "Прв ден Божик, Prv den Božik",
@@ -43,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Ден на трудот, Den na trudot",
@@ -64,6 +67,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 9, 8),
                     EnglishName = "Independence Day",
                     LocalName = "Ден на независноста, Den na nezavisnosta",
@@ -71,6 +75,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONDAY-01",
                     Date = new DateTime(year, 10, 11),
                     EnglishName = "Revolution Day",
                     LocalName = "Ден на востанието, Den na vostanieto",

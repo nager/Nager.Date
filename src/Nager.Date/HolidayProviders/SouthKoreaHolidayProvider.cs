@@ -23,6 +23,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "새해",
@@ -37,6 +38,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHILDRENSDAY-01",
                     Date = childrenDay,
                     EnglishName = "Children's Day",
                     LocalName = "어린이날",
@@ -44,6 +46,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MEMORIALDAY-01",
                     Date = new DateTime(year, 6, 6),
                     EnglishName = "Memorial Day",
                     LocalName = "현충일",
@@ -51,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LIBERATIONDAY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Liberation Day",
                     LocalName = "광복절",
@@ -58,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALFOUNDATIONDAY-01",
                     Date = new DateTime(year, 10, 3),
                     EnglishName = "National Foundation Day",
                     LocalName = "개천절",
@@ -65,6 +70,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HANGULDAY-01",
                     Date = new DateTime(year, 10, 9),
                     EnglishName = "Hangul Day",
                     LocalName = "한글날",
@@ -72,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "크리스마스",

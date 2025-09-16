@@ -54,6 +54,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Neujahr",
@@ -61,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Heilige Drei Könige",
@@ -69,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Tag der Arbeit",
@@ -76,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONDAY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Mariä Himmelfahrt",
@@ -91,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "Allerheiligen",
@@ -99,6 +104,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Erster Weihnachtstag",
@@ -106,6 +112,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Zweiter Weihnachtstag",
@@ -135,6 +142,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "WORLDCHILDRENSDAY-01",
                     Date = new DateTime(year, 9, 20),
                     EnglishName = "World Children's Day",
                     LocalName = "Weltkindertag",
@@ -148,6 +156,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? InternationalWomensDay(int year)
         {
+            var id = "INTERNATIONALWOMENSDAY-01";
             var localName = "Internationaler Frauentag";
             var englishName = "International Women's Day";
 
@@ -155,6 +164,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 3, 8),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -167,6 +177,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 3, 8),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -180,6 +191,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification ReformationDay(int year)
         {
+            var id = "REFORMATIONDAY-01";
             var localName = "Reformationstag";
             var englishName = "Reformation Day";
 
@@ -189,6 +201,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 10, 31),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -200,11 +213,12 @@ namespace Nager.Date.HolidayProviders
 
             if (year >= 2018)
             {
-                subdivisionCodes.AddRange(new[] { "DE-HB", "DE-HH", "DE-NI", "DE-SH" });
+                subdivisionCodes.AddRange(["DE-HB", "DE-HH", "DE-NI", "DE-SH"]);
             }
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = new DateTime(year, 10, 31),
                 EnglishName = englishName,
                 LocalName = localName,
@@ -216,6 +230,7 @@ namespace Nager.Date.HolidayProviders
         private HolidaySpecification? PrayerDay(int year)
         {
             var dayOfPrayer = this._catholicProvider.AdventSunday(year).AddDays(-11);
+            var id = "REPENTANCEANDPRAYERDAY-01";
             var localName = "Buß- und Bettag";
             var englishName = "Repentance and Prayer Day";
 
@@ -223,17 +238,18 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = dayOfPrayer,
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public
                 };
             }
-
             else if (year >= 1945 && year <= 1980)
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = dayOfPrayer,
                     EnglishName = englishName,
                     LocalName = localName,
@@ -241,11 +257,11 @@ namespace Nager.Date.HolidayProviders
                     SubdivisionCodes = ["DE-BW", "DE-BE", "DE-HB", "DE-HH", "DE-HE", "DE-NI", "DE-NW", "DE-RP", "DE-SL", "DE-SH"]
                 };
             }
-
             else if (year >= 1981 && year <= 1989)
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = dayOfPrayer,
                     EnglishName = englishName,
                     LocalName = localName,
@@ -253,22 +269,22 @@ namespace Nager.Date.HolidayProviders
                     SubdivisionCodes = ["DE-BW", "DE-BY", "DE-BE", "DE-HB", "DE-HH", "DE-HE", "DE-NI", "DE-NW", "DE-RP", "DE-SL", "DE-SH"]
                 };
             }
-
             else if (year >= 1990 && year <= 1994)
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = dayOfPrayer,
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public
                 };
             }
-
             else if (year >= 1995)
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = dayOfPrayer,
                     EnglishName = englishName,
                     LocalName = localName,
@@ -286,6 +302,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "LIBERATIONDAY-01",
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Liberation Day",
                     LocalName = "Tag der Befreiung",
@@ -303,6 +320,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "75THANNIVERSARYOFTHEUPRISING-01",
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "75th anniversary of the uprising of June 17, 1953",
                     LocalName = "75. Jahrestag des Aufstandes vom 17. Juni 1953",

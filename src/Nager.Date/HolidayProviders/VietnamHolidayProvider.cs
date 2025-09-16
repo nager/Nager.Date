@@ -27,6 +27,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Tết dương lịch",
@@ -34,6 +35,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REUNIFICATIONDAY-01",
                     Date = new DateTime(year, 4, 30),
                     EnglishName = "Reunification Day",
                     LocalName = "Ngày Giải phóng miền Nam, thống nhất đất nước",
@@ -41,6 +43,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Ngày Quốc tế lao động",
@@ -48,6 +51,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 9, 2),
                     EnglishName = "National Day",
                     LocalName = "Quốc khánh",

@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Año Nuevo",
@@ -66,6 +67,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSOULSDAY-01",
                     Date = new DateTime(year, 11, 2),
                     EnglishName = "All Souls' Day",
                     LocalName = "Día de los Difuntos, Día de Muertos",
@@ -80,6 +82,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Día de Navidad",
@@ -87,6 +90,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-01",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
@@ -94,6 +98,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-02",
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",

@@ -42,6 +42,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Viti i Ri",
@@ -50,6 +51,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
                     LocalName = "Viti i Ri",
@@ -58,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SUMMERDAY-01",
                     Date = new DateTime(year, 3, 14),
                     EnglishName = "Summer Day",
                     LocalName = "Dita e Verës",
@@ -66,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NOWRUZ-01",
                     Date = new DateTime(year, 3, 22),
                     EnglishName = "Nowruz",
                     LocalName = "Dita e Sulltan Nevruzit",
@@ -74,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MAYDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "May Day",
                     LocalName = "Dita Ndërkombëtare e Punonjësve",
@@ -82,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MOTHERTERESADAY-01",
                     Date = new DateTime(year, 9, 05),
                     EnglishName = "Mother Teresa Day",
                     LocalName = "Dita e Nënë Terezës",
@@ -90,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 11, 28),
                     EnglishName = "Independence Day",
                     LocalName = "Dita e Pavarësisë",
@@ -98,6 +105,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LIBERATIONDAY-01",
                     Date = new DateTime(year, 11, 29),
                     EnglishName = "Liberation Day",
                     LocalName = "Dita e Çlirimit",
@@ -106,6 +114,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "YOUTHDAY-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Youth Day",
                     LocalName = "Dita Kombëtare e Rinisë",
@@ -114,6 +123,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Krishtlindjet",

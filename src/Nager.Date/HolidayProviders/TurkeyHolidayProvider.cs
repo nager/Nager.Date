@@ -50,6 +50,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Yılbaşı",
@@ -64,6 +65,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "İşçi Bayramı",
@@ -78,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYDAY-01",
                     Date = new DateTime(year, 8, 30),
                     EnglishName = "Victory Day",
                     LocalName = "Zafer Bayramı",
@@ -85,6 +88,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 10, 29),
                     EnglishName = "Republic Day",
                     LocalName = "Cumhuriyet Bayramı",

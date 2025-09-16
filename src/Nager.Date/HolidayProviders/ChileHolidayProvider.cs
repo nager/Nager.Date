@@ -60,6 +60,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Año Nuevo",
@@ -68,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Día del Trabajo",
@@ -75,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NAVYDAY-01",
                     Date = new DateTime(year, 5, 21),
                     EnglishName = "Navy Day",
                     LocalName = "Día de las Glorias Navales",
@@ -82,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEOFARICA-01",
                     Date = new DateTime(year, 6, 7),
                     EnglishName = "Battle of Arica",
                     LocalName = "Asalto y Toma del Morro de Arica",
@@ -97,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONOFMARY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption of Mary",
                     LocalName = "Asunción de la Virgen",
@@ -104,6 +109,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALHOLIDAY-01",
                     Date = new DateTime(year, 9, 18),
                     EnglishName = "National holiday",
                     LocalName = "Fiestas Patrias",
@@ -111,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMYDAY-01",
                     Date = new DateTime(year, 9, 19),
                     EnglishName = "Army Day",
                     LocalName = "Día de las Glorias del Ejército",
@@ -118,13 +125,15 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
-                    EnglishName = "All Saints",
+                    EnglishName = "All Saints Day",
                     LocalName = "Día de Todos los Santos",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Inmaculada Concepción",
@@ -132,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Navidad / Natividad del Señor",
@@ -182,6 +192,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "COLUMBUSDAY-01",
                 Date = new DateTime(year, 10, 12),
                 EnglishName = "Columbus Day",
                 LocalName = "Día del Descubrimiento de Dos Mundos",
@@ -200,6 +211,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "REFORMATIONDAY-01",
                 Date = new DateTime(year, 10, 31),
                 EnglishName = "Reformation Day",
                 LocalName = "Día Nacional de las Iglesias Evangélicas y Protestantes",

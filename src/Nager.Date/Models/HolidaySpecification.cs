@@ -8,6 +8,23 @@ namespace Nager.Date.Models
     /// </summary>
     public class HolidaySpecification
     {
+
+#if NET8_0_OR_GREATER
+
+        /// <summary>
+        /// Unique Id for the Holiday
+        /// </summary>
+        //public required string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
+#else
+
+        /// <summary>
+        /// Unique Id for the Holiday
+        /// </summary>
+        public string Id { get; set; } = string.Empty;
+
+#endif
+
         /// <summary>
         /// The date
         /// </summary>

@@ -38,6 +38,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "عيد العمال",
@@ -45,6 +46,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONDAY-01",
                     Date = new DateTime(year, 7, 23),
                     EnglishName = "Revolution Day",
                     LocalName = "عيد ثورة 23 يوليو",

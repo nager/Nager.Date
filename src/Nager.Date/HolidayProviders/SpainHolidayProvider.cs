@@ -60,6 +60,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Día de Reyes / Epifanía del Señor",
@@ -67,6 +68,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Fiesta del trabajo",
@@ -81,6 +83,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints Day",
                     LocalName = "Día de todos los Santos",
@@ -88,6 +91,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONDAY-01",
                     Date = new DateTime(year, 12, 6),
                     EnglishName = "Constitution Day",
                     LocalName = "Día de la Constitución",
@@ -95,6 +99,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Inmaculada Concepción",
@@ -139,6 +144,7 @@ namespace Nager.Date.HolidayProviders
         {
             var newYearsDay1 = new HolidaySpecification
             {
+                Id = "NEWYEARSDAY-01",
                 Date = new DateTime(year, 1, 1),
                 EnglishName = "New Year's Day",
                 LocalName = "Año Nuevo",
@@ -150,6 +156,7 @@ namespace Nager.Date.HolidayProviders
                 case 2023:
                     var newYearsDay2 = new HolidaySpecification
                     {
+                        Id = "NEWYEARSDAY-02",
                         Date = new DateTime(year, 1, 1),
                         EnglishName = "New Year's Day",
                         LocalName = "Año Nuevo",
@@ -193,6 +200,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-02",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Christmas Day",
                     LocalName = "Navidad",
@@ -203,6 +211,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "CHRISTMASDAY-01",
                 Date = new DateTime(year, 12, 25),
                 EnglishName = "Christmas Day",
                 LocalName = "Navidad",
@@ -319,8 +328,9 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "SAINTJOSEPHSDAY-01",
                 Date = new DateTime(year, 3, 19),
-                EnglishName = "St. Joseph's Day",
+                EnglishName = "Saint Joseph's Day",
                 LocalName = "San José",
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = subdivisionCodes,

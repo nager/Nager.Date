@@ -23,6 +23,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Новый год",
@@ -30,6 +31,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year holiday",
                     LocalName = "Новогодние каникулы",
@@ -37,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-03",
                     Date = new DateTime(year, 1, 3),
                     EnglishName = "New Year holiday",
                     LocalName = "Новогодние каникулы",
@@ -44,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-04",
                     Date = new DateTime(year, 1, 4),
                     EnglishName = "New Year holiday",
                     LocalName = "Новогодние каникулы",
@@ -51,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-05",
                     Date = new DateTime(year, 1, 5),
                     EnglishName = "New Year holiday",
                     LocalName = "Новогодние каникулы",
@@ -58,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-06",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "New Year holiday",
                     LocalName = "Новогодние каникулы",
@@ -79,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWOMENSDAY-01",
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "International Women's Day",
                     LocalName = "Международный женский день",
@@ -86,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "День труда",
@@ -93,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYDAY-01",
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Victory Day",
                     LocalName = "День Победы",

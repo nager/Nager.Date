@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Nova Godina",
@@ -46,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
                     LocalName = "Nova Godina",
@@ -53,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Christmas Eve (Orthodox)",
                     LocalName = "Božić (za pravoslavce)",
@@ -69,8 +72,9 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 3, 1),
-                    EnglishName = "Idependence day",
+                    EnglishName = "Independence day",
                     LocalName = "Dan nezavisnosti Bosne i Hercegovine",
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["BA-BIH"]

@@ -68,6 +68,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Neujahr",
@@ -75,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 3, 1),
                     EnglishName = "Republic Day",
                     LocalName = "Jahrestag der Ausrufung der Republik",
@@ -106,6 +108,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Weihnachten",
@@ -242,6 +245,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "SAINTJOSEPHSDAY-01",
                     Date = new DateTime(year, 3, 19),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -250,6 +254,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTJOSEPHSDAY-02",
                     Date = new DateTime(year, 3, 19),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -336,6 +341,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -344,6 +350,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-02",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -362,6 +369,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -370,6 +378,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-02",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -401,6 +410,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -409,6 +419,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-02",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = englishName,
                     LocalName = localName,
