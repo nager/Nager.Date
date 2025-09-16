@@ -59,6 +59,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "JANHUSDAY-01",
                     Date = new DateTime(year, 7, 6),
                     EnglishName = "Jan Hus Day",
                     LocalName = "Den upálení mistra Jana Husa",
@@ -66,6 +67,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STWENCESLASDAY-01",
                     Date = new DateTime(year, 9, 28),
                     EnglishName = "St. Wenceslas Day",
                     LocalName = "Den české státnosti",

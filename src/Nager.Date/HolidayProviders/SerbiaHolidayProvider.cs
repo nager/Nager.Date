@@ -67,6 +67,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STATEHOODDAY-01",
                     Date = new DateTime(year, 2, 15),
                     EnglishName = "Statehood Day",
                     LocalName = "Dan državnosti Srbije",
@@ -75,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STATEHOODDAY-02",
                     Date = new DateTime(year, 2, 16),
                     EnglishName = "Statehood Day",
                     LocalName = "Dan državnosti Srbije",

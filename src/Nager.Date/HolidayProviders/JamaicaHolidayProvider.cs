@@ -47,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EMANCIPATIONDAY-01",
                     Date = new DateTime(year, 8, 1),
                     EnglishName = "Emancipation Day",
                     LocalName = "Emancipation Day",
@@ -90,6 +91,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASHWEDNESDAY-01",
                     Date = easterSunday.AddDays(-46),
                     EnglishName = "Ash Wednesday",
                     LocalName = "Ash Wednesday",

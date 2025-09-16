@@ -99,6 +99,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFPEACERECONCILIATION-01",
                     Date = new DateTime(year, 10, 4),
                     EnglishName = "Day of Peace and Reconciliation",
                     LocalName = "Dia da Paz e da Reconcialição",

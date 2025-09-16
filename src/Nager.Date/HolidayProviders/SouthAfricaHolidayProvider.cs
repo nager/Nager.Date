@@ -51,6 +51,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HUMANRIGHTSDAY-01",
                     Date = new DateTime(year, 3, 21),
                     EnglishName = "Human Rights Day",
                     LocalName = "Human Rights Day",
@@ -152,6 +153,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "SPRINGBOKSVICTORY-01",
                     Date = new DateTime(year, 12, 15),
                     EnglishName = "Springboks Victory",
                     LocalName = "Springboks Victory",

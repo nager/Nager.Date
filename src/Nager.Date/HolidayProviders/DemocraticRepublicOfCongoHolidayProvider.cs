@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MARTYRSDAY-01",
                     Date = new DateTime(year, 1, 4),
                     EnglishName = "Martyrs Day",
                     LocalName = "Martyrs Day",
@@ -52,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "KIMBANGUSDAY-01",
                     Date = new DateTime(year, 4, 6),
                     EnglishName = "Kimbangu's Day",
                     LocalName = "Kimbangu's Day",
@@ -83,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PARENTSDAY-01",
                     Date = new DateTime(year, 8, 1),
                     EnglishName = "Parents' Day",
                     LocalName = "Parents' Day",
@@ -90,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONGOLESEGENOCIDEDAY-01",
                     Date = new DateTime(year, 8, 2),
                     EnglishName = "Congolese Genocide Day",
                     LocalName = "Congolese Genocide Day",

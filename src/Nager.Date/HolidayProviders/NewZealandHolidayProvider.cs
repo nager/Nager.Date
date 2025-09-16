@@ -357,6 +357,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "MONARCHBIRTHDAY-01",
                 Date = monarchBirthday,
                 EnglishName = name,
                 LocalName = name,

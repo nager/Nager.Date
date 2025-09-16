@@ -280,6 +280,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "MONARCHBIRTHDAY-01",
                     Date = secondMondayInJune,
                     EnglishName = name,
                     LocalName = name,
@@ -288,6 +289,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MONARCHBIRTHDAY-02",
                     Date = lastMondayInSeptember,
                     EnglishName = name,
                     LocalName = name,
@@ -296,6 +298,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MONARCHBIRTHDAY-03",
                     Date = firstMondayInOctober,
                     EnglishName = name,
                     LocalName = name,
@@ -314,6 +317,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "NATIONALDAYOFMOURNING-01",
                     Date = new DateTime(year, 9, 22),
                     EnglishName = "National Day of Mourning",
                     LocalName = "National Day of Mourning",

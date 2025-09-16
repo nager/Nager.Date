@@ -119,6 +119,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = allSaintsDayDate,
                     EnglishName = "All Saints’ Day",
                     LocalName = "Dia de los Santos",

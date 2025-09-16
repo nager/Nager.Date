@@ -30,6 +30,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "ESTABLISHMENTSLOVAKREPUBLIC-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "Day of the Establishment of the Slovak Republic",
                     LocalName = "Deň vzniku Slovenskej republiky",
@@ -45,6 +46,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "Sviatok práce",
@@ -52,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFVICTORYOVERFASCISM-01",
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Day of victory over fascism",
                     LocalName = "Deň víťazstva nad fašizmom",
@@ -59,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STCYRILANDMETHODIUSDAY-01",
                     Date = new DateTime(year, 7, 5),
                     EnglishName = "St. Cyril and Methodius Day",
                     LocalName = "Sviatok svätého Cyrila a svätého Metoda",
@@ -66,6 +70,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SLOVAKNATIONALUPRISING-01",
                     Date = new DateTime(year, 8, 29),
                     EnglishName = "Slovak National Uprising anniversary",
                     LocalName = "Výročie Slovenského národného povstania",
@@ -73,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOURLADYSEVENSORROWS-01",
                     Date = new DateTime(year, 9, 15),
                     EnglishName = "Day of Our Lady of the Seven Sorrows",
                     LocalName = "Sedembolestná Panna Mária",
@@ -80,6 +86,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints’ Day",
                     LocalName = "Sviatok Všetkých svätých",
@@ -87,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STRUGGLEFREEDOMDEMOCRACYDAY-01",
                     Date = new DateTime(year, 11, 17),
                     EnglishName = "Struggle for Freedom and Democracy Day",
                     LocalName = "Deň boja za slobodu a demokraciu",

@@ -88,6 +88,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GERMANUNITYDAY-01",
                     Date = new DateTime(year, 10, 3),
                     EnglishName = "German Unity Day",
                     LocalName = "Tag der Deutschen Einheit",

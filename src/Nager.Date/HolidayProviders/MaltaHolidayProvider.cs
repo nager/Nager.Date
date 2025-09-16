@@ -67,6 +67,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SETTEGIUGNO-01",
                     Date = new DateTime(year, 6, 7),
                     EnglishName = "Sette Giugno",
                     LocalName = "Sette Giugno",
