@@ -64,6 +64,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REMEMBRANCETRUTHANDJUSTICE-01",
                     Date = new DateTime(year, 3, 24),
                     EnglishName = "Day of Remembrance for Truth and Justice",
                     LocalName = "Día Nacional de la Memoria por la Verdad y la Justicia",
@@ -71,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VETERANSANDFALLENMALVINASWAR-01",
                     Date = new DateTime(year, 4, 2),
                     EnglishName = "Day of the Veterans and Fallen of the Malvinas War",
                     LocalName = "Día del Veterano y de los Caídos en la Guerra de Malvinas",
@@ -94,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GENERALMARTINMIGUELDEGUEEMES-01",
                     Date = new DateTime(year, 6, 17),
                     EnglishName = "Anniversary of the Passing of General Martín Miguel de Güemes",
                     LocalName = "Paso a la Inmortalidad del General Martín Miguel de Güemes",
@@ -127,6 +130,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESPECTFORCULTURALDIVERSITY-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Day of Respect for Cultural Diversity",
                     LocalName = "Día del Respeto a la Diversidad Cultural",
@@ -135,6 +139,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALSOVEREIGNTYDAY-01",
                     Date = new DateTime(year, 11, 20),
                     EnglishName = "National Sovereignty Day",
                     LocalName = "Día de la Soberanía Nacional",
@@ -143,6 +148,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTIONDAY-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception Day",
                     LocalName = "Día de la Inmaculada Concepción de María",
