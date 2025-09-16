@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "THEDAYOFTHECROSS-01",
                     Date = new DateTime(year, 5, 3),
                     EnglishName = "The Day of the Cross",
                     LocalName = "Día de la Cru",
@@ -46,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SOLDIERSDAY-01",
                     Date = new DateTime(year, 5, 7),
                     EnglishName = "Soldiers' Day",
                     LocalName = "Día del Soldado",

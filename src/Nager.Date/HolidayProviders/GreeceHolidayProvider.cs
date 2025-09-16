@@ -48,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANNUNCIATION-01",
                     Date = new DateTime(year, 3, 25),
                     EnglishName = "Annunciation",
                     LocalName = "Ευαγγελισμός της Θεοτόκου",
@@ -71,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCHIDAY-01",
                     Date = new DateTime(year, 10, 28),
                     EnglishName = "Ochi Day",
                     LocalName = "Το Όχι",
@@ -94,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CLEANMONDAY-01",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Clean Monday",
                     LocalName = "Καθαρά Δευτέρα",
