@@ -54,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANDEANNEWYEAR-01",
                     Date = new DateTime(year, 6, 21),
                     EnglishName = "Andean New Year",
                     LocalName = "Año Nuevo Andino",
@@ -61,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AGRARIANREFORMDAY-01",
                     Date = new DateTime(year, 8, 2),
                     EnglishName = "Agrarian Reform Day",
                     LocalName = "Día de la Revolución Agraria",

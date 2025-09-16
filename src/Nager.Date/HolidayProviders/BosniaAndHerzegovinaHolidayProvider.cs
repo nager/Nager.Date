@@ -95,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYDAYOVERFASCISM-01",
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Victory Day over fascism",
                     LocalName = "Dan pobjede nad fašizmom",
@@ -111,6 +112,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STATEHOODDAY-01",
                     Date = new DateTime(year, 11, 25),
                     EnglishName = "Statehood Day",
                     LocalName = "Dan državnosti Bosne i Hercegovine",
