@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "TRADITIONALDAY-01",
                     Date = new DateTime(year, 1, 10),
                     EnglishName = "Traditional Day",
                     LocalName = "Traditional Day",
@@ -70,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMEDFORCESDAY-01",
                     Date = new DateTime(year, 10, 26),
                     EnglishName = "Armed Forces Day",
                     LocalName = "Armed Forces Day",

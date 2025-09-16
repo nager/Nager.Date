@@ -294,8 +294,15 @@ namespace Nager.Date.HolidayProviders
         {
             var localName = "Ostermontag";
 
-            var specificationPublic = this._catholicProvider.EasterMonday(localName, year).SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-VD", "CH-GE", "CH-JU");
-            var specificationObservance = this._catholicProvider.EasterMonday(localName, year).SetSubdivisionCodes("CH-UR", "CH-SZ", "CH-OW").SetHolidayTypes(HolidayTypes.Observance);
+            var specificationPublic = this._catholicProvider
+                .EasterMonday(localName, year)
+                .SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-TI", "CH-VD", "CH-GE", "CH-JU");
+
+            var specificationObservance = this._catholicProvider
+                .EasterMonday(localName, year)
+                .SetSubdivisionCodes("CH-UR", "CH-SZ", "CH-OW")
+                .SetHolidayTypes(HolidayTypes.Observance)
+                .SetId("EASTERMONDAY-02");
 
             return
             [
@@ -308,8 +315,14 @@ namespace Nager.Date.HolidayProviders
         {
             var localName = "Pfingstmontag";
 
-            var specificationPublic = this._catholicProvider.WhitMonday(localName, year).SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-VD", "CH-GE", "CH-JU");
-            var specificationObservance = this._catholicProvider.WhitMonday(localName, year).SetSubdivisionCodes("CH-UR", "CH-SZ", "CH-OW", "CH-TI").SetHolidayTypes(HolidayTypes.Observance);
+            var specificationPublic = this._catholicProvider
+                .WhitMonday(localName, year)
+                .SetSubdivisionCodes("CH-ZH", "CH-BE", "CH-GL", "CH-FR", "CH-BS", "CH-BL", "CH-SH", "CH-AR", "CH-AI", "CH-SG", "CH-GR", "CH-AG", "CH-TG", "CH-VD", "CH-GE", "CH-JU");
+
+            var specificationObservance = this._catholicProvider.WhitMonday(localName, year)
+                .SetSubdivisionCodes("CH-UR", "CH-SZ", "CH-OW", "CH-TI")
+                .SetHolidayTypes(HolidayTypes.Observance)
+                .SetId("WHITMONDAY-02");
 
             return
             [
@@ -322,8 +335,15 @@ namespace Nager.Date.HolidayProviders
         {
             var localName = "Fronleichnam";
 
-            var specificationPublic = this._catholicProvider.CorpusChristi(localName, year).SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-AG", "CH-VS", "CH-JU");
-            var specificationObservance = this._catholicProvider.CorpusChristi(localName, year).SetSubdivisionCodes("CH-TI").SetHolidayTypes(HolidayTypes.Observance);
+            var specificationPublic = this._catholicProvider
+                .CorpusChristi(localName, year)
+                .SetSubdivisionCodes("CH-LU", "CH-UR", "CH-SZ", "CH-OW", "CH-NW", "CH-ZG", "CH-FR", "CH-SO", "CH-AI", "CH-AG", "CH-VS", "CH-JU");
+
+            var specificationObservance = this._catholicProvider
+                .CorpusChristi(localName, year)
+                .SetSubdivisionCodes("CH-TI")
+                .SetHolidayTypes(HolidayTypes.Observance)
+                .SetId("CORPUSCHRISTI-02");
 
             return
             [

@@ -80,5 +80,12 @@ namespace Nager.Date.Models
 
             return this;
         }
+
+        internal HolidaySpecification SetId(string id)
+        {
+            this.Id = id;
+
+            return this;
+        }
     }
 }

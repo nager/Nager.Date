@@ -102,6 +102,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MANUELBELGRANOMEMORIALDAY-01",
                     Date = new DateTime(year, 6, 20),
                     EnglishName = "General Manuel Belgrano Memorial Day",
                     LocalName = "Paso a la Inmortalidad del General Manuel Belgrano",
@@ -117,6 +118,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "JOSEDESANMARTINMEMORIALDAY-01",
                     Date = new DateTime(year, 8, 17),
                     EnglishName = "General José de San Martín Memorial Day",
                     LocalName = "Paso a la Inmortalidad del General José de San Martín",

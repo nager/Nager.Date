@@ -190,8 +190,14 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                this._catholicProvider.GoodFriday("Good Friday", year).SetSubdivisionCodes("US-CT", "US-DE", "US-HI", "US-IN", "US-KY", "US-LA", "US-NC", "US-ND", "US-NJ", "US-TN"),
-                this._catholicProvider.GoodFriday("Good Friday", year).SetSubdivisionCodes("US-TX").SetHolidayTypes(HolidayTypes.Optional)
+
+                this._catholicProvider.GoodFriday("Good Friday", year)
+                .SetSubdivisionCodes("US-CT", "US-DE", "US-HI", "US-IN", "US-KY", "US-LA", "US-NC", "US-ND", "US-NJ", "US-TN"),
+
+                this._catholicProvider.GoodFriday("Good Friday", year)
+                .SetSubdivisionCodes("US-TX")
+                .SetHolidayTypes(HolidayTypes.Optional)
+                .SetId("GOODFRIDAY-02")
             };
 
             holidaySpecifications.AddIfNotNull(this.JuneteenthNationalIndependenceDay(year, observedRuleSet));

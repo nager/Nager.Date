@@ -21,10 +21,16 @@ namespace Nager.Date
             foreach (var holidaySpecification in holidaySpecifications)
             {
                 var holidayDate = holidaySpecification.Date;
+                var id = string.Empty;
+
+                if (!string.IsNullOrEmpty(holidaySpecification.Id))
+                {
+                    id = $"{countryCode}-{holidaySpecification.Id}";
+                }
 
                 yield return new Holiday
                 {
-                    Id = $"{countryCode}-{holidaySpecification.Id}".ToUpperInvariant(),
+                    Id = id,
                     Date = holidayDate,
                     EnglishName = holidaySpecification.EnglishName,
                     LocalName = holidaySpecification.LocalName,

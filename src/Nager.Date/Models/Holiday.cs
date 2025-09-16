@@ -57,7 +57,7 @@ namespace Nager.Date.Models
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"{this.Date:yyyy-MM-dd} {this.EnglishName}";
+            return $"{this.Date:yyyy-MM-dd} {this.Id} {this.EnglishName}";
         }
     }
 }

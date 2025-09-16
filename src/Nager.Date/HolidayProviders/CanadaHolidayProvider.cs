@@ -212,7 +212,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "DISCOVERYDAY-01",
+                    Id = "DISCOVERYDAY-02",
                     Date = thirdMondayInAugust,
                     EnglishName = "Discovery Day",
                     LocalName = "Discovery Day",
