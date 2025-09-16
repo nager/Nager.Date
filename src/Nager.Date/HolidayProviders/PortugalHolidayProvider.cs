@@ -141,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESTORATIONINDEPENDENCE-01",
                     Date = new DateTime(year, 12, 1),
                     EnglishName = "Restoration of Independence",
                     LocalName = "Restauração da Independência",

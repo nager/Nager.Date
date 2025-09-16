@@ -37,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFKINGS-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Day of Kings",
                     LocalName = "Día de Reyes",
@@ -44,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OURLADYOFALTAGRACIA-01",
                     Date = new DateTime(year, 1, 21),
                     EnglishName = "Our Lady of Altagracia",
                     LocalName = "Día de Nuestra Señora de la Altagracia",
@@ -51,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DUARTESBIRTHDAY-01",
                     Date = new DateTime(year, 1, 26),
                     EnglishName = "Duarte's Birthday",
                     LocalName = "Día del Natalicio de Juan Pablo Duarte",
@@ -82,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESTORATIONDAY-01",
                     Date = new DateTime(year, 8, 16),
                     EnglishName = "Restoration Day",
                     LocalName = "Día de la Restauración Dominicana",
@@ -89,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OURLADYOFMERCY-01",
                     Date = new DateTime(year, 9, 24),
                     EnglishName = "Our Lady of Mercy",
                     LocalName = "Nuestra Senora de las Mercedes",

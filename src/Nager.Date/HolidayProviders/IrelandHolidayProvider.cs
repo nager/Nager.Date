@@ -44,6 +44,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTPATRICKSDAY-01",
                     Date = new DateTime(year, 3, 17),
                     EnglishName = "Saint Patrick's Day",
                     LocalName = "Lá Fhéile Pádraig",
@@ -59,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "JUNEHOLIDAY-01",
                     Date = firstMondayInJune,
                     EnglishName = "June Holiday",
                     LocalName = "Lá Saoire i mí an Mheithimh",
@@ -66,6 +68,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTHOLIDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "August Holiday",
                     LocalName = "Lá Saoire i mí Lúnasa",
@@ -73,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCTOBERHOLIDAY-01",
                     Date = lastMondayInOctober,
                     EnglishName = "October Holiday",
                     LocalName = "Lá Saoire i mí Dheireadh Fómhair",

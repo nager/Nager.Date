@@ -80,6 +80,7 @@ namespace Nager.Date.HolidayProviders
 
                 holidaySpecifications.AddIfNotNull(new HolidaySpecification
                 {
+                    Id = "CHINESENEWYEAR-01",
                     Date = chineseNewYear,
                     EnglishName = "Chinese New Year",
                     LocalName = "Chinese New Year",
@@ -89,6 +90,7 @@ namespace Nager.Date.HolidayProviders
 
                 holidaySpecifications.AddIfNotNull(new HolidaySpecification
                 {
+                    Id = "CHINESENEWYEAR-02",
                     Date = chineseNewYear.AddDays(1),
                     EnglishName = "Chinese New Year",
                     LocalName = "Chinese New Year",
@@ -159,6 +161,7 @@ namespace Nager.Date.HolidayProviders
                 var name = "Hari Raya Puasa";
                 return new HolidaySpecification
                 {
+                    Id = "HARIRAYAPUASA-01",
                     Date = date.Value,
                     EnglishName = name,
                     LocalName = name,
@@ -217,6 +220,7 @@ namespace Nager.Date.HolidayProviders
                 var name = "Vesak Day";
                 return new HolidaySpecification
                 {
+                    Id = "VESAKDAY-01",
                     Date = date.Value,
                     EnglishName = name,
                     LocalName = name,
@@ -285,6 +289,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "HARIRAYAHAJI-01",
                     Date = date.Value,
                     EnglishName = name,
                     LocalName = name,
@@ -349,6 +354,7 @@ namespace Nager.Date.HolidayProviders
                 var name = "Deepavali";
                 return new HolidaySpecification
                 {
+                    Id = "DEEPAVALI-01",
                     Date = date.Value,
                     EnglishName = name,
                     LocalName = name,
@@ -366,6 +372,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "POLLINGDAY-01",
                     Date = new DateTime(year, 9, 1),
                     EnglishName = "Polling Day",
                     LocalName = "Polling Day",

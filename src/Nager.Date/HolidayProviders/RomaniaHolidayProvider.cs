@@ -76,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STANDREWSDAY-01",
                     Date = new DateTime(year, 11, 30),
                     EnglishName = "St. Andrew's Day",
                     LocalName = "Sfântul Andrei",

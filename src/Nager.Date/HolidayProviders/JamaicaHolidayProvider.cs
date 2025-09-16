@@ -66,6 +66,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALHEROESDAY-01",
                     Date = new DateTime(year, 10, 16),
                     EnglishName = "National Heroes Day",
                     LocalName = "National Heroes Day",

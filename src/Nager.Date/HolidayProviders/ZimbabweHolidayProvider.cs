@@ -75,6 +75,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HEROESDAY-01",
                     Date = secondMondayInAugust,
                     EnglishName = "Heroes' Day",
                     LocalName = "Heroes' Day",
@@ -82,6 +83,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DEFENCEFORCESDAY-01",
                     Date = tuesdayAfterSecondMondayInAugust,
                     EnglishName = "Defence Forces Day",
                     LocalName = "Defence Forces Day",
@@ -89,6 +91,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "UNITYDAY-01",
                     Date = new DateTime(year, 12, 22),
                     EnglishName = "Unity Day",
                     LocalName = "Unity Day",

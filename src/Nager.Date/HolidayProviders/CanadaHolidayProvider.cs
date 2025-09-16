@@ -337,6 +337,7 @@ namespace Nager.Date.HolidayProviders
                 [
                     new HolidaySpecification
                     {
+                        Id = "FAMILYDAY-01",
                         Date = secondMondayInFebruary,
                         EnglishName = holidayName,
                         LocalName = holidayName,
@@ -345,6 +346,7 @@ namespace Nager.Date.HolidayProviders
                     },
                     new HolidaySpecification
                     {
+                        Id = "FAMILYDAY-02",
                         Date = thirdMondayInFebruary,
                         EnglishName = holidayName,
                         LocalName = holidayName,
@@ -358,6 +360,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "FAMILYDAY-03",
                     Date = thirdMondayInFebruary,
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -378,6 +381,7 @@ namespace Nager.Date.HolidayProviders
                 [
                     new HolidaySpecification
                     {
+                        Id = "CANADADAY-01",
                         Date = canadaDay,
                         EnglishName = holidayName,
                         LocalName = holidayName,
@@ -386,6 +390,7 @@ namespace Nager.Date.HolidayProviders
                     },
                     new HolidaySpecification
                     {
+                        Id = "CANADADAY-02",
                         Date = canadaDay.AddDays(1),
                         EnglishName = holidayName,
                         LocalName = holidayName,
@@ -399,6 +404,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "CANADADAY-03",
                     Date = canadaDay,
                     EnglishName = holidayName,
                     LocalName = holidayName,

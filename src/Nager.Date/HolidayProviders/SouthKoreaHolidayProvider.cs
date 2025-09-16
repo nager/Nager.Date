@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEMOVEMENTDAY-01",
                     Date = new DateTime(year, 3, 1),
                     EnglishName = "Independence Movement Day",
                     LocalName = "3·1절",
@@ -106,6 +107,7 @@ namespace Nager.Date.HolidayProviders
 
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "LUNARNEWYEAR-01",
                     Date = lunarNewYear1,
                     EnglishName = "Lunar New Year",
                     LocalName = "설날",
@@ -113,6 +115,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "LUNARNEWYEAR-02",
                     Date = lunarNewYear2,
                     EnglishName = "Lunar New Year",
                     LocalName = "설날",
@@ -120,6 +123,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "LUNARNEWYEAR-03",
                     Date = lunarNewYear3,
                     EnglishName = "Lunar New Year",
                     LocalName = "설날",
@@ -127,6 +131,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "BUDDHASBIRTHDAY-01",
                     Date = buddhaBday,
                     EnglishName = "Buddha's Birthday",
                     LocalName = "부처님 오신 날",
@@ -134,6 +139,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "CHUSEOK-01",
                     Date = chuseok1,
                     EnglishName = "Chuseok",
                     LocalName = "추석",
@@ -141,6 +147,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "CHUSEOK-02",
                     Date = chuseok2,
                     EnglishName = "Chuseok",
                     LocalName = "추석",
@@ -148,6 +155,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "CHUSEOK-03",
                     Date = chuseok3,
                     EnglishName = "Chuseok",
                     LocalName = "추석",

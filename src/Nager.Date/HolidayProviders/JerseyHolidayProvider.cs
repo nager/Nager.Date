@@ -42,6 +42,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EARLYMAYBANKHOLIDAY-01",
                     Date = firstMondayInMay,
                     EnglishName = "Early May Bank Holiday",
                     LocalName = "Early May Bank Holiday",
@@ -57,6 +58,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SPRINGBANKHOLIDAY-01",
                     Date = lastMondayInMay,
                     EnglishName = "Spring Bank Holiday",
                     LocalName = "Spring Bank Holiday",
@@ -64,6 +66,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SUMMERBANKHOLIDAY-01",
                     Date = lastMondayInAugust,
                     EnglishName = "Summer Bank Holiday",
                     LocalName = "Summer Bank Holiday",

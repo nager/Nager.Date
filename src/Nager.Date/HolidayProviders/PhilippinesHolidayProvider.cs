@@ -205,6 +205,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "FEASTOFSACRIFICE-01",
                     Date = new DateTime(year, 6, 6),
                     EnglishName = "Feast of Sacrifice",
                     LocalName = "Eid'l Adha",

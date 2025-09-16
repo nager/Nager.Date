@@ -220,6 +220,7 @@ namespace Nager.Date.HolidayProviders
                 //Majesty Queen Elizabeth II’s (https://www.gov.uk/government/news/bank-holiday-announced-for-her-majesty-queen-elizabeth-iis-state-funeral-on-monday-19-september)
                 return new HolidaySpecification
                 {
+                    Id = "QUEENSSTATEFUNERAL-01",
                     Date = new DateTime(year, 9, 19),
                     EnglishName = holidayName,
                     LocalName = holidayName,

@@ -101,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMISTICEDAY-01",
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "Armistice Day",
                     LocalName = "Dan primirja",
