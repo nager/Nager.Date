@@ -76,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SANTAROSADELIMA-01",
                     Date = new DateTime(year, 8, 30),
                     EnglishName = "Santa Rosa de Lima",
                     LocalName = "Día de Santa Rosa de Lima",
@@ -83,6 +84,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEOFANGAMOS-01",
                     Date = new DateTime(year, 10, 8),
                     EnglishName = "Battle of Angamos",
                     LocalName = "Combate de Angamos",

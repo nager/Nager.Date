@@ -46,6 +46,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SOVEREIGNSBIRTHDAY-01",
                     Date = new DateTime(year, 6, 23),
                     EnglishName = "Sovereign's birthday",
                     LocalName = "Groussherzogsgebuertsdag",

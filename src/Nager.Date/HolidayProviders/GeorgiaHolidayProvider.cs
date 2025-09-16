@@ -91,6 +91,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTANDREWTHEFIRSTCALLEDDAY-01",
                     Date = new DateTime(year, 5, 12),
                     EnglishName = "Saint Andrew the First-Called Day",
                     LocalName = "წმინდა მოციქულის ანდრია პირველწოდებულის საქართველოში შემოსვლის დღე",
@@ -114,6 +115,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFSVETITSKHOVELICATHEDRA-01",
                     Date = new DateTime(year, 10, 14),
                     EnglishName = "Day of Svetitskhoveli Cathedra",
                     LocalName = "სვეტიცხოვლობა",

@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STBERCHTOLDSDAY-01",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "St. Berchtold's Day",
                     LocalName = "Berchtoldstag",
@@ -54,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CANDLEMAS-01",
                     Date = new DateTime(year, 2, 2),
                     EnglishName = "Candlemas",
                     LocalName = "Mariä Lichtmess",
@@ -77,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALHOLIDAY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "National Holiday",
                     LocalName = "Staatsfeiertag",
@@ -84,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIVITYOFOURLADY-01",
                     Date = new DateTime(year, 9, 8),
                     EnglishName = "Nativity of Our Lady",
                     LocalName = "Maria Geburt",
@@ -139,6 +143,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SHROVETUESDAY-01",
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Shrove Tuesday",
                     LocalName = "Fasnachtsdienstag",

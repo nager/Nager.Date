@@ -65,6 +65,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYINEUROPEDAY-01",
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Victory in Europe Day",
                     LocalName = "Victoire 1945",
@@ -96,6 +97,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMISTICEDAY-01",
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "Armistice Day",
                     LocalName = "Armistice 1918",

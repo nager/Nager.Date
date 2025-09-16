@@ -59,6 +59,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MAYDAYBANKHOLIDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "May Day Bank Holiday",
                     LocalName = "May Day Bank Holiday",
@@ -66,6 +67,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SPRINGBANKHOLIDAY-01",
                     Date = lastMondayInMay,
                     EnglishName = "Spring Bank Holiday",
                     LocalName = "Spring Bank Holiday",
@@ -73,6 +75,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "QUEENSBIRTHDAY-01",
                     Date = thirdMondayInJune,
                     EnglishName = "Queen's Birthday",
                     LocalName = "Queen's Birthday",
@@ -80,6 +83,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SUMMERBANKHOLIDAY-01",
                     Date = lastMondayInAugust,
                     EnglishName = "Summer Bank Holiday",
                     LocalName = "Summer Bank Holiday",
@@ -87,6 +91,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GIBRALTARNATIONALDAY-01",
                     Date = new DateTime(year, 9, 10),
                     EnglishName = "Gibraltar National Day",
                     LocalName = "Gibraltar National Day",

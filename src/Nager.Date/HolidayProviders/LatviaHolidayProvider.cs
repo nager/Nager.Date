@@ -48,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESTORATIONOFINDEPENDENCE-01",
                     Date = new DateTime(year, 5, 4),
                     EnglishName = "Restoration of Independence day",
                     LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
@@ -79,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PROCLAMATIONDAY-01",
                     Date = new DateTime(year, 11, 18),
                     EnglishName = "Proclamation Day of the Republic of Latvia",
                     LocalName = "Latvijas Republikas proklamēšanas diena",

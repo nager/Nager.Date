@@ -76,8 +76,9 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAYOFSPAIN-01",
                     Date = new DateTime(year, 10, 12),
-                    EnglishName = "Fiesta Nacional de España",
+                    EnglishName = "National Day of Spain",
                     LocalName = "Fiesta Nacional de España",
                     HolidayTypes = HolidayTypes.Public
                 },

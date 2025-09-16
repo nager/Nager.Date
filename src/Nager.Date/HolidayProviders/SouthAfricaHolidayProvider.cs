@@ -94,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALWOMENSDAY-01",
                     Date = new DateTime(year, 8, 9),
                     EnglishName = "National Women's Day",
                     LocalName = "National Women's Day",
@@ -102,6 +103,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HERITAGEDAY-01",
                     Date = new DateTime(year, 9, 24),
                     EnglishName = "Heritage Day",
                     LocalName = "Heritage Day",
@@ -110,6 +112,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFRECONCILIATION-01",
                     Date = new DateTime(year, 12, 16),
                     EnglishName = "Day of Reconciliation",
                     LocalName = "Day of Reconciliation",
@@ -127,6 +130,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFGOODWILL-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Day of Goodwill",
                     LocalName = "St. Stephen's Day",

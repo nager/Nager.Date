@@ -37,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESTORATIONOFTHESTATE-01",
                     Date = new DateTime(year, 2, 16),
                     EnglishName = "The Day of Restoration of the State of Lithuania",
                     LocalName = "Lietuvos valstybės atkūrimo diena",
@@ -44,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESTORATIONOFINDEPENDENCE-01",
                     Date = new DateTime(year, 3, 11),
                     EnglishName = "Day of Restoration of Independence of Lithuania",
                     LocalName = "Lietuvos nepriklausomybės atkūrimo diena",
@@ -51,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKINGDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Working Day",
                     LocalName = "Tarptautinė darbo diena",
@@ -58,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STJOHNSDAY-01",
                     Date = new DateTime(year, 6, 24),
                     EnglishName = "St. John's Day",
                     LocalName = "Joninės, Rasos",
@@ -65,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STATEHOODDAY-01",
                     Date = new DateTime(year, 7, 6),
                     EnglishName = "Statehood Day",
                     LocalName = "Valstybės diena",
@@ -80,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "Visų šventųjų diena",

@@ -55,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BANKCLOSINGDAY-01",
                     Date = easterSunday.AddDays(40),
                     EnglishName = "Bank closing day",
                     LocalName = "Atuanngiffik",
@@ -62,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ULLORTUNEQ-01",
                     Date = new DateTime(year, 6, 21),
                     EnglishName = "Ullortuneq",
                     LocalName = "Ullortuneq",

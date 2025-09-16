@@ -37,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MOSHOESHOEDAY-01",
                     Date = new DateTime(year, 3, 11),
                     EnglishName = "Moshoeshoe Day",
                     LocalName = "Moshoeshoe Day",
@@ -52,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AFRICADAY-01",
                     Date = new DateTime(year, 5, 25),
                     EnglishName = "Africa Day/ Heroes' Day",
                     LocalName = "Africa Day/ Heroes' Day",
@@ -59,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "KINGLETSIE3BIRTHDAY-01",
                     Date = new DateTime(year, 7, 17),
                     EnglishName = "King Letsie III's Birthday",
                     LocalName = "King Letsie III's Birthday",

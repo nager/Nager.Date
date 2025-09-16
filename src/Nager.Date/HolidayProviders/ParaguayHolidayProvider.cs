@@ -52,6 +52,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCE-01",
                     Date = new DateTime(year, 5, 14),
                     EnglishName = "Paraguayan Independence",
                     LocalName = "Independencia",
@@ -59,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCE-02",
                     Date = new DateTime(year, 5, 15),
                     EnglishName = "Paraguayan Independence",
                     LocalName = "Independencia",
@@ -66,6 +68,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHACOARMISTICE-01",
                     Date = new DateTime(year, 6, 12),
                     EnglishName = "Chaco Armistice",
                     LocalName = "Dia de la Paz del Chaco",
@@ -73,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FOUNDINGOFASUNCION-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Founding of Asunción",
                     LocalName = "Fundación de Asunción",
@@ -80,6 +84,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BOQUERONBATTLEVICTORYDAY-01",
                     Date = new DateTime(year, 9, 29),
                     EnglishName = "Boqueron Battle Victory Day",
                     LocalName = "Victoria de Boquerón",
@@ -87,6 +92,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VIRGINOFCAACUPE-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Virgin of Caacupe",
                     LocalName = "Virgen de Caacupé",
