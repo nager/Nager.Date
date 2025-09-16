@@ -78,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SHOUTVILLADELOSSANTOS-01",
                     Date = new DateTime(year, 11, 10),
                     EnglishName = "Shout in Villa de los Santos",
                     LocalName = "Shout in Villa de los Santos",

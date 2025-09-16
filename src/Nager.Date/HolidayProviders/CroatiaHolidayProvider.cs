@@ -150,6 +150,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "STATEHOODDAY-01",
                     Date = new DateTime(year, 6, 25),
                     EnglishName = "Statehood Day",
                     LocalName = "Dan državnosti",

@@ -76,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "UNIFICATIONDAY-01",
                     Date = new DateTime(year, 9, 6),
                     EnglishName = "Unification Day",
                     LocalName = "Ден на съединението",

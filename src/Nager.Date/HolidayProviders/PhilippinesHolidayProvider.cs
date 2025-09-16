@@ -43,6 +43,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFVALOR-01",
                     Date = new DateTime(year, 4, 9),
                     EnglishName = "Day of Valor",
                     LocalName = "Araw ng Kagitingan",
@@ -50,6 +51,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MAUNDYTHURSDAY-01",
                     Date = new DateTime(year, 4, 17),
                     EnglishName = "Maundy Thursday",
                     LocalName = "Huwebes Santo",

@@ -72,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARICOMDAY-01",
                     Date = firstMondayInJuly,
                     EnglishName = "Caricom Day",
                     LocalName = "Caricom Day",
@@ -79,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EMANCIPATIONDAY-01",
                     Date = new DateTime(year, 8, 1),
                     EnglishName = "Emancipation Day",
                     LocalName = "Emancipation Day",

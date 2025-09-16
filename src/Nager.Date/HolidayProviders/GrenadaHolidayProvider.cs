@@ -56,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDIANARRIVALDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Indian Arrival Day",
                     LocalName = "Indian Arrival Day",
@@ -63,6 +64,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EMANCIPATIONDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Emancipation Day",
                     LocalName = "Emancipation Day",

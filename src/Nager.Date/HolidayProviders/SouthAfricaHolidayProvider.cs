@@ -170,6 +170,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "ELECTIONDAY-01",
                     Date = new DateTime(year, 5, 29),
                     EnglishName = "Election Day",
                     LocalName = "Election Day",

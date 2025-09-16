@@ -13,7 +13,7 @@ namespace Nager.Date.HolidayProviders
         private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
-        /// CzechRepublic HolidayProvider
+        /// Czech Republic HolidayProvider
         /// </summary>
         /// <param name="catholicProvider"></param>
         public CzechRepublicHolidayProvider(
@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Den obnovy samostatného českého státu; Nový rok",
