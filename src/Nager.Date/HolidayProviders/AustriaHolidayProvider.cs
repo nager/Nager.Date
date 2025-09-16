@@ -62,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALHOLIDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "National Holiday",
                     LocalName = "Staatsfeiertag",
@@ -77,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALHOLIDAY-02",
                     Date = new DateTime(year, 10, 26),
                     EnglishName = "National Holiday",
                     LocalName = "Nationalfeiertag",
