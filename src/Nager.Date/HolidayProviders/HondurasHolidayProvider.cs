@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AMERICASDAY-01",
                     Date = new DateTime(year, 4, 14),
                     EnglishName = "America's Day",
                     LocalName = "America's Day",

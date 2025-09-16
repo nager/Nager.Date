@@ -41,6 +41,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FIRSTDAYOFSUMMER-01",
                     Date = firstDayOfSummer,
                     EnglishName = "First Day of Summer",
                     LocalName = "Sumardagurinn fyrsti",
@@ -56,6 +57,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ICELANDICNATIONALDAY-01",
                     Date = new DateTime(year, 6, 17),
                     EnglishName = "Icelandic National Day",
                     LocalName = "Þjóðhátíðardagurinn",
@@ -63,6 +65,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "COMMERCEDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Commerce Day",
                     LocalName = "Frídagur verslunarmanna",

@@ -117,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PRESIDENTSDAY-01",
                     Date = thirdMondayInFebruary,
                     EnglishName = "Presidents Day",
                     LocalName = "Washington's Birthday",
@@ -212,6 +213,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "LINCOLNSBIRTHDAY-01",
                 Date = new DateTime(year, 2, 12),
                 EnglishName = "Lincoln's Birthday",
                 LocalName = "Lincoln's Birthday",
@@ -250,6 +252,7 @@ namespace Nager.Date.HolidayProviders
 
             var indigenousPeoplesDay = new HolidaySpecification
             {
+                Id = "INDIGENOUSPEOPLESDAY-01",
                 Date = secondMondayInOctober,
                 EnglishName = "Indigenous Peoples' Day",
                 LocalName = "Indigenous Peoples' Day",

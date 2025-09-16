@@ -57,6 +57,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "QUEENSBIRTHDAY-01",
                     Date = secondMondayInJune,
                     EnglishName = "Queen's Birthday",
                     LocalName = "Queen's Birthday",
@@ -64,6 +65,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EMANCIPATIONDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Emancipation Day",
                     LocalName = "Emancipation Day",
@@ -87,6 +89,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FESTIVALDAY-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "Festival Day",
                     LocalName = "Festival Day",

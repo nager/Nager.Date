@@ -37,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MARTYRSDAY-01",
                     Date = new DateTime(year, 3, 29),
                     EnglishName = "Martyrs' Day",
                     LocalName = "Martyrs' Day",

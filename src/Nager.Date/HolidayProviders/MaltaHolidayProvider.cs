@@ -44,6 +44,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTOFSTJOSEPH-01",
                     Date = new DateTime(year, 3, 19),
                     EnglishName = "Feast of St. Joseph",
                     LocalName = "San Ġużepp",

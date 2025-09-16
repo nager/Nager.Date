@@ -54,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "Día de los Trabajadores",
@@ -61,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEOFLASPIEDRAS-01",
                     Date = new DateTime(year, 5, 18),
                     EnglishName = "Battle of Las Piedras",
                     LocalName = "Batalla de las Piedras",
@@ -91,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFTHERACE-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Day of the race",
                     LocalName = "Día de la Raza",
@@ -98,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DECEASEDONESDAY-01",
                     Date = new DateTime(year, 11, 2),
                     EnglishName = "Deceased ones day",
                     LocalName = "Día de los Difuntos",
