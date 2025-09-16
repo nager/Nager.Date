@@ -55,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTOFTHEDIVINAPASTORA-01",
                     Date = new DateTime(year, 1, 14),
                     EnglishName = "Feast of the Divina Pastora",
                     LocalName = "Día de la Divina Pastora",
@@ -62,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "TEACHERSDAY-01",
                     Date = new DateTime(year, 1, 15),
                     EnglishName = "Teacher's Day",
                     LocalName = "Día del Maestro",
@@ -153,6 +155,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FATHERSDAY-01",
                     Date = thirdSundayInJune,
                     EnglishName = "Father's Day",
                     LocalName = "Día de los Padres",

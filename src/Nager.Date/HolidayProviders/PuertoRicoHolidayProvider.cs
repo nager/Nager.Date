@@ -55,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "THREEKINGSEPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Three Kings Day / Epiphany",
                     LocalName = "Día de Reyes",
@@ -62,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BIRTHDAYOFEUGENIOMARIA-01",
                     Date = secondMondayInJanuary,
                     EnglishName = "Birthday of Eugenio María de Hostos",
                     LocalName = "Natalicio de Eugenio María de Hostos",
@@ -69,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MARTINLUTHERKINGJRDAY-01",
                     Date = thirdMondayInJanuary,
                     EnglishName = "Martin Luther King, Jr. Day",
                     LocalName = "Natalicio de Martin Luther King, Jr.",
@@ -76,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PRESIDENTSDAY-01",
                     Date = thirdMondayInFebruary,
                     EnglishName = "Presidents' Day",
                     LocalName = "Día de los Presidentes",
@@ -90,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EMANCIPATIONDAY-01",
                     Date = new DateTime(year, 3, 22),
                     EnglishName = "Emancipation Day",
                     LocalName = "Día de la Abolición de Esclavitud",

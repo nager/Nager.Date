@@ -61,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FATHERSDAY-01",
                     Date = new DateTime(year, 5, 10),
                     EnglishName = "Father's Day",
                     LocalName = "Día del Padre",
@@ -68,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTFESTIVALS-01",
                     Date = new DateTime(year, 8, 1),
                     EnglishName = "August Festivals",
                     LocalName = "Fiestas de agosto",
@@ -75,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTFESTIVALS-02",
                     Date = new DateTime(year, 8, 2),
                     EnglishName = "August Festivals",
                     LocalName = "Fiestas de agosto",
@@ -82,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTFESTIVALS-03",
                     Date = new DateTime(year, 8, 3),
                     EnglishName = "August Festivals",
                     LocalName = "Fiestas de agosto",
@@ -89,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTFESTIVALS-04",
                     Date = new DateTime(year, 8, 4),
                     EnglishName = "August Festivals",
                     LocalName = "Fiestas de agosto",
@@ -96,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTFESTIVALS-05",
                     Date = new DateTime(year, 8, 5),
                     EnglishName = "August Festivals",
                     LocalName = "Fiestas de agosto",
@@ -103,6 +109,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTFESTIVALS-06",
                     Date = new DateTime(year, 8, 6),
                     EnglishName = "August Festivals",
                     LocalName = "Fiestas de agosto",
@@ -110,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTFESTIVALS-07",
                     Date = new DateTime(year, 8, 7),
                     EnglishName = "August Festivals",
                     LocalName = "Fiestas de agosto",
@@ -133,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ETHNICPRIDEDAY-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Ethnic Pride Day",
                     LocalName = "Día de la raza",
@@ -148,6 +157,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALPUPUSAFESTIVAL-01",
                     Date = new DateTime(year, 11, 7),
                     EnglishName = "National Pupusa Festival",
                     LocalName = "Festival Nacional De La Pupusa",
@@ -155,6 +165,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALPUPUSAFESTIVAL-02",
                     Date = new DateTime(year, 11, 8),
                     EnglishName = "National Pupusa Festival",
                     LocalName = "Festival Nacional De La Pupusa",
@@ -162,6 +173,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALPUPUSAFESTIVAL-03",
                     Date = new DateTime(year, 11, 9),
                     EnglishName = "National Pupusa Festival",
                     LocalName = "Festival Nacional De La Pupusa",
@@ -169,6 +181,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALPUPUSAFESTIVAL-04",
                     Date = new DateTime(year, 11, 10),
                     EnglishName = "National Pupusa Festival",
                     LocalName = "Festival Nacional De La Pupusa",
@@ -176,6 +189,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALPUPUSAFESTIVAL-05",
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "National Pupusa Festival",
                     LocalName = "Festival Nacional De La Pupusa",
@@ -183,6 +197,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALPUPUSAFESTIVAL-06",
                     Date = new DateTime(year, 11, 12),
                     EnglishName = "National Pupusa Festival",
                     LocalName = "Festival Nacional De La Pupusa",
@@ -190,6 +205,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALPUPUSAFESTIVAL-07",
                     Date = new DateTime(year, 11, 13),
                     EnglishName = "National Pupusa Festival",
                     LocalName = "Festival Nacional De La Pupusa",
@@ -197,6 +213,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFTHEQUEENOFPEACE-01",
                     Date = new DateTime(year, 11, 21),
                     EnglishName = "Day of the Queen of Peace",
                     LocalName = "Dia de la Reina de la Paz",

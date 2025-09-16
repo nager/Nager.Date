@@ -69,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MEMORIALDAY-01",
                     Date = lastMondayInMay,
                     EnglishName = "Memorial Day",
                     LocalName = "Memorial Day",
@@ -76,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day (Moldova)",
                     LocalName = "Labour Day (Moldova)",
@@ -90,6 +92,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BALTIDAY-01",
                     Date = new DateTime(year, 5, 22),
                     EnglishName = "Bălţi Day",
                     LocalName = "Bălţi Day",
@@ -97,6 +100,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 8, 27),
                     EnglishName = "Independence Day (Moldova)",
                     LocalName = "Independence Day (Moldova)",

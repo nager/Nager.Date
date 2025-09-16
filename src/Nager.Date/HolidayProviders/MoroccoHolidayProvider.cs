@@ -52,6 +52,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ENTHRONEMENT-01",
                     Date = new DateTime(year, 7, 30),
                     EnglishName = "Enthronement",
                     LocalName = "Eid Al-Ârch",
@@ -59,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ZIKRAOUEDEDDAHAB-01",
                     Date = new DateTime(year, 8, 14),
                     EnglishName = "Zikra Oued Ed-Dahab",
                     LocalName = "Oued Ed-Dahab Day",
@@ -66,6 +68,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONOFTHEKING-01",
                     Date = new DateTime(year, 8, 20),
                     EnglishName = "Revolution of the King and the People",
                     LocalName = "Thawrat al malik wa shâab",
@@ -81,6 +84,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GREENMARCH-01",
                     Date = new DateTime(year, 11, 6),
                     EnglishName = "Green March",
                     LocalName = "Eid Al Massira Al Khadra",

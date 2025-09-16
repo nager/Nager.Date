@@ -43,6 +43,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "KINGSDAY-01",
                     Date = new DateTime(year, 4, 27),
                     EnglishName = "King's Day",
                     LocalName = "Koningsdag",

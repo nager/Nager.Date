@@ -141,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "TRUMANDAY-01",
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Truman Day",
                     LocalName = "Truman Day",
