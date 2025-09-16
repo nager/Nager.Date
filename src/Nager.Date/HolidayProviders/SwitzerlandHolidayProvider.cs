@@ -85,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NAEFELSPROCESSION-01",
                     Date = new DateTime(year, 4, 4),
                     EnglishName = "Näfels procession",
                     LocalName = "Näfelser Fahrt",
@@ -93,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTSPETERANDPAUL-01",
                     Date = new DateTime(year, 6, 29),
                     EnglishName = "Saints Peter and Paul",
                     LocalName = "Peter und Paul",
@@ -101,6 +103,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SWISSNATIONALDAY-01",
                     Date = new DateTime(year, 8, 1),
                     EnglishName = "Swiss National Day",
                     LocalName = "Bundesfeier",
@@ -116,6 +119,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GENEVAPRAYDAY-01",
                     Date = firstSundayOfSeptember.AddDays(4),
                     EnglishName = "Geneva Prayday",
                     LocalName = "Jeûne genevois",
@@ -124,6 +128,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEDERALDAYOFTHANKSGIVING-01",
                     Date = thirdSundayOfSeptember,
                     EnglishName = "Federal Day of Thanksgiving",
                     LocalName = "Eidgenössischer Dank-, Buss- und Bettag",
@@ -132,6 +137,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEDERALFASTMONDAY-01",
                     Date = thirdSundayOfSeptember.AddDays(1),
                     EnglishName = "Federal Fast Monday",
                     LocalName = "Bettagsmontag",
@@ -140,6 +146,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESTORATIONDAY-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "Restoration Day",
                     LocalName = "Restauration de la République",
@@ -174,6 +181,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -182,6 +190,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-02",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -200,6 +209,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONOFTHEVIRGINMARY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -208,6 +218,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONOFTHEVIRGINMARY-02",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -228,6 +239,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "STBERCHTOLDSDAY-01",
                 Date = new DateTime(year, 1, 2),
                 EnglishName = "St. Berchtold's Day",
                 LocalName = "Berchtoldstag",
@@ -273,6 +285,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -281,6 +294,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-02",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = englishName,
                     LocalName = localName,

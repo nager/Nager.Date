@@ -48,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SIRSERETSEKHAMADAY-01",
                     Date = new DateTime(year, 7, 1),
                     EnglishName = "Sir Seretse Khama Day",
                     LocalName = "Sir Seretse Khama Day",
@@ -55,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PRESIDENTSDAY-01",
                     Date = thirdMondayInJuly,
                     EnglishName = "Presidents' Day",
                     LocalName = "Presidents' Day",
@@ -70,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BOTSWANADAYHOLIDAY-01",
                     Date = new DateTime(year, 10, 1),
                     EnglishName = "Botswana Day holiday",
                     LocalName = "Botswana Day holiday",

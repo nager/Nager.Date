@@ -45,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "THREEKINGSDAY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Three Kings Day",
                     LocalName = "Three Kings Day",
@@ -52,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WORLDRELIGIONDAY-01",
                     Date = thirdSundayInJanuary,
                     EnglishName = "World Religion Day",
                     LocalName = "World Religion Day",
@@ -59,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFTHEREVOLUTION-01",
                     Date = new DateTime(year, 2, 25),
                     EnglishName = "Day of the Revolution",
                     LocalName = "Day of the Revolution",

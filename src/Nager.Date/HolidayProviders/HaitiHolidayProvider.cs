@@ -54,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURANDAGRICULTUREDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour and Agriculture Day",
                     LocalName = "Fête du Travail / Fête des Travailleurs",
@@ -61,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FLAGANDUNIVERSITIESDAY-01",
                     Date = new DateTime(year, 5, 18),
                     EnglishName = "Flag and Universities Day",
                     LocalName = "Jour du Drapeau et de l'Université",
@@ -76,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DESSALINESDAY-01",
                     Date = new DateTime(year, 10, 17),
                     EnglishName = "Dessalines Day",
                     LocalName = "Anniversaire de la mort de Dessalines",
@@ -99,6 +102,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEOFVERTIERESDAY-01",
                     Date = new DateTime(year, 11, 18),
                     EnglishName = "Battle of Vertières Day",
                     LocalName = "Vertières",
@@ -138,6 +142,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASHWEDNESDAY-01",
                     Date = easterSunday.AddDays(-46),
                     EnglishName = "Ash Wednesday",
                     LocalName = "Mercredi Des Cendres",
