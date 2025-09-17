@@ -126,6 +126,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BIRTHDAYDONLUISMUNOZRIVERA-01",
                     Date = thirdMondayInJuly,
                     EnglishName = "Birthday of Don Luis Muñoz Rivera",
                     LocalName = "Natalicio de Don Luis Muñoz Rivera",
@@ -133,6 +134,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PUERTORICOCONSTITUTIONDAY-01",
                     Date = new DateTime(year, 7, 25),
                     EnglishName = "Puerto Rico Constitution Day",
                     LocalName = "Constitución de Puerto Rico",
@@ -140,6 +142,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BIRTHDAYJOSECELSOBARBOSA-01",
                     Date = new DateTime(year, 7, 27),
                     EnglishName = "Birthday of Dr. José Celso Barbosa",
                     LocalName = "Natalicio de Dr. José Celso Barbosa",
@@ -172,6 +175,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DISCOVERYPUERTORICO-01",
                     Date = new DateTime(year, 11, 19),
                     EnglishName = "Discovery of Puerto Rico",
                     LocalName = "Día del Descubrimiento de Puerto Rico",

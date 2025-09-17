@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "SOLEMNITYMOTHERGOD-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "Solemnity of Mary, Mother of God",
                     LocalName = "Maria Santissima Madre di Dio",
@@ -44,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANNIVERSARYOFTHEFOUNDATION-01",
                     Date = new DateTime(year, 2, 11),
                     EnglishName = "Anniversary of the foundation of Vatican City",
                     LocalName = "Anniversario della istituzione dello Stato della Città del Vaticano",
@@ -51,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANNIVERSARYOFTHEELECTION-01",
                     Date = new DateTime(year, 3, 13),
                     EnglishName = "Anniversary of the election of Pope Francis",
                     LocalName = "Anniversario dell'Elezione del Santo Padre",
@@ -66,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTGEORGE-01",
                     Date = new DateTime(year, 4, 23),
                     EnglishName = "Saint George",
                     LocalName = "Onomastico del Santo Padre",
@@ -73,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTJOSEPHWORKER-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Saint Joseph the Worker",
                     LocalName = "San Giuseppe lavoratore",
@@ -80,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTSPETERPAUL-01",
                     Date = new DateTime(year, 6, 29),
                     EnglishName = "Saints Peter and Paul",
                     LocalName = "Santi Pietro e Paolo",
@@ -95,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIVITYOFMARY-01",
                     Date = new DateTime(year, 9, 8),
                     EnglishName = "Nativity of Mary",
                     LocalName = "Festa della natività della madonna",

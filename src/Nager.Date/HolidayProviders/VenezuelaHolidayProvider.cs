@@ -111,6 +111,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SLAVERYABOLITION-01",
                     Date = new DateTime(year, 3, 21),
                     EnglishName = "Slavery Abolition Anniversary",
                     LocalName = "Día del abolición de la esclavitud",
@@ -118,6 +119,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYSANCRISTOBAL-01",
                     Date = new DateTime(year, 3, 31),
                     EnglishName = "Foundation anniversary Day of San Cristóbal, Táchira",
                     LocalName = "Aniversario del fundacion del San Cristóbal",
@@ -125,6 +127,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BEGINNINGINDEPENDENCEMOVEMENT-01",
                     Date = new DateTime(year, 4, 19),
                     EnglishName = "Beginning of the Independence Movement",
                     LocalName = "Proclamación de la Independencia",
@@ -140,8 +143,9 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FESTIVALCROSSES-01",
                     Date = new DateTime(year, 5, 3),
-                    EnglishName = "Fiesta de las Cruces",
+                    EnglishName = "Festival of the Crosses",
                     LocalName = "Día del Cruz del Mayo",
                     HolidayTypes = HolidayTypes.Observance
                 },

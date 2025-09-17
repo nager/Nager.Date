@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONCORDDAY-01",
                     Date = new DateTime(year, 4, 24),
                     EnglishName = "Concord Day",
                     LocalName = "Concord Day",
@@ -54,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 8, 3),
                     EnglishName = "Nigerien Independence Day",
                     LocalName = "Nigerien Independence Day",
@@ -61,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 12, 18),
                     EnglishName = "Nigerien Republic Day",
                     LocalName = "Nigerien Republic Day",

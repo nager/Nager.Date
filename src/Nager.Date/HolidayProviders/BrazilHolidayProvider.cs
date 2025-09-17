@@ -74,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "TIRADENTES-01",
                     Date = new DateTime(year, 4, 21),
                     EnglishName = "Tiradentes",
                     LocalName = "Dia de Tiradentes",
@@ -89,6 +90,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONALISTREVOLUTION-01",
                     Date = new DateTime(year, 7, 9),
                     EnglishName = "Constitutionalist Revolution of 1932",
                     LocalName = "Revolução Constitucionalista de 1932",
@@ -105,6 +107,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OURLADYAPARECIDA-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Our Lady of Aparecida",
                     LocalName = "Nossa Senhora Aparecida",
@@ -120,6 +123,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICPROCLAMATIONDAY-01",
                     Date = new DateTime(year, 11, 15),
                     EnglishName = "Republic Proclamation Day",
                     LocalName = "Proclamação da República",
@@ -165,6 +169,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "BLACKAWARENESSDAY-01",
                     Date = new DateTime(year, 11, 20),
                     EnglishName = "Black Awareness Day",
                     LocalName = "Dia da Consciência Negra",

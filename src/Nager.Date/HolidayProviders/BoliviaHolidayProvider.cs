@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTVIRGINOFCANDELARIA-01",
                     Date = new DateTime(year, 2, 2),
                     EnglishName = "Feast of the Virgin of Candelaria",
                     LocalName = "Fiesta de la Virgen de Candelaria",

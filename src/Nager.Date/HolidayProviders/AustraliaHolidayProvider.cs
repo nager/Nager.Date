@@ -330,6 +330,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? FridayBeforeTheAflGrandFinal(int year)
         {
+            var id = "FRIDAYBEFOREAFLGRANDFINAL-01";
             var holidayName = "Friday before AFL Grand Final";
             var subdivisionCodes = new string[] { "AU-VIC" };
 
@@ -347,6 +348,7 @@ namespace Nager.Date.HolidayProviders
 
                         return new HolidaySpecification
                         {
+                            Id = id,
                             Date = lastFridayInSeptember,
                             EnglishName = holidayName,
                             LocalName = holidayName,
@@ -357,6 +359,7 @@ namespace Nager.Date.HolidayProviders
                 case 2020:
                     return new HolidaySpecification
                     {
+                        Id = id,
                         Date = new DateTime(year, 10 , 23),
                         EnglishName = holidayName,
                         LocalName = holidayName,
@@ -366,6 +369,7 @@ namespace Nager.Date.HolidayProviders
                 case 2022:
                     return new HolidaySpecification
                     {
+                        Id = id,
                         Date = new DateTime(year, 09, 23),
                         EnglishName = holidayName,
                         LocalName = holidayName,
@@ -380,6 +384,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = tentativeDate,
                     EnglishName = $"{holidayName} (Tentative Date)",
                     LocalName = $"{holidayName} (Tentative Date)",

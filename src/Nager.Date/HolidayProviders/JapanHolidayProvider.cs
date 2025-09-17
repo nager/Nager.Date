@@ -47,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "COMINGAGEDAY-01",
                     Date = secondMondayInJanuary,
                     EnglishName = "Coming of Age Day",
                     LocalName = "成人の日",
@@ -54,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FOUNDATIONDAY-01",
                     Date = new DateTime(year, 2, 11),
                     EnglishName = "Foundation Day",
                     LocalName = "建国記念の日",
@@ -62,6 +64,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SHOWADAY-01",
                     Date = new DateTime(year, 4, 29),
                     EnglishName = "Shōwa Day",
                     LocalName = "昭和の日",
@@ -70,6 +73,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONMEMORIALDAY-01",
                     Date = new DateTime(year, 5, 3),
                     EnglishName = "Constitution Memorial Day",
                     LocalName = "憲法記念日",
@@ -78,6 +82,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GREENERYDAY-01",
                     Date = new DateTime(year, 5, 4),
                     EnglishName = "Greenery Day",
                     LocalName = "みどりの日",
@@ -95,6 +100,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MARINEDAY-01",
                     Date = thirdMondayInJuly,
                     EnglishName = "Marine Day",
                     LocalName = "海の日",
@@ -102,6 +108,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MOUNTAINDAY-01",
                     Date = new DateTime(year, 8, 11),
                     EnglishName = "Mountain Day",
                     LocalName = "山の日",
@@ -110,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESPECTAGEDDAY-01",
                     Date = thirdMondayInSeptember,
                     EnglishName = "Respect for the Aged Day",
                     LocalName = "敬老の日",
@@ -117,6 +125,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CULTUREDAY-01",
                     Date = new DateTime(year, 11, 3),
                     EnglishName = "Culture Day",
                     LocalName = "文化の日",
@@ -125,6 +134,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURTHANKSGIVINGDAY-01",
                     Date = new DateTime(year, 11, 23),
                     EnglishName = "Labour Thanksgiving Day",
                     LocalName = "勤労感謝の日",
@@ -331,6 +341,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "AUTUMNALEQUINOXDAY-01",
                 Date = new DateTime(year, 9, (int)equinoxDay),
                 EnglishName = "Autumnal Equinox Day",
                 LocalName = "秋分の日",

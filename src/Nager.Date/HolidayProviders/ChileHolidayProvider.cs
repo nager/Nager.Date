@@ -94,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OURLADYMOUNTCARMEL-01",
                     Date = new DateTime(year, 7, 16),
                     EnglishName = "Our Lady of Mount Carmel",
                     LocalName = "Virgen del Carmen",
@@ -172,6 +173,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "SAINTPETERSAINTPAUL-01",
                 Date = new DateTime(year, 6, 29),
                 EnglishName = "Saint Peter and Saint Paul",
                 LocalName = "San Pedro y San Pablo",
@@ -229,6 +231,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "NATIONALPLEBISCITE-01",
                 Date = new DateTime(year, 9, 4),
                 EnglishName = "National plebiscite",
                 LocalName = "Plebiscito nacional",
@@ -260,6 +263,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "NATIONALDAYINDIGENOUSPEOPLES-01",
                 Date = holidayDate.Value,
                 EnglishName = "National Day of Indigenous Peoples",
                 LocalName = "Día Nacional de los Pueblos Indígenas",

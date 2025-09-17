@@ -47,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MAJORITYRULEDAY-01",
                     Date = new DateTime(year, 1, 10),
                     EnglishName = "Majority Rule Day",
                     LocalName = "Majority Rule Day",
@@ -55,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PERRYCHRISTIEDAY-01",
                     Date = new DateTime(year, 4, 1),
                     EnglishName = "Perry Christie Day",
                     LocalName = "Perry Christie Day",

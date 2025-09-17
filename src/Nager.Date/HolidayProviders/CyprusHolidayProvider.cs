@@ -47,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GREEKINDEPENDENCEDAY-01",
                     Date = new DateTime(year, 3, 25),
                     EnglishName = "Greek Independence Day",
                     LocalName = "Επέτειος Ελληνικής Ανεξαρτησίας",
@@ -54,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 4, 1),
                     EnglishName = "Cyprus National Day",
                     LocalName = "Κυπριακή Εθνική Επέτειος",
@@ -76,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 10, 1),
                     EnglishName = "Cyprus Independence Day",
                     LocalName = "Επέτειος Κυπριακής Ανεξαρτησίας",
@@ -83,6 +86,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OHIDAY-01",
                     Date = new DateTime(year, 10, 28),
                     EnglishName = "Ohi Day",
                     LocalName = "Το Όχι",
@@ -114,6 +118,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GREENMONDAY-01",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Green Monday",
                     LocalName = "Καθαρή Δευτέρα",
@@ -121,6 +126,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EASTERTUESDAY-01",
                     Date = easterSunday.AddDays(2),
                     EnglishName = "Easter Tuesday",
                     LocalName = "Τρίτη της Διακαινησίμου",

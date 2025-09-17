@@ -47,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 7, 21),
                     EnglishName = "Belgian National Day",
                     LocalName = "Nationale feestdag",
@@ -70,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMISTICEDAY-01",
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "Armistice Day",
                     LocalName = "Wapenstilstand",
@@ -93,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYAFTERASCENSIONDAY-01",
                     Date = easterSunday.AddDays(40),
                     EnglishName = "Day after Ascension Day",
                     LocalName = "Day after Ascension Day",

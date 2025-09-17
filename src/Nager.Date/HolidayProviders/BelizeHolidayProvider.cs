@@ -52,6 +52,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BARONBLISSDAY-01",
                     Date = new DateTime(year, 3, 9),
                     EnglishName = "Baron Bliss Day",
                     LocalName = "Baron Bliss Day",
@@ -78,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTGEORGESCAYEDAY-01",
                     Date = new DateTime(year, 9, 10),
                     EnglishName = "Saint George's Caye Day",
                     LocalName = "Saint George's Caye Day",
@@ -95,6 +97,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFTHEAMERICAS-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Day of the Americas",
                     LocalName = "Day of the Americas",
@@ -103,6 +106,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GARIFUNASETTLEMENTDAY-01",
                     Date = new DateTime(year, 11, 19),
                     EnglishName = "Garifuna Settlement Day",
                     LocalName = "Garifuna Settlement Day",

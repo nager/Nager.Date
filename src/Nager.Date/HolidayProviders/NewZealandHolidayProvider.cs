@@ -289,6 +289,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "MATARIKI-01",
                     Date = matariki,
                     EnglishName = "Matariki",
                     LocalName = "Matariki",

@@ -83,6 +83,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GENOCIDEREMEMBRANCEDAY-01",
                     Date = new DateTime(year, 4, 24),
                     EnglishName = "Armenian Genocide Remembrance Day",
                     LocalName = "Եղեռնի զոհերի հիշատակի օր",
@@ -100,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYANDPEACEDAY-01",
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Victory and Peace Day",
                     LocalName = "Հաղթանակի և Խաղաղության տոն",

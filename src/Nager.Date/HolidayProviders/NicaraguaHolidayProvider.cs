@@ -40,6 +40,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AIRFORCEDAY-01",
                     Date = new DateTime(year, 2, 1),
                     EnglishName = "Air Force Day",
                     LocalName = "Air Force Day",
@@ -47,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HOLYTHURSDAY-01",
                     Date = firstThursdayInApril,
                     EnglishName = "Holy Thursday",
                     LocalName = "Holy Thursday",
@@ -78,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLESANJACINTO-01",
                     Date = new DateTime(year, 9, 14),
                     EnglishName = "Battle of San Jacinto",
                     LocalName = "Battle of San Jacinto",
@@ -93,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDIGENOUSRESISTANCEDAY-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Indigenous Resistance Day",
                     LocalName = "Indigenous Resistance Day",

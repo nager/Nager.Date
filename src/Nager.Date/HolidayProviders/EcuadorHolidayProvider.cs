@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "International Workers' Day",
@@ -46,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEPICHINCHA-01",
                     Date = new DateTime(year, 5, 24),
                     EnglishName = "The Battle of Pichincha",
                     LocalName = "Batalla de Pichincha",
@@ -53,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEQUITO-01",
                     Date = new DateTime(year, 8, 10),
                     EnglishName = "Declaration of Independence of Quito",
                     LocalName = "Primer Grito de Independencia",
@@ -60,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEGUAYAQUIL-01",
                     Date = new DateTime(year, 10, 9),
                     EnglishName = "Independence of Guayaquil",
                     LocalName = "Independencia de Guayaquil",
@@ -75,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCECUENCA-01",
                     Date = new DateTime(year, 11, 3),
                     EnglishName = "Independence of Cuenca",
                     LocalName = "Independencia de Cuenca",
