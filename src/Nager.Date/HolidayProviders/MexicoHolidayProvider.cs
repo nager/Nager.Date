@@ -60,7 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "BENITOJUÁREZSBIRTHDAY-01",
+                    Id = "BENITOJUAREZSBIRTHDAY-01",
                     Date = thirdMondayOfMarch,
                     EnglishName = "Benito Juárez's birthday",
                     LocalName = "Natalicio de Benito Juárez",

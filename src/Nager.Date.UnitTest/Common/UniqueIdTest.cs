@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
+using System.Text;
 
 namespace Nager.Date.UnitTest.Common
 {
@@ -55,11 +56,22 @@ namespace Nager.Date.UnitTest.Common
                             continue;
                         }
 
-                        var upper = holiday.Id.Replace(" ", "").ToUpper();
+                        var upper = holiday.Id.Replace(" ", "").ToUpper().Normalize(NormalizationForm.FormD);
                         Assert.AreEqual(upper, holiday.Id, StringComparer.Ordinal);
 
                         var splitChar = holiday.Id[holiday.Id.Length - 3];
                         if (splitChar != '-')
+                        {
+                            Assert.Fail($"wrong format {countryCode} - {holiday.Id}");
+                        }
+
+                        var holidayIdIndex = holiday.Id.AsSpan(holiday.Id.Length - 2);
+                        if (!int.TryParse(holidayIdIndex, out var holidayIndex))
+                        {
+                            Assert.Fail($"wrong format {countryCode} - {holiday.Id}");
+                        }
+
+                        if (holidayIndex <= 0)
                         {
                             Assert.Fail($"wrong format {countryCode} - {holiday.Id}");
                         }
