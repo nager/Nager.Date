@@ -30,6 +30,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Anul Nou",
@@ -37,6 +38,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "Day after New Year's Day",
                     LocalName = "Anul Nou",
@@ -44,6 +46,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "UNIONDAY-01",
                     Date = new DateTime(year, 1, 24),
                     EnglishName = "Union Day/Small Union",
                     LocalName = "Unirea Principatelor Române/Mica Unire",
@@ -51,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Ziua Muncii",
@@ -58,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHILDRENSDAY-01",
                     Date = new DateTime(year, 6, 1),
                     EnglishName = "Children's Day",
                     LocalName = "Ziua Copilului",
@@ -65,6 +70,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DORMITIONTHEOTOKOS-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Dormition of the Theotokos",
                     LocalName = "Adormirea Maicii Domnului/Sfânta Maria Mare",
@@ -72,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STANDREWSDAY-01",
                     Date = new DateTime(year, 11, 30),
                     EnglishName = "St. Andrew's Day",
                     LocalName = "Sfântul Andrei",
@@ -79,6 +86,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 12, 1),
                     EnglishName = "National Day/Great Union",
                     LocalName = "Ziua Națională/Marea Unire",
@@ -86,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Crăciunul",
@@ -93,6 +102,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Crăciunul",
@@ -117,6 +127,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Bobotează",
@@ -133,6 +144,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "SAINTJOHNBAPTIST-01",
                     Date = new DateTime(year, 1, 7),
                     EnglishName = "Saint John the Baptist",
                     LocalName = "Sfântul Ion",

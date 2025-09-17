@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Новы год",
@@ -38,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
                     LocalName = "Новы год",
@@ -45,13 +47,15 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ORTHODOXCHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Orthodox Christmas Day",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Каляды праваслаўныя",
                     HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWOMENSDAY-01",
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "International Women's Day",
                     LocalName = "Мiжнародны жаночы дзень",
@@ -59,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Дзень працы",
@@ -66,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYDAY-01",
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Victory Day",
                     LocalName = "Дзень Перамогi",
@@ -73,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 7, 3),
                     EnglishName = "Independence Day",
                     LocalName = "Дзень Незалежнасцi",
@@ -80,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCTOBERREVOLUTIONDAY-01",
                     Date = new DateTime(year, 11, 7),
                     EnglishName = "October Revolution Day",
                     LocalName = "Дзень Кастрычніцкай рэвалюцыі",
@@ -87,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CCHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Catholic Christmas Day",
                     LocalName = "Каляды каталiцкiя",
@@ -94,6 +103,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "COMMEMORATIONDAY-01",
                     Date = easterSunday.AddDays(9),
                     EnglishName = "Commemoration Day",
                     LocalName = "Радунiца",

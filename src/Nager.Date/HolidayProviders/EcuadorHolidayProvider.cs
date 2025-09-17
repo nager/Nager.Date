@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Año Nuevo",
@@ -38,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "International Workers' Day",
@@ -45,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEPICHINCHA-01",
                     Date = new DateTime(year, 5, 24),
                     EnglishName = "The Battle of Pichincha",
                     LocalName = "Batalla de Pichincha",
@@ -52,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEQUITO-01",
                     Date = new DateTime(year, 8, 10),
                     EnglishName = "Declaration of Independence of Quito",
                     LocalName = "Primer Grito de Independencia",
@@ -59,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEGUAYAQUIL-01",
                     Date = new DateTime(year, 10, 9),
                     EnglishName = "Independence of Guayaquil",
                     LocalName = "Independencia de Guayaquil",
@@ -66,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSOULSDAY-01",
                     Date = new DateTime(year, 11, 2),
                     EnglishName = "All Souls' Day",
                     LocalName = "Día de los Difuntos, Día de Muertos",
@@ -73,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCECUENCA-01",
                     Date = new DateTime(year, 11, 3),
                     EnglishName = "Independence of Cuenca",
                     LocalName = "Independencia de Cuenca",
@@ -80,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Día de Navidad",
@@ -87,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-01",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
@@ -94,6 +103,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-02",
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",

@@ -32,6 +32,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -39,20 +40,23 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCHRISTMAS-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Craciun pe stil Vechi (Orthodox Christmas)",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Craciun pe stil Vechi (Orthodox Christmas)",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCHRISTMAS-02",
                     Date = new DateTime(year, 1, 8),
-                    EnglishName = "Craciun pe stil Vechi (Orthodox Christmas)",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Craciun pe stil Vechi (Orthodox Christmas)",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "VETERANSDAY-01",
                     Date = new DateTime(year, 2, 23),
                     EnglishName = "Day of Veterans of the Armed Forces and Law Enforcement Agencies",
                     LocalName = "Day of Veterans of the Armed Forces and Law Enforcement Agencies",
@@ -60,6 +64,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWOMENSDAY-01",
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "International Women's Day",
                     LocalName = "International Women's Day",
@@ -67,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MEMORIALDAY-01",
                     Date = lastMondayInMay,
                     EnglishName = "Memorial Day",
                     LocalName = "Memorial Day",
@@ -74,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day (Moldova)",
                     LocalName = "Labour Day (Moldova)",
@@ -81,6 +88,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYCOMMEMORATIONDAY-01",
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Victory and Commemoration Day",
                     LocalName = "Victory and Commemoration Day",
@@ -88,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BALTIDAY-01",
                     Date = new DateTime(year, 5, 22),
                     EnglishName = "Bălţi Day",
                     LocalName = "Bălţi Day",
@@ -95,20 +104,23 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 8, 27),
                     EnglishName = "Independence Day (Moldova)",
-                    LocalName = "Independence Day (Moldova)",
+                    LocalName = "Independence Day",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALLANGUAGEDAY-01",
                     Date = new DateTime(year, 8, 31),
-                    EnglishName = "Limba Noastra (National Language Day (Moldova))",
-                    LocalName = "Limba Noastra (National Language Day (Moldova))",
+                    EnglishName = "Limba Noastra (National Language Day)",
+                    LocalName = "Limba Noastra",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMYDAY-01",
                     Date = new DateTime(year, 9, 3),
                     EnglishName = "Day of the Moldovan National Army",
                     LocalName = "Day of the Moldovan National Army",
@@ -116,6 +128,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CAPITALSDAY-01",
                     Date = new DateTime(year, 10, 14),
                     EnglishName = "Capital's Day",
                     LocalName = "Capital's Day",
@@ -123,6 +136,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SOUTHCAPITALSDAYCAHUL-01",
                     Date = new DateTime(year, 11, 21),
                     EnglishName = "South Capital's Day Cahul",
                     LocalName = "South Capital's Day Cahul",
@@ -130,6 +144,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Craciun pe stil Nou (Western Christmas)",

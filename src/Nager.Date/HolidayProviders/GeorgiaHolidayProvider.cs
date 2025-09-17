@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "ახალი წელი",
@@ -36,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
                     LocalName = "ახალი წელი",
@@ -43,20 +45,23 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCHRISTMAS-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Orthodox Christmas",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "ქრისტეშობა",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "OEPIPHANY-01",
                     Date = new DateTime(year, 1, 19),
-                    EnglishName = "Orthodox Epiphany",
+                    EnglishName = "Epiphany (Orthodox)",
                     LocalName = "ნათლისღება",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "MOTHERSDAY-01",
                     Date = new DateTime(year, 3, 3),
                     EnglishName = "Mother's Day",
                     LocalName = "დედის დღე",
@@ -64,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWOMENSDAY-01",
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "International Women's Day",
                     LocalName = "ქალთა საერთაშორისო დღე",
@@ -71,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALUNITYDAY-01",
                     Date = new DateTime(year, 4, 9),
                     EnglishName = "National Unity Day",
                     LocalName = "ეროვნული ერთიანობის დღე",
@@ -78,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFVICTORYOVERFASCISM-01",
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Day of Victory over Fascism",
                     LocalName = "ფაშიზმზე გამარჯვების დღე",
@@ -85,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTANDREWTHEFIRSTCALLEDDAY-01",
                     Date = new DateTime(year, 5, 12),
                     EnglishName = "Saint Andrew the First-Called Day",
                     LocalName = "წმინდა მოციქულის ანდრია პირველწოდებულის საქართველოში შემოსვლის დღე",
@@ -92,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 5, 26),
                     EnglishName = "Independence Day",
                     LocalName = "დამოუკიდებლობის დღე",
@@ -99,6 +109,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTMARYSDAY-01",
                     Date = new DateTime(year, 8, 28),
                     EnglishName = "Saint Mary's Day",
                     LocalName = "მარიამობა",
@@ -106,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFSVETITSKHOVELICATHEDRA-01",
                     Date = new DateTime(year, 10, 14),
                     EnglishName = "Day of Svetitskhoveli Cathedra",
                     LocalName = "სვეტიცხოვლობა",
@@ -113,6 +125,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTGEORGESDAY-01",
                     Date = new DateTime(year, 11, 23),
                     EnglishName = "Saint George's Day",
                     LocalName = "გიორგობა",

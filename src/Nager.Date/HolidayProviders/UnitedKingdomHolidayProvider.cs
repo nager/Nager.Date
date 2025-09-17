@@ -64,6 +64,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -73,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "2NDJANUARY-01",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "2 January",
                     LocalName = "2 January",
@@ -82,6 +84,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTPATRICKSDAY-01",
                     Date = new DateTime(year, 3, 17),
                     EnglishName = "Saint Patrick's Day",
                     LocalName = "Saint Patrick's Day",
@@ -91,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTANDREWSDAY-01",
                     Date = new DateTime(year, 11, 30),
                     EnglishName = "Saint Andrew's Day",
                     LocalName = "Saint Andrew's Day",
@@ -100,6 +104,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEOFTHEBOYNE-01",
                     Date = new DateTime(year, 7, 12),
                     EnglishName = "Battle of the Boyne",
                     LocalName = "Battle of the Boyne",
@@ -109,6 +114,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SUMMERBANKHOLIDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Summer Bank Holiday",
                     LocalName = "Summer Bank Holiday",
@@ -117,6 +123,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SUMMERBANKHOLIDAY-02",
                     Date = lastMondayInAugust,
                     EnglishName = "Summer Bank Holiday",
                     LocalName = "Summer Bank Holiday",
@@ -125,6 +132,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -133,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Boxing Day",
@@ -154,6 +163,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification SpringBankHoliday(int year)
         {
+            var id = "SPRINGBANKHOLIDAY-01";
             var name = "Spring Bank Holiday";
 
             if (year == 2022)
@@ -162,6 +172,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 6, 2),
                     EnglishName = name,
                     LocalName = name,
@@ -173,6 +184,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = lastMondayInMay,
                 EnglishName = name,
                 LocalName = name,
@@ -190,6 +202,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "QUEENSPLATINUMJUBILEE-01",
                     Date = new DateTime(year, 6, 3),
                     EnglishName = "Queen’s Platinum Jubilee",
                     LocalName = "Queen’s Platinum Jubilee",
@@ -208,6 +221,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "QUEENSSTATEFUNERAL-01",
                     Date = new DateTime(year, 9, 19),
                     EnglishName = "Queen’s State Funeral",
                     LocalName = "Queen’s State Funeral",
@@ -227,6 +241,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "CORONATIONBANKHOLIDAY-01",
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Coronation Bank Holiday",
                     LocalName = "Coronation Bank Holiday",
@@ -241,6 +256,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification EarlyMayBankHoliday(int year)
         {
+            var id = "EARLYMAYBANKHOLIDAY-01";
             var holidayName = "Early May Bank Holiday";
 
             if (year == 1995)
@@ -248,6 +264,7 @@ namespace Nager.Date.HolidayProviders
                 // Shifted to mark the 50th anniversary of VE Day
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 5, 8),
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -262,6 +279,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = secondFridayInMay,
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -273,6 +291,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = firstMondayInMay,
                 EnglishName = holidayName,
                 LocalName = holidayName,

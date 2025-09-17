@@ -35,6 +35,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Bagong Taon",
@@ -42,6 +43,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFVALOR-01",
                     Date = new DateTime(year, 4, 9),
                     EnglishName = "Day of Valor",
                     LocalName = "Araw ng Kagitingan",
@@ -49,6 +51,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MAUNDYTHURSDAY-01",
                     Date = new DateTime(year, 4, 17),
                     EnglishName = "Maundy Thursday",
                     LocalName = "Huwebes Santo",
@@ -56,13 +59,15 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
-                    EnglishName = "Labor Day",
+                    EnglishName = "Labour Day",
                     LocalName = "Araw ng Paggawa",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 6, 12),
                     EnglishName = "Independence Day",
                     LocalName = "Araw ng Kalayaan",
@@ -70,6 +75,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALHEROESDAY-01",
                     Date = lastMondayInAugust,
                     EnglishName = "National Heroes Day",
                     LocalName = "Araw ng mga Bayani",
@@ -77,6 +83,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BONIFACIODAY-01",
                     Date = new DateTime(year, 11, 30),
                     EnglishName = "Bonifacio Day",
                     LocalName = "Araw ni Gat Andres Bonifacio",
@@ -84,6 +91,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Araw ng Pasko",
@@ -91,6 +99,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RIZALDAY-01",
                     Date = new DateTime(year, 12, 30),
                     EnglishName = "Rizal Day",
                     LocalName = "Araw ng Kamatayan ni Dr. Jose Rizal",
@@ -100,6 +109,7 @@ namespace Nager.Date.HolidayProviders
                 //special non-working holidays
                 new HolidaySpecification
                 {
+                    Id = "NINOYAQUINODAY-01",
                     Date = new DateTime(year, 8, 21),
                     EnglishName = "Ninoy Aquino Day",
                     LocalName = "Araw ng Kamatayan ni Senador Benigno Simeon \"Ninoy\" Aquino Jr.",
@@ -107,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "Araw ng mga Santo",
@@ -114,6 +125,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTIONMARY-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Feast of the Immaculate Conception of Mary",
                     LocalName = "Kapistahan ng Immaculada Concepcion",
@@ -121,6 +133,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LASTDAYOFTHEYEAR-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "Last Day of The Year",
                     LocalName = "Huling Araw ng Taon",
@@ -128,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHINESENEWYEAR-01",
                     Date = new DateTime(year, 1, 29),
                     EnglishName = "Chinese New Year",
                     LocalName = "Chinese New Year",
@@ -135,6 +149,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Christmas Eve",
@@ -142,6 +157,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAYEVE-01",
                     Date = new DateTime(year, 10, 31),
                     EnglishName = "All Saints' Day Eve",
                     LocalName = "All Saints' Day Eve",
@@ -165,6 +181,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "RAMADHAN-01",
                     Date = new DateTime(year, 4, 1),
                     EnglishName = "Feast of Ramadhan",
                     LocalName = "Eid’l Fitr",
@@ -182,6 +199,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "MIDTERMELECTIONS-01",
                     Date = new DateTime(year, 5, 12),
                     EnglishName = "Midterm Elections",
                     LocalName = "Halalan 2025",
@@ -199,6 +217,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "FEASTOFSACRIFICE-01",
                     Date = new DateTime(year, 6, 6),
                     EnglishName = "Feast of Sacrifice",
                     LocalName = "Eid'l Adha",

@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Ukiortaaq",
@@ -38,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Kunngit pingasut ulluat",
@@ -45,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GENERALPRAYERDAY-01",
                     Date = easterSunday.AddDays(26),
                     EnglishName = "General Prayer Day",
                     LocalName = "Tussiarfik",
@@ -52,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BANKCLOSINGDAY-01",
                     Date = easterSunday.AddDays(40),
                     EnglishName = "Bank closing day",
                     LocalName = "Atuanngiffik",
@@ -59,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ULLORTUNEQ-01",
                     Date = new DateTime(year, 6, 21),
                     EnglishName = "Ullortuneq",
                     LocalName = "Ullortuneq",
@@ -66,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Juulliaraq",
@@ -73,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Juullip ullua",
@@ -80,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Juullip-aappaa",
@@ -87,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSEVE-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "New Year's Eve",
                     LocalName = "Ukiutoqaq",

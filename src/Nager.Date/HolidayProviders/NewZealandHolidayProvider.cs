@@ -114,6 +114,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -122,6 +123,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "Day after New Year's Day",
                     LocalName = "Day after New Year's Day",
@@ -130,6 +132,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -138,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BOXINGDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Boxing Day",
                     LocalName = "Boxing Day",
@@ -146,6 +150,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = labourDay,
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -153,6 +158,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUCKLANDANNIVERSARYDAY-01",
                     Date = new DateTime(year, 1, 29),
                     EnglishName = "Auckland Anniversary Day",
                     LocalName = "Auckland/Northland Anniversary Day",
@@ -162,6 +168,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WELLINGTONANNIVERSARYDAY-01",
                     Date = new DateTime(year, 1, 22),
                     EnglishName = "Wellington Anniversary Day",
                     LocalName = "Wellington Anniversary Day",
@@ -171,6 +178,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CANTERBURYSOUTHANNIVERSARYDAY-01",
                     Date = canterburySouthDay,
                     EnglishName = "Canterbury (South) Anniversary Day",
                     LocalName = "Dominion Day",
@@ -179,6 +187,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHATHAMISLANDSANNIVERSARYDAY-01",
                     Date = new DateTime(year, 11, 30),
                     EnglishName = "Chatham Islands Anniversary Day",
                     LocalName = "Chatham Islands Anniversary Day",
@@ -188,6 +197,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NELSONANNIVERSARYDAY-01",
                     Date = new DateTime(year, 2, 1),
                     EnglishName = "Nelson Anniversary Day",
                     LocalName = "Nelson Anniversary Day",
@@ -197,6 +207,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OTAGOANNIVERSARYDAY-01",
                     Date = new DateTime(year, 3, 23),
                     EnglishName = "Otago Anniversary Day",
                     LocalName = "Otago Anniversary Day",
@@ -206,6 +217,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "TARANAKIANNIVERSARYDAY-01",
                     Date = taranakiDay,
                     EnglishName = "Taranaki Anniversary Day",
                     LocalName = "Taranaki Anniversary Day",
@@ -214,6 +226,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HAWKESBAYANNIVERSARYDAY-01",
                     Date = labourDay.AddDays(-3),
                     EnglishName = "Hawke's Bay Anniversary Day",
                     LocalName = "Hawke's Bay Anniversary Day",
@@ -222,6 +235,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MARLBOROUGHANNIVERSARYDAY-01",
                     Date = labourDay.AddDays(7),
                     EnglishName = "Marlborough Anniversary Day",
                     LocalName = "Marlborough Anniversary Day",
@@ -230,6 +244,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SOUTHLANDANNIVERSARYDAY-01",
                     Date = easterSunday.AddDays(2),
                     EnglishName = "Southland Anniversary Day",
                     LocalName = "Southland Anniversary Day",
@@ -238,6 +253,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WESTLANDANNIVERSARYDAY-01",
                     Date = new DateTime(year, 12, 1),
                     EnglishName = "Westland Anniversary Day",
                     LocalName = "Westland Anniversary Day",
@@ -247,6 +263,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CANTERBURYANNIVERSARYDAY-01",
                     Date = canterburyDay,
                     EnglishName = "Canterbury Anniversary Day",
                     LocalName = "Canterbury (North & Central) Anniversary Day",
@@ -272,6 +289,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "MATARIKI-01",
                     Date = matariki,
                     EnglishName = "Matariki",
                     LocalName = "Matariki",
@@ -297,6 +315,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "WAITANGIDAY-01",
                 Date = new DateTime(year, 2, 6),
                 EnglishName = "Waitangi Day",
                 LocalName = "Waitangi Day",
@@ -320,6 +339,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "ANZACDAY-01",
                 Date = new DateTime(year, 4, 25),
                 EnglishName = "Anzac Day",
                 LocalName = "Anzac Day",
@@ -340,6 +360,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "MONARCHBIRTHDAY-01",
                 Date = monarchBirthday,
                 EnglishName = name,
                 LocalName = name,
@@ -356,6 +377,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "QUEENELIZABETH2MEMORIALDAY-01",
                     Date = new DateTime(year, 9, 26),
                     EnglishName = "Queen Elizabeth II Memorial Day",
                     LocalName = "Queen Elizabeth II Memorial Day",

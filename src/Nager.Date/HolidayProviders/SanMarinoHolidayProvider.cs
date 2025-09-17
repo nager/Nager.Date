@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -36,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Epiphany",
@@ -43,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTSAINTAGATHA-01",
                     Date = new DateTime(year, 2, 5),
                     EnglishName = "Feast of Saint Agatha",
                     LocalName = "Feast of Saint Agatha",
@@ -50,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANNIVERSARYOFTHEARENGO-01",
                     Date = new DateTime(year, 3, 25),
                     EnglishName = "Anniversary of the Arengo",
                     LocalName = "Anniversary of the Arengo",
@@ -57,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -64,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LIBERATIONFROMFASCISM-01",
                     Date = new DateTime(year, 7, 28),
                     EnglishName = "Liberation from Fascism",
                     LocalName = "Liberation from Fascism",
@@ -71,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FERRAGOSTO-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Ferragosto (Assumption)",
                     LocalName = "Ferragosto (Assumption)",
@@ -78,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTOFSANMARINO-01",
                     Date = new DateTime(year, 9, 3),
                     EnglishName = "The Feast of San Marino and the Republic",
                     LocalName = "The Feast of San Marino and the Republic",
@@ -85,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "All Saints' Day",
@@ -92,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "COMMEMORATIONDIEDATWAR-01",
                     Date = new DateTime(year, 11, 2),
                     EnglishName = "Commemoration of all those who died at war",
                     LocalName = "Commemoration of all those who died at war",
@@ -99,6 +109,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Immaculate Conception",
@@ -106,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Christmas Eve",
@@ -113,6 +125,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -120,6 +133,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "St. Stephen's Day",
@@ -127,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSEVE-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "New Year's Eve",
                     LocalName = "New Year's Eve",

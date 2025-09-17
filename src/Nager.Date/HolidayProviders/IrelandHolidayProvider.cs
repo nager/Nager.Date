@@ -36,6 +36,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Lá Caille",
@@ -43,6 +44,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTPATRICKSDAY-01",
                     Date = new DateTime(year, 3, 17),
                     EnglishName = "Saint Patrick's Day",
                     LocalName = "Lá Fhéile Pádraig",
@@ -50,6 +52,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MAYDAY-01",
                     Date = firstMondayInMay,
                     EnglishName = "May Day",
                     LocalName = "Lá Bealtaine",
@@ -57,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "JUNEHOLIDAY-01",
                     Date = firstMondayInJune,
                     EnglishName = "June Holiday",
                     LocalName = "Lá Saoire i mí an Mheithimh",
@@ -64,6 +68,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUGUSTHOLIDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "August Holiday",
                     LocalName = "Lá Saoire i mí Lúnasa",
@@ -71,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCTOBERHOLIDAY-01",
                     Date = lastMondayInOctober,
                     EnglishName = "October Holiday",
                     LocalName = "Lá Saoire i mí Dheireadh Fómhair",
@@ -78,6 +84,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Lá Nollag",
@@ -85,6 +92,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Lá Fhéile Stiofáin",
@@ -106,6 +114,7 @@ namespace Nager.Date.HolidayProviders
                 return null;
             }
 
+            var id = "SAINTBRIGIDSDAY-01";
             var englishName = "Saint Brigid's Day";
             var localName = "Lá Fhéile Bríde";
 
@@ -114,26 +123,24 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = firstFebruary,
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(firstFebruary, localName, englishName, countryCode, launchYear: 2023);
             }
 
             var firstMondayInFebruary = DateHelper.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.First);
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = firstMondayInFebruary,
                 EnglishName = englishName,
                 LocalName = localName,
                 HolidayTypes = HolidayTypes.Public
             };
-
-            //return new Holiday(firstMondayInFebruary, localName, englishName, countryCode, launchYear: 2023);
         }
 
         /// <inheritdoc/>

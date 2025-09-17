@@ -45,6 +45,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -53,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "TYNWALDDAY-01",
                     Date = new DateTime(year, 7, 5),
                     EnglishName = "Tynwald Day",
                     LocalName = "Tynwald Day",
@@ -61,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LATESUMMERBANKHOLIDAY-01",
                     Date = lastMondayInAugust,
                     EnglishName = "Late Summer Bank Holiday",
                     LocalName = "Late Summer Bank Holiday",
@@ -68,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -76,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BOXINGDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Boxing Day",
                     LocalName = "St. Stephen's Day",
@@ -98,12 +103,14 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification SeniorRaceDay(int year)
         {
+            var id = "SENIORRACEDAY-01";
             var holidayName = "Senior Race Day";
 
             if (year == 2020)
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 8, 28),
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -115,6 +122,7 @@ namespace Nager.Date.HolidayProviders
             var ttRaceDay = DateHelper.FindDay(DateHelper.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.First), DayOfWeek.Friday);
             return new HolidaySpecification
             {
+                Id = id,
                 Date = ttRaceDay,
                 EnglishName = holidayName,
                 LocalName = holidayName,
@@ -124,6 +132,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification EarlyMayBankHoliday(int year)
         {
+            var id = "EARLYMAYBANKHOLIDAY-01";
             var holidayName = "Early May Bank Holiday";
 
             if (year == 2020)
@@ -132,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 var secondFridayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Friday, Occurrence.Second);
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = secondFridayInMay,
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -142,6 +152,7 @@ namespace Nager.Date.HolidayProviders
             var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
             return new HolidaySpecification
             {
+                Id = id,
                 Date = firstMondayInMay,
                 EnglishName = holidayName,
                 LocalName = holidayName,
@@ -151,6 +162,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification SpringBankHoliday(int year)
         {
+            var id = "SPRINGBANKHOLIDAY-01";
             var holidayName = "Spring Bank Holiday";
 
             if (year == 2022)
@@ -158,6 +170,7 @@ namespace Nager.Date.HolidayProviders
                 //https://www.gov.uk/government/news/extra-bank-holiday-to-mark-the-queens-platinum-jubilee-in-2022
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 6, 2),
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -166,8 +179,10 @@ namespace Nager.Date.HolidayProviders
             }
 
             var lastMondayInMay = DateHelper.FindLastDay(year, Month.May, DayOfWeek.Monday);
+
             return new HolidaySpecification
             {
+                Id = id,
                 Date = lastMondayInMay,
                 EnglishName = holidayName,
                 LocalName = holidayName,
@@ -186,6 +201,7 @@ namespace Nager.Date.HolidayProviders
                 //Majesty Queen Elizabeth II’s
                 return new HolidaySpecification
                 {
+                    Id = "QUEENSPLATINUMJUBILEE-01",
                     Date = new DateTime(year, 6, 3),
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -205,6 +221,7 @@ namespace Nager.Date.HolidayProviders
                 //Majesty Queen Elizabeth II’s (https://www.gov.uk/government/news/bank-holiday-announced-for-her-majesty-queen-elizabeth-iis-state-funeral-on-monday-19-september)
                 return new HolidaySpecification
                 {
+                    Id = "QUEENSSTATEFUNERAL-01",
                     Date = new DateTime(year, 9, 19),
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -219,6 +236,7 @@ namespace Nager.Date.HolidayProviders
         {
             if (year == 2023)
             {
+                var id = "CORONATIONBANKHOLIDAY-01";
                 var holidayName = "Coronation Bank Holiday";
 
                 //Bank holiday proclaimed in honour of the coronation of His Majesty King Charles III
@@ -227,6 +245,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 5, 8),
                     EnglishName = holidayName,
                     LocalName = holidayName,

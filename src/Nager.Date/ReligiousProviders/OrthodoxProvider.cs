@@ -59,6 +59,7 @@ namespace Nager.Date.ReligiousProviders
 
             return new HolidaySpecification
             {
+                Id = "OGOODFRIDAY-01",
                 Date = easterSunday.AddDays(-2),
                 EnglishName = "Good Friday",
                 LocalName = localName,
@@ -77,6 +78,7 @@ namespace Nager.Date.ReligiousProviders
 
             return new HolidaySpecification
             {
+                Id = "OHOLYSATURDAY-01",
                 Date = easterSunday.AddDays(-1),
                 EnglishName = "Holy Saturday",
                 LocalName = localName,
@@ -95,6 +97,7 @@ namespace Nager.Date.ReligiousProviders
 
             return new HolidaySpecification
             {
+                Id = "OEASTERSUNDAY-01",
                 Date = easterSunday,
                 EnglishName = "Easter Sunday",
                 LocalName = localName,
@@ -113,6 +116,7 @@ namespace Nager.Date.ReligiousProviders
 
             return new HolidaySpecification
             {
+                Id = "OEASTERMONDAY-01",
                 Date = easterSunday.AddDays(1),
                 EnglishName = "Easter Monday",
                 LocalName = localName,
@@ -131,6 +135,7 @@ namespace Nager.Date.ReligiousProviders
 
             return new HolidaySpecification
             {
+                Id = "OPENTECOST-01",
                 Date = easterSunday.AddDays(49),
                 EnglishName = "Pentecost",
                 LocalName = localName,
@@ -149,6 +154,7 @@ namespace Nager.Date.ReligiousProviders
 
             return new HolidaySpecification
             {
+                Id = "OWHITMONDAY-01",
                 Date = easterSunday.AddDays(50),
                 EnglishName = "Whit Monday",
                 LocalName = localName,

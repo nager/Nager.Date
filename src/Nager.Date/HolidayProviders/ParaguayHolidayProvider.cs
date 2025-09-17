@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -36,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HEROESDAY-01",
                     Date = new DateTime(year, 3, 1),
                     EnglishName = "Heroes' day",
                     LocalName = "Dia de los héroes",
@@ -43,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Día de los Trabajadores",
@@ -50,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCE-01",
                     Date = new DateTime(year, 5, 14),
                     EnglishName = "Paraguayan Independence",
                     LocalName = "Independencia",
@@ -57,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCE-02",
                     Date = new DateTime(year, 5, 15),
                     EnglishName = "Paraguayan Independence",
                     LocalName = "Independencia",
@@ -64,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHACOARMISTICE-01",
                     Date = new DateTime(year, 6, 12),
                     EnglishName = "Chaco Armistice",
                     LocalName = "Dia de la Paz del Chaco",
@@ -71,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FOUNDINGOFASUNCION-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Founding of Asunción",
                     LocalName = "Fundación de Asunción",
@@ -78,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BOQUERONBATTLEVICTORYDAY-01",
                     Date = new DateTime(year, 9, 29),
                     EnglishName = "Boqueron Battle Victory Day",
                     LocalName = "Victoria de Boquerón",
@@ -85,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VIRGINOFCAACUPE-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Virgin of Caacupe",
                     LocalName = "Virgen de Caacupé",
@@ -92,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Día de Navidad",

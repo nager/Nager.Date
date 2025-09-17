@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Ամանոր",
@@ -37,6 +38,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-02",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
                     LocalName = "Ամանոր",
@@ -45,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 5),
                     EnglishName = "Christmas Day",
                     LocalName = "Սուրբ Ծնունդ",
@@ -53,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-02",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Christmas Day",
                     LocalName = "Սուրբ Ծնունդ",
@@ -61,6 +65,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMYDAY-01",
                     Date = new DateTime(year, 1, 28),
                     EnglishName = "Army Day",
                     LocalName = "Բանակի օր",
@@ -69,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WOMENSDAY-01",
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "Women's Day",
                     LocalName = "Կանանց տոն",
@@ -77,6 +83,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GENOCIDEREMEMBRANCEDAY-01",
                     Date = new DateTime(year, 4, 24),
                     EnglishName = "Armenian Genocide Remembrance Day",
                     LocalName = "Եղեռնի զոհերի հիշատակի օր",
@@ -85,6 +92,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Աշխատանքի օր",
@@ -93,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYANDPEACEDAY-01",
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Victory and Peace Day",
                     LocalName = "Հաղթանակի և Խաղաղության տոն",
@@ -101,6 +110,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 5, 28),
                     EnglishName = "Republic Day",
                     LocalName = "Հանրապետության օր",
@@ -109,6 +119,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONDAY-01",
                     Date = new DateTime(year, 7, 5),
                     EnglishName = "Constitution Day",
                     LocalName = "Սահմանադրության օր",
@@ -117,6 +128,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 9, 21),
                     EnglishName = "Independence Day",
                     LocalName = "Անկախության օր",
@@ -125,6 +137,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSEVE-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "New Year's Eve",
                     LocalName = "Ամանոր",

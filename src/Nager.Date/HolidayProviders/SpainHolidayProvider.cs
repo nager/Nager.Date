@@ -60,6 +60,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Día de Reyes / Epifanía del Señor",
@@ -67,6 +68,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Fiesta del trabajo",
@@ -74,13 +76,15 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAYOFSPAIN-01",
                     Date = new DateTime(year, 10, 12),
-                    EnglishName = "Fiesta Nacional de España",
+                    EnglishName = "National Day of Spain",
                     LocalName = "Fiesta Nacional de España",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints Day",
                     LocalName = "Día de todos los Santos",
@@ -88,6 +92,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONDAY-01",
                     Date = new DateTime(year, 12, 6),
                     EnglishName = "Constitution Day",
                     LocalName = "Día de la Constitución",
@@ -95,6 +100,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Inmaculada Concepción",
@@ -139,6 +145,7 @@ namespace Nager.Date.HolidayProviders
         {
             var newYearsDay1 = new HolidaySpecification
             {
+                Id = "NEWYEARSDAY-01",
                 Date = new DateTime(year, 1, 1),
                 EnglishName = "New Year's Day",
                 LocalName = "Año Nuevo",
@@ -150,6 +157,7 @@ namespace Nager.Date.HolidayProviders
                 case 2023:
                     var newYearsDay2 = new HolidaySpecification
                     {
+                        Id = "NEWYEARSDAY-02",
                         Date = new DateTime(year, 1, 1),
                         EnglishName = "New Year's Day",
                         LocalName = "Año Nuevo",
@@ -193,6 +201,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-02",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Christmas Day",
                     LocalName = "Navidad",
@@ -203,6 +212,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "CHRISTMASDAY-01",
                 Date = new DateTime(year, 12, 25),
                 EnglishName = "Christmas Day",
                 LocalName = "Navidad",
@@ -229,6 +239,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "ASSUMPTION-01",
                 Date = new DateTime(year, 8, 15),
                 EnglishName = "Assumption",
                 LocalName = "Asunción",
@@ -246,6 +257,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "DAYOFMADRID-01",
                 Date = new DateTime(year, 5, 2),
                 EnglishName = "Day of Madrid",
                 LocalName = "Fiesta de la Comunidad de Madrid",
@@ -319,8 +331,9 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "SAINTJOSEPHSDAY-01",
                 Date = new DateTime(year, 3, 19),
-                EnglishName = "St. Joseph's Day",
+                EnglishName = "Saint Joseph's Day",
                 LocalName = "San José",
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = subdivisionCodes,
@@ -364,6 +377,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "SANTIAGOAPOSTOL-01",
                 Date = new DateTime(year, 7, 25),
                 EnglishName = "Santiago Apóstol",
                 LocalName = "Santiago Apóstol",
@@ -376,9 +390,10 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "STSTEPHENSDAY-01",
                 Date = new DateTime(year, 12, 26),
-                EnglishName = "Santiago Apóstol",
-                LocalName = "St. Stephen's Day",
+                EnglishName = "St. Stephen's Day",
+                LocalName = "Feast of Saint Stephen",
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CT"]
             };
@@ -388,6 +403,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFTHEVALENCIANCOMMUNITY-01",
                 Date = new DateTime(year, 10, 9),
                 EnglishName = "Day of the Valencian Community",
                 LocalName = "Dia de la Comunitat Valenciana",
@@ -400,9 +416,10 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "FEASTLADYBIENAPARECIDA-01",
                 Date = new DateTime(year, 9, 15),
-                EnglishName = "Regional Holiday",
-                LocalName = "La Bien Aparecida",
+                EnglishName = "Feast of Our Lady of Bien Aparecida",
+                LocalName = "Festividad de la Bien Aparecida",
                 HolidayTypes = HolidayTypes.Public,
                 SubdivisionCodes = ["ES-CB"]
             };
@@ -412,6 +429,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "NATIONALDAYOFCATALONIA-01",
                 Date = new DateTime(year, 9, 11),
                 EnglishName = "National Day of Catalonia",
                 LocalName = "Diada Nacional de Catalunya",
@@ -424,6 +442,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFEXTREMADURA-01",
                 Date = new DateTime(year, 9, 8),
                 EnglishName = "Day of Extremadura",
                 LocalName = "Día de Extremadura",
@@ -436,6 +455,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFASTURIAS-01",
                 Date = new DateTime(year, 9, 8),
                 EnglishName = "Day of Asturias",
                 LocalName = "Día de Asturias",
@@ -448,6 +468,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYCANTABRIANINSTITUTIONS-01",
                 Date = new DateTime(year, 7, 28),
                 EnglishName = "Day of the Cantabrian Institutions",
                 LocalName = "Día de las Instituciones de Cantabria",
@@ -460,6 +481,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "STJOHNSDAY-01",
                 Date = new DateTime(year, 6, 24),
                 EnglishName = "St. John's Day",
                 LocalName = "Sant Joan",
@@ -472,6 +494,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFLARIOJA-01",
                 Date = new DateTime(year, 6, 9),
                 EnglishName = "Day of La Rioja",
                 LocalName = "Día de La Rioja",
@@ -484,6 +507,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFMURCIA-01",
                 Date = new DateTime(year, 6, 9),
                 EnglishName = "Day of Murcia",
                 LocalName = "Día de la Región de Murcia",
@@ -496,6 +520,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFCASTILLALAMANCHA-01",
                 Date = new DateTime(year, 5, 31),
                 EnglishName = "Day of Castilla-La Mancha",
                 LocalName = "Día de la Región Castilla-La Mancha",
@@ -516,6 +541,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "CASTILEANDLEONDAY-01",
                 Date = new DateTime(year, 4, 23),
                 EnglishName = "Castile and León Day",
                 LocalName = "Día de Castilla y León",
@@ -528,6 +554,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "GALICIANLITERATUREDAY-01",
                 Date = new DateTime(year, 5, 17),
                 EnglishName = "Galician Literature Day",
                 LocalName = "Día das Letras Galegas",
@@ -545,6 +572,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "DAYOFARAGON-01",
                 Date = new DateTime(year, 4, 23),
                 EnglishName = "Day of Aragón",
                 LocalName = "San Jorge (Día de Aragón)",
@@ -558,6 +586,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFTHEBALEARICISLANDS-01",
                 Date = new DateTime(year, 3, 1),
                 EnglishName = "Day of the Balearic Islands",
                 LocalName = "Dia de les Illes Balears",
@@ -570,6 +599,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFANDALUCIA-01",
                 Date = new DateTime(year, 2, 28),
                 EnglishName = "Day of Andalucía",
                 LocalName = "Día de Andalucía",
@@ -582,6 +612,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "DAYOFTHECANARYISLANDS-01",
                 Date = new DateTime(year, 5, 30),
                 EnglishName = "Day of the Canary Islands",
                 LocalName = "Día de Canarias",
@@ -597,6 +628,7 @@ namespace Nager.Date.HolidayProviders
                 case 2023:
                     return new HolidaySpecification
                     {
+                        Id = "CARNIVALTUESDAY-01",
                         Date = new DateTime(year, 2, 21),
                         EnglishName = "Carnival Tuesday",
                         LocalName = "Martes de Carnaval",

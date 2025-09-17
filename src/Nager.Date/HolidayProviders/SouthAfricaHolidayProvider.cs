@@ -42,6 +42,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -50,6 +51,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HUMANRIGHTSDAY-01",
                     Date = new DateTime(year, 3, 21),
                     EnglishName = "Human Rights Day",
                     LocalName = "Human Rights Day",
@@ -58,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FAMILYDAY-01",
                     Date = easterSunday.AddDays(1),
                     EnglishName = "Family Day",
                     LocalName = "Family Day",
@@ -65,6 +68,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FREEDOMDAY-01",
                     Date = new DateTime(year, 4, 27),
                     EnglishName = "Freedom Day",
                     LocalName = "Freedom Day",
@@ -73,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Workers' Day",
                     LocalName = "Workers' Day",
@@ -81,6 +86,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "YOUTHDAY-01",
                     Date = new DateTime(year, 6, 16),
                     EnglishName = "Youth Day",
                     LocalName = "Youth Day",
@@ -89,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALWOMENSDAY-01",
                     Date = new DateTime(year, 8, 9),
                     EnglishName = "National Women's Day",
                     LocalName = "National Women's Day",
@@ -97,6 +104,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HERITAGEDAY-01",
                     Date = new DateTime(year, 9, 24),
                     EnglishName = "Heritage Day",
                     LocalName = "Heritage Day",
@@ -105,6 +113,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFRECONCILIATION-01",
                     Date = new DateTime(year, 12, 16),
                     EnglishName = "Day of Reconciliation",
                     LocalName = "Day of Reconciliation",
@@ -113,6 +122,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -121,6 +131,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFGOODWILL-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Day of Goodwill",
                     LocalName = "St. Stephen's Day",
@@ -142,6 +153,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "SPRINGBOKSVICTORY-01",
                     Date = new DateTime(year, 12, 15),
                     EnglishName = "Springboks Victory",
                     LocalName = "Springboks Victory",
@@ -158,6 +170,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "ELECTIONDAY-01",
                     Date = new DateTime(year, 5, 29),
                     EnglishName = "Election Day",
                     LocalName = "Election Day",

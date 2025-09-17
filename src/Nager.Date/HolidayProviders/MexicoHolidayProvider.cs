@@ -43,6 +43,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Año Nuevo",
@@ -51,6 +52,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONDAY-01",
                     Date = firstMondayOfFebruary,
                     EnglishName = "Constitution Day",
                     LocalName = "Día de la Constitución",
@@ -58,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BENITOJUAREZSBIRTHDAY-01",
                     Date = thirdMondayOfMarch,
                     EnglishName = "Benito Juárez's birthday",
                     LocalName = "Natalicio de Benito Juárez",
@@ -65,14 +68,16 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
-                    EnglishName = "Labor Day",
+                    EnglishName = "Labour Day",
                     LocalName = "Día del Trabajo",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 9, 16),
                     EnglishName = "Independence Day",
                     LocalName = "Día de la Independencia",
@@ -80,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONDAY-01",
                     Date = thirdMondayOfNovember,
                     EnglishName = "Revolution Day",
                     LocalName = "Día de la Revolución",
@@ -87,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Navidad",
@@ -105,6 +112,10 @@ namespace Nager.Date.HolidayProviders
         {
             // The president in Mexico is usually elected every 6 years
             // A reform was introduced in 2014 that changes the date from 2024
+
+            var id = "INAUGURATIONDAY-01";
+            var englishName = "Inauguration Day";
+            var localName = "Transmisión del Poder Ejecutivo Federal";
 
             switch (year)
             {
@@ -125,9 +136,10 @@ namespace Nager.Date.HolidayProviders
                 case 2018:
                     return new HolidaySpecification
                     {
+                        Id = id,
                         Date = new DateTime(year, 12, 1),
-                        EnglishName = "Inauguration Day",
-                        LocalName = "Transmisión del Poder Ejecutivo Federal",
+                        EnglishName = englishName,
+                        LocalName = localName,
                         HolidayTypes = HolidayTypes.Public
                     };
                 case 2024:
@@ -142,9 +154,10 @@ namespace Nager.Date.HolidayProviders
                 case 2078:
                     return new HolidaySpecification
                     {
+                        Id = id,
                         Date = new DateTime(year, 10, 1),
-                        EnglishName = "Inauguration Day",
-                        LocalName = "Transmisión del Poder Ejecutivo Federal",
+                        EnglishName = englishName,
+                        LocalName = localName,
                         HolidayTypes = HolidayTypes.Public
                     };
             }

@@ -35,6 +35,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Nieuwjaarsdag",
@@ -42,6 +43,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "KINGSDAY-01",
                     Date = new DateTime(year, 4, 27),
                     EnglishName = "King's Day",
                     LocalName = "Koningsdag",
@@ -50,6 +52,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Eerste Kerstdag",
@@ -57,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Tweede Kerstdag",
@@ -79,6 +83,7 @@ namespace Nager.Date.HolidayProviders
         {
             var liberationDay = new HolidaySpecification
             {
+                Id = "LIBERATIONDAY-01",
                 Date = new DateTime(year, 5, 5),
                 EnglishName = "Liberation Day",
                 LocalName = "Bevrijdingsdag",

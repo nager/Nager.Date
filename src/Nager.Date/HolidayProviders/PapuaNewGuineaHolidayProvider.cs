@@ -32,6 +32,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -39,6 +40,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "QUEENSBIRTHDAY-01",
                     Date = secondMondayInJune,
                     EnglishName = "Queen's Birthday",
                     LocalName = "Queen's Birthday",
@@ -46,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REMEMBRANCEDAY-01",
                     Date = new DateTime(year, 7, 23),
                     EnglishName = "Remembrance Day",
                     LocalName = "Remembrance Day",
@@ -53,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPENTANCEDAY-01",
                     Date = new DateTime(year, 8, 26),
                     EnglishName = "Repentance Day",
                     LocalName = "Repentance Day",
@@ -60,6 +64,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 9, 16),
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
@@ -67,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -74,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BOXINGDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Boxing Day",
                     LocalName = "St. Stephen's Day",

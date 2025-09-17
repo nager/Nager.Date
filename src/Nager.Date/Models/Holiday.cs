@@ -8,6 +8,11 @@ namespace Nager.Date.Models
     public class Holiday
     {
         /// <summary>
+        /// Unique Id for the Holiday
+        /// </summary>
+        public string Id { get; set; } = string.Empty;
+
+        /// <summary>
         /// The date
         /// </summary>
         public DateTime Date { get; set; }
@@ -52,7 +57,7 @@ namespace Nager.Date.Models
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"{this.Date:yyyy-MM-dd} {this.EnglishName}";
+            return $"{this.Date:yyyy-MM-dd} {this.Id} {this.EnglishName}";
         }
     }
 }
