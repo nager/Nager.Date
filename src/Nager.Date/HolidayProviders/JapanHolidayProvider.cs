@@ -203,6 +203,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "EMPERORSBIRTHDAY-01",
                 Date = result,
                 EnglishName = "The Emperor's Birthday",
                 LocalName = year < 1948 ? "天長節" : "天皇誕生日",
@@ -224,6 +225,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "HEALTHSPORTSDAY-01",
                     Date = new DateTime(year, 10, 10),
                     EnglishName = "Health and Sports Day",
                     LocalName = "体育の日",
@@ -236,6 +238,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "HEALTHSPORTSDAY-01",
                     Date = secondMondayInOctober,
                     EnglishName = "Health and Sports Day",
                     LocalName = "体育の日",
@@ -246,6 +249,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "SPORTSDAY-01",
                     Date = new DateTime(year, 07, 24),
                     EnglishName = "Sports Day",
                     LocalName = "スポーツの日",
@@ -256,6 +260,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "SPORTSDAY-01",
                     Date = new DateTime(year, 07, 23),
                     EnglishName = "Sports Day",
                     LocalName = "スポーツの日",
@@ -268,6 +273,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "SPORTSDAY-01",
                     Date = secondMondayInOctober,
                     EnglishName = "Sports Day",
                     LocalName = "スポーツの日",
@@ -306,6 +312,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "VERNALEQUINOXDAY-01",
                 Date = new DateTime(year, 3, (int)equinoxDay),
                 EnglishName = "Vernal Equinox Day",
                 LocalName = "春分の日",

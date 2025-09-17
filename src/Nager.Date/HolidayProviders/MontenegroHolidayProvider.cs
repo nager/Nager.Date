@@ -148,7 +148,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "OCHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Orthodox Christmas Day",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Božić",
                     HolidayTypes = HolidayTypes.Optional
                 },
@@ -156,7 +156,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "OCHRISTMASDAY-02",
                     Date = new DateTime(year, 1, 8),
-                    EnglishName = "Orthodox Christmas Day",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Božić",
                     HolidayTypes = HolidayTypes.Optional
                 },

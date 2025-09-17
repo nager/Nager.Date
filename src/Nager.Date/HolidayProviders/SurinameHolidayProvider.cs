@@ -169,6 +169,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "CHINESENEWYEAR-01",
                     Date = chineseNewYear,
                     EnglishName = "Chinese New Year",
                     LocalName = "Chinese New Year",

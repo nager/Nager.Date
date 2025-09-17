@@ -59,7 +59,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "CHRISTMASDAY-01",
+                    Id = "OCHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 7),
                     EnglishName = "Christmas Day",
                     LocalName = "Božić",

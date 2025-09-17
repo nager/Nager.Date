@@ -167,6 +167,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANNIVERSARYBATTLECARABOBO-01",
                     Date = new DateTime(year, 6, 24),
                     EnglishName = "Anniversary of the Battle of Carabobo",
                     LocalName = "Aniversario de la Batalla de Carabobo",
@@ -174,6 +175,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "JOURNALISTSDAY-01",
                     Date = new DateTime(year, 6, 27),
                     EnglishName = "Journalists' Day",
                     LocalName = "Día del Periodista y aniversario de la instauración del Decreto de Instrucción pública gratuita y obligatoria",
@@ -197,6 +199,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SIMONBOLIVARSBIRTHDAY-01",
                     Date = new DateTime(year, 7, 24),
                     EnglishName = "Simón Bolívar's Birthday",
                     LocalName = "Natalicio del Libertador Simón Bolívar",
@@ -204,6 +207,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARACASCITYFOUNDATIONDAY-01",
                     Date = new DateTime(year, 7, 25),
                     EnglishName = "Caracas City Foundation Day",
                     LocalName = "Aniversario del fundacion del Caracas",
@@ -219,6 +223,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BLESSEDVIRGINMARY-01",
                     Date = new DateTime(year, 9, 8),
                     EnglishName = "Birth of the Blessed Virgin Mary",
                     LocalName = "Día del Virgen del Valle",
@@ -226,6 +231,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OURLADYMERCY-01",
                     Date = new DateTime(year, 9, 24),
                     EnglishName = "Feast of the Our Lady of Mercy",
                     LocalName = "Día del Virgen de las Mercedes",
@@ -233,6 +239,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDIGENOUSRESISTANCEDAY-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Day of Indigenous Resistance",
                     LocalName = "Día de la Resistencia Indígena",
@@ -256,6 +263,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTIONDAY-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception Day",
                     LocalName = "La Inmaculada Concepción",

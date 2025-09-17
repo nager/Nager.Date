@@ -39,7 +39,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Christmas Day",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Прв ден Божик, Prv den Božik",
                     HolidayTypes = HolidayTypes.Public
                 },

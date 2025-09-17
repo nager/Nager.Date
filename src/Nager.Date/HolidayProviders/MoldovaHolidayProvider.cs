@@ -40,20 +40,23 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCHRISTMAS-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Craciun pe stil Vechi (Orthodox Christmas)",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Craciun pe stil Vechi (Orthodox Christmas)",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCHRISTMAS-02",
                     Date = new DateTime(year, 1, 8),
-                    EnglishName = "Craciun pe stil Vechi (Orthodox Christmas)",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Craciun pe stil Vechi (Orthodox Christmas)",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "VETERANSDAY-01",
                     Date = new DateTime(year, 2, 23),
                     EnglishName = "Day of Veterans of the Armed Forces and Law Enforcement Agencies",
                     LocalName = "Day of Veterans of the Armed Forces and Law Enforcement Agencies",

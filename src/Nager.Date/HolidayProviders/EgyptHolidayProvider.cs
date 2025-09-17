@@ -24,15 +24,17 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "ORTHODOXCHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Christmas",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "عيد الميلاد المجيد",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONDAY2011-01",
                     Date = new DateTime(year, 1, 25),
-                    EnglishName = "Revolution Day 2011 National Police Day",
+                    EnglishName = "Revolution Day 2011 / National Police Day",
                     LocalName = "عيد الثورة 25 يناير",
                     HolidayTypes = HolidayTypes.Public
                 },
@@ -54,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMEDFORCESDAY-01",
                     Date = new DateTime(year, 10, 6),
                     EnglishName = "Armed Forces Day",
                     LocalName = "عيد القوات المسلحة",

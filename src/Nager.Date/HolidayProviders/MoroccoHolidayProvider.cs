@@ -37,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PROCLAMATIONINDEPENDENCE-01",
                     Date = new DateTime(year, 1, 11),
                     EnglishName = "Proclamation of Independence",
                     LocalName = "Takdim watikat al-istiqlal",
@@ -104,6 +105,7 @@ namespace Nager.Date.HolidayProviders
             {
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "AMAZIGHNEWYEAR-01",
                     Date = new DateTime(year, 1, 14),
                     EnglishName = "Amazigh New Year",
                     LocalName = "Id Yennayer",

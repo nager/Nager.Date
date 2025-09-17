@@ -114,8 +114,9 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "OCHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "(Julian) Christmas",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "Різдво",
                     HolidayTypes = HolidayTypes.Public
                 };
@@ -194,9 +195,10 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
-                    EnglishName = "(Gregorian and Revised Julian) Christmas",
-                    LocalName = "Різдво",
+                    EnglishName = "Christmas Day",
+                    LocalName = "Різдво Христове",
                     HolidayTypes = HolidayTypes.Public
                 };
             }

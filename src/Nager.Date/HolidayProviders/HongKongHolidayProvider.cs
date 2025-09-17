@@ -55,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SPECIALADMINISTRATIVEREGION-01",
                     Date = new DateTime(year, 7, 1),
                     EnglishName = "Hong Kong Special Administrative Region Establishment Day",
                     LocalName = "香港特別行政區成立紀念日",

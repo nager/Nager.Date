@@ -74,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EVACUATIONDAY-01",
                     Date = new DateTime(year, 10, 15),
                     EnglishName = "Evacuation Day",
                     LocalName = "عيد الجلاء",

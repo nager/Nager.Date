@@ -45,15 +45,17 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCHRISTMAS-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Orthodox Christmas",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "ქრისტეშობა",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "OEPIPHANY-01",
                     Date = new DateTime(year, 1, 19),
-                    EnglishName = "Orthodox Epiphany",
+                    EnglishName = "Epiphany (Orthodox)",
                     LocalName = "ნათლისღება",
                     HolidayTypes = HolidayTypes.Public
                 },
