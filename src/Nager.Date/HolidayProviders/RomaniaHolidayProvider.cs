@@ -46,6 +46,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "UNIONDAY-01",
                     Date = new DateTime(year, 1, 24),
                     EnglishName = "Union Day/Small Union",
                     LocalName = "Unirea Principatelor Române/Mica Unire",
@@ -69,6 +70,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DORMITIONTHEOTOKOS-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Dormition of the Theotokos",
                     LocalName = "Adormirea Maicii Domnului/Sfânta Maria Mare",
@@ -84,6 +86,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 12, 1),
                     EnglishName = "National Day/Great Union",
                     LocalName = "Ziua Națională/Marea Unire",
@@ -141,6 +144,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "SAINTJOHNBAPTIST-01",
                     Date = new DateTime(year, 1, 7),
                     EnglishName = "Saint John the Baptist",
                     LocalName = "Sfântul Ion",

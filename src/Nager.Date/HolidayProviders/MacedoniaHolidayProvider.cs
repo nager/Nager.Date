@@ -60,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 8, 2),
                     EnglishName = "Day of the Republic",
                     LocalName = "Ден на Републиката, Den na Republikata",
@@ -83,6 +84,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONARYSTRUGGLE-01",
                     Date = new DateTime(year, 10, 23),
                     EnglishName = "Day of the Macedonian Revolutionary Struggle",
                     LocalName = "Ден на македонската револуционерна борба,Den na makedonskata revolucionarna borba",
@@ -90,6 +92,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTCLEMENTOHRIDDAY-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Saint Clement of Ohrid Day",
                     LocalName = "Св. Климент Охридски, Sv. Kliment Ohridski",

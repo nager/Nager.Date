@@ -76,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENTDAY-01",
                     Date = new DateTime(year, 10, 28),
                     EnglishName = "Independent Czechoslovak State Day",
                     LocalName = "Den vzniku samostatného československého státu",
@@ -83,6 +84,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DEMOCRACYDAY-01",
                     Date = new DateTime(year, 11, 17),
                     EnglishName = "Struggle for Freedom and Democracy Day",
                     LocalName = "Den boje za svobodu a demokracii a Mezinárodní den studentstva",

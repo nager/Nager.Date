@@ -54,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANTIFASCISTSTRUGGLEDAY-01",
                     Date = new DateTime(year, 6, 22),
                     EnglishName = "Anti-Fascist Struggle Day",
                     LocalName = "Dan antifašističke borbe",

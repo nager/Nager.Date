@@ -71,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONVIRGINMARY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption of the Virgin Mary",
                     LocalName = "Η Κοίμησις της Θεοτόκου",

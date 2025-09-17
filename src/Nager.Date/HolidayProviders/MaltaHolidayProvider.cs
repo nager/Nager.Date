@@ -37,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTSTPAULSSHIPWRECK-01",
                     Date = new DateTime(year, 2, 10),
                     EnglishName = "Feast of St. Paul's Shipwreck",
                     LocalName = "In-Nawfraġju ta’ San Pawl",

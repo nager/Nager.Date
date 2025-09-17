@@ -209,7 +209,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
-                    Id = "ASSUMPTIONOFTHEVIRGINMARY-01",
+                    Id = "ASSUMPTIONVIRGINMARY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -218,7 +218,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "ASSUMPTIONOFTHEVIRGINMARY-02",
+                    Id = "ASSUMPTIONVIRGINMARY-02",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = englishName,
                     LocalName = localName,

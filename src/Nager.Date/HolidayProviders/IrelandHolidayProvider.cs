@@ -114,6 +114,7 @@ namespace Nager.Date.HolidayProviders
                 return null;
             }
 
+            var id = "SAINTBRIGIDSDAY-01";
             var englishName = "Saint Brigid's Day";
             var localName = "Lá Fhéile Bríde";
 
@@ -122,26 +123,24 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = firstFebruary,
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public
                 };
-
-                //return new Holiday(firstFebruary, localName, englishName, countryCode, launchYear: 2023);
             }
 
             var firstMondayInFebruary = DateHelper.FindDay(year, Month.February, DayOfWeek.Monday, Occurrence.First);
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = firstMondayInFebruary,
                 EnglishName = englishName,
                 LocalName = localName,
                 HolidayTypes = HolidayTypes.Public
             };
-
-            //return new Holiday(firstMondayInFebruary, localName, englishName, countryCode, launchYear: 2023);
         }
 
         /// <inheritdoc/>

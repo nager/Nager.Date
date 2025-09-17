@@ -45,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SPRINGDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Spring Day",
                     LocalName = "kevadpüha",

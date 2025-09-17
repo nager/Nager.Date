@@ -236,6 +236,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "CORONATIONBANKHOLIDAY-01",
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Coronation Bank Holiday",
                     LocalName = "Coronation Bank Holiday",
