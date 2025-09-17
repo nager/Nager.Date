@@ -376,6 +376,16 @@ namespace Nager.Date.HolidayProviders
                         HolidayTypes = HolidayTypes.Public,
                         SubdivisionCodes = subdivisionCodes
                     };
+                case 2025:
+                    return new HolidaySpecification
+                    {
+                        Id = id,
+                        Date = new DateTime(year, 09, 27),
+                        EnglishName = holidayName,
+                        LocalName = holidayName,
+                        HolidayTypes = HolidayTypes.Public,
+                        SubdivisionCodes = subdivisionCodes
+                    };
             }
 
             if (year > DateTime.Today.Year)
