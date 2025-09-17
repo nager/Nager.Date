@@ -76,6 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTSPETERPAUL-01",
                     Date = new DateTime(year, 6, 29),
                     EnglishName = "Feast of St.Peter and St.Paul",
                     LocalName = "L-Imnarja",
@@ -91,6 +92,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LADYVICTORIES-01",
                     Date = new DateTime(year, 9, 8),
                     EnglishName = "Feast of Our Lady of Victories",
                     LocalName = "Il-Vittorja",
@@ -106,6 +108,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Feast of the Immaculate Conception",
                     LocalName = "L-Immakulata Kunċizzjoni",

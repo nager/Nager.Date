@@ -125,6 +125,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTIONMARY-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Feast of the Immaculate Conception of Mary",
                     LocalName = "Kapistahan ng Immaculada Concepcion",
@@ -180,6 +181,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "RAMADHAN-01",
                     Date = new DateTime(year, 4, 1),
                     EnglishName = "Feast of Ramadhan",
                     LocalName = "Eid’l Fitr",
@@ -197,6 +199,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "MIDTERMELECTIONS-01",
                     Date = new DateTime(year, 5, 12),
                     EnglishName = "Midterm Elections",
                     LocalName = "Halalan 2025",

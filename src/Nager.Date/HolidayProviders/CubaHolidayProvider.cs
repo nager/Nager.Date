@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "TRIUMPHREVOLUTION-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "Triumph of the Revolution",
                     LocalName = "Triunfo de la Revolución",
@@ -36,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYFIDELCASTRO-01",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "Victory of Fidel Castro",
                     LocalName = "Día de Victoria de las Fuerzas Armadas",

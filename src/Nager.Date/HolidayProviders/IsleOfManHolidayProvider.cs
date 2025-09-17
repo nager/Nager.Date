@@ -201,6 +201,7 @@ namespace Nager.Date.HolidayProviders
                 //Majesty Queen Elizabeth II’s
                 return new HolidaySpecification
                 {
+                    Id = "QUEENSPLATINUMJUBILEE-01",
                     Date = new DateTime(year, 6, 3),
                     EnglishName = holidayName,
                     LocalName = holidayName,

@@ -87,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BIRTHDAYLUISMUNOZMARIN-01",
                     Date = new DateTime(year, 2, 18),
                     EnglishName = "Birthday of Luis Muñoz Marín",
                     LocalName = "Natalicio de Luis Muñoz Marín",

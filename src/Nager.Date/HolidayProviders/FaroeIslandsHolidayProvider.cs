@@ -40,6 +40,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FLAGDAY-01",
                     Date = new DateTime(year, 4, 25),
                     EnglishName = "National Flag Day",
                     LocalName = "Flaggdagur",

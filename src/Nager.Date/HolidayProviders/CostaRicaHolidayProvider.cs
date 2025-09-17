@@ -68,6 +68,7 @@ namespace Nager.Date.HolidayProviders
             {
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "CULTURESDAY-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Cultures Day",
                     LocalName = "Día de las Culturas",

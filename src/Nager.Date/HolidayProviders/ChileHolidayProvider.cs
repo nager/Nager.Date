@@ -173,7 +173,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
-                Id = "SAINTPETERSAINTPAUL-01",
+                Id = "SAINTSPETERPAUL-01",
                 Date = new DateTime(year, 6, 29),
                 EnglishName = "Saint Peter and Saint Paul",
                 LocalName = "San Pedro y San Pablo",

@@ -315,6 +315,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "WAITANGIDAY-01",
                 Date = new DateTime(year, 2, 6),
                 EnglishName = "Waitangi Day",
                 LocalName = "Waitangi Day",
@@ -338,6 +339,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "ANZACDAY-01",
                 Date = new DateTime(year, 4, 25),
                 EnglishName = "Anzac Day",
                 LocalName = "Anzac Day",
@@ -375,6 +377,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "QUEENELIZABETH2MEMORIALDAY-01",
                     Date = new DateTime(year, 9, 26),
                     EnglishName = "Queen Elizabeth II Memorial Day",
                     LocalName = "Queen Elizabeth II Memorial Day",

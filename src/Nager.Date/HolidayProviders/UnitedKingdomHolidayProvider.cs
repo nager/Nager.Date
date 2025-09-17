@@ -83,6 +83,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTPATRICKSDAY-01",
                     Date = new DateTime(year, 3, 17),
                     EnglishName = "Saint Patrick's Day",
                     LocalName = "Saint Patrick's Day",
@@ -92,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTANDREWSDAY-01",
                     Date = new DateTime(year, 11, 30),
                     EnglishName = "Saint Andrew's Day",
                     LocalName = "Saint Andrew's Day",
@@ -196,6 +198,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "QUEENSPLATINUMJUBILEE-01",
                     Date = new DateTime(year, 6, 3),
                     EnglishName = "Queen’s Platinum Jubilee",
                     LocalName = "Queen’s Platinum Jubilee",
@@ -247,6 +250,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification EarlyMayBankHoliday(int year)
         {
+            var id = "EARLYMAYBANKHOLIDAY-01";
             var holidayName = "Early May Bank Holiday";
 
             if (year == 1995)
@@ -254,6 +258,7 @@ namespace Nager.Date.HolidayProviders
                 // Shifted to mark the 50th anniversary of VE Day
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 5, 8),
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -268,6 +273,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = secondFridayInMay,
                     EnglishName = holidayName,
                     LocalName = holidayName,
@@ -279,6 +285,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = firstMondayInMay,
                 EnglishName = holidayName,
                 LocalName = holidayName,

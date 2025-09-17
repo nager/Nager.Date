@@ -109,6 +109,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RUSSIADAY-01",
                     Date = new DateTime(year, 6, 12),
                     EnglishName = "Russia Day",
                     LocalName = "День России",
@@ -116,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "UNITYDAY-01",
                     Date = new DateTime(year, 11, 4),
                     EnglishName = "Unity Day",
                     LocalName = "День народного единства",

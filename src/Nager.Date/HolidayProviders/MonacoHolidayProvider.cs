@@ -45,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTDEVOTASDAY-01",
                     Date = new DateTime(year, 1, 27),
                     EnglishName = "Saint Devota's Day",
                     LocalName = "La Sainte Dévote",

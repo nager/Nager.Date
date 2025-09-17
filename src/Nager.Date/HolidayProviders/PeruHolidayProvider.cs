@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "HOLYTHURSDAY-01",
                     Date = easterSunday.AddDays(-3),
                     EnglishName = "Holy Thursday",
                     LocalName = "Jueves Santo",
@@ -46,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "Día del Trabajo",
@@ -53,8 +55,9 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTSPETERPAUL-01",
                     Date = new DateTime(year, 6, 29),
-                    EnglishName = "St. Peter and St. Paul",
+                    EnglishName = "Saint Peter and Saint Paul",
                     LocalName = "Día de San Pedro y San Pablo",
                     HolidayTypes = HolidayTypes.Public
                 },

@@ -101,6 +101,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "EUROPEDAY-01",
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Europe Day",
                     LocalName = "Europadag",

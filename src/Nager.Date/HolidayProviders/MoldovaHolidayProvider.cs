@@ -122,6 +122,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CAPITALSDAY-01",
                     Date = new DateTime(year, 10, 14),
                     EnglishName = "Capital's Day",
                     LocalName = "Capital's Day",

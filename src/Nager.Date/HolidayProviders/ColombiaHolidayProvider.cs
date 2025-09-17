@@ -82,6 +82,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTSPETERPAUL-01",
                     Date = saintPeterAndSaintPaulDate,
                     EnglishName = "Saint Peter and Saint Paul",
                     LocalName = "San Pedro y San Pablo",
@@ -89,6 +90,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DECLARATIONINDEPENDENCE-01",
                     Date = new DateTime(year, 7, 20),
                     EnglishName = "Declaration of Independence",
                     LocalName = "Declaracion de la Independencia de Colombia",
@@ -96,6 +98,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEBOYACA-01",
                     Date = new DateTime(year, 8, 7),
                     EnglishName = "Battle of Boyacá",
                     LocalName = "Batalla de Boyacá",
@@ -127,6 +130,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCECARTAGENA-01",
                     Date = independenceOfCartagenaDate,
                     EnglishName = "Independence of Cartagena",
                     LocalName = "Independencia de Cartagena",
@@ -150,6 +154,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SACREDHEART-01",
                     Date = easterSunday.AddDays(68).AddDays(3),
                     EnglishName = "Sacred Heart",
                     LocalName = "Sagrado Corazón",

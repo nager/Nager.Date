@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANCESTRYDAY-01",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "Ancestry Day",
                     LocalName = "Jour des Aieux",

@@ -96,7 +96,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "SAINTSPETERPAUL-01",
                     Date = new DateTime(year, 6, 29),
-                    EnglishName = "Saints Peter and Paul",
+                    EnglishName = "Saint Peter and Saint Paul",
                     LocalName = "Peter und Paul",
                     HolidayTypes = HolidayTypes.Observance,
                     SubdivisionCodes = ["CH-TI"]
