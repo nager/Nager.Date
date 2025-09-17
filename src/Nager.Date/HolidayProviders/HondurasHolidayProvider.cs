@@ -63,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FRANCISCOMORAZANSDAY-01",
                     Date = new DateTime(year, 10, 3),
                     EnglishName = "Francisco Morazán's Day/Soldier's Day",
                     LocalName = "Francisco Morazán's Day/Soldier's Day",

@@ -53,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTSCYRILMETHODIUSDAY-01",
                     Date = new DateTime(year, 7, 5),
                     EnglishName = "Saints Cyril and Methodius Day",
                     LocalName = "Den slovanských věrozvěstů Cyrila a Metoděje",

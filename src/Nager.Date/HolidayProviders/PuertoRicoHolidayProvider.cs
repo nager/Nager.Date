@@ -112,6 +112,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BIRTHDAYJOSEDEDIEGO-01",
                     Date = thirdMondayInApril,
                     EnglishName = "Birthday of José de Diego",
                     LocalName = "Natalicio de José de Diego",

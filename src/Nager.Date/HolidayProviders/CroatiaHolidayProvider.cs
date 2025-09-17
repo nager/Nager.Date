@@ -135,6 +135,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "REMEMBRANCEDAY-01",
                     Date = new DateTime(year, 11, 18),
                     EnglishName = "Remembrance Day",
                     LocalName = "Dan sjećanja na žrtve Domovinskog rata",

@@ -69,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESTORATIONINDEPENDENCEDAY-01",
                     Date = new DateTime(year, 8, 20),
                     EnglishName = "Day of Restoration of Independence",
                     LocalName = "taasiseseisvumispäev",

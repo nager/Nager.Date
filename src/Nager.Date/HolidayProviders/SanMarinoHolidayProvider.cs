@@ -45,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTSAINTAGATHA-01",
                     Date = new DateTime(year, 2, 5),
                     EnglishName = "Feast of Saint Agatha",
                     LocalName = "Feast of Saint Agatha",

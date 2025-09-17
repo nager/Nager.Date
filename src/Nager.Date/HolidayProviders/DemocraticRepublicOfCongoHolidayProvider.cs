@@ -39,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LAURENTDESIREKABILAASSASSINATION-01",
                     Date = new DateTime(year, 1, 16),
                     EnglishName = "Laurent-Désiré Kabila Assassination",
                     LocalName = "Laurent-Désiré Kabila Assassination",
@@ -46,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PATRICELUMUMBAASSASSINATION-01",
                     Date = new DateTime(year, 1, 17),
                     EnglishName = "Patrice Lumumba Assassination",
                     LocalName = "Patrice Lumumba Assassination",

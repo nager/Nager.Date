@@ -110,6 +110,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MARTINLUTHERKINGJRDAY-01",
                     Date = thirdMondayInJanuary,
                     EnglishName = "Martin Luther King, Jr. Day",
                     LocalName = "Martin Luther King, Jr. Day",

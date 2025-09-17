@@ -136,6 +136,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 6, 6),
                     EnglishName = "National Day of Sweden",
                     LocalName = "Sveriges nationaldag",

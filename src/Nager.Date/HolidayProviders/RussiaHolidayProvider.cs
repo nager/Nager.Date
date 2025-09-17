@@ -78,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DEFENDERDAY-01",
                     Date = new DateTime(year, 2, 23),
                     EnglishName = "Defender of the Fatherland Day",
                     LocalName = "День защитника Отечества",

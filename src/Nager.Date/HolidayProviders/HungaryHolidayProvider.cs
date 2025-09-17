@@ -62,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONMEMORIALDAY-01",
                     Date = new DateTime(year, 10, 23),
                     EnglishName = "1956 Revolution Memorial Day",
                     LocalName = "Nemzeti ünnep",

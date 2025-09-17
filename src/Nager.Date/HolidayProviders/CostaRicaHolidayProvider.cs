@@ -37,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OURLADYANGELS-01",
                     Date = new DateTime(year, 8, 2),
                     EnglishName = "Feast of Our Lady of the Angels",
                     LocalName = "Fiesta de Nuestra Señora de los Ángeles",
@@ -89,6 +90,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "JUANSANTAMARIADAY-01",
                 Date = new DateTime(year, 4, 11),
                 EnglishName = "Juan Santamaría Day",
                 LocalName = "Día de Juan Santamaría",
@@ -182,6 +184,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "ARMYABOLITIONDAY-01",
                 Date = new DateTime(year, 12, 1),
                 EnglishName = "Army Abolition Day",
                 LocalName = "Día de la Abolición del Ejército",

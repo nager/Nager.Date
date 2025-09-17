@@ -47,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PATRIOTSDAY-01",
                     Date = new DateTime(year, 4, 19),
                     EnglishName = "Landing of the 33 Patriots Day",
                     LocalName = "Desembarco de los 33 Orientales",
@@ -70,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEVERAGAINDAY-01",
                     Date = new DateTime(year, 6, 19),
                     EnglishName = "Birthday of José Gervasio Artigas and Never Again Day",
                     LocalName = "Natalicio de Artigas y Día del Nunca Más",

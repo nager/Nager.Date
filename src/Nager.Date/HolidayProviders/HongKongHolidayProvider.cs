@@ -129,6 +129,7 @@ namespace Nager.Date.HolidayProviders
 
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "LUNARNEWYEAR-01",
                     Date = lunarNewYearDay,
                     EnglishName = "Lunar New Year",
                     LocalName = "農曆年初一",
@@ -137,6 +138,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "LUNARNEWYEAR-02",
                     Date = secondLunarNewYearDay,
                     EnglishName = "Second day of Lunar New Year",
                     LocalName = "農曆年初二",
@@ -145,6 +147,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "LUNARNEWYEAR-03",
                     Date = thirdLunarNewYearDay,
                     EnglishName = "Third day of Lunar New Year",
                     LocalName = "農曆年初三",
@@ -153,6 +156,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "BUDDHASBIRTHDAY-01",
                     Date = buddhasBirthdayDay,
                     EnglishName = "Buddha's Birthday",
                     LocalName = "佛誕",
@@ -161,6 +165,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "DRAGONBOATFESTIVAL-01",
                     Date = dragonBoatFestivalDay,
                     EnglishName = "Dragon Boat Festival",
                     LocalName = "端午節",
@@ -169,6 +174,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "DAYAFTERMIDAUTUMNFESTIVAL-01",
                     Date = followingTheMidAutumnFestivalDay,
                     EnglishName = "Day following the Mid-Autumn Festival",
                     LocalName = "中秋節翌日",
@@ -177,6 +183,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "CHUNGYEUNGFESTIVAL-01",
                     Date = chungYeungFestivalDay,
                     EnglishName = "Chung Yeung Festival",
                     LocalName = "重陽節",
@@ -185,6 +192,7 @@ namespace Nager.Date.HolidayProviders
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
+                    Id = "CHINGMINGFESTIVAL-01",
                     Date = chingMingFestivalDate,
                     EnglishName = "Ching Ming Festival",
                     LocalName = "清明節",

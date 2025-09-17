@@ -60,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BENITOJUÁREZSBIRTHDAY-01",
                     Date = thirdMondayOfMarch,
                     EnglishName = "Benito Juárez's birthday",
                     LocalName = "Natalicio de Benito Juárez",
@@ -112,6 +113,10 @@ namespace Nager.Date.HolidayProviders
             // The president in Mexico is usually elected every 6 years
             // A reform was introduced in 2014 that changes the date from 2024
 
+            var id = "INAUGURATIONDAY-01";
+            var englishName = "Inauguration Day";
+            var localName = "Transmisión del Poder Ejecutivo Federal";
+
             switch (year)
             {
                 case 1934:
@@ -131,9 +136,10 @@ namespace Nager.Date.HolidayProviders
                 case 2018:
                     return new HolidaySpecification
                     {
+                        Id = id,
                         Date = new DateTime(year, 12, 1),
-                        EnglishName = "Inauguration Day",
-                        LocalName = "Transmisión del Poder Ejecutivo Federal",
+                        EnglishName = englishName,
+                        LocalName = localName,
                         HolidayTypes = HolidayTypes.Public
                     };
                 case 2024:
@@ -148,9 +154,10 @@ namespace Nager.Date.HolidayProviders
                 case 2078:
                     return new HolidaySpecification
                     {
+                        Id = id,
                         Date = new DateTime(year, 10, 1),
-                        EnglishName = "Inauguration Day",
-                        LocalName = "Transmisión del Poder Ejecutivo Federal",
+                        EnglishName = englishName,
+                        LocalName = localName,
                         HolidayTypes = HolidayTypes.Public
                     };
             }

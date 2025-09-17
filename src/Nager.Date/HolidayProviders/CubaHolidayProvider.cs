@@ -53,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MONCADAGARRISON-01",
                     Date = new DateTime(year, 7, 25),
                     EnglishName = "Day before the Commemoration of the Assault of the Moncada garrison",
                     LocalName = "Conmemoración del asalto a Moncada",
@@ -60,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALRESISTANCEDAY-01",
                     Date = new DateTime(year, 7, 26),
                     EnglishName = "Commemoration of the Assault of the Moncada garrison",
                     LocalName = "Día de la Rebeldía Nacional",
@@ -67,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MONCADAGARRISON-02",
                     Date = new DateTime(year, 7, 27),
                     EnglishName = "Day after the Commemoration of the Assault of the Moncada garrison",
                     LocalName = "Conmemoración del asalto a Moncada",

@@ -135,6 +135,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification DayOfTheConstitution(int year)
         {
+            var id = "CONSTITUTIONDAY-01";
             var englishName = "Day of the Constitution of the Slovak Republic";
             var localName = "Deň Ústavy Slovenskej republiky";
             var holidayDate = new DateTime(year, 9, 1);
@@ -143,6 +144,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = holidayDate,
                     EnglishName = englishName,
                     LocalName = localName,
@@ -152,6 +154,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = holidayDate,
                 EnglishName = englishName,
                 LocalName = localName,

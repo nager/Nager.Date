@@ -74,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "2NDJANUARY-01",
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "2 January",
                     LocalName = "2 January",
@@ -162,6 +163,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification SpringBankHoliday(int year)
         {
+            var id = "SPRINGBANKHOLIDAY-01";
             var name = "Spring Bank Holiday";
 
             if (year == 2022)
@@ -170,6 +172,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 6, 2),
                     EnglishName = name,
                     LocalName = name,
@@ -181,6 +184,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = lastMondayInMay,
                 EnglishName = name,
                 LocalName = name,
@@ -217,6 +221,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "QUEENSSTATEFUNERAL-01",
                     Date = new DateTime(year, 9, 19),
                     EnglishName = "Queen’s State Funeral",
                     LocalName = "Queen’s State Funeral",
