@@ -14,6 +14,16 @@ namespace Nager.Date.Models
         /// <summary>
         /// Unique Id for the Holiday
         /// </summary>
+        /// <remarks>
+        /// Database / format rules:
+        /// <para>- Starts with ISO country code (e.g., "DE")</para>
+        /// <para>- Separator: hyphen ("-")</para>
+        /// <para>- Holiday name in uppercase letters, optionally with hyphens (e.g., "CHRISTMASEVE")</para>
+        /// <para>- Ends with a two-digit numeric index (e.g., "01")</para>
+        /// <para>- Maximum total length: 40 characters</para>
+        /// <para>- Allowed characters: A-Z, 0-9, and hyphens</para>
+        /// <para>Examples: "DE-CCHRISTMASEVE-01", "DE-NEWYEARSDAY-01"</para>
+        /// </remarks>
         public required string Id { get; set; }
 
 #else
@@ -21,6 +31,16 @@ namespace Nager.Date.Models
         /// <summary>
         /// Unique Id for the Holiday
         /// </summary>
+        /// <remarks>
+        /// Database / format rules:
+        /// <para>- Starts with ISO country code (e.g., "DE")</para>
+        /// <para>- Separator: hyphen ("-")</para>
+        /// <para>- Holiday name in uppercase letters, optionally with hyphens (e.g., "CHRISTMASEVE")</para>
+        /// <para>- Ends with a two-digit numeric index (e.g., "01")</para>
+        /// <para>- Maximum total length: 40 characters</para>
+        /// <para>- Allowed characters: A-Z, 0-9, and hyphens</para>
+        /// <para>Examples: "DE-CCHRISTMASEVE-01", "DE-NEWYEARSDAY-01"</para>
+        /// </remarks>
         public string Id { get; set; } = string.Empty;
 
 #endif
