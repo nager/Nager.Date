@@ -128,6 +128,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = "ANNEXATIONDAY-01",
                 Date = new DateTime(year, 7, 25),
                 EnglishName = "Annexation of the Party of Nicoya to Costa Rica",
                 LocalName = "Anexión del Partido de Nicoya a Costa Rica",

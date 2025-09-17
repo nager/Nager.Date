@@ -62,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "THANKSGIVINGDAY-01",
                     Date = new DateTime(year, 8, 5),
                     EnglishName = "Victory and Homeland Thanksgiving Day and the Day of Croatian defenders",
                     LocalName = "Dan pobjede i domovinske zahvalnosti i Dan hrvatskih branitelja",

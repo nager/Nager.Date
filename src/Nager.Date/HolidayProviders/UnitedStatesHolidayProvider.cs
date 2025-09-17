@@ -231,6 +231,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 6, 19),
                     EnglishName = "Juneteenth National Independence Day",
                     LocalName = "Juneteenth National Independence Day",
