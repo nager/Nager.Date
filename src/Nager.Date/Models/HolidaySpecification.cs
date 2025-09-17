@@ -14,8 +14,8 @@ namespace Nager.Date.Models
         /// <summary>
         /// Unique Id for the Holiday
         /// </summary>
-        //public required string Id { get; set; }
-        public string Id { get; set; } = string.Empty;
+        public required string Id { get; set; }
+
 #else
 
         /// <summary>

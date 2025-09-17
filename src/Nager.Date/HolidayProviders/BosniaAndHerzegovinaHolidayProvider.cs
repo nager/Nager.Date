@@ -125,7 +125,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "RCCHRISTMASEVE-01",
+                    Id = "CCHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve (Roman Catholic)",
                     LocalName = "Božić (za rimokatolike)",
@@ -134,7 +134,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "RCCHRISTMAYDAY-01",
+                    Id = "CCHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day (Roman Catholic)",
                     LocalName = "Božić (za rimokatolike)",

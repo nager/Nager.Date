@@ -95,7 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "CATHOLICCHRISTMASDAY-01",
+                    Id = "CCHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Catholic Christmas Day",
                     LocalName = "Каляды каталiцкiя",
