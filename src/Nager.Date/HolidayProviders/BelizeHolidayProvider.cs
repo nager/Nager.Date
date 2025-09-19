@@ -158,8 +158,6 @@ namespace Nager.Date.HolidayProviders
                 HolidayTypes = HolidayTypes.Public,
                 ObservedRuleSet = observedRuleSet
             };
-
-            return null;
         }
 
         private HolidaySpecification? CommonwealthDay(
