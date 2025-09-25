@@ -155,7 +155,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "LABOURDAY-01",
                     Date = firstMondayInSeptember,
                     EnglishName = "Labour Day",
-                    LocalName = "Labour Day",
+                    LocalName = "Labor Day",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
