@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -140,6 +141,8 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.WhitMonday("Lunedì di Pentecoste", year).SetSubdivisionCodes("IT-32"),
             };
 
+            holidaySpecifications.AddIfNotNull(this.SaintFrancisOfAssisisDay(year));
+
             return holidaySpecifications;
         }
 
@@ -150,6 +153,23 @@ namespace Nager.Date.HolidayProviders
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Italy",
             ];
+        }
+
+        private HolidaySpecification? SaintFrancisOfAssisisDay(int year)
+        {
+            if (year >= 2026)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "STFRANCISOFASSISISDAY-01",
+                    Date = new DateTime(year, 10, 4),
+                    EnglishName = "St. Francis of Assisi's Day",
+                    LocalName = "San Francesco d'Assisi",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
     }
 }
