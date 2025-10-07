@@ -119,13 +119,25 @@ namespace Nager.Date.HolidayProviders
             var localName = "Deň Ústavy Slovenskej republiky";
             var holidayDate = new DateTime(year, 9, 1);
 
+            if (year > 2024)
+            {
+                return new HolidaySpecification
+                {
+                    Id = id,
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
             return new HolidaySpecification
             {
                 Id = id,
                 Date = holidayDate,
                 EnglishName = englishName,
                 LocalName = localName,
-                HolidayTypes = year > 2024 ? HolidayTypes.Observance : HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public
             };
         }
 

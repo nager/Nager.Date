@@ -13,10 +13,10 @@ namespace Nager.Date.UnitTest.Countries
             var year = 2024;
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.SK).ToArray();
 
-            var constitutionDay = holidays.FirstOrDefault(h => h.Id == "CONSTITUTIONDAY-01");
-            var ladySorrowsDay = holidays.FirstOrDefault(h => h.Id == "DAYOURLADYSEVENSORROWS-01");
-            var victoryDay = holidays.FirstOrDefault(h => h.Id == "DAYOFVICTORYOVERFASCISM-01");
-            var freedomDay = holidays.FirstOrDefault(h => h.Id == "STRUGGLEFREEDOMDEMOCRACYDAY-01");
+            var constitutionDay = holidays.SingleOrDefault(h => h.Id == "SK-CONSTITUTIONDAY-01");
+            var ladySorrowsDay = holidays.SingleOrDefault(h => h.Id == "SK-DAYOURLADYSEVENSORROWS-01");
+            var victoryDay = holidays.SingleOrDefault(h => h.Id == "SK-DAYOFVICTORYOVERFASCISM-01");
+            var freedomDay = holidays.SingleOrDefault(h => h.Id == "SK-STRUGGLEFREEDOMDEMOCRACYDAY-01");
 
             Assert.IsNotNull(constitutionDay);
             Assert.AreEqual(HolidayTypes.Public, constitutionDay.HolidayTypes, "Constitution Day type is wrong for 2024");
@@ -37,10 +37,10 @@ namespace Nager.Date.UnitTest.Countries
             var year = 2025;
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.SK).ToArray();
 
-            var constitutionDay = holidays.FirstOrDefault(h => h.Id == "CONSTITUTIONDAY-01");
-            var ladySorrowsDay = holidays.FirstOrDefault(h => h.Id == "DAYOURLADYSEVENSORROWS-01");
-            var victoryDay = holidays.FirstOrDefault(h => h.Id == "DAYOFVICTORYOVERFASCISM-01");
-            var freedomDay = holidays.FirstOrDefault(h => h.Id == "STRUGGLEFREEDOMDEMOCRACYDAY-01");
+            var constitutionDay = holidays.SingleOrDefault(h => h.Id == "SK-CONSTITUTIONDAY-01");
+            var ladySorrowsDay = holidays.SingleOrDefault(h => h.Id == "SK-DAYOURLADYSEVENSORROWS-01");
+            var victoryDay = holidays.SingleOrDefault(h => h.Id == "SK-DAYOFVICTORYOVERFASCISM-01");
+            var freedomDay = holidays.SingleOrDefault(h => h.Id == "SK-STRUGGLEFREEDOMDEMOCRACYDAY-01");
 
             Assert.IsNotNull(constitutionDay);
             Assert.AreEqual(HolidayTypes.Observance, constitutionDay.HolidayTypes, "Constitution Day type is wrong for 2025");
@@ -61,10 +61,10 @@ namespace Nager.Date.UnitTest.Countries
             var year = 2026;
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.SK).ToArray();
 
-            var constitutionDay = holidays.FirstOrDefault(h => h.Id == "CONSTITUTIONDAY-01");
-            var ladySorrowsDay = holidays.FirstOrDefault(h => h.Id == "DAYOURLADYSEVENSORROWS-01");
-            var victoryDay = holidays.FirstOrDefault(h => h.Id == "DAYOFVICTORYOVERFASCISM-01");
-            var freedomDay = holidays.FirstOrDefault(h => h.Id == "STRUGGLEFREEDOMDEMOCRACYDAY-01");
+            var constitutionDay = holidays.SingleOrDefault(h => h.Id == "SK-CONSTITUTIONDAY-01");
+            var ladySorrowsDay = holidays.SingleOrDefault(h => h.Id == "SK-DAYOURLADYSEVENSORROWS-01");
+            var victoryDay = holidays.SingleOrDefault(h => h.Id == "SK-DAYOFVICTORYOVERFASCISM-01");
+            var freedomDay = holidays.SingleOrDefault(h => h.Id == "SK-STRUGGLEFREEDOMDEMOCRACYDAY-01");
 
             Assert.IsNotNull(constitutionDay);
             Assert.AreEqual(HolidayTypes.Observance, constitutionDay.HolidayTypes, "Constitution Day type is wrong for 2026");
