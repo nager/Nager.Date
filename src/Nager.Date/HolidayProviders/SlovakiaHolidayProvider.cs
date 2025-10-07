@@ -148,13 +148,25 @@ namespace Nager.Date.HolidayProviders
             var localName = "Sedembolestná Panna Mária";
             var holidayDate = new DateTime(year, 9, 15);
 
+            if (year == 2026)
+            {
+                return new HolidaySpecification
+                {
+                    Id = id,
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
             return new HolidaySpecification
             {
                 Id = id,
                 Date = holidayDate,
                 EnglishName = englishName,
                 LocalName = localName,
-                HolidayTypes = year == 2026 ? HolidayTypes.Observance : HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public
             };
         }
 
@@ -165,13 +177,25 @@ namespace Nager.Date.HolidayProviders
             var localName = "Deň víťazstva nad fašizmom";
             var holidayDate = new DateTime(year, 5, 8);
 
+            if (year == 2026)
+            {
+                return new HolidaySpecification
+                {
+                    Id = id,
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
             return new HolidaySpecification
             {
                 Id = id,
                 Date = holidayDate,
                 EnglishName = englishName,
                 LocalName = localName,
-                HolidayTypes = year == 2026 ? HolidayTypes.Observance : HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public
             };
         }
 
@@ -182,13 +206,25 @@ namespace Nager.Date.HolidayProviders
             var localName = "Deň boja za slobodu a demokraciu";
             var holidayDate = new DateTime(year, 11, 17);
 
+            if (year > 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Id = id,
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
             return new HolidaySpecification
             {
                 Id = id,
                 Date = holidayDate,
                 EnglishName = englishName,
                 LocalName = localName,
-                HolidayTypes = year >= 2026 ? HolidayTypes.Observance : HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public
             };
         }
 
