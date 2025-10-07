@@ -119,7 +119,7 @@ namespace Nager.Date.HolidayProviders
             var localName = "Deň Ústavy Slovenskej republiky";
             var holidayDate = new DateTime(year, 9, 1);
 
-            if (year > 2024)
+            if (year >= 2025)
             {
                 return new HolidaySpecification
                 {
@@ -206,7 +206,7 @@ namespace Nager.Date.HolidayProviders
             var localName = "Deň boja za slobodu a demokraciu";
             var holidayDate = new DateTime(year, 11, 17);
 
-            if (year > 2025)
+            if (year >= 2026)
             {
                 return new HolidaySpecification
                 {
