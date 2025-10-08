@@ -107,7 +107,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.DayOfTheConstitution(year));
             holidaySpecifications.AddIfNotNull(this.DayOfOurLadyOfTheSevenSorrows(year));
             holidaySpecifications.AddIfNotNull(this.DayOfVictoryOverFascism(year));
-            holidaySpecifications.AddIfNotNull(this.StruggleForFreedonAndDemocracyDay(year));
+            holidaySpecifications.AddIfNotNull(this.StruggleForFreedomAndDemocracyDay(year));
 
             return holidaySpecifications;
         }
@@ -199,14 +199,14 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification StruggleForFreedonAndDemocracyDay(int year)
+        private HolidaySpecification StruggleForFreedomAndDemocracyDay(int year)
         {
             var id = "STRUGGLEFREEDOMDEMOCRACYDAY-01";
             var englishName = "Struggle for Freedom and Democracy Day";
             var localName = "Deň boja za slobodu a demokraciu";
             var holidayDate = new DateTime(year, 11, 17);
 
-            if (year >= 2026)
+            if (year >= 2025)
             {
                 return new HolidaySpecification
                 {

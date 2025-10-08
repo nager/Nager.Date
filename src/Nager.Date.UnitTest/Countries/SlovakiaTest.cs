@@ -52,7 +52,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(HolidayTypes.Public, victoryDay.HolidayTypes, "Victory over Fascism type is wrong for 2025");
 
             Assert.IsNotNull(freedomDay);
-            Assert.AreEqual(HolidayTypes.Public, freedomDay.HolidayTypes, "Freedom and Democracy Day type is wrong for 2025");
+            Assert.AreEqual(HolidayTypes.Observance, freedomDay.HolidayTypes, "Freedom and Democracy Day type is wrong for 2025");
         }
 
         [TestMethod]
