@@ -38,12 +38,6 @@ namespace Nager.Date.HolidayProviders
             //    Sunday = date => date.AddDays(2)
             //};
 
-            //TODO:
-            // - Add Madaraka Day[1]
-            // - Add Mazingira Day
-            // - Add Mashujaa Day
-            // - Add Jamhuri Day
-
             //IGNORE
             // - Eid al-Fitr and Eid al-Adha -> https://github.com/nager/Nager.date?tab=readme-ov-file#limitation-regarding-islamic-holidays
 
@@ -69,6 +63,23 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MADARAKADAY-01",
+                    Date = new DateTime(year, 6, 1),
+                    EnglishName = "Madaraka Day",
+                    LocalName = "Madaraka Day",
+                    HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Id = "JAMHURIDAY-01",
+                    Date = new DateTime(year, 12, 12),
+                    EnglishName = "Jamhuri Day",
+                    LocalName = "Jamhuri Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    //ObservedRuleSet = observedRuleSet2
+                },
+                new HolidaySpecification
+                {
                     Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
@@ -89,7 +100,80 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Easter Monday", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.HudumaDay(year));
+            holidaySpecifications.AddIfNotNull(this.UtamaduniDay(year));
+            holidaySpecifications.AddIfNotNull(this.MazingiraDay(year));
+            holidaySpecifications.AddIfNotNull(this.MashujaaDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? MashujaaDay(int year)
+        {
+            if (year >= 2010)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "MASHUJAADAY-01",
+                    Date = new DateTime(year, 10, 20),
+                    EnglishName = "Mashujaa Day",
+                    LocalName = "Mashujaa Day",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
+        }
+
+        private HolidaySpecification? MazingiraDay(int year)
+        {
+            if (year >= 2023)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "MAZINGIRADAY-01",
+                    Date = new DateTime(year, 10, 10),
+                    EnglishName = "Mazingira Day",
+                    LocalName = "Mazingira Day",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
+        }
+
+        private HolidaySpecification? UtamaduniDay(int year)
+        {
+            if (year >= 2020 && year < 2023)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "UTAMADUNIDAY-01",
+                    Date = new DateTime(year, 10, 10),
+                    EnglishName = "Utamaduni Day",
+                    LocalName = "Utamaduni Day",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
+        }
+
+        private HolidaySpecification? HudumaDay(int year)
+        {
+            if (year >= 2010 && year < 2020)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "HUDUMADAY-01",
+                    Date = new DateTime(year, 10, 10),
+                    EnglishName = "Huduma Day",
+                    LocalName = "Huduma Day",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
