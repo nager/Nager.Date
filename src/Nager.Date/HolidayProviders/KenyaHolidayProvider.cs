@@ -28,15 +28,22 @@ namespace Nager.Date.HolidayProviders
         {
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            //var observedRuleSet1 = new ObservedRuleSet
-            //{
-            //    Sunday = date => date.AddDays(1)
-            //};
+            /*
+             * When public holiday falls on a Sunday
+             * Where, in any year, a day in Part I of the Schedule falls on a Sunday, then the first succeeding day, not
+             * being a public holiday, shall be a public holiday and the first-mentioned day shall cease to be a public
+             * holiday.
+            */
 
-            //var observedRuleSet2 = new ObservedRuleSet
-            //{
-            //    Sunday = date => date.AddDays(2)
-            //};
+            var observedRuleSet1 = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(1)
+            };
+
+            var observedRuleSet2 = new ObservedRuleSet
+            {
+                Monday = date => date.AddDays(1)
+            };
 
             //IGNORE
             // - Eid al-Fitr and Eid al-Adha -> https://github.com/nager/Nager.date?tab=readme-ov-file#limitation-regarding-islamic-holidays
@@ -50,7 +57,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    //ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -59,7 +66,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
                     HolidayTypes = HolidayTypes.Public,
-                    //ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -67,7 +74,8 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 1),
                     EnglishName = "Madaraka Day",
                     LocalName = "Madaraka Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -76,7 +84,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Jamhuri Day",
                     LocalName = "Jamhuri Day",
                     HolidayTypes = HolidayTypes.Public,
-                    //ObservedRuleSet = observedRuleSet2
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -85,7 +93,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
-                    //ObservedRuleSet = observedRuleSet2
+                    ObservedRuleSet = observedRuleSet1
                 },
                 new HolidaySpecification
                 {
@@ -94,7 +102,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "St. Stephen's Day",
                     LocalName = "St. Stephen's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    //ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = observedRuleSet2
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year)
@@ -102,13 +110,15 @@ namespace Nager.Date.HolidayProviders
 
             holidaySpecifications.AddIfNotNull(this.HudumaDay(year));
             holidaySpecifications.AddIfNotNull(this.UtamaduniDay(year));
-            holidaySpecifications.AddIfNotNull(this.MazingiraDay(year));
-            holidaySpecifications.AddIfNotNull(this.MashujaaDay(year));
+            holidaySpecifications.AddIfNotNull(this.MazingiraDay(year, observedRuleSet1));
+            holidaySpecifications.AddIfNotNull(this.MashujaaDay(year, observedRuleSet1));
 
             return holidaySpecifications;
         }
 
-        private HolidaySpecification? MashujaaDay(int year)
+        private HolidaySpecification? MashujaaDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
         {
             if (year >= 2010)
             {
@@ -118,14 +128,17 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 20),
                     EnglishName = "Mashujaa Day",
                     LocalName = "Mashujaa Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 };
             }
 
             return null;
         }
 
-        private HolidaySpecification? MazingiraDay(int year)
+        private HolidaySpecification? MazingiraDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
         {
             if (year >= 2023)
             {
@@ -135,7 +148,8 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 10),
                     EnglishName = "Mazingira Day",
                     LocalName = "Mazingira Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 };
             }
 
@@ -181,7 +195,8 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Kenya"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Kenya",
+                "https://new.kenyalaw.org/akn/ke/act/1912/21/eng@2024-04-26"
             ];
         }
     }
