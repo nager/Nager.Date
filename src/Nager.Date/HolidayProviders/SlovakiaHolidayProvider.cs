@@ -54,14 +54,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "DAYOFVICTORYOVERFASCISM-01",
-                    Date = new DateTime(year, 5, 8),
-                    EnglishName = "Day of victory over fascism",
-                    LocalName = "Deň víťazstva nad fašizmom",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Id = "STCYRILANDMETHODIUSDAY-01",
                     Date = new DateTime(year, 7, 5),
                     EnglishName = "St. Cyril and Methodius Day",
@@ -78,26 +70,10 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "DAYOURLADYSEVENSORROWS-01",
-                    Date = new DateTime(year, 9, 15),
-                    EnglishName = "Day of Our Lady of the Seven Sorrows",
-                    LocalName = "Sedembolestná Panna Mária",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints’ Day",
                     LocalName = "Sviatok Všetkých svätých",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "STRUGGLEFREEDOMDEMOCRACYDAY-01",
-                    Date = new DateTime(year, 11, 17),
-                    EnglishName = "Struggle for Freedom and Democracy Day",
-                    LocalName = "Deň boja za slobodu a demokraciu",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -129,6 +105,9 @@ namespace Nager.Date.HolidayProviders
             };
 
             holidaySpecifications.AddIfNotNull(this.DayOfTheConstitution(year));
+            holidaySpecifications.AddIfNotNull(this.DayOfOurLadyOfTheSevenSorrows(year));
+            holidaySpecifications.AddIfNotNull(this.DayOfVictoryOverFascism(year));
+            holidaySpecifications.AddIfNotNull(this.StruggleForFreedomAndDemocracyDay(year));
 
             return holidaySpecifications;
         }
@@ -140,7 +119,94 @@ namespace Nager.Date.HolidayProviders
             var localName = "Deň Ústavy Slovenskej republiky";
             var holidayDate = new DateTime(year, 9, 1);
 
-            if (year > 2024)
+            if (year >= 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Id = id,
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Id = id,
+                Date = holidayDate,
+                EnglishName = englishName,
+                LocalName = localName,
+                HolidayTypes = HolidayTypes.Public
+            };
+        }
+
+        private HolidaySpecification DayOfOurLadyOfTheSevenSorrows(int year)
+        {
+            var id = "DAYOURLADYSEVENSORROWS-01";
+            var englishName = "Day of Our Lady of the Seven Sorrows";
+            var localName = "Sedembolestná Panna Mária";
+            var holidayDate = new DateTime(year, 9, 15);
+
+            if (year == 2026)
+            {
+                return new HolidaySpecification
+                {
+                    Id = id,
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Id = id,
+                Date = holidayDate,
+                EnglishName = englishName,
+                LocalName = localName,
+                HolidayTypes = HolidayTypes.Public
+            };
+        }
+
+        private HolidaySpecification DayOfVictoryOverFascism(int year)
+        {
+            var id = "DAYOFVICTORYOVERFASCISM-01";
+            var englishName = "Day of victory over fascism";
+            var localName = "Deň víťazstva nad fašizmom";
+            var holidayDate = new DateTime(year, 5, 8);
+
+            if (year == 2026)
+            {
+                return new HolidaySpecification
+                {
+                    Id = id,
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Observance
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Id = id,
+                Date = holidayDate,
+                EnglishName = englishName,
+                LocalName = localName,
+                HolidayTypes = HolidayTypes.Public
+            };
+        }
+
+        private HolidaySpecification StruggleForFreedomAndDemocracyDay(int year)
+        {
+            var id = "STRUGGLEFREEDOMDEMOCRACYDAY-01";
+            var englishName = "Struggle for Freedom and Democracy Day";
+            var localName = "Deň boja za slobodu a demokraciu";
+            var holidayDate = new DateTime(year, 11, 17);
+
+            if (year >= 2025)
             {
                 return new HolidaySpecification
                 {
