@@ -97,10 +97,10 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "STSTEPHENSDAY-01",
+                    Id = "BOXINGDAY-01",
                     Date = new DateTime(year, 12, 26),
-                    EnglishName = "St. Stephen's Day",
-                    LocalName = "St. Stephen's Day",
+                    EnglishName = "Boxing Day",
+                    LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet2
                 },
