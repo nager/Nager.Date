@@ -29,6 +29,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "L-Ewwel tas-Sena",
@@ -36,6 +37,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTSTPAULSSHIPWRECK-01",
                     Date = new DateTime(year, 2, 10),
                     EnglishName = "Feast of St. Paul's Shipwreck",
                     LocalName = "In-Nawfraġju ta’ San Pawl",
@@ -43,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FEASTOFSTJOSEPH-01",
                     Date = new DateTime(year, 3, 19),
                     EnglishName = "Feast of St. Joseph",
                     LocalName = "San Ġużepp",
@@ -50,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FREEDOMDAY-01",
                     Date = new DateTime(year, 3, 31),
                     EnglishName = "Freedom Day",
                     LocalName = "Jum il-Ħelsien",
@@ -57,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Worker's Day",
                     LocalName = "Jum il-Ħaddiem",
@@ -64,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SETTEGIUGNO-01",
                     Date = new DateTime(year, 6, 7),
                     EnglishName = "Sette Giugno",
                     LocalName = "Sette Giugno",
@@ -71,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTSPETERPAUL-01",
                     Date = new DateTime(year, 6, 29),
                     EnglishName = "Feast of St.Peter and St.Paul",
                     LocalName = "L-Imnarja",
@@ -78,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONDAY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Santa Marija",
@@ -85,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LADYVICTORIES-01",
                     Date = new DateTime(year, 9, 8),
                     EnglishName = "Feast of Our Lady of Victories",
                     LocalName = "Il-Vittorja",
@@ -92,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 9, 21),
                     EnglishName = "Independence Day",
                     LocalName = "L-Indipendenza",
@@ -99,6 +109,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Feast of the Immaculate Conception",
                     LocalName = "L-Immakulata Kunċizzjoni",
@@ -106,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 12, 13),
                     EnglishName = "Republic Day",
                     LocalName = "Jum ir-Repubblika",
@@ -113,6 +125,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "​CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "​Christmas Day",
                     LocalName = "Il-Milied​",

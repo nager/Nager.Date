@@ -66,6 +66,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Confraternização Universal",
@@ -73,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "TIRADENTES-01",
                     Date = new DateTime(year, 4, 21),
                     EnglishName = "Tiradentes",
                     LocalName = "Dia de Tiradentes",
@@ -80,6 +82,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Dia do Trabalhador",
@@ -87,6 +90,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONALISTREVOLUTION-01",
                     Date = new DateTime(year, 7, 9),
                     EnglishName = "Constitutionalist Revolution of 1932",
                     LocalName = "Revolução Constitucionalista de 1932",
@@ -95,6 +99,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 9, 7),
                     EnglishName = "Independence Day",
                     LocalName = "Dia da Independência",
@@ -102,6 +107,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OURLADYAPARECIDA-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Our Lady of Aparecida",
                     LocalName = "Nossa Senhora Aparecida",
@@ -109,6 +115,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSOULSDAY-01",
                     Date = new DateTime(year, 11, 2),
                     EnglishName = "All Souls' Day",
                     LocalName = "Dia de Finados",
@@ -116,6 +123,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICPROCLAMATIONDAY-01",
                     Date = new DateTime(year, 11, 15),
                     EnglishName = "Republic Proclamation Day",
                     LocalName = "Proclamação da República",
@@ -123,6 +131,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Natal",
@@ -130,6 +139,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-01",
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
@@ -137,6 +147,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-02",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
@@ -158,6 +169,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "BLACKAWARENESSDAY-01",
                     Date = new DateTime(year, 11, 20),
                     EnglishName = "Black Awareness Day",
                     LocalName = "Dia da Consciência Negra",

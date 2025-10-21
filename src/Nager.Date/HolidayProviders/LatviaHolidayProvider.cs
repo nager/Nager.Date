@@ -32,6 +32,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Jaunais Gads",
@@ -39,6 +40,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Darba svētki",
@@ -46,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RESTORATIONOFINDEPENDENCE-01",
                     Date = new DateTime(year, 5, 4),
                     EnglishName = "Restoration of Independence day",
                     LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
@@ -53,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MOTHERSDAY-01",
                     Date = secondSundayInMay,
                     EnglishName = "Mother's Day",
                     LocalName = "Mātes diena",
@@ -60,6 +64,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MIDSUMMEREVE-01",
                     Date = new DateTime(year, 6, 23),
                     EnglishName = "Midsummer Eve",
                     LocalName = "Līgo Diena",
@@ -67,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MIDSUMMERDAY-01",
                     Date = new DateTime(year, 6, 24),
                     EnglishName = "Midsummer Day",
                     LocalName = "Jāņi",
@@ -74,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PROCLAMATIONDAY-01",
                     Date = new DateTime(year, 11, 18),
                     EnglishName = "Proclamation Day of the Republic of Latvia",
                     LocalName = "Latvijas Republikas proklamēšanas diena",
@@ -81,6 +88,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Ziemassvētku vakars",
@@ -88,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Ziemassvētki",
@@ -95,6 +104,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Otrie Ziemassvētki",
@@ -102,6 +112,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSEVE-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "New Year's Eve",
                     LocalName = "Vecgada vakars",

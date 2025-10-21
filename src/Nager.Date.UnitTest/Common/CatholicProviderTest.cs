@@ -7,7 +7,7 @@ namespace Nager.Date.UnitTest.Common
     [TestClass]
     public class CatholicProviderTest
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1800, 4, 13)]
         [DataRow(1810, 4, 22)]
         [DataRow(1820, 4, 2)]

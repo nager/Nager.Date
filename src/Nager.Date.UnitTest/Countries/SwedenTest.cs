@@ -6,7 +6,7 @@ namespace Nager.Date.UnitTest.Countries
     [TestClass]
     public class SwedenTest
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2000, false)]
         [DataRow(2004, false)]
         [DataRow(2005, true)]
@@ -18,7 +18,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(expectedIsPublicHoliday, isPublicHoliday, date.ToString());
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(2000, 6, 12, true)]
         [DataRow(2004, 5, 31, true)]
         [DataRow(2005, 5, 16, false)]

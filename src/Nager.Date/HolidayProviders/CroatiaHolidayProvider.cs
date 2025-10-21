@@ -30,6 +30,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Nova Godina",
@@ -37,6 +38,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Bogojavljenje, Sveta tri kralja",
@@ -44,6 +46,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "Međunarodni praznik rada",
@@ -51,6 +54,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANTIFASCISTSTRUGGLEDAY-01",
                     Date = new DateTime(year, 6, 22),
                     EnglishName = "Anti-Fascist Struggle Day",
                     LocalName = "Dan antifašističke borbe",
@@ -58,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "THANKSGIVINGDAY-01",
                     Date = new DateTime(year, 8, 5),
                     EnglishName = "Victory and Homeland Thanksgiving Day and the Day of Croatian defenders",
                     LocalName = "Dan pobjede i domovinske zahvalnosti i Dan hrvatskih branitelja",
@@ -65,6 +70,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONDAY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Velika Gospa",
@@ -72,6 +78,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "Dan svih svetih",
@@ -79,6 +86,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Božić",
@@ -86,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Prvi dan po Božiću, Sveti Stjepan, Štefanje, Stipanje",
@@ -110,6 +119,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 10, 8),
                     EnglishName = "Independence Day",
                     LocalName = "Dan neovisnosti",
@@ -126,6 +136,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "REMEMBRANCEDAY-01",
                     Date = new DateTime(year, 11, 18),
                     EnglishName = "Remembrance Day",
                     LocalName = "Dan sjećanja na žrtve Domovinskog rata",
@@ -142,6 +153,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "STATEHOODDAY-01",
                     Date = new DateTime(year, 6, 25),
                     EnglishName = "Statehood Day",
                     LocalName = "Dan državnosti",
@@ -158,6 +170,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 5, 30),
                     EnglishName = "National Day",
                     LocalName = "Dan državnosti",

@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Año Nuevo",
@@ -38,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHILDRENSDAY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Children's Day",
                     LocalName = "Día de los Niños",
@@ -45,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PATRIOTSDAY-01",
                     Date = new DateTime(year, 4, 19),
                     EnglishName = "Landing of the 33 Patriots Day",
                     LocalName = "Desembarco de los 33 Orientales",
@@ -52,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "Día de los Trabajadores",
@@ -59,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEOFLASPIEDRAS-01",
                     Date = new DateTime(year, 5, 18),
                     EnglishName = "Battle of Las Piedras",
                     LocalName = "Batalla de las Piedras",
@@ -66,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEVERAGAINDAY-01",
                     Date = new DateTime(year, 6, 19),
                     EnglishName = "Birthday of José Gervasio Artigas and Never Again Day",
                     LocalName = "Natalicio de Artigas y Día del Nunca Más",
@@ -73,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONDAY-01",
                     Date = new DateTime(year, 7, 18),
                     EnglishName = "Constitution Day",
                     LocalName = "Jura de la Constitución",
@@ -80,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 8, 25),
                     EnglishName = "Independence Day",
                     LocalName = "Día de la Independencia",
@@ -87,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFTHERACE-01",
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Day of the race",
                     LocalName = "Día de la Raza",
@@ -94,6 +103,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DECEASEDONESDAY-01",
                     Date = new DateTime(year, 11, 2),
                     EnglishName = "Deceased ones day",
                     LocalName = "Día de los Difuntos",
@@ -101,6 +111,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Día de la Familia",
@@ -108,6 +119,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-01",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
@@ -115,6 +127,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-02",
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",

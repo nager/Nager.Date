@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -57,6 +58,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Capodanno",
@@ -64,6 +66,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Epifania",
@@ -71,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LIBERATIONDAY-01",
                     Date = new DateTime(year, 4, 25),
                     EnglishName = "Liberation Day",
                     LocalName = "Festa della Liberazione",
@@ -78,6 +82,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INTERNATIONALWORKERSDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers Day",
                     LocalName = "Festa del Lavoro",
@@ -85,6 +90,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 6, 2),
                     EnglishName = "Republic Day",
                     LocalName = "Festa della Repubblica",
@@ -92,6 +98,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONDAY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Ferragosto o Assunzione",
@@ -99,6 +106,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints Day",
                     LocalName = "Tutti i santi",
@@ -106,6 +114,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Immacolata Concezione",
@@ -113,6 +122,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Natale",
@@ -120,6 +130,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Santo Stefano",
@@ -129,6 +140,8 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Lunedì dell'Angelo", year),
                 this._catholicProvider.WhitMonday("Lunedì di Pentecoste", year).SetSubdivisionCodes("IT-32"),
             };
+
+            holidaySpecifications.AddIfNotNull(this.SaintFrancisOfAssisisDay(year));
 
             return holidaySpecifications;
         }
@@ -140,6 +153,23 @@ namespace Nager.Date.HolidayProviders
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Italy",
             ];
+        }
+
+        private HolidaySpecification? SaintFrancisOfAssisisDay(int year)
+        {
+            if (year >= 2026)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "STFRANCISOFASSISISDAY-01",
+                    Date = new DateTime(year, 10, 4),
+                    EnglishName = "St. Francis of Assisi's Day",
+                    LocalName = "San Francesco d'Assisi",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
     }
 }

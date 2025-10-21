@@ -50,6 +50,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Yılbaşı",
@@ -57,6 +58,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALINDEPENDENCE-01",
                     Date = new DateTime(year, 4, 23),
                     EnglishName = "National Independence & Children's Day",
                     LocalName = "Ulusal Egemenlik ve Çocuk Bayramı",
@@ -64,6 +66,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "İşçi Bayramı",
@@ -71,6 +74,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ATATUERKCOMMEMORATIONYOUTHDAY-01",
                     Date = new DateTime(year, 5, 19),
                     EnglishName = "Atatürk Commemoration & Youth Day",
                     LocalName = "Atatürk'ü Anma, Gençlik ve Spor Bayramı",
@@ -78,6 +82,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VICTORYDAY-01",
                     Date = new DateTime(year, 8, 30),
                     EnglishName = "Victory Day",
                     LocalName = "Zafer Bayramı",
@@ -85,6 +90,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REPUBLICDAY-01",
                     Date = new DateTime(year, 10, 29),
                     EnglishName = "Republic Day",
                     LocalName = "Cumhuriyet Bayramı",
@@ -107,6 +113,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "DEMOCRACYNATIONALUNITYDAY-01",
                     Date = new DateTime(year, 7, 15),
                     EnglishName = "Democracy and National Unity Day",
                     LocalName = "Demokrasi ve Millî Birlik Günü",
@@ -135,6 +142,7 @@ namespace Nager.Date.HolidayProviders
                 [
                     new HolidaySpecification
                     {
+                        Id = "EIDALFITRFIRSTDAY-01",
                         Date = new DateTime(year, calculateDate1.Month, calculateDate1.Day),
                         EnglishName = "Eid al-Fitr First Day",
                         LocalName = "Ramazan Bayramı 1. Gün",
@@ -142,6 +150,7 @@ namespace Nager.Date.HolidayProviders
                     },
                     new HolidaySpecification
                     {
+                        Id = "EIDALFITRFIRSTDAY-02",
                         Date = new DateTime(year, calculateDate2.Month, calculateDate2.Day),
                         EnglishName = "Eid al-Fitr Second Day",
                         LocalName = "Ramazan Bayramı 2. Gün",
@@ -149,6 +158,7 @@ namespace Nager.Date.HolidayProviders
                     },
                     new HolidaySpecification
                     {
+                        Id = "EIDALFITRFIRSTDAY-03",
                         Date = new DateTime(year, calculateDate3.Month, calculateDate3.Day),
                         EnglishName = "Eid al-Fitr Third Day",
                         LocalName = "Ramazan Bayramı 3. Gün",
@@ -179,6 +189,7 @@ namespace Nager.Date.HolidayProviders
                 [
                     new HolidaySpecification
                     {
+                        Id = "EIDALADHAFIRSTDAY-01",
                         Date = new DateTime(year, calculateDate1.Month, calculateDate1.Day),
                         EnglishName = "Eid al-Adha First Day",
                         LocalName = "Kurban Bayramı 1. Gün",
@@ -186,6 +197,7 @@ namespace Nager.Date.HolidayProviders
                     },
                     new HolidaySpecification
                     {
+                        Id = "EIDALADHAFIRSTDAY-02",
                         Date = new DateTime(year, calculateDate2.Month, calculateDate2.Day),
                         EnglishName = "Eid al-Adha Second Day",
                         LocalName = "Kurban Bayramı 2. Gün",
@@ -193,6 +205,7 @@ namespace Nager.Date.HolidayProviders
                     },
                     new HolidaySpecification
                     {
+                        Id = "EIDALADHAFIRSTDAY-03",
                         Date = new DateTime(year, calculateDate3.Month, calculateDate3.Day),
                         EnglishName = "Eid al-Adha Third Day",
                         LocalName = "Kurban Bayramı 3. Gün",
@@ -200,6 +213,7 @@ namespace Nager.Date.HolidayProviders
                     },
                     new HolidaySpecification
                     {
+                        Id = "EIDALADHAFIRSTDAY-04",
                         Date = new DateTime(year, calculateDate4.Month, calculateDate4.Day),
                         EnglishName = "Eid al-Adha Fourth Day",
                         LocalName = "Kurban Bayramı 4. Gün",

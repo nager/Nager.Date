@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -38,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MARTYRSDAY-01",
                     Date = new DateTime(year, 1, 9),
                     EnglishName = "Martyr's Day",
                     LocalName = "Martyr's Day",
@@ -45,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -52,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SEPARATIONDAY-01",
                     Date = new DateTime(year, 11, 3),
                     EnglishName = "Separation Day",
                     LocalName = "Separation Day",
@@ -59,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FLAGDAY-01",
                     Date = new DateTime(year, 11, 4),
                     EnglishName = "Flag Day",
                     LocalName = "Flag Day",
@@ -66,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "COLONDAY-01",
                     Date = new DateTime(year, 11, 5),
                     EnglishName = "Colon Day",
                     LocalName = "Colón Day",
@@ -73,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SHOUTVILLADELOSSANTOS-01",
                     Date = new DateTime(year, 11, 10),
                     EnglishName = "Shout in Villa de los Santos",
                     LocalName = "Shout in Villa de los Santos",
@@ -80,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 11, 28),
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
@@ -87,13 +95,15 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MOTHERSDAY-01",
                     Date = new DateTime(year, 12, 8),
-                    EnglishName = "Mothers' Day",
-                    LocalName = "Mothers' Day",
+                    EnglishName = "Mother's Day",
+                    LocalName = "Mother's Day",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -101,6 +111,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-01",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Carnival",
                     LocalName = "Carnival",
@@ -108,6 +119,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CARNIVAL-02",
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Carnival",
                     LocalName = "Carnival",

@@ -68,6 +68,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -76,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "AUSTRALIADAY-01",
                     Date = new DateTime(year, 1, 26),
                     EnglishName = "Australia Day",
                     LocalName = "Australia Day",
@@ -84,6 +86,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CANBERRADAY-01",
                     Date = secondMondayInMarch,
                     EnglishName = "Canberra Day",
                     LocalName = "Canberra Day",
@@ -92,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ADELAIDECUPDAY-01",
                     Date = secondMondayInMarch,
                     EnglishName = "Adelaide Cup Day",
                     LocalName = "Adelaide Cup Day",
@@ -100,6 +104,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EIGHTHOURSDAY-01",
                     Date = secondMondayInMarch,
                     EnglishName = "Eight Hours Day",
                     LocalName = "Eight Hours Day",
@@ -108,6 +113,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANZACDAY-01",
                     Date = new DateTime(year, 4, 25),
                     EnglishName = "Anzac Day",
                     LocalName = "Anzac Day",
@@ -115,6 +121,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MAYDAY-01",
                     Date = firstMondayInMay,
                     EnglishName = "May Day",
                     LocalName = "May Day",
@@ -123,6 +130,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "RECONCILIATIONDAY-01",
                     Date = firstMondayAfterOr27May,
                     EnglishName = "Reconciliation Day",
                     LocalName = "Reconciliation Day",
@@ -131,6 +139,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WESTERNAUSTRALIADAY-01",
                     Date = firstMondayInJune,
                     EnglishName = "Western Australia Day",
                     LocalName = "Western Australia Day",
@@ -139,6 +148,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PICNICDAY-01",
                     Date = firstMondayInAugust,
                     EnglishName = "Picnic Day",
                     LocalName = "Picnic Day",
@@ -147,6 +157,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MELBOURNECUP-01",
                     Date = firstTuesdayInNovember,
                     EnglishName = "Melbourne Cup",
                     LocalName = "Melbourne Cup",
@@ -155,6 +166,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -163,20 +175,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = weekendSequenceObservedRuleSet
                 },
-                new HolidaySpecification
-                {
-                    Date = easterSunday.AddDays(-1),
-                    EnglishName = "Holy Saturday",
-                    LocalName = "Easter Eve",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-VIC"]
-                },
+                this._catholicProvider.EasterSaturday("Easter Eve", year).SetSubdivisionCodes(["AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-VIC"]),
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year),
                 this.EasterSunday(year),
@@ -220,6 +226,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = firstMondayInMarch,
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -228,6 +235,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-02",
                     Date = secondMondayInMarch,
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -236,6 +244,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-03",
                     Date = firstMondayInMay,
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -244,6 +253,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-04",
                     Date = firstMondayInOctober,
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -270,6 +280,7 @@ namespace Nager.Date.HolidayProviders
             [
                 new HolidaySpecification
                 {
+                    Id = "MONARCHBIRTHDAY-01",
                     Date = secondMondayInJune,
                     EnglishName = name,
                     LocalName = name,
@@ -278,6 +289,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MONARCHBIRTHDAY-02",
                     Date = lastMondayInSeptember,
                     EnglishName = name,
                     LocalName = name,
@@ -286,6 +298,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MONARCHBIRTHDAY-03",
                     Date = firstMondayInOctober,
                     EnglishName = name,
                     LocalName = name,
@@ -304,6 +317,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "NATIONALDAYOFMOURNING-01",
                     Date = new DateTime(year, 9, 22),
                     EnglishName = "National Day of Mourning",
                     LocalName = "National Day of Mourning",
@@ -316,6 +330,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? FridayBeforeTheAflGrandFinal(int year)
         {
+            var id = "FRIDAYBEFOREAFLGRANDFINAL-01";
             var holidayName = "Friday before AFL Grand Final";
             var subdivisionCodes = new string[] { "AU-VIC" };
 
@@ -328,11 +343,13 @@ namespace Nager.Date.HolidayProviders
                 case 2021:
                 case 2023:
                 case 2024:
+                case 2025:
                     {
                         var lastFridayInSeptember = DateHelper.FindLastDay(year, Month.September, DayOfWeek.Friday);
 
                         return new HolidaySpecification
                         {
+                            Id = id,
                             Date = lastFridayInSeptember,
                             EnglishName = holidayName,
                             LocalName = holidayName,
@@ -343,6 +360,7 @@ namespace Nager.Date.HolidayProviders
                 case 2020:
                     return new HolidaySpecification
                     {
+                        Id = id,
                         Date = new DateTime(year, 10 , 23),
                         EnglishName = holidayName,
                         LocalName = holidayName,
@@ -352,6 +370,7 @@ namespace Nager.Date.HolidayProviders
                 case 2022:
                     return new HolidaySpecification
                     {
+                        Id = id,
                         Date = new DateTime(year, 09, 23),
                         EnglishName = holidayName,
                         LocalName = holidayName,
@@ -366,6 +385,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = tentativeDate,
                     EnglishName = $"{holidayName} (Tentative Date)",
                     LocalName = $"{holidayName} (Tentative Date)",

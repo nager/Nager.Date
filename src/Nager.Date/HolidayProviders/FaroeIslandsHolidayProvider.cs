@@ -32,6 +32,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Nýggjársdagur",
@@ -39,6 +40,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "FLAGDAY-01",
                     Date = new DateTime(year, 4, 25),
                     EnglishName = "National Flag Day",
                     LocalName = "Flaggdagur",
@@ -46,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GENERALPRAYERDAY-01",
                     Date = easterSunday.AddDays(26),
                     EnglishName = "General Prayer Day",
                     LocalName = "Dýri biðidagur",
@@ -53,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONDAY-01",
                     Date = new DateTime(year, 6, 5),
                     EnglishName = "Constitution Day",
                     LocalName = "Grundlógardagur Danmarkar",
@@ -60,6 +64,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTOLAVSEVE-01",
                     Date = new DateTime(year, 7, 28),
                     EnglishName = "Saint Olav's Eve",
                     LocalName = "Ólavsøkuaftan",
@@ -67,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "SAINTOLAVSDAY-01",
                     Date = new DateTime(year, 7, 29),
                     EnglishName = "Saint Olav's Day",
                     LocalName = "Ólavsøkudagur",
@@ -74,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Jólaaftanskvøld",
@@ -81,6 +88,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Jóladagur",
@@ -88,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "2. Jóladagur",
@@ -95,6 +104,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSEVE-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "New Year's Eve",
                     LocalName = "Nýggjársaftan",

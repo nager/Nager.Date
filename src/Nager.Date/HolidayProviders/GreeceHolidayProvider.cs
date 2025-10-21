@@ -32,6 +32,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Πρωτοχρονιά",
@@ -39,6 +40,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Θεοφάνεια",
@@ -46,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ANNUNCIATION-01",
                     Date = new DateTime(year, 3, 25),
                     EnglishName = "Annunciation",
                     LocalName = "Ευαγγελισμός της Θεοτόκου",
@@ -53,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 3, 25),
                     EnglishName = "Independence Day",
                     LocalName = "Εικοστή Πέμπτη Μαρτίου",
@@ -60,6 +64,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONDAY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Κοίμηση της Θεοτόκου",
@@ -67,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OCHIDAY-01",
                     Date = new DateTime(year, 10, 28),
                     EnglishName = "Ochi Day",
                     LocalName = "Το Όχι",
@@ -74,6 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Χριστούγεννα",
@@ -81,6 +88,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Σύναξις Υπεραγίας Θεοτόκου Μαρίας",
@@ -88,6 +96,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CLEANMONDAY-01",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Clean Monday",
                     LocalName = "Καθαρά Δευτέρα",
@@ -107,6 +116,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification LabourDay(int year)
         {
+            var id = "LABOURDAY-01";
             var englishName = "Labour Day";
             var localName = "Εργατική Πρωτομαγιά";
 
@@ -115,6 +125,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 5, 7),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -124,6 +135,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = new DateTime(year, 5, 1),
                 EnglishName = englishName,
                 LocalName = localName,

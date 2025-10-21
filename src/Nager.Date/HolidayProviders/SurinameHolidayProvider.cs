@@ -37,6 +37,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -44,6 +45,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "THREEKINGSDAY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Three Kings Day",
                     LocalName = "Three Kings Day",
@@ -51,6 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "WORLDRELIGIONDAY-01",
                     Date = thirdSundayInJanuary,
                     EnglishName = "World Religion Day",
                     LocalName = "World Religion Day",
@@ -58,6 +61,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFTHEREVOLUTION-01",
                     Date = new DateTime(year, 2, 25),
                     EnglishName = "Day of the Revolution",
                     LocalName = "Day of the Revolution",
@@ -65,6 +69,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -72,6 +77,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDIANARRIVALDAY-01",
                     Date = new DateTime(year, 6, 5),
                     EnglishName = "Indian Arrival Day",
                     LocalName = "Indian Arrival Day",
@@ -79,6 +85,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "KETIKOTI-01",
                     Date = new DateTime(year, 7, 1),
                     EnglishName = "Keti Koti",
                     LocalName = "Keti Koti",
@@ -86,6 +93,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "JAVANESEARRIVALDAY-01",
                     Date = new DateTime(year, 8, 8),
                     EnglishName = "Javanese Arrival Day",
                     LocalName = "Javanese Arrival Day",
@@ -93,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDIGENOUSPEOPLESDAY-01",
                     Date = new DateTime(year, 8, 9),
                     EnglishName = "Indigenous People's Day",
                     LocalName = "Indigenous People's Day",
@@ -100,6 +109,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "DAYOFTHEMAROONS-01",
                     Date = new DateTime(year, 10, 10),
                     EnglishName = "Day of the Maroons",
                     LocalName = "Day of the Maroons",
@@ -107,6 +117,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHINESEARRIVALDAY-01",
                     Date = new DateTime(year, 10, 20),
                     EnglishName = "Chinese Arrival day",
                     LocalName = "Chinese Arrival day",
@@ -114,6 +125,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 11, 25),
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
@@ -121,6 +133,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
@@ -128,6 +141,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BOXINGDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Boxing Day",
                     LocalName = "Boxing Day",
@@ -155,6 +169,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = "CHINESENEWYEAR-01",
                     Date = chineseNewYear,
                     EnglishName = "Chinese New Year",
                     LocalName = "Chinese New Year",

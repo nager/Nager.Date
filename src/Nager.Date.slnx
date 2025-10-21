@@ -1,0 +1,18 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="Mixed Platforms" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Documentation/">
+    <File Path="../CHANGELOG.md" />
+    <File Path="../README.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
+  <Project Path="Nager.Date.ArchitectureTest/Nager.Date.ArchitectureTest.csproj" />
+  <Project Path="Nager.Date.Console/Nager.Date.Console.csproj" />
+  <Project Path="Nager.Date.UnitTest/Nager.Date.UnitTest.csproj" />
+  <Project Path="Nager.Date/Nager.Date.csproj" />
+</Solution>

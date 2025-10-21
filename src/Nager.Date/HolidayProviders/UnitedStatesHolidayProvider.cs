@@ -101,6 +101,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
@@ -109,6 +110,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MARTINLUTHERKINGJRDAY-01",
                     Date = thirdMondayInJanuary,
                     EnglishName = "Martin Luther King, Jr. Day",
                     LocalName = "Martin Luther King, Jr. Day",
@@ -116,6 +118,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "PRESIDENTSDAY-01",
                     Date = thirdMondayInFebruary,
                     EnglishName = "Presidents Day",
                     LocalName = "Washington's Birthday",
@@ -123,6 +126,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "MEMORIALDAY-01",
                     Date = lastMondayInMay,
                     EnglishName = "Memorial Day",
                     LocalName = "Memorial Day",
@@ -130,6 +134,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 7, 4),
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
@@ -138,6 +143,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "TRUMANDAY-01",
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Truman Day",
                     LocalName = "Truman Day",
@@ -146,13 +152,15 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = firstMondayInSeptember,
-                    EnglishName = "Labor Day",
-                    LocalName = "Labour Day",
+                    EnglishName = "Labour Day",
+                    LocalName = "Labor Day",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "COLUMBUSDAY-01",
                     Date = secondMondayInOctober,
                     EnglishName = "Columbus Day",
                     LocalName = "Columbus Day",
@@ -161,6 +169,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "VETERANSDAY-01",
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "Veterans Day",
                     LocalName = "Veterans Day",
@@ -169,6 +178,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "THANKSGIVINGDAY-01",
                     Date = fourthThursdayInNovember,
                     EnglishName = "Thanksgiving Day",
                     LocalName = "Thanksgiving Day",
@@ -176,14 +186,21 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
-                this._catholicProvider.GoodFriday("Good Friday", year).SetSubdivisionCodes("US-CT", "US-DE", "US-HI", "US-IN", "US-KY", "US-LA", "US-NC", "US-ND", "US-NJ", "US-TN"),
-                this._catholicProvider.GoodFriday("Good Friday", year).SetSubdivisionCodes("US-TX").SetHolidayTypes(HolidayTypes.Optional)
+
+                this._catholicProvider.GoodFriday("Good Friday", year)
+                .SetSubdivisionCodes("US-CT", "US-DE", "US-HI", "US-IN", "US-KY", "US-LA", "US-NC", "US-ND", "US-NJ", "US-TN"),
+
+                this._catholicProvider.GoodFriday("Good Friday", year)
+                .SetSubdivisionCodes("US-TX")
+                .SetHolidayTypes(HolidayTypes.Optional)
+                .SetId("GOODFRIDAY-02")
             };
 
             holidaySpecifications.AddIfNotNull(this.JuneteenthNationalIndependenceDay(year, observedRuleSet));
@@ -197,6 +214,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
+                Id = "LINCOLNSBIRTHDAY-01",
                 Date = new DateTime(year, 2, 12),
                 EnglishName = "Lincoln's Birthday",
                 LocalName = "Lincoln's Birthday",
@@ -213,6 +231,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = "JUNETEENTHINDEPENDENCEDAY-01",
                     Date = new DateTime(year, 6, 19),
                     EnglishName = "Juneteenth National Independence Day",
                     LocalName = "Juneteenth National Independence Day",
@@ -235,6 +254,7 @@ namespace Nager.Date.HolidayProviders
 
             var indigenousPeoplesDay = new HolidaySpecification
             {
+                Id = "INDIGENOUSPEOPLESDAY-01",
                 Date = secondMondayInOctober,
                 EnglishName = "Indigenous Peoples' Day",
                 LocalName = "Indigenous Peoples' Day",

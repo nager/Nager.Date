@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET 8.0
-      uses: actions/setup-dotnet@v4
+    - uses: actions/checkout@v5
+    - name: Setup .NET 9.0
+      uses: actions/setup-dotnet@v5
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 9.0.x
     - name: Extract Version from tag
       id: tag
-      uses: actions/github-script@v7
+      uses: actions/github-script@v8
       with:
         script: |
           const version = context.ref.replace('refs/tags/', '');

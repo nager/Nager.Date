@@ -24,20 +24,23 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "ORTHODOXCHRISTMASDAY-01",
                     Date = new DateTime(year, 1, 7),
-                    EnglishName = "Christmas",
+                    EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "عيد الميلاد المجيد",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONDAY2011-01",
                     Date = new DateTime(year, 1, 25),
-                    EnglishName = "Revolution Day 2011 National Police Day",
+                    EnglishName = "Revolution Day 2011 / National Police Day",
                     LocalName = "عيد الثورة 25 يناير",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "عيد العمال",
@@ -45,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "REVOLUTIONDAY-01",
                     Date = new DateTime(year, 7, 23),
                     EnglishName = "Revolution Day",
                     LocalName = "عيد ثورة 23 يوليو",
@@ -52,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ARMEDFORCESDAY-01",
                     Date = new DateTime(year, 10, 6),
                     EnglishName = "Armed Forces Day",
                     LocalName = "عيد القوات المسلحة",
@@ -67,13 +72,16 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? June30Revolution(int year)
         {
-            var localName = "ثورة 30 يونيو";
+            var id = "JUNE30REVOLUTION-01";
             var englishName = "June 30 Revolution";
+            var localName = "ثورة 30 يونيو";
+
 
             if (year >= 2015 && year <= 2017)
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 6, 30),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -84,6 +92,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 7, 1),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -94,6 +103,7 @@ namespace Nager.Date.HolidayProviders
             {
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 6, 30),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -112,6 +122,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 6, 30),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -125,8 +136,9 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification SinaiLiberationDay(int year)
         {
-            var localName = "عيد تحرير سيناء";
+            var id = "SINAILIBERATIONDAY-01";
             var englishName = "Sinai Liberation Day";
+            var localName = "عيد تحرير سيناء";
 
             if (year == 2025)
             {
@@ -137,6 +149,7 @@ namespace Nager.Date.HolidayProviders
 
                 return new HolidaySpecification
                 {
+                    Id = id,
                     Date = new DateTime(year, 4, 25),
                     EnglishName = englishName,
                     LocalName = localName,
@@ -147,6 +160,7 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
+                Id = id,
                 Date = new DateTime(year, 4, 25),
                 EnglishName = englishName,
                 LocalName = localName,

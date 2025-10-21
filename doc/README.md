@@ -1,18 +1,27 @@
 # Nager.Date
 
-Nager.Date is a popular project for querying holidays, we currently support for over 110 countries.
+Nager.Date is a comprehensive .NET library for querying public and federal holidays, supporting over 110 countries worldwide.
+It provides native and English translations and supports country subdivisions (federal states) according to ISO 3166-2 standards.
 
-## Country Support
-The list of supported countries can be found [here](https://date.nager.at/Country/Coverage)
+## Supported Countries
+You can see the full list of supported countries [here](https://date.nager.at/Country/Coverage)
 
-## Examples
+## Features
+- Query public, federal, bank, school, and optional holidays (availability may vary by country).
+- Support for country subdivisions (federal states, provinces).
+- Native and English translations for holiday names.
+- Retrieve holidays by year or date range.
+- Check if a specific date is a public holiday.
+- Weekend detection for any country.
+
+## Getting Started
 
 ### Set License Key
 ```cs
 HolidaySystem.LicenseKey = "TheLicenseKey";
 ```
 
-### Check the license
+### Check License
 ```cs
 var licenseKey = "TheLicenseKey";
 var licenseInfo = Nager.Date.Helpers.LicenseHelper.CheckLicenseKey(licenseKey);
@@ -29,7 +38,7 @@ if (licenseInfo.ValidUntil < DateTime.Today)
 }
 ```
 
-### Get all holidays of a country and year
+### Get Holidays for a Year
 ```cs
 var holidays = HolidaySystem.GetHolidays(2024, "DE");
 foreach (var holiday in holidays)
@@ -46,7 +55,7 @@ foreach (var holiday in holidays)
 }
 ```
 
-### Get all holidays for a date range
+### Get Holidays for a Date Range
 ```cs
 var startDate = new DateTime(2016, 5, 1);
 var endDate = new DateTime(2024, 5, 31);
@@ -62,15 +71,15 @@ foreach (var holiday in holidays)
 var date = new DateTime(2024, 1, 1);
 if (HolidaySystem.IsPublicHoliday(date, CountryCode.DE))
 {
-    Console.WriteLine("Is a public holiday");
+    Console.WriteLine("This date is a public holiday.");
 }
 ```
 
-### Checks if the given date falls on a weekend day
+### Check if a Date is on a Weekend
 ```cs
 var date = new DateTime(2024, 1, 1);
 if (WeekendSystem.IsWeekend(date, CountryCode.DE))
 {
-    Console.WriteLine("The date is in the weekend");
+    Console.WriteLine("The date falls on a weekend.");
 }
 ```

@@ -31,6 +31,7 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
+                    Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Πρωτοχρονιά",
@@ -38,6 +39,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EPIPHANY-01",
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Θεοφάνεια",
@@ -45,6 +47,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GREEKINDEPENDENCEDAY-01",
                     Date = new DateTime(year, 3, 25),
                     EnglishName = "Greek Independence Day",
                     LocalName = "Επέτειος Ελληνικής Ανεξαρτησίας",
@@ -52,6 +55,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 4, 1),
                     EnglishName = "Cyprus National Day",
                     LocalName = "Κυπριακή Εθνική Επέτειος",
@@ -59,6 +63,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Πρωτομαγιά",
@@ -66,6 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ASSUMPTIONVIRGINMARY-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption of the Virgin Mary",
                     LocalName = "Η Κοίμησις της Θεοτόκου",
@@ -73,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 10, 1),
                     EnglishName = "Cyprus Independence Day",
                     LocalName = "Επέτειος Κυπριακής Ανεξαρτησίας",
@@ -80,6 +87,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "OHIDAY-01",
                     Date = new DateTime(year, 10, 28),
                     EnglishName = "Ohi Day",
                     LocalName = "Το Όχι",
@@ -87,6 +95,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Παραμονή Χριστουγέννων",
@@ -94,6 +103,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Χριστούγεννα",
@@ -101,6 +111,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Δεύτερη μέρα των Χριστουγέννων",
@@ -108,6 +119,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "GREENMONDAY-01",
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Green Monday",
                     LocalName = "Καθαρή Δευτέρα",
@@ -115,6 +127,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "EASTERTUESDAY-01",
                     Date = easterSunday.AddDays(2),
                     EnglishName = "Easter Tuesday",
                     LocalName = "Τρίτη της Διακαινησίμου",
