@@ -28,6 +28,10 @@ namespace Nager.Date.HolidayProviders
         {
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
+            var decemberFirst = new DateTime(year, 12, 1);
+            int daysUntilFriday = ((int) DayOfWeek.Friday - (int) decemberFirst.DayOfWeek + 7) % 7;
+            var farmersDay = decemberFirst.AddDays(daysUntilFriday);
+
             /*
              * When public holiday falls on a Sunday
              * Where, in any year, a day in Part I of the Schedule falls on a Sunday, then the first succeeding day, not
@@ -125,8 +129,17 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year)
             };
-
-        
+            
+            holidaySpecifications.Add(
+                new HolidaySpecification
+                    {
+                        Id = "FARMERSDAY-01",
+                        Date = farmersDay,
+                        EnglishName = "Farmers’ Day",
+                        LocalName = "Farmers’ Day",
+                        HolidayTypes = HolidayTypes.Public,
+                        ObservedRuleSet = observedRuleSet1  
+                    });
 
             return holidaySpecifications;
         }
