@@ -1,6 +1,7 @@
 using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
+using Nager.Date.Helpers;
 using System;
 using System.Collections.Generic;
 
@@ -27,10 +28,6 @@ namespace Nager.Date.HolidayProviders
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
             var easterSunday = this._catholicProvider.EasterSunday(year);
-
-            var decemberFirst = new DateTime(year, 12, 1);
-            int daysUntilFriday = ((int) DayOfWeek.Friday - (int) decemberFirst.DayOfWeek + 7) % 7;
-            var farmersDay = decemberFirst.AddDays(daysUntilFriday);
 
             /*
              * When public holiday falls on a Sunday
@@ -130,18 +127,24 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Easter Monday", year)
             };
             
-            holidaySpecifications.Add(
-                new HolidaySpecification
-                    {
-                        Id = "FARMERSDAY-01",
-                        Date = farmersDay,
-                        EnglishName = "Farmers’ Day",
-                        LocalName = "Farmers’ Day",
-                        HolidayTypes = HolidayTypes.Public,
-                        ObservedRuleSet = observedRuleSet1  
-                    });
+            holidaySpecifications.Add(this.FarmersDay(year, observedRuleSet1));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification FarmersDay(int year, ObservedRuleSet observedRuleSet)
+        {
+            var farmersDay = DateHelper.FindDay(year, Month.December, 1, DayOfWeek.Friday);
+
+                return new HolidaySpecification
+                {
+                    Id = "FARMERSDAY-01",
+                    Date = farmersDay,
+                    EnglishName = "Farmers' Day",
+                    LocalName = "Farmers' Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
+                };
         }
 
         /// <inheritdoc/>
