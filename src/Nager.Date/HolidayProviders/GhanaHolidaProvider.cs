@@ -36,12 +36,12 @@ namespace Nager.Date.HolidayProviders
              * holiday.
             */
 
-            var observedRuleSet1 = new ObservedRuleSet
+            var defaultObservedRuleSet = new ObservedRuleSet
             {
                 Sunday = date => date.AddDays(1)
             };
 
-            var observedRuleSet2 = new ObservedRuleSet
+            var consecutiveHolidayObservedRuleSet = new ObservedRuleSet
             {
                 Monday = date => date.AddDays(1)
             };
@@ -58,7 +58,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = defaultObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -67,7 +67,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Constitution Day",
                     LocalName = "Constitution Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = defaultObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -76,7 +76,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = defaultObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -85,7 +85,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "May Day",
                     LocalName = "May Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = defaultObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -94,7 +94,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Republic Day",
                     LocalName = "Republic Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = defaultObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -103,7 +103,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Founders Day",
                     LocalName = "Founders Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = defaultObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -112,7 +112,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet1
+                    ObservedRuleSet = defaultObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -121,13 +121,13 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Boxing Day",
                     LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet2
+                    ObservedRuleSet = consecutiveHolidayObservedRuleSet
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year)
             };
             
-            holidaySpecifications.Add(this.FarmersDay(year, observedRuleSet1));
+            holidaySpecifications.AddIfNotNull(this.FarmersDay(year, defaultObservedRuleSet));
 
             return holidaySpecifications;
         }
@@ -136,15 +136,15 @@ namespace Nager.Date.HolidayProviders
         {
             var farmersDay = DateHelper.FindDay(year, Month.December, 1, DayOfWeek.Friday);
 
-                return new HolidaySpecification
-                {
-                    Id = "FARMERSDAY-01",
-                    Date = farmersDay,
-                    EnglishName = "Farmers' Day",
-                    LocalName = "Farmers' Day",
-                    HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
-                };
+            return new HolidaySpecification
+            {
+                Id = "FARMERSDAY-01",
+                Date = farmersDay,
+                EnglishName = "Farmers' Day",
+                LocalName = "Farmers' Day",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = observedRuleSet
+            };
         }
 
         /// <inheritdoc/>
