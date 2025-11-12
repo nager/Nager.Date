@@ -60,7 +60,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsNotNull(liberationDay);
             Assert.AreEqual(new DateTime(expectedYear, 5, 8), liberationDay.Date);
             Assert.IsNotNull(liberationDay.SubdivisionCodes);
-            Assert.AreEqual(1, liberationDay.SubdivisionCodes.Length);
+            Assert.HasCount(1, liberationDay.SubdivisionCodes);
             Assert.AreEqual("DE-BE", liberationDay.SubdivisionCodes[0]);
         }
 

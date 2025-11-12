@@ -12,7 +12,7 @@ namespace Nager.Date.UnitTest.Countries
         {
             var testDate = new DateTime(2022, 10, 12);
             var isPublicHoliday = HolidaySystem.IsPublicHoliday(testDate, CountryCode.BR);
-            Assert.AreEqual(true, isPublicHoliday);
+            Assert.IsTrue(isPublicHoliday);
         }
 
         [TestMethod]
