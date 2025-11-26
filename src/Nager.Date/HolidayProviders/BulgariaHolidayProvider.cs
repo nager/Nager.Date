@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -136,7 +137,44 @@ namespace Nager.Date.HolidayProviders
                 this._orthodoxProvider.EasterMonday("Велики понеделник", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.CurrencyChangeDay1(year));
+            holidaySpecifications.AddIfNotNull(this.CurrencyChangeDay2(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? CurrencyChangeDay1(int year)
+        {
+            if (year == 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "CURRENCYCHANGEDAY-01",
+                    Date = new DateTime(year, 12, 31),
+                    EnglishName = "Currency change day",
+                    LocalName = "Ден на валутната смяна",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
+        }
+
+        private HolidaySpecification? CurrencyChangeDay2(int year)
+        {
+            if (year == 2026)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "CURRENCYCHANGEDAY-02",
+                    Date = new DateTime(year, 1, 2),
+                    EnglishName = "Currency change day",
+                    LocalName = "Ден на валутната смяна",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
