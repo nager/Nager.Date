@@ -10,7 +10,7 @@ Need offline access to our functionality? No problem! We also provide solutions 
 
 ## How can I use it?
 
-Easily create a client in your preferred programming language by utilizing our [Swagger definition](https://date.nager.at/swagger). Find all the necessary information in our API section. Get more details about client generation in the [documentation](https://openapi-generator.tech).
+Easily generate a client in your preferred programming language by utilizing our [API documentation](https://date.nager.at/scalar), which provides a complete overview of all available endpoints. For more details on client generation, refer to the [OpenAPI Generator documentation](https://openapi-generator.tech).
 
 ### Examples
 
