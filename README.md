@@ -10,7 +10,7 @@ Need offline access to our functionality? No problem! We also provide solutions 
 
 ## How can I use it?
 
-Easily create a client in your preferred programming language by utilizing our [Swagger definition](https://date.nager.at/swagger). Find all the necessary information in our API section. Get more details about client generation in the [documentation](https://openapi-generator.tech).
+Easily generate a client in your preferred programming language by utilizing our [API documentation](https://date.nager.at/scalar), which provides a complete overview of all available endpoints. For more details on client generation, refer to the [OpenAPI Generator documentation](https://openapi-generator.tech).
 
 ### Examples
 
@@ -46,10 +46,8 @@ class PublicHoliday
     public string LocalName { get; set; }
     public string Name { get; set; }
     public string CountryCode { get; set; }
-    public bool Fixed { get; set; }
     public bool Global { get; set; }
     public string[] Counties { get; set; }
-    public int? LaunchYear { get; set; }
     public string[] Types { get; set; }
 }
 ```
@@ -267,6 +265,7 @@ Here you can see how long the product will be supported and when the End of Life
 
 | Product                          | Release Date                              | Supported | End of life |
 | -------------------------------- | ----------------------------------------- | --------- | ----------- |
+| WebApi v4                        | under development                         | No        | -           |
 | WebApi v3                        | 2021-05-18                                | Yes       | -           |
 | WebApi v2                        | 2019-02-10                                | No        | 2024-12-01  |
 | WebApi v1                        | 2017-02-06                                | No        | 2024-06-24  |

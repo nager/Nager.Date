@@ -22,7 +22,7 @@
 
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
 
-    <TargetFrameworks>net472;netstandard2.0;net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net481;netstandard2.0;net8.0;net10.0</TargetFrameworks>
 
     <!-- Version is automatically replaced by build process -->
     <Version>2.0.0</Version>
@@ -45,7 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nager.LicenseSystem" Version="1.2.0" />
+    <PackageReference Include="Nager.LicenseSystem" Version="1.2.1" />
   </ItemGroup>
 
 </Project>
