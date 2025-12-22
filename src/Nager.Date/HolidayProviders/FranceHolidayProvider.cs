@@ -27,6 +27,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new Dictionary<string, string>
             {
+                // Regions
                 { "FR-ARA", "Auvergne-Rhone-Alpes" },
                 { "FR-BFC", "Bourgogne-Franche-Comte" },
                 { "FR-BRE", "Bretagne" },
@@ -39,6 +40,10 @@ namespace Nager.Date.HolidayProviders
                 { "FR-OCC", "Occitanie" },
                 { "FR-PDL", "Pays-de-la-Loire" },
                 { "FR-PAC", "Provence-Alpes-Cote-d'Azur" },
+                // Departments with special holiday rules (Alsace-Moselle)
+                { "FR-57", "Moselle" },
+                { "FR-67", "Bas-Rhin" },
+                { "FR-68", "Haut-Rhin" },
             };
         }
 
@@ -111,6 +116,16 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Noël",
                     HolidayTypes = HolidayTypes.Public
                 },
+                new HolidaySpecification
+                {
+                    Id = "STSTEPHENSDAY-01",
+                    Date = new DateTime(year, 12, 26),
+                    EnglishName = "St. Stephen's Day",
+                    LocalName = "Saint-Étienne",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FR-57", "FR-67", "FR-68"]
+                },
+                this._catholicProvider.GoodFriday("Vendredi saint", year).SetSubdivisionCodes("FR-57", "FR-67", "FR-68"),
                 this._catholicProvider.EasterMonday("Lundi de Pâques", year),
                 this._catholicProvider.AscensionDay("Ascension", year),
                 this._catholicProvider.WhitMonday("Lundi de Pentecôte", year)
@@ -126,7 +141,8 @@ namespace Nager.Date.HolidayProviders
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_France",
                 "https://en.wikipedia.org/wiki/ISO_3166-2:FR",
-                "https://ec.europa.eu/taxation_customs/dds2/rd/publicholidays_consultation.jsp?Screen=0&Expand=true&Country=FR"
+                "https://ec.europa.eu/taxation_customs/dds2/rd/publicholidays_consultation.jsp?Screen=0&Expand=true&Country=FR",
+                "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000006178008" // Alsace-Moselle local law
             ];
         }
     }
