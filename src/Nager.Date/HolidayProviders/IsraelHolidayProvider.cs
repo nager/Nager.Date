@@ -422,7 +422,7 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Israel",
-                "https://www.gov.il/en/departments/general/holidays-and-memorial-days"
+                "https://www.hebcal.com/holidays/"
             ];
         }
     }
