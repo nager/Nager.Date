@@ -44,7 +44,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "LABOURDAY",
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
@@ -52,7 +52,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "NATIONALDAY",
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 6, 18),
                     EnglishName = "National Day (Constitution Day)",
                     LocalName = "National Day",
@@ -60,7 +60,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "INDEPENDENCEDAY",
+                    Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 6, 29),
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
@@ -68,7 +68,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "ASSUMPTION",
+                    Id = "ASSUMPTION-01",
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption of Mary",
                     LocalName = "Assumption of Mary",
@@ -76,7 +76,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "ALLSAINTSDAY",
+                    Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "All Saints' Day",
@@ -84,7 +84,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "IMMACULATECONCEPTION",
+                    Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Immaculate Conception",
@@ -92,58 +92,19 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "CHRISTMASDAY",
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public
-                }
+                },
+                this._catholicProvider.GoodFriday("Good Friday", year),
+                this._catholicProvider.EasterSaturday("Easter Saturday", year),
+                this._catholicProvider.EasterMonday("Easter Monday", year),
+                this._catholicProvider.CorpusChristi("Corpus Christi", year),
             };
 
-            holidaySpecifications.AddRange(this.GetEasterBasedHolidays(year));
-
             return holidaySpecifications;
-        }
-
-        private IEnumerable<HolidaySpecification> GetEasterBasedHolidays(int year)
-        {
-            var easterSunday = this._catholicProvider.EasterSunday(year);
-
-            return
-            [
-                new HolidaySpecification
-                {
-                    Id = "GOODFRIDAY",
-                    Date = easterSunday.AddDays(-2),
-                    EnglishName = "Good Friday",
-                    LocalName = "Good Friday",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "EASTERSATURDAY",
-                    Date = easterSunday.AddDays(-1),
-                    EnglishName = "Easter Saturday",
-                    LocalName = "Easter Saturday",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "EASTERMONDAY",
-                    Date = easterSunday.AddDays(1),
-                    EnglishName = "Easter Monday",
-                    LocalName = "Easter Monday",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "CORPUSCHRISTI",
-                    Date = easterSunday.AddDays(60),
-                    EnglishName = "Corpus Christi",
-                    LocalName = "Corpus Christi",
-                    HolidayTypes = HolidayTypes.Public
-                }
-            ];
         }
 
         /// <inheritdoc/>
