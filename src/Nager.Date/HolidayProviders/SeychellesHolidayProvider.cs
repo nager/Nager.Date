@@ -54,7 +54,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 6, 18),
-                    EnglishName = "National Day (Constitution Day)",
+                    EnglishName = "Constitution Day",
                     LocalName = "National Day",
                     HolidayTypes = HolidayTypes.Public
                 },
@@ -70,7 +70,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "ASSUMPTION-01",
                     Date = new DateTime(year, 8, 15),
-                    EnglishName = "Assumption of Mary",
+                    EnglishName = "Assumption Day",
                     LocalName = "Assumption of Mary",
                     HolidayTypes = HolidayTypes.Public
                 },
@@ -86,8 +86,8 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "IMMACULATECONCEPTION-01",
                     Date = new DateTime(year, 12, 8),
-                    EnglishName = "Immaculate Conception",
-                    LocalName = "Immaculate Conception",
+                    EnglishName = "The Feast of the Immaculate Conception",
+                    LocalName = "The Feast of the Immaculate Conception",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -101,7 +101,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterSaturday("Easter Saturday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year),
-                this._catholicProvider.CorpusChristi("Corpus Christi", year),
+                this._catholicProvider.CorpusChristi("The Fete Dieu", year),
             };
 
             return holidaySpecifications;
@@ -113,7 +113,8 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://www.psb.gov.sc/public-holidays",
-                "https://www.officeholidays.com/countries/seychelles"
+                "https://www.officeholidays.com/countries/seychelles",
+                "https://www.cbs.sc/PublicHolidays.html"
             ];
         }
     }
