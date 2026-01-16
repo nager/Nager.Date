@@ -39,7 +39,7 @@ namespace Nager.Date.HolidayProviders
             // For holidays in the first half of the Hebrew year (Tishrei-Adar), use the Hebrew year that starts in the previous Gregorian year
             // For holidays in the second half (Nisan-Elul), use the Hebrew year that starts in the current Gregorian year
 
-            var hebrewYear = _hebrewCalendar.GetYear(new DateTime(year, 1, 1));
+            var hebrewYear = this._hebrewCalendar.GetYear(new DateTime(year, 1, 1));
 
             // Purim (14 Adar, or 14 Adar II in leap years) - typically Feb/Mar
             var purimDate = this.GetPurimDate(hebrewYear);
@@ -89,7 +89,7 @@ namespace Nager.Date.HolidayProviders
                 });
 
                 // Chol HaMoed Pesach (intermediate days) - 16-20 Nisan
-                for (int i = 1; i <= 5; i++)
+                for (var i = 1; i <= 5; i++)
                 {
                     holidaySpecifications.Add(new HolidaySpecification
                     {
@@ -285,7 +285,7 @@ namespace Nager.Date.HolidayProviders
                 });
 
                 // Chol HaMoed Sukkot (intermediate days) - 16-20 Tishrei
-                for (int i = 1; i <= 5; i++)
+                for (var i = 1; i <= 5; i++)
                 {
                     holidaySpecifications.Add(new HolidaySpecification
                     {
@@ -326,7 +326,7 @@ namespace Nager.Date.HolidayProviders
             var hanukkahStart = this.GetHebrewHolidayDate(nextHebrewYear, 3, 25); // Kislev is month 3
             if (hanukkahStart.Year == year || hanukkahStart.AddDays(7).Year == year)
             {
-                for (int i = 0; i < 8; i++)
+                for (var i = 0; i < 8; i++)
                 {
                     var hanukkahDay = hanukkahStart.AddDays(i);
                     if (hanukkahDay.Year == year)
@@ -351,7 +351,7 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         private DateTime GetHebrewHolidayDate(int hebrewYear, int hebrewMonth, int hebrewDay)
         {
-            return _hebrewCalendar.ToDateTime(hebrewYear, hebrewMonth, hebrewDay, 0, 0, 0, 0);
+            return this._hebrewCalendar.ToDateTime(hebrewYear, hebrewMonth, hebrewDay, 0, 0, 0, 0);
         }
 
         /// <summary>
@@ -360,9 +360,9 @@ namespace Nager.Date.HolidayProviders
         private DateTime GetPurimDate(int hebrewYear)
         {
             // In a leap year, Purim is in Adar II (month 7), otherwise in Adar (month 6)
-            var isLeapYear = _hebrewCalendar.IsLeapYear(hebrewYear);
+            var isLeapYear = this._hebrewCalendar.IsLeapYear(hebrewYear);
             var purimMonth = isLeapYear ? 7 : 6; // Adar II in leap year, Adar otherwise
-            return _hebrewCalendar.ToDateTime(hebrewYear, purimMonth, 14, 0, 0, 0, 0);
+            return this._hebrewCalendar.ToDateTime(hebrewYear, purimMonth, 14, 0, 0, 0, 0);
         }
 
         /// <summary>
