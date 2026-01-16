@@ -97,7 +97,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 24),
                     EnglishName = "Prince Mahidol Day",
                     LocalName = "วันมหิดล",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
@@ -111,7 +111,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "CHULALONGKORNDAY-01",
                     Date = new DateTime(year, 10, 23),
-                    EnglishName = "Chulalongkorn Day",
+                    EnglishName = "H.M. King Chulalongkorn the Great Memorial Day",
                     LocalName = "วันปิยมหาราช",
                     HolidayTypes = HolidayTypes.Public
                 },
@@ -195,7 +195,8 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Thailand",
-                "https://www.officeholidays.com/countries/thailand"
+                "https://www.officeholidays.com/countries/thailand",
+                "https://www.bot.or.th/en/financial-institutions-holiday.html",
             ];
         }
     }
