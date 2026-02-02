@@ -1,5 +1,5 @@
 using ArchUnitNET.Domain;
-using ArchUnitNET.MSTestV2;
+using ArchUnitNET.MSTestV4;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nager.Date.ArchitectureTest.Internals;
 using Nager.Date.HolidayProviders;
