@@ -157,6 +157,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.QueensPlatinumJubilee(year));
             holidaySpecifications.AddIfNotNull(this.QueensStateFuneral(year));
             holidaySpecifications.AddIfNotNull(this.CoronationBankHoliday(year));
+            holidaySpecifications.AddIfNotNull(this.WorldCupBankHoliday(year));
 
             return holidaySpecifications;
         }
@@ -253,6 +254,27 @@ namespace Nager.Date.HolidayProviders
         }
 
         #endregion
+
+        private HolidaySpecification? WorldCupBankHoliday(int year)
+        {
+            if (year == 2026)
+            {
+                // Bank holiday to mark Scotland’s participation in the men's football World Cup finals
+                // https://www.gov.scot/news/world-cup-bank-holiday-confirmed
+
+                return new HolidaySpecification
+                {
+                    Id = "WORLDCUPBANKHOLIDAY-01",
+                    Date = new DateTime(year, 6, 15),
+                    EnglishName = "World Cup Bank Holiday",
+                    LocalName = "World Cup Bank Holiday",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["GB-SCT"]
+                };
+            }
+
+            return null;
+        }
 
         private HolidaySpecification EarlyMayBankHoliday(int year)
         {
