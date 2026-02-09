@@ -84,7 +84,7 @@ namespace Nager.Date.UnitTest.Countries
 
         [TestMethod]
         [DataRow(2025, 6, 15, false)]
-        [DataRow(2026, 6, 15, false)]
+        [DataRow(2026, 6, 15, true)]
         [DataRow(2027, 6, 15, false)]
         public void CheckWorldCupBankHoliday(int year, int month, int day, bool isBankHoliday)
         {
