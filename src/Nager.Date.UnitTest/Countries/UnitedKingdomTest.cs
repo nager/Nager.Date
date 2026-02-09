@@ -81,5 +81,14 @@ namespace Nager.Date.UnitTest.Countries
         {
             Assert.AreEqual(HolidaySystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB), isBankHoliday);
         }
+
+        [TestMethod]
+        [DataRow(2025, 6, 15, false)]
+        [DataRow(2026, 6, 15, true)]
+        [DataRow(2027, 6, 15, false)]
+        public void CheckWorldCupBankHoliday(int year, int month, int day, bool isBankHoliday)
+        {
+            Assert.AreEqual(HolidaySystem.IsPublicHoliday(new DateTime(year, month, day), CountryCode.GB, "GB-SCT"), isBankHoliday);
+        }
     }
 }
