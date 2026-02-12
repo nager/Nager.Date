@@ -56,12 +56,14 @@ namespace Nager.Date.HolidayProviders
 
             var weekendObservedRuleSet = new ObservedRuleSet
             {
-                Saturday = date => date.AddDays(2), Sunday = date => date.AddDays(1),
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(1),
             };
 
             var weekendSequenceObservedRuleSet = new ObservedRuleSet
             {
-                Saturday = date => date.AddDays(2), Sunday = date => date.AddDays(2),
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(2),
             };
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -110,14 +112,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Eight Hours Day",
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["AU-TAS"]
-                },
-                new HolidaySpecification
-                {
-                    Id = "ANZACDAY-01",
-                    Date = new DateTime(year, 4, 25),
-                    EnglishName = "Anzac Day",
-                    LocalName = "Anzac Day",
-                    HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
@@ -188,6 +182,7 @@ namespace Nager.Date.HolidayProviders
                 this.EasterSunday(year),
             };
 
+            holidaySpecifications.AddRangeIfNotNull(this.AnzacDay(year));
             holidaySpecifications.AddRangeIfNotNull(this.LabourDay(year));
             holidaySpecifications.AddRangeIfNotNull(this.MonarchBirthday(year));
             holidaySpecifications.AddIfNotNull(this.MourningForQueenElizabeth(year));
@@ -213,6 +208,45 @@ namespace Nager.Date.HolidayProviders
 
             easterSunday.SubdivisionCodes = subdivisionCodes;
             return easterSunday;
+        }
+
+        private HolidaySpecification[] AnzacDay(int year)
+        {
+            var holidayDate = new DateTime(year, 4, 25);
+
+            var holiday = new HolidaySpecification
+            {
+                Id = "ANZACDAY-01",
+                Date = holidayDate,
+                EnglishName = "Anzac Day",
+                LocalName = "Anzac Day",
+                HolidayTypes = HolidayTypes.Public
+            };
+
+            if (holidayDate.DayOfWeek == DayOfWeek.Saturday ||
+                holidayDate.DayOfWeek == DayOfWeek.Sunday)
+            {
+                var weekendObservedRuleSet = new ObservedRuleSet
+                {
+                    Saturday = date => date.AddDays(2),
+                    Sunday = date => date.AddDays(1),
+                };
+
+                var holidayWesternAustralia = new HolidaySpecification
+                {
+                    Id = "ANZACDAY-02",
+                    Date = holidayDate,
+                    EnglishName = "Anzac Day",
+                    LocalName = "Anzac Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["AU-WA"],
+                    ObservedRuleSet = weekendObservedRuleSet
+                };
+
+                return [holiday, holidayWesternAustralia];
+            }
+
+            return [holiday];
         }
 
         private HolidaySpecification[] LabourDay(int year)
