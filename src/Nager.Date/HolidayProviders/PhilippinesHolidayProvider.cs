@@ -133,14 +133,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "CHINESENEWYEAR-01",
-                    Date = new DateTime(year, 1, 29),
-                    EnglishName = "Chinese New Year",
-                    LocalName = "Chinese New Year",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
@@ -214,6 +206,20 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 6),
                     EnglishName = "Feast of Sacrifice",
                     LocalName = "Eid'l Adha",
+                    HolidayTypes = HolidayTypes.Public,
+                };
+            }
+
+        private HolidaySpecification? CNY2026(int year)
+        {
+            if (year == 2026)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "CHINESENEWYEAR-01",
+                    Date = new DateTime(year, 2, 17),
+                    EnglishName = "Chinese New Year",
+                    LocalName = "Chinese New Year",
                     HolidayTypes = HolidayTypes.Public,
                 };
             }
