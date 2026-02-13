@@ -210,6 +210,9 @@ namespace Nager.Date.HolidayProviders
                 };
             }
 
+            return null;
+        }
+
         private HolidaySpecification? CNY2026(int year)
         {
             if (year == 2026)
