@@ -51,14 +51,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "MAUNDYTHURSDAY-01",
-                    Date = new DateTime(year, 4, 17),
-                    EnglishName = "Maundy Thursday",
-                    LocalName = "Huwebes Santo",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
@@ -166,6 +158,7 @@ namespace Nager.Date.HolidayProviders
                 
                 this._catholicProvider.GoodFriday("Biyernes Santo", year),
                 this._catholicProvider.EasterSaturday("Sabado de Gloria", year),
+                this._catholicProvider.MaundyThursday("Huwebes Santo", year),
             };
 
             holidaySpecifications.AddIfNotNull(this.Ramadhan(year));
