@@ -234,6 +234,21 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
+        private int MoveMonth(int month, int leapMonth)
+        {
+            if (leapMonth == 0)
+            {
+                return month;
+            }
+
+            if (leapMonth < month)
+            {
+                return ++month;
+            }
+
+            return month;
+        }
+
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
         {
