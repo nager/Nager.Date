@@ -4,6 +4,7 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Nager.Date.HolidayProviders
 {
@@ -27,8 +28,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var easterSunday = this._catholicProvider.EasterSunday(year);
-
             var lastMondayInAugust = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -156,6 +155,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.Ramadhan(year));
             holidaySpecifications.AddIfNotNull(this.Election2025(year));
             holidaySpecifications.AddIfNotNull(this.EidlAdha(year));
+            holidaySpecifications.AddIfNotNull(this.ChineseNewYear(year));
             return holidaySpecifications;
         }
 
@@ -213,14 +213,18 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private HolidaySpecification? CNY2026(int year)
+        private HolidaySpecification? ChineseNewYear(int year)
         {
-            if (year == 2026)
+            var chineseCalendar = new ChineseLunisolarCalendar();
+            if (year > chineseCalendar.MinSupportedDateTime.Year && year < chineseCalendar.MaxSupportedDateTime.Year)
             {
+                var leapMonth = chineseCalendar.GetLeapMonth(year);
+                var lunarNewYearDay = chineseCalendar.ToDateTime(year, this.MoveMonth(1, leapMonth), 1, 0, 0, 0, 0);
+
                 return new HolidaySpecification
                 {
                     Id = "CHINESENEWYEAR-01",
-                    Date = new DateTime(year, 2, 17),
+                    Date = lunarNewYearDay,
                     EnglishName = "Chinese New Year",
                     LocalName = "Chinese New Year",
                     HolidayTypes = HolidayTypes.Public,
