@@ -1,6 +1,6 @@
 using Nager.LicenseSystem;
 
-namespace Nager.Date.Helpers
+namespace Nager.Date.License
 {
     /// <summary>
     /// License Helper
@@ -14,7 +14,7 @@ namespace Nager.Date.Helpers
         /// <returns></returns>
         public static LicenseInfo? CheckLicenseKey(string? licenseKey)
         {
-            if (licenseKey == null)
+            if (licenseKey is null)
             {
                 return null;
             }

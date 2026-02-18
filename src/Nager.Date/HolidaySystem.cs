@@ -1,5 +1,6 @@
 using Nager.Date.Helpers;
 using Nager.Date.HolidayProviders;
+using Nager.Date.License;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -150,7 +151,7 @@ namespace Nager.Date
                 { CountryCode.ZW, new Lazy<IHolidayProvider>(() => new ZimbabweHolidayProvider(_catholicProvider))}
             };
 
-        private static LicenseCheckStatus _licenseCheckStatus = LicenseCheckStatus.NotChecked;
+        private static LicenseStatus _licenseStatus = LicenseStatus.NotChecked;
 
         /// <summary>
         /// License Key
@@ -165,24 +166,24 @@ namespace Nager.Date
         {
             if (string.IsNullOrEmpty(licenseKey))
             {
-                _licenseCheckStatus = LicenseCheckStatus.NotConfigured;
+                _licenseStatus = LicenseStatus.NotConfigured;
                 return;
             }
 
             var licenseInfo = LicenseHelper.CheckLicenseKey(licenseKey);
             if (licenseInfo is null)
             {
-                _licenseCheckStatus = LicenseCheckStatus.Invalid;
+                _licenseStatus = LicenseStatus.Invalid;
                 return;
             }
 
             if (licenseInfo.ValidUntil < DateTime.Today)
             {
-                _licenseCheckStatus = LicenseCheckStatus.Expired;
+                _licenseStatus = LicenseStatus.Expired;
                 return;
             }
 
-            _licenseCheckStatus = LicenseCheckStatus.Valid;
+            _licenseStatus = LicenseStatus.Valid;
         }
 
         /// <summary>
@@ -228,20 +229,20 @@ namespace Nager.Date
             CountryCode countryCode,
             out IHolidayProvider holidayProvider)
         {
-            if (_licenseCheckStatus == LicenseCheckStatus.NotChecked)
+            if (_licenseStatus == LicenseStatus.NotChecked)
             {
                 CheckLicense(LicenseKey);
             }
 
-            switch (_licenseCheckStatus)
+            switch (_licenseStatus)
             {
-                case LicenseCheckStatus.Valid:
+                case LicenseStatus.Valid:
                     break;
-                case LicenseCheckStatus.NotConfigured:
+                case LicenseStatus.NotConfigured:
                     throw new LicenseKeyException("No LicenseKey");
-                case LicenseCheckStatus.Invalid:
+                case LicenseStatus.Invalid:
                     throw new LicenseKeyException("Invalid LicenseKey");
-                case LicenseCheckStatus.Expired:
+                case LicenseStatus.Expired:
                     throw new LicenseKeyException("Expired LicenseKey");
                 default:
                     throw new LicenseKeyException("Unknown LicenseKey Check Status");

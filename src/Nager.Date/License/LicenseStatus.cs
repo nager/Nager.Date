@@ -1,9 +1,9 @@
-namespace Nager.Date.Models
+namespace Nager.Date.License
 {
     /// <summary>
-    /// License Check Status
+    /// License Status
     /// </summary>
-    internal enum LicenseCheckStatus
+    internal enum LicenseStatus
     {
         /// <summary>
         /// License key is missing or not configured

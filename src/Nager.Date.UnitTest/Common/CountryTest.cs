@@ -49,7 +49,7 @@ namespace Nager.Date.UnitTest.Common
                     var publicHolidays = HolidaySystem.GetHolidays(year, countryCode);
                     foreach (var publicHoliday in publicHolidays)
                     {
-                        if (publicHoliday.SubdivisionCodes == null)
+                        if (publicHoliday.SubdivisionCodes is null)
                         {
                             continue;
                         }
