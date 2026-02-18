@@ -180,7 +180,7 @@ HolidaySystem.LicenseKey = "TheLicenseKey";
 ### Check the license
 ```cs
 var licenseKey = "TheLicenseKey";
-var licenseInfo = Nager.Date.Helpers.LicenseHelper.CheckLicenseKey(licenseKey);
+var licenseInfo = Nager.Date.License.LicenseHelper.CheckLicenseKey(licenseKey);
 if (licenseInfo is null)
 {
     //license key invalid
