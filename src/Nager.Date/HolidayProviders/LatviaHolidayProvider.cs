@@ -28,6 +28,12 @@ namespace Nager.Date.HolidayProviders
         {
             var secondSundayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Sunday, Occurrence.Second);
 
+            var mondayObservedRuleSet = new ObservedRuleSet
+            {
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(1)
+            };
+
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
@@ -53,6 +59,15 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
                     HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Id = "RESTORATIONOFINDEPENDENCE-02",
+                    Date = new DateTime(year, 5, 4),
+                    EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
+                    LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -85,6 +100,15 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day of the Proclamation of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Proklamēšanas diena",
                     HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Id = "PROCLAMATIONDAY-02",
+                    Date = new DateTime(year, 11, 18),
+                    EnglishName = "Day of the Proclamation of the Republic of Latvia",
+                    LocalName = "Latvijas Republikas Proklamēšanas diena",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
