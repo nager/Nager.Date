@@ -35,7 +35,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
-                    LocalName = "Jaunais Gads",
+                    LocalName = "Jaungada diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -50,7 +50,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "RESTORATIONOFINDEPENDENCE-01",
                     Date = new DateTime(year, 5, 4),
-                    EnglishName = "Restoration of Independence day",
+                    EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
                     HolidayTypes = HolidayTypes.Public
                 },
@@ -66,24 +66,24 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "MIDSUMMEREVE-01",
                     Date = new DateTime(year, 6, 23),
-                    EnglishName = "Midsummer Eve",
-                    LocalName = "Līgo Diena",
+                    EnglishName = "Līgo Day",
+                    LocalName = "Līgo diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Id = "MIDSUMMERDAY-01",
                     Date = new DateTime(year, 6, 24),
-                    EnglishName = "Midsummer Day",
-                    LocalName = "Jāņi",
+                    EnglishName = "Jāņi Day",
+                    LocalName = "Jāņu diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Id = "PROCLAMATIONDAY-01",
                     Date = new DateTime(year, 11, 18),
-                    EnglishName = "Proclamation Day of the Republic of Latvia",
-                    LocalName = "Latvijas Republikas proklamēšanas diena",
+                    EnglishName = "Day of the Proclamation of the Republic of Latvia",
+                    LocalName = "Latvijas Republikas Proklamēšanas diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -99,7 +99,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
-                    LocalName = "Ziemassvētki",
+                    LocalName = "Pirmie Ziemassvētki",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -115,12 +115,13 @@ namespace Nager.Date.HolidayProviders
                     Id = "NEWYEARSEVE-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "New Year's Eve",
-                    LocalName = "Vecgada vakars",
+                    LocalName = "Vecgada diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 this._catholicProvider.GoodFriday("Lielā Piektdiena", year),
-                this._catholicProvider.EasterSunday("Lieldienas", year),
-                this._catholicProvider.EasterMonday("Otrās Lieldienas", year)
+                this._catholicProvider.EasterSunday("Pirmās Lieldienas", year),
+                this._catholicProvider.EasterMonday("Otrās Lieldienas", year),
+                this._catholicProvider.Pentecost("Vasarsvētki", year)
             };
 
             return holidaySpecifications;
@@ -131,7 +132,7 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Latvia"
+                "https://likumi.lv/doc.php?id=72608"
             ];
         }
     }
