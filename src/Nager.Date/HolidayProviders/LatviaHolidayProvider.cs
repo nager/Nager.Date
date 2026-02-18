@@ -54,6 +54,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONALASSEMBLYDAY-01",
+                    Date = new DateTime(year, 5, 1),
+                    EnglishName = "Day of the Convocation of the Constitutional Assembly of the Republic of Latvia",
+                    LocalName = "Latvijas Republikas Satversmes sapulces sasaukšanas diena",
+                    HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
                     Id = "RESTORATIONOFINDEPENDENCE-01",
                     Date = new DateTime(year, 5, 4),
                     EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
