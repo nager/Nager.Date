@@ -132,6 +132,7 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Latvia",
                 "https://likumi.lv/doc.php?id=72608"
             ];
         }
