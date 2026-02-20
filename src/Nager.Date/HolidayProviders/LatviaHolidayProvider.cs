@@ -28,6 +28,12 @@ namespace Nager.Date.HolidayProviders
         {
             var secondSundayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Sunday, Occurrence.Second);
 
+            var mondayObservedRuleSet = new ObservedRuleSet
+            {
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(1)
+            };
+
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
@@ -35,7 +41,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "NEWYEARSDAY-01",
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
-                    LocalName = "Jaunais Gads",
+                    LocalName = "Jaungada diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -48,11 +54,20 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CONSTITUTIONALASSEMBLYDAY-01",
+                    Date = new DateTime(year, 5, 1),
+                    EnglishName = "Day of the Convocation of the Constitutional Assembly of the Republic of Latvia",
+                    LocalName = "Latvijas Republikas Satversmes sapulces sasaukšanas diena",
+                    HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
                     Id = "RESTORATIONOFINDEPENDENCE-01",
                     Date = new DateTime(year, 5, 4),
-                    EnglishName = "Restoration of Independence day",
+                    EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -66,25 +81,26 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "MIDSUMMEREVE-01",
                     Date = new DateTime(year, 6, 23),
-                    EnglishName = "Midsummer Eve",
-                    LocalName = "Līgo Diena",
+                    EnglishName = "Līgo Day",
+                    LocalName = "Līgo diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Id = "MIDSUMMERDAY-01",
                     Date = new DateTime(year, 6, 24),
-                    EnglishName = "Midsummer Day",
-                    LocalName = "Jāņi",
+                    EnglishName = "Jāņi Day",
+                    LocalName = "Jāņu diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
                     Id = "PROCLAMATIONDAY-01",
                     Date = new DateTime(year, 11, 18),
-                    EnglishName = "Proclamation Day of the Republic of Latvia",
-                    LocalName = "Latvijas Republikas proklamēšanas diena",
-                    HolidayTypes = HolidayTypes.Public
+                    EnglishName = "Day of the Proclamation of the Republic of Latvia",
+                    LocalName = "Latvijas Republikas Proklamēšanas diena",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = mondayObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -99,7 +115,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
-                    LocalName = "Ziemassvētki",
+                    LocalName = "Pirmie Ziemassvētki",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -115,12 +131,13 @@ namespace Nager.Date.HolidayProviders
                     Id = "NEWYEARSEVE-01",
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "New Year's Eve",
-                    LocalName = "Vecgada vakars",
+                    LocalName = "Vecgada diena",
                     HolidayTypes = HolidayTypes.Public
                 },
                 this._catholicProvider.GoodFriday("Lielā Piektdiena", year),
-                this._catholicProvider.EasterSunday("Lieldienas", year),
-                this._catholicProvider.EasterMonday("Otrās Lieldienas", year)
+                this._catholicProvider.EasterSunday("Pirmās Lieldienas", year),
+                this._catholicProvider.EasterMonday("Otrās Lieldienas", year),
+                this._catholicProvider.Pentecost("Vasarsvētki", year)
             };
 
             return holidaySpecifications;
@@ -131,7 +148,8 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Latvia"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Latvia",
+                "https://likumi.lv/doc.php?id=72608"
             ];
         }
     }
