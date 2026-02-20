@@ -86,9 +86,11 @@ namespace Nager.Date.UnitTest.Common
                         .GroupBy(o => new { o.Date, o.EnglishName, o.LocalName, o.SubdivisionCodes })
                         .Select(o => new { o.Key.Date, o.Key.EnglishName, Count = o.Count() });
 
-                    if (groupedHolidays.Where(o => o.Count > 1).Any())
+                    if (groupedHolidays.Any(o => o.Count > 1))
                     {
-                        Assert.Fail($"Check country {countryCode}");
+                        var holidayNames = groupedHolidays.Where(o => o.Count > 1).Select(o => o.EnglishName);
+
+                        Assert.Fail($"Check country {countryCode} {string.Join(",", holidayNames)}");
                     }
                 }
             }
