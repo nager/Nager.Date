@@ -66,14 +66,6 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 4),
                     EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "RESTORATIONOFINDEPENDENCE-02",
-                    Date = new DateTime(year, 5, 4),
-                    EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
-                    LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = mondayObservedRuleSet
                 },
@@ -104,14 +96,6 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "PROCLAMATIONDAY-01",
-                    Date = new DateTime(year, 11, 18),
-                    EnglishName = "Day of the Proclamation of the Republic of Latvia",
-                    LocalName = "Latvijas Republikas Proklamēšanas diena",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "PROCLAMATIONDAY-02",
                     Date = new DateTime(year, 11, 18),
                     EnglishName = "Day of the Proclamation of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Proklamēšanas diena",
