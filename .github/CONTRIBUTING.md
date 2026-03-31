@@ -58,10 +58,6 @@ Every new provider must include reliable sources to verify the dates.
 - **Priority**: Official government websites or national laws.
 - **Fallback**: Wikipedia is acceptable if no official source is available.
 
-- Always provide at least one reliable source
-- Prefer official government websites
-- Wikipedia is allowed
-
 ### Implementation Example
 Use the following template for a new country provider:
 
