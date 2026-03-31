@@ -1,10 +1,10 @@
 # Contributing to Nager.Date
 
-Guidelines for contributing to the repo.
+Thank you for considering contributing to Nager.Date! Please follow these guidelines to ensure a smooth integration of your changes.
 
-## Add a new Country
+## Adding a New Country
 
-- Add a new country provider in this folder src\Nager.Date\HolidayProviders
+To add support for a new country, create a new provider class in the following directory: `src/Nager.Date/HolidayProviders`
 
 ### Validation Rules
 
@@ -25,8 +25,8 @@ Example:
 ```cs
 var observedRuleSet = new ObservedRuleSet
 {
-    Saturday = date => date.AddDays(2),
-    Sunday = date => date.AddDays(1),
+    Saturday = date => date.AddDays(2), // Move to Monday
+    Sunday = date => date.AddDays(1), // Move to Monday
 }
 ```
 
@@ -37,11 +37,9 @@ If holidays differ by region:
 - Implement `ISubdivisionCodesProvider`
 - Assign `SubdivisionCodes` to the holiday
 
-## Complex Holiday Rules
+### Complex Holiday Rules
 
-If a holiday has complex logic (e.g. different rules per year, conditional dates, or special cases), it must be extracted into a separate private method.
-
-This improves readability, maintainability, and testability.
+For holidays involving complex logic (e.g., year-dependent rules, specific conditions, or astronomical calculations), **extract the logic into a separate private method.**
 
 Example:
 ```cs
@@ -49,17 +47,24 @@ holidaySpecifications.AddRangeIfNotNull(this.LabourDay(year));
 
 private HolidaySpecification[] LabourDay(int year)
 {
-    // complex logic here
+    // Implementation of complex logic
 }
 ```
 
-## Sources
+### Sources
+
+Every new provider must include reliable sources to verify the dates.
+
+- **Priority**: Official government websites or national laws.
+- **Fallback**: Wikipedia is acceptable if no official source is available.
 
 - Always provide at least one reliable source
 - Prefer official government websites
 - Wikipedia is allowed
 
-### Example
+### Implementation Example
+Use the following template for a new country provider:
+
 ```cs
 /// <summary>
 /// NewCountryName HolidayProvider
@@ -73,7 +78,7 @@ public class NewCountryNameHolidayProvider : AbstractHolidayProvider
 	/// </summary>
 	/// <param name="catholicProvider"></param>
 	public NewCountryNameProvider(
-		ICatholicProvider catholicProvider) : base(CountryCode.??)
+		ICatholicProvider catholicProvider) : base(CountryCode.XX)// Replace XX with ISO code
 	{
 		this._catholicProvider = catholicProvider;
 	}
@@ -84,15 +89,17 @@ public class NewCountryNameHolidayProvider : AbstractHolidayProvider
 		var holidaySpecifications = new List<HolidaySpecification>
 		{
 			new HolidaySpecification
-			{
-				Id = "NEWYEARSDAY-01", //Unique key for the holiday
-				Date = new DateTime(year, 1, 1),
-				EnglishName = "english name",
-				LocalName = "local name",
-				HolidayTypes = HolidayTypes.Public
-			},
-			/// add all public holidays
-			this._catholicProvider.EasterSunday("local name", year),
+            {
+                Id = "NEWYEARSDAY-01",
+                Date = new DateTime(year, 1, 1),
+                EnglishName = "New Year's Day",
+                LocalName = "Local Name",
+                HolidayTypes = HolidayTypes.Public
+            },
+
+			// Add other public holidays...
+
+			this._catholicProvider.EasterSunday("Easter Sunday Local Name", year),
 		};
 	
 		return holidaySpecifications;
@@ -103,7 +110,8 @@ public class NewCountryNameHolidayProvider : AbstractHolidayProvider
 	{
 		return
 		[
-			"https://source-of-the-information"
+			"https://official-government-source.gov",
+            "https://en.wikipedia.org/wiki/Public_holidays_in_NewCountryName"
 		];
 	}
 }
