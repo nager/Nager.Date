@@ -79,7 +79,7 @@ public class NewCountryNameHolidayProvider : AbstractHolidayProvider
 		this._catholicProvider = catholicProvider;
 	}
 	
-	///<inheritdoc/>
+	/// <inheritdoc/>
 	protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
 	{
 		var holidaySpecifications = new List<HolidaySpecification>
