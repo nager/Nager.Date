@@ -4,49 +4,57 @@ Guidelines for contributing to the repo.
 
 ## Add a new Country
 
-- Add a new country provider in this folder src\Nager.Date\PublicHolidays
-- Add a link to the source of the informations
+- Add a new country provider in this folder src\Nager.Date\HolidayProviders
+- Add a link to the source of the informations, multiple allowed
 - The countrycode is ISO 3166-1 ALPHA-2
+- The `Id` must be unique for this HolidayProvider
 
 ### Example
 ```
 /// <summary>
-/// NewCountryName
+/// NewCountryName HolidayProvider
 /// </summary>
-public class NewCountryNameProvider : IPublicHolidayProvider
+public class NewCountryNameHolidayProvider : AbstractHolidayProvider
 {
         private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
-        /// NewCountryNameProvider
+        /// NewCountryName HolidayProvider
         /// </summary>
         /// <param name="catholicProvider"></param>
-        public NewCountryNameProvider(ICatholicProvider catholicProvider)
+        public NewCountryNameProvider(
+			ICatholicProvider catholicProvider) : base(CountryCode.??)
         {
             this._catholicProvider = catholicProvider;
         }
 
         ///<inheritdoc/>
-        public override IEnumerable<PublicHoliday> Get(int year)
+        protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var countryCode = CountryCode.XX;
-            var easterSunday = this._catholicProvider.EasterSunday(year);
+			var holidaySpecifications = new List<HolidaySpecification>
+            {
+                new HolidaySpecification
+                {
+                    Id = "NEWYEARSDAY-01", //Unique key for the holiday
+                    Date = new DateTime(year, 1, 1),
+                    EnglishName = "english name",
+                    LocalName = "local name",
+                    HolidayTypes = HolidayTypes.Public
+                },
+				/// add all public holidays
+                this._catholicProvider.EasterSunday("local name", year),
+            };
 
-            var items = new List<PublicHoliday>();
-            items.Add(new PublicHoliday(year, 1, 1, "local name", "english name", countryCode));
-            items.Add(new PublicHoliday(year, 12, 25, "local name", "english name", countryCode));     
-            /// add all public holidays
-
-            return items.OrderBy(o => o.Date);
+            return holidaySpecifications;
         }
 		
         ///<inheritdoc/>
-        public IEnumerable<string> GetSources()
+        public override IEnumerable<string> GetSources()
         {
-            return new string[]
-            {
+            return
+            [
                 "https://source-of-the-information"
-            };
+            ];
         }
 }
 ```
