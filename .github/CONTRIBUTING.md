@@ -10,7 +10,7 @@ Guidelines for contributing to the repo.
 - The `Id` must be unique for this HolidayProvider
 
 ### Example
-```
+```cs
 /// <summary>
 /// NewCountryName HolidayProvider
 /// </summary>
