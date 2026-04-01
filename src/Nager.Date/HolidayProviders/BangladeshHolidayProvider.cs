@@ -93,7 +93,7 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://mopa.gov.bd/ (Official Government Gazette dated 09 November 2025, Ref: 05.00.0000.000.175.08.0008.25-17)",
-                "https://objectstorage.ap-dcc-gazipur-1.oraclecloud15.com/n/axvjbnqprylg/b/V2Ministry/o/office-mopa/2024/12/209c6283d9234a0fa8f1f30b90068b57.pdf"
+                "https://objectstorage.ap-dcc-gazipur-1.oraclecloud15.com/n/axvjbnqprylg/b/V2Ministry/o/office-mopa/2024/12/209c6283d9234a0fa8f1f30b90068b57.pdf",
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Bangladesh"
             ];
         }
