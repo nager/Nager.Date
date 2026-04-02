@@ -7,7 +7,7 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Bangladesh HolidayProvider
     /// </summary>
-    public class BangladeshHolidayProvider : AbstractHolidayProvider
+    internal sealed class BangladeshHolidayProvider : AbstractHolidayProvider
     {
         /// <summary>
         /// Bangladesh HolidayProvider
