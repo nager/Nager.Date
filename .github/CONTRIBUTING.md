@@ -65,7 +65,7 @@ Use the following template for a new country provider:
 /// <summary>
 /// NewCountryName HolidayProvider
 /// </summary>
-public class NewCountryNameHolidayProvider : AbstractHolidayProvider
+internal sealed class NewCountryNameHolidayProvider : AbstractHolidayProvider
 {
 	private readonly ICatholicProvider _catholicProvider;
 	
