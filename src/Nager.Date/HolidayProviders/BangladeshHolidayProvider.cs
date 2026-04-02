@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
@@ -55,14 +56,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "JULYMASSUPRISINGDAY-01",
-                    Date = new DateTime(year, 8, 5),
-                    EnglishName = "July Mass Uprising Day",
-                    LocalName = "জুলাই গণঅভ্যুত্থান দিবস",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Id = "VICTORYDAY-01",
                     Date = new DateTime(year, 12, 16),
                     EnglishName = "Victory Day",
@@ -79,12 +72,31 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
+            holidaySpecifications.AddIfNotNull(this.JulyMassUprisingDay(year));
+
             // Lunar/religious holidays (Eid-ul-Fitr, Eid-ul-Adha, Buddha Purnima, Janmashtami,
             // Durga Puja, Miladunnabi, etc.) depend on moon sighting and are NOT fixed.
             // TODO: Add when Nager.Date supports Hijri/Bengali calendar calculations
             // (see IndonesiaHolidayProvider and EgyptHolidayProvider for the pattern).
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? JulyMassUprisingDay(int year)
+        {
+            if (year >= 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "JULYMASSUPRISINGDAY-01",
+                    Date = new DateTime(year, 8, 5),
+                    EnglishName = "July Mass Uprising Day",
+                    LocalName = "জুলাই গণঅভ্যুত্থান দিবস",
+                    HolidayTypes = HolidayTypes.Public
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
