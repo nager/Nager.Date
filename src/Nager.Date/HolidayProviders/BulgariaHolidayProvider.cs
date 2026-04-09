@@ -75,7 +75,8 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 24),
                     EnglishName = "Saints Cyril and Methodius Day",
                     LocalName = "Ден на Българската просвета и култура и на славянската писменост",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -83,7 +84,8 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 6),
                     EnglishName = "Unification Day",
                     LocalName = "Ден на съединението",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
                 {
