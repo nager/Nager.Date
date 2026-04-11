@@ -21,7 +21,7 @@ jobs:
         dotnet-version: 10.0.x
     - name: Extract Version from tag
       id: tag
-      uses: actions/github-script@v8
+      uses: actions/github-script@v9
       with:
         script: |
           const version = context.ref.replace('refs/tags/', '');
