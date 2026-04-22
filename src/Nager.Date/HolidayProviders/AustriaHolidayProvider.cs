@@ -169,7 +169,7 @@ namespace Nager.Date.HolidayProviders
                 EnglishName = "Saint Rupert's Day",
                 LocalName = "Rupertitag",
                 HolidayTypes = HolidayTypes.School,
-                SubdivisionCodes = ["AT-6"]
+                SubdivisionCodes = ["AT-5"]
             };
         }
 
