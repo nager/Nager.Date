@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -124,7 +125,78 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Fronleichnam", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.SaintJosephsDay(year));
+            holidaySpecifications.AddIfNotNull(this.SaintFloriansDay(year));
+            holidaySpecifications.AddIfNotNull(this.SaintRupertsDay(year));
+            holidaySpecifications.AddIfNotNull(this.SaintMartinsDay(year));
+            holidaySpecifications.AddIfNotNull(this.SaintLeopoldsDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification SaintJosephsDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "SAINTJOSEPHSDAY-01",
+                Date = new DateTime(year, 3, 19),
+                EnglishName = "Saint Joseph's Day",
+                LocalName = "Josefstag",
+                HolidayTypes = HolidayTypes.School,
+                SubdivisionCodes = ["AT-2", "AT-6", "AT-7", "AT-8"]
+            };
+        }
+
+        private HolidaySpecification SaintFloriansDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "SAINTFLORIANSDAY-01",
+                Date = new DateTime(year, 5, 4),
+                EnglishName = "Saint Florian's Day",
+                LocalName = "Florianitag",
+                HolidayTypes = HolidayTypes.School,
+                SubdivisionCodes = ["AT-4"]
+            };
+        }
+
+        private HolidaySpecification SaintRupertsDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "SAINTRUPERTSDAY-01",
+                Date = new DateTime(year, 9, 24),
+                EnglishName = "Saint Rupert's Day",
+                LocalName = "Rupertitag",
+                HolidayTypes = HolidayTypes.School,
+                SubdivisionCodes = ["AT-6"]
+            };
+        }
+
+        private HolidaySpecification SaintMartinsDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "SAINTMARTINSDAY-01",
+                Date = new DateTime(year, 11, 11),
+                EnglishName = "Saint Martin's Day",
+                LocalName = "Martinstag",
+                HolidayTypes = HolidayTypes.School,
+                SubdivisionCodes = ["AT-1"]
+            };
+        }
+
+        private HolidaySpecification SaintLeopoldsDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "SAINTLEOPOLDSDAY-01",
+                Date = new DateTime(year, 11, 15),
+                EnglishName = "Saint Leopold's Day",
+                LocalName = "Leopolditag",
+                HolidayTypes = HolidayTypes.School,
+                SubdivisionCodes = ["AT-3", "AT-9"]
+            };
         }
 
         /// <inheritdoc/>
