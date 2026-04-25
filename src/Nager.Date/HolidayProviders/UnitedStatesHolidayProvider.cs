@@ -105,7 +105,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank,
                     ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
@@ -114,7 +114,7 @@ namespace Nager.Date.HolidayProviders
                     Date = thirdMondayInJanuary,
                     EnglishName = "Martin Luther King, Jr. Day",
                     LocalName = "Martin Luther King, Jr. Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
@@ -122,7 +122,7 @@ namespace Nager.Date.HolidayProviders
                     Date = thirdMondayInFebruary,
                     EnglishName = "Presidents Day",
                     LocalName = "Washington's Birthday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
@@ -130,7 +130,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lastMondayInMay,
                     EnglishName = "Memorial Day",
                     LocalName = "Memorial Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
@@ -138,7 +138,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 7, 4),
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank,
                     ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
@@ -156,7 +156,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstMondayInSeptember,
                     EnglishName = "Labour Day",
                     LocalName = "Labor Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
@@ -169,11 +169,19 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "COLUMBUSDAY-02",
+                    Date = secondMondayInOctober,
+                    EnglishName = "Columbus Day",
+                    LocalName = "Columbus Day",
+                    HolidayTypes = HolidayTypes.Bank
+                },
+                new HolidaySpecification
+                {
                     Id = "VETERANSDAY-01",
                     Date = new DateTime(year, 11, 11),
                     EnglishName = "Veterans Day",
                     LocalName = "Veterans Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank,
                     ObservedRuleSet = observedRuleSet
                 },
                 new HolidaySpecification
@@ -182,7 +190,7 @@ namespace Nager.Date.HolidayProviders
                     Date = fourthThursdayInNovember,
                     EnglishName = "Thanksgiving Day",
                     LocalName = "Thanksgiving Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank
                 },
                 new HolidaySpecification
                 {
@@ -190,7 +198,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank,
                     ObservedRuleSet = observedRuleSet
                 },
 
@@ -235,7 +243,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 19),
                     EnglishName = "Juneteenth National Independence Day",
                     LocalName = "Juneteenth National Independence Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.Public | HolidayTypes.Bank,
                     ObservedRuleSet = observedRuleSet
                 };
             }
@@ -286,7 +294,8 @@ namespace Nager.Date.HolidayProviders
             [
                 "https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States",
                 "https://www.whitehouse.gov/briefing-room/speeches-remarks/2021/06/17/remarks-by-president-biden-at-signing-of-the-juneteenth-national-independence-day-act/",
-                "https://en.wikipedia.org/wiki/Indigenous_Peoples%27_Day_(United_States)#Indigenous_Peoples_Day_observers"
+                "https://en.wikipedia.org/wiki/Indigenous_Peoples%27_Day_(United_States)#Indigenous_Peoples_Day_observers",
+                "https://www.frbservices.org/about/holiday-schedules"
             ];
         }
     }
