@@ -26,5 +26,22 @@ var publicHolidays = HolidaySystem.GetHolidays(year, countryCode);
 foreach (var publicHoliday in publicHolidays)
 {
     var counties = publicHoliday.SubdivisionCodes != null ? string.Join(',', publicHoliday.SubdivisionCodes) : "";
-    Console.WriteLine($"{publicHoliday.Date:ddd}{"",1}{publicHoliday.Date:d}{"",3}{publicHoliday.ObservedDate:ddd}{"",1}{publicHoliday.ObservedDate:d}{"",3}{publicHoliday.EnglishName,30}{"",3}{publicHoliday.LocalName,30}{"",3}{publicHoliday.HolidayTypes}{"",3}{counties}");
+
+    Console.Write($"{publicHoliday.Date:ddd}{"",1}");
+    Console.Write($"{publicHoliday.Date:d}{"",3}");
+    if (publicHoliday.Date.Equals(publicHoliday.ObservedDate.Date))
+    {
+        Console.Write($"-{"",15}");
+    }
+    else
+    {
+        Console.Write($"{publicHoliday.ObservedDate:ddd}{"",1}");
+        Console.Write($"{publicHoliday.ObservedDate:d}{"",3}");
+    }
+    Console.Write($"{publicHoliday.EnglishName,30}{"",3}");
+    Console.Write($"{publicHoliday.LocalName,30}{"",3}");
+    Console.Write($"{publicHoliday.HolidayTypes}{"",3}");
+    Console.Write($"{counties}");
+
+    Console.WriteLine("");
 }
