@@ -214,39 +214,87 @@ namespace Nager.Date.HolidayProviders
         {
             var holidayDate = new DateTime(year, 4, 25);
 
-            var holiday = new HolidaySpecification
+            var englishName = "Anzac Day";
+            var localName = "Anzac Day";
+
+            if (holidayDate.DayOfWeek == DayOfWeek.Monday ||
+                holidayDate.DayOfWeek == DayOfWeek.Tuesday ||
+                holidayDate.DayOfWeek == DayOfWeek.Wednesday ||
+                holidayDate.DayOfWeek == DayOfWeek.Thursday ||
+                holidayDate.DayOfWeek == DayOfWeek.Friday)
             {
-                Id = "ANZACDAY-01",
-                Date = holidayDate,
-                EnglishName = "Anzac Day",
-                LocalName = "Anzac Day",
-                HolidayTypes = HolidayTypes.Public
+                return [new HolidaySpecification
+                {
+                    Id = "ANZACDAY-01",
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                }];
+            }
+
+            var holidays = new List<HolidaySpecification>();
+
+            var weekendObservedRuleSet = new ObservedRuleSet
+            {
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(1),
             };
 
-            if (holidayDate.DayOfWeek == DayOfWeek.Saturday ||
-                holidayDate.DayOfWeek == DayOfWeek.Sunday)
+            if (year == 2026 || year == 2027)
             {
-                var weekendObservedRuleSet = new ObservedRuleSet
+                var holidayGeneral = new HolidaySpecification
                 {
-                    Saturday = date => date.AddDays(2),
-                    Sunday = date => date.AddDays(1),
+                    Id = "ANZACDAY-04",
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["AU-NT", "AU-QLD", "AU-SA", "AU-TAS", "AU-VIC"]
+                };
+
+                var holidayWeekendShift = new HolidaySpecification
+                {
+                    Id = "ANZACDAY-05",
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["AU-NSW", "AU-ACT", "AU-WA"],
+                    ObservedRuleSet = weekendObservedRuleSet
+                };
+
+                holidays.Add(holidayGeneral);
+                holidays.Add(holidayWeekendShift);
+            }
+            else
+            {
+                var holidayGeneral = new HolidaySpecification
+                {
+                    Id = "ANZACDAY-03",
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["AU-ACT", "AU-NSW", "AU-NT", "AU-QLD", "AU-SA", "AU-TAS", "AU-VIC"]
                 };
 
                 var holidayWesternAustralia = new HolidaySpecification
                 {
                     Id = "ANZACDAY-02",
                     Date = holidayDate,
-                    EnglishName = "Anzac Day",
-                    LocalName = "Anzac Day",
+                    EnglishName = englishName,
+                    LocalName = localName,
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["AU-WA"],
                     ObservedRuleSet = weekendObservedRuleSet
                 };
 
-                return [holiday, holidayWesternAustralia];
+                holidays.Add(holidayGeneral);
+                holidays.Add(holidayWesternAustralia);
             }
 
-            return [holiday];
+            return [.. holidays];
         }
 
         private HolidaySpecification[] LabourDay(int year)
