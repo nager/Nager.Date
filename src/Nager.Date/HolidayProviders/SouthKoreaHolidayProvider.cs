@@ -14,10 +14,15 @@ namespace Nager.Date.HolidayProviders
         public SouthKoreaHolidayProvider() : base(CountryCode.KR)
         {
         }
+
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var childrenDay = new DateTime(year, 5, 5).Shift(saturday => saturday.AddDays(2), sunday => sunday.AddDays(1)); //Substitute holiday
+            var weekendObservedRuleSet = new ObservedRuleSet
+            {
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(1),
+            };
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -31,19 +36,12 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "INDEPENDENCEMOVEMENTDAY-01",
-                    Date = new DateTime(year, 3, 1),
-                    EnglishName = "Independence Movement Day",
-                    LocalName = "3·1절",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Id = "CHILDRENSDAY-01",
-                    Date = childrenDay,
+                    Date = new DateTime(year, 5, 5),
                     EnglishName = "Children's Day",
                     LocalName = "어린이날",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -55,30 +53,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "LIBERATIONDAY-01",
-                    Date = new DateTime(year, 8, 15),
-                    EnglishName = "Liberation Day",
-                    LocalName = "광복절",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "NATIONALFOUNDATIONDAY-01",
-                    Date = new DateTime(year, 10, 3),
-                    EnglishName = "National Foundation Day",
-                    LocalName = "개천절",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "HANGULDAY-01",
-                    Date = new DateTime(year, 10, 9),
-                    EnglishName = "Hangul Day",
-                    LocalName = "한글날",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
@@ -86,6 +60,151 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public
                 }
             };
+
+            holidaySpecifications.AddIfNotNull(this.LabourDay(year, weekendObservedRuleSet));
+            holidaySpecifications.AddIfNotNull(this.ConstitutionDay(year, weekendObservedRuleSet));
+            holidaySpecifications.AddIfNotNull(this.IndependenceMovementDay(year, weekendObservedRuleSet));
+            holidaySpecifications.AddIfNotNull(this.LiberationDay(year, weekendObservedRuleSet));
+            holidaySpecifications.AddIfNotNull(this.NationalFoundationDay(year, weekendObservedRuleSet));
+            holidaySpecifications.AddIfNotNull(this.HangulDay(year, weekendObservedRuleSet));
+            holidaySpecifications.AddRangeIfNotNull(this.GetKoreanLunisolarHolidays(year));
+
+            return holidaySpecifications;
+        }
+
+        private HolidaySpecification IndependenceMovementDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            var holidayObservedRuleSet = observedRuleSet;
+
+            if (year < 2022)
+            {
+                holidayObservedRuleSet = null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "INDEPENDENCEMOVEMENTDAY-01",
+                Date = new DateTime(year, 3, 1),
+                EnglishName = "Independence Movement Day",
+                LocalName = "3·1절",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = holidayObservedRuleSet
+            };
+        }
+
+        private HolidaySpecification LiberationDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            var holidayObservedRuleSet = observedRuleSet;
+
+            if (year < 2022)
+            {
+                holidayObservedRuleSet = null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "LIBERATIONDAY-01",
+                Date = new DateTime(year, 8, 15),
+                EnglishName = "Liberation Day",
+                LocalName = "광복절",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = holidayObservedRuleSet
+            };
+        }
+
+        private HolidaySpecification NationalFoundationDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            var holidayObservedRuleSet = observedRuleSet;
+
+            if (year < 2022)
+            {
+                holidayObservedRuleSet = null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "NATIONALFOUNDATIONDAY-01",
+                Date = new DateTime(year, 10, 3),
+                EnglishName = "National Foundation Day",
+                LocalName = "개천절",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = holidayObservedRuleSet
+            };
+        }
+
+        private HolidaySpecification HangulDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            var holidayObservedRuleSet = observedRuleSet;
+
+            if (year < 2022)
+            {
+                holidayObservedRuleSet = null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "HANGULDAY-01",
+                Date = new DateTime(year, 10, 9),
+                EnglishName = "Hangul Day",
+                LocalName = "한글날",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = holidayObservedRuleSet
+            };
+        }
+
+        private HolidaySpecification? LabourDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            if (year < 2026)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "LABOURDAY-01",
+                Date = new DateTime(year, 5, 1),
+                EnglishName = "Labour Day",
+                LocalName = "노동절",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = observedRuleSet
+            };
+        }
+
+        private HolidaySpecification ConstitutionDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            var holidayTypes = HolidayTypes.Public;
+
+            if (year >= 2008 && year < 2026)
+            {
+                holidayTypes = HolidayTypes.Observance;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "CONSTITUTIONDAY-01",
+                Date = new DateTime(year, 7, 17),
+                EnglishName = "Constitution Day",
+                LocalName = "제헌절",
+                HolidayTypes = holidayTypes,
+                ObservedRuleSet = observedRuleSet
+            };
+        }
+
+        private HolidaySpecification[] GetKoreanLunisolarHolidays(int year)
+        {
+            var holidaySpecifications = new List<HolidaySpecification>();
 
             var koreanCalendar = new KoreanLunisolarCalendar();
             if (year >= koreanCalendar.MinSupportedDateTime.Year && year < koreanCalendar.MaxSupportedDateTime.Year)
@@ -163,7 +282,7 @@ namespace Nager.Date.HolidayProviders
                 });
             }
 
-            return holidaySpecifications;
+            return [.. holidaySpecifications];
         }
 
         private int MoveMonth(int month, int leapMonth)
@@ -187,7 +306,8 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_South_Korea", //South Korea's public holidays
-                "https://www.koreanlaborlaw.com/substitute-holiday-system-of-korea/" //Substitute holiday system of Korea
+                "https://www.koreanlaborlaw.com/substitute-holiday-system-of-korea/", //Substitute holiday system of Korea
+                "https://www.law.go.kr/lsInfoP.do?lsiSeq=233829#0000"
             ];
         }
     }
