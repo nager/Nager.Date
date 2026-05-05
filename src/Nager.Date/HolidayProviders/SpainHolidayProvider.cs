@@ -232,11 +232,6 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification Assumption(int year)
         {
-            var observedRuleSet = new ObservedRuleSet
-            {
-                Sunday = date => date.AddDays(1)
-            };
-
             return new HolidaySpecification
             {
                 Id = "ASSUMPTION-01",
@@ -244,26 +239,28 @@ namespace Nager.Date.HolidayProviders
                 EnglishName = "Assumption",
                 LocalName = "Asunción",
                 HolidayTypes = HolidayTypes.Public,
-                ObservedRuleSet = observedRuleSet
             };
         }
 
         private HolidaySpecification DayOfMadrid(int year)
         {
-            var observedRuleSet = new ObservedRuleSet
+            var date = year switch
             {
-                Sunday = date => date.AddDays(1)
+                2004 => new DateTime(year, 5, 3),
+                2005 => new DateTime(year, 5, 3),
+                2010 => new DateTime(year, 5, 3),
+                2011 => new DateTime(year, 5, 3),
+                2021 => new DateTime(year, 5, 3),
+                _ => new DateTime(year, 5, 2),
             };
-
             return new HolidaySpecification
             {
                 Id = "DAYOFMADRID-01",
-                Date = new DateTime(year, 5, 2),
+                Date = date,
                 EnglishName = "Day of Madrid",
                 LocalName = "Fiesta de la Comunidad de Madrid",
                 HolidayTypes = HolidayTypes.Public,
-                SubdivisionCodes = ["ES-MD"],
-                ObservedRuleSet = observedRuleSet
+                SubdivisionCodes = ["ES-MD"]
             };
         }
 
@@ -321,13 +318,9 @@ namespace Nager.Date.HolidayProviders
                     subdivisionCodes = ["ES-MD"];
                     break;
                 default:
+                    //Not a Holiday in this year
                     return null;
             }
-
-            var observedRuleSet = new ObservedRuleSet
-            {
-                Sunday = date => date.AddDays(1)
-            };
 
             return new HolidaySpecification
             {
@@ -336,8 +329,7 @@ namespace Nager.Date.HolidayProviders
                 EnglishName = "Saint Joseph's Day",
                 LocalName = "San José",
                 HolidayTypes = HolidayTypes.Public,
-                SubdivisionCodes = subdivisionCodes,
-                ObservedRuleSet = observedRuleSet
+                SubdivisionCodes = subdivisionCodes
             };
         }
 
