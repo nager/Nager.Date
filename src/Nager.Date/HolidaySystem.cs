@@ -384,9 +384,10 @@ namespace Nager.Date
             HolidayTypes holidayTypes,
             string? subdivisionCodes = null)
         {
-            return o => o.ObservedDate == date.Date
-                        && (o.SubdivisionCodes is null || subdivisionCodes is not null && o.SubdivisionCodes.Contains(subdivisionCodes))
-                        && o.HolidayTypes.HasFlag(holidayTypes);
+            return o => o.ObservedDate == date.Date &&
+                        (o.SubdivisionCodes is null || subdivisionCodes is not null &&
+                        o.SubdivisionCodes.Contains(subdivisionCodes, StringComparer.OrdinalIgnoreCase)) &&
+                        o.HolidayTypes.HasFlag(holidayTypes);
         }
 
         /// <summary>
@@ -461,7 +462,8 @@ namespace Nager.Date
             }
 
             var provider = GetHolidayProvider(countryCode);
-            if (provider is ISubdivisionCodesProvider countryProvider && !countryProvider.GetSubdivisionCodes().ContainsKey(subdivisionCode))
+            if (provider is ISubdivisionCodesProvider countryProvider &&
+                !countryProvider.GetSubdivisionCodes().Keys.Contains(subdivisionCode, StringComparer.OrdinalIgnoreCase))
             {
                 throw new ArgumentException($"Invalid {nameof(subdivisionCode)} {subdivisionCode}");
             }
