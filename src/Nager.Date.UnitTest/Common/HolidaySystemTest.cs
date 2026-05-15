@@ -112,6 +112,17 @@ namespace Nager.Date.UnitTest.Common
             Assert.IsTrue(isPublicHoliday);
         }
 
+
+        [TestMethod]
+        public void CheckIsPublicHoliday_WithSubdivisonCode()
+        {
+            var isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2026, 3, 9), CountryCode.AU, "AU-VIC");
+            Assert.IsTrue(isPublicHoliday);
+
+            isPublicHoliday = HolidaySystem.IsPublicHoliday(new DateTime(2026, 3, 9), CountryCode.AU, "au-vic");
+            Assert.IsTrue(isPublicHoliday);
+        }
+
         [TestMethod]
         public void CheckPublicHolidayWithDateFilter2()
         {
