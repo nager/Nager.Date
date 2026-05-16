@@ -44,6 +44,15 @@ namespace Nager.Date.HolidayProviders
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 },
+                 new HolidaySpecification
+                {
+                    Id = "FOLLOWINGEASTERMONDAY-01",
+                    Date = easterSunday.AddDays(2),
+                    EnglishName = "The day following Easter Monday",
+                    LocalName = "復活節後第二日",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
+                },
                 new HolidaySpecification
                 {
                     Id = "LABOURDAY-01",
