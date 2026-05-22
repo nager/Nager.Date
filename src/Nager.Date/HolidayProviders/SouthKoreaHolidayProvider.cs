@@ -67,7 +67,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.LiberationDay(year, weekendObservedRuleSet));
             holidaySpecifications.AddIfNotNull(this.NationalFoundationDay(year, weekendObservedRuleSet));
             holidaySpecifications.AddIfNotNull(this.HangulDay(year, weekendObservedRuleSet));
-            holidaySpecifications.AddRangeIfNotNull(this.GetKoreanLunisolarHolidays(year));
+            holidaySpecifications.AddRangeIfNotNull(this.GetKoreanLunisolarHolidays(year, weekendObservedRuleSet));
 
             return holidaySpecifications;
         }
@@ -202,7 +202,7 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification[] GetKoreanLunisolarHolidays(int year)
+        private HolidaySpecification[] GetKoreanLunisolarHolidays(int year, ObservedRuleSet observedRuleSet)
         {
             var holidaySpecifications = new List<HolidaySpecification>();
 
@@ -254,7 +254,8 @@ namespace Nager.Date.HolidayProviders
                     Date = buddhaBday,
                     EnglishName = "Buddha's Birthday",
                     LocalName = "부처님 오신 날",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = year >= 2023 ? observedRuleSet : null
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
