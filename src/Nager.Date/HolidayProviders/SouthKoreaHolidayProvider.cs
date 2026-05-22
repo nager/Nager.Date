@@ -69,6 +69,18 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.HangulDay(year, weekendObservedRuleSet));
             holidaySpecifications.AddRangeIfNotNull(this.GetKoreanLunisolarHolidays(year, weekendObservedRuleSet));
 
+            if (year == 2026)
+            {
+                holidaySpecifications.Add(new HolidaySpecification
+                {
+                    Id = "LOCALELECTIONDAY2026-01",
+                    Date = new DateTime(year, 6, 3),
+                    EnglishName = "Local Election Day",
+                    LocalName = "지방 선거일",
+                    HolidayTypes = HolidayTypes.Public
+                });
+            }
+
             return holidaySpecifications;
         }
 
