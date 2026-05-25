@@ -125,10 +125,10 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "​CHRISTMASDAY-01",
+                    Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
-                    EnglishName = "​Christmas Day",
-                    LocalName = "Il-Milied​",
+                    EnglishName = "Christmas Day",
+                    LocalName = "Il-Milied",
                     HolidayTypes = HolidayTypes.Public
                 },
                 this._catholicProvider.GoodFriday("Il-Ġimgħa l-Kbira", year)
