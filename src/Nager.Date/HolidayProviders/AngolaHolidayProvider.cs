@@ -1,4 +1,3 @@
-using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -18,7 +17,7 @@ namespace Nager.Date.HolidayProviders
         /// </summary>
         /// <param name="catholicProvider"></param>
         public AngolaHolidayProvider(
-            ICatholicProvider catholicProvider) : base(CountryCode.AT)
+            ICatholicProvider catholicProvider) : base(CountryCode.AO)
         {
             this._catholicProvider = catholicProvider;
         }
