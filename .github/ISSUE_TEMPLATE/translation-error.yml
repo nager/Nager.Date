@@ -1,0 +1,56 @@
+---
+
+name: Translation error
+description: Report an incorrect translation
+title: "Translation error"
+labels: ["translation"]
+body:
+
+* type: markdown
+  attributes:
+  value: |
+  Please provide details about the translation issue so that we can review and correct it.
+
+* type: input
+  id: url
+  attributes:
+  label: Affected page URL
+  description: The URL where the incorrect translation appears
+  placeholder: "https://date.nager.at/de/publicholiday/austria/2026"
+  validations:
+  required: true
+
+* type: input
+  id: current_text
+  attributes:
+  label: Current text
+  description: The text currently displayed on the page
+  placeholder: "Current translation"
+  validations:
+  required: true
+
+* type: input
+  id: suggested_text
+  attributes:
+  label: Suggested translation
+  description: The translation that should be displayed instead
+  placeholder: "Suggested translation"
+  validations:
+  required: true
+
+* type: textarea
+  id: reason
+  attributes:
+  label: Reason
+  description: Explain why the current translation is incorrect (optional)
+  placeholder: "Grammar issue, wrong wording, outdated translation, etc."
+  validations:
+  required: false
+
+* type: textarea
+  id: additional_information
+  attributes:
+  label: Additional information
+  description: Any other details that may help us review the issue
+  validations:
+  required: false
