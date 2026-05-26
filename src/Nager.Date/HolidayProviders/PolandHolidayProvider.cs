@@ -57,7 +57,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "CONSTITUTIONDAY-01",
                     Date = new DateTime(year, 5, 3),
                     EnglishName = "Constitution Day",
-                    LocalName = "Święto Narodowe Trzeciego Maja",
+                    LocalName = "Święto Konstytucji 3 Maja",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -121,7 +121,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "CHRISTMASEVE-01",
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
-                    LocalName = "Wolna Wigilia",
+                    LocalName = "Wigilia Bożego Narodzenia",
                     HolidayTypes = HolidayTypes.Public
                 };
             }
