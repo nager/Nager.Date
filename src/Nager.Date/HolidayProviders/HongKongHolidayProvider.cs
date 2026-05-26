@@ -88,15 +88,34 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "聖誕節翌日",
                     HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
-                },
-                this._catholicProvider.GoodFriday("耶穌受難節", year),
-                this._catholicProvider.EasterSaturday("耶穌受難節翌日", year),
-                this._catholicProvider.EasterMonday("復活節星期一", year),
+                }
             };
 
+            holidaySpecifications.AddRange(this.GetChineseLunisolarHolidaysAndCatholic(year));
+
+            return holidaySpecifications;
+        }
+
+        private HolidaySpecification[] GetChineseLunisolarHolidaysAndCatholic(int year)
+        {
+            var goodFriday = this._catholicProvider.GoodFriday("耶穌受難節", year);
+            var easterSaturday = this._catholicProvider.EasterSaturday("耶穌受難節翌日", year); //The day following Good Friday
+
+            var holidaySpecifications = new List<HolidaySpecification>
+            {
+                goodFriday,
+                easterSaturday
+            };
+
+            DateTime? chingMingFestivalDate = null;
             var chineseCalendar = new ChineseLunisolarCalendar();
             if (year > chineseCalendar.MinSupportedDateTime.Year && year < chineseCalendar.MaxSupportedDateTime.Year)
             {
+                var observedRuleSet1 = new ObservedRuleSet
+                {
+                    Sunday = date => date.AddDays(1)
+                };
+
                 var observedRuleSet2 = new ObservedRuleSet
                 {
                     Sunday = date => date.AddDays(1),
@@ -122,10 +141,10 @@ namespace Nager.Date.HolidayProviders
                 var followingTheMidAutumnFestivalDay = chineseCalendar.ToDateTime(year, this.MoveMonth(8, leapMonth), 16, 0, 0, 0, 0);
                 var chungYeungFestivalDay = chineseCalendar.ToDateTime(year, this.MoveMonth(9, leapMonth), 9, 0, 0, 0, 0);
 
-                var chingMingFestivalDate = new DateTime(year, 4, 5);
+                chingMingFestivalDate = new DateTime(year, 4, 5);
                 if (leapMonth != 4)
                 {
-                    chingMingFestivalDate = chingMingFestivalDate.AddDays(-1);
+                    chingMingFestivalDate = chingMingFestivalDate.Value.AddDays(-1);
                 }
 
                 holidaySpecifications.Add(new HolidaySpecification
@@ -135,7 +154,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Lunar New Year",
                     LocalName = "農曆年初一",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -162,7 +181,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Buddha's Birthday",
                     LocalName = "佛誕",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -171,7 +190,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Dragon Boat Festival",
                     LocalName = "端午節",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -180,7 +199,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day following the Mid-Autumn Festival",
                     LocalName = "中秋節翌日",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -189,20 +208,49 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Chung Yeung Festival",
                     LocalName = "重陽節",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet1
                 });
+
+                var observedRuleSetChingMingFestival = new ObservedRuleSet
+                {
+                    Sunday = date => date.AddDays(1),
+                };
+
+                if (easterSaturday.Date == chingMingFestivalDate)
+                {
+                    observedRuleSetChingMingFestival.Saturday = date => date.AddDays(2);
+                }
+
                 holidaySpecifications.Add(new HolidaySpecification
                 {
                     Id = "CHINGMINGFESTIVAL-01",
-                    Date = chingMingFestivalDate,
+                    Date = chingMingFestivalDate.Value,
                     EnglishName = "Ching Ming Festival",
                     LocalName = "清明節",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSetChingMingFestival
                 });
             }
 
-            return holidaySpecifications;
+            var easterMonday = this._catholicProvider.EasterMonday("復活節星期一", year);
+
+            // The Qingming Festival falls on a fairly fixed date,
+            // but Easter Sunday shifts from year to year;
+            // if the Qingming Festival takes place on the same weekend,
+            // the holidays must be adjusted.
+            if (chingMingFestivalDate.HasValue &&
+                (
+                    easterSaturday.Date == chingMingFestivalDate ||
+                    chingMingFestivalDate.Value.DayOfWeek == DayOfWeek.Sunday && chingMingFestivalDate.Value.Date.AddDays(1) == easterMonday.Date)
+                )
+            {
+                //The day following Easter Monday / 復活節星期一翌日
+                easterMonday.ObservedRuleSet = new ObservedRuleSet { Monday = date => date.AddDays(1) };
+            }
+
+            holidaySpecifications.Add(easterMonday);
+
+            return [.. holidaySpecifications];
         }
 
         private int MoveMonth(int month, int leapMonth)
@@ -226,6 +274,7 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Hong_Kong",
+                "https://www.gov.hk/en/about/abouthk/holiday/2026.htm",
             ];
         }
     }
