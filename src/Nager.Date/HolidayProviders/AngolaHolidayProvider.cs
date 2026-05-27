@@ -121,7 +121,41 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.GoodFriday("Sexta Feira Santa", year),
             };
 
-            return holidaySpecifications;
+            return this.Ponte(holidaySpecifications);
+
+            //return holidaySpecifications;
+        }
+
+
+        private IEnumerable<HolidaySpecification> Ponte(IEnumerable<HolidaySpecification> holidaySpecifications)
+        {
+            foreach (var holidaySpecification in holidaySpecifications)
+            {
+                if (holidaySpecification.Date.DayOfWeek == DayOfWeek.Tuesday)
+                {
+                    yield return new HolidaySpecification
+                    {
+                        Id = $"PONTE-{holidaySpecification.Id}",
+                        Date = holidaySpecification.Date.AddDays(-1),
+                        EnglishName = $"{holidaySpecification.EnglishName} (Ponte)",
+                        LocalName = $"{holidaySpecification.LocalName} (Ponte)",
+                        HolidayTypes = HolidayTypes.Public
+                    };
+                }
+                else if (holidaySpecification.Date.DayOfWeek == DayOfWeek.Thursday)
+                {
+                    yield return new HolidaySpecification
+                    {
+                        Id = $"PONTE-{holidaySpecification.Id}",
+                        Date = holidaySpecification.Date.AddDays(1),
+                        EnglishName = $"{holidaySpecification.EnglishName} (Ponte)",
+                        LocalName = $"{holidaySpecification.LocalName} (Ponte)",
+                        HolidayTypes = HolidayTypes.Public
+                    };
+                }
+
+                yield return holidaySpecification;
+            }
         }
 
         /// <inheritdoc/>
