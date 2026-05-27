@@ -2,6 +2,7 @@ using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
@@ -121,9 +122,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.GoodFriday("Sexta Feira Santa", year),
             };
 
-            return this.Ponte(holidaySpecifications);
-
-            //return holidaySpecifications;
+            return this.Ponte(holidaySpecifications).Where(holiday => holiday.Date.Year == year);
         }
 
 
