@@ -35,6 +35,7 @@ namespace Nager.Date.HolidayProviders
             var columbusDayDate = DateHelper.FindDay(year, Month.October, 12, DayOfWeek.Monday);
             var allSaintsDayDate = DateHelper.FindDay(year, Month.November, 1, DayOfWeek.Monday);
             var independenceOfCartagenaDate = DateHelper.FindDay(year, Month.November, 11, DayOfWeek.Monday);
+            var ourladyofchiquinquiraDate = DateHelper.FindDay(year, Month.July, 9, DayOfWeek.Monday);
 
             var mondayObservedRuleSet = new ObservedRuleSet
             {
@@ -158,6 +159,14 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(68).AddDays(3),
                     EnglishName = "Sacred Heart",
                     LocalName = "Sagrado Corazón",
+                    HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Id="OURLADYOFCHIQUINQUIRADAY-01",
+                    Date = ourladyofchiquinquiraDate,
+                    EnglishName = "Our Lady of Chiquinquirá Day",
+                    LocalName = "Día de la Virgen de Chiquinquirá",
                     HolidayTypes = HolidayTypes.Public
                 },
                 this._catholicProvider.AscensionDay("Ascensión del señor", year, mondayObservedRuleSet),
