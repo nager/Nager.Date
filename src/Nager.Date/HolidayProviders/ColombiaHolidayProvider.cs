@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -28,6 +29,7 @@ namespace Nager.Date.HolidayProviders
         {
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
+            //Ley 51 de 1983 - Por la cual se traslada el descanso remunerado de algunos días festivos
             var epiphanyDate = DateHelper.FindDay(year, Month.January, 6, DayOfWeek.Monday);
             var saintJosephsDayDate = DateHelper.FindDay(year, Month.March, 19, DayOfWeek.Monday);
             var saintPeterAndSaintPaulDate = DateHelper.FindDay(year, Month.June, 29, DayOfWeek.Monday);
@@ -35,7 +37,6 @@ namespace Nager.Date.HolidayProviders
             var columbusDayDate = DateHelper.FindDay(year, Month.October, 12, DayOfWeek.Monday);
             var allSaintsDayDate = DateHelper.FindDay(year, Month.November, 1, DayOfWeek.Monday);
             var independenceOfCartagenaDate = DateHelper.FindDay(year, Month.November, 11, DayOfWeek.Monday);
-            var ourladyofchiquinquiraDate = DateHelper.FindDay(year, Month.July, 9, DayOfWeek.Monday);
 
             var mondayObservedRuleSet = new ObservedRuleSet
             {
@@ -161,21 +162,34 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Sagrado Corazón",
                     HolidayTypes = HolidayTypes.Public
                 },
-                new HolidaySpecification
-                {
-                    Id="OURLADYOFCHIQUINQUIRADAY-01",
-                    Date = ourladyofchiquinquiraDate,
-                    EnglishName = "Our Lady of Chiquinquirá Day",
-                    LocalName = "Día de la Virgen de Chiquinquirá",
-                    HolidayTypes = HolidayTypes.Public
-                },
                 this._catholicProvider.AscensionDay("Ascensión del señor", year, mondayObservedRuleSet),
                 this._catholicProvider.CorpusChristi("Corpus Christi", year, mondayObservedRuleSet),
                 this._catholicProvider.MaundyThursday("Jueves Santo", year),
                 this._catholicProvider.GoodFriday("Viernes Santo", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.OurLadyOfChiquinquiraDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? OurLadyOfChiquinquiraDay(int year)
+        {
+            if (year >= 2026)
+            {
+                var ourladyofchiquinquiraDate = DateHelper.FindDay(year, Month.July, 9, DayOfWeek.Monday);
+
+                return new HolidaySpecification
+                {
+                    Id = "OURLADYOFCHIQUINQUIRADAY-01",
+                    Date = ourladyofchiquinquiraDate,
+                    EnglishName = "Our Lady of Chiquinquirá Day",
+                    LocalName = "Día de la Virgen de Chiquinquirá",
+                    HolidayTypes = HolidayTypes.Public,
+                };
+            }
+
+            return null;
         }
 
         /// <inheritdoc/>
