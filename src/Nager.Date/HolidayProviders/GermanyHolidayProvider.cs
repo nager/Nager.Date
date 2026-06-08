@@ -133,6 +133,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.LiberationDay(year));
             holidaySpecifications.AddIfNotNull(this.ReformationDay(year));
             holidaySpecifications.AddIfNotNull(this.WorldChildrensDay(year));
+            holidaySpecifications.AddIfNotNull(this.UprisingOfJune171953(year));
 
             return holidaySpecifications;
         }
