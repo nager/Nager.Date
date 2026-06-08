@@ -323,7 +323,7 @@ namespace Nager.Date.HolidayProviders
                 return new HolidaySpecification
                 {
                     Id = "75THANNIVERSARYOFTHEUPRISING-01",
-                    Date = new DateTime(year, 5, 8),
+                    Date = new DateTime(year, 6, 17),
                     EnglishName = "75th anniversary of the uprising of June 17, 1953",
                     LocalName = "75. Jahrestag des Aufstandes vom 17. Juni 1953",
                     HolidayTypes = HolidayTypes.Public,
