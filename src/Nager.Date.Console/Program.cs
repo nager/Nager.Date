@@ -45,9 +45,15 @@ foreach (var year in years)
     {
         var subdivisionCodes = publicHoliday.SubdivisionCodes != null ? string.Join(',', publicHoliday.SubdivisionCodes) : "";
 
+        var observedDate = "";
+        if (!publicHoliday.Date.Equals(publicHoliday.ObservedDate.Date))
+        {
+            observedDate = $"{publicHoliday.ObservedDate:ddd} {publicHoliday.ObservedDate:d}";
+        }
+
         table.AddRow(
             $"{publicHoliday.Date:ddd} {publicHoliday.Date:d}",
-            $"{publicHoliday.ObservedDate:ddd} {publicHoliday.ObservedDate:d}",
+            $"{observedDate}",
             $"{publicHoliday.EnglishName}",
             $"{publicHoliday.LocalName}",
             $"{publicHoliday.HolidayTypes}",
