@@ -1,47 +1,60 @@
 using Nager.Date;
+using Spectre.Console;
 
 HolidaySystem.LicenseKey = "02207B22437265617465644174223A22323032342D30332D30375430303A30303A30302B30313A3030222C22497373756564546F223A224769744875622053706F6E736F72222C2256616C6964556E74696C223A22323132342D30322D31325430303A30303A30302B30313A3030227D45E4C77D87F3C02349AD88822D8455DF1A684B1F7892B7FE130E2AFC0B6E131850E9961C8D931F56BD825E17871DC6AE1EB8B76160F151A6A59CB4FB7C0A557B";
 
-Console.WriteLine("Nager.Date");
+AnsiConsole.WriteLine("Nager.Date");
+AnsiConsole.Write(new Rule { Style = Style.Parse("grey dim") });
 
-Console.WriteLine($"Please enter the year, and press enter (default:{DateTime.Today.Year})");
-var tempYear = Console.ReadLine();
-if (!int.TryParse(tempYear, out var year))
+var availableYears = new List<string>();
+
+for (var year1 = DateTime.Today.AddYears(5).Year; year1 >= DateTime.Today.AddYears(-16).Year; year1--)
 {
-    year = DateTime.Today.Year;
+    availableYears.Add($"{year1}");
 }
 
-Console.WriteLine("Please enter the country code, and press enter (default:AT)");
-var countryCode = Console.ReadLine();
-if (string.IsNullOrEmpty(countryCode))
+var selectedYears = AnsiConsole.Prompt(
+    new MultiSelectionPrompt<string>()
+        .Title("Please select the [green]years[/] to calculate:")
+        .AddChoices(availableYears)
+        .Select(DateTime.Today.Year.ToString())
+        .Select(DateTime.Today.AddYears(-1).Year.ToString())
+        .Select(DateTime.Today.AddYears(1).Year.ToString()));
+
+
+var countryCode = AnsiConsole.Ask<string>("Please enter the country code (example:AT)");
+
+var years = selectedYears.Select(int.Parse);
+
+foreach (var year in years)
 {
-    countryCode = "at";
-}
+    var table = new Table();
 
-Console.WriteLine($"Calculate holidays for {countryCode.ToUpper()} {year}");
-Console.WriteLine("--------------------------------------------------------------------------------------------------");
-Console.WriteLine("Date            Observed                          English Name                       Local Name   Type");
+    table.Title(new TableTitle($"Calculated holidays for [blue]{countryCode.ToUpper()}[/] [blue]{year}[/]"));
 
-var publicHolidays = HolidaySystem.GetHolidays(year, countryCode);
-foreach (var publicHoliday in publicHolidays)
-{
-    var counties = publicHoliday.SubdivisionCodes != null ? string.Join(',', publicHoliday.SubdivisionCodes) : "";
+    table.AddColumn("Date");
+    table.AddColumn("Observed");
+    table.AddColumn("English Name");
+    table.AddColumn("Local Name");
+    table.AddColumn("Type");
+    table.AddColumn("SubdivisionCodes");
+    //table.AddColumn("ID");
 
-    Console.Write($"{publicHoliday.Date:ddd}{"",1}");
-    Console.Write($"{publicHoliday.Date:d}{"",3}");
-    if (publicHoliday.Date.Equals(publicHoliday.ObservedDate.Date))
+    var publicHolidays = HolidaySystem.GetHolidays(year, countryCode);
+    foreach (var publicHoliday in publicHolidays)
     {
-        Console.Write($"-{"",15}");
-    }
-    else
-    {
-        Console.Write($"{publicHoliday.ObservedDate:ddd}{"",1}");
-        Console.Write($"{publicHoliday.ObservedDate:d}{"",3}");
-    }
-    Console.Write($"{publicHoliday.EnglishName,30}{"",3}");
-    Console.Write($"{publicHoliday.LocalName,30}{"",3}");
-    Console.Write($"{publicHoliday.HolidayTypes}{"",3}");
-    Console.Write($"{counties}");
+        var subdivisionCodes = publicHoliday.SubdivisionCodes != null ? string.Join(',', publicHoliday.SubdivisionCodes) : "";
 
-    Console.WriteLine("");
+        table.AddRow(
+            $"{publicHoliday.Date:ddd} {publicHoliday.Date:d}",
+            $"{publicHoliday.ObservedDate:ddd} {publicHoliday.ObservedDate:d}",
+            $"{publicHoliday.EnglishName}",
+            $"{publicHoliday.LocalName}",
+            $"{publicHoliday.HolidayTypes}",
+            $"{subdivisionCodes}"
+            //$"{publicHoliday.Id}"
+        );
+    }
+
+    AnsiConsole.Write(table);
 }
