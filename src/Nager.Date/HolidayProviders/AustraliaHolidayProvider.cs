@@ -241,6 +241,11 @@ namespace Nager.Date.HolidayProviders
                 Sunday = date => date.AddDays(1),
             };
 
+            var sundayObservedRuleSet = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(1),
+            };
+
             if (year == 2026 || year == 2027)
             {
                 var holidayGeneral = new HolidaySpecification
@@ -250,7 +255,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = englishName,
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["AU-NT", "AU-QLD", "AU-SA", "AU-TAS", "AU-VIC"]
+                    SubdivisionCodes = ["AU-SA", "AU-TAS", "AU-VIC"]
                 };
 
                 var holidayWeekendShift = new HolidaySpecification
@@ -264,8 +269,20 @@ namespace Nager.Date.HolidayProviders
                     ObservedRuleSet = weekendObservedRuleSet
                 };
 
+                var holidaySundayShift = new HolidaySpecification
+                {
+                    Id = "ANZACDAY-06",
+                    Date = holidayDate,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["AU-NT", "AU-QLD"],
+                    ObservedRuleSet = sundayObservedRuleSet
+                };
+
                 holidays.Add(holidayGeneral);
                 holidays.Add(holidayWeekendShift);
+                holidays.Add(holidaySundayShift);
             }
             else
             {
