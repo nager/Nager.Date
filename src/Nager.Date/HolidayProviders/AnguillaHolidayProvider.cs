@@ -15,7 +15,7 @@ namespace Nager.Date.HolidayProviders
         private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
-        /// Aland HolidayProvider
+        /// Anguilla HolidayProvider
         /// </summary>
         /// <param name="catholicProvider"></param>
         public AnguillaHolidayProvider(
