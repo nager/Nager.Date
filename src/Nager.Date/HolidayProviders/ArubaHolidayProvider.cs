@@ -1,5 +1,3 @@
-using Nager.Date.Extensions;
-using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
