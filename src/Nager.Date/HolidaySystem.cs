@@ -39,6 +39,7 @@ namespace Nager.Date
                 { CountryCode.BE, new Lazy<IHolidayProvider>(() => new BelgiumHolidayProvider(_catholicProvider))},
                 { CountryCode.BG, new Lazy<IHolidayProvider>(() => new BulgariaHolidayProvider(_orthodoxProvider))},
                 { CountryCode.BJ, new Lazy<IHolidayProvider>(() => new BeninHolidayProvider(_catholicProvider))},
+                { CountryCode.BM, new Lazy<IHolidayProvider>(() => new BermudaHolidayProvider(_catholicProvider))},
                 { CountryCode.BO, new Lazy<IHolidayProvider>(() => new BoliviaHolidayProvider(_catholicProvider))},
                 { CountryCode.BR, new Lazy<IHolidayProvider>(() => new BrazilHolidayProvider(_catholicProvider))},
                 { CountryCode.BS, new Lazy<IHolidayProvider>(() => new BahamasHolidayProvider(_catholicProvider))},
