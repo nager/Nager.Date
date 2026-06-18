@@ -95,7 +95,7 @@ namespace Nager.Date.ReligiousProviders
             ObservedRuleSet? observedRuleSet = null);
 
         /// <summary>
-        /// Get Pentecost
+        /// Get Pentecost (Whit Sunday)
         /// </summary>
         /// <param name="localName">The local name of the holiday</param>
         /// <param name="year"></param>
