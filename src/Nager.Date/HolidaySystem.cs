@@ -163,6 +163,7 @@ namespace Nager.Date
                 { CountryCode.VA, new Lazy<IHolidayProvider>(() => new VaticanCityHolidayProvider(_catholicProvider))},
                 { CountryCode.VC, new Lazy<IHolidayProvider>(() => new SaintVincentAndTheGrenadinesHolidayProvider(_catholicProvider))},
                 { CountryCode.VE, new Lazy<IHolidayProvider>(() => new VenezuelaHolidayProvider(_catholicProvider))},
+                { CountryCode.VG, new Lazy<IHolidayProvider>(() => new BritishVirginIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.VN, new Lazy<IHolidayProvider>(() => new VietnamHolidayProvider())},
                 //Not officially assigned https://www.iso.org/obp/ui/#iso:pub:PUB500001:en
                 //{ CountryCode.XK, new Lazy<IPublicHolidayProvider>(() => new KosovoProvider(_orthodoxProvider, _catholicProvider))},
