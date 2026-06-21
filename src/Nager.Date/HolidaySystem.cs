@@ -23,6 +23,7 @@ namespace Nager.Date
             new Dictionary<CountryCode, Lazy<IHolidayProvider>>
             {
                 { CountryCode.AD, new Lazy<IHolidayProvider>(() => new AndorraHolidayProvider(_catholicProvider))},
+                { CountryCode.AG, new Lazy<IHolidayProvider>(() => new AntiguaAndBarbudaHolidayProvider(_catholicProvider))},
                 { CountryCode.AI, new Lazy<IHolidayProvider>(() => new AnguillaHolidayProvider(_catholicProvider))},
                 { CountryCode.AL, new Lazy<IHolidayProvider>(() => new AlbaniaHolidayProvider(_catholicProvider, _orthodoxProvider))},
                 { CountryCode.AM, new Lazy<IHolidayProvider>(() => new ArmeniaHolidayProvider(_catholicProvider))},
