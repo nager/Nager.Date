@@ -9,7 +9,7 @@ namespace Nager.Date.HolidayProviders
     /// Caribbean Netherlands HolidayProvider
     /// </summary>
     /// <remarks>These are the islands of Bonaire, Sint Eustatius, and Saba</remarks>
-    internal sealed class CaribbeanNetherlandsHolidayProvider : AbstractHolidayProvider
+    internal sealed class CaribbeanNetherlandsHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -21,6 +21,17 @@ namespace Nager.Date.HolidayProviders
             ICatholicProvider catholicProvider) : base(CountryCode.BQ)
         {
             this._catholicProvider = catholicProvider;
+        }
+
+        /// <inheritdoc/>
+        public IDictionary<string, string> GetSubdivisionCodes()
+        {
+            return new Dictionary<string, string>
+            {
+                { "BQ-BO", "Bonaire" },
+                { "BQ-SE", "Sint Eustatius" },
+                { "BQ-SA", "Saba" },
+            };
         }
 
         /// <inheritdoc/>
@@ -61,6 +72,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Rincon Day",
                     LocalName = "Rincon Day",
                     HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["BQ-BO"],
                 },
                 new HolidaySpecification
                 {
@@ -77,6 +89,34 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Bonaire Flag Day",
                     LocalName = "Vlagdag bonaire",
                     HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["BQ-BO"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "SABAFLAGDAY-01",
+                    Date = new DateTime(year, 12, 6),
+                    EnglishName = "Saba Flag Day",
+                    LocalName = "Vlagdag saba",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["BQ-SA"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "EMANCIPATIONDAY-01",
+                    Date = new DateTime(year, 7, 1),
+                    EnglishName = "Emancipation Day",
+                    LocalName = "Emancipation Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["BQ-SE"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "STATIADAY-01",
+                    Date = new DateTime(year, 11, 16),
+                    EnglishName = "Statia Day",
+                    LocalName = "Statia Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["BQ-SE"],
                 },
                 new HolidaySpecification
                 {
@@ -110,6 +150,8 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Bonaire",
+                "https://www.statiagovernment.com/governance/official-public-holidays",
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Saba",
             ];
         }
     }
