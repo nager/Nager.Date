@@ -109,7 +109,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints Day",
-                    LocalName = "Tutti i santi",
+                    LocalName = "Tutti i Santi",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
