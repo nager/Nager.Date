@@ -139,6 +139,7 @@ namespace Nager.Date
                 { CountryCode.PG, new Lazy<IHolidayProvider>(() => new PapuaNewGuineaHolidayProvider(_catholicProvider))},
                 { CountryCode.PH, new Lazy<IHolidayProvider>(() => new PhilippinesHolidayProvider(_catholicProvider))},
                 { CountryCode.PL, new Lazy<IHolidayProvider>(() => new PolandHolidayProvider(_catholicProvider))},
+                { CountryCode.PM, new Lazy<IHolidayProvider>(() => new SaintPierreAndMiquelonHolidayProvider(_catholicProvider))},
                 { CountryCode.PR, new Lazy<IHolidayProvider>(() => new PuertoRicoHolidayProvider(_catholicProvider))},
                 { CountryCode.PT, new Lazy<IHolidayProvider>(() => new PortugalHolidayProvider(_catholicProvider))},
                 { CountryCode.PY, new Lazy<IHolidayProvider>(() => new ParaguayHolidayProvider(_catholicProvider))},
