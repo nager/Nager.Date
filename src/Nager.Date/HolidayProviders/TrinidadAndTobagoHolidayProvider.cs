@@ -104,6 +104,10 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Corpus Christi", year),
             };
 
+            //TODO:
+            // - Eid al-Fitr
+            // - Divali
+
             return holidaySpecifications;
         }
 
