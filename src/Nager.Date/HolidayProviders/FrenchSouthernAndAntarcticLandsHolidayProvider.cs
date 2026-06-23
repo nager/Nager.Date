@@ -22,8 +22,7 @@ namespace Nager.Date.HolidayProviders
             * French Southern and Antarctic Lands has no population therefore no official holidays.
             */
 
-            var holidaySpecifications = new List<HolidaySpecification>();
-            return holidaySpecifications;
+            return [];
         }
 
         /// <inheritdoc/>

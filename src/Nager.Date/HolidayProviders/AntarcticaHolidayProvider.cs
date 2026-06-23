@@ -23,8 +23,7 @@ namespace Nager.Date.HolidayProviders
              * Antarctica has no population or government of its own and therefore no official holidays.
             */
 
-            var holidaySpecifications = new List<HolidaySpecification>();
-            return holidaySpecifications;
+            return [];
         }
 
         /// <inheritdoc/>

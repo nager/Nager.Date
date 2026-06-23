@@ -22,8 +22,7 @@ namespace Nager.Date.HolidayProviders
             * Heard Island and McDonald Islands has no population therefore no official holidays.
             */
 
-            var holidaySpecifications = new List<HolidaySpecification>();
-            return holidaySpecifications;
+            return [];
         }
 
         /// <inheritdoc/>

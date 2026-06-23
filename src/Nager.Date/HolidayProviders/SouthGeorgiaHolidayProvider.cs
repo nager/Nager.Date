@@ -22,8 +22,7 @@ namespace Nager.Date.HolidayProviders
             * South Georgia has no population therefore no official holidays.
             */
 
-            var holidaySpecifications = new List<HolidaySpecification>();
-            return holidaySpecifications;
+            return [];
         }
 
         /// <inheritdoc/>
