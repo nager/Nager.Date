@@ -37,6 +37,8 @@ If holidays differ by region:
 - Implement `ISubdivisionCodesProvider`
 - Assign `SubdivisionCodes` to the holiday
 
+An Example HolidayProvider with Subdivison Support [AustriaHolidayProvider.cs](https://github.com/nager/Nager.Date/blob/main/src/Nager.Date/HolidayProviders/AustriaHolidayProvider.cs)
+
 ### Complex Holiday Rules
 
 For holidays involving complex logic (e.g., year-dependent rules, specific conditions, or astronomical calculations), **extract the logic into a separate private method.**
@@ -49,6 +51,30 @@ private HolidaySpecification[] LabourDay(int year)
 {
     // Implementation of complex logic
 }
+```
+
+### Relative Date Rules
+For holidays that do not fall on a fixed calendar date but depend on weekday patterns, utilize the DateHelper class. It provides several specialized methods to calculate these dynamic dates efficiently.
+
+- **Specific Occurrence in a Month** (e.g., 1st Monday, 3rd Thursday)
+
+```cs
+// First Monday in August
+var firstMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
+```
+
+- **Last Weekday of a Month** (e.g., Last Monday in May)
+
+```cs
+// Last Monday in May
+var lastMondayInMay = DateHelper.FindLastDay(year, Month.May, DayOfWeek.Monday);
+```
+
+- **Closest Weekday Before/After a Reference Date** (e.g., The Friday before Christmas)
+
+```cs
+// Find the Friday before December 24th
+var fridayBeforeChristmas = DateHelper.FindDayBefore(year, Month.December, 24, DayOfWeek.Friday);
 ```
 
 ### Sources
@@ -73,7 +99,7 @@ internal sealed class NewCountryNameHolidayProvider : AbstractHolidayProvider
 	/// NewCountryName HolidayProvider
 	/// </summary>
 	/// <param name="catholicProvider"></param>
-	public NewCountryNameProvider(
+	public NewCountryNameHolidayProvider(
 		ICatholicProvider catholicProvider) : base(CountryCode.XX)// Replace XX with ISO code
 	{
 		this._catholicProvider = catholicProvider;
