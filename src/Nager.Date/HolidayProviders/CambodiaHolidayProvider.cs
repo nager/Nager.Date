@@ -34,7 +34,7 @@ namespace Nager.Date.HolidayProviders
                     Id = "VICTORYDAY-01",
                     Date = new DateTime(year, 1, 7),
                     EnglishName = "Day of Victory over the Genocidal Regime",
-                    LocalName = "	ទិវាជ័យជម្នះលើរបបប្រល័យពូជសាសន៍",
+                    LocalName = "ទិវាជ័យជម្នះលើរបបប្រល័យពូជសាសន៍",
                     HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
@@ -132,7 +132,8 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Pchum Ben Day",
                     LocalName = "ពិធីបុណ្យភ្ផុំបិណ្ឌ",
                     HolidayTypes = HolidayTypes.Public
-                },new HolidaySpecification
+                },
+                new HolidaySpecification
                 {
                     Id = "PCHUMBENDAY-03",
                     Date = new DateTime(year, 10, 12),
@@ -155,7 +156,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Coronation Day of His Majesty Preah Bat Samdech Preah Boromneath NORODOM SIHAMONI, King of Cambodia",
                     LocalName = "ព្រះរាជពិធីគ្រងព្រះបរមរាជសម្បត្តិ របស់ ព្រះករុណា ព្រះបាទសម្តេចព្រះបរមនាថ នរោត្តម សីហមុនី ព្រះមហាក្សត្រនៃព្រះរាជាណាចក្រកម្ពុជា",
                     HolidayTypes = HolidayTypes.Public
-                }
+                },
                 new HolidaySpecification
                 {
                     Id = "NATIONALINDEPENDENCEDAY-01",
@@ -163,7 +164,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "National Independence Day",
                     LocalName = "ពិធីបុណ្យឯករាជ្យជាតិ",
                     HolidayTypes = HolidayTypes.Public
-                }
+                },
                 new HolidaySpecification
                 {
                     Id = "WATERFESTIVALDAY-01",
@@ -179,7 +180,8 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Water Festival",
                     LocalName = "ព្រះរាជពិធីបុណ្យអុំទូក បណ្តែតប្រទីប និងសំពះព្រះខែអកអំបុក",
                     HolidayTypes = HolidayTypes.Public
-                },new HolidaySpecification
+                },
+                new HolidaySpecification
                 {
                     Id = "WATERFESTIVALDAY-03",
                     Date = new DateTime(year, 10, 12),
