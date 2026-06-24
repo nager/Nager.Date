@@ -12,6 +12,7 @@
     <File Path=".editorconfig" />
   </Folder>
   <Project Path="Nager.Date.ArchitectureTest/Nager.Date.ArchitectureTest.csproj" />
+  <Project Path="Nager.Date.CalendarHelper/Nager.Date.CalendarHelper.csproj" />
   <Project Path="Nager.Date.Console/Nager.Date.Console.csproj" />
   <Project Path="Nager.Date.UnitTest/Nager.Date.UnitTest.csproj" />
   <Project Path="Nager.Date/Nager.Date.csproj" />
