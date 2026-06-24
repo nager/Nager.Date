@@ -160,7 +160,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "WATERFESTIVALDAY-01",
-                    Date = new DateTime(year, 10, 10),
+                    Date = new DateTime(year, 11, 23),
                     EnglishName = "Water Festival",
                     LocalName = "ពិធីបុណ្យអុំទូក បណ្ដែតប្រទីប អកអំបុក និងសំពះព្រះខែ",
                     HolidayTypes = HolidayTypes.Public
@@ -168,7 +168,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "WATERFESTIVALDAY-02",
-                    Date = new DateTime(year, 10, 11),
+                    Date = new DateTime(year, 11, 24),
                     EnglishName = "Water Festival",
                     LocalName = "ពិធីបុណ្យអុំទូក បណ្ដែតប្រទីប អកអំបុក និងសំពះព្រះខែ",
                     HolidayTypes = HolidayTypes.Public
@@ -176,7 +176,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "WATERFESTIVALDAY-03",
-                    Date = new DateTime(year, 10, 12),
+                    Date = new DateTime(year, 11, 25),
                     EnglishName = "Water Festival",
                     LocalName = "ពិធីបុណ្យអុំទូក បណ្ដែតប្រទីប អកអំបុក និងសំពះព្រះខែ",
                     HolidayTypes = HolidayTypes.Public
