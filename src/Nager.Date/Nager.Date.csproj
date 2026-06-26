@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Authors>Tino Hager</Authors>
     <Company>nager.at</Company>
-    <Description>Calculate public and federal holidays for a given year with native and English translations. Supports countries and subdivisions, covering over 100 countries worldwide.</Description>
+    <Description>Calculate public and federal holidays for a given year with native and English translations. Supports countries and subdivisions, covering over 150 countries worldwide.</Description>
 
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

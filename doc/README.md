@@ -1,10 +1,10 @@
 # Nager.Date
 
-Nager.Date is a comprehensive .NET library for querying public and federal holidays, supporting over 110 countries worldwide.
+Nager.Date is a comprehensive .NET library for querying public and federal holidays, supporting over 150 countries worldwide.
 It provides native and English translations and supports country subdivisions (federal states) according to ISO 3166-2 standards.
 
 ## Supported Countries
-You can see the full list of supported countries [here](https://date.nager.at/Country/Coverage)
+You can see the full list of supported countries [here](https://date.nager.at/country/coverage).
 
 ## Features
 - Query public, federal, bank, school, and optional holidays (availability may vary by country).
@@ -28,13 +28,13 @@ var licenseInfo = Nager.Date.License.LicenseHelper.CheckLicenseKey(licenseKey);
 if (licenseInfo is null)
 {
     //license key invalid
-    return;
+    throw new Exception("Invalid or expired license key.");
 }
 
 if (licenseInfo.ValidUntil < DateTime.Today)
 {
     //license key expired
-    return;
+    throw new Exception("Invalid or expired license key.");
 }
 ```
 
@@ -45,13 +45,13 @@ foreach (var holiday in holidays)
 {
     Console.WriteLine($"{holiday.Date:yyyy-MM-dd} - {holiday.EnglishName}");
     //holiday...
-    //holiday.Date -> The date
-    //holiday.ObservedDate -> The date on which the holiday is observed
+    //holiday.Date -> The official date of the holiday
+    //holiday.ObservedDate -> The date on which the holiday is actually observed (e.g., if it falls on a weekend)
     //holiday.LocalName -> The local name
     //holiday.EnglishName -> The english name
     //holiday.NationalHoliday -> Is this holiday in every county (federal state)
     //holiday.SubdivisionCodes -> Is the holiday only valid for a special county ISO-3166-2 - Federal states
-    //holiday.HolidayTypes -> Public, Bank, School, Authorities, Optional, Observance
+    //holiday.HolidayTypes -> Flags indicating the type (e.g., Public, Bank, School)
 }
 ```
 
@@ -62,7 +62,7 @@ var endDate = new DateTime(2024, 5, 31);
 var holidays = HolidaySystem.GetHolidays(startDate, endDate, CountryCode.DE);
 foreach (var holiday in holidays)
 {
-	//holiday...
+    //holiday...
 }
 ```
 

@@ -2,9 +2,9 @@
 
 # :calendar: Nager.Date - [Official Website](https://date.nager.at)
 
-Discover the convenience of easily accessing holidays from **over 100 countries** with Nager.Date. Our popular project utilizes the power of .NET and offers a user-friendly public [REST API](https://date.nager.at/Api) for seamless integration into your application.
+Discover the convenience of easily accessing holidays from **over 150 countries** with Nager.Date. Our popular project utilizes the power of .NET and offers a user-friendly public [REST API](https://date.nager.at/Api) for seamless integration into your application.
 
-You can find an overview of the supported countries [here](https://date.nager.at/Country/Coverage).
+You can find an overview of the supported countries [here](https://date.nager.at/country/coverage).
 
 Need offline access to our functionality? No problem! We also provide solutions that allow you to use our services on your own infrastructure without an internet connection. Easily integrate our service into your system with the [Docker](https://hub.docker.com/r/nager/nager-date) container or the [NuGet](https://www.nuget.org/packages/Nager.Date) package. Both options require a license key. As a [sponsor of nager](https://github.com/sponsors/nager), you get a license key.
 
