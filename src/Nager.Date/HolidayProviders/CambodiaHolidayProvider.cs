@@ -48,30 +48,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "KHMERNEWYEARDAY-01",
-                    Date = new DateTime(year, 4, 14),
-                    EnglishName = "Khmer New Year",
-                    LocalName = "ពិធីបុណ្យចូលឆ្នាំថ្មី ប្រពៃណីជាតិ",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "KHMERNEWYEARDAY-02",
-                    Date = new DateTime(year, 4, 15),
-                    EnglishName = "Khmer New Year",
-                    LocalName = "ពិធីបុណ្យចូលឆ្នាំថ្មី ប្រពៃណីជាតិ",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
-                    Id = "KHMERNEWYEARDAY-03",
-                    Date = new DateTime(year, 4, 16),
-                    EnglishName = "Khmer New Year",
-                    LocalName = "ពិធីបុណ្យចូលឆ្នាំថ្មី ប្រពៃណីជាតិ",
-                    HolidayTypes = HolidayTypes.Public
-                },
-                new HolidaySpecification
-                {
                     Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
@@ -85,7 +61,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "King Sihamoni's Birthday",
                     LocalName = "ព្រះរាជពិធីបុណ្យចម្រើនព្រះជន្ម ព្រះករុណា នរោត្តម សីហមុនី",
                     HolidayTypes = HolidayTypes.Public
-                },                
+                },
                 new HolidaySpecification
                 {
                     Id = "QUEENMOTHERBIRTHDAY-01",
@@ -125,7 +101,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "National Independence Day",
                     LocalName = "ទិវាបុណ្យឯករាជ្យជាតិ",
                     HolidayTypes = HolidayTypes.Public
-                },               
+                },
                 new HolidaySpecification
                 {
                     Id = "PEACEDAY-01",
@@ -138,6 +114,7 @@ namespace Nager.Date.HolidayProviders
 
             holidaySpecifications.AddRangeIfNotNull(this.WaterFestival(year));
             holidaySpecifications.AddRangeIfNotNull(this.PchumBen(year));
+            holidaySpecifications.AddRangeIfNotNull(this.KhmerNewYear(year));
             holidaySpecifications.AddIfNotNull(this.RoyalPloughing(year));
 
             return holidaySpecifications;
@@ -213,6 +190,49 @@ namespace Nager.Date.HolidayProviders
                 LocalName = "ព្រះរាជពិធីច្រត់ព្រះនង្គ័ល",
                 HolidayTypes = HolidayTypes.Public
             };
+        }
+
+        private HolidaySpecification[] KhmerNewYear(int year)
+        {
+            var firstDate = year switch
+            {
+                2028 => new DateTime(2028, 4, 13),
+                >= 2000 and <= 2049 => new DateTime(year, 4, 14),
+                _ => DateTime.MinValue
+            };
+
+            if (firstDate == DateTime.MinValue)
+            {
+                return [];
+            }
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Id = "KHMERNEWYEARDAY-01",
+                    Date = firstDate,
+                    EnglishName = "Khmer New Year",
+                    LocalName = "ពិធីបុណ្យចូលឆ្នាំថ្មី ប្រពៃណីជាតិ",
+                    HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Id = "KHMERNEWYEARDAY-02",
+                    Date = firstDate.AddDays(1),
+                    EnglishName = "Khmer New Year",
+                    LocalName = "ពិធីបុណ្យចូលឆ្នាំថ្មី ប្រពៃណីជាតិ",
+                    HolidayTypes = HolidayTypes.Public
+                },
+                new HolidaySpecification
+                {
+                    Id = "KHMERNEWYEARDAY-03",
+                    Date = firstDate.AddDays(2),
+                    EnglishName = "Khmer New Year",
+                    LocalName = "ពិធីបុណ្យចូលឆ្នាំថ្មី ប្រពៃណីជាតិ",
+                    HolidayTypes = HolidayTypes.Public
+                }
+            ];
         }
 
         private HolidaySpecification[] PchumBen(int year)
