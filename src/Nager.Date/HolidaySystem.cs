@@ -55,6 +55,7 @@ namespace Nager.Date
                 { CountryCode.CG, new Lazy<IHolidayProvider>(() => new RepublicOfCongoHolidayProvider(_catholicProvider))},
                 { CountryCode.CH, new Lazy<IHolidayProvider>(() => new SwitzerlandHolidayProvider(_catholicProvider))},
                 { CountryCode.CL, new Lazy<IHolidayProvider>(() => new ChileHolidayProvider(_catholicProvider))},
+                { CountryCode.CM, new Lazy<IHolidayProvider>(() => new CameroonHolidayProvider(_catholicProvider))},
                 { CountryCode.CN, new Lazy<IHolidayProvider>(() => new ChinaHolidayProvider())},
                 { CountryCode.CO, new Lazy<IHolidayProvider>(() => new ColombiaHolidayProvider(_catholicProvider))},
                 { CountryCode.CR, new Lazy<IHolidayProvider>(() => new CostaRicaHolidayProvider(_catholicProvider))},
@@ -174,12 +175,14 @@ namespace Nager.Date
                 { CountryCode.VA, new Lazy<IHolidayProvider>(() => new VaticanCityHolidayProvider(_catholicProvider))},
                 { CountryCode.VC, new Lazy<IHolidayProvider>(() => new SaintVincentAndTheGrenadinesHolidayProvider(_catholicProvider))},
                 { CountryCode.VE, new Lazy<IHolidayProvider>(() => new VenezuelaHolidayProvider(_catholicProvider))},
+                { CountryCode.VI, new Lazy<IHolidayProvider>(() => new UnitedStatesVirginIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.VG, new Lazy<IHolidayProvider>(() => new BritishVirginIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.VN, new Lazy<IHolidayProvider>(() => new VietnamHolidayProvider())},
                 { CountryCode.WS, new Lazy<IHolidayProvider>(() => new SamoaHolidayProvider(_catholicProvider))},
                 //Not officially assigned https://www.iso.org/obp/ui/#iso:pub:PUB500001:en
                 //{ CountryCode.XK, new Lazy<IPublicHolidayProvider>(() => new KosovoProvider(_orthodoxProvider, _catholicProvider))},
                 { CountryCode.ZA, new Lazy<IHolidayProvider>(() => new SouthAfricaHolidayProvider(_catholicProvider))},
+                { CountryCode.ZM, new Lazy<IHolidayProvider>(() => new ZambiaHolidayProvider(_catholicProvider))},
                 { CountryCode.ZW, new Lazy<IHolidayProvider>(() => new ZimbabweHolidayProvider(_catholicProvider))}
             };
 
