@@ -165,6 +165,7 @@ namespace Nager.Date
                 { CountryCode.TC, new Lazy<IHolidayProvider>(() => new TurksAndCaicosIslandsHolidayProvider(_catholicProvider))},
                 { CountryCode.TF, new Lazy<IHolidayProvider>(() => new FrenchSouthernAndAntarcticLandsHolidayProvider())},
                 { CountryCode.TN, new Lazy<IHolidayProvider>(() => new TunisiaHolidayProvider())},
+                { CountryCode.TH, new Lazy<IHolidayProvider>(() => new ThailandHolidayProvider())},
                 { CountryCode.TR, new Lazy<IHolidayProvider>(() => new TurkeyHolidayProvider())},
                 { CountryCode.TT, new Lazy<IHolidayProvider>(() => new TrinidadAndTobagoHolidayProvider(_catholicProvider))},
                 { CountryCode.TV, new Lazy<IHolidayProvider>(() => new TuvaluHolidayProvider(_catholicProvider))},
