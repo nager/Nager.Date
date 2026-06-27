@@ -122,32 +122,32 @@ namespace Nager.Date.HolidayProviders
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
                     AddHoliday(hijriCalendar.ToDateTime(hijriYear, 1, 10, 0, 0, 0, 0),
-                        "ASHURA-01",
+                        $"ASHURA{hijriYear}-01",
                         "Ashura",
                         "Ashura");
 
                     AddHoliday(hijriCalendar.ToDateTime(hijriYear, 3, 12, 0, 0, 0, 0),
-                        "MAWLOUD-01",
+                        $"MAWLOUD{hijriYear}-01",
                         "Mawloud",
                         "Mawloud");
 
                     AddHoliday(hijriCalendar.ToDateTime(hijriYear, 3, 19, 0, 0, 0, 0),
-                        "BAPTISM-OF-THE-PROPHET-01",
+                        $"BAPTISMOFTHEPROPHET{hijriYear}-01",
                         "Baptism of the Prophet",
                         "Baptism of the Prophet");
 
                     AddHoliday(hijriCalendar.ToDateTime(hijriYear, 9, 27, 0, 0, 0, 0),
-                        "LEYlatoul-QADR-01",
+                        $"LEYLATOULQADR{hijriYear}-01",
                         "Leylatoul Qadr",
                         "Leylatoul Qadr");
 
                     AddHoliday(hijriCalendar.ToDateTime(hijriYear, 10, 1, 0, 0, 0, 0),
-                        "KORITE-01",
+                        $"KORITE{hijriYear}-01",
                         "Korité",
                         "Korité");
 
                     AddHoliday(hijriCalendar.ToDateTime(hijriYear, 12, 10, 0, 0, 0, 0),
-                        "TABASKI-01",
+                        $"TABASKI{hijriYear}-01",
                         "Tabaski",
                         "Tabaski");
                 }
