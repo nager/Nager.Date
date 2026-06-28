@@ -7,25 +7,21 @@ using System.Globalization;
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
-    /// Turkey HolidayProvider
+    /// Türkiye HolidayProvider
     /// </summary>
-    internal sealed class TurkeyHolidayProvider : AbstractHolidayProvider
+    internal sealed class TuerkiyeHolidayProvider : AbstractHolidayProvider
     {
         private readonly HijriCalendar _hijriCalendar;
 
         /// <summary>
-        /// Turkey HolidayProvider
+        /// Türkiye HolidayProvider
         /// </summary>
-        public TurkeyHolidayProvider() : base(CountryCode.TR)
+        public TuerkiyeHolidayProvider() : base(CountryCode.TR)
         {
             this._hijriCalendar = new HijriCalendar();
         }
 
-        /// <summary>
-        /// Get Public Holidays for Turkey
-        /// </summary>
-        /// <param name="year"></param>
-        /// <returns></returns>
+        /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
             var holidaySpecifications = new List<HolidaySpecification>
@@ -106,9 +102,9 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
-        private static readonly Dictionary<(int HijriYear, int HijriMonth), int> _turkeyHijriAdjustments = new()
+        private static readonly Dictionary<(int HijriYear, int HijriMonth), int> _hijriAdjustments = new()
         {
-            // Correction data for Turkey (Alignment between .NET standard algorithm and official Diyanet dates)
+            // Correction data for Türkiye (Alignment between .NET standard algorithm and official Diyanet dates)
             // Format: { (HijriYear, HijriMonth), Offset }
             // Month 10 = Eid al-Fitr (Shawwal), Month 12 = Eid al-Adha (Dhu al-Hijjah)
             { (1431, 10), 1 }, { (1431, 12), 1 }, // 2010
@@ -148,7 +144,7 @@ namespace Nager.Date.HolidayProviders
 
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
-                    this._hijriCalendar.HijriAdjustment = _turkeyHijriAdjustments.TryGetValue((hijriYear, 10), out var adjustment)
+                    this._hijriCalendar.HijriAdjustment = _hijriAdjustments.TryGetValue((hijriYear, 10), out var adjustment)
                         ? adjustment
                         : 0;
 
@@ -203,7 +199,7 @@ namespace Nager.Date.HolidayProviders
 
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
-                    this._hijriCalendar.HijriAdjustment = _turkeyHijriAdjustments.TryGetValue((hijriYear, 12), out var adjustment)
+                    this._hijriCalendar.HijriAdjustment = _hijriAdjustments.TryGetValue((hijriYear, 12), out var adjustment)
                         ? adjustment
                         : 0;
 
