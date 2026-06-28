@@ -21,24 +21,6 @@ namespace Nager.Date.HolidayProviders
             this._hijriCalendar = new HijriCalendar();
         }
 
-        ///// <summary>
-        ///// Convert Hijri Date To Gregorian Date
-        ///// </summary>
-        ///// <param name="year"></param>
-        ///// <param name="month"></param>
-        ///// <param name="day"></param>
-        ///// <returns></returns>
-        //private DateTime ConvertHijriToGregorian(int year, int month, int day)
-        //{
-        //    return this._umAlQuraCalendar.ToDateTime(year, month, day, 0, 0, 0, 0);
-        //}
-
-        //private int GetHijriYear(int year)
-        //{
-        //    var diff = year - 621;
-        //    return Convert.ToInt32(Math.Round(diff + decimal.Divide(diff, 33)));
-        //}
-
         /// <summary>
         /// Get Public Holidays for Turkey
         /// </summary>
