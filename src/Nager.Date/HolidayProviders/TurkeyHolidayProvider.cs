@@ -11,33 +11,33 @@ namespace Nager.Date.HolidayProviders
     /// </summary>
     internal sealed class TurkeyHolidayProvider : AbstractHolidayProvider
     {
-        private readonly UmAlQuraCalendar _umAlQuraCalendar;
+        private readonly HijriCalendar _hijriCalendar;
 
         /// <summary>
         /// Turkey HolidayProvider
         /// </summary>
         public TurkeyHolidayProvider() : base(CountryCode.TR)
         {
-            this._umAlQuraCalendar = new UmAlQuraCalendar();
+            this._hijriCalendar = new HijriCalendar();
         }
 
-        /// <summary>
-        /// Convert Hijri Date To Gregorian Date
-        /// </summary>
-        /// <param name="year"></param>
-        /// <param name="month"></param>
-        /// <param name="day"></param>
-        /// <returns></returns>
-        private DateTime ConvertHijriToGregorian(int year, int month, int day)
-        {
-            return this._umAlQuraCalendar.ToDateTime(year, month, day, 0, 0, 0, 0);
-        }
+        ///// <summary>
+        ///// Convert Hijri Date To Gregorian Date
+        ///// </summary>
+        ///// <param name="year"></param>
+        ///// <param name="month"></param>
+        ///// <param name="day"></param>
+        ///// <returns></returns>
+        //private DateTime ConvertHijriToGregorian(int year, int month, int day)
+        //{
+        //    return this._umAlQuraCalendar.ToDateTime(year, month, day, 0, 0, 0, 0);
+        //}
 
-        private int GetHijriYear(int year)
-        {
-            var diff = year - 621;
-            return Convert.ToInt32(Math.Round(diff + decimal.Divide(diff, 33)));
-        }
+        //private int GetHijriYear(int year)
+        //{
+        //    var diff = year - 621;
+        //    return Convert.ToInt32(Math.Round(diff + decimal.Divide(diff, 33)));
+        //}
 
         /// <summary>
         /// Get Public Holidays for Turkey
@@ -101,8 +101,8 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.DemocracyAndNationalUnityDay(year));
 
             //INFO: Cannot be calculated with certainty in advance, the exact date is determined by the lunar observations
-            //holidaySpecifications.AddRange(this.GetEidAlFitr(year));
-            //holidaySpecifications.AddRange(this.GetEidAlAdha(year));
+            holidaySpecifications.AddRange(this.GetEidAlFitr(year));
+            holidaySpecifications.AddRange(this.GetEidAlAdha(year));
 
             return holidaySpecifications;
         }
@@ -124,6 +124,34 @@ namespace Nager.Date.HolidayProviders
             return null;
         }
 
+        private static readonly Dictionary<(int HijriYear, int HijriMonth), int> _turkeyHijriAdjustments = new()
+        {
+            // Correction data for Turkey (Alignment between .NET standard algorithm and official Diyanet dates)
+            // Format: { (HijriYear, HijriMonth), Offset }
+            // Month 10 = Eid al-Fitr (Shawwal), Month 12 = Eid al-Adha (Dhu al-Hijjah)
+            { (1431, 10), 1 }, { (1431, 12), 1 }, // 2010
+            { (1432, 10), 1 }, { (1432, 12), 1 }, // 2011
+            { (1433, 10), 1 }, { (1433, 12), 1 }, // 2012
+            { (1434, 10), 1 }, { (1434, 12), 1 }, // 2013
+            { (1435, 10), 1 }, { (1435, 12), 1 }, // 2014
+            { (1436, 10), 1 }, { (1436, 12), 1 }, // 2015
+            { (1437, 10), 1 }, { (1437, 12), 0 }, // 2016
+            { (1438, 10), 0 }, { (1438, 12), 0 }, // 2017
+            { (1439, 10), 0 }, { (1439, 12), 0 }, // 2018
+            { (1440, 10), 0 }, { (1440, 12), 0 }, // 2019
+            { (1441, 10), 1 }, { (1441, 12), 1 }, // 2020
+            { (1442, 10), 1 }, { (1442, 12), 1 }, // 2021
+            { (1443, 10), 1 }, { (1443, 12), 0 }, // 2022
+            { (1444, 10), 0 }, { (1444, 12), 0 }, // 2023
+            { (1445, 10), 0 }, { (1445, 12), 0 }, // 2024
+            { (1446, 10), 1 }, { (1446, 12), 0 }, // 2025
+            { (1447, 10), -1 }, { (1447, 12), -1 }, // 2026
+            { (1448, 10), 1 }, { (1448, 12), 1 }, // 2027
+            { (1449, 10), 1 }, { (1449, 12), 1 }, // 2028
+            { (1450, 10), 1 }, { (1450, 12), 1 }, // 2029
+            { (1451, 10), 1 }, { (1451, 12), 1 }  // 2030
+        };
+
         /// <summary>
         /// Eid al-Fitr (Feast Of Ramadan) Holidays
         /// </summary>
@@ -131,40 +159,49 @@ namespace Nager.Date.HolidayProviders
         /// <returns></returns>
         private HolidaySpecification[] GetEidAlFitr(int year)
         {
-            if (year > this._umAlQuraCalendar.MinSupportedDateTime.Year && year < this._umAlQuraCalendar.MaxSupportedDateTime.Year)
+            if (year > this._hijriCalendar.MinSupportedDateTime.Year && year < this._hijriCalendar.MaxSupportedDateTime.Year)
             {
-                var hijriYear = this.GetHijriYear(year);
-                var calculateDate1 = this.ConvertHijriToGregorian(hijriYear, 10, 1);
-                var calculateDate2 = this.ConvertHijriToGregorian(hijriYear, 10, 2);
-                var calculateDate3 = this.ConvertHijriToGregorian(hijriYear, 10, 3);
+                this._hijriCalendar.HijriAdjustment = 0;
+                var startHijriYear = this._hijriCalendar.GetYear(new DateTime(year, 1, 1));
 
-                return
-                [
-                    new HolidaySpecification
+                for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
+                {
+                    this._hijriCalendar.HijriAdjustment = _turkeyHijriAdjustments.TryGetValue((hijriYear, 10), out var adjustment)
+                        ? adjustment
+                        : 0;
+
+                    var eidalFitrFirstDayDate = this._hijriCalendar.ToDateTime(hijriYear, 10, 1, 0, 0, 0, 0);
+                    if (eidalFitrFirstDayDate.Year == year)
                     {
-                        Id = "EIDALFITRFIRSTDAY-01",
-                        Date = new DateTime(year, calculateDate1.Month, calculateDate1.Day),
-                        EnglishName = "Eid al-Fitr First Day",
-                        LocalName = "Ramazan Bayramı 1. Gün",
-                        HolidayTypes = HolidayTypes.Public
-                    },
-                    new HolidaySpecification
-                    {
-                        Id = "EIDALFITRFIRSTDAY-02",
-                        Date = new DateTime(year, calculateDate2.Month, calculateDate2.Day),
-                        EnglishName = "Eid al-Fitr Second Day",
-                        LocalName = "Ramazan Bayramı 2. Gün",
-                        HolidayTypes = HolidayTypes.Public
-                    },
-                    new HolidaySpecification
-                    {
-                        Id = "EIDALFITRFIRSTDAY-03",
-                        Date = new DateTime(year, calculateDate3.Month, calculateDate3.Day),
-                        EnglishName = "Eid al-Fitr Third Day",
-                        LocalName = "Ramazan Bayramı 3. Gün",
-                        HolidayTypes = HolidayTypes.Public
+                        return
+                        [
+                            new HolidaySpecification
+                            {
+                                Id = "EIDALFITRFIRSTDAY-01",
+                                Date = eidalFitrFirstDayDate,
+                                EnglishName = "Eid al-Fitr First Day",
+                                LocalName = "Ramazan Bayramı 1. Gün",
+                                HolidayTypes = HolidayTypes.Public
+                            },
+                            new HolidaySpecification
+                            {
+                                Id = "EIDALFITRFIRSTDAY-02",
+                                Date = eidalFitrFirstDayDate.AddDays(1),
+                                EnglishName = "Eid al-Fitr Second Day",
+                                LocalName = "Ramazan Bayramı 2. Gün",
+                                HolidayTypes = HolidayTypes.Public
+                            },
+                            new HolidaySpecification
+                            {
+                                Id = "EIDALFITRFIRSTDAY-03",
+                                Date = eidalFitrFirstDayDate.AddDays(2),
+                                EnglishName = "Eid al-Fitr Third Day",
+                                LocalName = "Ramazan Bayramı 3. Gün",
+                                HolidayTypes = HolidayTypes.Public
+                            }
+                        ];
                     }
-                ];
+                }
             }
 
             return [];
@@ -177,49 +214,57 @@ namespace Nager.Date.HolidayProviders
         /// <returns></returns>
         private HolidaySpecification[] GetEidAlAdha(int year)
         {
-            if (year > this._umAlQuraCalendar.MinSupportedDateTime.Year && year < this._umAlQuraCalendar.MaxSupportedDateTime.Year)
+            if (year > this._hijriCalendar.MinSupportedDateTime.Year && year < this._hijriCalendar.MaxSupportedDateTime.Year)
             {
-                var hijriYear = this.GetHijriYear(year);
-                var calculateDate1 = this.ConvertHijriToGregorian(hijriYear, 12, 10);
-                var calculateDate2 = this.ConvertHijriToGregorian(hijriYear, 12, 11);
-                var calculateDate3 = this.ConvertHijriToGregorian(hijriYear, 12, 12);
-                var calculateDate4 = this.ConvertHijriToGregorian(hijriYear, 12, 13);
+                this._hijriCalendar.HijriAdjustment = 0;
+                var startHijriYear = this._hijriCalendar.GetYear(new DateTime(year, 1, 1));
 
-                return
-                [
-                    new HolidaySpecification
+                for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
+                {
+                    this._hijriCalendar.HijriAdjustment = _turkeyHijriAdjustments.TryGetValue((hijriYear, 12), out var adjustment)
+                        ? adjustment
+                        : 0;
+
+                    var eidalAdhaFirstDayDate = this._hijriCalendar.ToDateTime(hijriYear, 12, 10, 0, 0, 0, 0);
+                    if (eidalAdhaFirstDayDate.Year == year)
                     {
-                        Id = "EIDALADHAFIRSTDAY-01",
-                        Date = new DateTime(year, calculateDate1.Month, calculateDate1.Day),
-                        EnglishName = "Eid al-Adha First Day",
-                        LocalName = "Kurban Bayramı 1. Gün",
-                        HolidayTypes = HolidayTypes.Public
-                    },
-                    new HolidaySpecification
-                    {
-                        Id = "EIDALADHAFIRSTDAY-02",
-                        Date = new DateTime(year, calculateDate2.Month, calculateDate2.Day),
-                        EnglishName = "Eid al-Adha Second Day",
-                        LocalName = "Kurban Bayramı 2. Gün",
-                        HolidayTypes = HolidayTypes.Public
-                    },
-                    new HolidaySpecification
-                    {
-                        Id = "EIDALADHAFIRSTDAY-03",
-                        Date = new DateTime(year, calculateDate3.Month, calculateDate3.Day),
-                        EnglishName = "Eid al-Adha Third Day",
-                        LocalName = "Kurban Bayramı 3. Gün",
-                        HolidayTypes = HolidayTypes.Public
-                    },
-                    new HolidaySpecification
-                    {
-                        Id = "EIDALADHAFIRSTDAY-04",
-                        Date = new DateTime(year, calculateDate4.Month, calculateDate4.Day),
-                        EnglishName = "Eid al-Adha Fourth Day",
-                        LocalName = "Kurban Bayramı 4. Gün",
-                        HolidayTypes = HolidayTypes.Public
+                        return
+                        [
+                            new HolidaySpecification
+                            {
+                                Id = "EIDALADHAFIRSTDAY-01",
+                                Date = eidalAdhaFirstDayDate,
+                                EnglishName = "Eid al-Adha First Day",
+                                LocalName = "Kurban Bayramı 1. Gün",
+                                HolidayTypes = HolidayTypes.Public
+                            },
+                            new HolidaySpecification
+                            {
+                                Id = "EIDALADHAFIRSTDAY-02",
+                                Date = eidalAdhaFirstDayDate.AddDays(1),
+                                EnglishName = "Eid al-Adha Second Day",
+                                LocalName = "Kurban Bayramı 2. Gün",
+                                HolidayTypes = HolidayTypes.Public
+                            },
+                            new HolidaySpecification
+                            {
+                                Id = "EIDALADHAFIRSTDAY-03",
+                                Date = eidalAdhaFirstDayDate.AddDays(2),
+                                EnglishName = "Eid al-Adha Third Day",
+                                LocalName = "Kurban Bayramı 3. Gün",
+                                HolidayTypes = HolidayTypes.Public
+                            },
+                            new HolidaySpecification
+                            {
+                                Id = "EIDALADHAFIRSTDAY-04",
+                                Date = eidalAdhaFirstDayDate.AddDays(3),
+                                EnglishName = "Eid al-Adha Fourth Day",
+                                LocalName = "Kurban Bayramı 4. Gün",
+                                HolidayTypes = HolidayTypes.Public
+                            }
+                        ];
                     }
-                ];
+                }
             }
 
             return [];
