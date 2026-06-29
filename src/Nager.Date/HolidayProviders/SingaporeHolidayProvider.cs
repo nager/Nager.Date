@@ -142,7 +142,7 @@ namespace Nager.Date.HolidayProviders
                     date = new DateTime(year, 3, 31);
                     break;
                 case 2026:
-                    date = new DateTime(year, 3, 20);
+                    date = new DateTime(year, 3, 21);
                     break;
                 case 2027:
                     date = new DateTime(year, 3, 10);
@@ -206,6 +206,12 @@ namespace Nager.Date.HolidayProviders
                 case 2025:
                     date = new DateTime(year, 5, 12);
                     break;
+                case 2026:
+                    date = new DateTime(year, 5, 31);
+                    break;
+                case 2027:
+                    date = new DateTime(year, 5, 20);
+                    break;
                 default:
                     break;
             }
@@ -268,11 +274,9 @@ namespace Nager.Date.HolidayProviders
                     break;
                 case 2026:
                     date = new DateTime(year, 5, 27);
-                    tentativeDate = true;
                     break;
                 case 2027:
                     date = new DateTime(year, 5, 17);
-                    tentativeDate = true;
                     break;
                 default:
                     break;
@@ -338,7 +342,7 @@ namespace Nager.Date.HolidayProviders
                     date = new DateTime(year, 11, 8);
                     break;
                 case 2027:
-                    date = new DateTime(year, 10, 29);
+                    date = new DateTime(year, 10, 28);
                     break;
                 default:
                     break;
