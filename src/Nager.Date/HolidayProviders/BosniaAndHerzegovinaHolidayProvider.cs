@@ -13,7 +13,7 @@ namespace Nager.Date.HolidayProviders
         private readonly IOrthodoxProvider _orthodoxProvider;
 
         /// <summary>
-        /// BosniaAndHerzegovina HolidayProvider
+        /// Bosnia and Herzegovina HolidayProvider
         /// </summary>
         /// <param name="orthodoxProvider"></param>
         public BosniaAndHerzegovinaHolidayProvider(

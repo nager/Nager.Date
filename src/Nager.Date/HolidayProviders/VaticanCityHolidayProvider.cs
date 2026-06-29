@@ -13,7 +13,7 @@ namespace Nager.Date.HolidayProviders
         private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
-        /// VaticanCity HolidayProvider
+        /// Vatican City HolidayProvider
         /// </summary>
         /// <param name="catholicProvider"></param>
         public VaticanCityHolidayProvider(
