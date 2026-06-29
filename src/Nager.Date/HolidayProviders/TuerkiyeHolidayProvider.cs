@@ -173,6 +173,23 @@ namespace Nager.Date.HolidayProviders
             { (1462, 12), 0 }   // September 2040
         };
 
+        /*
+         * | Month | Name              | Description                                                        |
+         * | ----: | ----------------- | ------------------------------------------------------------------ |
+         * |     1 | Muharram          | Marks the Islamic New Year and is considered a sacred month.       |
+         * |     2 | Safar             | Follows the initial sacred month.                                  |
+         * |     3 | Rabi' al-Awwal    | Traditionally associated with the birth of Prophet Muhammad.       |
+         * |     4 | Rabi' al-Thani    | The second month of spring.                                        |
+         * |     5 | Jumada al-Ula     | The first month of dry land.                                       |
+         * |     6 | Jumada al-Akhirah | The last month of dry land.                                        |
+         * |     7 | Rajab             | A sacred month during which fighting was traditionally prohibited. |
+         * |     8 | Sha'ban           | The month preceding Ramadan.                                       |
+         * |     9 | Ramadan           | The month of fasting observed by Muslims worldwide.                |
+         * |    10 | Shawwal           | Begins with Eid al-Fitr.                                           |
+         * |    11 | Dhu al-Qa'dah     | A sacred month traditionally dedicated to peace.                   |
+         * |    12 | Dhu al-Hijjah     | The month of Hajj pilgrimage and                                   |
+         */
+
         /// <summary>
         /// Eid al-Fitr (Feast Of Ramadan) Holidays
         /// </summary>
