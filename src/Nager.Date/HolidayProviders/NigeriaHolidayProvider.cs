@@ -13,7 +13,7 @@ namespace Nager.Date.HolidayProviders
         private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
-        /// Niger HolidayProvider
+        /// Nigeria HolidayProvider
         /// </summary>
         /// <param name="catholicProvider"></param>
         public NigeriaHolidayProvider(

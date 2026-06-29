@@ -11,6 +11,9 @@ namespace Nager.Date.HolidayProviders
     /// </summary>
     internal sealed class SouthKoreaHolidayProvider : AbstractHolidayProvider
     {
+        /// <summary>
+        /// South Korea HolidayProvider
+        /// </summary>
         public SouthKoreaHolidayProvider() : base(CountryCode.KR)
         {
         }
