@@ -266,7 +266,7 @@ Here you can see how long the product will be supported and when the End of Life
 | Product                          | Release Date                | Supported | End of life |
 | -------------------------------- | --------------------------- | --------- | ----------- |
 | WebApi v5                        | under development           | No        | -           |
-| WebApi v4                        | under development           | No        | -           |
+| WebApi v4                        | 2026-06-30                  | Yes       | -           |
 | WebApi v3                        | 2021-05-18                  | Yes       | 2027-01-31  |
 | WebApi v2                        | 2019-02-10                  | No        | 2024-12-01  |
 | WebApi v1                        | 2017-02-06                  | No        | 2024-06-24  |
