@@ -12,7 +12,7 @@ namespace Nager.Date.UnitTest.Common
         [TestMethod]
         public void HolidayProvider_ReturnCorrectCountryCode()
         {
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 var provider = HolidaySystem.GetHolidayProvider(countryCode);
 
@@ -34,7 +34,7 @@ namespace Nager.Date.UnitTest.Common
         {
             var failures = new List<string>();
 
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 var provider = HolidaySystem.GetHolidayProvider(countryCode);
                 var subdivisionCodes = provider is ISubdivisionCodesProvider subdivisionCodesProvider

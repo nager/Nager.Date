@@ -14,7 +14,7 @@ namespace Nager.Date.UnitTest.Common
             var startYear = DateTime.Today.Year - 100;
             var endYear = DateTime.Today.Year + 100;
 
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 var provider = HolidaySystem.GetHolidayProvider(countryCode);
 
@@ -41,7 +41,7 @@ namespace Nager.Date.UnitTest.Common
             var startYear = DateTime.Today.Year - 100;
             var endYear = DateTime.Today.Year + 100;
 
-            foreach (CountryCode countryCode in Enum.GetValues(typeof(CountryCode)))
+            foreach (var countryCode in Enum.GetValues<CountryCode>())
             {
                 var provider = HolidaySystem.GetHolidayProvider(countryCode);
 
