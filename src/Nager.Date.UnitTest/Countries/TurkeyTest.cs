@@ -107,6 +107,66 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
+        [DataRow(2010, 09, 09)]
+        [DataRow(2011, 08, 30)]
+        [DataRow(2012, 08, 19)]
+        [DataRow(2013, 08, 08)]
+        [DataRow(2014, 07, 28)]
+        [DataRow(2015, 07, 17)]
+        [DataRow(2016, 07, 05)]
+        [DataRow(2017, 06, 25)]
+        [DataRow(2018, 06, 15)]
+        [DataRow(2019, 06, 04)]
+        [DataRow(2020, 05, 24)]
+        [DataRow(2021, 05, 13)]
+        [DataRow(2022, 05, 02)]
+        [DataRow(2023, 04, 21)]
+        [DataRow(2024, 04, 10)]
+        [DataRow(2025, 03, 30)]
+        [DataRow(2026, 03, 20)]
+        [DataRow(2027, 03, 10)]
+        [DataRow(2028, 02, 27)]
+        [DataRow(2029, 02, 15)]
+        [DataRow(2030, 02, 05)]
+        [TestMethod]
+        public void EidAlFitrHoliday(int year, int month, int day)
+        {
+            var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.TR);
+            var holiday = publicHolidays.First(o => o.Id == "TR-EIDALFITR-01");
+
+            Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
+        }
+
+        [DataRow(2010, 11, 16)]
+        [DataRow(2011, 11, 06)]
+        [DataRow(2012, 10, 26)]
+        [DataRow(2013, 10, 15)]
+        [DataRow(2014, 10, 04)]
+        [DataRow(2015, 09, 24)]
+        [DataRow(2016, 09, 12)]
+        [DataRow(2017, 09, 01)]
+        [DataRow(2018, 08, 21)]
+        [DataRow(2019, 08, 11)]
+        [DataRow(2020, 07, 31)]
+        [DataRow(2021, 07, 20)]
+        [DataRow(2022, 07, 09)]
+        [DataRow(2023, 06, 28)]
+        [DataRow(2024, 06, 16)]
+        [DataRow(2025, 06, 06)]
+        [DataRow(2026, 05, 27)]
+        [DataRow(2027, 05, 16)]
+        [DataRow(2028, 05, 05)]
+        [DataRow(2029, 04, 24)]
+        [DataRow(2030, 04, 14)]
+        [TestMethod]
+        public void EidAlAdhaHoliday(int year, int month, int day)
+        {
+            var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.TR);
+            var holiday = publicHolidays.First(o => o.Id == "TR-EIDALADHA-01");
+
+            Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
+        }
+
         [TestMethod]
         [DataRow(2018, 10, 8, false)]
         [DataRow(2018, 10, 9, false)]
