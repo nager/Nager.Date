@@ -132,7 +132,7 @@ namespace Nager.Date.UnitTest.Countries
         public void EidAlFitrHoliday(int year, int month, int day)
         {
             var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.TR);
-            var holiday = publicHolidays.First(o => o.Id == "TR-EIDALFITR-01");
+            var holiday = publicHolidays.First(o => o.Id.StartsWith("TR-EIDALFITR-") && o.Id.EndsWith("-01"));
 
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }
@@ -162,7 +162,7 @@ namespace Nager.Date.UnitTest.Countries
         public void EidAlAdhaHoliday(int year, int month, int day)
         {
             var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.TR);
-            var holiday = publicHolidays.First(o => o.Id == "TR-EIDALADHA-01");
+            var holiday = publicHolidays.First(o => o.Id.StartsWith("TR-EIDALADHA-") && o.Id.EndsWith("-01"));
 
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }

@@ -198,7 +198,7 @@ namespace Nager.Date.HolidayProviders
                     {
                         items.Add(new HolidaySpecification
                         {
-                            Id = "EIDALFITR-01",
+                            Id = $"EIDALFITR-{hijriYear}-01",
                             Date = eidalFitrFirstDayDate,
                             EnglishName = "Eid al-Fitr First Day",
                             LocalName = "Ramazan Bayramı 1. Gün",
@@ -210,7 +210,7 @@ namespace Nager.Date.HolidayProviders
                     {
                         items.Add(new HolidaySpecification
                         {
-                            Id = "EIDALFITR-02",
+                            Id = $"EIDALFITR-{hijriYear}-02",
                             Date = eidalFitrSecondDayDate,
                             EnglishName = "Eid al-Fitr Second Day",
                             LocalName = "Ramazan Bayramı 2. Gün",
@@ -222,7 +222,7 @@ namespace Nager.Date.HolidayProviders
                     {
                         items.Add(new HolidaySpecification
                         {
-                            Id = "EIDALFITR-03",
+                            Id = $"EIDALFITR-{hijriYear}-03",
                             Date = eidalFitrThirdDayDate,
                             EnglishName = "Eid al-Fitr Third Day",
                             LocalName = "Ramazan Bayramı 3. Gün",
@@ -267,7 +267,7 @@ namespace Nager.Date.HolidayProviders
                     {
                         items.Add(new HolidaySpecification
                         {
-                            Id = "EIDALADHA-01",
+                            Id = $"EIDALADHA-{hijriYear}-01",
                             Date = eidalAdhaFirstDayDate,
                             EnglishName = "Eid al-Adha First Day",
                             LocalName = "Kurban Bayramı 1. Gün",
@@ -279,7 +279,7 @@ namespace Nager.Date.HolidayProviders
                     {
                         items.Add(new HolidaySpecification
                         {
-                            Id = "EIDALADHA-02",
+                            Id = $"EIDALADHA-{hijriYear}-02",
                             Date = eidalAdhaSecondDayDate,
                             EnglishName = "Eid al-Adha Second Day",
                             LocalName = "Kurban Bayramı 2. Gün",
@@ -291,7 +291,7 @@ namespace Nager.Date.HolidayProviders
                     {
                         items.Add(new HolidaySpecification
                         {
-                            Id = "EIDALADHA-03",
+                            Id = $"EIDALADHA-{hijriYear}-03",
                             Date = eidalAdhaThirdDayDate,
                             EnglishName = "Eid al-Adha Third Day",
                             LocalName = "Kurban Bayramı 3. Gün",
@@ -303,7 +303,7 @@ namespace Nager.Date.HolidayProviders
                     {
                         items.Add(new HolidaySpecification
                         {
-                            Id = "EIDALADHA-04",
+                            Id = $"EIDALADHA-{hijriYear}-04",
                             Date = eidalAdhaFourthDayDate,
                             EnglishName = "Eid al-Adha Fourth Day",
                             LocalName = "Kurban Bayramı 4. Gün",
