@@ -6,18 +6,18 @@ using System.Collections.Generic;
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
-    /// Benin HolidayProvider
+    /// Malawi HolidayProvider
     /// </summary>
-    internal sealed class BeninHolidayProvider : AbstractHolidayProvider
+    internal sealed class MalawiHolidayProvider : AbstractHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
         /// <summary>
-        /// Benin HolidayProvider
+        /// Malawi HolidayProvider
         /// </summary>
         /// <param name="catholicProvider"></param>
-        public BeninHolidayProvider(
-            ICatholicProvider catholicProvider) : base(CountryCode.BJ)
+        public MalawiHolidayProvider(
+            ICatholicProvider catholicProvider) : base(CountryCode.MW)
         {
             this._catholicProvider = catholicProvider;
         }
@@ -25,7 +25,11 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            //TODO: Add islamic public holidays
+            var weekendObservedRuleSet = new ObservedRuleSet
+            {
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(1),
+            };
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -36,14 +40,25 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
-                    Id = "TRADITIONALDAY-01",
-                    Date = new DateTime(year, 1, 10),
-                    EnglishName = "Traditional Day",
-                    LocalName = "Traditional Day",
+                    Id = "JOHNCHILEMBWEDAY-01",
+                    Date = new DateTime(year, 1, 15),
+                    EnglishName = "John Chilembwe Day",
+                    LocalName = "John Chilembwe Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
+                },
+                new HolidaySpecification
+                {
+                    Id = "MARTYRSDAY-01",
+                    Date = new DateTime(year, 3, 3),
+                    EnglishName = "Martyrs' Day",
+                    LocalName = "Martyrs' Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -52,46 +67,32 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
+                },
+                new HolidaySpecification
+                {
+                    Id = "PRESIDENTBIRTHDAY-01",
+                    Date = new DateTime(year, 5, 14),
+                    EnglishName = "President Kamuzu Banda's Birthday",
+                    LocalName = "President Kamuzu Banda's Birthday",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
                     Id = "INDEPENDENCEDAY-01",
-                    Date = new DateTime(year, 8, 1),
+                    Date = new DateTime(year, 7, 6),
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
-                    Id = "ASSUMPTIONDAY-01",
-                    Date = new DateTime(year, 8, 15),
-                    EnglishName = "Assumption Day",
-                    LocalName = "Assumption Day",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
-                    Id = "ARMEDFORCESDAY-01",
-                    Date = new DateTime(year, 10, 26),
-                    EnglishName = "Armed Forces Day",
-                    LocalName = "Armed Forces Day",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
-                    Id = "ALLSAINTSDAY-01",
-                    Date = new DateTime(year, 11, 1),
-                    EnglishName = "All Saints' Day",
-                    LocalName = "All Saints' Day",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
-                    Id = "NATIONALDAY-01",
-                    Date = new DateTime(year, 11, 30),
-                    EnglishName = "National Day",
-                    LocalName = "National Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    Id = "MOTHERSDAY-01",
+                    Date = new DateTime(year, 10, 15),
+                    EnglishName = "Mother's Day",
+                    LocalName = "Mother's Day",
+                    HolidayTypes = HolidayTypes.Public
                 },
                 new HolidaySpecification
                 {
@@ -100,6 +101,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet
                 },
                 new HolidaySpecification
                 {
@@ -108,12 +110,13 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet
                 },
-                this._catholicProvider.AscensionDay("Ascension Day", year),
-                this._catholicProvider.EasterSunday("Easter Sunday", year),
+                this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year),
-                this._catholicProvider.WhitMonday("Whit Monday", year)
             };
+
+            //TODO: Add Eid al-Fitr
 
             return holidaySpecifications;
         }
@@ -123,7 +126,7 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Benin"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Malawi",
             ];
         }
     }

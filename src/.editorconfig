@@ -64,7 +64,7 @@ dotnet_style_null_propagation                              = true : warning
 
 # Modifier preferences
 # See https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-language-conventions?view=vs-2019#normalize-modifiers
-dotnet_style_require_accessibility_modifiers               = always : error
+dotnet_style_require_accessibility_modifiers               = for_non_interface_members : error
 dotnet_style_readonly_field                                = true : warning
 
 # Required Styles
