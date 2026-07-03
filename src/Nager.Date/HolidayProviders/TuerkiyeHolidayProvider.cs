@@ -119,54 +119,54 @@ namespace Nager.Date.HolidayProviders
         * |    12 | Dhu al-Hijjah     | The month of Hajj pilgrimage and                                   |
         */
 
-        private static readonly Dictionary<(int HijriYear, int HijriMonth), int> _hijriAdjustments = new()
+        private static readonly Dictionary<(int HijriYear, int HijriMonth), HijriAdjustmentInfo> _hijriAdjustments = new()
         {
             // Correction data for Türkiye (Alignment between .NET standard algorithm and official Diyanet dates)
-            // Format: { (HijriYear, HijriMonth), Offset }
+            // Format: { (HijriYear, HijriMonth), new HijriAdjustmentInfo { Offset = X, IsVerified = true/false } }
             // Month 10 = Eid al-Fitr (Shawwal), Month 12 = Eid al-Adha (Dhu al-Hijjah)
-            { (1431, 10), 0 },  // September 2010
-            { (1431, 12), 0 },  // November 2010
-            { (1432, 10), 0 },  // August 2011
-            { (1432, 12), 0 },  // October 2011
-            { (1433, 10), -1 },  // August 2012
-            { (1433, 12), -1 },  // October 2012
-            { (1434, 10), -1 },  // August 2013
-            { (1434, 12), -1 },  // October 2013
-            { (1435, 10), 0 },  // July 2014
-            { (1435, 12), 0 },  // September 2014
-            { (1436, 10), 0 },  // July 2015
-            { (1436, 12), -1 },  // September 2015
-            { (1437, 10), 1 },  // July 2016
-            { (1437, 12), 0 },  // September 2016
-            { (1438, 10), 0 },  // June 2017
-            { (1438, 12), 0 },  // August 2017
-            { (1439, 10), -1 },  // June 2018
-            { (1439, 12), 0 },  // August 2018
-            { (1440, 10), 0 },  // June 2019
-            { (1440, 12), 0 },  // August 2019
-            { (1441, 10), -1 },  // May 2020
-            { (1441, 12), -1 },  // July 2020
-            { (1442, 10), -1 },  // May 2021
-            { (1442, 12), -1 },  // July 2021
-            { (1443, 10), 0 },  // May 2022
-            { (1443, 12), 0 },  // July 2022
-            { (1444, 10), 0 },  // April 2023
-            { (1444, 12), 0 },  // June 2023
-            { (1445, 10), -1 },  // April 2024
-            { (1445, 12), 0 },  // June 2024
-            { (1446, 10), 0 },  // March 2025
-            { (1446, 12), 0 },  // May 2025
-            { (1447, 10), -1 }, // March 2026
-            { (1447, 12), -1 }, // May 2026
-            { (1448, 10), -1 },  // February 2027
-            { (1448, 12), 0 },  // April 2027
-            { (1449, 10), -1 },  // February 2028
-            { (1449, 12), -1 },  // April 2028
-            { (1450, 10), -1 },  // January 2029
-            { (1450, 12), -1 },  // March 2029
-            { (1451, 10), -1 },  // January 2030
-            { (1451, 12), -1 },  // March 2030
-            { (1452, 10), 1 },  // December 2030
+            { (1431, 10), new() { Offset = 0, IsVerified = true } },  // 2010 September
+            { (1431, 12), new() { Offset = 0, IsVerified = true } },  // 2010 November
+            { (1432, 10), new() { Offset = 0, IsVerified = true } },  // 2011 August
+            { (1432, 12), new() { Offset = 0, IsVerified = true } },  // 2011 October
+            { (1433, 10), new() { Offset = -1, IsVerified = true } }, // 2012 August
+            { (1433, 12), new() { Offset = -1, IsVerified = true } }, // 2012 October
+            { (1434, 10), new() { Offset = -1, IsVerified = true } }, // 2013 August
+            { (1434, 12), new() { Offset = -1, IsVerified = true } }, // 2013 October
+            { (1435, 10), new() { Offset = 0, IsVerified = true } },  // 2014 July
+            { (1435, 12), new() { Offset = 0, IsVerified = true } },  // 2014 September
+            { (1436, 10), new() { Offset = 0, IsVerified = true } },  // 2015 July
+            { (1436, 12), new() { Offset = -1, IsVerified = true } }, // 2015 September
+            { (1437, 10), new() { Offset = 1, IsVerified = true } },  // 2016 July
+            { (1437, 12), new() { Offset = 0, IsVerified = true } },  // 2016 September
+            { (1438, 10), new() { Offset = 0, IsVerified = true } },  // 2017 June
+            { (1438, 12), new() { Offset = 0, IsVerified = true } },  // 2017 August
+            { (1439, 10), new() { Offset = -1, IsVerified = true } }, // 2018 June
+            { (1439, 12), new() { Offset = 0, IsVerified = true } },  // 2018 August
+            { (1440, 10), new() { Offset = 0, IsVerified = true } },  // 2019 June
+            { (1440, 12), new() { Offset = 0, IsVerified = true } },  // 2019 August
+            { (1441, 10), new() { Offset = -1, IsVerified = true } }, // 2020 May
+            { (1441, 12), new() { Offset = -1, IsVerified = true } }, // 2020 July
+            { (1442, 10), new() { Offset = -1, IsVerified = true } }, // 2021 May
+            { (1442, 12), new() { Offset = -1, IsVerified = true } }, // 2021 July
+            { (1443, 10), new() { Offset = 0, IsVerified = true } },  // 2022 May
+            { (1443, 12), new() { Offset = 0, IsVerified = true } },  // 2022 July
+            { (1444, 10), new() { Offset = 0, IsVerified = true } },  // 2023 April
+            { (1444, 12), new() { Offset = 0, IsVerified = true } },  // 2023 June
+            { (1445, 10), new() { Offset = -1, IsVerified = true } }, // 2024 April
+            { (1445, 12), new() { Offset = 0, IsVerified = true } },  // 2024 June
+            { (1446, 10), new() { Offset = 0, IsVerified = true } },  // 2025 March
+            { (1446, 12), new() { Offset = 0, IsVerified = true } },  // 2025 May
+            { (1447, 10), new() { Offset = -1, IsVerified = true } }, // 2026 March
+            { (1447, 12), new() { Offset = -1, IsVerified = true } }, // 2026 May
+            { (1448, 10), new() { Offset = -1, IsVerified = false } },// 2027 February
+            { (1448, 12), new() { Offset = 0, IsVerified = false } }, // 2027 April
+            { (1449, 10), new() { Offset = -1, IsVerified = false } },// 2028 February
+            { (1449, 12), new() { Offset = -1, IsVerified = false } },// 2028 April
+            { (1450, 10), new() { Offset = -1, IsVerified = false } },// 2029 January
+            { (1450, 12), new() { Offset = -1, IsVerified = false } },// 2029 March
+            { (1451, 10), new() { Offset = -1, IsVerified = false } },// 2030 January
+            { (1451, 12), new() { Offset = -1, IsVerified = false } },// 2030 March
+            { (1452, 10), new() { Offset = 1, IsVerified = false } }, // 2030 December
         };
 
         /// <summary>
@@ -186,9 +186,20 @@ namespace Nager.Date.HolidayProviders
 
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
-                    this._hijriCalendar.HijriAdjustment = _hijriAdjustments.TryGetValue((hijriYear, month), out var adjustment)
-                        ? adjustment
-                        : 0;
+                    var tentativeInfo = "";
+                    this._hijriCalendar.HijriAdjustment = 0;
+                    if (_hijriAdjustments.TryGetValue((hijriYear, month), out var hirjiAdjustmentInfo))
+                    {
+                        this._hijriCalendar.HijriAdjustment = hirjiAdjustmentInfo.Offset;
+                        if (!hirjiAdjustmentInfo.IsVerified)
+                        {
+                            tentativeInfo = " (Tentative Date)";
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
 
                     var eidalFitrFirstDayDate = this._hijriCalendar.ToDateTime(hijriYear, month, 1, 0, 0, 0, 0);
                     var eidalFitrSecondDayDate = this._hijriCalendar.ToDateTime(hijriYear, month, 2, 0, 0, 0, 0);
@@ -200,8 +211,8 @@ namespace Nager.Date.HolidayProviders
                         {
                             Id = $"EIDALFITR-{hijriYear}-01",
                             Date = eidalFitrFirstDayDate,
-                            EnglishName = "Eid al-Fitr First Day",
-                            LocalName = "Ramazan Bayramı 1. Gün",
+                            EnglishName = $"Eid al-Fitr First Day{tentativeInfo}",
+                            LocalName = $"Ramazan Bayramı 1. Gün{tentativeInfo}",
                             HolidayTypes = HolidayTypes.Public,
                         });
                     }
@@ -212,8 +223,8 @@ namespace Nager.Date.HolidayProviders
                         {
                             Id = $"EIDALFITR-{hijriYear}-02",
                             Date = eidalFitrSecondDayDate,
-                            EnglishName = "Eid al-Fitr Second Day",
-                            LocalName = "Ramazan Bayramı 2. Gün",
+                            EnglishName = $"Eid al-Fitr Second Day{tentativeInfo}",
+                            LocalName = $"Ramazan Bayramı 2. Gün{tentativeInfo}",
                             HolidayTypes = HolidayTypes.Public,
                         });
                     }
@@ -224,8 +235,8 @@ namespace Nager.Date.HolidayProviders
                         {
                             Id = $"EIDALFITR-{hijriYear}-03",
                             Date = eidalFitrThirdDayDate,
-                            EnglishName = "Eid al-Fitr Third Day",
-                            LocalName = "Ramazan Bayramı 3. Gün",
+                            EnglishName = $"Eid al-Fitr Third Day{tentativeInfo}",
+                            LocalName = $"Ramazan Bayramı 3. Gün{tentativeInfo}",
                             HolidayTypes = HolidayTypes.Public,
                         });
                     }
@@ -254,9 +265,20 @@ namespace Nager.Date.HolidayProviders
 
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
-                    this._hijriCalendar.HijriAdjustment = _hijriAdjustments.TryGetValue((hijriYear, month), out var adjustment)
-                        ? adjustment
-                        : 0;
+                    var tentativeInfo = "";
+                    this._hijriCalendar.HijriAdjustment = 0;
+                    if (_hijriAdjustments.TryGetValue((hijriYear, month), out var hirjiAdjustmentInfo))
+                    {
+                        this._hijriCalendar.HijriAdjustment = hirjiAdjustmentInfo.Offset;
+                        if (!hirjiAdjustmentInfo.IsVerified)
+                        {
+                            tentativeInfo = " (Tentative Date)";
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
 
                     var eidalAdhaFirstDayDate = this._hijriCalendar.ToDateTime(hijriYear, month, 10, 0, 0, 0, 0);
                     var eidalAdhaSecondDayDate = this._hijriCalendar.ToDateTime(hijriYear, month, 11, 0, 0, 0, 0);
@@ -269,8 +291,8 @@ namespace Nager.Date.HolidayProviders
                         {
                             Id = $"EIDALADHA-{hijriYear}-01",
                             Date = eidalAdhaFirstDayDate,
-                            EnglishName = "Eid al-Adha First Day",
-                            LocalName = "Kurban Bayramı 1. Gün",
+                            EnglishName = $"Eid al-Adha First Day{tentativeInfo}",
+                            LocalName = $"Kurban Bayramı 1. Gün{tentativeInfo}",
                             HolidayTypes = HolidayTypes.Public,
                         });
                     }
@@ -281,8 +303,8 @@ namespace Nager.Date.HolidayProviders
                         {
                             Id = $"EIDALADHA-{hijriYear}-02",
                             Date = eidalAdhaSecondDayDate,
-                            EnglishName = "Eid al-Adha Second Day",
-                            LocalName = "Kurban Bayramı 2. Gün",
+                            EnglishName = $"Eid al-Adha Second Day{tentativeInfo}",
+                            LocalName = $"Kurban Bayramı 2. Gün{tentativeInfo}",
                             HolidayTypes = HolidayTypes.Public,
                         });
                     }
@@ -293,8 +315,8 @@ namespace Nager.Date.HolidayProviders
                         {
                             Id = $"EIDALADHA-{hijriYear}-03",
                             Date = eidalAdhaThirdDayDate,
-                            EnglishName = "Eid al-Adha Third Day",
-                            LocalName = "Kurban Bayramı 3. Gün",
+                            EnglishName = $"Eid al-Adha Third Day{tentativeInfo}",
+                            LocalName = $"Kurban Bayramı 3. Gün{tentativeInfo}",
                             HolidayTypes = HolidayTypes.Public,
                         });
                     }
@@ -305,8 +327,8 @@ namespace Nager.Date.HolidayProviders
                         {
                             Id = $"EIDALADHA-{hijriYear}-04",
                             Date = eidalAdhaFourthDayDate,
-                            EnglishName = "Eid al-Adha Fourth Day",
-                            LocalName = "Kurban Bayramı 4. Gün",
+                            EnglishName = $"Eid al-Adha Fourth Day{tentativeInfo}",
+                            LocalName = $"Kurban Bayramı 4. Gün{tentativeInfo}",
                             HolidayTypes = HolidayTypes.Public
                         });
                     }
