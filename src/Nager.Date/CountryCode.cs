@@ -221,7 +221,7 @@ namespace Nager.Date
         CH,
 
         /// <summary>
-        /// Côte d'Ivoire
+        /// Côte d'Ivoire / Ivory Coast
         /// </summary>
         CI,
 
