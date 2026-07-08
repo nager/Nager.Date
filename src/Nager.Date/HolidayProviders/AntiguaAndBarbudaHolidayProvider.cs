@@ -97,7 +97,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = weekendObservedRuleSet
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
