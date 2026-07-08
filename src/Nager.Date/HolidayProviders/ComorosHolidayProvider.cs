@@ -48,10 +48,10 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = " NATIONALDAY-01",
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 7, 6),
-                    EnglishName = " National Day",
-                    LocalName = " National Day",
+                    EnglishName = "National Day",
+                    LocalName = "National Day",
                     HolidayTypes = HolidayTypes.Public,
                 },
             };
