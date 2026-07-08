@@ -107,7 +107,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = weekendObservedRuleSet
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -116,7 +116,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = weekendObservedRuleSet
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
             };

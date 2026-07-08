@@ -75,7 +75,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = weekendObservedRuleSet
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -84,7 +84,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Australia Day",
                     LocalName = "Australia Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = weekendObservedRuleSet
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -266,7 +266,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["AU-NSW", "AU-ACT", "AU-WA"],
-                    ObservedRuleSet = weekendObservedRuleSet
+                    ObservedRuleSet = weekendObservedRuleSet,
                 };
 
                 var holidaySundayShift = new HolidaySpecification
@@ -304,7 +304,7 @@ namespace Nager.Date.HolidayProviders
                     LocalName = localName,
                     HolidayTypes = HolidayTypes.Public,
                     SubdivisionCodes = ["AU-WA"],
-                    ObservedRuleSet = weekendObservedRuleSet
+                    ObservedRuleSet = weekendObservedRuleSet,
                 };
 
                 holidays.Add(holidayGeneral);

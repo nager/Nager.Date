@@ -44,7 +44,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Children's Day",
                     LocalName = "어린이날",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = weekendObservedRuleSet
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
