@@ -67,7 +67,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lastMondayInAugust,
                     EnglishName = "Late Summer Bank Holiday",
                     LocalName = "Late Summer Bank Holiday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -114,7 +114,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 28),
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -126,7 +126,7 @@ namespace Nager.Date.HolidayProviders
                 Date = ttRaceDay,
                 EnglishName = holidayName,
                 LocalName = holidayName,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -145,7 +145,7 @@ namespace Nager.Date.HolidayProviders
                     Date = secondFridayInMay,
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -156,7 +156,7 @@ namespace Nager.Date.HolidayProviders
                 Date = firstMondayInMay,
                 EnglishName = holidayName,
                 LocalName = holidayName,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -174,7 +174,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 2),
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -186,7 +186,7 @@ namespace Nager.Date.HolidayProviders
                 Date = lastMondayInMay,
                 EnglishName = holidayName,
                 LocalName = holidayName,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -205,7 +205,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 3),
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -225,7 +225,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 19),
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -249,7 +249,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 8),
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 

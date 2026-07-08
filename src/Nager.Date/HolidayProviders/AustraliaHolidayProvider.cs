@@ -420,7 +420,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 22),
                     EnglishName = "National Day of Mourning",
                     LocalName = "National Day of Mourning",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 

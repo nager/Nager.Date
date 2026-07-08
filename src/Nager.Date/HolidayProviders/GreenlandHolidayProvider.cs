@@ -35,7 +35,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Ukiortaaq",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -51,7 +51,7 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(26),
                     EnglishName = "General Prayer Day",
                     LocalName = "Tussiarfik",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -67,7 +67,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 21),
                     EnglishName = "Ullortuneq",
                     LocalName = "Ullortuneq",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -83,7 +83,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Juullip ullua",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -91,7 +91,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Juullip-aappaa",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {

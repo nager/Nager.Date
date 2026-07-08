@@ -35,7 +35,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "새해",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -52,7 +52,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 6),
                     EnglishName = "Memorial Day",
                     LocalName = "현충일",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -60,7 +60,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "크리스마스",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 }
             };
 
@@ -80,7 +80,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 3),
                     EnglishName = "Local Election Day",
                     LocalName = "지방 선거일",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
             }
 
@@ -245,7 +245,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lunarNewYear1,
                     EnglishName = "Lunar New Year",
                     LocalName = "설날",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -253,7 +253,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lunarNewYear2,
                     EnglishName = "Lunar New Year",
                     LocalName = "설날",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -261,7 +261,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lunarNewYear3,
                     EnglishName = "Lunar New Year",
                     LocalName = "설날",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -278,7 +278,7 @@ namespace Nager.Date.HolidayProviders
                     Date = chuseok1,
                     EnglishName = "Chuseok",
                     LocalName = "추석",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -286,7 +286,7 @@ namespace Nager.Date.HolidayProviders
                     Date = chuseok2,
                     EnglishName = "Chuseok",
                     LocalName = "추석",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -294,7 +294,7 @@ namespace Nager.Date.HolidayProviders
                     Date = chuseok3,
                     EnglishName = "Chuseok",
                     LocalName = "추석",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
             }
 

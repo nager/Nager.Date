@@ -73,7 +73,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Día del Trabajo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -81,7 +81,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 21),
                     EnglishName = "Navy Day",
                     LocalName = "Día de las Glorias Navales",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -98,7 +98,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 7, 16),
                     EnglishName = "Our Lady of Mount Carmel",
                     LocalName = "Virgen del Carmen",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -106,7 +106,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption of Mary",
                     LocalName = "Asunción de la Virgen",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -114,7 +114,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 18),
                     EnglishName = "National holiday",
                     LocalName = "Fiestas Patrias",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -122,7 +122,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 19),
                     EnglishName = "Army Day",
                     LocalName = "Día de las Glorias del Ejército",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -130,7 +130,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints Day",
                     LocalName = "Día de Todos los Santos",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -138,7 +138,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Inmaculada Concepción",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -146,7 +146,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Navidad / Natividad del Señor",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.GoodFriday("Viernes Santo", year),
                 this._catholicProvider.EasterSaturday("Sábado Santo", year)
@@ -235,7 +235,7 @@ namespace Nager.Date.HolidayProviders
                 Date = new DateTime(year, 9, 4),
                 EnglishName = "National plebiscite",
                 LocalName = "Plebiscito nacional",
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -267,7 +267,7 @@ namespace Nager.Date.HolidayProviders
                 Date = holidayDate.Value,
                 EnglishName = "National Day of Indigenous Peoples",
                 LocalName = "Día Nacional de los Pueblos Indígenas",
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 

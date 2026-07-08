@@ -166,7 +166,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 10),
                     EnglishName = "Utamaduni Day",
                     LocalName = "Utamaduni Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -183,7 +183,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 10),
                     EnglishName = "Huduma Day",
                     LocalName = "Huduma Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 

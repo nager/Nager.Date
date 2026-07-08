@@ -33,7 +33,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "Solemnity of Mary, Mother of God",
                     LocalName = "Maria Santissima Madre di Dio",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -41,7 +41,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Epifania del Signore",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -49,7 +49,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 2, 11),
                     EnglishName = "Anniversary of the foundation of Vatican City",
                     LocalName = "Anniversario della istituzione dello Stato della Città del Vaticano",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -57,7 +57,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 3, 13),
                     EnglishName = "Anniversary of the election of Pope Francis",
                     LocalName = "Anniversario dell'Elezione del Santo Padre",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -65,7 +65,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 3, 19),
                     EnglishName = "Saint Joseph's Day",
                     LocalName = "San Giuseppe",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -73,7 +73,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 23),
                     EnglishName = "Saint George",
                     LocalName = "Onomastico del Santo Padre",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -81,7 +81,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Saint Joseph the Worker",
                     LocalName = "San Giuseppe lavoratore",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -89,7 +89,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 29),
                     EnglishName = "Saint Peter and Saint Paul",
                     LocalName = "Santi Pietro e Paolo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -97,7 +97,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Assunzione di Maria in Cielo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -105,7 +105,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 8),
                     EnglishName = "Nativity of Mary",
                     LocalName = "Festa della natività della madonna",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -113,7 +113,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints Day",
                     LocalName = "Tutti i Santi, Ognissanti",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -121,7 +121,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Immacolata Concezione",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -129,7 +129,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Natale",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -137,7 +137,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Santo Stefano",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.EasterMonday("Lunedì dell'Angelo", year)
             };

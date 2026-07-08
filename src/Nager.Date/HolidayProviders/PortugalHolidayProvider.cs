@@ -63,7 +63,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Ano Novo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -79,7 +79,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 25),
                     EnglishName = "Freedom Day",
                     LocalName = "Dia da Liberdade",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -87,7 +87,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Dia do Trabalhador",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -104,7 +104,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 10),
                     EnglishName = "National Day",
                     LocalName = "Dia de Portugal, de Camões e das Comunidades Portuguesas",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -121,7 +121,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Assunção de Nossa Senhora",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -129,7 +129,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 5),
                     EnglishName = "Republic Day",
                     LocalName = "Implantação da República",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -137,7 +137,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints Day",
                     LocalName = "Dia de Todos-os-Santos",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -145,7 +145,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 1),
                     EnglishName = "Restoration of Independence",
                     LocalName = "Restauração da Independência",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -153,7 +153,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 8),
                     EnglishName = "Immaculate Conception",
                     LocalName = "Imaculada Conceição",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -161,7 +161,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Natal",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {

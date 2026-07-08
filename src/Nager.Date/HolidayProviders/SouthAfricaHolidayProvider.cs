@@ -64,7 +64,7 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(1),
                     EnglishName = "Family Day",
                     LocalName = "Family Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -157,7 +157,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 15),
                     EnglishName = "Springboks Victory",
                     LocalName = "Springboks Victory",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -174,7 +174,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 29),
                     EnglishName = "Election Day",
                     LocalName = "Election Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 

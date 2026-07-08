@@ -27,7 +27,7 @@ namespace Nager.Date.HolidayProviders
             //    Date = new DateTime(year, 4, 5),
             //    EnglishName = "Qingming Festival (Tomb-Sweeping Day)",
             //    LocalName = "清明节",
-            //    HolidayTypes = HolidayTypes.Public
+            //    HolidayTypes = HolidayTypes.Public,
             //},
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -38,7 +38,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "元旦",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -46,7 +46,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "劳动节",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -54,7 +54,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 1),
                     EnglishName = "National Day",
                     LocalName = "国庆节",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
             };
 
@@ -75,7 +75,7 @@ namespace Nager.Date.HolidayProviders
                     Date = springFestival,
                     EnglishName = "Chinese New Year (Spring Festival)",
                     LocalName = "春节",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -83,7 +83,7 @@ namespace Nager.Date.HolidayProviders
                     Date = dragonBoatFestival,
                     EnglishName = "Dragon Boat Festival",
                     LocalName = "端午节",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
                 holidaySpecifications.Add(new HolidaySpecification
                 {
@@ -91,7 +91,7 @@ namespace Nager.Date.HolidayProviders
                     Date = midAutumnFestival,
                     EnglishName = "Mid-Autumn Festival",
                     LocalName = "中秋节",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
             }
 

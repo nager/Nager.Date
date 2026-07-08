@@ -63,7 +63,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -125,7 +125,7 @@ namespace Nager.Date.HolidayProviders
                     Date = mondayOnOrBeforeMay24,
                     EnglishName = "Victoria Day",
                     LocalName = "Victoria Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -241,7 +241,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstMondayInSeptember,
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -249,7 +249,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 30),
                     EnglishName = "National Day for Truth and Reconciliation",
                     LocalName = "National Day for Truth and Reconciliation",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -257,7 +257,7 @@ namespace Nager.Date.HolidayProviders
                     Date = secondMondayInOctober,
                     EnglishName = "Thanksgiving",
                     LocalName = "Thanksgiving",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -283,7 +283,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -318,7 +318,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 19),
                     EnglishName = "State Funeral of Queen Elizabeth II",
                     LocalName = "State Funeral of Queen Elizabeth II",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -408,7 +408,7 @@ namespace Nager.Date.HolidayProviders
                     Date = canadaDay,
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 }
             ];
         }

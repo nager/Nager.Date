@@ -33,7 +33,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "ახალი წელი",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -41,7 +41,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "New Year's Day",
                     LocalName = "ახალი წელი",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -49,7 +49,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 7),
                     EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "ქრისტეშობა",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -57,7 +57,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 19),
                     EnglishName = "Epiphany (Orthodox)",
                     LocalName = "ნათლისღება",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -65,7 +65,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 3, 3),
                     EnglishName = "Mother's Day",
                     LocalName = "დედის დღე",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -73,7 +73,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 3, 8),
                     EnglishName = "International Women's Day",
                     LocalName = "ქალთა საერთაშორისო დღე",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -81,7 +81,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 9),
                     EnglishName = "National Unity Day",
                     LocalName = "ეროვნული ერთიანობის დღე",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -89,7 +89,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 9),
                     EnglishName = "Day of Victory over Fascism",
                     LocalName = "ფაშიზმზე გამარჯვების დღე",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -97,7 +97,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 12),
                     EnglishName = "Saint Andrew the First-Called Day",
                     LocalName = "წმინდა მოციქულის ანდრია პირველწოდებულის საქართველოში შემოსვლის დღე",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -105,7 +105,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 26),
                     EnglishName = "Independence Day",
                     LocalName = "დამოუკიდებლობის დღე",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -113,7 +113,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 28),
                     EnglishName = "Saint Mary's Day",
                     LocalName = "მარიამობა",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -121,7 +121,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 14),
                     EnglishName = "Day of Svetitskhoveli Cathedra",
                     LocalName = "სვეტიცხოვლობა",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -129,7 +129,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 23),
                     EnglishName = "Saint George's Day",
                     LocalName = "გიორგობა",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._orthodoxProvider.GoodFriday("ძველი პარასკევი", year),
                 this._orthodoxProvider.HolySaturday("დიდი შაბათი", year),

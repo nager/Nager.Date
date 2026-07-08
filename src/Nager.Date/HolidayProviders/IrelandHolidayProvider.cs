@@ -40,7 +40,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Lá Caille",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -48,7 +48,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 3, 17),
                     EnglishName = "Saint Patrick's Day",
                     LocalName = "Lá Fhéile Pádraig",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -56,7 +56,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstMondayInMay,
                     EnglishName = "May Day",
                     LocalName = "Lá Bealtaine",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -64,7 +64,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstMondayInJune,
                     EnglishName = "June Holiday",
                     LocalName = "Lá Saoire i mí an Mheithimh",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -72,7 +72,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstMondayInAugust,
                     EnglishName = "August Holiday",
                     LocalName = "Lá Saoire i mí Lúnasa",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -80,7 +80,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lastMondayInOctober,
                     EnglishName = "October Holiday",
                     LocalName = "Lá Saoire i mí Dheireadh Fómhair",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -88,7 +88,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Lá Nollag",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -96,7 +96,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Lá Fhéile Stiofáin",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.GoodFriday("Aoine an Chéasta", year).SetHolidayTypes(HolidayTypes.Bank | HolidayTypes.School),
                 this._catholicProvider.EasterMonday("Luan Cásca", year)
@@ -127,7 +127,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstFebruary,
                     EnglishName = englishName,
                     LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -139,7 +139,7 @@ namespace Nager.Date.HolidayProviders
                 Date = firstMondayInFebruary,
                 EnglishName = englishName,
                 LocalName = localName,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 

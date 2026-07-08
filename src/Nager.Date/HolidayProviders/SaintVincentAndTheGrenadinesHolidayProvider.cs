@@ -59,7 +59,7 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Carnival Monday",
                     LocalName = "Carnival Monday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -67,7 +67,7 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Carnival Tuesday",
                     LocalName = "Carnival Tuesday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {

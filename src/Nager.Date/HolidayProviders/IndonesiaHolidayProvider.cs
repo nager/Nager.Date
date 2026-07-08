@@ -47,7 +47,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Tahun Baru Masehi",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -55,7 +55,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Hari Buruh Internasional",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -63,7 +63,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 1),
                     EnglishName = "Pancasila Day",
                     LocalName = "Hari Lahir Pancasila",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -71,7 +71,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 17),
                     EnglishName = "Independence Day",
                     LocalName = "Hari Ulang Tahun Kemerdekaan Republik Indonesia",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -79,7 +79,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Hari Raya Natal",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.GoodFriday("Wafat Isa Almasih", year),
                 this._catholicProvider.EasterSunday("Paskah", year),

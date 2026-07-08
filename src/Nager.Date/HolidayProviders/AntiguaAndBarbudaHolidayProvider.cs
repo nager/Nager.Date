@@ -72,7 +72,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstMondayInAugust,
                     EnglishName = "Carnival Monday",
                     LocalName = "Carnival Monday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -80,7 +80,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstMondayInAugust.AddDays(1),
                     EnglishName = "Carnival Tuesday",
                     LocalName = "Carnival Tuesday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {

@@ -177,7 +177,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 2),
                     EnglishName = name,
                     LocalName = name,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -189,7 +189,7 @@ namespace Nager.Date.HolidayProviders
                 Date = lastMondayInMay,
                 EnglishName = name,
                 LocalName = name,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -207,7 +207,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 3),
                     EnglishName = "Queen’s Platinum Jubilee",
                     LocalName = "Queen’s Platinum Jubilee",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -226,7 +226,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 19),
                     EnglishName = "Queen’s State Funeral",
                     LocalName = "Queen’s State Funeral",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -246,7 +246,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 8),
                     EnglishName = "Coronation Bank Holiday",
                     LocalName = "Coronation Bank Holiday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -290,7 +290,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 8),
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year == 2020)
@@ -305,7 +305,7 @@ namespace Nager.Date.HolidayProviders
                     Date = secondFridayInMay,
                     EnglishName = holidayName,
                     LocalName = holidayName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -317,7 +317,7 @@ namespace Nager.Date.HolidayProviders
                 Date = firstMondayInMay,
                 EnglishName = holidayName,
                 LocalName = holidayName,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 

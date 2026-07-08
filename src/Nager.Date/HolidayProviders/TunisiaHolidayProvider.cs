@@ -30,7 +30,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "رأس السنة الميلادية",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -38,7 +38,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 3, 20),
                     EnglishName = "Independence Day",
                     LocalName = "عيد الاستقلال",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -46,7 +46,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 9),
                     EnglishName = "Martyrs' Day",
                     LocalName = "عيد الشهداء",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -54,7 +54,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "عيد الشغل",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -62,7 +62,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 7, 25),
                     EnglishName = "Republic Day",
                     LocalName = "عيد الجمهورية",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -70,7 +70,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 13),
                     EnglishName = "Women's Day",
                     LocalName = "عيد المرأة",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -78,7 +78,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 15),
                     EnglishName = "Evacuation Day",
                     LocalName = "عيد الجلاء",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 }
             };
 
@@ -97,7 +97,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 17),
                     EnglishName = "Revolution Day",
                     LocalName = "عيد الثورة",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -107,7 +107,7 @@ namespace Nager.Date.HolidayProviders
                 Date = new DateTime(year, 1, 14),
                 EnglishName = "Revolution and Youth Day",
                 LocalName = "عيد الشباب و الثورة",
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
         

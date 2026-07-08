@@ -34,7 +34,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Nova Godina",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -42,7 +42,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Bogojavljenje, Sveta tri kralja",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -50,7 +50,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "International Workers' Day",
                     LocalName = "Međunarodni praznik rada",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -58,7 +58,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 22),
                     EnglishName = "Anti-Fascist Struggle Day",
                     LocalName = "Dan antifašističke borbe",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -66,7 +66,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 5),
                     EnglishName = "Victory and Homeland Thanksgiving Day and the Day of Croatian defenders",
                     LocalName = "Dan pobjede i domovinske zahvalnosti i Dan hrvatskih branitelja",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -74,7 +74,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Assumption Day",
                     LocalName = "Velika Gospa",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -82,7 +82,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
                     LocalName = "Dan svih svetih",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -90,7 +90,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Božić",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -98,7 +98,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Prvi dan po Božiću, Sveti Stjepan, Štefanje, Stipanje",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.EasterSunday("Uskrs i uskrsni ponedjeljak", year),
                 this._catholicProvider.EasterMonday("Uskrs i uskrsni ponedjeljak", year),
@@ -123,7 +123,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 8),
                     EnglishName = "Independence Day",
                     LocalName = "Dan neovisnosti",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -140,7 +140,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 18),
                     EnglishName = "Remembrance Day",
                     LocalName = "Dan sjećanja na žrtve Domovinskog rata",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -157,7 +157,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 25),
                     EnglishName = "Statehood Day",
                     LocalName = "Dan državnosti",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -174,7 +174,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 30),
                     EnglishName = "National Day",
                     LocalName = "Dan državnosti",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 

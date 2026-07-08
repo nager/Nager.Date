@@ -43,7 +43,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Día de Año Nuevo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -83,7 +83,7 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(-48),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -91,7 +91,7 @@ namespace Nager.Date.HolidayProviders
                     Date = easterSunday.AddDays(-47),
                     EnglishName = "Carnival",
                     LocalName = "Carnaval",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -131,7 +131,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 19),
                     EnglishName = "Beginning of the Independence Movement",
                     LocalName = "Proclamación de la Independencia",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -139,7 +139,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Día del Trabajador",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -171,7 +171,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 24),
                     EnglishName = "Anniversary of the Battle of Carabobo",
                     LocalName = "Aniversario de la Batalla de Carabobo",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -187,7 +187,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 7, 5),
                     EnglishName = "Independence Day",
                     LocalName = "Cinco de julio",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -203,7 +203,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 7, 24),
                     EnglishName = "Simón Bolívar's Birthday",
                     LocalName = "Natalicio del Libertador Simón Bolívar",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -243,7 +243,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 12),
                     EnglishName = "Day of Indigenous Resistance",
                     LocalName = "Día de la Resistencia Indígena",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -275,7 +275,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Nochebuena",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -283,7 +283,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Navidad",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -291,7 +291,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 31),
                     EnglishName = "New Year's Eve",
                     LocalName = "Nochevieja",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.AscensionDay("Día de la Ascención", year).SetHolidayTypes(HolidayTypes.Bank),
                 this._catholicProvider.CorpusChristi("Corpus Christi", year).SetHolidayTypes(HolidayTypes.Bank)

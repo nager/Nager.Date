@@ -34,7 +34,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Anul Nou",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -42,7 +42,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 2),
                     EnglishName = "Day after New Year's Day",
                     LocalName = "Anul Nou",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -50,7 +50,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 24),
                     EnglishName = "Union Day/Small Union",
                     LocalName = "Unirea Principatelor Române/Mica Unire",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -58,7 +58,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Ziua Muncii",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -66,7 +66,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 1),
                     EnglishName = "Children's Day",
                     LocalName = "Ziua Copilului",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -74,7 +74,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 15),
                     EnglishName = "Dormition of the Theotokos",
                     LocalName = "Adormirea Maicii Domnului/Sfânta Maria Mare",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -82,7 +82,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 30),
                     EnglishName = "St. Andrew's Day",
                     LocalName = "Sfântul Andrei",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -90,7 +90,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 1),
                     EnglishName = "National Day/Great Union",
                     LocalName = "Ziua Națională/Marea Unire",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -98,7 +98,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Crăciunul",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -106,7 +106,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Crăciunul",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._orthodoxProvider.GoodFriday("Vinerea mare", year),
                 this._orthodoxProvider.EasterSunday("Paștele", year),
@@ -131,7 +131,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Bobotează",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -148,7 +148,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 7),
                     EnglishName = "Saint John the Baptist",
                     LocalName = "Sfântul Ion",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 

@@ -39,7 +39,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Nieuwjaarsdag",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -56,7 +56,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Eerste Kerstdag",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -64,7 +64,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Tweede Kerstdag",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.GoodFriday("Goede Vrijdag", year).SetHolidayTypes(HolidayTypes.Authorities | HolidayTypes.School | HolidayTypes.Observance),
                 this._catholicProvider.EasterSunday("Eerste Paasdag", year),
@@ -87,7 +87,7 @@ namespace Nager.Date.HolidayProviders
                 Date = new DateTime(year, 5, 5),
                 EnglishName = "Liberation Day",
                 LocalName = "Bevrijdingsdag",
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
 
             if (year >= 1990)

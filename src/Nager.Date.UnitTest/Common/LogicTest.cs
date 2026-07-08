@@ -16,7 +16,7 @@ namespace Nager.Date.UnitTest.Common
                 EnglishName = "Test",
                 LocalName = "Test",
                 CountryCode = CountryCode.AT,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
             Assert.IsTrue(publicHoliday.NationalHoliday);
 

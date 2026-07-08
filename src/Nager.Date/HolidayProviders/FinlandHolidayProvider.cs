@@ -39,7 +39,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Uudenvuodenpäivä",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -47,7 +47,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Loppiainen",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -55,7 +55,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "May Day",
                     LocalName = "Vappu",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -63,7 +63,7 @@ namespace Nager.Date.HolidayProviders
                     Date = midsummerEve,
                     EnglishName = "Midsummer Eve",
                     LocalName = "Juhannusaatto",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -71,7 +71,7 @@ namespace Nager.Date.HolidayProviders
                     Date = midsummerDay,
                     EnglishName = "Midsummer Day",
                     LocalName = "Juhannuspäivä",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -79,7 +79,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 6),
                     EnglishName = "Independence Day",
                     LocalName = "Itsenäisyyspäivä",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -87,7 +87,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 24),
                     EnglishName = "Christmas Eve",
                     LocalName = "Jouluaatto",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -95,7 +95,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Joulupäivä",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -103,7 +103,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Tapaninpäivä",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.GoodFriday("Pitkäperjantai", year),
                 this._catholicProvider.EasterSunday("Pääsiäispäivä", year),
@@ -120,7 +120,7 @@ namespace Nager.Date.HolidayProviders
                     Date = allSaintsDay.Value,
                     EnglishName = "All Saints' Day",
                     LocalName = "Pyhäinpäivä",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
             }
 

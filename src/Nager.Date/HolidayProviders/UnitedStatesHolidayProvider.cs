@@ -266,7 +266,7 @@ namespace Nager.Date.HolidayProviders
                 Date = secondMondayInOctober,
                 EnglishName = "Indigenous Peoples' Day",
                 LocalName = "Indigenous Peoples' Day",
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
 
             string[] subdivisionCodes = year switch

@@ -31,7 +31,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Tết dương lịch",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -39,7 +39,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 30),
                     EnglishName = "Reunification Day",
                     LocalName = "Ngày Giải phóng miền Nam, thống nhất đất nước",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -47,7 +47,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "Ngày Quốc tế lao động",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -55,7 +55,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 2),
                     EnglishName = "National Day",
                     LocalName = "Quốc khánh",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 }
             };
 

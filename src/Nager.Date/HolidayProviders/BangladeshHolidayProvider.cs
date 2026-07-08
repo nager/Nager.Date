@@ -28,7 +28,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 2, 21),
                     EnglishName = "International Mother Language Day",
                     LocalName = "শহিদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -36,7 +36,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 3, 26),
                     EnglishName = "Independence and National Day",
                     LocalName = "স্বাধীনতা ও জাতীয় দিবস",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -44,7 +44,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 14),
                     EnglishName = "Bengali New Year",
                     LocalName = "নববর্ষ",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -52,7 +52,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "মে দিবস",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -60,7 +60,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 16),
                     EnglishName = "Victory Day",
                     LocalName = "বিজয় দিবস",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -68,7 +68,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "বড়দিন",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 }
             };
 
@@ -92,7 +92,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 5),
                     EnglishName = "July Mass Uprising Day",
                     LocalName = "জুলাই গণঅভ্যুত্থান দিবস",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 

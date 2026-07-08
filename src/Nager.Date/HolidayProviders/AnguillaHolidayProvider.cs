@@ -73,7 +73,7 @@ namespace Nager.Date.HolidayProviders
                     Date = sovereigntyDayDate,
                     EnglishName = "Sovereignty Day",
                     LocalName = "Sovereignty Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -81,7 +81,7 @@ namespace Nager.Date.HolidayProviders
                     Date = firstMondayInAugust,
                     EnglishName = "August Monday",
                     LocalName = "August Monday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -89,7 +89,7 @@ namespace Nager.Date.HolidayProviders
                     Date = augustThursdayDate,
                     EnglishName = "August Thursday",
                     LocalName = "August Thursday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -97,7 +97,7 @@ namespace Nager.Date.HolidayProviders
                     Date = constitutionDayDate,
                     EnglishName = "Constitution Day",
                     LocalName = "Constitution Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {

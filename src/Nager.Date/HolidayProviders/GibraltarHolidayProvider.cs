@@ -39,7 +39,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -47,7 +47,7 @@ namespace Nager.Date.HolidayProviders
                     Date = secondMondayInMarch,
                     EnglishName = "Commonwealth Day",
                     LocalName = "Commonwealth Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -55,7 +55,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 28),
                     EnglishName = "Workers' Memorial Day",
                     LocalName = "Workers' Memorial Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -63,7 +63,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "May Day Bank Holiday",
                     LocalName = "May Day Bank Holiday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -71,7 +71,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lastMondayInMay,
                     EnglishName = "Spring Bank Holiday",
                     LocalName = "Spring Bank Holiday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -79,7 +79,7 @@ namespace Nager.Date.HolidayProviders
                     Date = thirdMondayInJune,
                     EnglishName = "Queen's Birthday",
                     LocalName = "Queen's Birthday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -87,7 +87,7 @@ namespace Nager.Date.HolidayProviders
                     Date = lastMondayInAugust,
                     EnglishName = "Summer Bank Holiday",
                     LocalName = "Summer Bank Holiday",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -95,7 +95,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 10),
                     EnglishName = "Gibraltar National Day",
                     LocalName = "Gibraltar National Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -103,7 +103,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -111,7 +111,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 12, 26),
                     EnglishName = "Boxing Day",
                     LocalName = "St. Stephen's Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year)

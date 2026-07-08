@@ -112,7 +112,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = $"{englishName} (Roughly Date)",
                     LocalName = $"{localName} (Roughly Date)",
                     Date = date,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 });
             }
 

@@ -154,7 +154,7 @@ namespace Nager.Date.HolidayProviders
                     Date = labourDay,
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -293,7 +293,7 @@ namespace Nager.Date.HolidayProviders
                     Date = matariki,
                     EnglishName = "Matariki",
                     LocalName = "Matariki",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -364,7 +364,7 @@ namespace Nager.Date.HolidayProviders
                 Date = monarchBirthday,
                 EnglishName = name,
                 LocalName = name,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -381,7 +381,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 26),
                     EnglishName = "Queen Elizabeth II Memorial Day",
                     LocalName = "Queen Elizabeth II Memorial Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 

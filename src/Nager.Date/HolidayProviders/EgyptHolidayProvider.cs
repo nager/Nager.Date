@@ -28,7 +28,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 7),
                     EnglishName = "Christmas Day (Orthodox)",
                     LocalName = "عيد الميلاد المجيد",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -36,7 +36,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 25),
                     EnglishName = "Revolution Day 2011 / National Police Day",
                     LocalName = "عيد الثورة 25 يناير",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -44,7 +44,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "عيد العمال",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -52,7 +52,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 7, 23),
                     EnglishName = "Revolution Day",
                     LocalName = "عيد ثورة 23 يوليو",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -60,7 +60,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 6),
                     EnglishName = "Armed Forces Day",
                     LocalName = "عيد القوات المسلحة",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 }
             };
 
@@ -85,7 +85,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 30),
                     EnglishName = englishName,
                     LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year == 2018)
@@ -96,7 +96,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 7, 1),
                     EnglishName = englishName,
                     LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year >= 2019 && year <= 2020)
@@ -107,7 +107,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 30),
                     EnglishName = englishName,
                     LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
             else if (year >= 2021)
@@ -164,7 +164,7 @@ namespace Nager.Date.HolidayProviders
                 Date = new DateTime(year, 4, 25),
                 EnglishName = englishName,
                 LocalName = localName,
-                HolidayTypes = HolidayTypes.Public
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 

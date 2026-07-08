@@ -32,7 +32,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 1),
                     EnglishName = "New Year's Day",
                     LocalName = "Yılbaşı",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -40,7 +40,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 4, 23),
                     EnglishName = "National Independence & Children's Day",
                     LocalName = "Ulusal Egemenlik ve Çocuk Bayramı",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -48,7 +48,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "İşçi Bayramı",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -56,7 +56,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 19),
                     EnglishName = "Atatürk Commemoration & Youth Day",
                     LocalName = "Atatürk'ü Anma, Gençlik ve Spor Bayramı",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -64,7 +64,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 8, 30),
                     EnglishName = "Victory Day",
                     LocalName = "Zafer Bayramı",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -72,7 +72,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 10, 29),
                     EnglishName = "Republic Day",
                     LocalName = "Cumhuriyet Bayramı",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 }
             };
 
@@ -95,7 +95,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 7, 15),
                     EnglishName = "Democracy and National Unity Day",
                     LocalName = "Demokrasi ve Millî Birlik Günü",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
@@ -329,7 +329,7 @@ namespace Nager.Date.HolidayProviders
                             Date = eidalAdhaFourthDayDate,
                             EnglishName = $"Eid al-Adha Fourth Day{tentativeInfo}",
                             LocalName = $"Kurban Bayramı 4. Gün{tentativeInfo}",
-                            HolidayTypes = HolidayTypes.Public
+                            HolidayTypes = HolidayTypes.Public,
                         });
                     }
                 }

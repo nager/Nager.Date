@@ -380,7 +380,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 9, 1),
                     EnglishName = "Polling Day",
                     LocalName = "Polling Day",
-                    HolidayTypes = HolidayTypes.Public
+                    HolidayTypes = HolidayTypes.Public,
                 };
             }
 
