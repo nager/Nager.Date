@@ -259,6 +259,13 @@ What variants of holidays are supported by `Nager.Date`
 | Optional    | Majority of people take a day off           |
 | Observance  | Optional festivity, no paid day off         |
 
+## Special Date Types (Dynamic & Unconfirmed Dates)
+
+To better handle complex calendar systems and official announcements, the project distinguishes certain holidays with special characteristics:
+
+*   **Roughly Date:** This applies to holidays translated from calendars like the `HijriCalendar`. Because these dates rely on local moon sightings, they are subject to change and may shift 1–2 days forward or backward at short notice.
+*   **Tentative Date:** This applies to holidays that are highly likely to occur on the specified date but are still pending official confirmation or proclamation by the respective government.
+
 ## Release and Support Lifecycle
 
 Here you can see how long the product will be supported and when the End of Life (EOL) is planned.
