@@ -41,7 +41,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "Нова година",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -50,7 +50,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Liberation Day",
                     LocalName = "Ден на oсвобождението на България от Oсманско робство",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -67,7 +67,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Saint George's Day",
                     LocalName = "Гергьовден, ден на храбростта и Българската армия",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -76,7 +76,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Saints Cyril and Methodius Day",
                     LocalName = "Ден на Българската просвета и култура и на славянската писменост",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -85,7 +85,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Unification Day",
                     LocalName = "Ден на съединението",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -94,9 +94,8 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Independence Day",
                     LocalName = "Ден на независимостта на България",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
-
                 new HolidaySpecification
                 {
                     Id = "CHRISTMASEVE-01",
@@ -107,7 +106,7 @@ namespace Nager.Date.HolidayProviders
                     ObservedRuleSet = new ObservedRuleSet
                     {
                         Sunday = date => date.AddDays(3)
-                    }
+                    },
                 },
                 new HolidaySpecification
                 {
@@ -119,7 +118,7 @@ namespace Nager.Date.HolidayProviders
                     ObservedRuleSet = new ObservedRuleSet
                     {
                         Sunday = date => date.AddDays(2)
-                    }
+                    },
                 },
                 new HolidaySpecification
                 {
@@ -131,7 +130,7 @@ namespace Nager.Date.HolidayProviders
                     ObservedRuleSet = new ObservedRuleSet
                     {
                         Sunday = date => date.AddDays(1)
-                    }
+                    },
                 },
                 this._orthodoxProvider.GoodFriday("Разпети петък", year),
                 this._orthodoxProvider.HolySaturday("Велика събота", year),
