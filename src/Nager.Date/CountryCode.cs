@@ -1225,10 +1225,10 @@ namespace Nager.Date
         /// </summary>
         WS,
 
-        ///// <summary>
-        ///// Kosovo
-        ///// </summary>
-        //XK,
+        /// <summary>
+        /// Kosovo
+        /// </summary>
+        XK,
 
         /// <summary>
         /// Yemen
