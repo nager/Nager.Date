@@ -66,5 +66,50 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsFalse(holidays2019.Any(h => h.Id == "LV-POPEFRANCISVISIT-01"));
             Assert.IsFalse(holidays2019.Any(h => h.Id == "LV-ICEHOCKEYBRONZEMEDAL-01"));
         }
+
+        [TestMethod]
+        [DataRow(2020, "LV-LANGUAGEDAY-01", false)]
+        [DataRow(2021, "LV-LANGUAGEDAY-01", true)]
+        [DataRow(2020, "LV-NOVEMBER21TRAGEDY-01", false)]
+        [DataRow(2021, "LV-NOVEMBER21TRAGEDY-01", true)]
+        [DataRow(2021, "LV-NATIONALPARTISANS-01", false)]
+        [DataRow(2022, "LV-NATIONALPARTISANS-01", true)]
+        [DataRow(2021, "LV-NATIONALRESISTANCEMOVEMENT-01", false)]
+        [DataRow(2022, "LV-NATIONALRESISTANCEMOVEMENT-01", true)]
+        [DataRow(2025, "LV-WORLDNGODAY-01", false)]
+        [DataRow(2026, "LV-WORLDNGODAY-01", true)]
+        public void TestCommemorationDayIntroductionYears(int year, string holidayId, bool expected)
+        {
+            var holidayExists = HolidaySystem.GetHolidays(year, CountryCode.LV)
+                .Any(h => h.Id == holidayId);
+
+            Assert.AreEqual(expected, holidayExists);
+        }
+
+        [TestMethod]
+        public void TestTeachersDayMovedToFixedDate()
+        {
+            //First Sunday of October until 2023, fixed 5 October from 2024
+            var teachersDay2023 = HolidaySystem.GetHolidays(2023, CountryCode.LV)
+                .Single(h => h.Id == "LV-TEACHERSDAY-01");
+            Assert.AreEqual(new DateTime(2023, 10, 1), teachersDay2023.Date);
+
+            var teachersDay2024 = HolidaySystem.GetHolidays(2024, CountryCode.LV)
+                .Single(h => h.Id == "LV-TEACHERSDAY-01");
+            Assert.AreEqual(new DateTime(2024, 10, 5), teachersDay2024.Date);
+        }
+
+        [TestMethod]
+        public void TestCommemorationDaysAreObservances()
+        {
+            var holidays = HolidaySystem.GetHolidays(2026, CountryCode.LV).ToArray();
+
+            var observanceDays = holidays
+                .Where(holiday => holiday.HolidayTypes.HasFlag(HolidayTypes.Observance))
+                .ToArray();
+
+            Assert.AreEqual(33, observanceDays.Length);
+            Assert.IsFalse(observanceDays.Any(holiday => holiday.HolidayTypes.HasFlag(HolidayTypes.Public)));
+        }
     }
 }
