@@ -80,7 +80,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "NATIONALCULTUREANDSENIORCITIZENSDAY-01",
+                    Id = "NATIONALCULTURESENIORCITIZENSDAY-01",
                     Date = new DateTime(year, 7, 11),
                     EnglishName = "National Culture and Senior Citizens Day",
                     LocalName = "National Culture and Senior Citizens Day",
