@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -67,7 +68,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = mondayObservedRuleSet
+                    ObservedRuleSet = mondayObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -89,7 +90,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "MIDSUMMERDAY-01",
                     Date = new DateTime(year, 6, 24),
-                    EnglishName = "Jāņi Day",
+                    EnglishName = "Jāņi Day", //St. John's Day
                     LocalName = "Jāņu diena",
                     HolidayTypes = HolidayTypes.Public,
                 },
@@ -100,7 +101,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day of the Proclamation of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Proklamēšanas diena",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = mondayObservedRuleSet
+                    ObservedRuleSet = mondayObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -120,9 +121,9 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "STSTEPHENSDAY-01",
+                    Id = "CHRISTMASDAY-02",
                     Date = new DateTime(year, 12, 26),
-                    EnglishName = "St. Stephen's Day",
+                    EnglishName = "Second day of Christmas",
                     LocalName = "Otrie Ziemassvētki",
                     HolidayTypes = HolidayTypes.Public,
                 },
@@ -137,10 +138,76 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.GoodFriday("Lielā Piektdiena", year),
                 this._catholicProvider.EasterSunday("Pirmās Lieldienas", year),
                 this._catholicProvider.EasterMonday("Otrās Lieldienas", year),
-                this._catholicProvider.Pentecost("Vasarsvētki", year)
+                this._catholicProvider.Pentecost("Vasarsvētki", year),
             };
 
+            holidaySpecifications.AddIfNotNull(this.SongAndDanceCelebrationFinalDay(year, mondayObservedRuleSet));
+            holidaySpecifications.AddIfNotNull(this.PopeFrancisPastoralVisitDay(year));
+            holidaySpecifications.AddIfNotNull(this.IceHockeyBronzeMedalDay(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? SongAndDanceCelebrationFinalDay(int year, ObservedRuleSet observedRuleSet)
+        {
+            //The final day of the Nationwide Latvian Song and Dance Celebration, held every five years,
+            //is a public holiday (in the law since 22.10.2014), the date is fixed per event by a Cabinet order
+            DateTime? finalDay = year switch
+            {
+                2018 => new DateTime(2018, 7, 8),
+                2023 => new DateTime(2023, 7, 9),
+                2028 => new DateTime(2028, 7, 9),
+                _ => null
+            };
+
+            if (finalDay is null)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "SONGANDDANCECELEBRATION-01",
+                Date = finalDay.Value,
+                EnglishName = "Final Day of the Nationwide Latvian Song and Dance Celebration",
+                LocalName = "Vispārējo latviešu Dziesmu un deju svētku noslēguma diena",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = observedRuleSet,
+            };
+        }
+
+        private HolidaySpecification? PopeFrancisPastoralVisitDay(int year)
+        {
+            if (year is not 2018)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "POPEFRANCISVISIT-01",
+                Date = new DateTime(2018, 9, 24),
+                EnglishName = "Day of the Pastoral Visit of His Holiness Pope Francis to Latvia",
+                LocalName = "Viņa Svētības pāvesta Franciska pastorālās vizītes Latvijā diena",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification? IceHockeyBronzeMedalDay(int year)
+        {
+            if (year is not 2023)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "ICEHOCKEYBRONZEMEDAL-01",
+                Date = new DateTime(2023, 5, 29),
+                EnglishName = "Day of the Latvian Ice Hockey Team's Bronze Medal Win at the 2023 IIHF World Championship",
+                LocalName = "Diena, kad Latvijas hokeja komanda ieguva bronzas medaļu 2023. gada Pasaules hokeja čempionātā",
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         /// <inheritdoc/>
@@ -149,7 +216,8 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Latvia",
-                "https://likumi.lv/doc.php?id=72608"
+                "https://likumi.lv/doc.php?id=72608",
+                "https://likumi.lv/ta/en/en/id/72608-on-public-holidays-commemoration-days-and-celebration-days"
             ];
         }
     }
