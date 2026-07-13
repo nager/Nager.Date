@@ -4,9 +4,20 @@ using Nager.Date.Calendars;
 //06K15S -> Visak Bochea Day
 
 var code = KhmerLunarCalendar.GetKhmerLunarCode(new DateTime(2025, 9, 21));
+if (code is null)
+{
+    Console.WriteLine("KhmerLunarCode is null");
+    return;
+}
 
 for (var year = 2000; year < 2050; year++)
 {
     var date = KhmerLunarCalendar.FindStartDate(year, 166);
+    if (date is null)
+    {
+        Console.WriteLine($"{year} => ignore date is null");
+        continue;
+    }
+
     Console.WriteLine($"{year} => new DateTime({date.Value.Year}, {date.Value.Month}, {date.Value.Day}),");
 }
