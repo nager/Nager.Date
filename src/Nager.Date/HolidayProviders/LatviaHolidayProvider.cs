@@ -144,6 +144,7 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.SongAndDanceCelebrationFinalDay(year, mondayObservedRuleSet));
             holidaySpecifications.AddIfNotNull(this.PopeFrancisPastoralVisitDay(year));
             holidaySpecifications.AddIfNotNull(this.IceHockeyBronzeMedalDay(year));
+            holidaySpecifications.AddRange(this.CommemorationAndCelebrationDays(year));
 
             return holidaySpecifications;
         }
