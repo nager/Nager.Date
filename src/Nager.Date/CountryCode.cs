@@ -1046,7 +1046,7 @@ namespace Nager.Date
         SS,
 
         /// <summary>
-        /// Sao Tome and Principe
+        /// São Tomé and Príncipe
         /// </summary>
         ST,
 
