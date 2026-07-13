@@ -144,7 +144,40 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.SongAndDanceCelebrationFinalDay(year, mondayObservedRuleSet));
             holidaySpecifications.AddIfNotNull(this.PopeFrancisPastoralVisitDay(year));
             holidaySpecifications.AddIfNotNull(this.IceHockeyBronzeMedalDay(year));
-            holidaySpecifications.AddRange(this.CommemorationAndCelebrationDays(year));
+
+            holidaySpecifications.AddIfNotNull(this.BarricadesDefendersDay(year));
+            holidaySpecifications.AddIfNotNull(this.DeJureRecognitionDay(year));
+            holidaySpecifications.AddIfNotNull(this.WorldNgoDay(year));
+            holidaySpecifications.AddIfNotNull(this.NationalPartisanResistanceDay(year));
+            holidaySpecifications.AddIfNotNull(this.InternationalWomensDay(year));
+            holidaySpecifications.AddIfNotNull(this.NationalResistanceMovementDay(year));
+            holidaySpecifications.AddIfNotNull(this.CommunistTerrorVictimsDayMarch(year));
+            holidaySpecifications.AddIfNotNull(this.LatgaleCongressDay(year));
+            holidaySpecifications.AddIfNotNull(this.DefeatOfNazismDay(year));
+            holidaySpecifications.AddIfNotNull(this.EuropeDay(year));
+            holidaySpecifications.AddIfNotNull(this.InternationalFamilyDay(year));
+            holidaySpecifications.AddIfNotNull(this.FirefighterAndRescuerDay(year));
+            holidaySpecifications.AddIfNotNull(this.ChildProtectionDay(year));
+            holidaySpecifications.AddIfNotNull(this.CommunistTerrorVictimsDayJune(year));
+            holidaySpecifications.AddIfNotNull(this.OccupationDay(year));
+            holidaySpecifications.AddIfNotNull(this.MedicalWorkerDay(year));
+            holidaySpecifications.AddIfNotNull(this.HeroesCommemorationDay(year));
+            holidaySpecifications.AddIfNotNull(this.JewishGenocideVictimsDay(year));
+            holidaySpecifications.AddIfNotNull(this.SeaFestivalDay(year));
+            holidaySpecifications.AddIfNotNull(this.FreedomFightersRemembranceDay(year));
+            holidaySpecifications.AddIfNotNull(this.ConstitutionalLawDay(year));
+            holidaySpecifications.AddIfNotNull(this.StalinismAndNazismVictimsDay(year));
+            holidaySpecifications.AddIfNotNull(this.KnowledgeDay(year));
+            holidaySpecifications.AddIfNotNull(this.FathersDay(year));
+            holidaySpecifications.AddIfNotNull(this.BalticUnityDay(year));
+            holidaySpecifications.AddIfNotNull(this.InternationalDayOfOlderPersons(year));
+            holidaySpecifications.AddIfNotNull(this.TeachersDay(year));
+            holidaySpecifications.AddIfNotNull(this.OfficialLanguageDay(year));
+            holidaySpecifications.AddIfNotNull(this.BorderGuardsDay(year));
+            holidaySpecifications.AddIfNotNull(this.LacplesisDay(year));
+            holidaySpecifications.AddIfNotNull(this.November21TragedyRemembranceDay(year));
+            holidaySpecifications.AddIfNotNull(this.PoliceDay(year));
+            holidaySpecifications.AddIfNotNull(this.TotalitarianGenocideVictimsDay(year));
 
             return holidaySpecifications;
         }
@@ -211,304 +244,443 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private IEnumerable<HolidaySpecification> CommemorationAndCelebrationDays(int year)
+        private HolidaySpecification BarricadesDefendersDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "BARRICADESDEFENDERS-01",
+                Date = new DateTime(year, 1, 20),
+                EnglishName = "Commemoration Day of Defenders of the Barricades in 1991",
+                LocalName = "1991. gada barikāžu aizstāvju atceres diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification DeJureRecognitionDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "DEJURERECOGNITION-01",
+                Date = new DateTime(year, 1, 26),
+                EnglishName = "Day of the International (de jure) Recognition of the Republic of Latvia",
+                LocalName = "Latvijas Republikas starptautiskās (de jure) atzīšanas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification? WorldNgoDay(int year)
+        {
+            //Added by the amendment of 27.02.2025, in force from 18.03.2025 (after 27 February 2025)
+            if (year < 2026)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "WORLDNGODAY-01",
+                Date = new DateTime(year, 2, 27),
+                EnglishName = "World Non-Governmental Organization Day",
+                LocalName = "Starptautisko nevalstisko organizāciju diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification? NationalPartisanResistanceDay(int year)
+        {
+            //Added by the amendment of 16.06.2021, in force from 03.07.2021 (after 2 March 2021)
+            if (year < 2022)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "NATIONALPARTISANS-01",
+                Date = new DateTime(year, 3, 2),
+                EnglishName = "National Partisan Armed Resistance Remembrance Day",
+                LocalName = "Nacionālo partizānu bruņotās pretošanās atceres diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification InternationalWomensDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "INTERNATIONALWOMENSDAY-01",
+                Date = new DateTime(year, 3, 8),
+                EnglishName = "International Women's Day",
+                LocalName = "Starptautiskā sieviešu diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification? NationalResistanceMovementDay(int year)
+        {
+            //Added by the amendment of 16.06.2021, in force from 03.07.2021 (after 17 March 2021)
+            if (year < 2022)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "NATIONALRESISTANCEMOVEMENT-01",
+                Date = new DateTime(year, 3, 17),
+                EnglishName = "National Resistance Movement Remembrance Day",
+                LocalName = "Nacionālās pretošanās kustības piemiņas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification CommunistTerrorVictimsDayMarch(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "COMMUNISTGENOCIDEVICTIMS-01",
+                Date = new DateTime(year, 3, 25),
+                EnglishName = "Commemoration Day of Victims of Communist Terror",
+                LocalName = "Komunistiskā genocīda upuru piemiņas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification LatgaleCongressDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "LATGALECONGRESS-01",
+                Date = new DateTime(year, 4, 27),
+                EnglishName = "Latgale Congress Day",
+                LocalName = "Latgales kongresa diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification DefeatOfNazismDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "NAZISMDEFEAT-01",
+                Date = new DateTime(year, 5, 8),
+                EnglishName = "Day of the Defeat of Nazism and Commemoration Day of Victims of World War II",
+                LocalName = "Nacisma sagrāves diena un Otrā pasaules kara upuru piemiņas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification EuropeDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "EUROPEDAY-01",
+                Date = new DateTime(year, 5, 9),
+                EnglishName = "Europe Day",
+                LocalName = "Eiropas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification InternationalFamilyDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "FAMILYDAY-01",
+                Date = new DateTime(year, 5, 15),
+                EnglishName = "International Day of the Family",
+                LocalName = "Starptautiskā ģimenes diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification FirefighterAndRescuerDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "FIREFIGHTERSDAY-01",
+                Date = new DateTime(year, 5, 17),
+                EnglishName = "Firefighter and Rescuer Day",
+                LocalName = "Ugunsdzēsēju un glābēju diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification ChildProtectionDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "CHILDRENSDAY-01",
+                Date = new DateTime(year, 6, 1),
+                EnglishName = "International Day for Protection of Children",
+                LocalName = "Starptautiskā bērnu aizsardzības diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification CommunistTerrorVictimsDayJune(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "COMMUNISTGENOCIDEVICTIMS-02",
+                Date = new DateTime(year, 6, 14),
+                EnglishName = "Commemoration Day of Victims of Communist Terror",
+                LocalName = "Komunistiskā genocīda upuru piemiņas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification OccupationDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "OCCUPATIONDAY-01",
+                Date = new DateTime(year, 6, 17),
+                EnglishName = "Day of the Occupation of the Republic of Latvia",
+                LocalName = "Latvijas Republikas okupācijas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification MedicalWorkerDay(int year)
         {
             var thirdSundayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Sunday, Occurrence.Third);
-            var secondSaturdayInJuly = DateHelper.FindDay(year, Month.July, DayOfWeek.Saturday, Occurrence.Second);
-            var secondSundayInSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.Second);
-            var firstSundayInDecember = DateHelper.FindDay(year, Month.December, DayOfWeek.Sunday, Occurrence.First);
 
+            return new HolidaySpecification
+            {
+                Id = "MEDICALWORKERSDAY-01",
+                Date = thirdSundayInJune,
+                EnglishName = "Medical Worker Day",
+                LocalName = "Medicīnas darbinieku diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification HeroesCommemorationDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "HEROESDAY-01",
+                Date = new DateTime(year, 6, 22),
+                EnglishName = "Heroes' Commemoration Day (Anniversary of the Battle of Cēsis)",
+                LocalName = "Varoņu piemiņas diena (Cēsu kaujas atceres diena)",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification JewishGenocideVictimsDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "JEWISHGENOCIDEVICTIMS-01",
+                Date = new DateTime(year, 7, 4),
+                EnglishName = "Commemoration Day of Genocide Against the Jews",
+                LocalName = "Ebreju tautas genocīda upuru piemiņas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification SeaFestivalDay(int year)
+        {
+            var secondSaturdayInJuly = DateHelper.FindDay(year, Month.July, DayOfWeek.Saturday, Occurrence.Second);
+
+            return new HolidaySpecification
+            {
+                Id = "SEAFESTIVAL-01",
+                Date = secondSaturdayInJuly,
+                EnglishName = "Day of the Sea Festival",
+                LocalName = "Jūras svētku diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification FreedomFightersRemembranceDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "FREEDOMFIGHTERS-01",
+                Date = new DateTime(year, 8, 11),
+                EnglishName = "Latvian Freedom Fighters' Remembrance Day",
+                LocalName = "Latvijas brīvības cīnītāju piemiņas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification ConstitutionalLawDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "CONSTITUTIONALLAW-01",
+                Date = new DateTime(year, 8, 21),
+                EnglishName = "Day of the Passing of the Constitutional Law on the Status of the Republic of Latvia as a State",
+                LocalName = "Konstitucionālā likuma “Par Latvijas Republikas valstisko statusu” pieņemšanas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification StalinismAndNazismVictimsDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "STALINISMNAZISMVICTIMS-01",
+                Date = new DateTime(year, 8, 23),
+                EnglishName = "Day of Remembrance for Victims of Stalinism and Nazism",
+                LocalName = "Staļinisma un nacisma upuru atceres diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification KnowledgeDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "KNOWLEDGEDAY-01",
+                Date = new DateTime(year, 9, 1),
+                EnglishName = "Knowledge Day",
+                LocalName = "Zinību diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification FathersDay(int year)
+        {
+            var secondSundayInSeptember = DateHelper.FindDay(year, Month.September, DayOfWeek.Sunday, Occurrence.Second);
+
+            return new HolidaySpecification
+            {
+                Id = "FATHERSDAY-01",
+                Date = secondSundayInSeptember,
+                EnglishName = "Father's Day",
+                LocalName = "Tēva diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification BalticUnityDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "BALTICUNITYDAY-01",
+                Date = new DateTime(year, 9, 22),
+                EnglishName = "Baltic Unity Day",
+                LocalName = "Baltu vienības diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification InternationalDayOfOlderPersons(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "SENIORSDAY-01",
+                Date = new DateTime(year, 10, 1),
+                EnglishName = "International Day of Older Persons",
+                LocalName = "Starptautiskā senioru diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification TeachersDay(int year)
+        {
             //Teachers' Day was moved from the first Sunday of October to 5 October (amendment in force 07.05.2024)
             var teachersDay = year >= 2024
                 ? new DateTime(year, 10, 5)
                 : DateHelper.FindDay(year, Month.October, DayOfWeek.Sunday, Occurrence.First);
 
-            var commemorationDays = new List<HolidaySpecification>
+            return new HolidaySpecification
             {
-                new HolidaySpecification
-                {
-                    Id = "BARRICADESDEFENDERS-01",
-                    Date = new DateTime(year, 1, 20),
-                    EnglishName = "Commemoration Day of Defenders of the Barricades in 1991",
-                    LocalName = "1991. gada barikāžu aizstāvju atceres diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "DEJURERECOGNITION-01",
-                    Date = new DateTime(year, 1, 26),
-                    EnglishName = "Day of the International (de jure) Recognition of the Republic of Latvia",
-                    LocalName = "Latvijas Republikas starptautiskās (de jure) atzīšanas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "INTERNATIONALWOMENSDAY-01",
-                    Date = new DateTime(year, 3, 8),
-                    EnglishName = "International Women's Day",
-                    LocalName = "Starptautiskā sieviešu diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "COMMUNISTGENOCIDEVICTIMS-01",
-                    Date = new DateTime(year, 3, 25),
-                    EnglishName = "Commemoration Day of Victims of Communist Terror",
-                    LocalName = "Komunistiskā genocīda upuru piemiņas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "LATGALECONGRESS-01",
-                    Date = new DateTime(year, 4, 27),
-                    EnglishName = "Latgale Congress Day",
-                    LocalName = "Latgales kongresa diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "NAZISMDEFEAT-01",
-                    Date = new DateTime(year, 5, 8),
-                    EnglishName = "Day of the Defeat of Nazism and Commemoration Day of Victims of World War II",
-                    LocalName = "Nacisma sagrāves diena un Otrā pasaules kara upuru piemiņas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "EUROPEDAY-01",
-                    Date = new DateTime(year, 5, 9),
-                    EnglishName = "Europe Day",
-                    LocalName = "Eiropas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "FAMILYDAY-01",
-                    Date = new DateTime(year, 5, 15),
-                    EnglishName = "International Day of the Family",
-                    LocalName = "Starptautiskā ģimenes diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "FIREFIGHTERSDAY-01",
-                    Date = new DateTime(year, 5, 17),
-                    EnglishName = "Firefighter and Rescuer Day",
-                    LocalName = "Ugunsdzēsēju un glābēju diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "CHILDRENSDAY-01",
-                    Date = new DateTime(year, 6, 1),
-                    EnglishName = "International Day for Protection of Children",
-                    LocalName = "Starptautiskā bērnu aizsardzības diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "COMMUNISTGENOCIDEVICTIMS-02",
-                    Date = new DateTime(year, 6, 14),
-                    EnglishName = "Commemoration Day of Victims of Communist Terror",
-                    LocalName = "Komunistiskā genocīda upuru piemiņas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "OCCUPATIONDAY-01",
-                    Date = new DateTime(year, 6, 17),
-                    EnglishName = "Day of the Occupation of the Republic of Latvia",
-                    LocalName = "Latvijas Republikas okupācijas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "MEDICALWORKERSDAY-01",
-                    Date = thirdSundayInJune,
-                    EnglishName = "Medical Worker Day",
-                    LocalName = "Medicīnas darbinieku diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "HEROESDAY-01",
-                    Date = new DateTime(year, 6, 22),
-                    EnglishName = "Heroes' Commemoration Day (Anniversary of the Battle of Cēsis)",
-                    LocalName = "Varoņu piemiņas diena (Cēsu kaujas atceres diena)",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "JEWISHGENOCIDEVICTIMS-01",
-                    Date = new DateTime(year, 7, 4),
-                    EnglishName = "Commemoration Day of Genocide Against the Jews",
-                    LocalName = "Ebreju tautas genocīda upuru piemiņas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "SEAFESTIVAL-01",
-                    Date = secondSaturdayInJuly,
-                    EnglishName = "Day of the Sea Festival",
-                    LocalName = "Jūras svētku diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "FREEDOMFIGHTERS-01",
-                    Date = new DateTime(year, 8, 11),
-                    EnglishName = "Latvian Freedom Fighters' Remembrance Day",
-                    LocalName = "Latvijas brīvības cīnītāju piemiņas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "CONSTITUTIONALLAW-01",
-                    Date = new DateTime(year, 8, 21),
-                    EnglishName = "Day of the Passing of the Constitutional Law on the Status of the Republic of Latvia as a State",
-                    LocalName = "Konstitucionālā likuma “Par Latvijas Republikas valstisko statusu” pieņemšanas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "STALINISMNAZISMVICTIMS-01",
-                    Date = new DateTime(year, 8, 23),
-                    EnglishName = "Day of Remembrance for Victims of Stalinism and Nazism",
-                    LocalName = "Staļinisma un nacisma upuru atceres diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "KNOWLEDGEDAY-01",
-                    Date = new DateTime(year, 9, 1),
-                    EnglishName = "Knowledge Day",
-                    LocalName = "Zinību diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "FATHERSDAY-01",
-                    Date = secondSundayInSeptember,
-                    EnglishName = "Father's Day",
-                    LocalName = "Tēva diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "BALTICUNITYDAY-01",
-                    Date = new DateTime(year, 9, 22),
-                    EnglishName = "Baltic Unity Day",
-                    LocalName = "Baltu vienības diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "SENIORSDAY-01",
-                    Date = new DateTime(year, 10, 1),
-                    EnglishName = "International Day of Older Persons",
-                    LocalName = "Starptautiskā senioru diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "TEACHERSDAY-01",
-                    Date = teachersDay,
-                    EnglishName = "Teachers' Day",
-                    LocalName = "Skolotāju diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "BORDERGUARDSDAY-01",
-                    Date = new DateTime(year, 11, 7),
-                    EnglishName = "Border Guards Day",
-                    LocalName = "Robežsargu diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "LACPLESISDAY-01",
-                    Date = new DateTime(year, 11, 11),
-                    EnglishName = "Lāčplēsis Day",
-                    LocalName = "Lāčplēša diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "POLICEDAY-01",
-                    Date = new DateTime(year, 12, 5),
-                    EnglishName = "Police Day",
-                    LocalName = "Policijas darbinieku diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                },
-                new HolidaySpecification
-                {
-                    Id = "TOTALITARIANGENOCIDEVICTIMS-01",
-                    Date = firstSundayInDecember,
-                    EnglishName = "Commemoration Day of Victims of Genocide Against the Latvian People By the Totalitarian Communist Regime",
-                    LocalName = "Pret latviešu tautu vērstā totalitārā komunistiskā režīma genocīda upuru piemiņas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                }
+                Id = "TEACHERSDAY-01",
+                Date = teachersDay,
+                EnglishName = "Teachers' Day",
+                LocalName = "Skolotāju diena",
+                HolidayTypes = HolidayTypes.Observance,
             };
+        }
 
-            if (year >= 2021)
+        private HolidaySpecification? OfficialLanguageDay(int year)
+        {
+            //Added by the amendment of 16.06.2021, in force from 03.07.2021
+            if (year < 2021)
             {
-                //Added by the amendment of 16.06.2021, in force from 03.07.2021
-                commemorationDays.Add(new HolidaySpecification
-                {
-                    Id = "LANGUAGEDAY-01",
-                    Date = new DateTime(year, 10, 15),
-                    EnglishName = "Official Language Day",
-                    LocalName = "Valsts valodas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                });
-
-                commemorationDays.Add(new HolidaySpecification
-                {
-                    Id = "NOVEMBER21TRAGEDY-01",
-                    Date = new DateTime(year, 11, 21),
-                    EnglishName = "Remembrance Day of the Tragedy of 21 November 2013",
-                    LocalName = "2013. gada 21. novembra traģēdijas atceres diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                });
+                return null;
             }
 
-            if (year >= 2022)
+            return new HolidaySpecification
             {
-                //Added by the amendment of 16.06.2021, in force from 03.07.2021 (after 2 March and 17 March 2021)
-                commemorationDays.Add(new HolidaySpecification
-                {
-                    Id = "NATIONALPARTISANS-01",
-                    Date = new DateTime(year, 3, 2),
-                    EnglishName = "National Partisan Armed Resistance Remembrance Day",
-                    LocalName = "Nacionālo partizānu bruņotās pretošanās atceres diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                });
+                Id = "LANGUAGEDAY-01",
+                Date = new DateTime(year, 10, 15),
+                EnglishName = "Official Language Day",
+                LocalName = "Valsts valodas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
 
-                commemorationDays.Add(new HolidaySpecification
-                {
-                    Id = "NATIONALRESISTANCEMOVEMENT-01",
-                    Date = new DateTime(year, 3, 17),
-                    EnglishName = "National Resistance Movement Remembrance Day",
-                    LocalName = "Nacionālās pretošanās kustības piemiņas diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                });
+        private HolidaySpecification BorderGuardsDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "BORDERGUARDSDAY-01",
+                Date = new DateTime(year, 11, 7),
+                EnglishName = "Border Guards Day",
+                LocalName = "Robežsargu diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification LacplesisDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "LACPLESISDAY-01",
+                Date = new DateTime(year, 11, 11),
+                EnglishName = "Lāčplēsis Day",
+                LocalName = "Lāčplēša diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification? November21TragedyRemembranceDay(int year)
+        {
+            //Added by the amendment of 16.06.2021, in force from 03.07.2021
+            if (year < 2021)
+            {
+                return null;
             }
 
-            if (year >= 2026)
+            return new HolidaySpecification
             {
-                //Added by the amendment of 27.02.2025, in force from 18.03.2025 (after 27 February 2025)
-                commemorationDays.Add(new HolidaySpecification
-                {
-                    Id = "WORLDNGODAY-01",
-                    Date = new DateTime(year, 2, 27),
-                    EnglishName = "World Non-Governmental Organization Day",
-                    LocalName = "Starptautisko nevalstisko organizāciju diena",
-                    HolidayTypes = HolidayTypes.Observance,
-                });
-            }
+                Id = "NOVEMBER21TRAGEDY-01",
+                Date = new DateTime(year, 11, 21),
+                EnglishName = "Remembrance Day of the Tragedy of 21 November 2013",
+                LocalName = "2013. gada 21. novembra traģēdijas atceres diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
 
-            return commemorationDays;
+        private HolidaySpecification PoliceDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "POLICEDAY-01",
+                Date = new DateTime(year, 12, 5),
+                EnglishName = "Police Day",
+                LocalName = "Policijas darbinieku diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
+        }
+
+        private HolidaySpecification TotalitarianGenocideVictimsDay(int year)
+        {
+            var firstSundayInDecember = DateHelper.FindDay(year, Month.December, DayOfWeek.Sunday, Occurrence.First);
+
+            return new HolidaySpecification
+            {
+                Id = "TOTALITARIANGENOCIDEVICTIMS-01",
+                Date = firstSundayInDecember,
+                EnglishName = "Commemoration Day of Victims of Genocide Against the Latvian People By the Totalitarian Communist Regime",
+                LocalName = "Pret latviešu tautu vērstā totalitārā komunistiskā režīma genocīda upuru piemiņas diena",
+                HolidayTypes = HolidayTypes.Observance,
+            };
         }
 
         /// <inheritdoc/>
