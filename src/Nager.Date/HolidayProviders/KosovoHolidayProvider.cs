@@ -48,7 +48,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "Viti i Ri",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -57,7 +57,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "Viti i Ri",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -66,7 +66,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Orthodox Christmas",
                     LocalName = "Krishtlindjet Ortodokse",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -75,7 +75,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Independence Day",
                     LocalName = "Dita e Pavarësisë së Republikës së Kosovës",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -84,7 +84,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Constitution Day",
                     LocalName = "Dita e Kushtetutës së Republikës së Kosovës",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -93,7 +93,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "International Workers' Day",
                     LocalName = "Dita Ndërkombëtare e Punës",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -102,7 +102,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Europe Day",
                     LocalName = "Dita e Evropës",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -111,7 +111,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Catholic Christmas",
                     LocalName = "Krishtlindjet Katolike",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
+                    ObservedRuleSet = observedRuleSet,
                 },
                 this._catholicProvider.EasterMonday("E hëna e Pashkëve Katolike", year, observedRuleSet),
                 this._orthodoxProvider.EasterMonday("E hëna e Pashkëve Ortodokse", year, observedRuleSet),
