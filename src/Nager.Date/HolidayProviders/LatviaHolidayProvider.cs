@@ -68,7 +68,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day of the Restoration of Independence of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Neatkarības atjaunošanas diena",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = mondayObservedRuleSet
+                    ObservedRuleSet = mondayObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -90,7 +90,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "MIDSUMMERDAY-01",
                     Date = new DateTime(year, 6, 24),
-                    EnglishName = "Jāņi Day",
+                    EnglishName = "Jāņi Day", //St. John's Day
                     LocalName = "Jāņu diena",
                     HolidayTypes = HolidayTypes.Public,
                 },
@@ -101,7 +101,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day of the Proclamation of the Republic of Latvia",
                     LocalName = "Latvijas Republikas Proklamēšanas diena",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = mondayObservedRuleSet
+                    ObservedRuleSet = mondayObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -138,13 +138,12 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.GoodFriday("Lielā Piektdiena", year),
                 this._catholicProvider.EasterSunday("Pirmās Lieldienas", year),
                 this._catholicProvider.EasterMonday("Otrās Lieldienas", year),
-                this._catholicProvider.Pentecost("Vasarsvētki", year)
+                this._catholicProvider.Pentecost("Vasarsvētki", year),
             };
 
             holidaySpecifications.AddIfNotNull(this.SongAndDanceCelebrationFinalDay(year, mondayObservedRuleSet));
             holidaySpecifications.AddIfNotNull(this.PopeFrancisPastoralVisitDay(year));
             holidaySpecifications.AddIfNotNull(this.IceHockeyBronzeMedalDay(year));
-            holidaySpecifications.AddRange(this.CommemorationAndCelebrationDays(year));
 
             return holidaySpecifications;
         }
@@ -173,13 +172,13 @@ namespace Nager.Date.HolidayProviders
                 EnglishName = "Final Day of the Nationwide Latvian Song and Dance Celebration",
                 LocalName = "Vispārējo latviešu Dziesmu un deju svētku noslēguma diena",
                 HolidayTypes = HolidayTypes.Public,
-                ObservedRuleSet = observedRuleSet
+                ObservedRuleSet = observedRuleSet,
             };
         }
 
         private HolidaySpecification? PopeFrancisPastoralVisitDay(int year)
         {
-            if (year != 2018)
+            if (year is not 2018)
             {
                 return null;
             }
@@ -196,7 +195,7 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? IceHockeyBronzeMedalDay(int year)
         {
-            if (year != 2023)
+            if (year is not 2023)
             {
                 return null;
             }
