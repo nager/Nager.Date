@@ -1066,7 +1066,7 @@ namespace Nager.Date
         SY,
 
         /// <summary>
-        /// Swaziland
+        /// Eswatini (Swaziland)
         /// </summary>
         SZ,
 
