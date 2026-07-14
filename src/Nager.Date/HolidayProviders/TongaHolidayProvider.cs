@@ -122,7 +122,7 @@ namespace Nager.Date.HolidayProviders
         {
             return new HolidaySpecification
             {
-                Id = "BIRTHDAYHEIROFTHEREIGNINGSOVEREIGN-01",
+                Id = "BIRTHDAYOFTHEREIGNINGSOVEREIGN-01",
                 Date = new DateTime(year, 7, 4),
                 EnglishName = "Birthday of the reigning Sovereign of Tonga",
                 LocalName = "Birthday of the reigning Sovereign of Tonga",
