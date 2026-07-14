@@ -79,7 +79,7 @@ namespace Nager.Date.HolidayProviders
                 },
             };
 
-            // Islamic Holidays
+            // TODO: Islamic Holidays
             // CalendarType: Lunar
             // DeterminationType: MoonSighting (By the Sunni Endowment Diwan & Shia religious authorities / Najaf Hawza)
             // Astronomical calculation: No (Used only as a guide; official announcement depends on actual sighting)
