@@ -37,7 +37,6 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "اليوم الوطني للجمهورية اليمنية",
                     HolidayTypes = HolidayTypes.Public,
                 },
-                
                 new HolidaySpecification
                 {
                     Id = "REVOLUTIONDAY-01",
