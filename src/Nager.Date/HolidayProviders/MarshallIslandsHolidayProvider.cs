@@ -91,7 +91,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "GospelDay-01",
+                    Id = "GOSPELDAY-01",
                     Date = firstFridayInDecember,
                     EnglishName = "Gospel Day",
                     LocalName = "Gospel Day",
