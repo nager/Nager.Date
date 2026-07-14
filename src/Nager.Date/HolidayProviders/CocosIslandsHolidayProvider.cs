@@ -87,7 +87,6 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.EasterMonday("Easter Monday", year),
             };
 
-
             // TODO: Islamic Holidays
             // CalendarType: Lunar
             // DeterminationType: MoonSighting (By the Islamic Council of Cocos Keeling Islands)
