@@ -176,6 +176,7 @@ namespace Nager.Date
                 { CountryCode.RU, new Lazy<IHolidayProvider>(() => new RussiaHolidayProvider())},
                 { CountryCode.RW, new Lazy<IHolidayProvider>(() => new RwandaHolidayProvider(_catholicProvider))},
                 { CountryCode.SC, new Lazy<IHolidayProvider>(() => new SeychellesHolidayProvider(_catholicProvider))},
+                { CountryCode.SD, new Lazy<IHolidayProvider>(() => new SudanHolidayProvider(_orthodoxProvider))},
                 { CountryCode.SE, new Lazy<IHolidayProvider>(() => new SwedenHolidayProvider(_catholicProvider))},
                 { CountryCode.SG, new Lazy<IHolidayProvider>(() => new SingaporeHolidayProvider(_catholicProvider))},
                 { CountryCode.SH, new Lazy<IHolidayProvider>(() => new SaintHelenaAscensionTristanDaCunhaHolidayProvider(_catholicProvider))},
