@@ -94,6 +94,13 @@ namespace Nager.Date.Models
             return this;
         }
 
+        internal HolidaySpecification SetAdditionalTranslations(Dictionary<string, string> additionalTranslations)
+        {
+            this.AdditionalTranslations = additionalTranslations;
+
+            return this;
+        }
+
         internal HolidaySpecification SetHolidayTypes(HolidayTypes holidayType)
         {
             this.HolidayTypes = holidayType;
