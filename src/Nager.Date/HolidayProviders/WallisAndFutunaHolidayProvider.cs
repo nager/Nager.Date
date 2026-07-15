@@ -55,7 +55,7 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "VICTORYDAY-01",
                     Date = new DateTime(year, 5, 8),
-                    EnglishName = "Victory Dayy",
+                    EnglishName = "Victory Day",
                     LocalName = "Victory Day",
                     HolidayTypes = HolidayTypes.Public,
                 },
