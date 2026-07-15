@@ -1,6 +1,6 @@
 # Nager.Date
 
-Nager.Date is a comprehensive .NET library for querying public and federal holidays, supporting over 150 countries worldwide.
+Nager.Date is a comprehensive .NET library for querying public and federal holidays, supporting over 200 countries worldwide.
 It provides native and English translations and supports country subdivisions (federal states) according to ISO 3166-2 standards.
 
 ## Supported Countries
