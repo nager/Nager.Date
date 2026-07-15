@@ -1,4 +1,3 @@
-using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -26,11 +25,6 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var sovereigntyDayDate = DateHelper.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Second).AddDays(2);
-            var firstMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
-            var augustThursdayDate = firstMondayInAugust.AddDays(3);
-            var constitutionDayDate = firstMondayInAugust.AddDays(4);
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
