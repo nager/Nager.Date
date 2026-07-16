@@ -199,6 +199,7 @@ namespace Nager.Date
                 { CountryCode.TD, new Lazy<IHolidayProvider>(() => new ChadHolidayProvider(_catholicProvider))},
                 { CountryCode.TF, new Lazy<IHolidayProvider>(() => new FrenchSouthernAndAntarcticLandsHolidayProvider())},
                 { CountryCode.TG, new Lazy<IHolidayProvider>(() => new TogoHolidayProvider(_catholicProvider))},
+                { CountryCode.TK, new Lazy<IHolidayProvider>(() => new TokelauHolidayProvider(_catholicProvider))},
                 { CountryCode.TN, new Lazy<IHolidayProvider>(() => new TunisiaHolidayProvider())},
                 { CountryCode.TO, new Lazy<IHolidayProvider>(() => new TongaHolidayProvider(_catholicProvider))},
                 { CountryCode.TR, new Lazy<IHolidayProvider>(() => new TuerkiyeHolidayProvider())},
