@@ -76,7 +76,6 @@ namespace Nager.Date.HolidayProviders
             var englishName = "June 30 Revolution";
             var localName = "ثورة 30 يونيو";
 
-
             if (year >= 2015 && year <= 2017)
             {
                 return new HolidaySpecification
@@ -175,7 +174,6 @@ namespace Nager.Date.HolidayProviders
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Egypt",
                 "https://www.sis.gov.eg/Story/207089/Egypt-sets-April-21%2C-April-24%2C-May-1-as-public-holidays?lang=en-us",
-                "https://www.sis.gov.eg/Story/207089/Egypt-sets-April-21%2C-April-24%2C-May-1-as-public-holidays?lang=en-us&utm_source=chatgpt.com"
             ];
         }
     }

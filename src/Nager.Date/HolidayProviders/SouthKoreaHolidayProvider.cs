@@ -322,7 +322,6 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_South_Korea", //South Korea's public holidays
-                "https://www.koreanlaborlaw.com/substitute-holiday-system-of-korea/", //Substitute holiday system of Korea
                 "https://www.law.go.kr/lsInfoP.do?lsiSeq=233829#0000"
             ];
         }
