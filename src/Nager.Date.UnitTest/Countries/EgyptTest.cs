@@ -36,7 +36,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         [DataRow(2021, 1, 28)] // 25 is Thursday
         [DataRow(2022, 1, 27)] // 25 is Thursday
-        [DataRow(2023, 1, 26)] // 25 is Wednesday
+        [DataRow(2023, 1, 26)] // 25 is Wednesday (Shift to Thursday LongWeekend)
         [DataRow(2024, 1, 25)] // 25 is Thursday
         [DataRow(2025, 1, 25)] // 25 is Saturday (Weekend)
         [DataRow(2026, 1, 29)] // 25 is Sunday
@@ -49,12 +49,12 @@ namespace Nager.Date.UnitTest.Countries
         }
 
         [TestMethod]
-        [DataRow(2021, 4, 29)] // 25 is Sunday
+        [DataRow(2021, 4, 29)] // 25 is Sunday (Shift to Thursday LongWeekend)
         [DataRow(2022, 4, 25)] // 25 is Monday
         [DataRow(2023, 4, 25)] // 25 is Tuesday
         [DataRow(2024, 4, 25)] // 25 is Thursday
-        [DataRow(2025, 4, 24)] // 25 is Friday (Weekend)
-        [DataRow(2026, 1, 25)] // 25 is Saturday (Weekend)
+        [DataRow(2025, 4, 24)] // 25 is Friday (Weekend)  (Shift to Thursday LongWeekend)
+        [DataRow(2026, 4, 25)] // 25 is Saturday (Weekend)
         public void TestSinaiLiberationDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.EG);
@@ -118,7 +118,7 @@ namespace Nager.Date.UnitTest.Countries
         public void TestEidAlAdha(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.EG);
-            var holiday = holidays.Single(x => x.Id == "EG-XXXXX-01");
+            var holiday = holidays.Single(x => x.Id == "EG-EIDALADHA-01");
 
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
@@ -148,7 +148,7 @@ namespace Nager.Date.UnitTest.Countries
         public void TestIslamicNewYear(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.EG);
-            var holiday = holidays.Single(x => x.Id == "EG-REVOLUTIONDAY-01");
+            var holiday = holidays.Single(x => x.Id == "EG-ISLAMICNEWYEAR-01");
 
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
@@ -163,7 +163,7 @@ namespace Nager.Date.UnitTest.Countries
         public void TestArmedForcesDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.EG);
-            var holiday = holidays.Single(x => x.Id == "EG-REVOLUTIONDAY-01");
+            var holiday = holidays.Single(x => x.Id == "EG-ARMEDFORCESDAY-01");
 
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }

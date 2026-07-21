@@ -24,14 +24,6 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
-                    Id = "ORTHODOXCHRISTMASDAY-01",
-                    Date = new DateTime(year, 1, 7),
-                    EnglishName = "Christmas Day (Orthodox)",
-                    LocalName = "عيد الميلاد المجيد",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
                     Id = "REVOLUTIONDAY2011-01",
                     Date = new DateTime(year, 1, 25),
                     EnglishName = "Revolution Day 2011 / National Police Day",
@@ -45,6 +37,13 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Labour Day",
                     LocalName = "عيد العمال",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = new ObservedRuleSet
+                    {
+                        Monday = date => date.AddDays(3),
+                        Tuesday = date => date.AddDays(2),
+                        Wednesday = date => date.AddDays(4),
+                        Friday = date => date.AddDays(6),
+                    }
                 },
                 new HolidaySpecification
                 {
@@ -54,20 +53,45 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "عيد ثورة 23 يوليو",
                     HolidayTypes = HolidayTypes.Public,
                 },
-                new HolidaySpecification
-                {
-                    Id = "ARMEDFORCESDAY-01",
-                    Date = new DateTime(year, 10, 6),
-                    EnglishName = "Armed Forces Day",
-                    LocalName = "عيد القوات المسلحة",
-                    HolidayTypes = HolidayTypes.Public,
-                }
             };
 
+            holidaySpecifications.AddIfNotNull(this.ChristmasDay(year));
+            holidaySpecifications.AddIfNotNull(this.ArmedForcesDay(year));
             holidaySpecifications.AddIfNotNull(this.SinaiLiberationDay(year));
             holidaySpecifications.AddIfNotNull(this.June30Revolution(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification ArmedForcesDay(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "ARMEDFORCESDAY-01",
+                Date = new DateTime(year, 10, 6),
+                EnglishName = "Armed Forces Day",
+                LocalName = "عيد القوات المسلحة",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification ChristmasDay(int year)
+        {
+            var holidayDate = year switch
+            {
+                2022 => new DateTime(year, 1, 6),
+                2023 => new DateTime(year, 1, 8),
+                _ => new DateTime(year, 1, 7)
+            };
+
+            return new HolidaySpecification
+            {
+                Id = "ORTHODOXCHRISTMASDAY-01",
+                Date = holidayDate,
+                EnglishName = "Christmas Day (Orthodox)",
+                LocalName = "عيد الميلاد المجيد",
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         private HolidaySpecification? June30Revolution(int year)
@@ -116,7 +140,7 @@ namespace Nager.Date.HolidayProviders
                     Monday = date => date.AddDays(3),
                     Tuesday = date => date.AddDays(2),
                     Wednesday = date => date.AddDays(1),
-                    Friday = date => date.AddDays(2),
+                    //Friday = date => date.AddDays(2),
                 };
 
                 return new HolidaySpecification
