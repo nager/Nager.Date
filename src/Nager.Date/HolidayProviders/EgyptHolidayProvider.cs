@@ -24,14 +24,6 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
-                    Id = "REVOLUTIONDAY2011-01",
-                    Date = new DateTime(year, 1, 25),
-                    EnglishName = "Revolution Day 2011 / National Police Day",
-                    LocalName = "عيد الثورة 25 يناير",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
                     Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
@@ -45,30 +37,72 @@ namespace Nager.Date.HolidayProviders
                         Friday = date => date.AddDays(6),
                     }
                 },
-                new HolidaySpecification
-                {
-                    Id = "REVOLUTIONDAY-01",
-                    Date = new DateTime(year, 7, 23),
-                    EnglishName = "Revolution Day",
-                    LocalName = "عيد ثورة 23 يوليو",
-                    HolidayTypes = HolidayTypes.Public,
-                },
             };
 
             holidaySpecifications.AddIfNotNull(this.ChristmasDay(year));
             holidaySpecifications.AddIfNotNull(this.ArmedForcesDay(year));
             holidaySpecifications.AddIfNotNull(this.SinaiLiberationDay(year));
             holidaySpecifications.AddIfNotNull(this.June30Revolution(year));
+            holidaySpecifications.AddIfNotNull(this.RevolutionDay(year));
+            holidaySpecifications.AddIfNotNull(this.RevolutionDay2011(year));
 
             return holidaySpecifications;
         }
 
+        private HolidaySpecification RevolutionDay2011(int year)
+        {
+            var holidayDate = year switch
+            {
+                2021 => new DateTime(year, 1, 28),
+                2022 => new DateTime(year, 1, 27),
+                2023 => new DateTime(year, 1, 26),
+                2026 => new DateTime(year, 1, 29),
+                _ => new DateTime(year, 1, 25)
+            };
+
+            return new HolidaySpecification
+            {
+                Id = "REVOLUTIONDAY2011-01",
+                Date = holidayDate,
+                EnglishName = "Revolution Day 2011 / National Police Day",
+                LocalName = "عيد الثورة 25 يناير",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification RevolutionDay(int year)
+        {
+            var holidayDate = year switch
+            {
+                2021 => new DateTime(year, 7, 24),
+                2024 => new DateTime(year, 7, 25),
+                2025 => new DateTime(year, 7, 24),
+                2026 => new DateTime(year, 7, 23),
+                _ => new DateTime(year, 7, 23)
+            };
+
+            return new HolidaySpecification
+            {
+                Id = "REVOLUTIONDAY-01",
+                Date = holidayDate,
+                EnglishName = "Revolution Day",
+                LocalName = "عيد ثورة 23 يوليو",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
         private HolidaySpecification ArmedForcesDay(int year)
         {
+            var holidayDate = year switch
+            {
+                2021 => new DateTime(year, 10, 7),
+                _ => new DateTime(year, 10, 6)
+            };
+
             return new HolidaySpecification
             {
                 Id = "ARMEDFORCESDAY-01",
-                Date = new DateTime(year, 10, 6),
+                Date = holidayDate,
                 EnglishName = "Armed Forces Day",
                 LocalName = "عيد القوات المسلحة",
                 HolidayTypes = HolidayTypes.Public,
@@ -163,28 +197,17 @@ namespace Nager.Date.HolidayProviders
             var englishName = "Sinai Liberation Day";
             var localName = "عيد تحرير سيناء";
 
-            if (year == 2025)
+            var holidayDate = year switch
             {
-                var observedRuleSet = new ObservedRuleSet
-                {
-                    Friday = date => date.AddDays(-1),
-                };
-
-                return new HolidaySpecification
-                {
-                    Id = id,
-                    Date = new DateTime(year, 4, 25),
-                    EnglishName = englishName,
-                    LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
-                };
-            }
+                2021 => new DateTime(year, 4, 29),
+                2025 => new DateTime(year, 4, 24),
+                _ => new DateTime(year, 4, 25)
+            };
 
             return new HolidaySpecification
             {
                 Id = id,
-                Date = new DateTime(year, 4, 25),
+                Date = holidayDate,
                 EnglishName = englishName,
                 LocalName = localName,
                 HolidayTypes = HolidayTypes.Public,
