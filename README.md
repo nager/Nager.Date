@@ -1,16 +1,16 @@
 [![Build, Test & Publish](https://github.com/nager/Nager.Date/actions/workflows/dotnet.yml/badge.svg)](https://github.com/nager/Nager.Date/actions/workflows/dotnet.yml)
 
-# :calendar: Nager.Date - [Official Website](https://date.nager.at)
+# :calendar: Nager.Date - [Official Website](https://nagerholidays.com)
 
 Discover the convenience of easily accessing holidays from **over 200 countries** with Nager.Date. Our popular project utilizes the power of .NET and offers a user-friendly public [REST API](https://date.nager.at/Api) for seamless integration into your application.
 
-You can find an overview of the supported countries [here](https://date.nager.at/country/coverage).
+You can find an overview of the supported countries [here](https://nagerholidays.com/country/coverage).
 
 Need offline access to our functionality? No problem! We also provide solutions that allow you to use our services on your own infrastructure without an internet connection. Easily integrate our service into your system with the [Docker](https://hub.docker.com/r/nager/nager-date) container or the [NuGet](https://www.nuget.org/packages/Nager.Date) package. Both options require a license key. As a [sponsor of nager](https://github.com/sponsors/nager), you get a license key.
 
 ## How can I use it?
 
-Easily generate a client in your preferred programming language by utilizing our [API documentation](https://date.nager.at/scalar/#community-api-v4), which provides a complete overview of all available endpoints. For more details on client generation, refer to the [OpenAPI Generator documentation](https://openapi-generator.tech).
+Easily generate a client in your preferred programming language by utilizing our [API documentation](https://nagerholidays.com/scalar/#community-api-v4), which provides a complete overview of all available endpoints. For more details on client generation, refer to the [OpenAPI Generator documentation](https://openapi-generator.tech).
 
 ### Examples
 
@@ -33,7 +33,7 @@ using System.Text.Json;
 var jsonSerializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
 using var httpClient = new HttpClient();
-using var response = await httpClient.GetAsync("https://date.nager.at/api/v3/publicholidays/2022/US");
+using var response = await httpClient.GetAsync("https://nagerholidays.com/api/v3/publicholidays/2022/US");
 if (response.IsSuccessStatusCode)
 {
     using var jsonStream = await response.Content.ReadAsStreamAsync();
@@ -63,7 +63,7 @@ This example use the [guzzle](https://github.com/guzzle/guzzle) project
 <?php
 require_once 'vendor/autoload.php';
 $client = new \GuzzleHttp\Client();
-$response = $client->request('GET', 'https://date.nager.at/api/v3/publicholidays/2022/US');
+$response = $client->request('GET', 'https://nagerholidays.com/api/v3/publicholidays/2022/US');
 if ($response->getStatusCode() == 200) {
     $json = $response->getBody();
     print_r(json_decode($json));
@@ -87,7 +87,7 @@ import com.google.gson.*;
 public class Main {
   public static void main(String[] args) {
     System.out.println("get holidays");
-    String json = new RestTemplate().getForObject("https://date.nager.at/api/v3/publicholidays/2022/CH", String.class);
+    String json = new RestTemplate().getForObject("https://nagerholidays.com/api/v3/publicholidays/2022/CH", String.class);
     
     Gson gson = new Gson();
     PublicHoliday[] userArray = gson.fromJson(json, PublicHoliday[].class);  
@@ -147,7 +147,7 @@ dependencies {
 import json
 import requests
 
-response = requests.get('https://date.nager.at/api/v3/publicholidays/2022/US')
+response = requests.get('https://nagerholidays.com/api/v3/publicholidays/2022/US')
 public_holidays = json.loads(response.content)
 
 for public_holiday in public_holidays:
