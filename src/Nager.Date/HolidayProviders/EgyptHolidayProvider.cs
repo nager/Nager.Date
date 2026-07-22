@@ -2,14 +2,22 @@ using Nager.Date.Extensions;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Egypt HolidayProvider
     /// </summary>
-    internal sealed class EgyptHolidayProvider() : AbstractHolidayProvider(CountryCode.EG)
+    internal sealed class EgyptHolidayProvider : AbstractHolidayProvider
     {
+        private readonly HijriCalendar _hijriCalendar;
+
+        public EgyptHolidayProvider() : base(CountryCode.EG)
+        {
+            this._hijriCalendar = new HijriCalendar();
+        }
+
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
@@ -45,8 +53,42 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.June30Revolution(year));
             holidaySpecifications.AddIfNotNull(this.RevolutionDay(year));
             holidaySpecifications.AddIfNotNull(this.RevolutionDay2011(year));
+            holidaySpecifications.AddRangeIfNotNull(this.GetIslamicNewYear(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification[] GetIslamicNewYear(int year)
+        {
+            if (year > this._hijriCalendar.MinSupportedDateTime.Year && year < this._hijriCalendar.MaxSupportedDateTime.Year)
+            {
+                this._hijriCalendar.HijriAdjustment = 0;
+                var startHijriYear = this._hijriCalendar.GetYear(new DateTime(year, 1, 1));
+
+                var month = 1; //Muharram
+                var items = new List<HolidaySpecification>();
+
+                for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
+                {
+                    var newYearDate = this._hijriCalendar.ToDateTime(hijriYear, month, 1, 0, 0, 0, 0);
+
+                    if (newYearDate.Year == year)
+                    {
+                        items.Add(new HolidaySpecification
+                        {
+                            Id = $"ISLAMICNEWYEAR-{hijriYear}-01",
+                            Date = newYearDate,
+                            EnglishName = "Islamic New Year",
+                            LocalName = $"Islamic New Year",
+                            HolidayTypes = HolidayTypes.Public,
+                        });
+                    }
+                }
+
+                return [.. items];
+            }
+
+            return [];
         }
 
         private HolidaySpecification RevolutionDay2011(int year)

@@ -148,7 +148,7 @@ namespace Nager.Date.UnitTest.Countries
         public void TestIslamicNewYear(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.EG);
-            var holiday = holidays.Single(x => x.Id == "EG-ISLAMICNEWYEAR-01");
+            var holiday = holidays.Single(x => x.Id.StartsWith("EG-ISLAMICNEWYEAR"));
 
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
