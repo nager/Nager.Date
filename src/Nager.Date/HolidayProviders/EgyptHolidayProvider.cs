@@ -11,11 +11,11 @@ namespace Nager.Date.HolidayProviders
     /// </summary>
     internal sealed class EgyptHolidayProvider : AbstractHolidayProvider
     {
-        private readonly HijriCalendar _hijriCalendar;
+        private readonly UmAlQuraCalendar _umAlQuraCalendar;
 
         public EgyptHolidayProvider() : base(CountryCode.EG)
         {
-            this._hijriCalendar = new HijriCalendar();
+            this._umAlQuraCalendar = new UmAlQuraCalendar();
         }
 
         /// <inheritdoc/>
@@ -60,17 +60,17 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification[] GetIslamicNewYear(int year)
         {
-            if (year > this._hijriCalendar.MinSupportedDateTime.Year && year < this._hijriCalendar.MaxSupportedDateTime.Year)
+            if (year > this._umAlQuraCalendar.MinSupportedDateTime.Year && year < this._umAlQuraCalendar.MaxSupportedDateTime.Year)
             {
-                this._hijriCalendar.HijriAdjustment = 0;
-                var startHijriYear = this._hijriCalendar.GetYear(new DateTime(year, 1, 1));
+                //this._umAlQuraCalendar.HijriAdjustment = 0;
+                var startHijriYear = this._umAlQuraCalendar.GetYear(new DateTime(year, 1, 1));
 
                 var month = 1; //Muharram
                 var items = new List<HolidaySpecification>();
 
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
-                    var newYearDate = this._hijriCalendar.ToDateTime(hijriYear, month, 1, 0, 0, 0, 0);
+                    var newYearDate = this._umAlQuraCalendar.ToDateTime(hijriYear, month, 1, 0, 0, 0, 0);
 
                     if (newYearDate.Year == year)
                     {
