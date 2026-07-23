@@ -2,14 +2,22 @@ using Nager.Date.Extensions;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Nager.Date.HolidayProviders
 {
     /// <summary>
     /// Egypt HolidayProvider
     /// </summary>
-    internal sealed class EgyptHolidayProvider() : AbstractHolidayProvider(CountryCode.EG)
+    internal sealed class EgyptHolidayProvider : AbstractHolidayProvider
     {
+        private readonly UmAlQuraCalendar _umAlQuraCalendar;
+
+        public EgyptHolidayProvider() : base(CountryCode.EG)
+        {
+            this._umAlQuraCalendar = new UmAlQuraCalendar();
+        }
+
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
@@ -24,50 +32,142 @@ namespace Nager.Date.HolidayProviders
             {
                 new HolidaySpecification
                 {
-                    Id = "ORTHODOXCHRISTMASDAY-01",
-                    Date = new DateTime(year, 1, 7),
-                    EnglishName = "Christmas Day (Orthodox)",
-                    LocalName = "عيد الميلاد المجيد",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
-                    Id = "REVOLUTIONDAY2011-01",
-                    Date = new DateTime(year, 1, 25),
-                    EnglishName = "Revolution Day 2011 / National Police Day",
-                    LocalName = "عيد الثورة 25 يناير",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
                     Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
                     EnglishName = "Labour Day",
                     LocalName = "عيد العمال",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = new ObservedRuleSet
+                    {
+                        Monday = date => date.AddDays(3),
+                        Tuesday = date => date.AddDays(2),
+                        Wednesday = date => date.AddDays(4),
+                        Friday = date => date.AddDays(6),
+                    }
                 },
-                new HolidaySpecification
-                {
-                    Id = "REVOLUTIONDAY-01",
-                    Date = new DateTime(year, 7, 23),
-                    EnglishName = "Revolution Day",
-                    LocalName = "عيد ثورة 23 يوليو",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
-                    Id = "ARMEDFORCESDAY-01",
-                    Date = new DateTime(year, 10, 6),
-                    EnglishName = "Armed Forces Day",
-                    LocalName = "عيد القوات المسلحة",
-                    HolidayTypes = HolidayTypes.Public,
-                }
             };
 
+            holidaySpecifications.AddIfNotNull(this.ChristmasDay(year));
+            holidaySpecifications.AddIfNotNull(this.ArmedForcesDay(year));
             holidaySpecifications.AddIfNotNull(this.SinaiLiberationDay(year));
             holidaySpecifications.AddIfNotNull(this.June30Revolution(year));
+            holidaySpecifications.AddIfNotNull(this.RevolutionDay(year));
+            holidaySpecifications.AddIfNotNull(this.RevolutionDay2011(year));
+            holidaySpecifications.AddRangeIfNotNull(this.GetIslamicNewYear(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification[] GetIslamicNewYear(int year)
+        {
+            if (year > this._umAlQuraCalendar.MinSupportedDateTime.Year && year < this._umAlQuraCalendar.MaxSupportedDateTime.Year)
+            {
+                //this._umAlQuraCalendar.HijriAdjustment = 0;
+                var startHijriYear = this._umAlQuraCalendar.GetYear(new DateTime(year, 1, 1));
+
+                var month = 1; //Muharram
+                var items = new List<HolidaySpecification>();
+
+                for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
+                {
+                    var newYearDate = this._umAlQuraCalendar.ToDateTime(hijriYear, month, 1, 0, 0, 0, 0);
+
+                    if (newYearDate.Year == year)
+                    {
+                        items.Add(new HolidaySpecification
+                        {
+                            Id = $"ISLAMICNEWYEAR-{hijriYear}-01",
+                            Date = newYearDate,
+                            EnglishName = "Islamic New Year",
+                            LocalName = $"Islamic New Year",
+                            HolidayTypes = HolidayTypes.Public,
+                        });
+                    }
+                }
+
+                return [.. items];
+            }
+
+            return [];
+        }
+
+        private HolidaySpecification RevolutionDay2011(int year)
+        {
+            var holidayDate = year switch
+            {
+                2021 => new DateTime(year, 1, 28),
+                2022 => new DateTime(year, 1, 27),
+                2023 => new DateTime(year, 1, 26),
+                2026 => new DateTime(year, 1, 29),
+                _ => new DateTime(year, 1, 25)
+            };
+
+            return new HolidaySpecification
+            {
+                Id = "REVOLUTIONDAY2011-01",
+                Date = holidayDate,
+                EnglishName = "Revolution Day 2011 / National Police Day",
+                LocalName = "عيد الثورة 25 يناير",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification RevolutionDay(int year)
+        {
+            var holidayDate = year switch
+            {
+                2021 => new DateTime(year, 7, 24),
+                2024 => new DateTime(year, 7, 25),
+                2025 => new DateTime(year, 7, 24),
+                2026 => new DateTime(year, 7, 23),
+                _ => new DateTime(year, 7, 23)
+            };
+
+            return new HolidaySpecification
+            {
+                Id = "REVOLUTIONDAY-01",
+                Date = holidayDate,
+                EnglishName = "Revolution Day",
+                LocalName = "عيد ثورة 23 يوليو",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification ArmedForcesDay(int year)
+        {
+            var holidayDate = year switch
+            {
+                2021 => new DateTime(year, 10, 7),
+                _ => new DateTime(year, 10, 6)
+            };
+
+            return new HolidaySpecification
+            {
+                Id = "ARMEDFORCESDAY-01",
+                Date = holidayDate,
+                EnglishName = "Armed Forces Day",
+                LocalName = "عيد القوات المسلحة",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification ChristmasDay(int year)
+        {
+            var holidayDate = year switch
+            {
+                2022 => new DateTime(year, 1, 6),
+                2023 => new DateTime(year, 1, 8),
+                _ => new DateTime(year, 1, 7)
+            };
+
+            return new HolidaySpecification
+            {
+                Id = "ORTHODOXCHRISTMASDAY-01",
+                Date = holidayDate,
+                EnglishName = "Christmas Day (Orthodox)",
+                LocalName = "عيد الميلاد المجيد",
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         private HolidaySpecification? June30Revolution(int year)
@@ -116,7 +216,7 @@ namespace Nager.Date.HolidayProviders
                     Monday = date => date.AddDays(3),
                     Tuesday = date => date.AddDays(2),
                     Wednesday = date => date.AddDays(1),
-                    Friday = date => date.AddDays(2),
+                    //Friday = date => date.AddDays(2),
                 };
 
                 return new HolidaySpecification
@@ -139,28 +239,17 @@ namespace Nager.Date.HolidayProviders
             var englishName = "Sinai Liberation Day";
             var localName = "عيد تحرير سيناء";
 
-            if (year == 2025)
+            var holidayDate = year switch
             {
-                var observedRuleSet = new ObservedRuleSet
-                {
-                    Friday = date => date.AddDays(-1),
-                };
-
-                return new HolidaySpecification
-                {
-                    Id = id,
-                    Date = new DateTime(year, 4, 25),
-                    EnglishName = englishName,
-                    LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = observedRuleSet
-                };
-            }
+                2021 => new DateTime(year, 4, 29),
+                2025 => new DateTime(year, 4, 24),
+                _ => new DateTime(year, 4, 25)
+            };
 
             return new HolidaySpecification
             {
                 Id = id,
-                Date = new DateTime(year, 4, 25),
+                Date = holidayDate,
                 EnglishName = englishName,
                 LocalName = localName,
                 HolidayTypes = HolidayTypes.Public,
