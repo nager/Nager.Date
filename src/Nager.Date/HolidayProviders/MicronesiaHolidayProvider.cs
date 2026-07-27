@@ -71,7 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "YAPDAY-01",
+                    Id = "YAPDAY-02",
                     Date = new DateTime(year, 3, 2),
                     EnglishName = "Yap Day",
                     LocalName = "Yap Day",
