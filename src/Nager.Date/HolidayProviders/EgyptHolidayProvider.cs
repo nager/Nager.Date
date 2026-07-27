@@ -1,8 +1,10 @@
 using Nager.Date.Extensions;
 using Nager.Date.Models;
+using Nager.Date.ReligiousProviders;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace Nager.Date.HolidayProviders
 {
@@ -11,23 +13,18 @@ namespace Nager.Date.HolidayProviders
     /// </summary>
     internal sealed class EgyptHolidayProvider : AbstractHolidayProvider
     {
+        private readonly IOrthodoxProvider _orthodoxProvider;
         private readonly UmAlQuraCalendar _umAlQuraCalendar;
 
-        public EgyptHolidayProvider() : base(CountryCode.EG)
+        public EgyptHolidayProvider(IOrthodoxProvider orthodoxProvider) : base(CountryCode.EG)
         {
+            this._orthodoxProvider = orthodoxProvider;
             this._umAlQuraCalendar = new UmAlQuraCalendar();
         }
 
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            //TODO: Add Islamic calender logic
-            //Sham El Nessim (Spring Festival)
-            //Islamic New Year
-            //Birthday of the Prophet Muhammad (Sunni)
-            //Eid al-Fitr
-            //Eid al-Adha
-
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
@@ -45,6 +42,7 @@ namespace Nager.Date.HolidayProviders
                         Friday = date => date.AddDays(6),
                     }
                 },
+                this._orthodoxProvider.EasterMonday("Sham El-Nessim", year)
             };
 
             holidaySpecifications.AddIfNotNull(this.ChristmasDay(year));
@@ -53,16 +51,17 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.June30Revolution(year));
             holidaySpecifications.AddIfNotNull(this.RevolutionDay(year));
             holidaySpecifications.AddIfNotNull(this.RevolutionDay2011(year));
-            holidaySpecifications.AddRangeIfNotNull(this.GetIslamicNewYear(year));
+            holidaySpecifications.AddRangeIfNotNull(this.IslamicNewYear(year));
+            holidaySpecifications.AddRangeIfNotNull(this.ProphetMuhammadsBirthday(year));
+            holidaySpecifications.AddRangeIfNotNull(this.EidAlAdha(year));
 
             return holidaySpecifications;
         }
 
-        private HolidaySpecification[] GetIslamicNewYear(int year)
+        private HolidaySpecification[] IslamicNewYear(int year)
         {
-            if (year > this._umAlQuraCalendar.MinSupportedDateTime.Year && year < this._umAlQuraCalendar.MaxSupportedDateTime.Year)
+            if (year >= this._umAlQuraCalendar.MinSupportedDateTime.Year && year <= this._umAlQuraCalendar.MaxSupportedDateTime.Year)
             {
-                //this._umAlQuraCalendar.HijriAdjustment = 0;
                 var startHijriYear = this._umAlQuraCalendar.GetYear(new DateTime(year, 1, 1));
 
                 var month = 1; //Muharram
@@ -70,6 +69,11 @@ namespace Nager.Date.HolidayProviders
 
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
+                    if (hijriYear > this._umAlQuraCalendar.TwoDigitYearMax)
+                    {
+                        break;
+                    }
+
                     var newYearDate = this._umAlQuraCalendar.ToDateTime(hijriYear, month, 1, 0, 0, 0, 0);
 
                     if (newYearDate.Year == year)
@@ -79,7 +83,116 @@ namespace Nager.Date.HolidayProviders
                             Id = $"ISLAMICNEWYEAR-{hijriYear}-01",
                             Date = newYearDate,
                             EnglishName = "Islamic New Year",
-                            LocalName = $"Islamic New Year",
+                            LocalName = "Islamic New Year",
+                            HolidayTypes = HolidayTypes.Public,
+                            ObservedRuleSet = new ObservedRuleSet
+                            {
+                                Monday = date => date.AddDays(3),
+                                Tuesday = date => date.AddDays(2),
+                                Sunday = date => date.AddDays(4),
+                            }
+                        });
+                    }
+                }
+
+                return [.. items];
+            }
+
+            return [];
+        }
+
+        private HolidaySpecification[] EidAlAdha(int year)
+        {
+            DateTime[] holidayDates = year switch
+            {
+                2021 => [new DateTime(2021, 7, 17), new DateTime(2021, 7, 23)],
+                2022 => [new DateTime(2022, 7, 9), new DateTime(2022, 7, 14)],
+                2023 => [new DateTime(2023, 6, 27), new DateTime(2023, 7, 1)],
+                2024 => [new DateTime(2024, 6, 15), new DateTime(2024, 6, 20)],
+                2025 => [new DateTime(2025, 6, 6), new DateTime(2025, 6, 9)],
+                2026 => [new DateTime(2026, 5, 27), new DateTime(2026, 5, 31)],
+                _ => []
+            };
+
+            if (holidayDates.Length > 0)
+            {
+                var startDate = holidayDates.First();
+                var endDate = holidayDates.Last();
+
+                var allHolidayDates = Enumerable.Range(0, (endDate - startDate).Days + 1)
+                    .Select(offset => startDate.AddDays(offset))
+                    .ToArray();
+
+                return [.. allHolidayDates.Select((date, index) => new HolidaySpecification
+                {
+                    Id = $"EIDALADHA-{(index + 1):00}",
+                    Date = date,
+                    EnglishName = "Eid Al-Adha",
+                    LocalName = "Eid Al-Adha",
+                    HolidayTypes = HolidayTypes.Public,
+                })];
+            }
+
+            return [];
+        }
+
+        private HolidaySpecification[] ProphetMuhammadsBirthday(int year)
+        {
+            var minSupportedYear = 2021;
+            if (year < minSupportedYear)
+            {
+                return [];
+            }
+
+            var holidayName = "Prophet Muhammad's Birthday";
+
+            DateTime[] holidayDates = year switch
+            {
+                2021 => [new DateTime(2021, 10, 18)],
+                2022 => [new DateTime(2022, 10, 8)],
+                2023 => [new DateTime(2023, 9, 27)],
+                2024 => [new DateTime(2024, 9, 16)],
+                2025 => [new DateTime(2025, 9, 4)],
+                2026 => [new DateTime(2026, 8, 26)],
+                _ => []
+            };
+
+            if (holidayDates.Length > 0)
+            {
+                return [.. holidayDates.Select((date, index) => new HolidaySpecification
+                {
+                    Id = $"PROPHETMUHAMMADSBIRTHDAY-{(index +1):00}",
+                    Date = date,
+                    EnglishName = holidayName,
+                    LocalName = holidayName,
+                    HolidayTypes = HolidayTypes.Public,
+                })];
+            }
+
+            if (year >= this._umAlQuraCalendar.MinSupportedDateTime.Year && year <= this._umAlQuraCalendar.MaxSupportedDateTime.Year)
+            {
+                var startHijriYear = this._umAlQuraCalendar.GetYear(new DateTime(year, 1, 1));
+
+                var month = 3; //Rabi' al-Awwal
+                var items = new List<HolidaySpecification>();
+
+                for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
+                {
+                    if (hijriYear > this._umAlQuraCalendar.TwoDigitYearMax)
+                    {
+                        break;
+                    }
+
+                    var newYearDate = this._umAlQuraCalendar.ToDateTime(hijriYear, month, 12, 0, 0, 0, 0);
+
+                    if (newYearDate.Year == year)
+                    {
+                        items.Add(new HolidaySpecification
+                        {
+                            Id = $"PROPHETMUHAMMADSBIRTHDAY-{hijriYear}-01",
+                            Date = newYearDate,
+                            EnglishName = $"{holidayName} (Tentative Date)",
+                            LocalName = $"{holidayName} (Tentative Date)",
                             HolidayTypes = HolidayTypes.Public,
                         });
                     }

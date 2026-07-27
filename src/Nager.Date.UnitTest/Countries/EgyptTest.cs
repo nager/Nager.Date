@@ -78,7 +78,6 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
 
-        [Ignore]
         [TestMethod]
         [DataRow(2021, 5, 3)]  // Monday
         [DataRow(2022, 4, 25)] // Monday
@@ -89,7 +88,7 @@ namespace Nager.Date.UnitTest.Countries
         public void TestShamElNessim(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.EG);
-            var holiday = holidays.Single(x => x.Id == "EG-XXXXXXX-01");
+            var holiday = holidays.Single(x => x.Id == "EG-OEASTERMONDAY-01");
 
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
@@ -109,14 +108,13 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
 
-        [Ignore]
         [TestMethod]
-        [DataRow(2021, 7, 17)]  // Saturday 17 July - Friday 23 July
-        [DataRow(2022, 7, 9)]   // Saturday 09 July - Thursday 14 July
-        [DataRow(2023, 6, 27)]  // Tuesday 27 June - Saturday 01 July
-        [DataRow(2024, 6, 15)]  // Saturday 15 June - Thursday 20 June
-        [DataRow(2025, 6, 6)]   // Friday 06 June - Monday 09 June
-        [DataRow(2026, 5, 27)]  // Wednesday 27 May - Sunday 31 May
+        [DataRow(2021, 7, 17)]  // Saturday 17 July - Friday 23 July (6 days)
+        [DataRow(2022, 7, 9)]   // Saturday 09 July - Thursday 14 July (5 days)
+        [DataRow(2023, 6, 27)]  // Tuesday 27 June - Saturday 01 July (5 days)
+        [DataRow(2024, 6, 15)]  // Saturday 15 June - Thursday 20 June (5 days)
+        [DataRow(2025, 6, 6)]   // Friday 06 June - Monday 09 June (3 days)
+        [DataRow(2026, 5, 27)]  // Wednesday 27 May - Sunday 31 May (5 days)
         public void TestEidAlAdha(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.EG);
@@ -170,7 +168,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
 
-        [Ignore]
+        //[Ignore]
         [TestMethod]
         [DataRow(2021, 10, 18)] // Monday
         [DataRow(2022, 10, 8)]  // Saturday
@@ -181,7 +179,7 @@ namespace Nager.Date.UnitTest.Countries
         public void TestProphetMuhammadsBirthday(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.EG);
-            var holiday = holidays.Single(x => x.Id == "EG-PROPHETMUHAMMADSBIRTHDAY-01");
+            var holiday = holidays.Single(x => x.Id.StartsWith("EG-PROPHETMUHAMMADSBIRTHDAY"));
 
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
