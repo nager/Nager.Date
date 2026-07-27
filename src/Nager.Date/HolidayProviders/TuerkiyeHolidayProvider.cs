@@ -186,6 +186,11 @@ namespace Nager.Date.HolidayProviders
 
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
+                    if (hijriYear > this._hijriCalendar.TwoDigitYearMax)
+                    {
+                        break;
+                    }
+
                     var tentativeInfo = "";
                     this._hijriCalendar.HijriAdjustment = 0;
                     if (_hijriAdjustments.TryGetValue((hijriYear, month), out var hirjiAdjustmentInfo))
@@ -265,6 +270,11 @@ namespace Nager.Date.HolidayProviders
 
                 for (var hijriYear = startHijriYear; hijriYear <= startHijriYear + 2; hijriYear++)
                 {
+                    if (hijriYear > this._hijriCalendar.TwoDigitYearMax)
+                    {
+                        break;
+                    }
+
                     var tentativeInfo = "";
                     this._hijriCalendar.HijriAdjustment = 0;
                     if (_hijriAdjustments.TryGetValue((hijriYear, month), out var hirjiAdjustmentInfo))
