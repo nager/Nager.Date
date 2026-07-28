@@ -53,7 +53,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "CONSTITUTIONDAY-01",
+                    Id = "CONSTITUTIONDAYKSA-01",
                     Date = new DateTime(year, 1, 11),
                     EnglishName = "Constitution Day",
                     LocalName = "Constitution Day",
@@ -85,6 +85,127 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Culture Day",
                     LocalName = "Culture Day",
                     HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "CONSTITUTIONDAY-01",
+                    Date = new DateTime(year, 5, 10),
+                    EnglishName = "Constitution Day",
+                    LocalName = "Constitution Day",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "GOSPELDAY-01",
+                    Date = new DateTime(year, 8, 21),
+                    EnglishName = "Gospel Day",
+                    LocalName = "Gospel Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-KSA"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "LIBERATIONDAYKSA-01",
+                    Date = new DateTime(year, 9, 8),
+                    EnglishName = "Liberation Day",
+                    LocalName = "Liberation Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-KSA"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "LIBERATIONDAYPNI-01",
+                    Date = new DateTime(year, 9, 11),
+                    EnglishName = "Liberation Day",
+                    LocalName = "Liberation Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-PNI"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "CONSTITUTIONDAYTRK-01",
+                    Date = new DateTime(year, 10, 1),
+                    EnglishName = "Constitution Day",
+                    LocalName = "Constitution Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-TRK"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "TEACHERSAPPRECIATIONDAY-01",
+                    Date = secondFridayInOctober,
+                    EnglishName = "Teachers' Appreciation Day",
+                    LocalName = "Teachers' Appreciation Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-TRK"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "UNITEDNATIONSDAY-01",
+                    Date = new DateTime(year, 10, 24),
+                    EnglishName = "United Nations Day",
+                    LocalName = "United Nations Day",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "SATOWANDAY-01",
+                    Date = new DateTime(year, 11, 1),
+                    EnglishName = "Satowan Day",
+                    LocalName = "Satowan Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-TRK"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "INDEPENDENCEDAY-01",
+                    Date = new DateTime(year, 11, 3),
+                    EnglishName = "Independence Day",
+                    LocalName = "Independence Day",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "CONSTITUTIONDAYPNI-01",
+                    Date = new DateTime(year, 11, 8),
+                    EnglishName = "Constitution Day",
+                    LocalName = "Constitution Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-PNI"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "VETERANSDAY-01",
+                    Date = new DateTime(year, 11, 11),
+                    EnglishName = "Veterans Day",
+                    LocalName = "Veterans Day",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "PRESIDENTSDAY-01",
+                    Date = new DateTime(year, 11, 23),
+                    EnglishName = "Presidents Day",
+                    LocalName = "Presidents Day",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "THANKSGIVING-01",
+                    Date = fourthThursdayInNovember,
+                    EnglishName = "Thanksgiving",
+                    LocalName = "Thanksgiving",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-KSA"],
+                },
+                new HolidaySpecification
+                {
+                    Id = "CONSTITUTIONDAYYAP-01",
+                    Date = new DateTime(year, 12, 24),
+                    EnglishName = "Constitution Day",
+                    LocalName = "Constitution Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["FM-YAP"],
                 },
                 new HolidaySpecification
                 {
