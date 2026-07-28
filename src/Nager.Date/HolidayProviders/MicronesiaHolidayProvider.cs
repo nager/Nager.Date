@@ -41,6 +41,12 @@ namespace Nager.Date.HolidayProviders
             var secondFridayInOctober = DateHelper.FindDay(year, Month.October, DayOfWeek.Friday, Occurrence.Second);
             var fourthThursdayInNovember = DateHelper.FindDay(year, Month.November, DayOfWeek.Thursday, Occurrence.Fourth);
 
+            var weekendObservedRuleSet = new ObservedRuleSet
+            {
+                Saturday = date => date.AddDays(-1),
+                Sunday = date => date.AddDays(1),
+            };
+
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
@@ -50,6 +56,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -93,6 +100,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Constitution Day",
                     LocalName = "Constitution Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -146,6 +154,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "United Nations Day",
                     LocalName = "United Nations Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -163,6 +172,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -214,6 +224,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year).SetSubdivisionCodes("FM-TRK", "FM-PNI"),
             };
@@ -227,6 +238,7 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_the_Federated_States_of_Micronesia",
+                "https://www.fsmlaw.org/fsm/code/title01/t01ch06.htm",
             ];
         }
     }
