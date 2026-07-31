@@ -39,17 +39,9 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "HOLYTHURSDAY-01",
-                    Date = easterSunday.AddDays(-3),
-                    EnglishName = "Holy Thursday",
-                    LocalName = "Jueves Santo",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
-                    Id = "INTERNATIONALWORKERSDAY-01",
+                    Id = "LABOURDAY-01",
                     Date = new DateTime(year, 5, 1),
-                    EnglishName = "International Workers' Day",
+                    EnglishName = "Labour Day",
                     LocalName = "Día del Trabajo",
                     HolidayTypes = HolidayTypes.Public,
                 },
@@ -59,6 +51,14 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 6, 29),
                     EnglishName = "Saint Peter and Saint Paul",
                     LocalName = "Día de San Pedro y San Pablo",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "AIRFORCEDAY-01",
+                    Date = new DateTime(year, 7, 23),
+                    EnglishName = "Air Force Day",
+                    LocalName = "Día de la Fuerza Aérea",
                     HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
@@ -79,10 +79,18 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEOFJUNIN-01",
+                    Date = new DateTime(year, 8, 6),
+                    EnglishName = "Battle of Junin",
+                    LocalName = "Batalla de Junin",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
                     Id = "SANTAROSADELIMA-01",
                     Date = new DateTime(year, 8, 30),
                     EnglishName = "Santa Rosa de Lima",
-                    LocalName = "Día de Santa Rosa de Lima",
+                    LocalName = "Santa Rosa de Lima",
                     HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
@@ -111,6 +119,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "BATTLEOFAYACUCHO-01",
+                    Date = new DateTime(year, 12, 9),
+                    EnglishName = "Battle of Ayacucho",
+                    LocalName = "Batalla de Ayacucho",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
                     Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
@@ -130,7 +146,8 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Peru"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Peru",
+                "https://www.gob.pe/feriados",
             ];
         }
     }
