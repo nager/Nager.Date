@@ -321,5 +321,4 @@ There are several business fields in which it is important to know the holidays 
 ## Articles about this project
 
 - [Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
-- [YouTube use the NuGet package](https://www.youtube.com/watch?v=oS_uvbEV4Pw)
 - [dotnetpro - Feiertagsrechner (German)](https://www.developer-world.de/dwx-insights/frameworks-libraries/feiertagsrechner)
