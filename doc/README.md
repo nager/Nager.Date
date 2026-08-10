@@ -4,7 +4,7 @@ Nager.Date is a comprehensive .NET library for querying public and federal holid
 It provides native and English translations and supports country subdivisions (federal states) according to ISO 3166-2 standards.
 
 ## Supported Countries
-You can see the full list of supported countries [here](https://date.nager.at/country/coverage).
+You can see the full list of supported countries [here](https://nagerholidays.com/country/coverage).
 
 ## Features
 - Query public, federal, bank, school, and optional holidays (availability may vary by country).
