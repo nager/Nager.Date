@@ -53,6 +53,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "CHRISTMASEVE-01",
+                    Date = new DateTime(year, 12, 24),
+                    EnglishName = "Christmas Eve",
+                    LocalName = "Julaften",
+                    HolidayTypes = HolidayTypes.Bank,
+                },
+                new HolidaySpecification
+                {
                     Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
