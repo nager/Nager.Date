@@ -108,17 +108,27 @@ namespace Nager.Date.HolidayProviders
                     LocalName = "Crăciunul",
                     HolidayTypes = HolidayTypes.Public,
                 },
-                this._orthodoxProvider.GoodFriday("Vinerea mare", year),
                 this._orthodoxProvider.EasterSunday("Paștele", year),
                 this._orthodoxProvider.EasterMonday("Paștele", year),
                 this._orthodoxProvider.Pentecost("Rusaliile", year),
                 this._orthodoxProvider.WhitMonday("Rusaliile", year)
             };
 
+            holidaySpecifications.AddIfNotNull(this.GoodFriday(year));
             holidaySpecifications.AddIfNotNull(this.Epiphany(year));
             holidaySpecifications.AddIfNotNull(this.SaintJohnTheBaptist(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? GoodFriday(int year)
+        {
+            if (year >= 2018)
+            {
+                return this._orthodoxProvider.GoodFriday("Vinerea mare", year);
+            }
+
+            return null;
         }
 
         private HolidaySpecification? Epiphany(int year)
