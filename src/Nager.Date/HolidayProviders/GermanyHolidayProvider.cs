@@ -88,14 +88,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "GERMANUNITYDAY-01",
-                    Date = new DateTime(year, 10, 3),
-                    EnglishName = "German Unity Day",
-                    LocalName = "Tag der Deutschen Einheit",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
                     Id = "ALLSAINTSDAY-01",
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "All Saints' Day",
@@ -128,6 +120,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL")
             };
 
+            holidaySpecifications.AddIfNotNull(this.GermanUnityDay(year));
             holidaySpecifications.AddIfNotNull(this.InternationalWomensDay(year));
             holidaySpecifications.AddIfNotNull(this.PrayerDay(year));
             holidaySpecifications.AddIfNotNull(this.LiberationDay(year));
@@ -136,6 +129,23 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.UprisingOfJune171953(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? GermanUnityDay(int year)
+        {
+            if (year < 1990)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "GERMANUNITYDAY-01",
+                Date = new DateTime(year, 10, 3),
+                EnglishName = "German Unity Day",
+                LocalName = "Tag der Deutschen Einheit",
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         private HolidaySpecification? WorldChildrensDay(int year)

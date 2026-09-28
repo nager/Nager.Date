@@ -122,5 +122,14 @@ namespace Nager.Date.UnitTest.Countries
             var isWeekend = date.IsWeekend(CountryCode.DE);
             Assert.AreEqual(expectedIsWeekend, isWeekend);
         }
+
+        [TestMethod]
+        [DataRow(1989, false)]
+        [DataRow(1990, true)]
+        public void TestGermanUnityDay(int year, bool expectedIsHoliday)
+        {
+            var isHoliday = HolidaySystem.IsPublicHoliday(new DateTime(year, 10, 3), CountryCode.DE);
+            Assert.AreEqual(expectedIsHoliday, isHoliday);
+        }
     }
 }
