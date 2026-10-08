@@ -29,5 +29,18 @@ namespace Nager.Date.UnitTest.Countries
             var isPublicHoliday = HolidaySystem.IsPublicHoliday(newAmazighYear, CountryCode.MA);
             Assert.IsFalse(isPublicHoliday);
         }
+
+        [TestMethod]
+        public void TestUnityDayFrom2026()
+        {
+            Assert.IsTrue(HolidaySystem.IsPublicHoliday(new DateTime(2026, 10, 31), CountryCode.MA));
+            Assert.IsTrue(HolidaySystem.IsPublicHoliday(new DateTime(2027, 10, 31), CountryCode.MA));
+        }
+
+        [TestMethod]
+        public void TestUnityDayBefore2026()
+        {
+            Assert.IsFalse(HolidaySystem.IsPublicHoliday(new DateTime(2025, 10, 31), CountryCode.MA));
+        }
     }
 }

@@ -113,6 +113,18 @@ namespace Nager.Date.HolidayProviders
                 });
             }
 
+            if (year >= 2026)
+            {
+                holidaySpecifications.Add(new HolidaySpecification
+                {
+                    Id = "UNITYDAY-01",
+                    Date = new DateTime(year, 10, 31),
+                    EnglishName = "Unity Day",
+                    LocalName = "Eid Al Wahda",
+                    HolidayTypes = HolidayTypes.Public,
+                });
+            }
+
             return holidaySpecifications;
         }
 
@@ -121,7 +133,10 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Morocco"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Morocco",
+                "https://en.hespress.com/129525-129525.html", //Unity Day, decrees adopted by the Government Council on 2026-01-15
+                "https://telquel.ma/instant-t/2026/01/16/le-conseil-de-gouvernement-adopte-definitivement-le-31-octobre-comme-fete-de-lunite_1970625/",
+                "https://www.wadifa-info.com/fr/jours-feries-maroc"
             ];
         }
     }
