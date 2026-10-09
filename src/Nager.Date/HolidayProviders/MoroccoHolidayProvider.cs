@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using System;
 using System.Collections.Generic;
@@ -101,31 +102,44 @@ namespace Nager.Date.HolidayProviders
                 }
             };
 
+            holidaySpecifications.AddIfNotNull(this.AmazighNewYear(year));
+            holidaySpecifications.AddIfNotNull(this.UnityDay(year));
+
+            return holidaySpecifications;
+        }
+
+        private HolidaySpecification? AmazighNewYear(int year)
+        {
             if (year >= 2024)
             {
-                holidaySpecifications.Add(new HolidaySpecification
+                return new HolidaySpecification
                 {
                     Id = "AMAZIGHNEWYEAR-01",
                     Date = new DateTime(year, 1, 14),
                     EnglishName = "Amazigh New Year",
                     LocalName = "Id Yennayer",
                     HolidayTypes = HolidayTypes.Public,
-                });
+                };
             }
 
+            return null;
+        }
+
+        private HolidaySpecification? UnityDay(int year)
+        {
             if (year >= 2026)
             {
-                holidaySpecifications.Add(new HolidaySpecification
+                return new HolidaySpecification
                 {
                     Id = "UNITYDAY-01",
                     Date = new DateTime(year, 10, 31),
                     EnglishName = "Unity Day",
                     LocalName = "Eid Al Wahda",
                     HolidayTypes = HolidayTypes.Public,
-                });
+                };
             }
 
-            return holidaySpecifications;
+            return null;
         }
 
         /// <inheritdoc/>
