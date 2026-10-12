@@ -108,7 +108,7 @@ namespace Nager.Date.HolidayProviders
                 Id = "OEPIPHANY-01",
                 Date = holidayDate,
                 EnglishName = "Epiphany (Orthodox)",
-                LocalName = "ნათლისღება",
+                LocalName = "ጥምቀት",
                 HolidayTypes = HolidayTypes.Public,
             };
         }
