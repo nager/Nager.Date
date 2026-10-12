@@ -45,7 +45,14 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = sundayObservedRuleSet,
+                },
+                new HolidaySpecification
+                {
+                    Id = "ANZACDAY-01",
+                    Date = new DateTime(year, 4, 25),
+                    EnglishName = "Anzac Day",
+                    LocalName = "Anzac Day",
+                    HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
@@ -80,45 +87,26 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = sundayObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
-                    Id = "CHRISTMASDAY-02",
+                    Id = "STSTEPHENSDAY-01",
                     Date = new DateTime(year, 12, 26),
-                    EnglishName = "Christmas Day",
-                    LocalName = "Christmas Day",
+                    EnglishName = "Boxing Day",
+                    LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = mondayObservedRuleSet,
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year),
             };
 
-            holidaySpecifications.AddIfNotNull(this.BirthdayOfTheHeirToTheCrownofTonga(year, sundayObservedRuleSet));
-            holidaySpecifications.AddIfNotNull(this.BirthdayOfTheReigningSovereignOfTonga(year, sundayObservedRuleSet));
+            holidaySpecifications.AddIfNotNull(this.BirthdayOfTheReigningSovereignOfTonga(year));
+            holidaySpecifications.AddIfNotNull(this.BirthdayOfTheHeirToTheCrownofTonga(year));
 
             return holidaySpecifications;
         }
 
-        private HolidaySpecification? BirthdayOfTheHeirToTheCrownofTonga(
-            int year,
-            ObservedRuleSet observedRuleSet)
-        {
-            return new HolidaySpecification
-            {
-                Id = "BIRTHDAYHEIROFTHECROWNTONGA-01",
-                Date = new DateTime(year, 9, 17),
-                EnglishName = "Birthday of the Heir to the Crown of Tonga",
-                LocalName = "Birthday of the Heir to the Crown of Tonga",
-                HolidayTypes = HolidayTypes.Public,
-                ObservedRuleSet = observedRuleSet
-            };
-        }
-
-        private HolidaySpecification? BirthdayOfTheReigningSovereignOfTonga(
-            int year,
-            ObservedRuleSet observedRuleSet)
+        private HolidaySpecification? BirthdayOfTheReigningSovereignOfTonga(int year)
         {
             return new HolidaySpecification
             {
@@ -127,7 +115,18 @@ namespace Nager.Date.HolidayProviders
                 EnglishName = "Birthday of the reigning Sovereign of Tonga",
                 LocalName = "Birthday of the reigning Sovereign of Tonga",
                 HolidayTypes = HolidayTypes.Public,
-                ObservedRuleSet = observedRuleSet
+            };
+        }
+
+        private HolidaySpecification? BirthdayOfTheHeirToTheCrownofTonga(int year)
+        {
+            return new HolidaySpecification
+            {
+                Id = "BIRTHDAYHEIROFTHECROWNTONGA-01",
+                Date = new DateTime(year, 9, 17),
+                EnglishName = "Birthday of the Heir to the Crown of Tonga",
+                LocalName = "Birthday of the Heir to the Crown of Tonga",
+                HolidayTypes = HolidayTypes.Public,
             };
         }
 
@@ -137,6 +136,8 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://ago.gov.to/cms/images/LEGISLATION/PRINCIPAL/1919/1919-0008/PublicHolidaysAct_1.pdf",
+                "https://www.education.gov.to/index.php/component/content/article/90-tonga-national-public-holidays-2025",
+                "https://en.wikipedia.org/wiki/Culture_of_Tonga#Public_holidays",
                 "https://de.wikipedia.org/wiki/Feiertage_in_Tonga",
             ];
         }
