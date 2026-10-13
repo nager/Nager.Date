@@ -1,3 +1,4 @@
+using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -25,7 +26,7 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var easterSunday = this._catholicProvider.EasterSunday(year);
+            var secondMondayInOctober = DateHelper.FindDay(year, Month.October, DayOfWeek.Monday, Occurrence.Second);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -48,7 +49,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "CARNIVAL-01",
-                    Date = easterSunday.AddDays(-48),
+                    Date = new DateTime(year, 4, 30),
                     EnglishName = "Carnival Day",
                     LocalName = "Karnaval",
                     HolidayTypes = HolidayTypes.Public,
@@ -72,7 +73,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "CONSTITUTIONDAY-01",
-                    Date = new DateTime(year, 10, 10),
+                    Date = secondMondayInOctober,
                     EnglishName = "Constitution Day",
                     LocalName = "Constitution Day",
                     HolidayTypes = HolidayTypes.Public,
@@ -116,6 +117,7 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
+                "https://www.sintmaartengov.org/Pages/Public-Holiday-Schedule.aspx",
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Sint_Maarten",
             ];
         }
