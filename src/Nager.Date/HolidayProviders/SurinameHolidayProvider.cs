@@ -149,6 +149,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterSunday("Easter Sunday", year),
+                this._catholicProvider.EasterMonday("Easter Monday", year),
                 this._catholicProvider.AscensionDay("Ascension Day", year)
             };
 
