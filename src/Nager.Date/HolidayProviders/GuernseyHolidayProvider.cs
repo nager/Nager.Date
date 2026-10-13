@@ -26,6 +26,7 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
+            var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
             var lastMondayInMay = DateHelper.FindLastDay(year, Month.May, DayOfWeek.Monday);
             var lastMondayInAugust = DateHelper.FindLastDay(year, Month.August, DayOfWeek.Monday);
 
@@ -42,7 +43,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "EARLYMAYBANKHOLIDAY-01",
-                    Date = new DateTime(year, 5, 1),
+                    Date = firstMondayInMay,
                     EnglishName = "Early May Bank Holiday",
                     LocalName = "Early May Bank Holiday",
                     HolidayTypes = HolidayTypes.Public,
@@ -99,6 +100,7 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
+                "https://www.gov.gg/holidaydates",
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Guernsey"
             ];
         }
