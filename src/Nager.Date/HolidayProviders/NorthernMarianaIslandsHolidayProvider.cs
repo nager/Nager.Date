@@ -48,6 +48,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -72,6 +73,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Commonwealth Covenant Day",
                     LocalName = "Commonwealth Covenant Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -88,6 +90,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Juneteenth",
                     LocalName = "Juneteenth",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -129,6 +132,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Veterans Day",
                     LocalName = "Veterans Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -153,6 +157,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
             };
