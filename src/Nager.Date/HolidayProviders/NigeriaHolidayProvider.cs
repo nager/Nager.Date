@@ -58,7 +58,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 5, 27),
                     EnglishName = "Children's Day",
                     LocalName = "Children's Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.School,
                 },
                 new HolidaySpecification
                 {
@@ -82,7 +82,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 11, 1),
                     EnglishName = "National Youth Day",
                     LocalName = "National Youth Day",
-                    HolidayTypes = HolidayTypes.Public,
+                    HolidayTypes = HolidayTypes.Observance,
                 },
                 new HolidaySpecification
                 {
