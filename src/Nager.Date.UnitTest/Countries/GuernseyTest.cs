@@ -1,11 +1,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Linq;
 
 namespace Nager.Date.UnitTest.Countries
 {
     [TestClass]
-    public class GuernseyTest
+    public class GuernseyTest() : BaseTest(CountryCode.GG)
     {
         [DataRow(2021, 2021, 1, 1)]
         [DataRow(2022, 2022, 1, 3)]
@@ -17,7 +16,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestNewYearsDay(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "NEWYEARSDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "NEWYEARSDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, 2021, 4, 2)]
@@ -30,7 +29,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestGoodFriday(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "GOODFRIDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "GOODFRIDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, 2021, 4, 5)]
@@ -43,7 +42,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestEasterMonday(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "EASTERMONDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "EASTERMONDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, 2021, 5, 3)]
@@ -56,7 +55,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestEarlyMayBankHoliday(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "EARLYMAYBANKHOLIDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "EARLYMAYBANKHOLIDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, 2021, 5, 9)]
@@ -69,7 +68,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestLiberationDay(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "LIBERATIONDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "LIBERATIONDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, 2021, 5, 31)]
@@ -82,7 +81,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestSpringBankHoliday(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "SPRINGBANKHOLIDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "SPRINGBANKHOLIDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, 2021, 8, 30)]
@@ -95,7 +94,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestSummerBankHoliday(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "SUMMERBANKHOLIDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "SUMMERBANKHOLIDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, 2021, 12, 27)]
@@ -108,7 +107,7 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestChristmasDay(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "CHRISTMASDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "CHRISTMASDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, 2021, 12, 28)]
@@ -121,21 +120,21 @@ namespace Nager.Date.UnitTest.Countries
         [TestMethod]
         public void TestBoxingDay(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "BOXINGDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "BOXINGDAY-01", observedYear, month, day);
         }
 
         [DataRow(2022, 2022, 6, 3)]
         [TestMethod]
         public void TestQueensPlatinumJubilee(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "QUEENSPLATINUMJUBILEE-01", observedYear, month, day);
+            this.AssertObservedDate(year, "QUEENSPLATINUMJUBILEE-01", observedYear, month, day);
         }
 
         [DataRow(2023, 2023, 5, 8)]
         [TestMethod]
         public void TestCoronationBankHoliday(int year, int observedYear, int month, int day)
         {
-            AssertObservedDate(year, "CORONATIONBANKHOLIDAY-01", observedYear, month, day);
+            this.AssertObservedDate(year, "CORONATIONBANKHOLIDAY-01", observedYear, month, day);
         }
 
         [DataRow(2021, "QUEENSPLATINUMJUBILEE-01")]
@@ -148,14 +147,6 @@ namespace Nager.Date.UnitTest.Countries
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.GG);
 
             Assert.IsFalse(holidays.Any(o => o.Id.EndsWith(holidayId)));
-        }
-
-        private static void AssertObservedDate(int year, string holidayId, int observedYear, int month, int day)
-        {
-            var holidays = HolidaySystem.GetHolidays(year, CountryCode.GG);
-            var holiday = holidays.Single(o => o.Id.EndsWith(holidayId));
-
-            Assert.AreEqual(new DateTime(observedYear, month, day), holiday.ObservedDate);
         }
     }
 }
