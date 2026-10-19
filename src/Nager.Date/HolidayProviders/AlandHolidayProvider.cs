@@ -26,9 +26,9 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var thirdFridayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Friday, Occurrence.Third);
-            var thirdSaturdayInJune = DateHelper.FindDay(year, Month.June, DayOfWeek.Saturday, Occurrence.Third);
-            var firstSaturdayInNovember = DateHelper.FindDay(year, Month.November, DayOfWeek.Saturday, Occurrence.First);
+            var midsummerDay = DateHelper.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
+            var midsummerEve = midsummerDay.AddDays(-1);
+            var allSaintsDay = DateHelper.FindDay(year, Month.October, 31, DayOfWeek.Saturday);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -66,16 +66,16 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "MIDSUMMEREVEY-01",
-                    Date = thirdFridayInJune,
-                    EnglishName = "Midsummer Evey",
+                    Id = "MIDSUMMEREVE-01",
+                    Date = midsummerEve,
+                    EnglishName = "Midsummer Eve",
                     LocalName = "Midsommarafton",
                     HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
                     Id = "MIDSUMMERDAY-01",
-                    Date = thirdSaturdayInJune,
+                    Date = midsummerDay,
                     EnglishName = "Midsummer Day",
                     LocalName = "Midsommardagen",
                     HolidayTypes = HolidayTypes.Public,
@@ -83,7 +83,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "ALLSAINTSDAY-01",
-                    Date = firstSaturdayInNovember,
+                    Date = allSaintsDay,
                     EnglishName = "All Saints Day",
                     LocalName = "Alla helgons dag",
                     HolidayTypes = HolidayTypes.Public,
