@@ -1,4 +1,3 @@
-using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -27,9 +26,9 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var midsummerEve = DateHelper.FindDay(year, Month.June, 19, DayOfWeek.Friday);
             var midsummerDay = DateHelper.FindDay(year, Month.June, 20, DayOfWeek.Saturday);
-            var allSaintsDay = DateHelper.FindDayBetween(year, 10, 31, year, 11, 6, DayOfWeek.Saturday);
+            var midsummerEve = midsummerDay.AddDays(-1);
+            var allSaintsDay = DateHelper.FindDay(year, Month.October, 31, DayOfWeek.Saturday);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -75,6 +74,14 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
+                    Id = "ALLSAINTSDAY-01",
+                    Date = allSaintsDay,
+                    EnglishName = "All Saints' Day",
+                    LocalName = "Pyhäinpäivä",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
                     Id = "INDEPENDENCEDAY-01",
                     Date = new DateTime(year, 12, 6),
                     EnglishName = "Independence Day",
@@ -111,18 +118,6 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.AscensionDay("Helatorstai", year),
                 this._catholicProvider.Pentecost("Helluntaipäivä", year)
             };
-
-            if (allSaintsDay.HasValue)
-            {
-                holidaySpecifications.AddIfNotNull(new HolidaySpecification
-                {
-                    Id = "ALLSAINTSDAY-01",
-                    Date = allSaintsDay.Value,
-                    EnglishName = "All Saints' Day",
-                    LocalName = "Pyhäinpäivä",
-                    HolidayTypes = HolidayTypes.Public,
-                });
-            }
 
             return holidaySpecifications;
         }
