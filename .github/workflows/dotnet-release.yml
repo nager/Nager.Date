@@ -5,58 +5,72 @@ on:
     tags:
       - 'v*.*.*'
 
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
-    
-    permissions:
-      id-token: write
+    timeout-minutes: 15
+
+    defaults:
+      run:
+        working-directory: src
 
     steps:
     - uses: actions/checkout@v7
+
     - name: Setup .NET 10.0
       uses: actions/setup-dotnet@v6
       with:
         dotnet-version: 10.0.x
-    - name: Extract Version from tag
+
+    - name: Extract version from tag
       id: tag
       uses: actions/github-script@v9
       with:
         script: |
           const version = context.ref.replace('refs/tags/', '');
           return version.slice(1);
+
     - name: Change Package Version
-      working-directory: ./src
       run: |
         sed -i -e "s/<Version>[a-zA-Z0-9.-]*<\/Version>/<Version>${{ steps.tag.outputs.result }}<\/Version>/g" Nager.Date/Nager.Date.csproj
+
     - name: Restore dependencies
-      working-directory: ./src
       run: dotnet restore
+
     - name: Build
-      working-directory: ./src
       run: dotnet build --configuration Release --no-restore
+
     - name: Test
-      working-directory: ./src
-      run: |
-        dotnet test --configuration Release --no-restore --no-build --verbosity normal
+      run: dotnet test --configuration Release --no-build --verbosity minimal
+
     - name: License System Adjustments
-      working-directory: ./src
       run: |
         sed -i 's/DCDCB65FD3009576BC11E23C883220F6292709DEB93174D0913D2E89DB3D5D88/${{secrets.PUBLIC_KEY1}}/g' Nager.Date/License/LicenseHelper.cs
         sed -i 's/17F32AEC71CCB3D20166DCC7F49B32C1153464105344608692E005B16284A41D/${{secrets.PUBLIC_KEY2}}/g' Nager.Date/License/LicenseHelper.cs
         sed -i 's/_licenseStatus/_${{ github.sha }}/g' Nager.Date/HolidaySystem.cs
+
     - name: Second build after License System Adjustments
-      working-directory: ./src
       run: dotnet build --configuration Release --no-restore
+
     - name: Build project and generate NuGet package
-      run: |
-        dotnet pack --configuration Release --output $GITHUB_WORKSPACE/out src/Nager.Date/Nager.Date.csproj
+      run: dotnet pack --configuration Release --no-restore --output $GITHUB_WORKSPACE/out Nager.Date/Nager.Date.csproj
+
     - name: NuGet login
       uses: NuGet/login@v1
       id: login
       with:
         user: ${{secrets.NUGET_USER}}
+
     - name: Push NuGet package
       run: |
         cd $GITHUB_WORKSPACE/out
