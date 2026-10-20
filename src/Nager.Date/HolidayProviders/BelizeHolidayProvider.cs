@@ -26,20 +26,41 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var easterSunday = this._catholicProvider.EasterSunday(year);
+            // Holidays Act, Chapter 289 (Revised Edition 2011, in force since 2021):
+            // Saturdays are never moved.
 
-            var chapter289observedRuleSet1 = new ObservedRuleSet
+            // Only Sunday is moved to the following Monday
+            var sundayOnlyRuleSet = new ObservedRuleSet
             {
                 Sunday = date => date.AddDays(1),
             };
 
-            var chapter289observedRuleSet2 = new ObservedRuleSet
+            // Tuesday/Wednesday are moved to the preceding Monday, Sunday to the following Monday
+            var precedingMondayRuleSet = new ObservedRuleSet
             {
-                Friday = date => date.AddDays(3),
+                Tuesday = date => date.AddDays(-1),
+                Wednesday = date => date.AddDays(-2),
                 Sunday = date => date.AddDays(1),
+            };
+
+            // Always observed on a Monday
+            // (Friday rule not yet confirmed by official data, next occurrence: 9th March 2029)
+            var alwaysMondayRuleSet = new ObservedRuleSet
+            {
                 Tuesday = date => date.AddDays(-1),
                 Wednesday = date => date.AddDays(-2),
                 Thursday = date => date.AddDays(-3),
+                Friday = date => date.AddDays(3),
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(1),
+            };
+
+            // Holidays Act (Revised Edition 2000-2003, until 2020):
+            // Saturday and Sunday are moved to the following Monday
+            var weekendRuleSet = new ObservedRuleSet
+            {
+                Saturday = date => date.AddDays(2),
+                Sunday = date => date.AddDays(1),
             };
 
             var holidaySpecifications = new List<HolidaySpecification>
@@ -51,7 +72,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = chapter289observedRuleSet1
+                    ObservedRuleSet = sundayOnlyRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -60,7 +81,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "National Heroes and Benefactors Day",
                     LocalName = "National Heroes and Benefactors Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = chapter289observedRuleSet2
+                    ObservedRuleSet = alwaysMondayRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -69,7 +90,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = chapter289observedRuleSet1
+                    ObservedRuleSet = precedingMondayRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -78,7 +99,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Saint George's Caye Day",
                     LocalName = "Saint George's Caye Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = chapter289observedRuleSet1
+                    ObservedRuleSet = sundayOnlyRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -87,7 +108,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = chapter289observedRuleSet1
+                    ObservedRuleSet = sundayOnlyRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -96,7 +117,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Garifuna Settlement Day",
                     LocalName = "Garifuna Settlement Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = chapter289observedRuleSet1
+                    ObservedRuleSet = sundayOnlyRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -105,59 +126,89 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = chapter289observedRuleSet1
-                },
-                new HolidaySpecification
-                {
-                    Id = "BOXINGDAY-01",
-                    Date = new DateTime(year, 12, 26),
-                    EnglishName = "Boxing Day",
-                    LocalName = "Boxing Day",
-                    HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = chapter289observedRuleSet1
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterSaturday("Holy Saturday", year),
-                this._catholicProvider.EasterSunday("Easter Sunday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year)
             };
 
-            holidaySpecifications.AddIfNotNull(this.PanAmericaDay(year, chapter289observedRuleSet2));
-            holidaySpecifications.AddIfNotNull(this.GeorgePriceDay(year, chapter289observedRuleSet1));
-            holidaySpecifications.AddIfNotNull(this.EmancipationDay(year, chapter289observedRuleSet1));
-            holidaySpecifications.AddIfNotNull(this.CommonwealthDay(year, chapter289observedRuleSet2));
+            holidaySpecifications.AddIfNotNull(this.BoxingDay(year, sundayOnlyRuleSet, weekendRuleSet));
+            holidaySpecifications.AddIfNotNull(this.PanAmericanDay(year, weekendRuleSet));
+            holidaySpecifications.AddIfNotNull(this.IndigenousPeoplesResistanceDay(year, alwaysMondayRuleSet));
+            holidaySpecifications.AddIfNotNull(this.GeorgePriceDay(year, sundayOnlyRuleSet));
+            holidaySpecifications.AddIfNotNull(this.EmancipationDay(year, precedingMondayRuleSet));
+            holidaySpecifications.AddIfNotNull(this.CommonwealthDay(year, weekendRuleSet));
 
             return holidaySpecifications;
         }
 
-        private HolidaySpecification? PanAmericaDay(
+        private HolidaySpecification BoxingDay(
+            int year,
+            ObservedRuleSet observedRuleSet,
+            ObservedRuleSet legacyObservedRuleSet)
+        {
+            // Holidays Act, Revised Edition 2000-2003 (until 2020):
+            // Saturday and Sunday moved to the following Monday
+            // e.g. Saturday 26th December 2020 -> Monday 28th December 2020
+            //
+            // Holidays Act, Revised Edition 2011 (since 2021):
+            // only Sunday moved to the following Monday
+            // e.g. Saturday 26th December 2026 remains a Saturday
+            var ruleSet = year < 2021
+                ? legacyObservedRuleSet
+                : observedRuleSet;
+
+            return new HolidaySpecification
+            {
+                Id = "BOXINGDAY-01",
+                Date = new DateTime(year, 12, 26),
+                EnglishName = "Boxing Day",
+                LocalName = "Boxing Day",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = ruleSet
+            };
+        }
+
+        private HolidaySpecification? PanAmericanDay(
             int year,
             ObservedRuleSet observedRuleSet)
         {
-            var id = "DAYOFTHEAMERICAS-01";
-
-            if (year > 2021)
+            // Replaced by Indigenous Peoples' Resistance Day,
+            // not listed in the official 2021 public and bank holidays
+            if (year <= 2020)
             {
                 return new HolidaySpecification
                 {
-                    Id = id,
+                    Id = "DAYOFTHEAMERICAS-01",
                     Date = new DateTime(year, 10, 12),
-                    EnglishName = "Pan America Day",
-                    LocalName = "Pan America Day",
-                    HolidayTypes = HolidayTypes.Optional,
+                    EnglishName = "Pan American Day",
+                    LocalName = "Pan American Day",
+                    HolidayTypes = HolidayTypes.Public,
                     ObservedRuleSet = observedRuleSet
                 };
             }
 
-            return new HolidaySpecification
+            return null;
+        }
+
+        private HolidaySpecification? IndigenousPeoplesResistanceDay(
+            int year,
+            ObservedRuleSet observedRuleSet)
+        {
+            if (year >= 2022)
             {
-                Id = id,
-                Date = new DateTime(year, 10, 12),
-                EnglishName = "Columbus Day",
-                LocalName = "Columbus Day",
-                HolidayTypes = HolidayTypes.Public,
-                ObservedRuleSet = observedRuleSet
-            };
+                return new HolidaySpecification
+                {
+                    Id = "INDIGENOUSPEOPLESRESISTANCEDAY-01",
+                    Date = new DateTime(year, 10, 12),
+                    EnglishName = "Indigenous Peoples' Resistance Day",
+                    LocalName = "Indigenous Peoples' Resistance Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet
+                };
+            }
+
+            return null;
         }
 
         private HolidaySpecification? CommonwealthDay(
@@ -225,6 +276,12 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
+                "https://www.pressoffice.gov.bz/public-and-bank-holidays-2026/",
+                "https://www.pressoffice.gov.bz/public-and-bank-holidays-2025/",
+                "https://www.pressoffice.gov.bz/public-and-bank-holidays-2024/",
+                "https://www.pressoffice.gov.bz/public-and-bank-holidays-2023/",
+                "https://www.pressoffice.gov.bz/public-and-bank-holidays-2022-updated/",
+                "https://www.pressoffice.gov.bz/public-and-bank-holidays-2021-3/",
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Belize",
                 "https://www.pressoffice.gov.bz/wp-content/uploads/2019/12/Jan-11-Government-of-Belize-Establishes-New-Public-and-Bank-Holidays.pdf",
                 "https://www.pressoffice.gov.bz/wp-content/uploads/2024/10/Oct-21-PR163-24-Public-and-Bank-Holidays-2025.pdf"
