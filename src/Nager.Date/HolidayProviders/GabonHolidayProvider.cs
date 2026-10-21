@@ -63,8 +63,8 @@ namespace Nager.Date.HolidayProviders
                 {
                     Id = "MARTYRSDAY-01",
                     Date = new DateTime(year, 5, 6),
-                    EnglishName = "Martyr's Day",
-                    LocalName = "Martyr's Day",
+                    EnglishName = "Martyrs' Day",
+                    LocalName = "Martyrs' Day",
                     HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
