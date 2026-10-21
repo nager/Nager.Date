@@ -168,7 +168,6 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(holiday.ObservedDate, new DateTime(year, month, day));
         }
 
-        //[Ignore]
         [TestMethod]
         [DataRow(2021, 10, 18)] // Monday
         [DataRow(2022, 10, 8)]  // Saturday

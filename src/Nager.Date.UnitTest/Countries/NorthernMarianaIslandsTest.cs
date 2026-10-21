@@ -7,6 +7,7 @@ namespace Nager.Date.UnitTest.Countries
     [TestClass]
     public class NorthernMarianaIslandsTest
     {
+        [TestMethod]
         [DataRow(2012, 2012, 1, 2)]
         [DataRow(2013, 2013, 1, 1)]
         [DataRow(2014, 2014, 1, 1)]
@@ -22,7 +23,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 2024, 1, 1)]
         [DataRow(2025, 2025, 1, 1)]
         [DataRow(2026, 2026, 1, 1)]
-        [TestMethod]
         public void TestNewYearsDay(int year, int observedYear, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -31,6 +31,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(observedYear, month, day), holiday.ObservedDate);
         }
 
+        [TestMethod]
         [DataRow(2012, 1, 16)]
         [DataRow(2013, 1, 21)]
         [DataRow(2014, 1, 20)]
@@ -46,7 +47,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 1, 15)]
         [DataRow(2025, 1, 20)]
         [DataRow(2026, 1, 19)]
-        [TestMethod]
         public void TestMartinLutherKingJuniorDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -55,6 +55,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }
 
+        [TestMethod]
         [DataRow(2012, 2, 20)]
         [DataRow(2013, 2, 18)]
         [DataRow(2014, 2, 17)]
@@ -70,7 +71,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 2, 19)]
         [DataRow(2025, 2, 17)]
         [DataRow(2026, 2, 16)]
-        [TestMethod]
         public void TestPresidentsDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -79,6 +79,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }
 
+        [TestMethod]
         [DataRow(2017, 3, 24)]
         [DataRow(2018, 3, 23)]
         [DataRow(2019, 3, 25)]
@@ -89,7 +90,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 3, 25)]
         [DataRow(2025, 3, 24)]
         [DataRow(2026, 3, 24)]
-        [TestMethod]
         public void TestCommonwealthCovenantDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -98,6 +98,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.ObservedDate);
         }
 
+        [TestMethod]
         [DataRow(2012, 5, 28)]
         [DataRow(2013, 5, 27)]
         [DataRow(2014, 5, 26)]
@@ -113,7 +114,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 5, 27)]
         [DataRow(2025, 5, 26)]
         [DataRow(2026, 5, 25)]
-        [TestMethod]
         public void TestMemorialDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -122,13 +122,13 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }
 
+        [TestMethod]
         [DataRow(2021, 6, 18)]
         [DataRow(2022, 6, 20)]
         [DataRow(2023, 6, 19)]
         [DataRow(2024, 6, 19)]
         [DataRow(2025, 6, 19)]
         [DataRow(2026, 6, 19)]
-        [TestMethod]
         public void TestJuneteenth(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -137,6 +137,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.ObservedDate);
         }
 
+        [TestMethod]
         [DataRow(2012, 7, 4)]
         [DataRow(2013, 7, 4)]
         [DataRow(2014, 7, 4)]
@@ -152,7 +153,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 7, 4)]
         [DataRow(2025, 7, 4)]
         [DataRow(2026, 7, 3)]
-        [TestMethod]
         public void TestIndependenceDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -161,6 +161,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.ObservedDate);
         }
 
+        [TestMethod]
         [DataRow(2012, 9, 3)]
         [DataRow(2013, 9, 2)]
         [DataRow(2014, 9, 1)]
@@ -176,7 +177,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 9, 2)] // the source lists September 4, 2024, which is a Wednesday
         [DataRow(2025, 9, 1)]
         [DataRow(2026, 9, 7)]
-        [TestMethod]
         public void TestLaborDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -185,6 +185,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }
 
+        [TestMethod]
         [DataRow(2012, 10, 8)]
         [DataRow(2013, 10, 14)]
         [DataRow(2014, 10, 13)]
@@ -200,7 +201,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 10, 14)]
         [DataRow(2025, 10, 13)]
         [DataRow(2026, 10, 12)]
-        [TestMethod]
         public void TestCommonwealthCulturalDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -209,6 +209,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }
 
+        [TestMethod]
         [DataRow(2012, 11, 12)]
         [DataRow(2013, 11, 11)]
         [DataRow(2014, 11, 11)]
@@ -224,7 +225,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 11, 11)]
         [DataRow(2025, 11, 11)]
         [DataRow(2026, 11, 11)]
-        [TestMethod]
         public void TestVeteransDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -233,6 +233,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.ObservedDate);
         }
 
+        [TestMethod]
         [DataRow(2012, 11, 22)]
         [DataRow(2013, 11, 28)]
         [DataRow(2014, 11, 27)]
@@ -248,7 +249,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 11, 28)]
         [DataRow(2025, 11, 27)]
         [DataRow(2026, 11, 26)]
-        [TestMethod]
         public void TestThanksgiving(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);
@@ -257,6 +257,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }
 
+        [TestMethod]
         [DataRow(2012, 12, 25)]
         [DataRow(2013, 12, 25)]
         [DataRow(2014, 12, 25)]
@@ -272,7 +273,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2024, 12, 25)]
         [DataRow(2025, 12, 25)]
         [DataRow(2026, 12, 25)]
-        [TestMethod]
         public void TestChristmasDay(int year, int month, int day)
         {
             var holidays = HolidaySystem.GetHolidays(year, CountryCode.MP);

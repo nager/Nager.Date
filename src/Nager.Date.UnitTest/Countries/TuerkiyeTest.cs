@@ -107,6 +107,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.IsTrue(isHolidayFound, $"{holiday.ToString("D")} is not a holiday");
         }
 
+        [TestMethod]
         [DataRow(2010, 09, 09)]
         [DataRow(2011, 08, 30)]
         [DataRow(2012, 08, 19)]
@@ -128,7 +129,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2028, 02, 27)]
         [DataRow(2029, 02, 15)]
         [DataRow(2030, 02, 05)]
-        [TestMethod]
         public void EidAlFitrHoliday(int year, int month, int day)
         {
             var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.TR);
@@ -137,6 +137,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, day), holiday.Date);
         }
 
+        [TestMethod]
         [DataRow(2010, 11, 16)]
         [DataRow(2011, 11, 06)]
         [DataRow(2012, 10, 26)]
@@ -158,7 +159,6 @@ namespace Nager.Date.UnitTest.Countries
         [DataRow(2028, 05, 05)]
         [DataRow(2029, 04, 24)]
         [DataRow(2030, 04, 14)]
-        [TestMethod]
         public void EidAlAdhaHoliday(int year, int month, int day)
         {
             var publicHolidays = HolidaySystem.GetHolidays(year, CountryCode.TR);
