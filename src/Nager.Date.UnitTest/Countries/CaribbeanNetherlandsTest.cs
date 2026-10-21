@@ -31,7 +31,6 @@ namespace Nager.Date.UnitTest.Countries
             this.AssertObservedDate(year, "CGOODFRIDAY-01", observedYear, month, day);
         }
 
-
         [DataRow(2025, 2025, 4, 27)]
         [DataRow(2026, 2026, 4, 27)]
         [TestMethod]
