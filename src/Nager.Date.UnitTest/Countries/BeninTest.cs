@@ -9,13 +9,21 @@ namespace Nager.Date.UnitTest.Countries
     public class BeninTest() : BaseTest(CountryCode.BJ)
     {
         [TestMethod]
-        [DataRow(2025, 1, 10, 1, 9)]
-        [DataRow(2026, 1, 9, 1, 8)]
-        [DataRow(2027, 1, 8, 1, 7)]
-        public void TestVodounFestivalFrom2025(int year, int fridayMonth, int fridayDay, int thursdayMonth, int thursdayDay)
+        [DataRow(2025, 1, 10)]
+        [DataRow(2026, 1, 9)]
+        [DataRow(2027, 1, 8)]
+        public void TestVodounFestivalFrom2025(int year, int month, int day)
         {
-            this.AssertObservedDate(year, "TRADITIONALDAY-01", year, fridayMonth, fridayDay);
-            this.AssertObservedDate(year, "TRADITIONALDAY-02", year, thursdayMonth, thursdayDay);
+            this.AssertObservedDate(year, "TRADITIONALDAY-01", year, month, day);
+        }
+
+        [TestMethod]
+        [DataRow(2025, 1, 9)]
+        [DataRow(2026, 1, 8)]
+        [DataRow(2027, 1, 7)]
+        public void TestVodounFestivalSecondDayFrom2025(int year, int month, int day)
+        {
+            this.AssertObservedDate(year, "TRADITIONALDAY-02", year, month, day);
         }
 
         [TestMethod]

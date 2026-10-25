@@ -71,7 +71,7 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "INDEPENDENCEDAY-01",
+                    Id = "NATIONALDAY-01",
                     Date = new DateTime(year, 8, 1),
                     EnglishName = "National Day",
                     LocalName = "Fête Nationale",
@@ -121,36 +121,15 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification[] VodounFestival(int year)
         {
+            if (year < 1998)
+            {
+                return [];
+            }
+
             var englishName = "Vodoun Festival";
             var localName = "Fête annuelle des religions traditionnelles";
 
-            if (year >= 2025)
-            {
-                //Law 2024-32: second Friday of January and the Thursday before it
-                var secondFridayInJanuary = DateHelper.FindDay(year, Month.January, DayOfWeek.Friday, Occurrence.Second);
-
-                return
-                [
-                    new HolidaySpecification
-                    {
-                        Id = "TRADITIONALDAY-01",
-                        Date = secondFridayInJanuary,
-                        EnglishName = englishName,
-                        LocalName = localName,
-                        HolidayTypes = HolidayTypes.Public,
-                    },
-                    new HolidaySpecification
-                    {
-                        Id = "TRADITIONALDAY-02",
-                        Date = secondFridayInJanuary.AddDays(-1),
-                        EnglishName = englishName,
-                        LocalName = localName,
-                        HolidayTypes = HolidayTypes.Public,
-                    },
-                ];
-            }
-
-            if (year >= 1998)
+            if (year <= 2024)
             {
                 //Law 97-031: 10 January
                 return
@@ -162,11 +141,32 @@ namespace Nager.Date.HolidayProviders
                         EnglishName = englishName,
                         LocalName = localName,
                         HolidayTypes = HolidayTypes.Public,
-                    },
+                    }
                 ];
             }
 
-            return [];
+            //Law 2024-32: second Friday of January and the Thursday before it
+            var secondFridayInJanuary = DateHelper.FindDay(year, Month.January, DayOfWeek.Friday, Occurrence.Second);
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Id = "TRADITIONALDAY-01",
+                    Date = secondFridayInJanuary,
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "TRADITIONALDAY-02",
+                    Date = secondFridayInJanuary.AddDays(-1),
+                    EnglishName = englishName,
+                    LocalName = localName,
+                    HolidayTypes = HolidayTypes.Public,
+                },
+            ];
         }
 
         /// <inheritdoc/>
