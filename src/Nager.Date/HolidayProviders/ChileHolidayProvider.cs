@@ -157,6 +157,10 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.ReformationDay(year));
             holidaySpecifications.AddIfNotNull(this.NationalPlebiscite(year));
             holidaySpecifications.AddIfNotNull(this.NationalDayOfIndigenousPeoples(year));
+            holidaySpecifications.AddIfNotNull(this.AdditionalNationalHoliday(year));
+            holidaySpecifications.AddIfNotNull(this.NationalCensus(year));
+            holidaySpecifications.AddIfNotNull(this.NationalHolidaySeptember16(year));
+            holidaySpecifications.AddRangeIfNotNull(this.PapalVisit(year));
 
             return holidaySpecifications;
         }
@@ -168,7 +172,7 @@ namespace Nager.Date.HolidayProviders
                 Tuesday = date => date.AddDays(-1), //Move to Monday
                 Wednesday = date => date.AddDays(-2), //Move to Monday
                 Thursday = date => date.AddDays(-3), //Move to Monday
-                Friday = date => date.AddDays(1), //Move to Saturday
+                Friday = date => date.AddDays(3), //Move to next Monday
             };
 
             return new HolidaySpecification
@@ -189,7 +193,7 @@ namespace Nager.Date.HolidayProviders
                 Tuesday = date => date.AddDays(-1), //Move to Monday
                 Wednesday = date => date.AddDays(-2), //Move to Monday
                 Thursday = date => date.AddDays(-3), //Move to Monday
-                Friday = date => date.AddDays(1), //Move to Saturday
+                Friday = date => date.AddDays(3), //Move to next Monday
             };
 
             return new HolidaySpecification
@@ -271,12 +275,122 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
+        private HolidaySpecification? AdditionalNationalHoliday(int year)
+        {
+            var nationalHoliday = new DateTime(year, 9, 18);
+
+            DateTime? holidayDate = nationalHoliday.DayOfWeek switch
+            {
+                //Ley 20.215, Código del Trabajo art. 35 ter
+                DayOfWeek.Tuesday when year >= 2007 => nationalHoliday.AddDays(-1),
+                DayOfWeek.Wednesday when year >= 2007 => nationalHoliday.AddDays(2),
+                //Ley 20.983
+                DayOfWeek.Saturday when year >= 2017 => nationalHoliday.AddDays(-1),
+                _ => null,
+            };
+
+            if (holidayDate is null)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "NATIONALHOLIDAY-02",
+                Date = holidayDate.Value,
+                EnglishName = "Additional National holiday",
+                LocalName = "Feriado adicional de Fiestas Patrias",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification? NationalCensus(int year)
+        {
+            //Ley 17.374 art. 47
+            if (year != 2017)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "NATIONALCENSUS-01",
+                Date = new DateTime(year, 4, 19),
+                EnglishName = "National census",
+                LocalName = "Censo Nacional",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification? NationalHolidaySeptember16(int year)
+        {
+            //Ley 21.482
+            if (year != 2022)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "NATIONALHOLIDAY-03",
+                Date = new DateTime(year, 9, 16),
+                EnglishName = "Additional National holiday",
+                LocalName = "Feriado adicional de Fiestas Patrias",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification[] PapalVisit(int year)
+        {
+            if (year != 2018)
+            {
+                return [];
+            }
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Id = "PAPALVISIT-01",
+                    Date = new DateTime(year, 1, 16),
+                    EnglishName = "Papal visit",
+                    LocalName = "Visita del Papa Francisco",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CL-RM"]
+                },
+                new HolidaySpecification
+                {
+                    Id = "PAPALVISIT-02",
+                    Date = new DateTime(year, 1, 17),
+                    EnglishName = "Papal visit",
+                    LocalName = "Visita del Papa Francisco",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CL-AR"]
+                },
+                new HolidaySpecification
+                {
+                    Id = "PAPALVISIT-03",
+                    Date = new DateTime(year, 1, 18),
+                    EnglishName = "Papal visit",
+                    LocalName = "Visita del Papa Francisco",
+                    HolidayTypes = HolidayTypes.Public,
+                    SubdivisionCodes = ["CL-TA"]
+                }
+            ];
+        }
+
         /// <inheritdoc/>
         public override IEnumerable<string> GetSources()
         {
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Chile",
+                "https://www.dt.gob.cl/portal/1628/w3-article-60252.html",
+                "https://www.diariooficial.interior.gob.cl/publicaciones/2016/12/30/41646/01/1161478.pdf",
+                "https://www.derechopedia.cl/Art%C3%ADculo_35_ter_del_C%C3%B3digo_del_Trabajo",
+                "https://www.dt.gob.cl/legislacion/1624/w3-article-111948.html",
+                "https://dt.gob.cl/portal/1627/w3-article-114348.html",
+                "https://dt.gob.cl/legislacion/1624/w3-article-122697.html",
             ];
         }
     }
