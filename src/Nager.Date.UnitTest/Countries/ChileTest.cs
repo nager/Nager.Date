@@ -8,6 +8,7 @@ namespace Nager.Date.UnitTest.Countries
     public class ChileTest
     {
         [TestMethod]
+        [DataRow(1999, 10, 12)]
         [DataRow(2015, 10, 12)]
         [DataRow(2016, 10, 10)]
         [DataRow(2017, 10, 9)]
@@ -51,6 +52,7 @@ namespace Nager.Date.UnitTest.Countries
             Assert.AreEqual(new DateTime(year, month, expectedDay), publicHoliday.ObservedDate);
         }
         [TestMethod]
+        [DataRow(1999, 6, 29)]
         [DataRow(2017, 6, 26)]
         [DataRow(2018, 7, 2)]
         [DataRow(2019, 6, 29)]

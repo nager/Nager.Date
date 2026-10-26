@@ -182,7 +182,7 @@ namespace Nager.Date.HolidayProviders
                 EnglishName = "Saint Peter and Saint Paul",
                 LocalName = "San Pedro y San Pablo",
                 HolidayTypes = HolidayTypes.Public,
-                ObservedRuleSet = observedRuleSet
+                ObservedRuleSet = year >= 2000 ? observedRuleSet : null //Ley 19.668
             };
         }
 
@@ -203,7 +203,7 @@ namespace Nager.Date.HolidayProviders
                 EnglishName = "Columbus Day",
                 LocalName = "Día del Descubrimiento de Dos Mundos",
                 HolidayTypes = HolidayTypes.Public,
-                ObservedRuleSet = observedRuleSet
+                ObservedRuleSet = year >= 2000 ? observedRuleSet : null //Ley 19.668
             };
         }
 
