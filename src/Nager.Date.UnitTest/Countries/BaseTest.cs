@@ -20,5 +20,20 @@ namespace Nager.Date.UnitTest.Countries
 
             Assert.AreEqual(new DateTime(observedYear, month, day), holiday.ObservedDate);
         }
+
+        protected void AssertSubdivisionCodes(int year, string holidayId, params string[] expectedSubdivisionCodes)
+        {
+            var holidays = HolidaySystem.GetHolidays(year, this._countryCode);
+            var holiday = holidays.Single(holiday => holiday.Id.EndsWith(holidayId));
+
+            Assert.IsFalse(holiday.NationalHoliday);
+            CollectionAssert.AreEquivalent(expectedSubdivisionCodes, holiday.SubdivisionCodes);
+        }
+
+        protected void AssertNoHoliday(int year, string holidayId)
+        {
+            var holidays = HolidaySystem.GetHolidays(year, this._countryCode);
+            Assert.DoesNotContain(holiday => holiday.Id.EndsWith(holidayId), holidays, $"Holiday {holidayId} should not exist in {year}");
+        }
     }
 }
