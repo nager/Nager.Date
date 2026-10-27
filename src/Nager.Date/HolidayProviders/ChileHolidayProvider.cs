@@ -112,7 +112,9 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.ReformationDay(year));
             holidaySpecifications.AddIfNotNull(this.NationalDayOfIndigenousPeoples(year));
             holidaySpecifications.AddRangeIfNotNull(this.FiestasPatrias(year));
+            holidaySpecifications.AddRangeIfNotNull(this.Bicentennial(year));
             holidaySpecifications.AddIfNotNull(this.NationalPlebiscite(year));
+            holidaySpecifications.AddRangeIfNotNull(this.ElectionDays(year));
             holidaySpecifications.AddIfNotNull(this.NationalCensus(year));
             holidaySpecifications.AddIfNotNull(this.BattleOfArica(year));
             holidaySpecifications.AddIfNotNull(this.BirthOfBernardoOHiggins(year));
@@ -328,6 +330,35 @@ namespace Nager.Date.HolidayProviders
             return [.. holidaySpecifications];
         }
 
+        private HolidaySpecification[] Bicentennial(int year)
+        {
+            //Ley 20.450: One-off holidays for the Bicentennial of the Republic (18 and 19 September 2010 fell on a weekend)
+            if (year != 2010)
+            {
+                return [];
+            }
+
+            return
+            [
+                new HolidaySpecification
+                {
+                    Id = "BICENTENNIAL-01",
+                    Date = new DateTime(year, 9, 17),
+                    EnglishName = "Bicentennial holiday",
+                    LocalName = "Feriado del Bicentenario",
+                    HolidayTypes = HolidayTypes.Public,
+                },
+                new HolidaySpecification
+                {
+                    Id = "BICENTENNIAL-02",
+                    Date = new DateTime(year, 9, 20),
+                    EnglishName = "Bicentennial holiday",
+                    LocalName = "Feriado del Bicentenario",
+                    HolidayTypes = HolidayTypes.Public,
+                }
+            ];
+        }
+
         private HolidaySpecification? NationalPlebiscite(int year)
         {
             //Ley 18.700: The day of an election or plebiscite is a legal holiday
@@ -352,6 +383,49 @@ namespace Nager.Date.HolidayProviders
                 LocalName = "Plebiscito nacional",
                 HolidayTypes = HolidayTypes.Public,
             };
+        }
+
+        private HolidaySpecification[] ElectionDays(int year)
+        {
+            //Ley 18.700 art. 180 (art. 169 before DFL 2 of 2017): The day of an election or plebiscite is a legal holiday
+            //Ley 20.640: Also applies to primary elections
+            //Not included: primaries held only in some communes (2016, 2020, 2024) and regional governor runoffs (2021, 2024)
+            DateTime[] electionDates = year switch
+            {
+                2000 => [new DateTime(year, 1, 16), new DateTime(year, 10, 29)], //Presidential runoff, municipal
+                2001 => [new DateTime(year, 12, 16)], //Parliamentary
+                2004 => [new DateTime(year, 10, 31)], //Municipal
+                2005 => [new DateTime(year, 12, 11)], //Presidential and parliamentary
+                2006 => [new DateTime(year, 1, 15)], //Presidential runoff
+                2008 => [new DateTime(year, 10, 26)], //Municipal
+                2009 => [new DateTime(year, 12, 13)], //Presidential and parliamentary
+                2010 => [new DateTime(year, 1, 17)], //Presidential runoff
+                2012 => [new DateTime(year, 10, 28)], //Municipal
+                2013 => [new DateTime(year, 6, 30), new DateTime(year, 11, 17), new DateTime(year, 12, 15)], //Primaries, presidential and parliamentary, presidential runoff
+                2016 => [new DateTime(year, 10, 23)], //Municipal
+                2017 => [new DateTime(year, 7, 2), new DateTime(year, 11, 19), new DateTime(year, 12, 17)], //Primaries, presidential and parliamentary, presidential runoff
+                2021 => [new DateTime(year, 5, 15), new DateTime(year, 5, 16), new DateTime(year, 7, 18), new DateTime(year, 11, 21), new DateTime(year, 12, 19)], //Constitutional Convention, regional and municipal on two days (Ley 21.324), primaries, presidential and parliamentary, presidential runoff
+                2023 => [new DateTime(year, 5, 7)], //Constitutional Council
+                2024 => [new DateTime(year, 10, 27)], //Regional and municipal, only the Sunday is a holiday (Ley 21.693)
+                2025 => [new DateTime(year, 6, 29), new DateTime(year, 11, 16), new DateTime(year, 12, 14)], //Primaries, presidential and parliamentary, presidential runoff
+                _ => [],
+            };
+
+            var holidaySpecifications = new List<HolidaySpecification>();
+
+            for (var i = 0; i < electionDates.Length; i++)
+            {
+                holidaySpecifications.Add(new HolidaySpecification
+                {
+                    Id = $"ELECTIONDAY-{i + 1:00}",
+                    Date = electionDates[i],
+                    EnglishName = "Election day",
+                    LocalName = "Día de elecciones",
+                    HolidayTypes = HolidayTypes.Public,
+                });
+            }
+
+            return [.. holidaySpecifications];
         }
 
         private HolidaySpecification? NationalCensus(int year)
@@ -400,11 +474,14 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? BirthOfBernardoOHiggins(int year)
         {
-            //Ley 20.768: Only for the communes of Chillán and Chillán Viejo (Región de Ñuble)
+            //Ley 20.768: Only for the communes of Chillán and Chillán Viejo, the closest subdivision is their region
             if (year < 2014)
             {
                 return null;
             }
+
+            //Ley 21.033: Región de Ñuble exists from 6 September 2018, before that both communes belonged to Región del Biobío
+            var subdivisionCode = year >= 2019 ? "CL-NB" : "CL-BI";
 
             return new HolidaySpecification
             {
@@ -413,7 +490,7 @@ namespace Nager.Date.HolidayProviders
                 EnglishName = "Birth of Bernardo O'Higgins",
                 LocalName = "Nacimiento del Prócer de la Independencia",
                 HolidayTypes = HolidayTypes.Public,
-                SubdivisionCodes = ["CL-NB"]
+                SubdivisionCodes = [subdivisionCode]
             };
         }
 
@@ -468,22 +545,22 @@ namespace Nager.Date.HolidayProviders
                 // An official news article from the Chilean Government (Gobierno de Chile) listing the public holidays for 2026, highlighting mandatory non-working days and long weekends.
                 "https://www.gob.cl/noticias/feriados-2026-revisa-cuantos-habra-y-cuales-son-irrenunciables/",
 
-                // An informational publication by the Chilean Labor Directorate (Dirección del Trabajo) detailing labor laws, employee rights, and mandatory closures for commercial workers on designated mandatory holidays.
+                // A Labor Directorate (Dirección del Trabajo) answer on the holidays of 29 June and 12 October that are moved to a Monday (Ley 19.668).
                 "https://www.dt.gob.cl/portal/1628/w3-article-60252.html",
 
                 // An official PDF extract from Chile's Official Gazette (Diario Oficial de la República de Chile) publishing Law No. 20,983, establishing specific holiday rules.
                 "https://www.diariooficial.interior.gob.cl/publicaciones/2016/12/30/41646/01/1161478.pdf",
 
-                // A legal wiki entry explaining Article 35 ter of the Chilean Labor Code, which governs compensation, rest days, and legal holiday adjustments for employees under specific shift arrangements.
+                // A legal wiki entry with Article 35 ter of the Chilean Labor Code (Ley 20.215), which adds Monday 17 or Friday 20 September as a holiday when 18 and 19 September fall on Tuesday and Wednesday or on Wednesday and Thursday.
                 "https://www.derechopedia.cl/Art%C3%ADculo_35_ter_del_C%C3%B3digo_del_Trabajo",
 
-                // An official administrative ruling by the Labor Directorate providing legal interpretation on labor regulations, rest periods, and employer obligations during public holidays.
+                // A Labor Directorate ruling (Ord. N°1960, 2017) on the rest period of workers on the day of the 2017 national census.
                 "https://www.dt.gob.cl/legislacion/1624/w3-article-111948.html",
 
-                // A Labor Directorate resource page focusing on compliance guidelines, oversight, and penalties for commercial establishments operating illegally during mandatory non-working days.
+                // A Labor Directorate article on the regional holidays for the papal visit in January 2018.
                 "https://dt.gob.cl/portal/1627/w3-article-114348.html",
 
-                // An official legal opinion from the Labor Directorate clarifying specific exemptions (e.g., restaurants, entertainment, gas stations) where employees are allowed to work on mandatory holidays.
+                // A Labor Directorate ruling (Ord. N°1608/34, 2022) on the holiday of 16 September 2022 (Ley 21.482).
                 "https://dt.gob.cl/legislacion/1624/w3-article-122697.html",
             ];
         }

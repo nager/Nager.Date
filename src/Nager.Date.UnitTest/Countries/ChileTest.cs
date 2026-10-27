@@ -201,6 +201,27 @@ namespace Nager.Date.UnitTest.Countries
         }
 
         [TestMethod]
+        [DataRow(2000, "ELECTIONDAY-01", 2000, 1, 16)]
+        [DataRow(2013, "ELECTIONDAY-01", 2013, 6, 30)] //Primaries (Ley 20.640)
+        [DataRow(2021, "ELECTIONDAY-01", 2021, 5, 15)] //First day of a two-day election, a Saturday
+        [DataRow(2021, "ELECTIONDAY-02", 2021, 5, 16)]
+        [DataRow(2024, "ELECTIONDAY-01", 2024, 10, 27)] //Only the Sunday of the two-day election (Ley 21.693)
+        [DataRow(2025, "ELECTIONDAY-03", 2025, 12, 14)]
+        public void TestElectionDay(int year, string holidayId, int observedYear, int month, int day)
+        {
+            this.AssertObservedDate(year, holidayId, observedYear, month, day);
+        }
+
+        [TestMethod]
+        [DataRow(2002, "ELECTIONDAY-01")]
+        [DataRow(2024, "ELECTIONDAY-02")] //Saturday 26 October 2024 was a working day
+        [DataRow(2026, "ELECTIONDAY-01")]
+        public void TestNoElectionDay(int year, string holidayId)
+        {
+            this.AssertNoHoliday(year, holidayId);
+        }
+
+        [TestMethod]
         [DataRow(2002, 2002, 4, 24)]
         [DataRow(2017, 2017, 4, 19)]
         public void TestNationalCensus(int year, int observedYear, int month, int day)
@@ -233,12 +254,14 @@ namespace Nager.Date.UnitTest.Countries
         }
 
         [TestMethod]
-        [DataRow(2014, 2014, 8, 20)] //First year (Ley 20.768)
-        [DataRow(2026, 2026, 8, 20)]
-        public void TestBirthOfBernardoOHiggins(int year, int observedYear, int month, int day)
+        [DataRow(2014, 2014, 8, 20, "CL-BI")] //First year (Ley 20.768)
+        [DataRow(2018, 2018, 8, 20, "CL-BI")] //Before Región de Ñuble (Ley 21.033)
+        [DataRow(2019, 2019, 8, 20, "CL-NB")]
+        [DataRow(2026, 2026, 8, 20, "CL-NB")]
+        public void TestBirthOfBernardoOHiggins(int year, int observedYear, int month, int day, string subdivisionCode)
         {
             this.AssertObservedDate(year, "BIRTHOFBERNARDOOHIGGINS-01", observedYear, month, day);
-            this.AssertSubdivisionCodes(year, "BIRTHOFBERNARDOOHIGGINS-01", "CL-NB");
+            this.AssertSubdivisionCodes(year, "BIRTHOFBERNARDOOHIGGINS-01", subdivisionCode);
         }
 
         [TestMethod]
@@ -246,6 +269,24 @@ namespace Nager.Date.UnitTest.Countries
         public void TestNoBirthOfBernardoOHiggins(int year)
         {
             this.AssertNoHoliday(year, "BIRTHOFBERNARDOOHIGGINS-01");
+        }
+
+        [TestMethod]
+        public void TestBicentennial2010()
+        {
+            var year = 2010;
+
+            this.AssertObservedDate(year, "BICENTENNIAL-01", year, 9, 17);
+            this.AssertObservedDate(year, "BICENTENNIAL-02", year, 9, 20);
+        }
+
+        [TestMethod]
+        [DataRow(2009)]
+        [DataRow(2011)]
+        public void TestNoBicentennial(int year)
+        {
+            this.AssertNoHoliday(year, "BICENTENNIAL-01");
+            this.AssertNoHoliday(year, "BICENTENNIAL-02");
         }
 
         [TestMethod]
