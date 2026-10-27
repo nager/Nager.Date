@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
 using System;
@@ -137,7 +138,27 @@ namespace Nager.Date.HolidayProviders
                 this._orthodoxProvider.EasterMonday("აღდგომის ორშაბათი", year),
             };
 
+            holidaySpecifications.AddIfNotNull(this.DayOfFamilySanctity(year));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? DayOfFamilySanctity(int year)
+        {
+            //Law on Family Values and Protection of Minors (2024)
+            if (year < 2024)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "FAMILYSANCTITYDAY-01",
+                Date = new DateTime(year, 5, 17),
+                EnglishName = "Day of Family Sanctity and Respect for Parents",
+                LocalName = "ოჯახის სიწმინდისა და მშობლების პატივისცემის დღე",
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         /// <inheritdoc/>
