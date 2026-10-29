@@ -84,7 +84,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Assumption Day",
                     LocalName = "Mariä Himmelfahrt",
                     HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["DE-SL"]
+                    SubdivisionCodes = ["DE-BY", "DE-SL"]
                 },
                 new HolidaySpecification
                 {

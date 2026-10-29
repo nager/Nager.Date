@@ -44,6 +44,16 @@ namespace Nager.Date.UnitTest.Countries
         }
 
         [TestMethod]
+        public void TestGermanyAssumptionDay()
+        {
+            var publicHolidays = HolidaySystem.GetHolidays(2026, CountryCode.DE);
+            var assumptionDay = publicHolidays.First(x => x.LocalName == "Mariä Himmelfahrt");
+
+            Assert.AreEqual(new DateTime(2026, 8, 15), assumptionDay.Date);
+            CollectionAssert.AreEquivalent(new[] { "DE-BY", "DE-SL" }, assumptionDay.SubdivisionCodes);
+        }
+
+        [TestMethod]
         [DataRow(2019, 2021, 2020)]
         [DataRow(2024, 2026, 2025)]
         public void TestGermanyLiberationDay(int startYear, int endYear, int expectedYear)
