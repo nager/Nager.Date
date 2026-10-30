@@ -29,11 +29,6 @@ namespace Nager.Date.HolidayProviders
         {
             var easterSunday = this._catholicProvider.EasterSunday(year);
 
-            var sundayObservedRuleSet = new ObservedRuleSet
-            {
-                Sunday = date => date.AddDays(1),
-            };
-
             var weekendObservedRuleSet = new ObservedRuleSet
             {
                 Saturday = date => date.AddDays(2),
@@ -42,6 +37,7 @@ namespace Nager.Date.HolidayProviders
 
             var weekendObservedRuleSet2 = new ObservedRuleSet
             {
+                Saturday = date => date.AddDays(2),
                 Sunday = date => date.AddDays(2),
                 Monday = date => date.AddDays(1),
             };
@@ -55,7 +51,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
-                    ObservedRuleSet = sundayObservedRuleSet,
+                    ObservedRuleSet = weekendObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -92,8 +88,115 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.DiscoveryDay(year));
             holidaySpecifications.AddIfNotNull(this.ConstitutionDay(year));
             holidaySpecifications.AddIfNotNull(this.RemembranceDay(year));
+            holidaySpecifications.AddIfNotNull(this.MonarchBirthday(year));
+            holidaySpecifications.AddIfNotNull(this.CoronationDay(year));
+            holidaySpecifications.AddIfNotNull(this.PlatinumJubilee(year));
+            holidaySpecifications.AddIfNotNull(this.GeneralElectionDay(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? GeneralElectionDay(int year)
+        {
+            //General elections are a public holiday, the date is set by the government for each election
+            DateTime? date = year switch
+            {
+                2021 => new DateTime(2021, 4, 14),
+                2025 => new DateTime(2025, 4, 30),
+                _ => null
+            };
+
+            if (date is null)
+            {
+                return null;
+            }
+
+            var name = year == 2025 ? "General Election and Referendum Day" : "General Election Day";
+
+            return new HolidaySpecification
+            {
+                Id = "GENERALELECTIONDAY-01",
+                Date = date.Value,
+                EnglishName = name,
+                LocalName = name,
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification? PlatinumJubilee(int year)
+        {
+            //One-off public holiday for the Platinum Jubilee of Her Majesty Queen Elizabeth II
+            if (year != 2022)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "PLATINUMJUBILEE-01",
+                Date = new DateTime(2022, 6, 3),
+                EnglishName = "Queen's Platinum Jubilee",
+                LocalName = "Queen's Platinum Jubilee",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification? CoronationDay(int year)
+        {
+            //One-off public holiday for the Coronation of His Majesty King Charles III,
+            //gazetted as Public Holidays (No.2) Order, 2022
+            if (year != 2023)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "CORONATIONDAY-01",
+                Date = new DateTime(2023, 5, 8),
+                EnglishName = "Coronation of King Charles III",
+                LocalName = "Coronation of King Charles III",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification? MonarchBirthday(int year)
+        {
+            //Public Holidays Act, the Monday following the official birthday of the Sovereign in the United Kingdom.
+            //The official birthday is celebrated with the Birthday Parade (Trooping the Colour) in London.
+            //Its date does not follow a fixed rule: it is always a Saturday in June, usually the second,
+            //sometimes the first or third. It is set by the Royal Household together with the Household Division
+            //and the government, preceded by two reviews on the two Saturdays before (Major General's Review,
+            //Colonel's Review) and scheduled to avoid clashes with other major state, church or sporting events.
+            //Because the date can't be calculated, the observed Monday in the Cayman Islands is fixed per year.
+            //Example 2026: Trooping the Colour on Saturday, 13 June -> public holiday on Monday, 15 June.
+
+            DateTime? date = year switch
+            {
+                2021 => new DateTime(2021, 6, 14),
+                2022 => new DateTime(2022, 6, 6),
+                2023 => new DateTime(2023, 6, 19),
+                2024 => new DateTime(2024, 6, 17),
+                2025 => new DateTime(2025, 6, 23),
+                2026 => new DateTime(2026, 6, 15),
+                _ => null
+            };
+
+            if (date is null)
+            {
+                return null;
+            }
+
+            var name = year >= 2023 ? "King's Birthday" : "Queen's Birthday";
+
+            return new HolidaySpecification
+            {
+                Id = "MONARCHBIRTHDAY-01",
+                Date = date.Value,
+                EnglishName = name,
+                LocalName = name,
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         private HolidaySpecification NationalHeroesDay(int year)
@@ -110,72 +213,38 @@ namespace Nager.Date.HolidayProviders
             };
         }
 
-        private HolidaySpecification EmancipationDay(int year)
+        private HolidaySpecification? EmancipationDay(int year)
         {
-            var id = "EMANCIPATIONDAY-01";
-            var englishName = "Emancipation Day";
-            var localName = "Emancipation Day";
-
-            if (year >= 2024)
+            //Introduced in 2024, first Monday in May
+            if (year < 2024)
             {
-                var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
-
-                return new HolidaySpecification
-                {
-                    Id = id,
-                    Date = firstMondayInMay,
-                    EnglishName = englishName,
-                    LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public,
-                };
+                return null;
             }
-            else
+
+            var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
+
+            return new HolidaySpecification
             {
-                var thirdMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.Third);
-
-                return new HolidaySpecification
-                {
-                    Id = id,
-                    Date = thirdMondayInMay,
-                    EnglishName = englishName,
-                    LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public,
-                };
-            }
+                Id = "EMANCIPATIONDAY-01",
+                Date = firstMondayInMay,
+                EnglishName = "Emancipation Day",
+                LocalName = "Emancipation Day",
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         private HolidaySpecification DiscoveryDay(int year)
         {
-            var id = "DISCOVERYDAY-01";
-            var englishName = "Discovery Day";
-            var localName = "Discovery Day";
+            var thirdMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.Third);
 
-            if (year >= 2024)
+            return new HolidaySpecification
             {
-                var thirdMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.Third);
-
-                return new HolidaySpecification
-                {
-                    Id = id,
-                    Date = thirdMondayInMay,
-                    EnglishName = englishName,
-                    LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public,
-                };
-            }
-            else
-            {
-                var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
-
-                return new HolidaySpecification
-                {
-                    Id = id,
-                    Date = firstMondayInMay,
-                    EnglishName = englishName,
-                    LocalName = localName,
-                    HolidayTypes = HolidayTypes.Public,
-                };
-            }
+                Id = "DISCOVERYDAY-01",
+                Date = thirdMondayInMay,
+                EnglishName = "Discovery Day",
+                LocalName = "Discovery Day",
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         private HolidaySpecification ConstitutionDay(int year)
@@ -194,12 +263,12 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification RemembranceDay(int year)
         {
-            var secondMondayInNovember = DateHelper.FindDay(year, Month.November, DayOfWeek.Monday, Occurrence.Second);
+            var secondSundayInNovember = DateHelper.FindDay(year, Month.November, DayOfWeek.Sunday, Occurrence.Second);
 
             return new HolidaySpecification
             {
                 Id = "REMEMBRANCEDAY-01",
-                Date = secondMondayInNovember,
+                Date = secondSundayInNovember.AddDays(1),
                 EnglishName = "Remembrance Day",
                 LocalName = "Remembrance Day",
                 HolidayTypes = HolidayTypes.Public,
@@ -212,6 +281,12 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_the_Cayman_Islands",
+                "https://gov.ky/public-holidays", //2026
+                "https://web.archive.org/web/20251207164825/https://gov.ky/public-holidays", //2025
+                "https://caymannewsservice.com/2023/12/officials-release-dates-for-2024-public-holidays/", //2024
+                "https://www.caymaniantimes.ky/news/for-immediate-release-2024-public-holidays-named", //2024
+                "https://archive.ph/2025.07.09-033515/https://www.gov.ky/news/press-release-details/public-holidays-2022#selection-2099.0-2171.43", //2022
+                "https://archive.ph/2025.07.09-033240/https://www.gov.ky/news/press-release-details/public-holidays-for-2021#selection-2085.0-2159.44", //2021
             ];
         }
     }
