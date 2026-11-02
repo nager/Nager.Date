@@ -1,3 +1,4 @@
+using Nager.Date.Extensions;
 using Nager.Date.Helpers;
 using Nager.Date.Models;
 using Nager.Date.ReligiousProviders;
@@ -26,7 +27,20 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
-            var firstMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
+            // Bank Holidays Act (Chapter 25): When a bank holiday falls on a Sunday,
+            // the Monday immediately following shall be observed.
+            var observedRuleSet = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(1),
+            };
+
+            // Christmas on Sunday -> Boxing Day stays on Monday, Christmas moves to Tuesday
+            var christmasObservedRuleSet = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(2),
+            };
+
+            var secondMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.Second);
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -37,6 +51,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -45,6 +60,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -53,29 +69,22 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
-                    Id = "INDIANARRIVALDAY-01",
-                    Date = new DateTime(year, 5, 1),
-                    EnglishName = "Indian Arrival Day",
-                    LocalName = "Indian Arrival Day",
+                    Id = "CARNIVALMONDAY-01",
+                    Date = secondMondayInAugust,
+                    EnglishName = "Carnival Monday",
+                    LocalName = "Carnival Monday",
                     HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
                 {
-                    Id = "EMANCIPATIONDAY-01",
-                    Date = firstMondayInAugust,
-                    EnglishName = "Emancipation Day",
-                    LocalName = "Emancipation Day",
-                    HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
-                    Id = "CARNIVAL-01",
-                    Date = new DateTime(year, 8, 11),
-                    EnglishName = "Carnival",
-                    LocalName = "Carnival",
+                    Id = "CARNIVALTUESDAY-01",
+                    Date = secondMondayInAugust.AddDays(1),
+                    EnglishName = "Carnival Tuesday",
+                    LocalName = "Carnival Tuesday",
                     HolidayTypes = HolidayTypes.Public,
                 },
                 new HolidaySpecification
@@ -85,6 +94,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Thanksgiving Day",
                     LocalName = "Thanksgiving Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -93,6 +103,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = christmasObservedRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -101,14 +112,64 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Boxing Day",
                     LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year),
                 this._catholicProvider.WhitMonday("Whit Monday", year),
-                this._catholicProvider.CorpusChristi("Corpus Christi", year)
+                this._catholicProvider.CorpusChristi("Corpus Christi", year),
+                this.GetEmancipationDay(year, observedRuleSet),
             };
 
+            holidaySpecifications.AddIfNotNull(this.GetNationalHeroesDay(year, observedRuleSet));
+
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification GetEmancipationDay(int year, ObservedRuleSet observedRuleSet)
+        {
+            // Up to 2024 observed on the first Monday in August ("Emancipation Holiday"),
+            // since 2025 fixed on 1 August (Bank Holidays (Amendment) Act, 2025)
+            if (year >= 2025)
+            {
+                return new HolidaySpecification
+                {
+                    Id = "EMANCIPATIONDAY-01",
+                    Date = new DateTime(year, 8, 1),
+                    EnglishName = "Emancipation Day",
+                    LocalName = "Emancipation Day",
+                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = observedRuleSet,
+                };
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "EMANCIPATIONDAY-01",
+                Date = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First),
+                EnglishName = "Emancipation Day",
+                LocalName = "Emancipation Day",
+                HolidayTypes = HolidayTypes.Public,
+            };
+        }
+
+        private HolidaySpecification? GetNationalHeroesDay(int year, ObservedRuleSet observedRuleSet)
+        {
+            // First proclaimed for 19 October 2024 (S.R.O. 29 of 2024)
+            if (year < 2024)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "NATIONALHEROESDAY-01",
+                Date = new DateTime(year, 10, 19),
+                EnglishName = "National Heroes' Day",
+                LocalName = "National Heroes' Day",
+                HolidayTypes = HolidayTypes.Public,
+                ObservedRuleSet = observedRuleSet,
+            };
         }
 
         /// <inheritdoc/>
@@ -117,6 +178,12 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://en.wikipedia.org/wiki/Public_holidays_in_Grenada",
+                "https://www.gov.gd",
+                "https://web.archive.org/web/20231209233625/https://www.gov.gd/pdf/Public%20Holidays%202023.pdf", //2023
+                "https://www.gov.gd/documents/public-holidays-2026/viewdocument/2024", //2026
+                "https://www.gov.gd/component/edocman/grenadas-public-holidays-2025/viewdocument/1386?p=1", //2025
+                "https://nowgrenada.com/wp-content/uploads/2024/10/S.R.O.-29-of-2024-Bank-Holiday-Proclamation-2024.pdf",
+                "https://nowgrenada.com/2025/06/legislation-to-make-1-august-a-holiday-down-for-approval-in-upcoming-lower-house-session/",
             ];
         }
     }
