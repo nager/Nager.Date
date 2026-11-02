@@ -10,241 +10,61 @@ Need offline access to our functionality? No problem! We also provide solutions 
 
 ## How can I use it?
 
-Easily generate a client in your preferred programming language by utilizing our [API documentation](https://nagerholidays.com/scalar/#community-api-v4), which provides a complete overview of all available endpoints. For more details on client generation, refer to the [OpenAPI Generator documentation](https://openapi-generator.tech).
+| Variant                                                               | Hosting           | Internet required | License key | Examples                                          |
+| --------------------------------------------------------------------- | ----------------- | ----------------- | ----------- | ------------------------------------------------- |
+| [REST API](https://nagerholidays.com/api)                             | nagerholidays.com | Yes               | No          | [REST API examples](doc/examples/rest-api.md)     |
+| [Docker container](https://hub.docker.com/r/nager/nager-date)         | Self-hosted       | No                | Yes         | [REST API examples](doc/examples/rest-api.md)     |
+| [NuGet package Nager.Date](https://www.nuget.org/packages/Nager.Date) | In your .NET app  | No                | Yes         | [Offline examples](doc/examples/offline-nuget.md) |
 
-### Examples
+The Docker container provides **the same REST API** as nagerholidays.com, but runs on your own infrastructure. Existing integrations only need a different base URL.
 
-<details>
-  <summary>.NET/C# (click to expand)</summary>
-  
-There are two ways to use our service
+### REST API
 
-**[NuGet - Nager.Holiday](https://www.nuget.org/packages/Nager.Holiday)**
-```
-PM> install-package Nager.Holiday
-```
-
-**Copy Code**
-```cs
-using System;
-using System.Net.Http;
-using System.Text.Json;
-
-var jsonSerializerOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-using var httpClient = new HttpClient();
-using var response = await httpClient.GetAsync("https://nagerholidays.com/api/v3/publicholidays/2022/US");
-if (response.IsSuccessStatusCode)
-{
-    using var jsonStream = await response.Content.ReadAsStreamAsync();
-    var publicHolidays = JsonSerializer.Deserialize<PublicHoliday[]>(jsonStream, jsonSerializerOptions);
-}
-
-class PublicHoliday
-{
-    public DateTime Date { get; set; }
-    public string LocalName { get; set; }
-    public string Name { get; set; }
-    public string CountryCode { get; set; }
-    public bool Global { get; set; }
-    public string[] Counties { get; set; }
-    public string[] Types { get; set; }
-}
-```
-	
-</details>	
-
-<details>
-  <summary>PHP (click to expand)</summary>
-
-This example use the [guzzle](https://github.com/guzzle/guzzle) project
-	
-```php
-<?php
-require_once 'vendor/autoload.php';
-$client = new \GuzzleHttp\Client();
-$response = $client->request('GET', 'https://nagerholidays.com/api/v3/publicholidays/2022/US');
-if ($response->getStatusCode() == 200) {
-    $json = $response->getBody();
-    print_r(json_decode($json));
-}
-?>
-```
-	
-</details>
-	
-<details>
-  <summary>Java (click to expand)</summary>
-
-This example use the springframework. Code tested with [onecompiler.com](https://onecompiler.com)
-	
-`Main.java`
-```java
-import java.util.*;
-import org.springframework.web.client.RestTemplate;
-import com.google.gson.*;
-
-public class Main {
-  public static void main(String[] args) {
-    System.out.println("get holidays");
-    String json = new RestTemplate().getForObject("https://nagerholidays.com/api/v3/publicholidays/2022/CH", String.class);
-    
-    Gson gson = new Gson();
-    PublicHoliday[] userArray = gson.fromJson(json, PublicHoliday[].class);  
-
-    for(PublicHoliday publicHoliday : userArray) {
-      System.out.print(publicHoliday.date);
-      System.out.print(" ");
-      System.out.print(publicHoliday.name);
-      System.out.print(" ");
-      System.out.print(String.join(",", publicHoliday.counties ?? new String[0]));
-      System.out.print(" ");
-      System.out.println(publicHoliday.localName);
-    }
-  }
-}
+```bash
+curl https://nagerholidays.com/api/v4/Holidays/US/2026
 ```
 
-`PublicHoliday.java`
-```java
-public class PublicHoliday {
-  public String date;
-  public String localName;
-  public String name;
-  public String countryCode ;
-  public Boolean fixed;
-  public Boolean global;
-  public String[] counties;
-  public String[] types;
-}
-```
-	
-`build.gradle`
-```java
-apply plugin:'application'
-mainClassName = 'Main'
+The [API documentation](https://nagerholidays.com/scalar/#community-api-v4) provides a complete overview of all available endpoints.
+You can generate a client in your preferred programming language with the [OpenAPI Generator](https://openapi-generator.tech).
+For .NET there is the official client [Nager.Holiday](https://www.nuget.org/packages/Nager.Holiday).
 
-run { standardInput = System.in }
-sourceSets { main { java { srcDir './' } } }
-
-repositories {
-  jcenter()
-}
-
-dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter-web:2.6.7';
-  implementation 'com.google.code.gson:gson:2.10.1';
-}
-```
-	
-</details>
-
-<details>
-  <summary>Python (click to expand)</summary>
-
-`main.py`
-```py
-import json
-import requests
-
-response = requests.get('https://nagerholidays.com/api/v3/publicholidays/2022/US')
-public_holidays = json.loads(response.content)
-
-for public_holiday in public_holidays:
-  print(public_holiday['date'])
-
-```	
-</details>
-	
-## Offline Solution
-
-Don't let internet connectivity issues disrupt your workflow. Our offline solutions enable you to use our services on your own infrastructure without an internet connection. With a sponsorship you get the license key to use the variants locally without a dependency to our REST API.
-
-### NuGet
-The NuGet package is available via [NuGet](https://www.nuget.org/packages/Nager.Date)<br>
-
-```
-PM> install-package Nager.Date
-```
-
-<details>
-  <summary>Code Examples (click to expand)</summary>
-  
-## Examples for .NET (NuGet package)
-
-### Set the license key
-```cs
-HolidaySystem.LicenseKey = "TheLicenseKey";
-```
-
-### Check the license
-```cs
-var licenseKey = "TheLicenseKey";
-var licenseInfo = Nager.Date.License.LicenseHelper.CheckLicenseKey(licenseKey);
-if (licenseInfo is null)
-{
-    //license key invalid
-    return;
-}
-
-if (licenseInfo.ValidUntil < DateTime.Today)
-{
-    //license key expired
-    return;
-}
-```
-
-### Get all holidays of a country and year
-```cs
-var holidays = HolidaySystem.GetHolidays(2024, "DE");
-foreach (var holiday in holidays)
-{
-    //holiday...
-    //holiday.Date -> The date
-    //holiday.ObservedDate -> The date on which the holiday is observed
-    //holiday.LocalName -> The local name
-    //holiday.EnglishName -> The english name
-    //holiday.NationalHoliday -> Is this public holiday in every county (federal state)
-    //holiday.SubdivisionCodes -> Is the public holiday only valid for a special county ISO-3166-2 - Federal states
-    //holiday.HolidayTypes -> Public, Bank, School, Authorities, Optional, Observance
-}
-```
-
-### Get all holidays for a date range
-```cs
-var startDate = new DateTime(2016, 5, 1);
-var endDate = new DateTime(2024, 5, 31);
-var holidays = HolidaySystem.GetHolidays(startDate, endDate, CountryCode.DE);
-foreach (var holiday in holidays)
-{
-	//holiday...
-}
-```
-
-### Check if a date is a public holiday
-```cs
-var date = new DateTime(2024, 1, 1);
-if (HolidaySystem.IsPublicHoliday(date, CountryCode.DE))
-{
-    Console.WriteLine("Is a public holiday");
-}
-```
-
-### Checks if the given date falls on a weekend day
-```cs
-var date = new DateTime(2024, 1, 1);
-if (WeekendSystem.IsWeekend(date, CountryCode.DE))
-{
-    Console.WriteLine("The date is in the weekend");
-}
-```
-</details>
+Examples for .NET, Python, JavaScript, PHP and Java: [doc/examples/rest-api.md](doc/examples/rest-api.md)
 
 ### Docker
 
-The Docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date)<br>
-To run a local instance of the Docker image run the following command<br>
-`docker run -p 80:8080 nager/nager-date`
+The Docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date). It provides the same REST API as nagerholidays.com, operated on your own infrastructure without a dependency on our servers.
+
+```bash
+docker run -p 8080:8080 -e LICENSE_KEY=YOUR_LICENSE_KEY nager/nager-date
+```
+
+All [REST API examples](doc/examples/rest-api.md) work unchanged, only the base URL changes:
+
+```bash
+curl http://localhost/api/v4/Holidays/US/2026
+```
+
+### NuGet
+
+```bash
+dotnet add package Nager.Date
+```
+
+```cs
+HolidaySystem.LicenseKey = "TheLicenseKey";
+
+var holidays = HolidaySystem.GetHolidays(2026, CountryCode.DE);
+```
+
+More examples: [doc/examples/offline-nuget.md](doc/examples/offline-nuget.md)
+
+### Docker
+
+The Docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date). To run a local instance:
+
+```bash
+docker run -p 80:8080 nager/nager-date
+```
 
 
 ## Holiday types
