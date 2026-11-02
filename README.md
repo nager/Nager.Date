@@ -58,15 +58,6 @@ var holidays = HolidaySystem.GetHolidays(2026, CountryCode.DE);
 
 More examples: [doc/examples/offline-nuget.md](doc/examples/offline-nuget.md)
 
-### Docker
-
-The Docker container is available via [Docker Hub](https://hub.docker.com/r/nager/nager-date). To run a local instance:
-
-```bash
-docker run -p 80:8080 nager/nager-date
-```
-
-
 ## Holiday types
 What variants of holidays are supported by `Nager.Date`
 
