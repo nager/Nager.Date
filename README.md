@@ -105,7 +105,7 @@ To keep it generally valid, we will treat this subdivision as `SubdivisionCodes`
 - **Brazil** use `States`
 - **Australia** use `States` or `Territories`
 - **Russia** use `Federal districts`
-- **Canada** use `Province` or `Territories`
+- **Canada** use `Provinces` or `Territories`
 
 | Precision                                                                    | Supported |
 | ---------------------------------------------------------------------------- | --------- |
