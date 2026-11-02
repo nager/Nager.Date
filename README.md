@@ -6,8 +6,6 @@ Discover the convenience of easily accessing holidays from **over 200 countries*
 
 You can find an overview of the supported countries [here](https://nagerholidays.com/country/coverage).
 
-Need offline access to our functionality? No problem! We also provide solutions that allow you to use our services on your own infrastructure without an internet connection. Easily integrate our service into your system with the [Docker](https://hub.docker.com/r/nager/nager-date) container or the [NuGet](https://www.nuget.org/packages/Nager.Date) package. Both options require a license key. As a [sponsor of nager](https://github.com/sponsors/nager), you get a license key.
-
 ## How can I use it?
 
 | Variant                                                               | Hosting           | Internet required | License key | Examples                                          |
