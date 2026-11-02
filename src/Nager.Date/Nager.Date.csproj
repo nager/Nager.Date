@@ -17,7 +17,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>A changelog is available at https://github.com/nager/Nager.Date/releases</PackageReleaseNotes>
-    <PackageProjectUrl>https://date.nager.at</PackageProjectUrl>
+    <PackageProjectUrl>https://nagerholidays.com</PackageProjectUrl>
     <PackageTags>Holiday;PublicHoliday;BankHoliday;FederalHoliday;NationalHoliday;ReligiousHoliday;SubdivisionHoliday</PackageTags>
 
     <RepositoryUrl>https://github.com/nager/Nager.Date</RepositoryUrl>
