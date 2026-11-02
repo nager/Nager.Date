@@ -70,6 +70,7 @@ namespace Nager.Date.UnitTest.Countries
 
         [TestMethod]
         [DataRow(2023, 2023, 8, 7)]
+        [DataRow(2024, 2024, 8, 5)]
         [DataRow(2025, 2025, 8, 1)]
         [DataRow(2026, 2026, 8, 1)]
         public void TestEmancipationDay(int year, int observedYear, int month, int day)
@@ -96,6 +97,7 @@ namespace Nager.Date.UnitTest.Countries
         }
 
         [TestMethod]
+        [DataRow(2024, 2024, 10, 19)]
         [DataRow(2025, 2025, 10, 20)]
         [DataRow(2026, 2026, 10, 19)]
         public void TestNationalHeroesDay(int year, int observedYear, int month, int day)
@@ -113,6 +115,7 @@ namespace Nager.Date.UnitTest.Countries
         }
 
         [TestMethod]
+        [DataRow(2022, 2022, 12, 27)]
         [DataRow(2023, 2023, 12, 25)]
         [DataRow(2025, 2025, 12, 25)]
         [DataRow(2026, 2026, 12, 25)]

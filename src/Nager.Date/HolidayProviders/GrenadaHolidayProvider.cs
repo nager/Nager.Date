@@ -128,8 +128,8 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification GetEmancipationDay(int year, ObservedRuleSet observedRuleSet)
         {
-            // Up to 2023 observed on the first Monday in August,
-            // since 2025 (official lists) fixed on 1 August
+            // Up to 2024 observed on the first Monday in August ("Emancipation Holiday"),
+            // since 2025 fixed on 1 August (Bank Holidays (Amendment) Act, 2025)
             if (year >= 2025)
             {
                 return new HolidaySpecification
@@ -155,8 +155,8 @@ namespace Nager.Date.HolidayProviders
 
         private HolidaySpecification? GetNationalHeroesDay(int year, ObservedRuleSet observedRuleSet)
         {
-            // Not part of the official 2023 list, included since 2025 (official lists)
-            if (year < 2025)
+            // First proclaimed for 19 October 2024 (S.R.O. 29 of 2024)
+            if (year < 2024)
             {
                 return null;
             }
