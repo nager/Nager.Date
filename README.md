@@ -320,5 +320,5 @@ There are several business fields in which it is important to know the holidays 
 
 ## Articles about this project
 
-- [Mark Seemann - Simple holidays](http://blog.ploeh.dk/2017/04/24/simple-holidays/)
+- [Mark Seemann - Simple holidays](https://blog.ploeh.dk/2017/04/24/simple-holidays/)
 - [dotnetpro - Feiertagsrechner (German)](https://www.developer-world.de/dwx-insights/frameworks-libraries/feiertagsrechner)
