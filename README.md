@@ -91,26 +91,29 @@ Here you can see how long the product will be supported and when the End of Life
 
 ## Data precision
 
-There is no generally valid designation for the next administrative level of countries.
-"Nager.Date" supports the initial subdivision of a country, but we will not support a detailed level because the effort required is too high.
+Holidays are provided at **country level** and, where they differ regionally, for the **first-level subdivisions** of a country according to [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) (e.g. states, provinces, cantons). More detailed levels such as districts or cities are not supported.
 
-To keep it generally valid, we will treat this subdivision as `SubdivisionCodes`, this will replace the current designation `Counties`.
+Since every country names its subdivisions differently, they are always returned in the field `subdivisionCodes` (REST API v4) or `SubdivisionCodes` (NuGet package). If a holiday applies to the entire country, `nationalHoliday` is `true` and `subdivisionCodes` is empty.
 
-- **United States of America** use `States`
-- **Germany** use `States`
-- **Austria** use `States`
-- **Switzerland** use `Cantons`
-- **Brazil** use `States`
-- **Australia** use `States` or `Territories`
-- **Russia** use `Federal districts`
-- **Canada** use `Provinces` or `Territories`
+> [!NOTE]
+> REST API v3 still uses the older field name `counties` for the same data.
 
-| Precision                                                                    | Supported |
-| ---------------------------------------------------------------------------- | --------- |
-| Public Holidays for specific Country                                         | Yes       |
-| Holidays for Subdivisions based on ISO 3166-2 (first level)                  | Yes       |
-| Holidays for Cities                                                          | No        |
-| Holidays for Regions                                                         | No        |
+| Country         | Subdivision type         | Example code |
+| --------------- | ------------------------ | ------------ |
+| United States   | States                   | `US-CA`      |
+| Germany         | States (Länder)          | `DE-BY`      |
+| Austria         | States (Bundesländer)    | `AT-9`       |
+| Switzerland     | Cantons                  | `CH-ZH`      |
+| Brazil          | States                   | `BR-SP`      |
+| Australia       | States and territories   | `AU-NSW`     |
+| Canada          | Provinces and territories| `CA-ON`      |
+
+| Precision                                              | Supported |
+| ------------------------------------------------------ | --------- |
+| Holidays for a country                                 | Yes       |
+| Holidays for first-level subdivisions (ISO 3166-2)     | Yes       |
+| Holidays for lower-level regions (districts, counties) | No        |
+| Holidays for cities                                    | No        |
 
 ## Limitation Regarding Islamic Holidays
 Some Islamic holidays (e.g., Eid al-Fitr, Eid al-Adha) are based on the Islamic lunar calendar and are often determined by local moon sightings. As this depends on weather conditions and geographic location, these dates cannot be reliably calculated in advance. Therefore, such holidays are not included in this project.
