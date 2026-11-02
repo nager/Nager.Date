@@ -14,7 +14,7 @@ This package requires a license key, which is provided to GitHub sponsors.
 https://github.com/sponsors/nager
 
 Alternatively, you can also utilize our Web API to access up-to-date holiday information.
-https://date.nager.at/Api
+https://nagerholidays.com/api
 
 
 
