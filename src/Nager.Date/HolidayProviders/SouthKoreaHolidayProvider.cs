@@ -9,7 +9,8 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// South Korea HolidayProvider
     /// </summary>
-    internal sealed class SouthKoreaHolidayProvider : AbstractHolidayProvider
+    internal sealed class SouthKoreaHolidayProvider : AbstractHolidayProvider,
+        IObservedRuleSetHolidayProvider
     {
         /// <summary>
         /// South Korea HolidayProvider

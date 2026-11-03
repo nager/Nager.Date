@@ -10,7 +10,8 @@ namespace Nager.Date.HolidayProviders
     /// Caribbean Netherlands HolidayProvider
     /// </summary>
     /// <remarks>These are the islands of Bonaire, Sint Eustatius, and Saba</remarks>
-    internal sealed class CaribbeanNetherlandsHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class CaribbeanNetherlandsHolidayProvider : AbstractHolidayProvider,
+        ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

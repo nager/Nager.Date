@@ -10,7 +10,8 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Cayman Islands HolidayProvider
     /// </summary>
-    internal sealed class CaymanIslandsHolidayProvider : AbstractHolidayProvider
+    internal sealed class CaymanIslandsHolidayProvider : AbstractHolidayProvider,
+        IObservedRuleSetHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

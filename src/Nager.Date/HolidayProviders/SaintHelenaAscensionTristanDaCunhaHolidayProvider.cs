@@ -10,7 +10,9 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Saint Helena, Ascension and Tristan da Cunha HolidayProvider
     /// </summary>
-    internal sealed class SaintHelenaAscensionTristanDaCunhaHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class SaintHelenaAscensionTristanDaCunhaHolidayProvider : AbstractHolidayProvider,
+        ISubdivisionCodesProvider,
+        IObservedRuleSetHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

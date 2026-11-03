@@ -8,7 +8,8 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Monaco HolidayProvider
     /// </summary>
-    internal sealed class MonacoHolidayProvider : AbstractHolidayProvider
+    internal sealed class MonacoHolidayProvider : AbstractHolidayProvider,
+        IObservedRuleSetHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

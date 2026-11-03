@@ -10,7 +10,8 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Anguilla HolidayProvider
     /// </summary>
-    internal sealed class AnguillaHolidayProvider : AbstractHolidayProvider
+    internal sealed class AnguillaHolidayProvider : AbstractHolidayProvider,
+        IObservedRuleSetHolidayProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
