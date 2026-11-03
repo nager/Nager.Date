@@ -26,8 +26,22 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
+            var firstMondayInMay = DateHelper.FindDay(year, Month.May, DayOfWeek.Monday, Occurrence.First);
             var firstMondayInAugust = DateHelper.FindDay(year, Month.August, DayOfWeek.Monday, Occurrence.First);
             var easterSunday = this._catholicProvider.EasterSunday(year);
+
+            var sundayRuleSet = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(1),
+            };
+
+            // Second day of a two-day holiday pair (Independence Day/Community Service Day, Christmas/Boxing Day):
+            // if the first day falls on a Sunday it moves to Monday, so this day moves to Tuesday
+            var followingDayRuleSet = new ObservedRuleSet
+            {
+                Sunday = date => date.AddDays(1),
+                Monday = date => date.AddDays(1),
+            };
 
             var holidaySpecifications = new List<HolidaySpecification>
             {
@@ -38,6 +52,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "New Year's Day",
                     LocalName = "New Year's Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = sundayRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -58,7 +73,7 @@ namespace Nager.Date.HolidayProviders
                 new HolidaySpecification
                 {
                     Id = "LABOURDAY-01",
-                    Date = new DateTime(year, 5, 1),
+                    Date = firstMondayInMay,
                     EnglishName = "Labour Day",
                     LocalName = "Labour Day",
                     HolidayTypes = HolidayTypes.Public,
@@ -78,14 +93,16 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Independence Day",
                     LocalName = "Independence Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = sundayRuleSet,
                 },
                 new HolidaySpecification
                 {
                     Id = "COMMUNITYSERVICEDAY-01",
                     Date = new DateTime(year, 11, 4),
-                    EnglishName = "Community Service Day",
-                    LocalName = "Community Service Day",
+                    EnglishName = "National Day of Community Service",
+                    LocalName = "National Day of Community Service",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = followingDayRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -94,6 +111,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "Christmas Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = sundayRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -102,6 +120,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "St. Stephen's Day",
                     LocalName = "Boxing Day",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = followingDayRuleSet,
                 },
                 this._catholicProvider.GoodFriday("Good Friday", year),
                 this._catholicProvider.EasterMonday("Easter Monday", year),
