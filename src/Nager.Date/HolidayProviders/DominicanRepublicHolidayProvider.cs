@@ -25,6 +25,26 @@ namespace Nager.Date.HolidayProviders
         /// <inheritdoc/>
         protected override IEnumerable<HolidaySpecification> GetHolidaySpecifications(int year)
         {
+            // Law 139-97: holidays on Tuesday/Wednesday move to the preceding Monday,
+            // holidays on Thursday/Friday move to the following Monday
+            var law13997RuleSet = new ObservedRuleSet
+            {
+                Tuesday = date => date.AddDays(-1),
+                Wednesday = date => date.AddDays(-2),
+                Thursday = date => date.AddDays(4),
+                Friday = date => date.AddDays(3),
+            };
+
+            // Labour Day additionally moves to Monday if it falls on a Sunday
+            var labourDayRuleSet = new ObservedRuleSet
+            {
+                Tuesday = date => date.AddDays(-1),
+                Wednesday = date => date.AddDays(-2),
+                Thursday = date => date.AddDays(4),
+                Friday = date => date.AddDays(3),
+                Sunday = date => date.AddDays(1),
+            };
+
             var holidaySpecifications = new List<HolidaySpecification>
             {
                 new HolidaySpecification
@@ -42,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Day of Kings",
                     LocalName = "Día de Reyes",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = law13997RuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -58,6 +79,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Duarte's Birthday",
                     LocalName = "Día del Natalicio de Juan Pablo Duarte",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = law13997RuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -74,14 +96,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Labour Day",
                     LocalName = "Día del Trabajador",
                     HolidayTypes = HolidayTypes.Public,
-                },
-                new HolidaySpecification
-                {
-                    Id = "MOTHERSDAY-01",
-                    Date = new DateTime(year, 5, 28),
-                    EnglishName = "Mother's Day",
-                    LocalName = "Día de las Madres",
-                    HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = labourDayRuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -106,6 +121,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Constitution Day",
                     LocalName = "Día de la Constitución",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = law13997RuleSet,
                 },
                 new HolidaySpecification
                 {
@@ -127,6 +143,13 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
+                "https://www.mt.gob.do",
+                "https://mt.gob.do/ministerio-de-trabajo-informa-dias-feriados-correspondientes-al-ano-2026/",
+                "https://mt.gob.do/ministerio-de-trabajo-informa-dias-feriados-correspondientes-al-ano-2025/",
+                "https://presidencia.gob.do/noticias/ministerio-de-trabajo-informa-dias-feriados-correspondientes-al-ano-2024",
+                "https://presidencia.gob.do/noticias/ministerio-de-trabajo-informa-dias-feriados-correspondientes-al-ano-2023",
+                "https://presidencia.gob.do/noticias/ministerio-de-trabajo-da-conocer-los-dias-feriados-correspondientes-al-ano-2022",
+                "https://mt.gob.do/ministerio-de-trabajo-informa-dias-feriados-correspondientes-ano-2021/",
                 "https://en.wikipedia.org/wiki/Public_holidays_in_the_Dominican_Republic",
             ];
         }
