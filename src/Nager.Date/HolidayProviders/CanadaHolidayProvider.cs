@@ -10,7 +10,8 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Canada HolidayProvider
     /// </summary>
-    internal sealed class CanadaHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class CanadaHolidayProvider : AbstractHolidayProvider,
+        ISubdivisionCodesProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 

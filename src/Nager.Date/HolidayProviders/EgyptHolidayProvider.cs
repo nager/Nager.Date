@@ -11,7 +11,8 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Egypt HolidayProvider
     /// </summary>
-    internal sealed class EgyptHolidayProvider : AbstractHolidayProvider
+    internal sealed class EgyptHolidayProvider : AbstractHolidayProvider,
+        IObservedRuleSetHolidayProvider
     {
         private readonly IOrthodoxProvider _orthodoxProvider;
         private readonly UmAlQuraCalendar _umAlQuraCalendar;

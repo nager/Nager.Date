@@ -7,7 +7,8 @@ namespace Nager.Date.HolidayProviders
     /// <summary>
     /// Mozambique HolidayProvider
     /// </summary>
-    internal sealed class MozambiqueHolidayProvider : AbstractHolidayProvider, ISubdivisionCodesProvider
+    internal sealed class MozambiqueHolidayProvider : AbstractHolidayProvider,
+        ISubdivisionCodesProvider
     {
         /// <summary>
         /// Mozambique HolidayProvider

@@ -30,6 +30,13 @@ var observedRuleSet = new ObservedRuleSet
 }
 ```
 
+A HolidayProvider that uses `ObservedRuleSet` must implement the marker interface `IObservedRuleSetHolidayProvider`.
+This is checked by the architecture tests (`Nager.Date.ArchitectureTest`).
+
+```cs
+internal sealed class NewCountryNameHolidayProvider : AbstractHolidayProvider, IObservedRuleSetHolidayProvider
+```
+
 ### Subdivision Support
 
 If holidays differ by region:
