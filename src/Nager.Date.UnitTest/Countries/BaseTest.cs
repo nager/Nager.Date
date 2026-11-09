@@ -27,7 +27,7 @@ namespace Nager.Date.UnitTest.Countries
             var holiday = holidays.Single(holiday => holiday.Id.EndsWith(holidayId));
 
             Assert.IsFalse(holiday.NationalHoliday);
-            Assert.AreSequenceEqual(expectedSubdivisionCodes, holiday.SubdivisionCodes, Microsoft.VisualStudio.TestTools.UnitTesting.SequenceOrder.InAnyOrder);
+            Assert.AreSequenceEqual(expectedSubdivisionCodes, holiday.SubdivisionCodes, SequenceOrder.InAnyOrder);
         }
 
         protected void AssertNoHoliday(int year, string holidayId)
