@@ -89,15 +89,6 @@ namespace Nager.Date.HolidayProviders
                 },
                 new HolidaySpecification
                 {
-                    Id = "ALLSAINTSDAY-01",
-                    Date = new DateTime(year, 11, 1),
-                    EnglishName = "All Saints' Day",
-                    LocalName = "Allerheiligen",
-                    HolidayTypes = HolidayTypes.Public,
-                    SubdivisionCodes = ["DE-BW", "DE-BY", "DE-NW", "DE-RP", "DE-SL"]
-                },
-                new HolidaySpecification
-                {
                     Id = "CHRISTMASDAY-01",
                     Date = new DateTime(year, 12, 25),
                     EnglishName = "Christmas Day",
@@ -121,6 +112,7 @@ namespace Nager.Date.HolidayProviders
                 this._catholicProvider.CorpusChristi("Fronleichnam", year).SetSubdivisionCodes("DE-BW", "DE-BY", "DE-HE", "DE-NW", "DE-RP", "DE-SL")
             };
 
+            holidaySpecifications.AddIfNotNull(this.AllSaintsDay(year));
             holidaySpecifications.AddIfNotNull(this.GermanUnityDay(year));
             holidaySpecifications.AddIfNotNull(this.GermanUnityDayJune17(year));
             holidaySpecifications.AddIfNotNull(this.InternationalWomensDay(year));
@@ -131,6 +123,29 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.UprisingOfJune171953(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification AllSaintsDay(int year)
+        {
+            var subdivisionCodes = new List<string> { "DE-BW", "DE-NW", "DE-RP", "DE-SL" };
+
+            //Bavaria, Feiertagsgesetz of 21 May 1980 (in force 1 January 1981), Art. 9 Abs. 2
+            //All Saints' Day is a public holiday in the whole of Bavaria only from 1 January 1984,
+            //from 1981 to 1983 only in municipalities with a predominantly Catholic population (partial holidays are not mapped, see Assumption Day)
+            if (year < 1981 || year >= 1984)
+            {
+                subdivisionCodes.Insert(1, "DE-BY");
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "ALLSAINTSDAY-01",
+                Date = new DateTime(year, 11, 1),
+                EnglishName = "All Saints' Day",
+                LocalName = "Allerheiligen",
+                HolidayTypes = HolidayTypes.Public,
+                SubdivisionCodes = [.. subdivisionCodes]
+            };
         }
 
         private HolidaySpecification? GermanUnityDayJune17(int year)
@@ -146,9 +161,9 @@ namespace Nager.Date.HolidayProviders
 
             return new HolidaySpecification
             {
-                Id = "GERMANUNITYDAY-02",
+                Id = "GERMANUNITYDAYJUNE17-01",
                 Date = new DateTime(year, 6, 17),
-                EnglishName = "German Unity Day",
+                EnglishName = "Day of German Unity (17 June)",
                 LocalName = "Tag der deutschen Einheit",
                 HolidayTypes = HolidayTypes.Public,
             };
@@ -373,7 +388,15 @@ namespace Nager.Date.HolidayProviders
             return
             [
                 "https://de.wikipedia.org/wiki/Gesetzliche_Feiertage_in_Deutschland",
-                "https://pardok.parlament-berlin.de/starweb/adis/citat/VT/19/gvbl/g24280460.pdf"
+                "https://pardok.parlament-berlin.de/starweb/adis/citat/VT/19/gvbl/g24280460.pdf",
+                "https://www.landesrecht-bw.de/bsbw/document/jlr-NNLBW00008DAE",
+                "https://www.gesetze-bayern.de/Content/Document/BayFTG/true",
+                "https://gesetze.berlin.de/bsbe/document/jlr-NNLBE000049DF",
+                "https://bravors.brandenburg.de/gesetze/ftg_2015#",
+                "https://www.transparenz.bremen.de/metainformationen/gesetz-ueber-die-sonn-gedenk-und-feiertage-vom-12-november-1954-296390",
+                "https://www.landesrecht-hamburg.de/bsha/document/jlr-NNLHH00006CB9",
+                "https://www.rv.hessenrecht.hessen.de/bshe/document/jlr-NNLHE000051B5NN00000000002",
+                "https://www.landesrecht-mv.de/bsmv/document/jlr-NNLMV00007A2F",
             ];
         }
     }
