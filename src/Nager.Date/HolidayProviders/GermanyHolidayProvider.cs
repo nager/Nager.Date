@@ -122,6 +122,7 @@ namespace Nager.Date.HolidayProviders
             };
 
             holidaySpecifications.AddIfNotNull(this.GermanUnityDay(year));
+            holidaySpecifications.AddIfNotNull(this.GermanUnityDayJune17(year));
             holidaySpecifications.AddIfNotNull(this.InternationalWomensDay(year));
             holidaySpecifications.AddIfNotNull(this.PrayerDay(year));
             holidaySpecifications.AddIfNotNull(this.LiberationDay(year));
@@ -130,6 +131,27 @@ namespace Nager.Date.HolidayProviders
             holidaySpecifications.AddIfNotNull(this.UprisingOfJune171953(year));
 
             return holidaySpecifications;
+        }
+
+        private HolidaySpecification? GermanUnityDayJune17(int year)
+        {
+            //Federal Republic of Germany (West) only, in remembrance of the uprising of 17 June 1953
+            //Introduced by the "Gesetz über den Tag der deutschen Einheit" of 4 August 1953 (BGBl. I S. 778), first observed in 1954
+            //Repealed by the Unification Treaty of 31 August 1990 (Anlage I Kapitel II Sachgebiet A Abschnitt II Nr. 3),
+            //replaced by 3 October as German Unity Day, 17 June 1990 was the last public holiday on this date
+            if (year < 1954 || year > 1990)
+            {
+                return null;
+            }
+
+            return new HolidaySpecification
+            {
+                Id = "GERMANUNITYDAY-02",
+                Date = new DateTime(year, 6, 17),
+                EnglishName = "German Unity Day",
+                LocalName = "Tag der deutschen Einheit",
+                HolidayTypes = HolidayTypes.Public,
+            };
         }
 
         private HolidaySpecification? GermanUnityDay(int year)
