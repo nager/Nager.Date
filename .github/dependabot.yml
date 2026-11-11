@@ -1,6 +1,3 @@
-# Please see the documentation for all configuration options:
-# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
 version: 2
 updates:
   - package-ecosystem: nuget
@@ -16,8 +13,13 @@ updates:
     labels:
       - "dependencies"
       - "enhancement"
-    # Allow up to 5 open pull requests for nuget dependencies
     open-pull-requests-limit: 5
+    groups:
+      microsoft:
+        patterns:
+          - "Microsoft.*"
+          - "System.*"
+          - "MSTest*"
 
   - package-ecosystem: github-actions
     directory: "/"
@@ -31,5 +33,4 @@ updates:
     labels:
       - "dependencies"
       - "enhancement"
-    # Allow up to 5 open pull requests for nuget dependencies
     open-pull-requests-limit: 5
