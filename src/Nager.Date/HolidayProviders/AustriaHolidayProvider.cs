@@ -205,7 +205,9 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Austria"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Austria",
+                "https://web.archive.org/web/20250521041322/https://www.ris.bka.gv.at/Dokumente/BgblPdf/1957_153_0/1957_153_0.pdf", //Feiertagsruhegesetz 1957, BGBl. Nr. 153/1957
+                "https://www.wien.gv.at/gogv/l9ogdfeiertagskalender", //Open Data Feiertagskalender Stadt Wien 2004-2034
             ];
         }
     }
