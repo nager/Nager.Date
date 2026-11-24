@@ -43,7 +43,7 @@ namespace Nager.Date.HolidayProviders
                     Date = new DateTime(year, 1, 6),
                     EnglishName = "Epiphany",
                     LocalName = "Kunngit pingasut ulluat",
-                    HolidayTypes = HolidayTypes.Bank | HolidayTypes.School | HolidayTypes.Optional
+                    HolidayTypes = HolidayTypes.Observance
                 },
                 new HolidaySpecification
                 {
@@ -118,7 +118,8 @@ namespace Nager.Date.HolidayProviders
         {
             return
             [
-                "https://en.wikipedia.org/wiki/Public_holidays_in_Greenland"
+                "https://en.wikipedia.org/wiki/Public_holidays_in_Greenland",
+                "https://www.norden.org/da/info-norden/helligdage-i-groenland"
             ];
         }
     }
