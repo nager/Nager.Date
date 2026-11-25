@@ -103,6 +103,18 @@ namespace Nager.Date.HolidayProviders
                 holidaySpecifications.AddIfNotNull(this._catholicProvider.GoodFriday("Nagypéntek", year));
             }
 
+            if (year >= 2026)
+            {
+                holidaySpecifications.Add(new HolidaySpecification
+                {
+                    Id = "CHRISTMASEVE-01",
+                    Date = new DateTime(year, 12, 24),
+                    EnglishName = "Christmas Eve",
+                    LocalName = "Szenteste",
+                    HolidayTypes = HolidayTypes.Public,
+                });
+            }
+
             return holidaySpecifications;
         }
 
