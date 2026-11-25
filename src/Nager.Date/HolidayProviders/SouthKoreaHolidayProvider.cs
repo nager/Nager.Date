@@ -62,6 +62,7 @@ namespace Nager.Date.HolidayProviders
                     EnglishName = "Christmas Day",
                     LocalName = "크리스마스",
                     HolidayTypes = HolidayTypes.Public,
+                    ObservedRuleSet = year >= 2023 ? weekendObservedRuleSet : null,
                 }
             };
 
