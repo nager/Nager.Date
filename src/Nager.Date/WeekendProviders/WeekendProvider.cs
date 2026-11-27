@@ -22,7 +22,7 @@ namespace Nager.Date.Weekends
             var min = this.WeekendDays.Min();
             var max = this.WeekendDays.Max();
 
-            if (max - min > (min + 7) - max)
+            if (max - min < (min + 7) - max)
             {
                 this.FirstWeekendDay = min;
                 this.LastWeekendDay = max;
